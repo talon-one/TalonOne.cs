@@ -7,7 +7,7 @@
   },
   "codeGenerators": {
     "swaggerToCSharpClient": {
-      "output": "TalonOne/Client.cs",
+      "output": "Client.cs",
       "namespace": "TalonOne",
       "className": "Client",
       "configurationClass": "ClientConfig",
@@ -17,7 +17,7 @@
       "generateClientClasses": true,
       "generateClientInterfaces": false,
       "generateDtoTypes": true,
-      "injectHttpClient": false,
+      "injectHttpClient": true,
       "disposeHttpClient": true,
       "generateExceptionClasses": true,
       "wrapDtoExceptions": true,

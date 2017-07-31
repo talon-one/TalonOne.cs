@@ -7,7 +7,7 @@
     <PackageReference Include="NSwag.Core" Version="11.3.3" />
     <PackageReference Include="NSwag.MSBuild" Version="11.3.3" />
   </ItemGroup>
-  <Target Name="AfterBuild">
+  <Target Name="BeforeBuild">
     <Exec Command="$(NSwagExe) run" />
   </Target>
 </Project>

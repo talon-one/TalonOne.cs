@@ -2,6 +2,8 @@ using System;
 using System.Threading.Tasks;
 using TalonOne;
 using Xunit;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace TalonOne.Tests
 {
@@ -18,6 +20,7 @@ namespace TalonOne.Tests
     {
         public ClientConfig ClientConfig { get; private set; }
         public Client Client { get; private set; }
+        public Session Session { get; private set; }
 
         public Application Application { get; private set; }
 
@@ -26,16 +29,21 @@ namespace TalonOne.Tests
 
         public async Task InitializeAsync()
         {
-            ClientConfig = new ClientConfig
-            {
-                BearerToken = System.Environment.GetEnvironmentVariable("TALONONE_SESSION_TOKEN"),
-            };
+            var secrets = new ConfigurationBuilder().AddUserSecrets("TalonOne.Tests.Credentials").Build();
 
-            Client = new Client(ClientConfig)
-            {
-                BaseUrl = System.Environment.GetEnvironmentVariable("TALONONE_ENDPOINT"),
-            };
+            ClientConfig = new ClientConfig();
+            Client = new Client(ClientConfig);
+            Client.BaseUrl = secrets["Endpoint"];
 
+            Session = await Client.CreateSessionAsync(new LoginParams
+            {
+               Email = secrets["Email"],
+               Password = secrets["Password"],
+            });
+
+            ClientConfig.BearerToken = Session.Token;
+
+            // Use Client.GetApplicationAsync(appId) to fetch an existing application.
             Application = await Client.CreateApplicationAsync(new NewApplication{
                 Name = string.Format("Test application {0}", System.Environment.GetEnvironmentVariable("TRAVIS_JOB_ID")),
                 Key = "fefecafedeadbeef",
@@ -45,17 +53,15 @@ namespace TalonOne.Tests
 
             ClientConfig.ApplicationId = Application.Id;
             ClientConfig.ApplicationKey = Application.Key;
-
-            Client = new Client(ClientConfig)
-            {
-                BaseUrl = System.Environment.GetEnvironmentVariable("TALONONE_ENDPOINT"),
-            };
         }
 
         public async Task DisposeAsync()
         {
             if (Application != null) {
                 await Client.DeleteApplicationAsync(Application.Id);
+            }
+            if (Session != null) {
+                await Client.DestroySessionAsync();
             }
         }
     }
