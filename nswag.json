@@ -1,0 +1,53 @@
+﻿{
+  "swaggerGenerator": {
+    "fromSwagger": {
+      "url": "swagger.json",
+      "output": null
+    }
+  },
+  "codeGenerators": {
+    "swaggerToCSharpClient": {
+      "output": "TalonOne/Client.cs",
+      "namespace": "TalonOne",
+      "className": "Client",
+      "configurationClass": "ClientConfig",
+      "clientBaseClass": "ClientBase",
+      "responseClass": "TalonOneResponse",
+      "exceptionClass": "TalonOneException",
+      "generateClientClasses": true,
+      "generateClientInterfaces": false,
+      "generateDtoTypes": true,
+      "injectHttpClient": false,
+      "disposeHttpClient": true,
+      "generateExceptionClasses": true,
+      "wrapDtoExceptions": true,
+      "useHttpClientCreationMethod": false,
+      "httpClientType": "System.Net.Http.HttpClient",
+      "useHttpRequestMessageCreationMethod": false,
+      "useBaseUrl": true,
+      "generateSyncMethods": false,
+      "clientClassAccessModifier": "public",
+      "generateContractsOutput": false,
+      "parameterDateTimeFormat": "s",
+      "generateUpdateJsonSerializerSettingsMethod": true,
+      "generateOptionalParameters": false,
+      "requiredPropertiesMustBeDefined": true,
+      "dateType": "System.DateTime",
+      "dateTimeType": "System.DateTime",
+      "timeType": "System.TimeSpan",
+      "timeSpanType": "System.TimeSpan",
+      "arrayType": "System.Collections.ObjectModel.ObservableCollection",
+      "dictionaryType": "System.Collections.Generic.Dictionary",
+      "classStyle": "Inpc",
+      "operationGenerationMode": "MultipleClientsFromOperationId",
+      "generateDefaultValues": true,
+      "generateDataAnnotations": false,
+      "excludedTypeNames": [],
+      "wrapResponses": false,
+      "generateResponseClasses": true,
+      "handleReferences": false,
+      "generateImmutableArrayProperties": false,
+      "generateImmutableDictionaryProperties": false
+    }
+  }
+}
