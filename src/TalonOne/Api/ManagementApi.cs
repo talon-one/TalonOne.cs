@@ -850,8 +850,8 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributeId"></param>
-        /// <returns>Attribute</returns>
-        Attribute GetAttribute (int? attributeId);
+        /// <returns>TalonOne.Model.Attribute</returns>
+        TalonOne.Model.Attribute GetAttribute (int? attributeId);
 
         /// <summary>
         /// Get a custom attribute
@@ -861,8 +861,8 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributeId"></param>
-        /// <returns>ApiResponse of Attribute</returns>
-        ApiResponse<Attribute> GetAttributeWithHttpInfo (int? attributeId);
+        /// <returns>ApiResponse of TalonOne.Model.Attribute</returns>
+        ApiResponse<TalonOne.Model.Attribute> GetAttributeWithHttpInfo (int? attributeId);
         /// <summary>
         /// Get a Campaign
         /// </summary>
@@ -3150,8 +3150,8 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributeId"></param>
-        /// <returns>Task of Attribute</returns>
-        System.Threading.Tasks.Task<Attribute> GetAttributeAsync (int? attributeId);
+        /// <returns>Task of TalonOne.Model.Attribute</returns>
+        System.Threading.Tasks.Task<TalonOne.Model.Attribute> GetAttributeAsync (int? attributeId);
 
         /// <summary>
         /// Get a custom attribute
@@ -3161,8 +3161,8 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributeId"></param>
-        /// <returns>Task of ApiResponse (Attribute)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Attribute>> GetAttributeAsyncWithHttpInfo (int? attributeId);
+        /// <returns>Task of ApiResponse (TalonOne.Model.Attribute)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TalonOne.Model.Attribute>> GetAttributeAsyncWithHttpInfo (int? attributeId);
         /// <summary>
         /// Get a Campaign
         /// </summary>
@@ -9873,10 +9873,10 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributeId"></param>
-        /// <returns>Attribute</returns>
-        public Attribute GetAttribute (int? attributeId)
+        /// <returns>TalonOne.Model.Attribute</returns>
+        public TalonOne.Model.Attribute GetAttribute (int? attributeId)
         {
-             ApiResponse<Attribute> localVarResponse = GetAttributeWithHttpInfo(attributeId);
+             ApiResponse<TalonOne.Model.Attribute> localVarResponse = GetAttributeWithHttpInfo(attributeId);
              return localVarResponse.Data;
         }
 
@@ -9886,7 +9886,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributeId"></param>
         /// <returns>ApiResponse of Attribute</returns>
-        public ApiResponse< Attribute > GetAttributeWithHttpInfo (int? attributeId)
+        public ApiResponse< TalonOne.Model.Attribute > GetAttributeWithHttpInfo (int? attributeId)
         {
             // verify the required parameter 'attributeId' is set
             if (attributeId == null)
@@ -9935,9 +9935,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Attribute>(localVarStatusCode,
+            return new ApiResponse<TalonOne.Model.Attribute>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Attribute) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Attribute)));
+                (TalonOne.Model.Attribute) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TalonOne.Model.Attribute)));
         }
 
         /// <summary>
@@ -9945,10 +9945,10 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributeId"></param>
-        /// <returns>Task of Attribute</returns>
-        public async System.Threading.Tasks.Task<Attribute> GetAttributeAsync (int? attributeId)
+        /// <returns>Task of TalonOne.Model.Attribute</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Model.Attribute> GetAttributeAsync (int? attributeId)
         {
-             ApiResponse<Attribute> localVarResponse = await GetAttributeAsyncWithHttpInfo(attributeId);
+             ApiResponse<TalonOne.Model.Attribute> localVarResponse = await GetAttributeAsyncWithHttpInfo(attributeId);
              return localVarResponse.Data;
 
         }
@@ -9958,8 +9958,8 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="attributeId"></param>
-        /// <returns>Task of ApiResponse (Attribute)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Attribute>> GetAttributeAsyncWithHttpInfo (int? attributeId)
+        /// <returns>Task of ApiResponse (TalonOne.Model.Attribute)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TalonOne.Model.Attribute>> GetAttributeAsyncWithHttpInfo (int? attributeId)
         {
             // verify the required parameter 'attributeId' is set
             if (attributeId == null)
@@ -10008,9 +10008,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<Attribute>(localVarStatusCode,
+            return new ApiResponse<TalonOne.Model.Attribute>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (Attribute) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(Attribute)));
+                (TalonOne.Model.Attribute) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(TalonOne.Model.Attribute)));
         }
 
         /// <summary>
