@@ -18,5 +18,6 @@ echo "[INFO] Install NUnit runners via NuGet"
 mono nuget.exe install NUnit.Runners -Version 2.6.4 -OutputDirectory packages 
 
 echo "[INFO] Build the solution and run the unit test"
-xbuild TalonOne.sln && \
+# `xbuild` is about to be deprecated, this was an intentioanl maunal change -- keep it
+msbuild TalonOne.sln && \
     mono ./packages/NUnit.Runners.2.6.4/tools/nunit-console.exe src/TalonOne.Test/bin/Debug/TalonOne.Test.dll
