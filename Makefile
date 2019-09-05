@@ -5,6 +5,10 @@ clean:
 	rm -rf $(PWD)/$(BUILD_DIR)/TalonOne.$(VERSION).nupkg
 
 build: clean
+ifeq ($(VERSION),)
+	@echo "***\033[0;31mERROR:\033[0m NO VERSION COULD BE EXTRACTED. Check out the AssemblyInfo.cs file"
+	@exit 1
+endif
 	docker run \
 		--rm \
 		-v $(PWD):/tmp/talon-client \
@@ -12,8 +16,15 @@ build: clean
 		mono:6 \
 		nuget pack -Prop Configuration=Release -IncludeReferencedProjects -properties version=$(VERSION)
 
-# -v $(PWD)/$(BUILD_DIR)/TalonOne.$(VERSION).nupkg:/tmp/talon-client/TalonOne.$(VERSION).nupkg 
 publish: clean
+ifeq ($(VERSION),)
+	@echo "***\033[0;31mERROR:\033[0m NO VERSION COULD BE EXTRACTED. Check out the AssemblyInfo.cs file"
+	@exit 1
+endif
+ifeq ($(apiKey),)
+	@echo "***\033[0;31mERROR:\033[0m NO apiKey WAS NOT PROVIDED."
+	@exit 1
+endif
 	docker run \
 		--rm \
 		-v $(PWD):/tmp/talon-client \
