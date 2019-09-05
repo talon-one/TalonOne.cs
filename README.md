@@ -71,26 +71,46 @@ namespace Example
     {
         public void main()
         {
+            // Configure BasePath & API key authorization: api_key_v1
+            var integrationConfig = new Configuration {
+                BasePath = "https://mycompany.talon.one",
+                ApiKey = new Dictionary<string, string> {
+                    { "Authorization", "e18149e88f42205432281c9d3d0e711111302722577ad60dcebc86c43aabfe70" }
+                },
+                ApiKeyPrefix = new Dictionary<string, string> {
+                    { "Authorization", "ApiKey-v1" }
+                }
+            };
 
-            // Configure API key authorization: api_key_v1
-            Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
-            Configuration.Default.ApiKeyPrefix.Add("Authorization", "ApiKey-v1");
+            // Or via the "global" Default configuration:
+            //   Configuration.Default.BasePath = "https://mycompany.talon.one";
+            //   Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
+            //   Configuration.Default.ApiKeyPrefix.Add("Authorization", "ApiKey-v1");
             
-            var apiInstance = new IntegrationApi();
-            var couponValue = couponValue_example;  // string | The value of a coupon
-            var body = new CouponReservations(); // CouponReservations | 
+            // ************************************************
+            // Integration API example to send a session update
+            // ************************************************
+
+            // When using the default approach, the next initiation of `IntegrationApi`
+            // could be using the empty constructor
+            var integrationApi = new IntegrationApi(integrationConfig);
+            var customerSessionId = "my_unique_session_integration_id";  // string | The custom identifier for this session, must be unique within the account.
+            var customerSessionPayload = new NewCustomerSession {
+                ProfileId = "DADBOOF",
+                State = NewCustomerSession.StateEnum.Open, // `Open` would be the default value anyway
+                Total = (decimal)42.234
+            };
 
             try
             {
-                // Create a new coupon reservation
-                Coupon result = apiInstance.CreateCouponReservation(couponValue, body);
-                Debug.WriteLine(result);
+                // Create/update a customer session using `UpdateCustomerSession` function
+                IntegrationState result = apiInstance.UpdateCustomerSession(customerSessionId, customerSessionPayload);
+                Console.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling IntegrationApi.CreateCouponReservation: " + e.Message );
+                Console.WriteLine("Exception when calling IntegrationApi.UpdateCustomerSession: " + e.Message );
             }
-
         }
     }
 }
@@ -111,26 +131,44 @@ namespace Example
     {
         public void main()
         {
+            // Configure BasePath
+            var managementConfig = new Configuration {
+                BasePath = "https://mycompany.talon.one"
+            };
 
-            // Configure API key authorization: manager_auth
-            Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
-            Configuration.Default.ApiKeyPrefix.Add("Authorization", "Bearer");
+            // Or via the "global" Default configuration:
+            //   Configuration.Default.BasePath = "https://mycompany.talon.one";
             
-            var apiInstance = new ManagementApi();
-            // var couponValue = couponValue_example;  // string | The value of a coupon
-            // var body = new CouponReservations(); // CouponReservations | 
+            // ****************************************************
+            // Management API example to load application with id 7
+            // ****************************************************
 
-            // try
-            // {
-            //     // Create a new coupon reservation
-            //     Coupon result = apiInstance.CreateCouponReservation(couponValue, body);
-            //     Debug.WriteLine(result);
-            // }
-            // catch (Exception e)
-            // {
-            //     Debug.Print("Exception when calling IntegrationApi.CreateCouponReservation: " + e.Message );
-            // }
+            // When using the default approach, the next initiation of `ManagementApi`
+            // could be using the empty constructor
+            var managementApi = new ManagementApi(managementConfig);
 
+            try
+            {
+                // Obtain session token
+                var loginParams = new LoginParams("admin@talon.one", "https://whatthecommit.com/17fe05217dbe10af4d1158c71914faeb");
+                var session = instance.CreateSession(loginParams);
+
+                // Save token in the configuration for future management API calls
+                managementConfig.ApiKey.Add("Authorization", session.Token);
+                managementConfig.ApiKeyPrefix.Add("Authorization", "Bearer");
+
+                // Or again, via the "global" Default configuration:
+                //   Configuration.Default.ApiKey.Add("Authorization", session.Token);
+                //   Configuration.Default.ApiKeyPrefix.Add("Authorization", "Bearer");
+
+                // Calling `GetApplication` function with the desired id (7)
+                Application result = instance.GetApplication(7);
+                Console.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception when calling ManagementApi.GetApplication: " + e.Message );
+            }
         }
     }
 }
