@@ -99,14 +99,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ProfileId'
         }
         /// <summary>
-        /// Test the property 'SessionId'
-        /// </summary>
-        [Test]
-        public void SessionIdTest()
-        {
-            // TODO unit test for the property 'SessionId'
-        }
-        /// <summary>
         /// Test the property 'Type'
         /// </summary>
         [Test]
@@ -121,6 +113,14 @@ namespace TalonOne.Test
         public void AttributesTest()
         {
             // TODO unit test for the property 'Attributes'
+        }
+        /// <summary>
+        /// Test the property 'SessionId'
+        /// </summary>
+        [Test]
+        public void SessionIdTest()
+        {
+            // TODO unit test for the property 'SessionId'
         }
         /// <summary>
         /// Test the property 'Effects'
