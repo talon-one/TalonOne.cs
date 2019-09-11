@@ -25,29 +25,28 @@ using SwaggerDateConverter = TalonOne.Client.SwaggerDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// NewEvent
+    /// IntegrationEvent
     /// </summary>
     [DataContract]
-    public partial class NewEvent :  IEquatable<NewEvent>, IValidatableObject
+    public partial class IntegrationEvent :  IEquatable<IntegrationEvent>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="NewEvent" /> class.
+        /// Initializes a new instance of the <see cref="IntegrationEvent" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected NewEvent() { }
+        protected IntegrationEvent() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="NewEvent" /> class.
+        /// Initializes a new instance of the <see cref="IntegrationEvent" /> class.
         /// </summary>
         /// <param name="profileId">ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID..</param>
         /// <param name="type">A string representing the event. Must not be a reserved event name. (required).</param>
         /// <param name="attributes">Arbitrary additional JSON data associated with the event. (required).</param>
-        /// <param name="sessionId">The ID of the session that this event occurred in. (required).</param>
-        public NewEvent(string profileId = default(string), string type = default(string), Object attributes = default(Object), string sessionId = default(string))
+        public IntegrationEvent(string profileId = default(string), string type = default(string), Object attributes = default(Object))
         {
             // to ensure "type" is required (not null)
             if (type == null)
             {
-                throw new InvalidDataException("type is a required property for NewEvent and cannot be null");
+                throw new InvalidDataException("type is a required property for IntegrationEvent and cannot be null");
             }
             else
             {
@@ -56,20 +55,11 @@ namespace TalonOne.Model
             // to ensure "attributes" is required (not null)
             if (attributes == null)
             {
-                throw new InvalidDataException("attributes is a required property for NewEvent and cannot be null");
+                throw new InvalidDataException("attributes is a required property for IntegrationEvent and cannot be null");
             }
             else
             {
                 this.Attributes = attributes;
-            }
-            // to ensure "sessionId" is required (not null)
-            if (sessionId == null)
-            {
-                throw new InvalidDataException("sessionId is a required property for NewEvent and cannot be null");
-            }
-            else
-            {
-                this.SessionId = sessionId;
             }
             this.ProfileId = profileId;
         }
@@ -96,24 +86,16 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// The ID of the session that this event occurred in.
-        /// </summary>
-        /// <value>The ID of the session that this event occurred in.</value>
-        [DataMember(Name="sessionId", EmitDefaultValue=false)]
-        public string SessionId { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NewEvent {\n");
+            sb.Append("class IntegrationEvent {\n");
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
-            sb.Append("  SessionId: ").Append(SessionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,15 +116,15 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as NewEvent);
+            return this.Equals(input as IntegrationEvent);
         }
 
         /// <summary>
-        /// Returns true if NewEvent instances are equal
+        /// Returns true if IntegrationEvent instances are equal
         /// </summary>
-        /// <param name="input">Instance of NewEvent to be compared</param>
+        /// <param name="input">Instance of IntegrationEvent to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NewEvent input)
+        public bool Equals(IntegrationEvent input)
         {
             if (input == null)
                 return false;
@@ -162,11 +144,6 @@ namespace TalonOne.Model
                     this.Attributes == input.Attributes ||
                     (this.Attributes != null &&
                     this.Attributes.Equals(input.Attributes))
-                ) && 
-                (
-                    this.SessionId == input.SessionId ||
-                    (this.SessionId != null &&
-                    this.SessionId.Equals(input.SessionId))
                 );
         }
 
@@ -185,8 +162,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
-                if (this.SessionId != null)
-                    hashCode = hashCode * 59 + this.SessionId.GetHashCode();
                 return hashCode;
             }
         }
@@ -202,12 +177,6 @@ namespace TalonOne.Model
             if(this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
-            }
-
-            // SessionId (string) minLength
-            if(this.SessionId != null && this.SessionId.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SessionId, length must be greater than 1.", new [] { "SessionId" });
             }
 
             yield break;

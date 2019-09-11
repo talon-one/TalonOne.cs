@@ -42,13 +42,13 @@ namespace TalonOne.Model
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
         /// <param name="profileId">ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID..</param>
-        /// <param name="sessionId">The ID of the session that this event occurred in. (required).</param>
         /// <param name="type">A string representing the event. Must not be a reserved event name. (required).</param>
         /// <param name="attributes">Arbitrary additional JSON data associated with the event. (required).</param>
+        /// <param name="sessionId">The ID of the session that this event occurred in..</param>
         /// <param name="effects">An array of \&quot;effects\&quot; that must be applied in response to this event. Example effects include &#x60;addItemToCart&#x60; or &#x60;setDiscount&#x60;.  (required).</param>
         /// <param name="ledgerEntries">Ledger entries for the event. (required).</param>
         /// <param name="meta">meta.</param>
-        public Event(int? id = default(int?), DateTime? created = default(DateTime?), int? applicationId = default(int?), string profileId = default(string), string sessionId = default(string), string type = default(string), Object attributes = default(Object), List<Object> effects = default(List<Object>), List<LedgerEntry> ledgerEntries = default(List<LedgerEntry>), Meta meta = default(Meta))
+        public Event(int? id = default(int?), DateTime? created = default(DateTime?), int? applicationId = default(int?), string profileId = default(string), string type = default(string), Object attributes = default(Object), string sessionId = default(string), List<Object> effects = default(List<Object>), List<LedgerEntry> ledgerEntries = default(List<LedgerEntry>), Meta meta = default(Meta))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -76,15 +76,6 @@ namespace TalonOne.Model
             else
             {
                 this.ApplicationId = applicationId;
-            }
-            // to ensure "sessionId" is required (not null)
-            if (sessionId == null)
-            {
-                throw new InvalidDataException("sessionId is a required property for Event and cannot be null");
-            }
-            else
-            {
-                this.SessionId = sessionId;
             }
             // to ensure "type" is required (not null)
             if (type == null)
@@ -123,6 +114,7 @@ namespace TalonOne.Model
                 this.LedgerEntries = ledgerEntries;
             }
             this.ProfileId = profileId;
+            this.SessionId = sessionId;
             this.Meta = meta;
         }
         
@@ -155,13 +147,6 @@ namespace TalonOne.Model
         public string ProfileId { get; set; }
 
         /// <summary>
-        /// The ID of the session that this event occurred in.
-        /// </summary>
-        /// <value>The ID of the session that this event occurred in.</value>
-        [DataMember(Name="sessionId", EmitDefaultValue=false)]
-        public string SessionId { get; set; }
-
-        /// <summary>
         /// A string representing the event. Must not be a reserved event name.
         /// </summary>
         /// <value>A string representing the event. Must not be a reserved event name.</value>
@@ -174,6 +159,13 @@ namespace TalonOne.Model
         /// <value>Arbitrary additional JSON data associated with the event.</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public Object Attributes { get; set; }
+
+        /// <summary>
+        /// The ID of the session that this event occurred in.
+        /// </summary>
+        /// <value>The ID of the session that this event occurred in.</value>
+        [DataMember(Name="sessionId", EmitDefaultValue=false)]
+        public string SessionId { get; set; }
 
         /// <summary>
         /// An array of \&quot;effects\&quot; that must be applied in response to this event. Example effects include &#x60;addItemToCart&#x60; or &#x60;setDiscount&#x60;. 
@@ -207,9 +199,9 @@ namespace TalonOne.Model
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
-            sb.Append("  SessionId: ").Append(SessionId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  SessionId: ").Append(SessionId).Append("\n");
             sb.Append("  Effects: ").Append(Effects).Append("\n");
             sb.Append("  LedgerEntries: ").Append(LedgerEntries).Append("\n");
             sb.Append("  Meta: ").Append(Meta).Append("\n");
@@ -268,11 +260,6 @@ namespace TalonOne.Model
                     this.ProfileId.Equals(input.ProfileId))
                 ) && 
                 (
-                    this.SessionId == input.SessionId ||
-                    (this.SessionId != null &&
-                    this.SessionId.Equals(input.SessionId))
-                ) && 
-                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -281,6 +268,11 @@ namespace TalonOne.Model
                     this.Attributes == input.Attributes ||
                     (this.Attributes != null &&
                     this.Attributes.Equals(input.Attributes))
+                ) && 
+                (
+                    this.SessionId == input.SessionId ||
+                    (this.SessionId != null &&
+                    this.SessionId.Equals(input.SessionId))
                 ) && 
                 (
                     this.Effects == input.Effects ||
@@ -316,12 +308,12 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 if (this.ProfileId != null)
                     hashCode = hashCode * 59 + this.ProfileId.GetHashCode();
-                if (this.SessionId != null)
-                    hashCode = hashCode * 59 + this.SessionId.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.SessionId != null)
+                    hashCode = hashCode * 59 + this.SessionId.GetHashCode();
                 if (this.Effects != null)
                     hashCode = hashCode * 59 + this.Effects.GetHashCode();
                 if (this.LedgerEntries != null)
@@ -339,12 +331,6 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // SessionId (string) minLength
-            if(this.SessionId != null && this.SessionId.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SessionId, length must be greater than 1.", new [] { "SessionId" });
-            }
-
             // Type (string) minLength
             if(this.Type != null && this.Type.Length < 1)
             {
