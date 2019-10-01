@@ -162,6 +162,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Roles'
         }
+        /// <summary>
+        /// Test the property 'ApplicationNotificationSubscriptions'
+        /// </summary>
+        [Test]
+        public void ApplicationNotificationSubscriptionsTest()
+        {
+            // TODO unit test for the property 'ApplicationNotificationSubscriptions'
+        }
 
     }
 

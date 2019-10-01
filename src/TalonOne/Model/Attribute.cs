@@ -181,9 +181,7 @@ namespace TalonOne.Model
         /// <param name="description">A description of this attribute. (required).</param>
         /// <param name="suggestions">A list of suggestions for the attribute. (required).</param>
         /// <param name="editable">Whether or not this attribute can be edited. (required).</param>
-        /// <param name="locked">Indicates whether this attribute is in use. If in use only title can be changed and other operations are prohibited. (required) (default to false).</param>
-        /// <param name="usedAt">array of rulesets where the attribute is used (required).</param>
-        public Attribute(int? id = default(int?), DateTime? created = default(DateTime?), int? accountId = default(int?), EntityEnum entity = default(EntityEnum), string eventType = default(string), string name = default(string), string title = default(string), TypeEnum type = default(TypeEnum), string description = default(string), List<string> suggestions = default(List<string>), bool? editable = default(bool?), bool? locked = false, List<string> usedAt = default(List<string>))
+        public Attribute(int? id = default(int?), DateTime? created = default(DateTime?), int? accountId = default(int?), EntityEnum entity = default(EntityEnum), string eventType = default(string), string name = default(string), string title = default(string), TypeEnum type = default(TypeEnum), string description = default(string), List<string> suggestions = default(List<string>), bool? editable = default(bool?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -275,24 +273,6 @@ namespace TalonOne.Model
             {
                 this.Editable = editable;
             }
-            // to ensure "locked" is required (not null)
-            if (locked == null)
-            {
-                throw new InvalidDataException("locked is a required property for Attribute and cannot be null");
-            }
-            else
-            {
-                this.Locked = locked;
-            }
-            // to ensure "usedAt" is required (not null)
-            if (usedAt == null)
-            {
-                throw new InvalidDataException("usedAt is a required property for Attribute and cannot be null");
-            }
-            else
-            {
-                this.UsedAt = usedAt;
-            }
             this.EventType = eventType;
         }
         
@@ -361,20 +341,6 @@ namespace TalonOne.Model
         public bool? Editable { get; set; }
 
         /// <summary>
-        /// Indicates whether this attribute is in use. If in use only title can be changed and other operations are prohibited.
-        /// </summary>
-        /// <value>Indicates whether this attribute is in use. If in use only title can be changed and other operations are prohibited.</value>
-        [DataMember(Name="locked", EmitDefaultValue=false)]
-        public bool? Locked { get; set; }
-
-        /// <summary>
-        /// array of rulesets where the attribute is used
-        /// </summary>
-        /// <value>array of rulesets where the attribute is used</value>
-        [DataMember(Name="usedAt", EmitDefaultValue=false)]
-        public List<string> UsedAt { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -393,8 +359,6 @@ namespace TalonOne.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Suggestions: ").Append(Suggestions).Append("\n");
             sb.Append("  Editable: ").Append(Editable).Append("\n");
-            sb.Append("  Locked: ").Append(Locked).Append("\n");
-            sb.Append("  UsedAt: ").Append(UsedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -483,16 +447,6 @@ namespace TalonOne.Model
                     this.Editable == input.Editable ||
                     (this.Editable != null &&
                     this.Editable.Equals(input.Editable))
-                ) && 
-                (
-                    this.Locked == input.Locked ||
-                    (this.Locked != null &&
-                    this.Locked.Equals(input.Locked))
-                ) && 
-                (
-                    this.UsedAt == input.UsedAt ||
-                    this.UsedAt != null &&
-                    this.UsedAt.SequenceEqual(input.UsedAt)
                 );
         }
 
@@ -527,10 +481,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Suggestions.GetHashCode();
                 if (this.Editable != null)
                     hashCode = hashCode * 59 + this.Editable.GetHashCode();
-                if (this.Locked != null)
-                    hashCode = hashCode * 59 + this.Locked.GetHashCode();
-                if (this.UsedAt != null)
-                    hashCode = hashCode * 59 + this.UsedAt.GetHashCode();
                 return hashCode;
             }
         }

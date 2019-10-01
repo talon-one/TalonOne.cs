@@ -36,12 +36,14 @@ namespace TalonOne.Model
         /// <param name="campaigns">Maps each evaluated campaign ID to a key-value list of that campaigns attributes. Campaigns without attributes will be omitted..</param>
         /// <param name="coupons">Maps the coupon value to a key-value list of that coupons attributes..</param>
         /// <param name="couponRejectionReason">couponRejectionReason.</param>
+        /// <param name="referralRejectionReason">referralRejectionReason.</param>
         /// <param name="warnings">warnings.</param>
-        public Meta(Object campaigns = default(Object), Object coupons = default(Object), CouponRejectionReason couponRejectionReason = default(CouponRejectionReason), Object warnings = default(Object))
+        public Meta(Object campaigns = default(Object), Object coupons = default(Object), CouponRejectionReason couponRejectionReason = default(CouponRejectionReason), ReferralRejectionReason referralRejectionReason = default(ReferralRejectionReason), Object warnings = default(Object))
         {
             this.Campaigns = campaigns;
             this.Coupons = coupons;
             this.CouponRejectionReason = couponRejectionReason;
+            this.ReferralRejectionReason = referralRejectionReason;
             this.Warnings = warnings;
         }
         
@@ -66,6 +68,12 @@ namespace TalonOne.Model
         public CouponRejectionReason CouponRejectionReason { get; set; }
 
         /// <summary>
+        /// Gets or Sets ReferralRejectionReason
+        /// </summary>
+        [DataMember(Name="referralRejectionReason", EmitDefaultValue=false)]
+        public ReferralRejectionReason ReferralRejectionReason { get; set; }
+
+        /// <summary>
         /// Gets or Sets Warnings
         /// </summary>
         [DataMember(Name="warnings", EmitDefaultValue=false)]
@@ -82,6 +90,7 @@ namespace TalonOne.Model
             sb.Append("  Campaigns: ").Append(Campaigns).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("  CouponRejectionReason: ").Append(CouponRejectionReason).Append("\n");
+            sb.Append("  ReferralRejectionReason: ").Append(ReferralRejectionReason).Append("\n");
             sb.Append("  Warnings: ").Append(Warnings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -133,6 +142,11 @@ namespace TalonOne.Model
                     this.CouponRejectionReason.Equals(input.CouponRejectionReason))
                 ) && 
                 (
+                    this.ReferralRejectionReason == input.ReferralRejectionReason ||
+                    (this.ReferralRejectionReason != null &&
+                    this.ReferralRejectionReason.Equals(input.ReferralRejectionReason))
+                ) && 
+                (
                     this.Warnings == input.Warnings ||
                     (this.Warnings != null &&
                     this.Warnings.Equals(input.Warnings))
@@ -154,6 +168,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Coupons.GetHashCode();
                 if (this.CouponRejectionReason != null)
                     hashCode = hashCode * 59 + this.CouponRejectionReason.GetHashCode();
+                if (this.ReferralRejectionReason != null)
+                    hashCode = hashCode * 59 + this.ReferralRejectionReason.GetHashCode();
                 if (this.Warnings != null)
                     hashCode = hashCode * 59 + this.Warnings.GetHashCode();
                 return hashCode;

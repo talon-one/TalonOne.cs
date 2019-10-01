@@ -94,8 +94,7 @@ namespace TalonOne.Model
         /// <param name="payload">API payload (supports templating using parameters) for this webhook.</param>
         /// <param name="_params">Array of template argument definitions (required).</param>
         /// <param name="enabled">Enables or disables webhook from showing in rule builder (required).</param>
-        /// <param name="usedAt">array of rulesets where webhook is used (required).</param>
-        public Webhook(int? id = default(int?), DateTime? created = default(DateTime?), DateTime? modified = default(DateTime?), List<int?> applicationIds = default(List<int?>), string title = default(string), VerbEnum verb = default(VerbEnum), string url = default(string), List<string> headers = default(List<string>), string payload = default(string), List<TemplateArgDef> _params = default(List<TemplateArgDef>), bool? enabled = default(bool?), List<string> usedAt = default(List<string>))
+        public Webhook(int? id = default(int?), DateTime? created = default(DateTime?), DateTime? modified = default(DateTime?), List<int?> applicationIds = default(List<int?>), string title = default(string), VerbEnum verb = default(VerbEnum), string url = default(string), List<string> headers = default(List<string>), string payload = default(string), List<TemplateArgDef> _params = default(List<TemplateArgDef>), bool? enabled = default(bool?))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -187,15 +186,6 @@ namespace TalonOne.Model
             {
                 this.Enabled = enabled;
             }
-            // to ensure "usedAt" is required (not null)
-            if (usedAt == null)
-            {
-                throw new InvalidDataException("usedAt is a required property for Webhook and cannot be null");
-            }
-            else
-            {
-                this.UsedAt = usedAt;
-            }
             this.Payload = payload;
         }
         
@@ -271,13 +261,6 @@ namespace TalonOne.Model
         public bool? Enabled { get; set; }
 
         /// <summary>
-        /// array of rulesets where webhook is used
-        /// </summary>
-        /// <value>array of rulesets where webhook is used</value>
-        [DataMember(Name="usedAt", EmitDefaultValue=false)]
-        public List<string> UsedAt { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -296,7 +279,6 @@ namespace TalonOne.Model
             sb.Append("  Payload: ").Append(Payload).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  UsedAt: ").Append(UsedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -385,11 +367,6 @@ namespace TalonOne.Model
                     this.Enabled == input.Enabled ||
                     (this.Enabled != null &&
                     this.Enabled.Equals(input.Enabled))
-                ) && 
-                (
-                    this.UsedAt == input.UsedAt ||
-                    this.UsedAt != null &&
-                    this.UsedAt.SequenceEqual(input.UsedAt)
                 );
         }
 
@@ -424,8 +401,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.Enabled != null)
                     hashCode = hashCode * 59 + this.Enabled.GetHashCode();
-                if (this.UsedAt != null)
-                    hashCode = hashCode * 59 + this.UsedAt.GetHashCode();
                 return hashCode;
             }
         }

@@ -77,12 +77,13 @@ namespace TalonOne.Model
         /// <param name="profileId">The globally unique Talon.One ID of the customer that created this entity..</param>
         /// <param name="integrationId">The ID used for this entity in the application system. (required).</param>
         /// <param name="coupon">Any coupon code entered. (required).</param>
-        /// <param name="referral">Any referal code entered. (required).</param>
+        /// <param name="referral">Any referral code entered. (required).</param>
         /// <param name="state">Indicating if the customer session is in progress (\&quot;open\&quot;), \&quot;closed\&quot;, or \&quot;cancelled\&quot;. (required).</param>
         /// <param name="cartItems">Serialized JSON representation. (required).</param>
         /// <param name="discounts">A map of labelled discount values, in the same currency as the session. (required).</param>
+        /// <param name="total">The total sum of the session before any discounts applied..</param>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
-        public ApplicationSession(int? id = default(int?), DateTime? created = default(DateTime?), int? applicationId = default(int?), int? profileId = default(int?), string integrationId = default(string), string coupon = default(string), string referral = default(string), StateEnum state = default(StateEnum), List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, decimal?> discounts = default(Dictionary<string, decimal?>), Object attributes = default(Object))
+        public ApplicationSession(int? id = default(int?), DateTime? created = default(DateTime?), int? applicationId = default(int?), int? profileId = default(int?), string integrationId = default(string), string coupon = default(string), string referral = default(string), StateEnum state = default(StateEnum), List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, decimal?> discounts = default(Dictionary<string, decimal?>), decimal? total = default(decimal?), Object attributes = default(Object))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -166,6 +167,7 @@ namespace TalonOne.Model
                 this.Discounts = discounts;
             }
             this.ProfileId = profileId;
+            this.Total = total;
             this.Attributes = attributes;
         }
         
@@ -212,9 +214,9 @@ namespace TalonOne.Model
         public string Coupon { get; set; }
 
         /// <summary>
-        /// Any referal code entered.
+        /// Any referral code entered.
         /// </summary>
-        /// <value>Any referal code entered.</value>
+        /// <value>Any referral code entered.</value>
         [DataMember(Name="referral", EmitDefaultValue=false)]
         public string Referral { get; set; }
 
@@ -232,6 +234,13 @@ namespace TalonOne.Model
         /// <value>A map of labelled discount values, in the same currency as the session.</value>
         [DataMember(Name="discounts", EmitDefaultValue=false)]
         public Dictionary<string, decimal?> Discounts { get; set; }
+
+        /// <summary>
+        /// The total sum of the session before any discounts applied.
+        /// </summary>
+        /// <value>The total sum of the session before any discounts applied.</value>
+        [DataMember(Name="total", EmitDefaultValue=false)]
+        public decimal? Total { get; set; }
 
         /// <summary>
         /// Arbitrary properties associated with this item
@@ -258,6 +267,7 @@ namespace TalonOne.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  CartItems: ").Append(CartItems).Append("\n");
             sb.Append("  Discounts: ").Append(Discounts).Append("\n");
+            sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -344,6 +354,11 @@ namespace TalonOne.Model
                     this.Discounts.SequenceEqual(input.Discounts)
                 ) && 
                 (
+                    this.Total == input.Total ||
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
+                ) && 
+                (
                     this.Attributes == input.Attributes ||
                     (this.Attributes != null &&
                     this.Attributes.Equals(input.Attributes))
@@ -379,6 +394,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CartItems.GetHashCode();
                 if (this.Discounts != null)
                     hashCode = hashCode * 59 + this.Discounts.GetHashCode();
+                if (this.Total != null)
+                    hashCode = hashCode * 59 + this.Total.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 return hashCode;
