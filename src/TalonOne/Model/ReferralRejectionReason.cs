@@ -25,10 +25,10 @@ using SwaggerDateConverter = TalonOne.Client.SwaggerDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Holds a reference to the campaign, the coupon and the reason for which that coupon was rejected. Should only be present when there is a &#39;rejectCoupon&#39; effect.
+    /// Holds a reference to the campaign, the referral and the reason for which that referral was rejected. Should only be present when there is a &#39;rejectReferral&#39; effect.
     /// </summary>
     [DataContract]
-    public partial class CouponRejectionReason :  IEquatable<CouponRejectionReason>, IValidatableObject
+    public partial class ReferralRejectionReason :  IEquatable<ReferralRejectionReason>, IValidatableObject
     {
         /// <summary>
         /// Defines Reason
@@ -38,70 +38,76 @@ namespace TalonOne.Model
         {
             
             /// <summary>
-            /// Enum CouponNotFound for value: CouponNotFound
+            /// Enum ReferralNotFound for value: ReferralNotFound
             /// </summary>
-            [EnumMember(Value = "CouponNotFound")]
-            CouponNotFound = 1,
+            [EnumMember(Value = "ReferralNotFound")]
+            ReferralNotFound = 1,
             
             /// <summary>
-            /// Enum CouponPartOfNotRunningCampaign for value: CouponPartOfNotRunningCampaign
+            /// Enum ReferralRecipientIdSameAsAdvocate for value: ReferralRecipientIdSameAsAdvocate
             /// </summary>
-            [EnumMember(Value = "CouponPartOfNotRunningCampaign")]
-            CouponPartOfNotRunningCampaign = 2,
+            [EnumMember(Value = "ReferralRecipientIdSameAsAdvocate")]
+            ReferralRecipientIdSameAsAdvocate = 2,
             
             /// <summary>
-            /// Enum CouponValidConditionMissing for value: CouponValidConditionMissing
+            /// Enum ReferralPartOfNotRunningCampaign for value: ReferralPartOfNotRunningCampaign
             /// </summary>
-            [EnumMember(Value = "CouponValidConditionMissing")]
-            CouponValidConditionMissing = 3,
+            [EnumMember(Value = "ReferralPartOfNotRunningCampaign")]
+            ReferralPartOfNotRunningCampaign = 3,
             
             /// <summary>
-            /// Enum CouponLimitReached for value: CouponLimitReached
+            /// Enum ReferralValidConditionMissing for value: ReferralValidConditionMissing
             /// </summary>
-            [EnumMember(Value = "CouponLimitReached")]
-            CouponLimitReached = 4,
+            [EnumMember(Value = "ReferralValidConditionMissing")]
+            ReferralValidConditionMissing = 4,
+            
+            /// <summary>
+            /// Enum ReferralLimitReached for value: ReferralLimitReached
+            /// </summary>
+            [EnumMember(Value = "ReferralLimitReached")]
+            ReferralLimitReached = 5,
             
             /// <summary>
             /// Enum CampaignLimitReached for value: CampaignLimitReached
             /// </summary>
             [EnumMember(Value = "CampaignLimitReached")]
-            CampaignLimitReached = 5,
+            CampaignLimitReached = 6,
             
             /// <summary>
             /// Enum ProfileLimitReached for value: ProfileLimitReached
             /// </summary>
             [EnumMember(Value = "ProfileLimitReached")]
-            ProfileLimitReached = 6,
+            ProfileLimitReached = 7,
             
             /// <summary>
-            /// Enum CouponRecipientDoesNotMatch for value: CouponRecipientDoesNotMatch
+            /// Enum ReferralRecipientDoesNotMatch for value: ReferralRecipientDoesNotMatch
             /// </summary>
-            [EnumMember(Value = "CouponRecipientDoesNotMatch")]
-            CouponRecipientDoesNotMatch = 7,
+            [EnumMember(Value = "ReferralRecipientDoesNotMatch")]
+            ReferralRecipientDoesNotMatch = 8,
             
             /// <summary>
-            /// Enum CouponExpired for value: CouponExpired
+            /// Enum ReferralExpired for value: ReferralExpired
             /// </summary>
-            [EnumMember(Value = "CouponExpired")]
-            CouponExpired = 8,
+            [EnumMember(Value = "ReferralExpired")]
+            ReferralExpired = 9,
             
             /// <summary>
-            /// Enum CouponStartDateInFuture for value: CouponStartDateInFuture
+            /// Enum ReferralStartDateInFuture for value: ReferralStartDateInFuture
             /// </summary>
-            [EnumMember(Value = "CouponStartDateInFuture")]
-            CouponStartDateInFuture = 9,
+            [EnumMember(Value = "ReferralStartDateInFuture")]
+            ReferralStartDateInFuture = 10,
             
             /// <summary>
-            /// Enum CouponRejectedByCondition for value: CouponRejectedByCondition
+            /// Enum ReferralRejectedByCondition for value: ReferralRejectedByCondition
             /// </summary>
-            [EnumMember(Value = "CouponRejectedByCondition")]
-            CouponRejectedByCondition = 10,
+            [EnumMember(Value = "ReferralRejectedByCondition")]
+            ReferralRejectedByCondition = 11,
             
             /// <summary>
             /// Enum EffectCouldNotBeApplied for value: EffectCouldNotBeApplied
             /// </summary>
             [EnumMember(Value = "EffectCouldNotBeApplied")]
-            EffectCouldNotBeApplied = 11
+            EffectCouldNotBeApplied = 12
         }
 
         /// <summary>
@@ -110,40 +116,40 @@ namespace TalonOne.Model
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public ReasonEnum Reason { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CouponRejectionReason" /> class.
+        /// Initializes a new instance of the <see cref="ReferralRejectionReason" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CouponRejectionReason() { }
+        protected ReferralRejectionReason() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CouponRejectionReason" /> class.
+        /// Initializes a new instance of the <see cref="ReferralRejectionReason" /> class.
         /// </summary>
         /// <param name="campaignId">campaignId (required).</param>
-        /// <param name="couponId">couponId (required).</param>
+        /// <param name="referralId">referralId (required).</param>
         /// <param name="reason">reason (required).</param>
-        public CouponRejectionReason(int? campaignId = default(int?), int? couponId = default(int?), ReasonEnum reason = default(ReasonEnum))
+        public ReferralRejectionReason(int? campaignId = default(int?), int? referralId = default(int?), ReasonEnum reason = default(ReasonEnum))
         {
             // to ensure "campaignId" is required (not null)
             if (campaignId == null)
             {
-                throw new InvalidDataException("campaignId is a required property for CouponRejectionReason and cannot be null");
+                throw new InvalidDataException("campaignId is a required property for ReferralRejectionReason and cannot be null");
             }
             else
             {
                 this.CampaignId = campaignId;
             }
-            // to ensure "couponId" is required (not null)
-            if (couponId == null)
+            // to ensure "referralId" is required (not null)
+            if (referralId == null)
             {
-                throw new InvalidDataException("couponId is a required property for CouponRejectionReason and cannot be null");
+                throw new InvalidDataException("referralId is a required property for ReferralRejectionReason and cannot be null");
             }
             else
             {
-                this.CouponId = couponId;
+                this.ReferralId = referralId;
             }
             // to ensure "reason" is required (not null)
             if (reason == null)
             {
-                throw new InvalidDataException("reason is a required property for CouponRejectionReason and cannot be null");
+                throw new InvalidDataException("reason is a required property for ReferralRejectionReason and cannot be null");
             }
             else
             {
@@ -158,10 +164,10 @@ namespace TalonOne.Model
         public int? CampaignId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CouponId
+        /// Gets or Sets ReferralId
         /// </summary>
-        [DataMember(Name="couponId", EmitDefaultValue=false)]
-        public int? CouponId { get; set; }
+        [DataMember(Name="referralId", EmitDefaultValue=false)]
+        public int? ReferralId { get; set; }
 
 
         /// <summary>
@@ -171,9 +177,9 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CouponRejectionReason {\n");
+            sb.Append("class ReferralRejectionReason {\n");
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
-            sb.Append("  CouponId: ").Append(CouponId).Append("\n");
+            sb.Append("  ReferralId: ").Append(ReferralId).Append("\n");
             sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -195,15 +201,15 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CouponRejectionReason);
+            return this.Equals(input as ReferralRejectionReason);
         }
 
         /// <summary>
-        /// Returns true if CouponRejectionReason instances are equal
+        /// Returns true if ReferralRejectionReason instances are equal
         /// </summary>
-        /// <param name="input">Instance of CouponRejectionReason to be compared</param>
+        /// <param name="input">Instance of ReferralRejectionReason to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CouponRejectionReason input)
+        public bool Equals(ReferralRejectionReason input)
         {
             if (input == null)
                 return false;
@@ -215,9 +221,9 @@ namespace TalonOne.Model
                     this.CampaignId.Equals(input.CampaignId))
                 ) && 
                 (
-                    this.CouponId == input.CouponId ||
-                    (this.CouponId != null &&
-                    this.CouponId.Equals(input.CouponId))
+                    this.ReferralId == input.ReferralId ||
+                    (this.ReferralId != null &&
+                    this.ReferralId.Equals(input.ReferralId))
                 ) && 
                 (
                     this.Reason == input.Reason ||
@@ -237,8 +243,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.CampaignId != null)
                     hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
-                if (this.CouponId != null)
-                    hashCode = hashCode * 59 + this.CouponId.GetHashCode();
+                if (this.ReferralId != null)
+                    hashCode = hashCode * 59 + this.ReferralId.GetHashCode();
                 if (this.Reason != null)
                     hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 return hashCode;

@@ -36,11 +36,13 @@ namespace TalonOne.Model
         /// <param name="pointer">Pointer to the path in the payload that caused this error..</param>
         /// <param name="_parameter">Query parameter that caused this error..</param>
         /// <param name="line">Line number in uploaded multipart file that caused this error. &#39;N/A&#39; if unknown..</param>
-        public ErrorSource(string pointer = default(string), string _parameter = default(string), string line = default(string))
+        /// <param name="resource">Pointer to the resource that caused this error.</param>
+        public ErrorSource(string pointer = default(string), string _parameter = default(string), string line = default(string), string resource = default(string))
         {
             this.Pointer = pointer;
             this.Parameter = _parameter;
             this.Line = line;
+            this.Resource = resource;
         }
         
         /// <summary>
@@ -65,6 +67,13 @@ namespace TalonOne.Model
         public string Line { get; set; }
 
         /// <summary>
+        /// Pointer to the resource that caused this error
+        /// </summary>
+        /// <value>Pointer to the resource that caused this error</value>
+        [DataMember(Name="resource", EmitDefaultValue=false)]
+        public string Resource { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -75,6 +84,7 @@ namespace TalonOne.Model
             sb.Append("  Pointer: ").Append(Pointer).Append("\n");
             sb.Append("  Parameter: ").Append(Parameter).Append("\n");
             sb.Append("  Line: ").Append(Line).Append("\n");
+            sb.Append("  Resource: ").Append(Resource).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,6 +133,11 @@ namespace TalonOne.Model
                     this.Line == input.Line ||
                     (this.Line != null &&
                     this.Line.Equals(input.Line))
+                ) && 
+                (
+                    this.Resource == input.Resource ||
+                    (this.Resource != null &&
+                    this.Resource.Equals(input.Resource))
                 );
         }
 
@@ -141,6 +156,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Parameter.GetHashCode();
                 if (this.Line != null)
                     hashCode = hashCode * 59 + this.Line.GetHashCode();
+                if (this.Resource != null)
+                    hashCode = hashCode * 59 + this.Resource.GetHashCode();
                 return hashCode;
             }
         }

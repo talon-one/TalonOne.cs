@@ -91,6 +91,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'CouponRejectionReason'
         }
         /// <summary>
+        /// Test the property 'ReferralRejectionReason'
+        /// </summary>
+        [Test]
+        public void ReferralRejectionReasonTest()
+        {
+            // TODO unit test for the property 'ReferralRejectionReason'
+        }
+        /// <summary>
         /// Test the property 'Warnings'
         /// </summary>
         [Test]

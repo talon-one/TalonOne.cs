@@ -154,22 +154,6 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Editable'
         }
-        /// <summary>
-        /// Test the property 'Locked'
-        /// </summary>
-        [Test]
-        public void LockedTest()
-        {
-            // TODO unit test for the property 'Locked'
-        }
-        /// <summary>
-        /// Test the property 'UsedAt'
-        /// </summary>
-        [Test]
-        public void UsedAtTest()
-        {
-            // TODO unit test for the property 'UsedAt'
-        }
 
     }
 

@@ -74,7 +74,8 @@ namespace TalonOne.Model
         /// <param name="releaseUpdate">Update the user via email.</param>
         /// <param name="latestFeature">The latest feature you&#39;ve been notified..</param>
         /// <param name="roles">Update.</param>
-        public UpdateUser(string email = default(string), string name = default(string), string password = default(string), string newPassword = default(string), string policy = default(string), StateEnum? state = default(StateEnum?), bool? releaseUpdate = default(bool?), string latestFeature = default(string), List<int?> roles = default(List<int?>))
+        /// <param name="applicationNotificationSubscriptions">applicationNotificationSubscriptions.</param>
+        public UpdateUser(string email = default(string), string name = default(string), string password = default(string), string newPassword = default(string), string policy = default(string), StateEnum? state = default(StateEnum?), bool? releaseUpdate = default(bool?), string latestFeature = default(string), List<int?> roles = default(List<int?>), Object applicationNotificationSubscriptions = default(Object))
         {
             // to ensure "email" is required (not null)
             if (email == null)
@@ -93,6 +94,7 @@ namespace TalonOne.Model
             this.ReleaseUpdate = releaseUpdate;
             this.LatestFeature = latestFeature;
             this.Roles = roles;
+            this.ApplicationNotificationSubscriptions = applicationNotificationSubscriptions;
         }
         
         /// <summary>
@@ -153,6 +155,12 @@ namespace TalonOne.Model
         public List<int?> Roles { get; set; }
 
         /// <summary>
+        /// Gets or Sets ApplicationNotificationSubscriptions
+        /// </summary>
+        [DataMember(Name="applicationNotificationSubscriptions", EmitDefaultValue=false)]
+        public Object ApplicationNotificationSubscriptions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -169,6 +177,7 @@ namespace TalonOne.Model
             sb.Append("  ReleaseUpdate: ").Append(ReleaseUpdate).Append("\n");
             sb.Append("  LatestFeature: ").Append(LatestFeature).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
+            sb.Append("  ApplicationNotificationSubscriptions: ").Append(ApplicationNotificationSubscriptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -247,6 +256,11 @@ namespace TalonOne.Model
                     this.Roles == input.Roles ||
                     this.Roles != null &&
                     this.Roles.SequenceEqual(input.Roles)
+                ) && 
+                (
+                    this.ApplicationNotificationSubscriptions == input.ApplicationNotificationSubscriptions ||
+                    (this.ApplicationNotificationSubscriptions != null &&
+                    this.ApplicationNotificationSubscriptions.Equals(input.ApplicationNotificationSubscriptions))
                 );
         }
 
@@ -277,6 +291,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.LatestFeature.GetHashCode();
                 if (this.Roles != null)
                     hashCode = hashCode * 59 + this.Roles.GetHashCode();
+                if (this.ApplicationNotificationSubscriptions != null)
+                    hashCode = hashCode * 59 + this.ApplicationNotificationSubscriptions.GetHashCode();
                 return hashCode;
             }
         }

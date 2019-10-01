@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **ReleaseUpdate** | **bool?** | Update the user via email | 
 **LatestFeature** | **string** | Latest feature the user has been notified. | [optional] 
 **Roles** | **List&lt;int?&gt;** | Contains a list of all roles a user is a memeber of | [optional] 
+**ApplicationNotificationSubscriptions** | **Object** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
