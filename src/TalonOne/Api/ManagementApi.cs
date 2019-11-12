@@ -1014,8 +1014,13 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>InlineResponse20025</returns>
-        InlineResponse20025 GetChanges (int? pageSize = null, int? skip = null, string sort = null);
+        InlineResponse20025 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null);
 
         /// <summary>
         /// Get audit log for an account
@@ -1027,8 +1032,13 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20025</returns>
-        ApiResponse<InlineResponse20025> GetChangesWithHttpInfo (int? pageSize = null, int? skip = null, string sort = null);
+        ApiResponse<InlineResponse20025> GetChangesWithHttpInfo (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null);
         /// <summary>
         /// List Coupons
         /// </summary>
@@ -3314,8 +3324,13 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>Task of InlineResponse20025</returns>
-        System.Threading.Tasks.Task<InlineResponse20025> GetChangesAsync (int? pageSize = null, int? skip = null, string sort = null);
+        System.Threading.Tasks.Task<InlineResponse20025> GetChangesAsync (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null);
 
         /// <summary>
         /// Get audit log for an account
@@ -3327,8 +3342,13 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetChangesAsyncWithHttpInfo (int? pageSize = null, int? skip = null, string sort = null);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetChangesAsyncWithHttpInfo (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null);
         /// <summary>
         /// List Coupons
         /// </summary>
@@ -10897,10 +10917,15 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>InlineResponse20025</returns>
-        public InlineResponse20025 GetChanges (int? pageSize = null, int? skip = null, string sort = null)
+        public InlineResponse20025 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
         {
-             ApiResponse<InlineResponse20025> localVarResponse = GetChangesWithHttpInfo(pageSize, skip, sort);
+             ApiResponse<InlineResponse20025> localVarResponse = GetChangesWithHttpInfo(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
              return localVarResponse.Data;
         }
 
@@ -10911,8 +10936,13 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20025</returns>
-        public ApiResponse< InlineResponse20025 > GetChangesWithHttpInfo (int? pageSize = null, int? skip = null, string sort = null)
+        public ApiResponse< InlineResponse20025 > GetChangesWithHttpInfo (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
         {
 
             var localVarPath = "/v1/changes";
@@ -10940,6 +10970,11 @@ namespace TalonOne.Api
             if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (withTotalResultSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "withTotalResultSize", withTotalResultSize)); // query parameter
+            if (includeOld != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeOld", includeOld)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -10972,10 +11007,15 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>Task of InlineResponse20025</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20025> GetChangesAsync (int? pageSize = null, int? skip = null, string sort = null)
+        public async System.Threading.Tasks.Task<InlineResponse20025> GetChangesAsync (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
         {
-             ApiResponse<InlineResponse20025> localVarResponse = await GetChangesAsyncWithHttpInfo(pageSize, skip, sort);
+             ApiResponse<InlineResponse20025> localVarResponse = await GetChangesAsyncWithHttpInfo(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
              return localVarResponse.Data;
 
         }
@@ -10987,8 +11027,13 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetChangesAsyncWithHttpInfo (int? pageSize = null, int? skip = null, string sort = null)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetChangesAsyncWithHttpInfo (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
         {
 
             var localVarPath = "/v1/changes";
@@ -11016,6 +11061,11 @@ namespace TalonOne.Api
             if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (withTotalResultSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "withTotalResultSize", withTotalResultSize)); // query parameter
+            if (includeOld != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "includeOld", includeOld)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))

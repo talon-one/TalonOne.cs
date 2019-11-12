@@ -84,7 +84,8 @@ namespace TalonOne.Model
         /// <param name="latestFeature">Latest feature the user has been notified..</param>
         /// <param name="roles">Contains a list of all roles a user is a memeber of.</param>
         /// <param name="applicationNotificationSubscriptions">applicationNotificationSubscriptions.</param>
-        public User(int? id = default(int?), DateTime? created = default(DateTime?), DateTime? modified = default(DateTime?), string email = default(string), int? accountId = default(int?), string inviteToken = default(string), StateEnum state = default(StateEnum), string name = default(string), string policy = default(string), bool? releaseUpdate = default(bool?), string latestFeature = default(string), List<int?> roles = default(List<int?>), Object applicationNotificationSubscriptions = default(Object))
+        /// <param name="authMethod">The Authentication method for this user.</param>
+        public User(int? id = default(int?), DateTime? created = default(DateTime?), DateTime? modified = default(DateTime?), string email = default(string), int? accountId = default(int?), string inviteToken = default(string), StateEnum state = default(StateEnum), string name = default(string), string policy = default(string), bool? releaseUpdate = default(bool?), string latestFeature = default(string), List<int?> roles = default(List<int?>), Object applicationNotificationSubscriptions = default(Object), string authMethod = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -179,6 +180,7 @@ namespace TalonOne.Model
             this.LatestFeature = latestFeature;
             this.Roles = roles;
             this.ApplicationNotificationSubscriptions = applicationNotificationSubscriptions;
+            this.AuthMethod = authMethod;
         }
         
         /// <summary>
@@ -266,6 +268,13 @@ namespace TalonOne.Model
         public Object ApplicationNotificationSubscriptions { get; set; }
 
         /// <summary>
+        /// The Authentication method for this user
+        /// </summary>
+        /// <value>The Authentication method for this user</value>
+        [DataMember(Name="authMethod", EmitDefaultValue=false)]
+        public string AuthMethod { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -286,6 +295,7 @@ namespace TalonOne.Model
             sb.Append("  LatestFeature: ").Append(LatestFeature).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
             sb.Append("  ApplicationNotificationSubscriptions: ").Append(ApplicationNotificationSubscriptions).Append("\n");
+            sb.Append("  AuthMethod: ").Append(AuthMethod).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -384,6 +394,11 @@ namespace TalonOne.Model
                     this.ApplicationNotificationSubscriptions == input.ApplicationNotificationSubscriptions ||
                     (this.ApplicationNotificationSubscriptions != null &&
                     this.ApplicationNotificationSubscriptions.Equals(input.ApplicationNotificationSubscriptions))
+                ) && 
+                (
+                    this.AuthMethod == input.AuthMethod ||
+                    (this.AuthMethod != null &&
+                    this.AuthMethod.Equals(input.AuthMethod))
                 );
         }
 
@@ -422,6 +437,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Roles.GetHashCode();
                 if (this.ApplicationNotificationSubscriptions != null)
                     hashCode = hashCode * 59 + this.ApplicationNotificationSubscriptions.GetHashCode();
+                if (this.AuthMethod != null)
+                    hashCode = hashCode * 59 + this.AuthMethod.GetHashCode();
                 return hashCode;
             }
         }

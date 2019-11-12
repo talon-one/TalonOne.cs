@@ -240,7 +240,7 @@ namespace TalonOne.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Type (string) minLength
-            if(this.Type != null)
+            if(this.Type != default(TypeEnum))
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }

@@ -12,7 +12,7 @@ OpenAPI spec version: 1.0.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7A7015F8-E594-4F70-AC3C-4B8E2B05BC76}</ProjectGuid>
+    <ProjectGuid>{9488BCE0-5E86-454A-9181-9AB2E7D3F3BF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TalonOne</RootNamespace>

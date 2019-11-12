@@ -219,6 +219,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'DiscountCount'
         }
         /// <summary>
+        /// Test the property 'DiscountEffectCount'
+        /// </summary>
+        [Test]
+        public void DiscountEffectCountTest()
+        {
+            // TODO unit test for the property 'DiscountEffectCount'
+        }
+        /// <summary>
+        /// Test the property 'CouponCreationCount'
+        /// </summary>
+        [Test]
+        public void CouponCreationCountTest()
+        {
+            // TODO unit test for the property 'CouponCreationCount'
+        }
+        /// <summary>
         /// Test the property 'LastActivity'
         /// </summary>
         [Test]

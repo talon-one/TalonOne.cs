@@ -115,14 +115,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Description'
         }
         /// <summary>
-        /// Test the property 'Key'
-        /// </summary>
-        [Test]
-        public void KeyTest()
-        {
-            // TODO unit test for the property 'Key'
-        }
-        /// <summary>
         /// Test the property 'Timezone'
         /// </summary>
         [Test]
@@ -161,6 +153,14 @@ namespace TalonOne.Test
         public void LimitsTest()
         {
             // TODO unit test for the property 'Limits'
+        }
+        /// <summary>
+        /// Test the property 'Key'
+        /// </summary>
+        [Test]
+        public void KeyTest()
+        {
+            // TODO unit test for the property 'Key'
         }
         /// <summary>
         /// Test the property 'LoyaltyPrograms'

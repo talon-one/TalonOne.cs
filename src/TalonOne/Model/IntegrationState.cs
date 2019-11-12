@@ -42,7 +42,8 @@ namespace TalonOne.Model
         /// <param name="profile">profile (required).</param>
         /// <param name="_event">_event (required).</param>
         /// <param name="loyalty">loyalty.</param>
-        public IntegrationState(CustomerSession session = default(CustomerSession), CustomerProfile profile = default(CustomerProfile), Event _event = default(Event), Loyalty loyalty = default(Loyalty))
+        /// <param name="coupon">coupon.</param>
+        public IntegrationState(CustomerSession session = default(CustomerSession), CustomerProfile profile = default(CustomerProfile), Event _event = default(Event), Loyalty loyalty = default(Loyalty), Coupon coupon = default(Coupon))
         {
             // to ensure "session" is required (not null)
             if (session == null)
@@ -72,6 +73,7 @@ namespace TalonOne.Model
                 this.Event = _event;
             }
             this.Loyalty = loyalty;
+            this.Coupon = coupon;
         }
         
         /// <summary>
@@ -99,6 +101,12 @@ namespace TalonOne.Model
         public Loyalty Loyalty { get; set; }
 
         /// <summary>
+        /// Gets or Sets Coupon
+        /// </summary>
+        [DataMember(Name="coupon", EmitDefaultValue=false)]
+        public Coupon Coupon { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -110,6 +118,7 @@ namespace TalonOne.Model
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  Event: ").Append(Event).Append("\n");
             sb.Append("  Loyalty: ").Append(Loyalty).Append("\n");
+            sb.Append("  Coupon: ").Append(Coupon).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -163,6 +172,11 @@ namespace TalonOne.Model
                     this.Loyalty == input.Loyalty ||
                     (this.Loyalty != null &&
                     this.Loyalty.Equals(input.Loyalty))
+                ) && 
+                (
+                    this.Coupon == input.Coupon ||
+                    (this.Coupon != null &&
+                    this.Coupon.Equals(input.Coupon))
                 );
         }
 
@@ -183,6 +197,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Event.GetHashCode();
                 if (this.Loyalty != null)
                     hashCode = hashCode * 59 + this.Loyalty.GetHashCode();
+                if (this.Coupon != null)
+                    hashCode = hashCode * 59 + this.Coupon.GetHashCode();
                 return hashCode;
             }
         }

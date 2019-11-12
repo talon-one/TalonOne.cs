@@ -73,13 +73,13 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">The name of this application. (required).</param>
         /// <param name="description">A longer description of the application..</param>
-        /// <param name="key">Hex key for HMAC-signing API calls as coming from this application (16 hex digits) (required).</param>
         /// <param name="timezone">A string containing an IANA timezone descriptor. (required).</param>
         /// <param name="currency">A string describing a default currency for new customer sessions. (required).</param>
         /// <param name="caseSensitivity">A string indicating how should campaigns in this application deal with case sensitivity on coupon codes..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         /// <param name="limits">Default limits for campaigns created in this application.</param>
-        public NewApplication(string name = default(string), string description = default(string), string key = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>))
+        /// <param name="key">Hex key for HMAC-signing API calls as coming from this application (16 hex digits).</param>
+        public NewApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), string key = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -89,15 +89,6 @@ namespace TalonOne.Model
             else
             {
                 this.Name = name;
-            }
-            // to ensure "key" is required (not null)
-            if (key == null)
-            {
-                throw new InvalidDataException("key is a required property for NewApplication and cannot be null");
-            }
-            else
-            {
-                this.Key = key;
             }
             // to ensure "timezone" is required (not null)
             if (timezone == null)
@@ -121,6 +112,7 @@ namespace TalonOne.Model
             this.CaseSensitivity = caseSensitivity;
             this.Attributes = attributes;
             this.Limits = limits;
+            this.Key = key;
         }
         
         /// <summary>
@@ -136,13 +128,6 @@ namespace TalonOne.Model
         /// <value>A longer description of the application.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
-
-        /// <summary>
-        /// Hex key for HMAC-signing API calls as coming from this application (16 hex digits)
-        /// </summary>
-        /// <value>Hex key for HMAC-signing API calls as coming from this application (16 hex digits)</value>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
 
         /// <summary>
         /// A string containing an IANA timezone descriptor.
@@ -174,6 +159,13 @@ namespace TalonOne.Model
         public List<LimitConfig> Limits { get; set; }
 
         /// <summary>
+        /// Hex key for HMAC-signing API calls as coming from this application (16 hex digits)
+        /// </summary>
+        /// <value>Hex key for HMAC-signing API calls as coming from this application (16 hex digits)</value>
+        [DataMember(Name="key", EmitDefaultValue=false)]
+        public string Key { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -183,12 +175,12 @@ namespace TalonOne.Model
             sb.Append("class NewApplication {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("  CaseSensitivity: ").Append(CaseSensitivity).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
+            sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -234,11 +226,6 @@ namespace TalonOne.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
-                ) && 
-                (
                     this.Timezone == input.Timezone ||
                     (this.Timezone != null &&
                     this.Timezone.Equals(input.Timezone))
@@ -262,6 +249,11 @@ namespace TalonOne.Model
                     this.Limits == input.Limits ||
                     this.Limits != null &&
                     this.Limits.SequenceEqual(input.Limits)
+                ) && 
+                (
+                    this.Key == input.Key ||
+                    (this.Key != null &&
+                    this.Key.Equals(input.Key))
                 );
         }
 
@@ -278,8 +270,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
                 if (this.Timezone != null)
                     hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 if (this.Currency != null)
@@ -290,6 +280,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
+                if (this.Key != null)
+                    hashCode = hashCode * 59 + this.Key.GetHashCode();
                 return hashCode;
             }
         }
@@ -305,6 +297,18 @@ namespace TalonOne.Model
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+            }
+
+            // Timezone (string) minLength
+            if(this.Timezone != null && this.Timezone.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Timezone, length must be greater than 1.", new [] { "Timezone" });
+            }
+
+            // Currency (string) minLength
+            if(this.Currency != null && this.Currency.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
             }
 
             // Key (string) maxLength
@@ -324,18 +328,6 @@ namespace TalonOne.Model
             if (false == regexKey.Match(this.Key).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, must match a pattern of " + regexKey, new [] { "Key" });
-            }
-
-            // Timezone (string) minLength
-            if(this.Timezone != null && this.Timezone.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Timezone, length must be greater than 1.", new [] { "Timezone" });
-            }
-
-            // Currency (string) minLength
-            if(this.Currency != null && this.Currency.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
             }
 
             yield break;
