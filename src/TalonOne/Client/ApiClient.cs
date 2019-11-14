@@ -134,7 +134,8 @@ namespace TalonOne.Client
             // add file parameter, if any
             foreach(var param in fileParams)
             {
-                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentType);
+                // This line was adjusted to fit to the RestSharp@106 version
+                request.AddFile(param.Value.Name, param.Value.Writer, param.Value.FileName, param.Value.ContentLength, param.Value.ContentType);
             }
 
             if (postBody != null) // http body (model or byte[]) parameter
