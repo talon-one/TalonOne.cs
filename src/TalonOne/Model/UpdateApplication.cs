@@ -25,10 +25,10 @@ using SwaggerDateConverter = TalonOne.Client.SwaggerDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Application
+    /// UpdateApplication
     /// </summary>
     [DataContract]
-    public partial class Application :  IEquatable<Application>, IValidatableObject
+    public partial class UpdateApplication :  IEquatable<UpdateApplication>, IValidatableObject
     {
         /// <summary>
         /// A string indicating how should campaigns in this application deal with case sensitivity on coupon codes.
@@ -64,17 +64,13 @@ namespace TalonOne.Model
         [DataMember(Name="caseSensitivity", EmitDefaultValue=false)]
         public CaseSensitivityEnum? CaseSensitivity { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Application" /> class.
+        /// Initializes a new instance of the <see cref="UpdateApplication" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected Application() { }
+        protected UpdateApplication() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Application" /> class.
+        /// Initializes a new instance of the <see cref="UpdateApplication" /> class.
         /// </summary>
-        /// <param name="id">Unique ID for this entity. (required).</param>
-        /// <param name="created">The exact moment this entity was created. (required).</param>
-        /// <param name="modified">The exact moment this entity was last modified. (required).</param>
-        /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="name">The name of this application. (required).</param>
         /// <param name="description">A longer description of the application..</param>
         /// <param name="timezone">A string containing an IANA timezone descriptor. (required).</param>
@@ -82,50 +78,12 @@ namespace TalonOne.Model
         /// <param name="caseSensitivity">A string indicating how should campaigns in this application deal with case sensitivity on coupon codes..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         /// <param name="limits">Default limits for campaigns created in this application.</param>
-        /// <param name="key">Hex key for HMAC-signing API calls as coming from this application (16 hex digits) (required).</param>
-        /// <param name="loyaltyPrograms">An array containing all the loyalty programs to which this application is subscribed (required).</param>
-        public Application(int? id = default(int?), DateTime? created = default(DateTime?), DateTime? modified = default(DateTime?), int? accountId = default(int?), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), string key = default(string), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>))
+        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>))
         {
-            // to ensure "id" is required (not null)
-            if (id == null)
-            {
-                throw new InvalidDataException("id is a required property for Application and cannot be null");
-            }
-            else
-            {
-                this.Id = id;
-            }
-            // to ensure "created" is required (not null)
-            if (created == null)
-            {
-                throw new InvalidDataException("created is a required property for Application and cannot be null");
-            }
-            else
-            {
-                this.Created = created;
-            }
-            // to ensure "modified" is required (not null)
-            if (modified == null)
-            {
-                throw new InvalidDataException("modified is a required property for Application and cannot be null");
-            }
-            else
-            {
-                this.Modified = modified;
-            }
-            // to ensure "accountId" is required (not null)
-            if (accountId == null)
-            {
-                throw new InvalidDataException("accountId is a required property for Application and cannot be null");
-            }
-            else
-            {
-                this.AccountId = accountId;
-            }
             // to ensure "name" is required (not null)
             if (name == null)
             {
-                throw new InvalidDataException("name is a required property for Application and cannot be null");
+                throw new InvalidDataException("name is a required property for UpdateApplication and cannot be null");
             }
             else
             {
@@ -134,7 +92,7 @@ namespace TalonOne.Model
             // to ensure "timezone" is required (not null)
             if (timezone == null)
             {
-                throw new InvalidDataException("timezone is a required property for Application and cannot be null");
+                throw new InvalidDataException("timezone is a required property for UpdateApplication and cannot be null");
             }
             else
             {
@@ -143,29 +101,11 @@ namespace TalonOne.Model
             // to ensure "currency" is required (not null)
             if (currency == null)
             {
-                throw new InvalidDataException("currency is a required property for Application and cannot be null");
+                throw new InvalidDataException("currency is a required property for UpdateApplication and cannot be null");
             }
             else
             {
                 this.Currency = currency;
-            }
-            // to ensure "key" is required (not null)
-            if (key == null)
-            {
-                throw new InvalidDataException("key is a required property for Application and cannot be null");
-            }
-            else
-            {
-                this.Key = key;
-            }
-            // to ensure "loyaltyPrograms" is required (not null)
-            if (loyaltyPrograms == null)
-            {
-                throw new InvalidDataException("loyaltyPrograms is a required property for Application and cannot be null");
-            }
-            else
-            {
-                this.LoyaltyPrograms = loyaltyPrograms;
             }
             this.Description = description;
             this.CaseSensitivity = caseSensitivity;
@@ -173,34 +113,6 @@ namespace TalonOne.Model
             this.Limits = limits;
         }
         
-        /// <summary>
-        /// Unique ID for this entity.
-        /// </summary>
-        /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public int? Id { get; set; }
-
-        /// <summary>
-        /// The exact moment this entity was created.
-        /// </summary>
-        /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
-        public DateTime? Created { get; set; }
-
-        /// <summary>
-        /// The exact moment this entity was last modified.
-        /// </summary>
-        /// <value>The exact moment this entity was last modified.</value>
-        [DataMember(Name="modified", EmitDefaultValue=false)]
-        public DateTime? Modified { get; set; }
-
-        /// <summary>
-        /// The ID of the account that owns this entity.
-        /// </summary>
-        /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int? AccountId { get; set; }
-
         /// <summary>
         /// The name of this application.
         /// </summary>
@@ -245,31 +157,13 @@ namespace TalonOne.Model
         public List<LimitConfig> Limits { get; set; }
 
         /// <summary>
-        /// Hex key for HMAC-signing API calls as coming from this application (16 hex digits)
-        /// </summary>
-        /// <value>Hex key for HMAC-signing API calls as coming from this application (16 hex digits)</value>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
-
-        /// <summary>
-        /// An array containing all the loyalty programs to which this application is subscribed
-        /// </summary>
-        /// <value>An array containing all the loyalty programs to which this application is subscribed</value>
-        [DataMember(Name="loyaltyPrograms", EmitDefaultValue=false)]
-        public List<LoyaltyProgram> LoyaltyPrograms { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Application {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Created: ").Append(Created).Append("\n");
-            sb.Append("  Modified: ").Append(Modified).Append("\n");
-            sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            sb.Append("class UpdateApplication {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
@@ -277,8 +171,6 @@ namespace TalonOne.Model
             sb.Append("  CaseSensitivity: ").Append(CaseSensitivity).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -299,40 +191,20 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Application);
+            return this.Equals(input as UpdateApplication);
         }
 
         /// <summary>
-        /// Returns true if Application instances are equal
+        /// Returns true if UpdateApplication instances are equal
         /// </summary>
-        /// <param name="input">Instance of Application to be compared</param>
+        /// <param name="input">Instance of UpdateApplication to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Application input)
+        public bool Equals(UpdateApplication input)
         {
             if (input == null)
                 return false;
 
             return 
-                (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
-                    this.Created == input.Created ||
-                    (this.Created != null &&
-                    this.Created.Equals(input.Created))
-                ) && 
-                (
-                    this.Modified == input.Modified ||
-                    (this.Modified != null &&
-                    this.Modified.Equals(input.Modified))
-                ) && 
-                (
-                    this.AccountId == input.AccountId ||
-                    (this.AccountId != null &&
-                    this.AccountId.Equals(input.AccountId))
-                ) && 
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
@@ -367,16 +239,6 @@ namespace TalonOne.Model
                     this.Limits == input.Limits ||
                     this.Limits != null &&
                     this.Limits.SequenceEqual(input.Limits)
-                ) && 
-                (
-                    this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
-                ) && 
-                (
-                    this.LoyaltyPrograms == input.LoyaltyPrograms ||
-                    this.LoyaltyPrograms != null &&
-                    this.LoyaltyPrograms.SequenceEqual(input.LoyaltyPrograms)
                 );
         }
 
@@ -389,14 +251,6 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Created != null)
-                    hashCode = hashCode * 59 + this.Created.GetHashCode();
-                if (this.Modified != null)
-                    hashCode = hashCode * 59 + this.Modified.GetHashCode();
-                if (this.AccountId != null)
-                    hashCode = hashCode * 59 + this.AccountId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
@@ -411,10 +265,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
-                if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
-                if (this.LoyaltyPrograms != null)
-                    hashCode = hashCode * 59 + this.LoyaltyPrograms.GetHashCode();
                 return hashCode;
             }
         }
@@ -442,25 +292,6 @@ namespace TalonOne.Model
             if(this.Currency != null && this.Currency.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
-            }
-
-            // Key (string) maxLength
-            if(this.Key != null && this.Key.Length > 16)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, length must be less than 16.", new [] { "Key" });
-            }
-
-            // Key (string) minLength
-            if(this.Key != null && this.Key.Length < 16)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, length must be greater than 16.", new [] { "Key" });
-            }
-
-            // Key (string) pattern
-            Regex regexKey = new Regex(@"^[a-fA-F0-9]{16}$", RegexOptions.CultureInvariant);
-            if (false == regexKey.Match(this.Key).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, must match a pattern of " + regexKey, new [] { "Key" });
             }
 
             yield break;

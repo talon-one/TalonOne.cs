@@ -60,7 +60,13 @@ namespace TalonOne.Model
             /// Enum CreateCoupon for value: createCoupon
             /// </summary>
             [EnumMember(Value = "createCoupon")]
-            CreateCoupon = 4
+            CreateCoupon = 4,
+            
+            /// <summary>
+            /// Enum SetDiscountEffect for value: setDiscountEffect
+            /// </summary>
+            [EnumMember(Value = "setDiscountEffect")]
+            SetDiscountEffect = 5
         }
 
         /// <summary>

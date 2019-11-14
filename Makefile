@@ -32,3 +32,11 @@ endif
 		mono:6 \
 		/bin/bash -c "nuget pack -Prop Configuration=Release -IncludeReferencedProjects -properties version=$(VERSION) && \
 			nuget push TalonOne.$(VERSION).nupkg $(apiKey) -Source https://api.nuget.org/v3/index.json"
+
+testenv:
+	docker run \
+		--rm -it \
+		-v $(PWD):/tmp/talon-client \
+		-w "/tmp/talon-client" \
+		mono:6 \
+		/bin/bash

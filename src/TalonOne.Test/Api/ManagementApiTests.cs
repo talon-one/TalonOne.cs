@@ -618,7 +618,12 @@ namespace TalonOne.Test
             //int? pageSize = null;
             //int? skip = null;
             //string sort = null;
-            //var response = instance.GetChanges(pageSize, skip, sort);
+            //int? applicationId = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
+            //bool? withTotalResultSize = null;
+            //bool? includeOld = null;
+            //var response = instance.GetChanges(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
             //Assert.IsInstanceOf<InlineResponse20025> (response, "response is InlineResponse20025");
         }
         

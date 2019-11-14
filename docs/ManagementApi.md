@@ -2636,7 +2636,7 @@ Name | Type | Description  | Notes
 
 <a name="getchanges"></a>
 # **GetChanges**
-> InlineResponse20025 GetChanges (int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20025 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
 
 Get audit log for an account
 
@@ -2665,11 +2665,16 @@ namespace Example
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var applicationId = 56;  // int? |  (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
+            var includeOld = true;  // bool? | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional) 
 
             try
             {
                 // Get audit log for an account
-                InlineResponse20025 result = apiInstance.GetChanges(pageSize, skip, sort);
+                InlineResponse20025 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2688,6 +2693,11 @@ Name | Type | Description  | Notes
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **applicationId** | **int?**|  | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+ **includeOld** | **bool?**| When this flag is set to false, the state without the change will not be returned. The default value is true. | [optional] 
 
 ### Return type
 
