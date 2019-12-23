@@ -91,6 +91,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'TotalCampaignRevenue'
         }
         /// <summary>
+        /// Test the property 'CampaignRefund'
+        /// </summary>
+        [Test]
+        public void CampaignRefundTest()
+        {
+            // TODO unit test for the property 'CampaignRefund'
+        }
+        /// <summary>
+        /// Test the property 'TotalCampaignRefund'
+        /// </summary>
+        [Test]
+        public void TotalCampaignRefundTest()
+        {
+            // TODO unit test for the property 'TotalCampaignRefund'
+        }
+        /// <summary>
         /// Test the property 'CampaignDiscountCosts'
         /// </summary>
         [Test]
@@ -105,6 +121,22 @@ namespace TalonOne.Test
         public void TotalCampaignDiscountCostsTest()
         {
             // TODO unit test for the property 'TotalCampaignDiscountCosts'
+        }
+        /// <summary>
+        /// Test the property 'CampaignRefundedDiscounts'
+        /// </summary>
+        [Test]
+        public void CampaignRefundedDiscountsTest()
+        {
+            // TODO unit test for the property 'CampaignRefundedDiscounts'
+        }
+        /// <summary>
+        /// Test the property 'TotalCampaignRefundedDiscounts'
+        /// </summary>
+        [Test]
+        public void TotalCampaignRefundedDiscountsTest()
+        {
+            // TODO unit test for the property 'TotalCampaignRefundedDiscounts'
         }
         /// <summary>
         /// Test the property 'CampaignFreeItems'
@@ -137,6 +169,22 @@ namespace TalonOne.Test
         public void TotalCouponRedemptionsTest()
         {
             // TODO unit test for the property 'TotalCouponRedemptions'
+        }
+        /// <summary>
+        /// Test the property 'CouponRolledbackRedemptions'
+        /// </summary>
+        [Test]
+        public void CouponRolledbackRedemptionsTest()
+        {
+            // TODO unit test for the property 'CouponRolledbackRedemptions'
+        }
+        /// <summary>
+        /// Test the property 'TotalCouponRolledbackRedemptions'
+        /// </summary>
+        [Test]
+        public void TotalCouponRolledbackRedemptionsTest()
+        {
+            // TODO unit test for the property 'TotalCouponRolledbackRedemptions'
         }
         /// <summary>
         /// Test the property 'ReferralRedemptions'

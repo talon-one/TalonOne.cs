@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**CreateReferral**](IntegrationApi.md#createreferral) | **POST** /v1/referrals | Create a referral code for an advocate
 [**DeleteCouponReservation**](IntegrationApi.md#deletecouponreservation) | **DELETE** /v1/coupon_reservations/{couponValue} | Delete coupon reservations
 [**DeleteCustomerData**](IntegrationApi.md#deletecustomerdata) | **DELETE** /v1/customer_data/{integrationId} | Delete the personal data of a customer.
+[**GetCustomerInventory**](IntegrationApi.md#getcustomerinventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | Get an inventory of all data associated with a specific customer profile.
 [**GetReservedCoupons**](IntegrationApi.md#getreservedcoupons) | **GET** /v1/coupon_reservations/coupons/{integrationId} | Get all valid reserved coupons
 [**GetReservedCustomers**](IntegrationApi.md#getreservedcustomers) | **GET** /v1/coupon_reservations/customerprofiles/{couponValue} | Get the users that have this coupon reserved
 [**TrackEvent**](IntegrationApi.md#trackevent) | **POST** /v1/events | Track an Event
@@ -285,6 +286,80 @@ Name | Type | Description  | Notes
 ### Return type
 
 void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [integration_auth](../README.md#integration_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcustomerinventory"></a>
+# **GetCustomerInventory**
+> CustomerInventory GetCustomerInventory (string integrationId, Object profile = null, Object referrals = null)
+
+Get an inventory of all data associated with a specific customer profile.
+
+Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetCustomerInventoryExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: api_key_v1
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: integration_auth
+            Configuration.Default.AddApiKey("Content-Signature", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Content-Signature", "Bearer");
+
+            var apiInstance = new IntegrationApi();
+            var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
+            var profile = new Object(); // Object | optional flag to decide if you would like customer profile information in the response (optional) 
+            var referrals = new Object(); // Object | optional flag to decide if you would like referral information in the response (optional) 
+
+            try
+            {
+                // Get an inventory of all data associated with a specific customer profile.
+                CustomerInventory result = apiInstance.GetCustomerInventory(integrationId, profile, referrals);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.GetCustomerInventory: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
+ **profile** | [**Object**](Object.md)| optional flag to decide if you would like customer profile information in the response | [optional] 
+ **referrals** | [**Object**](Object.md)| optional flag to decide if you would like referral information in the response | [optional] 
+
+### Return type
+
+[**CustomerInventory**](CustomerInventory.md)
 
 ### Authorization
 

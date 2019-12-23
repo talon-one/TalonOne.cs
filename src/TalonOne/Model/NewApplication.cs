@@ -78,8 +78,9 @@ namespace TalonOne.Model
         /// <param name="caseSensitivity">A string indicating how should campaigns in this application deal with case sensitivity on coupon codes..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         /// <param name="limits">Default limits for campaigns created in this application.</param>
+        /// <param name="attributesSettings">attributesSettings.</param>
         /// <param name="key">Hex key for HMAC-signing API calls as coming from this application (16 hex digits).</param>
-        public NewApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), string key = default(string))
+        public NewApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), AttributesSettings attributesSettings = default(AttributesSettings), string key = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -112,6 +113,7 @@ namespace TalonOne.Model
             this.CaseSensitivity = caseSensitivity;
             this.Attributes = attributes;
             this.Limits = limits;
+            this.AttributesSettings = attributesSettings;
             this.Key = key;
         }
         
@@ -159,6 +161,12 @@ namespace TalonOne.Model
         public List<LimitConfig> Limits { get; set; }
 
         /// <summary>
+        /// Gets or Sets AttributesSettings
+        /// </summary>
+        [DataMember(Name="attributesSettings", EmitDefaultValue=false)]
+        public AttributesSettings AttributesSettings { get; set; }
+
+        /// <summary>
         /// Hex key for HMAC-signing API calls as coming from this application (16 hex digits)
         /// </summary>
         /// <value>Hex key for HMAC-signing API calls as coming from this application (16 hex digits)</value>
@@ -180,6 +188,7 @@ namespace TalonOne.Model
             sb.Append("  CaseSensitivity: ").Append(CaseSensitivity).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
+            sb.Append("  AttributesSettings: ").Append(AttributesSettings).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -251,6 +260,11 @@ namespace TalonOne.Model
                     this.Limits.SequenceEqual(input.Limits)
                 ) && 
                 (
+                    this.AttributesSettings == input.AttributesSettings ||
+                    (this.AttributesSettings != null &&
+                    this.AttributesSettings.Equals(input.AttributesSettings))
+                ) && 
+                (
                     this.Key == input.Key ||
                     (this.Key != null &&
                     this.Key.Equals(input.Key))
@@ -280,6 +294,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
+                if (this.AttributesSettings != null)
+                    hashCode = hashCode * 59 + this.AttributesSettings.GetHashCode();
                 if (this.Key != null)
                     hashCode = hashCode * 59 + this.Key.GetHashCode();
                 return hashCode;

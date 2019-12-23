@@ -48,8 +48,9 @@ namespace TalonOne.Model
         /// <param name="webhooks">Total Number of allowed webhooks in the account (required).</param>
         /// <param name="users">Total Number of allowed users in the account (required).</param>
         /// <param name="apiVolume">Total allowed api volume (required).</param>
+        /// <param name="activeRules">Total allowed active rulesets.</param>
         /// <param name="promotionTypes">array of rulesets where webhook is used (required).</param>
-        public AccountLimits(int? liveApplications = default(int?), int? sandboxApplications = default(int?), int? activeCampaigns = default(int?), int? coupons = default(int?), int? referralCodes = default(int?), int? liveLoyaltyPrograms = default(int?), int? sandboxLoyaltyPrograms = default(int?), int? webhooks = default(int?), int? users = default(int?), int? apiVolume = default(int?), List<string> promotionTypes = default(List<string>))
+        public AccountLimits(int? liveApplications = default(int?), int? sandboxApplications = default(int?), int? activeCampaigns = default(int?), int? coupons = default(int?), int? referralCodes = default(int?), int? liveLoyaltyPrograms = default(int?), int? sandboxLoyaltyPrograms = default(int?), int? webhooks = default(int?), int? users = default(int?), int? apiVolume = default(int?), int? activeRules = default(int?), List<string> promotionTypes = default(List<string>))
         {
             // to ensure "liveApplications" is required (not null)
             if (liveApplications == null)
@@ -150,6 +151,7 @@ namespace TalonOne.Model
             {
                 this.PromotionTypes = promotionTypes;
             }
+            this.ActiveRules = activeRules;
         }
         
         /// <summary>
@@ -223,6 +225,13 @@ namespace TalonOne.Model
         public int? ApiVolume { get; set; }
 
         /// <summary>
+        /// Total allowed active rulesets
+        /// </summary>
+        /// <value>Total allowed active rulesets</value>
+        [DataMember(Name="activeRules", EmitDefaultValue=false)]
+        public int? ActiveRules { get; set; }
+
+        /// <summary>
         /// array of rulesets where webhook is used
         /// </summary>
         /// <value>array of rulesets where webhook is used</value>
@@ -247,6 +256,7 @@ namespace TalonOne.Model
             sb.Append("  Webhooks: ").Append(Webhooks).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
             sb.Append("  ApiVolume: ").Append(ApiVolume).Append("\n");
+            sb.Append("  ActiveRules: ").Append(ActiveRules).Append("\n");
             sb.Append("  PromotionTypes: ").Append(PromotionTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -333,6 +343,11 @@ namespace TalonOne.Model
                     this.ApiVolume.Equals(input.ApiVolume))
                 ) && 
                 (
+                    this.ActiveRules == input.ActiveRules ||
+                    (this.ActiveRules != null &&
+                    this.ActiveRules.Equals(input.ActiveRules))
+                ) && 
+                (
                     this.PromotionTypes == input.PromotionTypes ||
                     this.PromotionTypes != null &&
                     this.PromotionTypes.SequenceEqual(input.PromotionTypes)
@@ -368,6 +383,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Users.GetHashCode();
                 if (this.ApiVolume != null)
                     hashCode = hashCode * 59 + this.ApiVolume.GetHashCode();
+                if (this.ActiveRules != null)
+                    hashCode = hashCode * 59 + this.ActiveRules.GetHashCode();
                 if (this.PromotionTypes != null)
                     hashCode = hashCode * 59 + this.PromotionTypes.GetHashCode();
                 return hashCode;

@@ -115,6 +115,20 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test GetCustomerInventory
+        /// </summary>
+        [Test]
+        public void GetCustomerInventoryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string integrationId = null;
+            //Object profile = null;
+            //Object referrals = null;
+            //var response = instance.GetCustomerInventory(integrationId, profile, referrals);
+            //Assert.IsInstanceOf<CustomerInventory> (response, "response is CustomerInventory");
+        }
+        
+        /// <summary>
         /// Test GetReservedCoupons
         /// </summary>
         [Test]

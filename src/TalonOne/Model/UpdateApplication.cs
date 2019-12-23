@@ -78,7 +78,8 @@ namespace TalonOne.Model
         /// <param name="caseSensitivity">A string indicating how should campaigns in this application deal with case sensitivity on coupon codes..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         /// <param name="limits">Default limits for campaigns created in this application.</param>
-        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>))
+        /// <param name="attributesSettings">attributesSettings.</param>
+        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), AttributesSettings attributesSettings = default(AttributesSettings))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -111,6 +112,7 @@ namespace TalonOne.Model
             this.CaseSensitivity = caseSensitivity;
             this.Attributes = attributes;
             this.Limits = limits;
+            this.AttributesSettings = attributesSettings;
         }
         
         /// <summary>
@@ -157,6 +159,12 @@ namespace TalonOne.Model
         public List<LimitConfig> Limits { get; set; }
 
         /// <summary>
+        /// Gets or Sets AttributesSettings
+        /// </summary>
+        [DataMember(Name="attributesSettings", EmitDefaultValue=false)]
+        public AttributesSettings AttributesSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -171,6 +179,7 @@ namespace TalonOne.Model
             sb.Append("  CaseSensitivity: ").Append(CaseSensitivity).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
+            sb.Append("  AttributesSettings: ").Append(AttributesSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -239,6 +248,11 @@ namespace TalonOne.Model
                     this.Limits == input.Limits ||
                     this.Limits != null &&
                     this.Limits.SequenceEqual(input.Limits)
+                ) && 
+                (
+                    this.AttributesSettings == input.AttributesSettings ||
+                    (this.AttributesSettings != null &&
+                    this.AttributesSettings.Equals(input.AttributesSettings))
                 );
         }
 
@@ -265,6 +279,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
+                if (this.AttributesSettings != null)
+                    hashCode = hashCode * 59 + this.AttributesSettings.GetHashCode();
                 return hashCode;
             }
         }

@@ -113,6 +113,31 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCustomerDataWithHttpInfo (string integrationId);
         /// <summary>
+        /// Get an inventory of all data associated with a specific customer profile.
+        /// </summary>
+        /// <remarks>
+        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
+        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <returns>CustomerInventory</returns>
+        CustomerInventory GetCustomerInventory (string integrationId, Object profile = null, Object referrals = null);
+
+        /// <summary>
+        /// Get an inventory of all data associated with a specific customer profile.
+        /// </summary>
+        /// <remarks>
+        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
+        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <returns>ApiResponse of CustomerInventory</returns>
+        ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, Object profile = null, Object referrals = null);
+        /// <summary>
         /// Get all valid reserved coupons
         /// </summary>
         /// <remarks>
@@ -311,6 +336,31 @@ namespace TalonOne.Api
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomerDataAsyncWithHttpInfo (string integrationId);
+        /// <summary>
+        /// Get an inventory of all data associated with a specific customer profile.
+        /// </summary>
+        /// <remarks>
+        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
+        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <returns>Task of CustomerInventory</returns>
+        System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, Object profile = null, Object referrals = null);
+
+        /// <summary>
+        /// Get an inventory of all data associated with a specific customer profile.
+        /// </summary>
+        /// <remarks>
+        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
+        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <returns>Task of ApiResponse (CustomerInventory)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, Object profile = null, Object referrals = null);
         /// <summary>
         /// Get all valid reserved coupons
         /// </summary>
@@ -1200,6 +1250,173 @@ namespace TalonOne.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
+        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <returns>CustomerInventory</returns>
+        public CustomerInventory GetCustomerInventory (string integrationId, Object profile = null, Object referrals = null)
+        {
+             ApiResponse<CustomerInventory> localVarResponse = GetCustomerInventoryWithHttpInfo(integrationId, profile, referrals);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
+        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <returns>ApiResponse of CustomerInventory</returns>
+        public ApiResponse< CustomerInventory > GetCustomerInventoryWithHttpInfo (string integrationId, Object profile = null, Object referrals = null)
+        {
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetCustomerInventory");
+
+            var localVarPath = "/v1/customer_profiles/{integrationId}/inventory";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
+            if (profile != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profile", profile)); // query parameter
+            if (referrals != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referrals", referrals)); // query parameter
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+            // authentication (integration_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Content-Signature")))
+            {
+                localVarHeaderParams["Content-Signature"] = this.Configuration.GetApiKeyWithPrefix("Content-Signature");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerInventory", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerInventory>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerInventory) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerInventory)));
+        }
+
+        /// <summary>
+        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
+        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <returns>Task of CustomerInventory</returns>
+        public async System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, Object profile = null, Object referrals = null)
+        {
+             ApiResponse<CustomerInventory> localVarResponse = await GetCustomerInventoryAsyncWithHttpInfo(integrationId, profile, referrals);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
+        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <returns>Task of ApiResponse (CustomerInventory)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, Object profile = null, Object referrals = null)
+        {
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetCustomerInventory");
+
+            var localVarPath = "/v1/customer_profiles/{integrationId}/inventory";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
+            if (profile != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profile", profile)); // query parameter
+            if (referrals != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referrals", referrals)); // query parameter
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+            // authentication (integration_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Content-Signature")))
+            {
+                localVarHeaderParams["Content-Signature"] = this.Configuration.GetApiKeyWithPrefix("Content-Signature");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetCustomerInventory", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerInventory>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (CustomerInventory) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerInventory)));
         }
 
         /// <summary>

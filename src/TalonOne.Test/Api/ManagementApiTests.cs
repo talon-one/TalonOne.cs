@@ -93,6 +93,18 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test CreateAttribute
+        /// </summary>
+        [Test]
+        public void CreateAttributeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //NewAttribute body = null;
+            //var response = instance.CreateAttribute(body);
+            //Assert.IsInstanceOf<Attribute> (response, "response is Attribute");
+        }
+        
+        /// <summary>
         /// Test CreateCampaign
         /// </summary>
         [Test]
@@ -304,18 +316,6 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test GetAccountLimits
-        /// </summary>
-        [Test]
-        public void GetAccountLimitsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int? accountId = null;
-            //var response = instance.GetAccountLimits(accountId);
-            //Assert.IsInstanceOf<AccountLimits> (response, "response is AccountLimits");
-        }
-        
-        /// <summary>
         /// Test GetAllAccessLogs
         /// </summary>
         [Test]
@@ -342,7 +342,7 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetAllRoles();
-            //Assert.IsInstanceOf<InlineResponse20028> (response, "response is InlineResponse20028");
+            //Assert.IsInstanceOf<InlineResponse20029> (response, "response is InlineResponse20029");
         }
         
         /// <summary>
@@ -531,6 +531,20 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test GetAttributes
+        /// </summary>
+        [Test]
+        public void GetAttributesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? pageSize = null;
+            //int? skip = null;
+            //string sort = null;
+            //var response = instance.GetAttributes(pageSize, skip, sort);
+            //Assert.IsInstanceOf<InlineResponse20020> (response, "response is InlineResponse20020");
+        }
+        
+        /// <summary>
         /// Test GetCampaign
         /// </summary>
         [Test]
@@ -624,7 +638,7 @@ namespace TalonOne.Test
             //bool? withTotalResultSize = null;
             //bool? includeOld = null;
             //var response = instance.GetChanges(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
-            //Assert.IsInstanceOf<InlineResponse20025> (response, "response is InlineResponse20025");
+            //Assert.IsInstanceOf<InlineResponse20026> (response, "response is InlineResponse20026");
         }
         
         /// <summary>
@@ -862,7 +876,7 @@ namespace TalonOne.Test
             //int? skip = null;
             //string sort = null;
             //var response = instance.GetEventTypes(applicationIds, name, includeOldVersions, pageSize, skip, sort);
-            //Assert.IsInstanceOf<InlineResponse20023> (response, "response is InlineResponse20023");
+            //Assert.IsInstanceOf<InlineResponse20024> (response, "response is InlineResponse20024");
         }
         
         /// <summary>
@@ -878,7 +892,7 @@ namespace TalonOne.Test
             //int? campaignId = null;
             //string entity = null;
             //var response = instance.GetExports(pageSize, skip, applicationId, campaignId, entity);
-            //Assert.IsInstanceOf<InlineResponse20026> (response, "response is InlineResponse20026");
+            //Assert.IsInstanceOf<InlineResponse20027> (response, "response is InlineResponse20027");
         }
         
         /// <summary>
@@ -891,7 +905,7 @@ namespace TalonOne.Test
             //int? pageSize = null;
             //int? skip = null;
             //var response = instance.GetImports(pageSize, skip);
-            //Assert.IsInstanceOf<InlineResponse20027> (response, "response is InlineResponse20027");
+            //Assert.IsInstanceOf<InlineResponse20028> (response, "response is InlineResponse20028");
         }
         
         /// <summary>
@@ -1039,7 +1053,7 @@ namespace TalonOne.Test
             //int? skip = null;
             //string sort = null;
             //var response = instance.GetUsers(pageSize, skip, sort);
-            //Assert.IsInstanceOf<InlineResponse20024> (response, "response is InlineResponse20024");
+            //Assert.IsInstanceOf<InlineResponse20025> (response, "response is InlineResponse20025");
         }
         
         /// <summary>
@@ -1071,7 +1085,7 @@ namespace TalonOne.Test
             //DateTime? createdBefore = null;
             //DateTime? createdAfter = null;
             //var response = instance.GetWebhookActivationLogs(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
-            //Assert.IsInstanceOf<InlineResponse20021> (response, "response is InlineResponse20021");
+            //Assert.IsInstanceOf<InlineResponse20022> (response, "response is InlineResponse20022");
         }
         
         /// <summary>
@@ -1092,7 +1106,7 @@ namespace TalonOne.Test
             //DateTime? createdBefore = null;
             //DateTime? createdAfter = null;
             //var response = instance.GetWebhookLogs(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
-            //Assert.IsInstanceOf<InlineResponse20022> (response, "response is InlineResponse20022");
+            //Assert.IsInstanceOf<InlineResponse20023> (response, "response is InlineResponse20023");
         }
         
         /// <summary>
@@ -1107,7 +1121,7 @@ namespace TalonOne.Test
             //int? pageSize = null;
             //int? skip = null;
             //var response = instance.GetWebhooks(applicationIds, sort, pageSize, skip);
-            //Assert.IsInstanceOf<InlineResponse20020> (response, "response is InlineResponse20020");
+            //Assert.IsInstanceOf<InlineResponse20021> (response, "response is InlineResponse20021");
         }
         
         /// <summary>
@@ -1252,16 +1266,16 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test SetAccountLimits
+        /// Test UpdateAttribute
         /// </summary>
         [Test]
-        public void SetAccountLimitsTest()
+        public void UpdateAttributeTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int? accountId = null;
-            //AccountLimits body = null;
-            //instance.SetAccountLimits(accountId, body);
-            
+            //int? attributeId = null;
+            //NewAttribute body = null;
+            //var response = instance.UpdateAttribute(attributeId, body);
+            //Assert.IsInstanceOf<Attribute> (response, "response is Attribute");
         }
         
         /// <summary>
