@@ -67,6 +67,22 @@ namespace TalonOne.Test
 
 
         /// <summary>
+        /// Test the property 'X509certificate'
+        /// </summary>
+        [Test]
+        public void X509certificateTest()
+        {
+            // TODO unit test for the property 'X509certificate'
+        }
+        /// <summary>
+        /// Test the property 'AccountId'
+        /// </summary>
+        [Test]
+        public void AccountIdTest()
+        {
+            // TODO unit test for the property 'AccountId'
+        }
+        /// <summary>
         /// Test the property 'Name'
         /// </summary>
         [Test]
@@ -115,20 +131,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'MetadataURL'
         }
         /// <summary>
-        /// Test the property 'X509certificate'
+        /// Test the property 'AudienceURI'
         /// </summary>
         [Test]
-        public void X509certificateTest()
+        public void AudienceURITest()
         {
-            // TODO unit test for the property 'X509certificate'
-        }
-        /// <summary>
-        /// Test the property 'Audience'
-        /// </summary>
-        [Test]
-        public void AudienceTest()
-        {
-            // TODO unit test for the property 'Audience'
+            // TODO unit test for the property 'AudienceURI'
         }
 
     }

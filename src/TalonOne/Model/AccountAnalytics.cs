@@ -52,7 +52,8 @@ namespace TalonOne.Model
         /// <param name="roles">Total Number of roles inside the account (required).</param>
         /// <param name="webhooks">Total Number of webhooks inside the account (required).</param>
         /// <param name="loyaltyPrograms">Total Number of loyalty programs inside the account (required).</param>
-        public AccountAnalytics(int? applications = default(int?), int? activeCampaigns = default(int?), int? campaigns = default(int?), int? coupons = default(int?), int? activeCoupons = default(int?), int? expiredCoupons = default(int?), int? customAttributes = default(int?), int? referralCodes = default(int?), int? activeReferralCodes = default(int?), int? expiredReferralCodes = default(int?), int? users = default(int?), int? roles = default(int?), int? webhooks = default(int?), int? loyaltyPrograms = default(int?))
+        /// <param name="activeRules">Total Number of active rules in the account (required).</param>
+        public AccountAnalytics(int? applications = default(int?), int? activeCampaigns = default(int?), int? campaigns = default(int?), int? coupons = default(int?), int? activeCoupons = default(int?), int? expiredCoupons = default(int?), int? customAttributes = default(int?), int? referralCodes = default(int?), int? activeReferralCodes = default(int?), int? expiredReferralCodes = default(int?), int? users = default(int?), int? roles = default(int?), int? webhooks = default(int?), int? loyaltyPrograms = default(int?), int? activeRules = default(int?))
         {
             // to ensure "applications" is required (not null)
             if (applications == null)
@@ -180,6 +181,15 @@ namespace TalonOne.Model
             {
                 this.LoyaltyPrograms = loyaltyPrograms;
             }
+            // to ensure "activeRules" is required (not null)
+            if (activeRules == null)
+            {
+                throw new InvalidDataException("activeRules is a required property for AccountAnalytics and cannot be null");
+            }
+            else
+            {
+                this.ActiveRules = activeRules;
+            }
         }
         
         /// <summary>
@@ -281,6 +291,13 @@ namespace TalonOne.Model
         public int? LoyaltyPrograms { get; set; }
 
         /// <summary>
+        /// Total Number of active rules in the account
+        /// </summary>
+        /// <value>Total Number of active rules in the account</value>
+        [DataMember(Name="activeRules", EmitDefaultValue=false)]
+        public int? ActiveRules { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -302,6 +319,7 @@ namespace TalonOne.Model
             sb.Append("  Roles: ").Append(Roles).Append("\n");
             sb.Append("  Webhooks: ").Append(Webhooks).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
+            sb.Append("  ActiveRules: ").Append(ActiveRules).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -405,6 +423,11 @@ namespace TalonOne.Model
                     this.LoyaltyPrograms == input.LoyaltyPrograms ||
                     (this.LoyaltyPrograms != null &&
                     this.LoyaltyPrograms.Equals(input.LoyaltyPrograms))
+                ) && 
+                (
+                    this.ActiveRules == input.ActiveRules ||
+                    (this.ActiveRules != null &&
+                    this.ActiveRules.Equals(input.ActiveRules))
                 );
         }
 
@@ -445,6 +468,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Webhooks.GetHashCode();
                 if (this.LoyaltyPrograms != null)
                     hashCode = hashCode * 59 + this.LoyaltyPrograms.GetHashCode();
+                if (this.ActiveRules != null)
+                    hashCode = hashCode * 59 + this.ActiveRules.GetHashCode();
                 return hashCode;
             }
         }

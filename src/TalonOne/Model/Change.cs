@@ -42,8 +42,8 @@ namespace TalonOne.Model
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="userId">The ID of the account that owns this entity. (required).</param>
         /// <param name="entity">API endpoint on which the change was initiated. (required).</param>
-        /// <param name="old">Resource before the change occured..</param>
-        /// <param name="_new">Resource after the change occured..</param>
+        /// <param name="old">Resource before the change occurred..</param>
+        /// <param name="_new">Resource after the change occurred..</param>
         public Change(int? id = default(int?), DateTime? created = default(DateTime?), int? userId = default(int?), string entity = default(string), Object old = default(Object), Object _new = default(Object))
         {
             // to ensure "id" is required (not null)
@@ -115,16 +115,16 @@ namespace TalonOne.Model
         public string Entity { get; set; }
 
         /// <summary>
-        /// Resource before the change occured.
+        /// Resource before the change occurred.
         /// </summary>
-        /// <value>Resource before the change occured.</value>
+        /// <value>Resource before the change occurred.</value>
         [DataMember(Name="old", EmitDefaultValue=false)]
         public Object Old { get; set; }
 
         /// <summary>
-        /// Resource after the change occured.
+        /// Resource after the change occurred.
         /// </summary>
-        /// <value>Resource after the change occured.</value>
+        /// <value>Resource after the change occurred.</value>
         [DataMember(Name="new", EmitDefaultValue=false)]
         public Object New { get; set; }
 

@@ -39,21 +39,27 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CampaignAnalytics" /> class.
         /// </summary>
         /// <param name="date">date (required).</param>
-        /// <param name="campaignRevenue">Amount of revenue in this campaign. (required).</param>
-        /// <param name="totalCampaignRevenue">Amount of revenue in this campaign since it began. (required).</param>
+        /// <param name="campaignRevenue">Amount of revenue in this campaign (for coupon or discount sessions). (required).</param>
+        /// <param name="totalCampaignRevenue">Amount of revenue in this campaign since it began (for coupon or discount sessions). (required).</param>
+        /// <param name="campaignRefund">Amount of refunds in this campaign (for coupon or discount sessions). (required).</param>
+        /// <param name="totalCampaignRefund">Amount of refunds in this campaign since it began (for coupon or discount sessions). (required).</param>
         /// <param name="campaignDiscountCosts">Amount of cost caused by discounts given in the campaign. (required).</param>
         /// <param name="totalCampaignDiscountCosts">Amount of cost caused by discounts given in the campaign since it began. (required).</param>
+        /// <param name="campaignRefundedDiscounts">Amount of discounts rolledback due to refund in the campaign. (required).</param>
+        /// <param name="totalCampaignRefundedDiscounts">Amount of discounts rolledback due to refund in the campaign since it began. (required).</param>
         /// <param name="campaignFreeItems">Amount of free items given in the campaign. (required).</param>
         /// <param name="totalCampaignFreeItems">Amount of free items given in the campaign since it began. (required).</param>
-        /// <param name="couponRedemptions">Number of coupon redemptions in the campaign (only accepted referrals on sessions that were closed are considered). (required).</param>
+        /// <param name="couponRedemptions">Number of coupon redemptions in the campaign. (required).</param>
         /// <param name="totalCouponRedemptions">Number of coupon redemptions in the campaign since it began. (required).</param>
+        /// <param name="couponRolledbackRedemptions">Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign. (required).</param>
+        /// <param name="totalCouponRolledbackRedemptions">Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign since it began. (required).</param>
         /// <param name="referralRedemptions">Number of referral redemptions in the campaign. (required).</param>
         /// <param name="totalReferralRedemptions">Number of referral redemptions in the campaign since it began. (required).</param>
         /// <param name="couponsCreated">Number of coupons created in the campaign by the rule engine. (required).</param>
         /// <param name="totalCouponsCreated">Number of coupons created in the campaign by the rule engine since it began. (required).</param>
         /// <param name="referralsCreated">Number of referrals created in the campaign by the rule engine. (required).</param>
         /// <param name="totalReferralsCreated">Number of referrals created in the campaign by the rule engine since it began. (required).</param>
-        public CampaignAnalytics(DateTime? date = default(DateTime?), decimal? campaignRevenue = default(decimal?), decimal? totalCampaignRevenue = default(decimal?), decimal? campaignDiscountCosts = default(decimal?), decimal? totalCampaignDiscountCosts = default(decimal?), int? campaignFreeItems = default(int?), int? totalCampaignFreeItems = default(int?), int? couponRedemptions = default(int?), int? totalCouponRedemptions = default(int?), int? referralRedemptions = default(int?), int? totalReferralRedemptions = default(int?), int? couponsCreated = default(int?), int? totalCouponsCreated = default(int?), int? referralsCreated = default(int?), int? totalReferralsCreated = default(int?))
+        public CampaignAnalytics(DateTime? date = default(DateTime?), decimal? campaignRevenue = default(decimal?), decimal? totalCampaignRevenue = default(decimal?), decimal? campaignRefund = default(decimal?), decimal? totalCampaignRefund = default(decimal?), decimal? campaignDiscountCosts = default(decimal?), decimal? totalCampaignDiscountCosts = default(decimal?), decimal? campaignRefundedDiscounts = default(decimal?), decimal? totalCampaignRefundedDiscounts = default(decimal?), int? campaignFreeItems = default(int?), int? totalCampaignFreeItems = default(int?), int? couponRedemptions = default(int?), int? totalCouponRedemptions = default(int?), int? couponRolledbackRedemptions = default(int?), int? totalCouponRolledbackRedemptions = default(int?), int? referralRedemptions = default(int?), int? totalReferralRedemptions = default(int?), int? couponsCreated = default(int?), int? totalCouponsCreated = default(int?), int? referralsCreated = default(int?), int? totalReferralsCreated = default(int?))
         {
             // to ensure "date" is required (not null)
             if (date == null)
@@ -82,6 +88,24 @@ namespace TalonOne.Model
             {
                 this.TotalCampaignRevenue = totalCampaignRevenue;
             }
+            // to ensure "campaignRefund" is required (not null)
+            if (campaignRefund == null)
+            {
+                throw new InvalidDataException("campaignRefund is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.CampaignRefund = campaignRefund;
+            }
+            // to ensure "totalCampaignRefund" is required (not null)
+            if (totalCampaignRefund == null)
+            {
+                throw new InvalidDataException("totalCampaignRefund is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.TotalCampaignRefund = totalCampaignRefund;
+            }
             // to ensure "campaignDiscountCosts" is required (not null)
             if (campaignDiscountCosts == null)
             {
@@ -99,6 +123,24 @@ namespace TalonOne.Model
             else
             {
                 this.TotalCampaignDiscountCosts = totalCampaignDiscountCosts;
+            }
+            // to ensure "campaignRefundedDiscounts" is required (not null)
+            if (campaignRefundedDiscounts == null)
+            {
+                throw new InvalidDataException("campaignRefundedDiscounts is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.CampaignRefundedDiscounts = campaignRefundedDiscounts;
+            }
+            // to ensure "totalCampaignRefundedDiscounts" is required (not null)
+            if (totalCampaignRefundedDiscounts == null)
+            {
+                throw new InvalidDataException("totalCampaignRefundedDiscounts is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.TotalCampaignRefundedDiscounts = totalCampaignRefundedDiscounts;
             }
             // to ensure "campaignFreeItems" is required (not null)
             if (campaignFreeItems == null)
@@ -135,6 +177,24 @@ namespace TalonOne.Model
             else
             {
                 this.TotalCouponRedemptions = totalCouponRedemptions;
+            }
+            // to ensure "couponRolledbackRedemptions" is required (not null)
+            if (couponRolledbackRedemptions == null)
+            {
+                throw new InvalidDataException("couponRolledbackRedemptions is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.CouponRolledbackRedemptions = couponRolledbackRedemptions;
+            }
+            // to ensure "totalCouponRolledbackRedemptions" is required (not null)
+            if (totalCouponRolledbackRedemptions == null)
+            {
+                throw new InvalidDataException("totalCouponRolledbackRedemptions is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.TotalCouponRolledbackRedemptions = totalCouponRolledbackRedemptions;
             }
             // to ensure "referralRedemptions" is required (not null)
             if (referralRedemptions == null)
@@ -199,18 +259,32 @@ namespace TalonOne.Model
         public DateTime? Date { get; set; }
 
         /// <summary>
-        /// Amount of revenue in this campaign.
+        /// Amount of revenue in this campaign (for coupon or discount sessions).
         /// </summary>
-        /// <value>Amount of revenue in this campaign.</value>
+        /// <value>Amount of revenue in this campaign (for coupon or discount sessions).</value>
         [DataMember(Name="campaignRevenue", EmitDefaultValue=false)]
         public decimal? CampaignRevenue { get; set; }
 
         /// <summary>
-        /// Amount of revenue in this campaign since it began.
+        /// Amount of revenue in this campaign since it began (for coupon or discount sessions).
         /// </summary>
-        /// <value>Amount of revenue in this campaign since it began.</value>
+        /// <value>Amount of revenue in this campaign since it began (for coupon or discount sessions).</value>
         [DataMember(Name="totalCampaignRevenue", EmitDefaultValue=false)]
         public decimal? TotalCampaignRevenue { get; set; }
+
+        /// <summary>
+        /// Amount of refunds in this campaign (for coupon or discount sessions).
+        /// </summary>
+        /// <value>Amount of refunds in this campaign (for coupon or discount sessions).</value>
+        [DataMember(Name="campaignRefund", EmitDefaultValue=false)]
+        public decimal? CampaignRefund { get; set; }
+
+        /// <summary>
+        /// Amount of refunds in this campaign since it began (for coupon or discount sessions).
+        /// </summary>
+        /// <value>Amount of refunds in this campaign since it began (for coupon or discount sessions).</value>
+        [DataMember(Name="totalCampaignRefund", EmitDefaultValue=false)]
+        public decimal? TotalCampaignRefund { get; set; }
 
         /// <summary>
         /// Amount of cost caused by discounts given in the campaign.
@@ -227,6 +301,20 @@ namespace TalonOne.Model
         public decimal? TotalCampaignDiscountCosts { get; set; }
 
         /// <summary>
+        /// Amount of discounts rolledback due to refund in the campaign.
+        /// </summary>
+        /// <value>Amount of discounts rolledback due to refund in the campaign.</value>
+        [DataMember(Name="campaignRefundedDiscounts", EmitDefaultValue=false)]
+        public decimal? CampaignRefundedDiscounts { get; set; }
+
+        /// <summary>
+        /// Amount of discounts rolledback due to refund in the campaign since it began.
+        /// </summary>
+        /// <value>Amount of discounts rolledback due to refund in the campaign since it began.</value>
+        [DataMember(Name="totalCampaignRefundedDiscounts", EmitDefaultValue=false)]
+        public decimal? TotalCampaignRefundedDiscounts { get; set; }
+
+        /// <summary>
         /// Amount of free items given in the campaign.
         /// </summary>
         /// <value>Amount of free items given in the campaign.</value>
@@ -241,9 +329,9 @@ namespace TalonOne.Model
         public int? TotalCampaignFreeItems { get; set; }
 
         /// <summary>
-        /// Number of coupon redemptions in the campaign (only accepted referrals on sessions that were closed are considered).
+        /// Number of coupon redemptions in the campaign.
         /// </summary>
-        /// <value>Number of coupon redemptions in the campaign (only accepted referrals on sessions that were closed are considered).</value>
+        /// <value>Number of coupon redemptions in the campaign.</value>
         [DataMember(Name="couponRedemptions", EmitDefaultValue=false)]
         public int? CouponRedemptions { get; set; }
 
@@ -253,6 +341,20 @@ namespace TalonOne.Model
         /// <value>Number of coupon redemptions in the campaign since it began.</value>
         [DataMember(Name="totalCouponRedemptions", EmitDefaultValue=false)]
         public int? TotalCouponRedemptions { get; set; }
+
+        /// <summary>
+        /// Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign.
+        /// </summary>
+        /// <value>Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign.</value>
+        [DataMember(Name="couponRolledbackRedemptions", EmitDefaultValue=false)]
+        public int? CouponRolledbackRedemptions { get; set; }
+
+        /// <summary>
+        /// Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign since it began.
+        /// </summary>
+        /// <value>Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign since it began.</value>
+        [DataMember(Name="totalCouponRolledbackRedemptions", EmitDefaultValue=false)]
+        public int? TotalCouponRolledbackRedemptions { get; set; }
 
         /// <summary>
         /// Number of referral redemptions in the campaign.
@@ -307,12 +409,18 @@ namespace TalonOne.Model
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  CampaignRevenue: ").Append(CampaignRevenue).Append("\n");
             sb.Append("  TotalCampaignRevenue: ").Append(TotalCampaignRevenue).Append("\n");
+            sb.Append("  CampaignRefund: ").Append(CampaignRefund).Append("\n");
+            sb.Append("  TotalCampaignRefund: ").Append(TotalCampaignRefund).Append("\n");
             sb.Append("  CampaignDiscountCosts: ").Append(CampaignDiscountCosts).Append("\n");
             sb.Append("  TotalCampaignDiscountCosts: ").Append(TotalCampaignDiscountCosts).Append("\n");
+            sb.Append("  CampaignRefundedDiscounts: ").Append(CampaignRefundedDiscounts).Append("\n");
+            sb.Append("  TotalCampaignRefundedDiscounts: ").Append(TotalCampaignRefundedDiscounts).Append("\n");
             sb.Append("  CampaignFreeItems: ").Append(CampaignFreeItems).Append("\n");
             sb.Append("  TotalCampaignFreeItems: ").Append(TotalCampaignFreeItems).Append("\n");
             sb.Append("  CouponRedemptions: ").Append(CouponRedemptions).Append("\n");
             sb.Append("  TotalCouponRedemptions: ").Append(TotalCouponRedemptions).Append("\n");
+            sb.Append("  CouponRolledbackRedemptions: ").Append(CouponRolledbackRedemptions).Append("\n");
+            sb.Append("  TotalCouponRolledbackRedemptions: ").Append(TotalCouponRolledbackRedemptions).Append("\n");
             sb.Append("  ReferralRedemptions: ").Append(ReferralRedemptions).Append("\n");
             sb.Append("  TotalReferralRedemptions: ").Append(TotalReferralRedemptions).Append("\n");
             sb.Append("  CouponsCreated: ").Append(CouponsCreated).Append("\n");
@@ -369,6 +477,16 @@ namespace TalonOne.Model
                     this.TotalCampaignRevenue.Equals(input.TotalCampaignRevenue))
                 ) && 
                 (
+                    this.CampaignRefund == input.CampaignRefund ||
+                    (this.CampaignRefund != null &&
+                    this.CampaignRefund.Equals(input.CampaignRefund))
+                ) && 
+                (
+                    this.TotalCampaignRefund == input.TotalCampaignRefund ||
+                    (this.TotalCampaignRefund != null &&
+                    this.TotalCampaignRefund.Equals(input.TotalCampaignRefund))
+                ) && 
+                (
                     this.CampaignDiscountCosts == input.CampaignDiscountCosts ||
                     (this.CampaignDiscountCosts != null &&
                     this.CampaignDiscountCosts.Equals(input.CampaignDiscountCosts))
@@ -377,6 +495,16 @@ namespace TalonOne.Model
                     this.TotalCampaignDiscountCosts == input.TotalCampaignDiscountCosts ||
                     (this.TotalCampaignDiscountCosts != null &&
                     this.TotalCampaignDiscountCosts.Equals(input.TotalCampaignDiscountCosts))
+                ) && 
+                (
+                    this.CampaignRefundedDiscounts == input.CampaignRefundedDiscounts ||
+                    (this.CampaignRefundedDiscounts != null &&
+                    this.CampaignRefundedDiscounts.Equals(input.CampaignRefundedDiscounts))
+                ) && 
+                (
+                    this.TotalCampaignRefundedDiscounts == input.TotalCampaignRefundedDiscounts ||
+                    (this.TotalCampaignRefundedDiscounts != null &&
+                    this.TotalCampaignRefundedDiscounts.Equals(input.TotalCampaignRefundedDiscounts))
                 ) && 
                 (
                     this.CampaignFreeItems == input.CampaignFreeItems ||
@@ -397,6 +525,16 @@ namespace TalonOne.Model
                     this.TotalCouponRedemptions == input.TotalCouponRedemptions ||
                     (this.TotalCouponRedemptions != null &&
                     this.TotalCouponRedemptions.Equals(input.TotalCouponRedemptions))
+                ) && 
+                (
+                    this.CouponRolledbackRedemptions == input.CouponRolledbackRedemptions ||
+                    (this.CouponRolledbackRedemptions != null &&
+                    this.CouponRolledbackRedemptions.Equals(input.CouponRolledbackRedemptions))
+                ) && 
+                (
+                    this.TotalCouponRolledbackRedemptions == input.TotalCouponRolledbackRedemptions ||
+                    (this.TotalCouponRolledbackRedemptions != null &&
+                    this.TotalCouponRolledbackRedemptions.Equals(input.TotalCouponRolledbackRedemptions))
                 ) && 
                 (
                     this.ReferralRedemptions == input.ReferralRedemptions ||
@@ -445,10 +583,18 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CampaignRevenue.GetHashCode();
                 if (this.TotalCampaignRevenue != null)
                     hashCode = hashCode * 59 + this.TotalCampaignRevenue.GetHashCode();
+                if (this.CampaignRefund != null)
+                    hashCode = hashCode * 59 + this.CampaignRefund.GetHashCode();
+                if (this.TotalCampaignRefund != null)
+                    hashCode = hashCode * 59 + this.TotalCampaignRefund.GetHashCode();
                 if (this.CampaignDiscountCosts != null)
                     hashCode = hashCode * 59 + this.CampaignDiscountCosts.GetHashCode();
                 if (this.TotalCampaignDiscountCosts != null)
                     hashCode = hashCode * 59 + this.TotalCampaignDiscountCosts.GetHashCode();
+                if (this.CampaignRefundedDiscounts != null)
+                    hashCode = hashCode * 59 + this.CampaignRefundedDiscounts.GetHashCode();
+                if (this.TotalCampaignRefundedDiscounts != null)
+                    hashCode = hashCode * 59 + this.TotalCampaignRefundedDiscounts.GetHashCode();
                 if (this.CampaignFreeItems != null)
                     hashCode = hashCode * 59 + this.CampaignFreeItems.GetHashCode();
                 if (this.TotalCampaignFreeItems != null)
@@ -457,6 +603,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CouponRedemptions.GetHashCode();
                 if (this.TotalCouponRedemptions != null)
                     hashCode = hashCode * 59 + this.TotalCouponRedemptions.GetHashCode();
+                if (this.CouponRolledbackRedemptions != null)
+                    hashCode = hashCode * 59 + this.CouponRolledbackRedemptions.GetHashCode();
+                if (this.TotalCouponRolledbackRedemptions != null)
+                    hashCode = hashCode * 59 + this.TotalCouponRolledbackRedemptions.GetHashCode();
                 if (this.ReferralRedemptions != null)
                     hashCode = hashCode * 59 + this.ReferralRedemptions.GetHashCode();
                 if (this.TotalReferralRedemptions != null)

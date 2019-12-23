@@ -178,6 +178,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'LoyaltyPrograms'
         }
+        /// <summary>
+        /// Test the property 'ActiveRules'
+        /// </summary>
+        [Test]
+        public void ActiveRulesTest()
+        {
+            // TODO unit test for the property 'ActiveRules'
+        }
 
     }
 

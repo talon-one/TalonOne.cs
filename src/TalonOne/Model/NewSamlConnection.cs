@@ -25,7 +25,7 @@ using SwaggerDateConverter = TalonOne.Client.SwaggerDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// A new SAML 2.0 connection.
+    /// NewSamlConnection
     /// </summary>
     [DataContract]
     public partial class NewSamlConnection :  IEquatable<NewSamlConnection>, IValidatableObject
@@ -38,16 +38,35 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewSamlConnection" /> class.
         /// </summary>
+        /// <param name="x509certificate">X.509 Certificate. (required).</param>
+        /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="name">ID of the SAML service. (required).</param>
         /// <param name="enabled">Determines if this SAML connection active. (required).</param>
         /// <param name="issuer">Identity Provider Entity ID. (required).</param>
         /// <param name="signOnURL">Single Sign-On URL. (required).</param>
         /// <param name="signOutURL">Single Sign-Out URL..</param>
         /// <param name="metadataURL">Metadata URL..</param>
-        /// <param name="x509certificate">X.509 Certificate. (required).</param>
-        /// <param name="audience">The application-defined unique identifier that is the intended audience of the SAML assertion.  This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. .</param>
-        public NewSamlConnection(string name = default(string), bool? enabled = default(bool?), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string x509certificate = default(string), string audience = default(string))
+        /// <param name="audienceURI">The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. .</param>
+        public NewSamlConnection(string x509certificate = default(string), int? accountId = default(int?), string name = default(string), bool? enabled = default(bool?), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string))
         {
+            // to ensure "x509certificate" is required (not null)
+            if (x509certificate == null)
+            {
+                throw new InvalidDataException("x509certificate is a required property for NewSamlConnection and cannot be null");
+            }
+            else
+            {
+                this.X509certificate = x509certificate;
+            }
+            // to ensure "accountId" is required (not null)
+            if (accountId == null)
+            {
+                throw new InvalidDataException("accountId is a required property for NewSamlConnection and cannot be null");
+            }
+            else
+            {
+                this.AccountId = accountId;
+            }
             // to ensure "name" is required (not null)
             if (name == null)
             {
@@ -84,20 +103,25 @@ namespace TalonOne.Model
             {
                 this.SignOnURL = signOnURL;
             }
-            // to ensure "x509certificate" is required (not null)
-            if (x509certificate == null)
-            {
-                throw new InvalidDataException("x509certificate is a required property for NewSamlConnection and cannot be null");
-            }
-            else
-            {
-                this.X509certificate = x509certificate;
-            }
             this.SignOutURL = signOutURL;
             this.MetadataURL = metadataURL;
-            this.Audience = audience;
+            this.AudienceURI = audienceURI;
         }
         
+        /// <summary>
+        /// X.509 Certificate.
+        /// </summary>
+        /// <value>X.509 Certificate.</value>
+        [DataMember(Name="x509certificate", EmitDefaultValue=false)]
+        public string X509certificate { get; set; }
+
+        /// <summary>
+        /// The ID of the account that owns this entity.
+        /// </summary>
+        /// <value>The ID of the account that owns this entity.</value>
+        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        public int? AccountId { get; set; }
+
         /// <summary>
         /// ID of the SAML service.
         /// </summary>
@@ -141,18 +165,11 @@ namespace TalonOne.Model
         public string MetadataURL { get; set; }
 
         /// <summary>
-        /// X.509 Certificate.
+        /// The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. 
         /// </summary>
-        /// <value>X.509 Certificate.</value>
-        [DataMember(Name="x509certificate", EmitDefaultValue=false)]
-        public string X509certificate { get; set; }
-
-        /// <summary>
-        /// The application-defined unique identifier that is the intended audience of the SAML assertion.  This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. 
-        /// </summary>
-        /// <value>The application-defined unique identifier that is the intended audience of the SAML assertion.  This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. </value>
-        [DataMember(Name="audience", EmitDefaultValue=false)]
-        public string Audience { get; set; }
+        /// <value>The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. </value>
+        [DataMember(Name="audienceURI", EmitDefaultValue=false)]
+        public string AudienceURI { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -162,14 +179,15 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class NewSamlConnection {\n");
+            sb.Append("  X509certificate: ").Append(X509certificate).Append("\n");
+            sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Issuer: ").Append(Issuer).Append("\n");
             sb.Append("  SignOnURL: ").Append(SignOnURL).Append("\n");
             sb.Append("  SignOutURL: ").Append(SignOutURL).Append("\n");
             sb.Append("  MetadataURL: ").Append(MetadataURL).Append("\n");
-            sb.Append("  X509certificate: ").Append(X509certificate).Append("\n");
-            sb.Append("  Audience: ").Append(Audience).Append("\n");
+            sb.Append("  AudienceURI: ").Append(AudienceURI).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -205,6 +223,16 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.X509certificate == input.X509certificate ||
+                    (this.X509certificate != null &&
+                    this.X509certificate.Equals(input.X509certificate))
+                ) && 
+                (
+                    this.AccountId == input.AccountId ||
+                    (this.AccountId != null &&
+                    this.AccountId.Equals(input.AccountId))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -235,14 +263,9 @@ namespace TalonOne.Model
                     this.MetadataURL.Equals(input.MetadataURL))
                 ) && 
                 (
-                    this.X509certificate == input.X509certificate ||
-                    (this.X509certificate != null &&
-                    this.X509certificate.Equals(input.X509certificate))
-                ) && 
-                (
-                    this.Audience == input.Audience ||
-                    (this.Audience != null &&
-                    this.Audience.Equals(input.Audience))
+                    this.AudienceURI == input.AudienceURI ||
+                    (this.AudienceURI != null &&
+                    this.AudienceURI.Equals(input.AudienceURI))
                 );
         }
 
@@ -255,6 +278,10 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.X509certificate != null)
+                    hashCode = hashCode * 59 + this.X509certificate.GetHashCode();
+                if (this.AccountId != null)
+                    hashCode = hashCode * 59 + this.AccountId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Enabled != null)
@@ -267,10 +294,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.SignOutURL.GetHashCode();
                 if (this.MetadataURL != null)
                     hashCode = hashCode * 59 + this.MetadataURL.GetHashCode();
-                if (this.X509certificate != null)
-                    hashCode = hashCode * 59 + this.X509certificate.GetHashCode();
-                if (this.Audience != null)
-                    hashCode = hashCode * 59 + this.Audience.GetHashCode();
+                if (this.AudienceURI != null)
+                    hashCode = hashCode * 59 + this.AudienceURI.GetHashCode();
                 return hashCode;
             }
         }
@@ -282,6 +307,12 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // X509certificate (string) minLength
+            if(this.X509certificate != null && this.X509certificate.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for X509certificate, length must be greater than 1.", new [] { "X509certificate" });
+            }
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
@@ -298,12 +329,6 @@ namespace TalonOne.Model
             if(this.SignOnURL != null && this.SignOnURL.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SignOnURL, length must be greater than 1.", new [] { "SignOnURL" });
-            }
-
-            // X509certificate (string) minLength
-            if(this.X509certificate != null && this.X509certificate.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for X509certificate, length must be greater than 1.", new [] { "X509certificate" });
             }
 
             yield break;

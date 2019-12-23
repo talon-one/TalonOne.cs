@@ -40,7 +40,11 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">Name of the copied campaign (Defaults to \&quot;Copy of original campaign name\&quot;).</param>
         /// <param name="applicationIds">Application IDs of the applications to which a campaign should be copied to (required).</param>
-        public CampaignCopy(string name = default(string), List<string> applicationIds = default(List<string>))
+        /// <param name="description">A detailed description of the campaign..</param>
+        /// <param name="startTime">Datetime when the campaign will become active..</param>
+        /// <param name="endTime">Datetime when the campaign will become in-active..</param>
+        /// <param name="tags">A list of tags for the campaign..</param>
+        public CampaignCopy(string name = default(string), List<string> applicationIds = default(List<string>), string description = default(string), DateTime? startTime = default(DateTime?), DateTime? endTime = default(DateTime?), List<string> tags = default(List<string>))
         {
             // to ensure "applicationIds" is required (not null)
             if (applicationIds == null)
@@ -52,6 +56,10 @@ namespace TalonOne.Model
                 this.ApplicationIds = applicationIds;
             }
             this.Name = name;
+            this.Description = description;
+            this.StartTime = startTime;
+            this.EndTime = endTime;
+            this.Tags = tags;
         }
         
         /// <summary>
@@ -69,6 +77,34 @@ namespace TalonOne.Model
         public List<string> ApplicationIds { get; set; }
 
         /// <summary>
+        /// A detailed description of the campaign.
+        /// </summary>
+        /// <value>A detailed description of the campaign.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Datetime when the campaign will become active.
+        /// </summary>
+        /// <value>Datetime when the campaign will become active.</value>
+        [DataMember(Name="startTime", EmitDefaultValue=false)]
+        public DateTime? StartTime { get; set; }
+
+        /// <summary>
+        /// Datetime when the campaign will become in-active.
+        /// </summary>
+        /// <value>Datetime when the campaign will become in-active.</value>
+        [DataMember(Name="endTime", EmitDefaultValue=false)]
+        public DateTime? EndTime { get; set; }
+
+        /// <summary>
+        /// A list of tags for the campaign.
+        /// </summary>
+        /// <value>A list of tags for the campaign.</value>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public List<string> Tags { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -78,6 +114,10 @@ namespace TalonOne.Model
             sb.Append("class CampaignCopy {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  ApplicationIds: ").Append(ApplicationIds).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +161,26 @@ namespace TalonOne.Model
                     this.ApplicationIds == input.ApplicationIds ||
                     this.ApplicationIds != null &&
                     this.ApplicationIds.SequenceEqual(input.ApplicationIds)
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.StartTime == input.StartTime ||
+                    (this.StartTime != null &&
+                    this.StartTime.Equals(input.StartTime))
+                ) && 
+                (
+                    this.EndTime == input.EndTime ||
+                    (this.EndTime != null &&
+                    this.EndTime.Equals(input.EndTime))
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
                 );
         }
 
@@ -137,6 +197,14 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.ApplicationIds != null)
                     hashCode = hashCode * 59 + this.ApplicationIds.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.StartTime != null)
+                    hashCode = hashCode * 59 + this.StartTime.GetHashCode();
+                if (this.EndTime != null)
+                    hashCode = hashCode * 59 + this.EndTime.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 return hashCode;
             }
         }

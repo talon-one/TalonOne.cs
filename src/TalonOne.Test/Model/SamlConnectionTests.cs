@@ -67,20 +67,12 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'Id'
+        /// Test the property 'AssertionConsumerServiceURL'
         /// </summary>
         [Test]
-        public void IdTest()
+        public void AssertionConsumerServiceURLTest()
         {
-            // TODO unit test for the property 'Id'
-        }
-        /// <summary>
-        /// Test the property 'Created'
-        /// </summary>
-        [Test]
-        public void CreatedTest()
-        {
-            // TODO unit test for the property 'Created'
+            // TODO unit test for the property 'AssertionConsumerServiceURL'
         }
         /// <summary>
         /// Test the property 'AccountId'
@@ -89,14 +81,6 @@ namespace TalonOne.Test
         public void AccountIdTest()
         {
             // TODO unit test for the property 'AccountId'
-        }
-        /// <summary>
-        /// Test the property 'AssertionConsumerServiceURL'
-        /// </summary>
-        [Test]
-        public void AssertionConsumerServiceURLTest()
-        {
-            // TODO unit test for the property 'AssertionConsumerServiceURL'
         }
         /// <summary>
         /// Test the property 'Name'
@@ -147,20 +131,28 @@ namespace TalonOne.Test
             // TODO unit test for the property 'MetadataURL'
         }
         /// <summary>
-        /// Test the property 'X509certificate'
+        /// Test the property 'AudienceURI'
         /// </summary>
         [Test]
-        public void X509certificateTest()
+        public void AudienceURITest()
         {
-            // TODO unit test for the property 'X509certificate'
+            // TODO unit test for the property 'AudienceURI'
         }
         /// <summary>
-        /// Test the property 'Audience'
+        /// Test the property 'Id'
         /// </summary>
         [Test]
-        public void AudienceTest()
+        public void IdTest()
         {
-            // TODO unit test for the property 'Audience'
+            // TODO unit test for the property 'Id'
+        }
+        /// <summary>
+        /// Test the property 'Created'
+        /// </summary>
+        [Test]
+        public void CreatedTest()
+        {
+            // TODO unit test for the property 'Created'
         }
 
     }

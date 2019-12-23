@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Webhooks** | **int?** | Total Number of allowed webhooks in the account | 
 **Users** | **int?** | Total Number of allowed users in the account | 
 **ApiVolume** | **int?** | Total allowed api volume | 
+**ActiveRules** | **int?** | Total allowed active rulesets | [optional] 
 **PromotionTypes** | **List&lt;string&gt;** | array of rulesets where webhook is used | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

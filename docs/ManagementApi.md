@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**AddLoyaltyPoints**](ManagementApi.md#addloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a certain loyalty program for the specified customer
 [**CopyCampaignToApplications**](ManagementApi.md#copycampaigntoapplications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into every specified application
+[**CreateAttribute**](ManagementApi.md#createattribute) | **POST** /v1/attributes | Define a new custom attribute
 [**CreateCampaign**](ManagementApi.md#createcampaign) | **POST** /v1/applications/{applicationId}/campaigns | Create a Campaign
 [**CreateCoupons**](ManagementApi.md#createcoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create Coupons
 [**CreatePasswordRecoveryEmail**](ManagementApi.md#createpasswordrecoveryemail) | **POST** /v1/password_recovery_emails | Request a password reset
@@ -20,7 +21,6 @@ Method | HTTP request | Description
 [**GetAccessLogsWithoutTotalCount**](ManagementApi.md#getaccesslogswithouttotalcount) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for application
 [**GetAccount**](ManagementApi.md#getaccount) | **GET** /v1/accounts/{accountId} | Get Account Details
 [**GetAccountAnalytics**](ManagementApi.md#getaccountanalytics) | **GET** /v1/accounts/{accountId}/analytics | Get Account Analytics
-[**GetAccountLimits**](ManagementApi.md#getaccountlimits) | **GET** /v1/accounts/{accountId}/limits | Get Account Limits
 [**GetAllAccessLogs**](ManagementApi.md#getallaccesslogs) | **GET** /v1/access_logs | Get all access logs
 [**GetAllRoles**](ManagementApi.md#getallroles) | **GET** /v1/roles | Get all roles.
 [**GetApplication**](ManagementApi.md#getapplication) | **GET** /v1/applications/{applicationId} | Get Application
@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**GetApplicationSessions**](ManagementApi.md#getapplicationsessions) | **GET** /v1/applications/{applicationId}/sessions | List Application Sessions
 [**GetApplications**](ManagementApi.md#getapplications) | **GET** /v1/applications | List Applications
 [**GetAttribute**](ManagementApi.md#getattribute) | **GET** /v1/attributes/{attributeId} | Get a custom attribute
+[**GetAttributes**](ManagementApi.md#getattributes) | **GET** /v1/attributes | List custom attributes
 [**GetCampaign**](ManagementApi.md#getcampaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get a Campaign
 [**GetCampaignAnalytics**](ManagementApi.md#getcampaignanalytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
 [**GetCampaignByAttributes**](ManagementApi.md#getcampaignbyattributes) | **POST** /v1/applications/{applicationId}/campaigns_search | Get a list of all campaigns that match the given attributes
@@ -76,7 +77,7 @@ Method | HTTP request | Description
 [**SearchCouponsAdvancedApplicationWide**](ManagementApi.md#searchcouponsadvancedapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application
 [**SearchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedapplicationwidewithouttotalcount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes in all active campaigns of an application
 [**SearchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedwithouttotalcount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes
-[**SetAccountLimits**](ManagementApi.md#setaccountlimits) | **PUT** /v1/accounts/{accountId}/limits | Set account limits
+[**UpdateAttribute**](ManagementApi.md#updateattribute) | **PUT** /v1/attributes/{attributeId} | Update a custom attribute
 [**UpdateCampaign**](ManagementApi.md#updatecampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update a Campaign
 [**UpdateCampaignSet**](ManagementApi.md#updatecampaignset) | **PUT** /v1/applications/{applicationId}/campaign_set | Update a Campaign Set
 [**UpdateCoupon**](ManagementApi.md#updatecoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update a Coupon
@@ -221,6 +222,72 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="createattribute"></a>
+# **CreateAttribute**
+> Attribute CreateAttribute (NewAttribute body)
+
+Define a new custom attribute
+
+Defines a new _custom attribute_ in this account. Custom attributes allow you to attach new fields to Talon.One domain objects like campaigns, coupons, customers and so on. These attributes can then be given values when creating / updating these objects, and these values can be used in your campaign rules. For example, you could define a `zipCode` field for customer sessions, and add a rule to your campaign that only allows certain ZIP codes.  These attributes are shared across all applications in your account, and are never required. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class CreateAttributeExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi();
+            var body = new NewAttribute(); // NewAttribute | 
+
+            try
+            {
+                // Define a new custom attribute
+                Attribute result = apiInstance.CreateAttribute(body);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ManagementApi.CreateAttribute: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**NewAttribute**](NewAttribute.md)|  | 
+
+### Return type
+
+[**Attribute**](Attribute.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="createcampaign"></a>
 # **CreateCampaign**
 > Campaign CreateCampaign (int? applicationId, NewCampaign body)
@@ -293,7 +360,7 @@ Name | Type | Description  | Notes
 
 Create Coupons
 
-Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupns can be created.
+Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.
 
 ### Example
 ```csharp
@@ -943,8 +1010,8 @@ namespace Example
             var applicationId = 56;  // int? | 
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return results from after this timestamp, must be an RFC3339 timestamp string
             var rangeEnd = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return results from before this timestamp, must be an RFC3339 timestamp string
-            var path = path_example;  // string | Only return results where the request path matches the given regular expresssion. (optional) 
-            var method = method_example;  // string | Only return results where the request method matches the given regular expresssion. (optional) 
+            var path = path_example;  // string | Only return results where the request path matches the given regular expression. (optional) 
+            var method = method_example;  // string | Only return results where the request method matches the given regular expression. (optional) 
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
@@ -972,8 +1039,8 @@ Name | Type | Description  | Notes
  **applicationId** | **int?**|  | 
  **rangeStart** | **DateTime?**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **rangeEnd** | **DateTime?**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **path** | **string**| Only return results where the request path matches the given regular expresssion. | [optional] 
- **method** | **string**| Only return results where the request method matches the given regular expresssion. | [optional] 
+ **path** | **string**| Only return results where the request path matches the given regular expression. | [optional] 
+ **method** | **string**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
@@ -1023,8 +1090,8 @@ namespace Example
             var applicationId = 56;  // int? | 
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return results from after this timestamp, must be an RFC3339 timestamp string
             var rangeEnd = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return results from before this timestamp, must be an RFC3339 timestamp string
-            var path = path_example;  // string | Only return results where the request path matches the given regular expresssion. (optional) 
-            var method = method_example;  // string | Only return results where the request method matches the given regular expresssion. (optional) 
+            var path = path_example;  // string | Only return results where the request path matches the given regular expression. (optional) 
+            var method = method_example;  // string | Only return results where the request method matches the given regular expression. (optional) 
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
@@ -1052,8 +1119,8 @@ Name | Type | Description  | Notes
  **applicationId** | **int?**|  | 
  **rangeStart** | **DateTime?**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **rangeEnd** | **DateTime?**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **path** | **string**| Only return results where the request path matches the given regular expresssion. | [optional] 
- **method** | **string**| Only return results where the request method matches the given regular expresssion. | [optional] 
+ **path** | **string**| Only return results where the request path matches the given regular expression. | [optional] 
+ **method** | **string**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
@@ -1206,72 +1273,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getaccountlimits"></a>
-# **GetAccountLimits**
-> AccountLimits GetAccountLimits (int? accountId)
-
-Get Account Limits
-
-Returns a list of all account limits set 
-
-### Example
-```csharp
-using System;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetAccountLimitsExample
-    {
-        public void main()
-        {
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi();
-            var accountId = 56;  // int? | 
-
-            try
-            {
-                // Get Account Limits
-                AccountLimits result = apiInstance.GetAccountLimits(accountId);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetAccountLimits: " + e.Message );
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **accountId** | **int?**|  | 
-
-### Return type
-
-[**AccountLimits**](AccountLimits.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 <a name="getallaccesslogs"></a>
 # **GetAllAccessLogs**
 > InlineResponse2009 GetAllAccessLogs (DateTime? rangeStart, DateTime? rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
@@ -1302,8 +1303,8 @@ namespace Example
             var apiInstance = new ManagementApi();
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return results from after this timestamp, must be an RFC3339 timestamp string
             var rangeEnd = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return results from before this timestamp, must be an RFC3339 timestamp string
-            var path = path_example;  // string | Only return results where the request path matches the given regular expresssion. (optional) 
-            var method = method_example;  // string | Only return results where the request method matches the given regular expresssion. (optional) 
+            var path = path_example;  // string | Only return results where the request path matches the given regular expression. (optional) 
+            var method = method_example;  // string | Only return results where the request method matches the given regular expression. (optional) 
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
@@ -1330,8 +1331,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **rangeStart** | **DateTime?**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **rangeEnd** | **DateTime?**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **path** | **string**| Only return results where the request path matches the given regular expresssion. | [optional] 
- **method** | **string**| Only return results where the request method matches the given regular expresssion. | [optional] 
+ **path** | **string**| Only return results where the request path matches the given regular expression. | [optional] 
+ **method** | **string**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
@@ -1354,7 +1355,7 @@ Name | Type | Description  | Notes
 
 <a name="getallroles"></a>
 # **GetAllRoles**
-> InlineResponse20028 GetAllRoles ()
+> InlineResponse20029 GetAllRoles ()
 
 Get all roles.
 
@@ -1382,7 +1383,7 @@ namespace Example
             try
             {
                 // Get all roles.
-                InlineResponse20028 result = apiInstance.GetAllRoles();
+                InlineResponse20029 result = apiInstance.GetAllRoles();
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -1399,7 +1400,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -1678,7 +1679,7 @@ Name | Type | Description  | Notes
 
 Get a list of the customer profiles that match the given attributes
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
+Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
 
 ### Example
 ```csharp
@@ -2276,6 +2277,76 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getattributes"></a>
+# **GetAttributes**
+> InlineResponse20020 GetAttributes (int? pageSize = null, int? skip = null, string sort = null)
+
+List custom attributes
+
+Returns all the defined custom attributes for the account. 
+
+### Example
+```csharp
+using System;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetAttributesExample
+    {
+        public void main()
+        {
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi();
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+
+            try
+            {
+                // List custom attributes
+                InlineResponse20020 result = apiInstance.GetAttributes(pageSize, skip, sort);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetAttributes: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
+ **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+
+### Return type
+
+[**InlineResponse20020**](InlineResponse20020.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getcampaign"></a>
 # **GetCampaign**
 > Campaign GetCampaign (int? applicationId, int? campaignId)
@@ -2636,7 +2707,7 @@ Name | Type | Description  | Notes
 
 <a name="getchanges"></a>
 # **GetChanges**
-> InlineResponse20025 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
+> InlineResponse20026 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
 
 Get audit log for an account
 
@@ -2674,7 +2745,7 @@ namespace Example
             try
             {
                 // Get audit log for an account
-                InlineResponse20025 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
+                InlineResponse20026 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2701,7 +2772,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -3546,7 +3617,7 @@ Name | Type | Description  | Notes
 
 Get a list of the customer profiles that match the given attributes
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: http://help.talon.one/customer/en/portal/articles/2525263-data-model?b_id=14115#customer-profile 
+Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
 
 ### Example
 ```csharp
@@ -3612,7 +3683,7 @@ Name | Type | Description  | Notes
 
 <a name="geteventtypes"></a>
 # **GetEventTypes**
-> InlineResponse20023 GetEventTypes (string applicationIds = null, string name = null, bool? includeOldVersions = null, int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20024 GetEventTypes (string applicationIds = null, string name = null, bool? includeOldVersions = null, int? pageSize = null, int? skip = null, string sort = null)
 
 List Event Types
 
@@ -3648,7 +3719,7 @@ namespace Example
             try
             {
                 // List Event Types
-                InlineResponse20023 result = apiInstance.GetEventTypes(applicationIds, name, includeOldVersions, pageSize, skip, sort);
+                InlineResponse20024 result = apiInstance.GetEventTypes(applicationIds, name, includeOldVersions, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3673,7 +3744,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -3688,7 +3759,7 @@ Name | Type | Description  | Notes
 
 <a name="getexports"></a>
 # **GetExports**
-> InlineResponse20026 GetExports (int? pageSize = null, int? skip = null, int? applicationId = null, int? campaignId = null, string entity = null)
+> InlineResponse20027 GetExports (int? pageSize = null, int? skip = null, int? applicationId = null, int? campaignId = null, string entity = null)
 
 Get Exports
 
@@ -3723,7 +3794,7 @@ namespace Example
             try
             {
                 // Get Exports
-                InlineResponse20026 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
+                InlineResponse20027 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3747,7 +3818,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -3762,7 +3833,7 @@ Name | Type | Description  | Notes
 
 <a name="getimports"></a>
 # **GetImports**
-> InlineResponse20027 GetImports (int? pageSize = null, int? skip = null)
+> InlineResponse20028 GetImports (int? pageSize = null, int? skip = null)
 
 Get Imports
 
@@ -3794,7 +3865,7 @@ namespace Example
             try
             {
                 // Get Imports
-                InlineResponse20027 result = apiInstance.GetImports(pageSize, skip);
+                InlineResponse20028 result = apiInstance.GetImports(pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -3815,7 +3886,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -4460,7 +4531,7 @@ Name | Type | Description  | Notes
 
 <a name="getusers"></a>
 # **GetUsers**
-> InlineResponse20024 GetUsers (int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20025 GetUsers (int? pageSize = null, int? skip = null, string sort = null)
 
 List Users in your account
 
@@ -4493,7 +4564,7 @@ namespace Example
             try
             {
                 // List Users in your account
-                InlineResponse20024 result = apiInstance.GetUsers(pageSize, skip, sort);
+                InlineResponse20025 result = apiInstance.GetUsers(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4515,7 +4586,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -4596,7 +4667,7 @@ Name | Type | Description  | Notes
 
 <a name="getwebhookactivationlogs"></a>
 # **GetWebhookActivationLogs**
-> InlineResponse20021 GetWebhookActivationLogs (int? pageSize = null, int? skip = null, string sort = null, string integrationRequestUuid = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
+> InlineResponse20022 GetWebhookActivationLogs (int? pageSize = null, int? skip = null, string sort = null, string integrationRequestUuid = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
 
 List Webhook activation Log Entries
 
@@ -4635,7 +4706,7 @@ namespace Example
             try
             {
                 // List Webhook activation Log Entries
-                InlineResponse20021 result = apiInstance.GetWebhookActivationLogs(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
+                InlineResponse20022 result = apiInstance.GetWebhookActivationLogs(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4663,7 +4734,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -4678,7 +4749,7 @@ Name | Type | Description  | Notes
 
 <a name="getwebhooklogs"></a>
 # **GetWebhookLogs**
-> InlineResponse20022 GetWebhookLogs (int? pageSize = null, int? skip = null, string sort = null, string status = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, string requestUuid = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
+> InlineResponse20023 GetWebhookLogs (int? pageSize = null, int? skip = null, string sort = null, string status = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, string requestUuid = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
 
 List Webhook Log Entries
 
@@ -4716,7 +4787,7 @@ namespace Example
             try
             {
                 // List Webhook Log Entries
-                InlineResponse20022 result = apiInstance.GetWebhookLogs(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
+                InlineResponse20023 result = apiInstance.GetWebhookLogs(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4745,7 +4816,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -4760,7 +4831,7 @@ Name | Type | Description  | Notes
 
 <a name="getwebhooks"></a>
 # **GetWebhooks**
-> InlineResponse20020 GetWebhooks (string applicationIds = null, string sort = null, int? pageSize = null, int? skip = null)
+> InlineResponse20021 GetWebhooks (string applicationIds = null, string sort = null, int? pageSize = null, int? skip = null)
 
 List Webhooks
 
@@ -4792,7 +4863,7 @@ namespace Example
             try
             {
                 // List Webhooks
-                InlineResponse20020 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip);
+                InlineResponse20021 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -4815,7 +4886,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -5398,13 +5469,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="setaccountlimits"></a>
-# **SetAccountLimits**
-> void SetAccountLimits (int? accountId, AccountLimits body)
+<a name="updateattribute"></a>
+# **UpdateAttribute**
+> Attribute UpdateAttribute (int? attributeId, NewAttribute body)
 
-Set account limits
+Update a custom attribute
 
-sets account limits 
+Updates an existing custom attribute. Once created, the only property of a custom attribute that can be changed is the title (human readable description). This restriction is in place to prevent accidentally breaking live integrations. E.g. if you have a customer profile attribute with the name `region`, and your integration is sending `attributes.region` with customer profile updates, changing the name to `locale` would cause the integration requests to begin failing.  If you **really** need to change the `type` or `name` property of a custom attribute, create a new attribute and update any relevant integrations and rules to use the new attribute. Then delete the old attribute when you are confident you have migrated any needed data from the old attribute to the new one. 
 
 ### Example
 ```csharp
@@ -5416,7 +5487,7 @@ using TalonOne.Model;
 
 namespace Example
 {
-    public class SetAccountLimitsExample
+    public class UpdateAttributeExample
     {
         public void main()
         {
@@ -5426,17 +5497,18 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi();
-            var accountId = 56;  // int? | 
-            var body = new AccountLimits(); // AccountLimits | 
+            var attributeId = 56;  // int? | 
+            var body = new NewAttribute(); // NewAttribute | 
 
             try
             {
-                // Set account limits
-                apiInstance.SetAccountLimits(accountId, body);
+                // Update a custom attribute
+                Attribute result = apiInstance.UpdateAttribute(attributeId, body);
+                Debug.WriteLine(result);
             }
             catch (Exception e)
             {
-                Debug.Print("Exception when calling ManagementApi.SetAccountLimits: " + e.Message );
+                Debug.Print("Exception when calling ManagementApi.UpdateAttribute: " + e.Message );
             }
         }
     }
@@ -5447,12 +5519,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **accountId** | **int?**|  | 
- **body** | [**AccountLimits**](AccountLimits.md)|  | 
+ **attributeId** | **int?**|  | 
+ **body** | [**NewAttribute**](NewAttribute.md)|  | 
 
 ### Return type
 
-void (empty response body)
+[**Attribute**](Attribute.md)
 
 ### Authorization
 

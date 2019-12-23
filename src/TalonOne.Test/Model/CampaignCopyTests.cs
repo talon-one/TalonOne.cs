@@ -82,6 +82,38 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ApplicationIds'
         }
+        /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Test]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
+        }
+        /// <summary>
+        /// Test the property 'StartTime'
+        /// </summary>
+        [Test]
+        public void StartTimeTest()
+        {
+            // TODO unit test for the property 'StartTime'
+        }
+        /// <summary>
+        /// Test the property 'EndTime'
+        /// </summary>
+        [Test]
+        public void EndTimeTest()
+        {
+            // TODO unit test for the property 'EndTime'
+        }
+        /// <summary>
+        /// Test the property 'Tags'
+        /// </summary>
+        [Test]
+        public void TagsTest()
+        {
+            // TODO unit test for the property 'Tags'
+        }
 
     }
 
