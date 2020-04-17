@@ -1,4 +1,6 @@
+
 # TalonOne.Model.LibraryAttribute
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,5 +13,7 @@ Name | Type | Description | Notes
 **Presets** | **List&lt;string&gt;** | The presets that indicate to which industry the attribute applies to. | 
 **Suggestions** | **List&lt;string&gt;** | Short suggestions that are used to group attributes. | 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

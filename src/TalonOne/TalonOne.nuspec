@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- The identifier that must be unique within the hosting gallery -->
@@ -31,7 +31,7 @@
         <icon>https://assets.website-files.com/5d23691b4883306fdcfb2499/5d9434227a88106f32e7de25_favicon-32x32.png</icon>
 
         <!-- Copyright information -->
-        <copyright>Copyright ©2019 Talon.One GmbH</copyright>
+        <copyright>Copyright ©2020 Talon.One GmbH</copyright>
 
         <!-- Tags appear in the gallery and can be used for tag searches -->
         <tags>sdk talon one swagger http client</tags>
