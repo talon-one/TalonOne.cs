@@ -74,6 +74,8 @@ Then, publish to a [local feed](https://docs.microsoft.com/en-us/nuget/hosting-p
 
 ### Integration API
 
+#### V2
+
 ```csharp
 using System;
 using System.Diagnostics;
@@ -102,7 +104,120 @@ namespace Example
             //   Configuration.Default.BasePath = "https://mycompany.talon.one";
             //   Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
             //   Configuration.Default.ApiKeyPrefix.Add("Authorization", "ApiKey-v1");
-            
+
+            // ************************************************
+            // Integration API example to send a session update
+            // ************************************************
+
+            // When using the default approach, the next initiation of `IntegrationApi`
+            // could be using the empty constructor
+            var integrationApi = new IntegrationApi(integrationConfig);
+            var customerSessionId = "my_unique_session_integration_id_2";  // string | The custom identifier for this session, must be unique within the account.
+
+            // Preparing a NewCustomerSessionV2 object
+            NewCustomerSessionV2 customerSession = new NewCustomerSessionV2 {
+                ProfileId = "PROFILE_ID",
+                CouponCodes = new List<string> {
+                    "Cool-Stuff-2020"
+                },
+                CartItems = new List<CartItem> {
+                    new CartItem(
+                        "Hummus Tahini", // Name
+                        "hum-t", // Sku
+                        1, // Quantity
+                        (decimal)5.5, // Price
+                        "Food" // Category
+                    ),
+                    new CartItem(
+                        "Iced Mint Lemonade", // Name
+                        "ice-mn-lemon", // Sku
+                        1, // Quantity
+                        (decimal)3.5, // Price
+                        "Beverages" // Category
+                    )
+                }
+            };
+
+            // Instantiating an IntegrationRequest object
+            IntegrationRequest body = new IntegrationRequest(
+                customerSession,
+                // Optional list of requested information to be present on the response.
+                // See src/TalonOne/Model/IntegrationRequest#ResponseContentEnum for full list of supported values
+                // new List<IntegrationRequest.ResponseContentEnum> {
+                //     IntegrationRequest.ResponseContentEnum.CustomerSession,
+                //     IntegrationRequest.ResponseContentEnum.CustomerProfile
+                // }
+            );
+
+
+            try
+            {
+                // Create/update a customer session using `UpdateCustomerSessionV2` function
+                IntegrationStateV2 response = integrationApi.UpdateCustomerSessionV2(customerSessionId, body);
+                Console.WriteLine(response);
+
+                // Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
+                foreach (Effect effect in response.Effects) {
+                    switch(effect.EffectType) {
+                        case "setDiscount":
+                            // Initiating right props instance according to the effect type
+                            SetDiscountEffectProps setDiscountEffectProps = (SetDiscountEffectProps) Newtonsoft.Json.JsonConvert.DeserializeObject(effect.Props.ToString(), typeof(SetDiscountEffectProps));
+
+                            // Access the specific effect's properties
+                            Console.WriteLine("Set a discount '{0}' of {1:00.000}", setDiscountEffectProps.Name, setDiscountEffectProps.Value);
+                            break;
+                        // case "acceptCoupon":
+                            // AcceptCouponEffectProps acceptCouponEffectProps = (AcceptCouponEffectProps) Newtonsoft.Json.JsonConvert.DeserializeObject(effect.Props.ToString(), typeof(AcceptCouponEffectProps));
+
+                            // Work with AcceptCouponEffectProps' properties
+                            // ...
+                            // break;
+                        default:
+                            Console.WriteLine("Encounter unknown effect type: {0}", effect.EffectType);
+                            break;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception when calling IntegrationApi.UpdateCustomerSessionV2: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+#### V1
+
+```csharp
+using System;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public void main()
+        {
+            // Configure BasePath & API key authorization: api_key_v1
+            var integrationConfig = new Configuration {
+                BasePath = "https://mycompany.talon.one",
+                ApiKey = new Dictionary<string, string> {
+                    { "Authorization", "e18149e88f42205432281c9d3d0e711111302722577ad60dcebc86c43aabfe70" }
+                },
+                ApiKeyPrefix = new Dictionary<string, string> {
+                    { "Authorization", "ApiKey-v1" }
+                }
+            };
+
+            // Or via the "global" Default configuration:
+            //   Configuration.Default.BasePath = "https://mycompany.talon.one";
+            //   Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
+            //   Configuration.Default.ApiKeyPrefix.Add("Authorization", "ApiKey-v1");
+
             // ************************************************
             // Integration API example to send a session update
             // ************************************************
@@ -112,7 +227,7 @@ namespace Example
             var integrationApi = new IntegrationApi(integrationConfig);
             var customerSessionId = "my_unique_session_integration_id";  // string | The custom identifier for this session, must be unique within the account.
             var customerSessionPayload = new NewCustomerSession {
-                ProfileId = "DADBOOF",
+                ProfileId = "unique_profile_integration_id",
                 State = NewCustomerSession.StateEnum.Open, // `Open` would be the default value anyway
                 Total = (decimal)42.234
             };
@@ -120,8 +235,8 @@ namespace Example
             try
             {
                 // Create/update a customer session using `UpdateCustomerSession` function
-                IntegrationState result = apiInstance.UpdateCustomerSession(customerSessionId, customerSessionPayload);
-                Console.WriteLine(result);
+                IntegrationState response = integrationApi.UpdateCustomerSession(customerSessionId, customerSessionPayload);
+                Console.WriteLine(response);
             }
             catch (Exception e)
             {
@@ -132,7 +247,7 @@ namespace Example
 }
 ```
 
-## Application API
+## Management API
 
 ```csharp
 using System;
@@ -154,7 +269,7 @@ namespace Example
 
             // Or via the "global" Default configuration:
             //   Configuration.Default.BasePath = "https://mycompany.talon.one";
-            
+
             // ****************************************************
             // Management API example to load application with id 7
             // ****************************************************
@@ -167,7 +282,7 @@ namespace Example
             {
                 // Obtain session token
                 var loginParams = new LoginParams("admin@talon.one", "https://whatthecommit.com/17fe05217dbe10af4d1158c71914faeb");
-                var session = instance.CreateSession(loginParams);
+                var session = managementApi.CreateSession(loginParams);
 
                 // Save token in the configuration for future management API calls
                 managementConfig.ApiKey.Add("Authorization", session.Token);
@@ -178,8 +293,8 @@ namespace Example
                 //   Configuration.Default.ApiKeyPrefix.Add("Authorization", "Bearer");
 
                 // Calling `GetApplication` function with the desired id (7)
-                Application result = instance.GetApplication(7);
-                Console.WriteLine(result);
+                Application app = managementApi.GetApplication(7);
+                Console.WriteLine(app);
             }
             catch (Exception e)
             {
