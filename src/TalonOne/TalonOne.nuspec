@@ -28,7 +28,7 @@
         <projectUrl>https://github.com/talon-one/TalonOne.cs</projectUrl>
 
         <!-- The icon is used in Visual Studio's package manager UI -->
-        <iconUrl>https://github.com/talon-one/TalonOne.cs/raw/master/icon.png></iconUrl>
+        <iconUrl>https://github.com/talon-one/TalonOne.cs/raw/master/icon.png</iconUrl>
 
         <!-- Copyright information -->
         <copyright>Copyright ©2020 Talon.One GmbH</copyright>
