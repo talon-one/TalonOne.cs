@@ -1,4 +1,6 @@
+
 # TalonOne.Model.NewTemplateDef
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,7 +11,9 @@ Name | Type | Description | Notes
 **Category** | **string** | Used for grouping templates in the rule editor sidebar. | 
 **Expr** | **List&lt;Object&gt;** | A Talang expression that contains variable bindings referring to args. | 
 **Args** | [**List&lt;TemplateArgDef&gt;**](TemplateArgDef.md) | An array of argument definitions. | 
-**Expose** | **bool?** | A flag to control exposure in Rule Builder. | [optional] [default to false]
+**Expose** | **bool** | A flag to control exposure in Rule Builder. | [optional] [default to false]
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 

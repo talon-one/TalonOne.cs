@@ -1,4 +1,6 @@
+
 # TalonOne.Model.NewCustomerSession
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,8 +11,10 @@ Name | Type | Description | Notes
 **State** | **string** | Indicates the current state of the session. All sessions must start in the \&quot;open\&quot; state, after which valid transitions are...  1. open -&gt; closed 2. open -&gt; cancelled 3. closed -&gt; cancelled  | [optional] [default to StateEnum.Open]
 **CartItems** | [**List&lt;CartItem&gt;**](CartItem.md) | Serialized JSON representation. | [optional] 
 **Identifiers** | **List&lt;string&gt;** | Identifiers for the customer, this can be used for limits on values such as device ID. | [optional] 
-**Total** | **decimal?** | The total sum of the cart in one session. | [optional] 
-**Attributes** | **Object** | A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.  | [optional] 
+**Total** | **decimal** | The total sum of the cart in one session. | [optional] 
+**Attributes** | [**Object**](.md) | A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to README]](../README.md)
 
