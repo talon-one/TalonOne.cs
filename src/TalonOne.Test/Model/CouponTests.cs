@@ -106,6 +106,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'UsageLimit'
         }
         /// <summary>
+        /// Test the property 'DiscountLimit'
+        /// </summary>
+        [Test]
+        public void DiscountLimitTest()
+        {
+            // TODO unit test for the property 'DiscountLimit'
+        }
+        /// <summary>
         /// Test the property 'StartDate'
         /// </summary>
         [Test]
@@ -128,6 +136,22 @@ namespace TalonOne.Test
         public void UsageCounterTest()
         {
             // TODO unit test for the property 'UsageCounter'
+        }
+        /// <summary>
+        /// Test the property 'DiscountCounter'
+        /// </summary>
+        [Test]
+        public void DiscountCounterTest()
+        {
+            // TODO unit test for the property 'DiscountCounter'
+        }
+        /// <summary>
+        /// Test the property 'DiscountRemainder'
+        /// </summary>
+        [Test]
+        public void DiscountRemainderTest()
+        {
+            // TODO unit test for the property 'DiscountRemainder'
         }
         /// <summary>
         /// Test the property 'Attributes'

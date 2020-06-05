@@ -88,7 +88,7 @@ namespace TalonOne.Test
             //int campaignId = null;
             //CampaignCopy body = null;
             //var response = instance.CopyCampaignToApplications(applicationId, campaignId, body);
-            //Assert.IsInstanceOf(typeof(InlineResponse2003), response, "response is InlineResponse2003");
+            //Assert.IsInstanceOf(typeof(InlineResponse2002), response, "response is InlineResponse2002");
         }
         
         /// <summary>
@@ -140,7 +140,7 @@ namespace TalonOne.Test
             //NewCoupons body = null;
             //string silent = null;
             //var response = instance.CreateCoupons(applicationId, campaignId, body, silent);
-            //Assert.IsInstanceOf(typeof(InlineResponse2001), response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
         }
         
         /// <summary>
@@ -555,7 +555,7 @@ namespace TalonOne.Test
             //int skip = null;
             //string sort = null;
             //var response = instance.GetApplications(pageSize, skip, sort);
-            //Assert.IsInstanceOf(typeof(InlineResponse2002), response, "response is InlineResponse2002");
+            //Assert.IsInstanceOf(typeof(InlineResponse2001), response, "response is InlineResponse2001");
         }
         
         /// <summary>
@@ -627,19 +627,7 @@ namespace TalonOne.Test
             //string sort = null;
             //string campaignState = null;
             //var response = instance.GetCampaignByAttributes(applicationId, body, pageSize, skip, sort, campaignState);
-            //Assert.IsInstanceOf(typeof(InlineResponse2003), response, "response is InlineResponse2003");
-        }
-        
-        /// <summary>
-        /// Test GetCampaignSet
-        /// </summary>
-        [Test]
-        public void GetCampaignSetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //var response = instance.GetCampaignSet(applicationId);
-            //Assert.IsInstanceOf(typeof(CampaignSet), response, "response is CampaignSet");
+            //Assert.IsInstanceOf(typeof(InlineResponse2002), response, "response is InlineResponse2002");
         }
         
         /// <summary>
@@ -659,7 +647,7 @@ namespace TalonOne.Test
             //DateTime createdBefore = null;
             //DateTime createdAfter = null;
             //var response = instance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter);
-            //Assert.IsInstanceOf(typeof(InlineResponse2003), response, "response is InlineResponse2003");
+            //Assert.IsInstanceOf(typeof(InlineResponse2002), response, "response is InlineResponse2002");
         }
         
         /// <summary>
@@ -707,7 +695,7 @@ namespace TalonOne.Test
             //string recipientIntegrationId = null;
             //bool exactMatch = null;
             //var response = instance.GetCoupons(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
-            //Assert.IsInstanceOf(typeof(InlineResponse2001), response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
         }
         
         /// <summary>
@@ -733,7 +721,7 @@ namespace TalonOne.Test
             //bool exactMatch = null;
             //string batchId = null;
             //var response = instance.GetCouponsByAttributes(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
-            //Assert.IsInstanceOf(typeof(InlineResponse2001), response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
         }
         
         /// <summary>
@@ -759,7 +747,7 @@ namespace TalonOne.Test
             //bool exactMatch = null;
             //string campaignState = null;
             //var response = instance.GetCouponsByAttributesApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
-            //Assert.IsInstanceOf(typeof(InlineResponse2001), response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
         }
         
         /// <summary>
@@ -1067,7 +1055,7 @@ namespace TalonOne.Test
             //int skip = null;
             //string sort = null;
             //var response = instance.GetRulesets(applicationId, campaignId, pageSize, skip, sort);
-            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
+            //Assert.IsInstanceOf(typeof(InlineResponse2003), response, "response is InlineResponse2003");
         }
         
         /// <summary>
@@ -1213,7 +1201,7 @@ namespace TalonOne.Test
             //bool exactMatch = null;
             //string batchId = null;
             //var response = instance.SearchCouponsAdvanced(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
-            //Assert.IsInstanceOf(typeof(InlineResponse2001), response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
         }
         
         /// <summary>
@@ -1239,7 +1227,7 @@ namespace TalonOne.Test
             //bool exactMatch = null;
             //string campaignState = null;
             //var response = instance.SearchCouponsAdvancedApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
-            //Assert.IsInstanceOf(typeof(InlineResponse2001), response, "response is InlineResponse2001");
+            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
         }
         
         /// <summary>
@@ -1332,19 +1320,6 @@ namespace TalonOne.Test
             //UpdateCampaign body = null;
             //var response = instance.UpdateCampaign(applicationId, campaignId, body);
             //Assert.IsInstanceOf(typeof(Campaign), response, "response is Campaign");
-        }
-        
-        /// <summary>
-        /// Test UpdateCampaignSet
-        /// </summary>
-        [Test]
-        public void UpdateCampaignSetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //NewCampaignSet body = null;
-            //var response = instance.UpdateCampaignSet(applicationId, body);
-            //Assert.IsInstanceOf(typeof(CampaignSet), response, "response is CampaignSet");
         }
         
         /// <summary>

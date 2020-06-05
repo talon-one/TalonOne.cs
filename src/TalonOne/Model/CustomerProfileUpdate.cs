@@ -25,56 +25,39 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// InlineResponse2001
+    /// CustomerProfileUpdate
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2001 :  IEquatable<InlineResponse2001>, IValidatableObject
+    public partial class CustomerProfileUpdate :  IEquatable<CustomerProfileUpdate>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
+        /// Initializes a new instance of the <see cref="CustomerProfileUpdate" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InlineResponse2001() { }
+        protected CustomerProfileUpdate() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2001" /> class.
+        /// Initializes a new instance of the <see cref="CustomerProfileUpdate" /> class.
         /// </summary>
-        /// <param name="totalResultSize">totalResultSize (required).</param>
-        /// <param name="data">data (required).</param>
-        public InlineResponse2001(int totalResultSize = default(int), List<Application> data = default(List<Application>))
+        /// <param name="customerProfile">customerProfile (required).</param>
+        public CustomerProfileUpdate(CustomerProfile customerProfile = default(CustomerProfile))
         {
-            // to ensure "totalResultSize" is required (not null)
-            if (totalResultSize == null)
+            // to ensure "customerProfile" is required (not null)
+            if (customerProfile == null)
             {
-                throw new InvalidDataException("totalResultSize is a required property for InlineResponse2001 and cannot be null");
+                throw new InvalidDataException("customerProfile is a required property for CustomerProfileUpdate and cannot be null");
             }
             else
             {
-                this.TotalResultSize = totalResultSize;
-            }
-            
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new InvalidDataException("data is a required property for InlineResponse2001 and cannot be null");
-            }
-            else
-            {
-                this.Data = data;
+                this.CustomerProfile = customerProfile;
             }
             
         }
         
         /// <summary>
-        /// Gets or Sets TotalResultSize
+        /// Gets or Sets CustomerProfile
         /// </summary>
-        [DataMember(Name="totalResultSize", EmitDefaultValue=false)]
-        public int TotalResultSize { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Data
-        /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<Application> Data { get; set; }
+        [DataMember(Name="customerProfile", EmitDefaultValue=false)]
+        public CustomerProfile CustomerProfile { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +66,8 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2001 {\n");
-            sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class CustomerProfileUpdate {\n");
+            sb.Append("  CustomerProfile: ").Append(CustomerProfile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,30 +88,24 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2001);
+            return this.Equals(input as CustomerProfileUpdate);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2001 instances are equal
+        /// Returns true if CustomerProfileUpdate instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2001 to be compared</param>
+        /// <param name="input">Instance of CustomerProfileUpdate to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2001 input)
+        public bool Equals(CustomerProfileUpdate input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.TotalResultSize == input.TotalResultSize ||
-                    (this.TotalResultSize != null &&
-                    this.TotalResultSize.Equals(input.TotalResultSize))
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.CustomerProfile == input.CustomerProfile ||
+                    (this.CustomerProfile != null &&
+                    this.CustomerProfile.Equals(input.CustomerProfile))
                 );
         }
 
@@ -142,10 +118,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TotalResultSize != null)
-                    hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.CustomerProfile != null)
+                    hashCode = hashCode * 59 + this.CustomerProfile.GetHashCode();
                 return hashCode;
             }
         }

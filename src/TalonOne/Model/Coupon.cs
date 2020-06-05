@@ -43,16 +43,19 @@ namespace TalonOne.Model
         /// <param name="campaignId">The ID of the campaign that owns this entity. (required).</param>
         /// <param name="value">The actual coupon code. (required).</param>
         /// <param name="usageLimit">The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.  (required).</param>
+        /// <param name="discountLimit">The amount of discounts that can be given with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
         /// <param name="expiryDate">Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
         /// <param name="usageCounter">The number of times this coupon has been successfully used. (required).</param>
+        /// <param name="discountCounter">The amount of discounts given on rules redeeming this coupon. Only usable if a coupon discount budget was set for this coupon..</param>
+        /// <param name="discountRemainder">The remaining discount this coupon can give..</param>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
         /// <param name="referralId">The integration ID of the referring customer (if any) for whom this coupon was created as an effect..</param>
-        /// <param name="recipientIntegrationId">The integration ID of a referred customer profile..</param>
+        /// <param name="recipientIntegrationId">The Integration ID of the customer that is allowed to redeem this coupon..</param>
         /// <param name="importId">The ID of the Import which created this coupon..</param>
         /// <param name="reservation">This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favourite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified..</param>
         /// <param name="batchId">The id of the batch the coupon belongs to..</param>
-        public Coupon(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), string value = default(string), int usageLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageCounter = default(int), Object attributes = default(Object), int referralId = default(int), string recipientIntegrationId = default(string), int importId = default(int), bool reservation = default(bool), string batchId = default(string))
+        public Coupon(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), string value = default(string), int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageCounter = default(int), decimal discountCounter = default(decimal), decimal discountRemainder = default(decimal), Object attributes = default(Object), int referralId = default(int), string recipientIntegrationId = default(string), int importId = default(int), bool reservation = default(bool), string batchId = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -114,8 +117,11 @@ namespace TalonOne.Model
                 this.UsageCounter = usageCounter;
             }
             
+            this.DiscountLimit = discountLimit;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
+            this.DiscountCounter = discountCounter;
+            this.DiscountRemainder = discountRemainder;
             this.Attributes = attributes;
             this.ReferralId = referralId;
             this.RecipientIntegrationId = recipientIntegrationId;
@@ -160,6 +166,13 @@ namespace TalonOne.Model
         public int UsageLimit { get; set; }
 
         /// <summary>
+        /// The amount of discounts that can be given with this coupon code. 
+        /// </summary>
+        /// <value>The amount of discounts that can be given with this coupon code. </value>
+        [DataMember(Name="discountLimit", EmitDefaultValue=false)]
+        public decimal DiscountLimit { get; set; }
+
+        /// <summary>
         /// Timestamp at which point the coupon becomes valid.
         /// </summary>
         /// <value>Timestamp at which point the coupon becomes valid.</value>
@@ -181,6 +194,20 @@ namespace TalonOne.Model
         public int UsageCounter { get; set; }
 
         /// <summary>
+        /// The amount of discounts given on rules redeeming this coupon. Only usable if a coupon discount budget was set for this coupon.
+        /// </summary>
+        /// <value>The amount of discounts given on rules redeeming this coupon. Only usable if a coupon discount budget was set for this coupon.</value>
+        [DataMember(Name="discountCounter", EmitDefaultValue=false)]
+        public decimal DiscountCounter { get; set; }
+
+        /// <summary>
+        /// The remaining discount this coupon can give.
+        /// </summary>
+        /// <value>The remaining discount this coupon can give.</value>
+        [DataMember(Name="discountRemainder", EmitDefaultValue=false)]
+        public decimal DiscountRemainder { get; set; }
+
+        /// <summary>
         /// Arbitrary properties associated with this item
         /// </summary>
         /// <value>Arbitrary properties associated with this item</value>
@@ -195,9 +222,9 @@ namespace TalonOne.Model
         public int ReferralId { get; set; }
 
         /// <summary>
-        /// The integration ID of a referred customer profile.
+        /// The Integration ID of the customer that is allowed to redeem this coupon.
         /// </summary>
-        /// <value>The integration ID of a referred customer profile.</value>
+        /// <value>The Integration ID of the customer that is allowed to redeem this coupon.</value>
         [DataMember(Name="recipientIntegrationId", EmitDefaultValue=false)]
         public string RecipientIntegrationId { get; set; }
 
@@ -235,9 +262,12 @@ namespace TalonOne.Model
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  UsageLimit: ").Append(UsageLimit).Append("\n");
+            sb.Append("  DiscountLimit: ").Append(DiscountLimit).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  UsageCounter: ").Append(UsageCounter).Append("\n");
+            sb.Append("  DiscountCounter: ").Append(DiscountCounter).Append("\n");
+            sb.Append("  DiscountRemainder: ").Append(DiscountRemainder).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  ReferralId: ").Append(ReferralId).Append("\n");
             sb.Append("  RecipientIntegrationId: ").Append(RecipientIntegrationId).Append("\n");
@@ -304,6 +334,11 @@ namespace TalonOne.Model
                     this.UsageLimit.Equals(input.UsageLimit))
                 ) && 
                 (
+                    this.DiscountLimit == input.DiscountLimit ||
+                    (this.DiscountLimit != null &&
+                    this.DiscountLimit.Equals(input.DiscountLimit))
+                ) && 
+                (
                     this.StartDate == input.StartDate ||
                     (this.StartDate != null &&
                     this.StartDate.Equals(input.StartDate))
@@ -317,6 +352,16 @@ namespace TalonOne.Model
                     this.UsageCounter == input.UsageCounter ||
                     (this.UsageCounter != null &&
                     this.UsageCounter.Equals(input.UsageCounter))
+                ) && 
+                (
+                    this.DiscountCounter == input.DiscountCounter ||
+                    (this.DiscountCounter != null &&
+                    this.DiscountCounter.Equals(input.DiscountCounter))
+                ) && 
+                (
+                    this.DiscountRemainder == input.DiscountRemainder ||
+                    (this.DiscountRemainder != null &&
+                    this.DiscountRemainder.Equals(input.DiscountRemainder))
                 ) && 
                 (
                     this.Attributes == input.Attributes ||
@@ -369,12 +414,18 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.UsageLimit != null)
                     hashCode = hashCode * 59 + this.UsageLimit.GetHashCode();
+                if (this.DiscountLimit != null)
+                    hashCode = hashCode * 59 + this.DiscountLimit.GetHashCode();
                 if (this.StartDate != null)
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
                 if (this.UsageCounter != null)
                     hashCode = hashCode * 59 + this.UsageCounter.GetHashCode();
+                if (this.DiscountCounter != null)
+                    hashCode = hashCode * 59 + this.DiscountCounter.GetHashCode();
+                if (this.DiscountRemainder != null)
+                    hashCode = hashCode * 59 + this.DiscountRemainder.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.ReferralId != null)
@@ -414,6 +465,18 @@ namespace TalonOne.Model
             if(this.UsageLimit < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
+            }
+
+            // DiscountLimit (decimal) maximum
+            if(this.DiscountLimit > (decimal)999999)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value less than or equal to 999999.", new [] { "DiscountLimit" });
+            }
+
+            // DiscountLimit (decimal) minimum
+            if(this.DiscountLimit < (decimal)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value greater than or equal to 0.", new [] { "DiscountLimit" });
             }
 
             yield break;

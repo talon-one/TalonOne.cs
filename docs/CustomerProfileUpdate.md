@@ -1,13 +1,11 @@
 
-# TalonOne.Model.CustomerInventory
+# TalonOne.Model.CustomerProfileUpdate
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Profile** | [**CustomerProfile**](CustomerProfile.md) |  | [optional] 
-**Referrals** | [**List&lt;Referral&gt;**](Referral.md) |  | [optional] 
-**Coupons** | [**List&lt;Coupon&gt;**](Coupon.md) |  | [optional] 
+**CustomerProfile** | [**CustomerProfile**](CustomerProfile.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

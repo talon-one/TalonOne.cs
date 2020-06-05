@@ -18,7 +18,7 @@ Method | HTTP request | Description
 [**DeleteCoupons**](ManagementApi.md#deletecoupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete Coupons
 [**DeleteReferral**](ManagementApi.md#deletereferral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete one Referral
 [**DeleteRuleset**](ManagementApi.md#deleteruleset) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Delete a Ruleset
-[**GetAccessLogs**](ManagementApi.md#getaccesslogs) | **GET** /v1/applications/{applicationId}/access_logs | Get access logs for application
+[**GetAccessLogs**](ManagementApi.md#getaccesslogs) | **GET** /v1/applications/{applicationId}/access_logs | Get access logs for application (with total count)
 [**GetAccessLogsWithoutTotalCount**](ManagementApi.md#getaccesslogswithouttotalcount) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for application
 [**GetAccount**](ManagementApi.md#getaccount) | **GET** /v1/accounts/{accountId} | Get Account Details
 [**GetAccountAnalytics**](ManagementApi.md#getaccountanalytics) | **GET** /v1/accounts/{accountId}/analytics | Get Account Analytics
@@ -30,9 +30,9 @@ Method | HTTP request | Description
 [**GetApplicationApiHealth**](ManagementApi.md#getapplicationapihealth) | **GET** /v1/applications/{applicationId}/health_report | Get report of health of application API
 [**GetApplicationCustomer**](ManagementApi.md#getapplicationcustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get Application Customer
 [**GetApplicationCustomers**](ManagementApi.md#getapplicationcustomers) | **GET** /v1/applications/{applicationId}/customers | List Application Customers
-[**GetApplicationCustomersByAttributes**](ManagementApi.md#getapplicationcustomersbyattributes) | **POST** /v1/application_customer_search | Get a list of the customer profiles that match the given attributes
+[**GetApplicationCustomersByAttributes**](ManagementApi.md#getapplicationcustomersbyattributes) | **POST** /v1/application_customer_search | Get a list of the customer profiles that match the given attributes (with total count)
 [**GetApplicationEventTypes**](ManagementApi.md#getapplicationeventtypes) | **GET** /v1/applications/{applicationId}/event_types | List Applications Event Types
-[**GetApplicationEvents**](ManagementApi.md#getapplicationevents) | **GET** /v1/applications/{applicationId}/events | List Applications Events
+[**GetApplicationEvents**](ManagementApi.md#getapplicationevents) | **GET** /v1/applications/{applicationId}/events | List Applications Events (with total count)
 [**GetApplicationEventsWithoutTotalCount**](ManagementApi.md#getapplicationeventswithouttotalcount) | **GET** /v1/applications/{applicationId}/events/no_total | List Applications Events
 [**GetApplicationSession**](ManagementApi.md#getapplicationsession) | **GET** /v1/applications/{applicationId}/sessions/{sessionId} | Get Application Session
 [**GetApplicationSessions**](ManagementApi.md#getapplicationsessions) | **GET** /v1/applications/{applicationId}/sessions | List Application Sessions
@@ -42,15 +42,14 @@ Method | HTTP request | Description
 [**GetCampaign**](ManagementApi.md#getcampaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get a Campaign
 [**GetCampaignAnalytics**](ManagementApi.md#getcampaignanalytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
 [**GetCampaignByAttributes**](ManagementApi.md#getcampaignbyattributes) | **POST** /v1/applications/{applicationId}/campaigns_search | Get a list of all campaigns that match the given attributes
-[**GetCampaignSet**](ManagementApi.md#getcampaignset) | **GET** /v1/applications/{applicationId}/campaign_set | List CampaignSet
 [**GetCampaigns**](ManagementApi.md#getcampaigns) | **GET** /v1/applications/{applicationId}/campaigns | List your Campaigns
 [**GetChanges**](ManagementApi.md#getchanges) | **GET** /v1/changes | Get audit log for an account
-[**GetCoupons**](ManagementApi.md#getcoupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List Coupons
+[**GetCoupons**](ManagementApi.md#getcoupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List Coupons (with total count)
 [**GetCouponsByAttributes**](ManagementApi.md#getcouponsbyattributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | Get a list of the coupons that match the given attributes
-[**GetCouponsByAttributesApplicationWide**](ManagementApi.md#getcouponsbyattributesapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search | Get a list of the coupons that match the given attributes in all active campaigns of an application
+[**GetCouponsByAttributesApplicationWide**](ManagementApi.md#getcouponsbyattributesapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 [**GetCouponsWithoutTotalCount**](ManagementApi.md#getcouponswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List Coupons
 [**GetCustomerActivityReport**](ManagementApi.md#getcustomeractivityreport) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get Activity Report for Single Customer
-[**GetCustomerActivityReports**](ManagementApi.md#getcustomeractivityreports) | **GET** /v1/applications/{applicationId}/customer_activity_reports | Get Activity Reports for Application Customers
+[**GetCustomerActivityReports**](ManagementApi.md#getcustomeractivityreports) | **GET** /v1/applications/{applicationId}/customer_activity_reports | Get Activity Reports for Application Customers (with total count)
 [**GetCustomerActivityReportsWithoutTotalCount**](ManagementApi.md#getcustomeractivityreportswithouttotalcount) | **GET** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
 [**GetCustomerAnalytics**](ManagementApi.md#getcustomeranalytics) | **GET** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get Analytics Report for a Customer
 [**GetCustomerProfile**](ManagementApi.md#getcustomerprofile) | **GET** /v1/customers/{customerId} | Get Customer Profile
@@ -62,7 +61,7 @@ Method | HTTP request | Description
 [**GetLoyaltyPoints**](ManagementApi.md#getloyaltypoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
 [**GetLoyaltyProgram**](ManagementApi.md#getloyaltyprogram) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
 [**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List all loyalty Programs
-[**GetReferrals**](ManagementApi.md#getreferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals
+[**GetReferrals**](ManagementApi.md#getreferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
 [**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
 [**GetRole**](ManagementApi.md#getrole) | **GET** /v1/roles/{roleId} | Get information for the specified role.
 [**GetRuleset**](ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get a Ruleset
@@ -75,14 +74,13 @@ Method | HTTP request | Description
 [**GetWebhooks**](ManagementApi.md#getwebhooks) | **GET** /v1/webhooks | List Webhooks
 [**RemoveLoyaltyPoints**](ManagementApi.md#removeloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a certain loyalty program for the specified customer
 [**ResetPassword**](ManagementApi.md#resetpassword) | **POST** /v1/reset_password | Reset password
-[**SearchCouponsAdvanced**](ManagementApi.md#searchcouponsadvanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | Get a list of the coupons that match the given attributes
-[**SearchCouponsAdvancedApplicationWide**](ManagementApi.md#searchcouponsadvancedapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application
+[**SearchCouponsAdvanced**](ManagementApi.md#searchcouponsadvanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | Get a list of the coupons that match the given attributes (with total count)
+[**SearchCouponsAdvancedApplicationWide**](ManagementApi.md#searchcouponsadvancedapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 [**SearchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedapplicationwidewithouttotalcount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes in all active campaigns of an application
 [**SearchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedwithouttotalcount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes
 [**UpdateAdditionalCost**](ManagementApi.md#updateadditionalcost) | **PUT** /v1/additional_costs/{additionalCostId} | Update an additional cost
 [**UpdateAttribute**](ManagementApi.md#updateattribute) | **PUT** /v1/attributes/{attributeId} | Update a custom attribute
 [**UpdateCampaign**](ManagementApi.md#updatecampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update a Campaign
-[**UpdateCampaignSet**](ManagementApi.md#updatecampaignset) | **PUT** /v1/applications/{applicationId}/campaign_set | Update a Campaign Set
 [**UpdateCoupon**](ManagementApi.md#updatecoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update a Coupon
 [**UpdateCouponBatch**](ManagementApi.md#updatecouponbatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a Batch of Coupons
 [**UpdateRuleset**](ManagementApi.md#updateruleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update a Ruleset
@@ -172,7 +170,7 @@ void (empty response body)
 
 ## CopyCampaignToApplications
 
-> InlineResponse2003 CopyCampaignToApplications (int applicationId, int campaignId, CampaignCopy body)
+> InlineResponse2002 CopyCampaignToApplications (int applicationId, int campaignId, CampaignCopy body)
 
 Copy the campaign into every specified application
 
@@ -207,7 +205,7 @@ namespace Example
             try
             {
                 // Copy the campaign into every specified application
-                InlineResponse2003 result = apiInstance.CopyCampaignToApplications(applicationId, campaignId, body);
+                InlineResponse2002 result = apiInstance.CopyCampaignToApplications(applicationId, campaignId, body);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -232,7 +230,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -496,7 +494,7 @@ Name | Type | Description  | Notes
 
 ## CreateCoupons
 
-> InlineResponse2001 CreateCoupons (int applicationId, int campaignId, NewCoupons body, string silent = null)
+> InlineResponse2004 CreateCoupons (int applicationId, int campaignId, NewCoupons body, string silent = null)
 
 Create Coupons
 
@@ -532,7 +530,7 @@ namespace Example
             try
             {
                 // Create Coupons
-                InlineResponse2001 result = apiInstance.CreateCoupons(applicationId, campaignId, body, silent);
+                InlineResponse2004 result = apiInstance.CreateCoupons(applicationId, campaignId, body, silent);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -558,7 +556,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -1252,7 +1250,7 @@ void (empty response body)
 
 > InlineResponse2009 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int pageSize = null, int skip = null, string sort = null)
 
-Get access logs for application
+Get access logs for application (with total count)
 
 ### Example
 
@@ -1288,7 +1286,7 @@ namespace Example
 
             try
             {
-                // Get access logs for application
+                // Get access logs for application (with total count)
                 InlineResponse2009 result = apiInstance.GetAccessLogs(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
@@ -2248,7 +2246,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse20013 GetApplicationCustomersByAttributes (ApplicationCustomerSearch body)
 
-Get a list of the customer profiles that match the given attributes
+Get a list of the customer profiles that match the given attributes (with total count)
 
 Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
 
@@ -2278,7 +2276,7 @@ namespace Example
 
             try
             {
-                // Get a list of the customer profiles that match the given attributes
+                // Get a list of the customer profiles that match the given attributes (with total count)
                 InlineResponse20013 result = apiInstance.GetApplicationCustomersByAttributes(body);
                 Debug.WriteLine(result);
             }
@@ -2414,7 +2412,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse20017 GetApplicationEvents (int applicationId, int pageSize = null, int skip = null, string sort = null, string type = null, DateTime createdBefore = null, DateTime createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
 
-List Applications Events
+List Applications Events (with total count)
 
 Lists all events recorded for an application. 
 
@@ -2458,7 +2456,7 @@ namespace Example
 
             try
             {
-                // List Applications Events
+                // List Applications Events (with total count)
                 InlineResponse20017 result = apiInstance.GetApplicationEvents(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
                 Debug.WriteLine(result);
             }
@@ -2804,7 +2802,7 @@ Name | Type | Description  | Notes
 
 ## GetApplications
 
-> InlineResponse2002 GetApplications (int pageSize = null, int skip = null, string sort = null)
+> InlineResponse2001 GetApplications (int pageSize = null, int skip = null, string sort = null)
 
 List Applications
 
@@ -2839,7 +2837,7 @@ namespace Example
             try
             {
                 // List Applications
-                InlineResponse2002 result = apiInstance.GetApplications(pageSize, skip, sort);
+                InlineResponse2001 result = apiInstance.GetApplications(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2864,7 +2862,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -3218,7 +3216,7 @@ Name | Type | Description  | Notes
 
 ## GetCampaignByAttributes
 
-> InlineResponse2003 GetCampaignByAttributes (int applicationId, CampaignSearch body, int pageSize = null, int skip = null, string sort = null, string campaignState = null)
+> InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int pageSize = null, int skip = null, string sort = null, string campaignState = null)
 
 Get a list of all campaigns that match the given attributes
 
@@ -3256,7 +3254,7 @@ namespace Example
             try
             {
                 // Get a list of all campaigns that match the given attributes
-                InlineResponse2003 result = apiInstance.GetCampaignByAttributes(applicationId, body, pageSize, skip, sort, campaignState);
+                InlineResponse2002 result = apiInstance.GetCampaignByAttributes(applicationId, body, pageSize, skip, sort, campaignState);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3284,7 +3282,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -3306,87 +3304,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetCampaignSet
-
-> CampaignSet GetCampaignSet (int applicationId)
-
-List CampaignSet
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetCampaignSetExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-
-            try
-            {
-                // List CampaignSet
-                CampaignSet result = apiInstance.GetCampaignSet(applicationId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetCampaignSet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
-
-### Return type
-
-[**CampaignSet**](CampaignSet.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetCampaigns
 
-> InlineResponse2003 GetCampaigns (int applicationId, int pageSize = null, int skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime createdBefore = null, DateTime createdAfter = null)
+> InlineResponse2002 GetCampaigns (int applicationId, int pageSize = null, int skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime createdBefore = null, DateTime createdAfter = null)
 
 List your Campaigns
 
@@ -3425,7 +3345,7 @@ namespace Example
             try
             {
                 // List your Campaigns
-                InlineResponse2003 result = apiInstance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter);
+                InlineResponse2002 result = apiInstance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3456,7 +3376,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2002**](InlineResponse2002.md)
 
 ### Authorization
 
@@ -3574,9 +3494,9 @@ Name | Type | Description  | Notes
 
 ## GetCoupons
 
-> InlineResponse2001 GetCoupons (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, DateTime startsAfter = null, DateTime startsBefore = null, DateTime expiresAfter = null, DateTime expiresBefore = null, string valid = null, string batchId = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null)
+> InlineResponse2004 GetCoupons (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, DateTime startsAfter = null, DateTime startsBefore = null, DateTime expiresAfter = null, DateTime expiresBefore = null, string valid = null, string batchId = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null)
 
-List Coupons
+List Coupons (with total count)
 
 ### Example
 
@@ -3621,8 +3541,8 @@ namespace Example
 
             try
             {
-                // List Coupons
-                InlineResponse2001 result = apiInstance.GetCoupons(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
+                // List Coupons (with total count)
+                InlineResponse2004 result = apiInstance.GetCoupons(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3662,7 +3582,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -3686,7 +3606,7 @@ Name | Type | Description  | Notes
 
 ## GetCouponsByAttributes
 
-> InlineResponse2001 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null, string batchId = null)
+> InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null, string batchId = null)
 
 Get a list of the coupons that match the given attributes
 
@@ -3733,7 +3653,7 @@ namespace Example
             try
             {
                 // Get a list of the coupons that match the given attributes
-                InlineResponse2001 result = apiInstance.GetCouponsByAttributes(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
+                InlineResponse2004 result = apiInstance.GetCouponsByAttributes(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3770,7 +3690,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -3794,9 +3714,9 @@ Name | Type | Description  | Notes
 
 ## GetCouponsByAttributesApplicationWide
 
-> InlineResponse2001 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, string batchId = null, bool exactMatch = null, string campaignState = null)
+> InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, string batchId = null, bool exactMatch = null, string campaignState = null)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application
+Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria Application wide 
 
@@ -3840,8 +3760,8 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes in all active campaigns of an application
-                InlineResponse2001 result = apiInstance.GetCouponsByAttributesApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
+                // Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+                InlineResponse2004 result = apiInstance.GetCouponsByAttributesApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3878,7 +3798,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -4098,7 +4018,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse20014 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = null, int skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
 
-Get Activity Reports for Application Customers
+Get Activity Reports for Application Customers (with total count)
 
 Fetch summary reports for all application customers based on a time range
 
@@ -4137,7 +4057,7 @@ namespace Example
 
             try
             {
-                // Get Activity Reports for Application Customers
+                // Get Activity Reports for Application Customers (with total count)
                 InlineResponse20014 result = apiInstance.GetCustomerActivityReports(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
                 Debug.WriteLine(result);
             }
@@ -5120,7 +5040,7 @@ This endpoint does not need any parameter.
 
 > InlineResponse2006 GetReferrals (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null, string code = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, string advocate = null)
 
-List Referrals
+List Referrals (with total count)
 
 ### Example
 
@@ -5158,7 +5078,7 @@ namespace Example
 
             try
             {
-                // List Referrals
+                // List Referrals (with total count)
                 InlineResponse2006 result = apiInstance.GetReferrals(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
                 Debug.WriteLine(result);
             }
@@ -5474,7 +5394,7 @@ Name | Type | Description  | Notes
 
 ## GetRulesets
 
-> InlineResponse2004 GetRulesets (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null)
+> InlineResponse2003 GetRulesets (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null)
 
 List Campaign Rulesets
 
@@ -5509,7 +5429,7 @@ namespace Example
             try
             {
                 // List Campaign Rulesets
-                InlineResponse2004 result = apiInstance.GetRulesets(applicationId, campaignId, pageSize, skip, sort);
+                InlineResponse2003 result = apiInstance.GetRulesets(applicationId, campaignId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5536,7 +5456,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -6241,9 +6161,9 @@ Name | Type | Description  | Notes
 
 ## SearchCouponsAdvanced
 
-> InlineResponse2001 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null, string batchId = null)
+> InlineResponse2004 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null, string batchId = null)
 
-Get a list of the coupons that match the given attributes
+Get a list of the coupons that match the given attributes (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria 
 
@@ -6287,8 +6207,8 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes
-                InlineResponse2001 result = apiInstance.SearchCouponsAdvanced(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
+                // Get a list of the coupons that match the given attributes (with total count)
+                InlineResponse2004 result = apiInstance.SearchCouponsAdvanced(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6325,7 +6245,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -6349,9 +6269,9 @@ Name | Type | Description  | Notes
 
 ## SearchCouponsAdvancedApplicationWide
 
-> InlineResponse2001 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, string batchId = null, bool exactMatch = null, string campaignState = null)
+> InlineResponse2004 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, string batchId = null, bool exactMatch = null, string campaignState = null)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application
+Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
 
@@ -6395,8 +6315,8 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes in all active campaigns of an application
-                InlineResponse2001 result = apiInstance.SearchCouponsAdvancedApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
+                // Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+                InlineResponse2004 result = apiInstance.SearchCouponsAdvancedApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6433,7 +6353,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -6896,86 +6816,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Campaign**](Campaign.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## UpdateCampaignSet
-
-> CampaignSet UpdateCampaignSet (int applicationId, NewCampaignSet body)
-
-Update a Campaign Set
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class UpdateCampaignSetExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-            var body = new NewCampaignSet(); // NewCampaignSet | 
-
-            try
-            {
-                // Update a Campaign Set
-                CampaignSet result = apiInstance.UpdateCampaignSet(applicationId, body);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.UpdateCampaignSet: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
- **body** | [**NewCampaignSet**](NewCampaignSet.md)|  | 
-
-### Return type
-
-[**CampaignSet**](CampaignSet.md)
 
 ### Authorization
 

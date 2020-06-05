@@ -39,8 +39,9 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="NewCampaignSet" /> class.
         /// </summary>
         /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="version">Version of the campaign set (required).</param>
         /// <param name="set">set (required).</param>
-        public NewCampaignSet(int applicationId = default(int), CampaignSetBranchNode set = default(CampaignSetBranchNode))
+        public NewCampaignSet(int applicationId = default(int), int version = default(int), CampaignSetBranchNode set = default(CampaignSetBranchNode))
         {
             // to ensure "applicationId" is required (not null)
             if (applicationId == null)
@@ -50,6 +51,16 @@ namespace TalonOne.Model
             else
             {
                 this.ApplicationId = applicationId;
+            }
+            
+            // to ensure "version" is required (not null)
+            if (version == null)
+            {
+                throw new InvalidDataException("version is a required property for NewCampaignSet and cannot be null");
+            }
+            else
+            {
+                this.Version = version;
             }
             
             // to ensure "set" is required (not null)
@@ -72,6 +83,13 @@ namespace TalonOne.Model
         public int ApplicationId { get; set; }
 
         /// <summary>
+        /// Version of the campaign set
+        /// </summary>
+        /// <value>Version of the campaign set</value>
+        [DataMember(Name="version", EmitDefaultValue=false)]
+        public int Version { get; set; }
+
+        /// <summary>
         /// Gets or Sets Set
         /// </summary>
         [DataMember(Name="set", EmitDefaultValue=false)]
@@ -86,6 +104,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class NewCampaignSet {\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
+            sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("  Set: ").Append(Set).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -127,6 +146,11 @@ namespace TalonOne.Model
                     this.ApplicationId.Equals(input.ApplicationId))
                 ) && 
                 (
+                    this.Version == input.Version ||
+                    (this.Version != null &&
+                    this.Version.Equals(input.Version))
+                ) && 
+                (
                     this.Set == input.Set ||
                     (this.Set != null &&
                     this.Set.Equals(input.Set))
@@ -144,6 +168,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.ApplicationId != null)
                     hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
+                if (this.Version != null)
+                    hashCode = hashCode * 59 + this.Version.GetHashCode();
                 if (this.Set != null)
                     hashCode = hashCode * 59 + this.Set.GetHashCode();
                 return hashCode;
@@ -157,6 +183,12 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Version (int) minimum
+            if(this.Version < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 1.", new [] { "Version" });
+            }
+
             yield break;
         }
     }

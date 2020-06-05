@@ -74,6 +74,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'UsageLimit'
         }
         /// <summary>
+        /// Test the property 'DiscountLimit'
+        /// </summary>
+        [Test]
+        public void DiscountLimitTest()
+        {
+            // TODO unit test for the property 'DiscountLimit'
+        }
+        /// <summary>
         /// Test the property 'StartDate'
         /// </summary>
         [Test]

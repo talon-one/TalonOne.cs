@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TotalResultSize** | **int** |  | 
-**Data** | [**List&lt;Campaign&gt;**](Campaign.md) |  | 
+**Data** | [**List&lt;Ruleset&gt;**](Ruleset.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

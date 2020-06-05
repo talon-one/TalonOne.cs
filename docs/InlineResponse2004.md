@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TotalResultSize** | **int** |  | 
-**Data** | [**List&lt;Ruleset&gt;**](Ruleset.md) |  | 
+**Data** | [**List&lt;Coupon&gt;**](Coupon.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
