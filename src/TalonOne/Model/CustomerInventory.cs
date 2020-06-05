@@ -35,10 +35,12 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="profile">profile.</param>
         /// <param name="referrals">referrals.</param>
-        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), List<Referral> referrals = default(List<Referral>))
+        /// <param name="coupons">coupons.</param>
+        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), List<Referral> referrals = default(List<Referral>), List<Coupon> coupons = default(List<Coupon>))
         {
             this.Profile = profile;
             this.Referrals = referrals;
+            this.Coupons = coupons;
         }
         
         /// <summary>
@@ -54,6 +56,12 @@ namespace TalonOne.Model
         public List<Referral> Referrals { get; set; }
 
         /// <summary>
+        /// Gets or Sets Coupons
+        /// </summary>
+        [DataMember(Name="coupons", EmitDefaultValue=false)]
+        public List<Coupon> Coupons { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -63,6 +71,7 @@ namespace TalonOne.Model
             sb.Append("class CustomerInventory {\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
             sb.Append("  Referrals: ").Append(Referrals).Append("\n");
+            sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +116,12 @@ namespace TalonOne.Model
                     this.Referrals != null &&
                     input.Referrals != null &&
                     this.Referrals.SequenceEqual(input.Referrals)
+                ) && 
+                (
+                    this.Coupons == input.Coupons ||
+                    this.Coupons != null &&
+                    input.Coupons != null &&
+                    this.Coupons.SequenceEqual(input.Coupons)
                 );
         }
 
@@ -123,6 +138,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Profile.GetHashCode();
                 if (this.Referrals != null)
                     hashCode = hashCode * 59 + this.Referrals.GetHashCode();
+                if (this.Coupons != null)
+                    hashCode = hashCode * 59 + this.Coupons.GetHashCode();
                 return hashCode;
             }
         }

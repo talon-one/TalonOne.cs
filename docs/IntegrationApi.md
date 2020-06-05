@@ -9,10 +9,10 @@ Method | HTTP request | Description
 [**DeleteCouponReservation**](IntegrationApi.md#deletecouponreservation) | **DELETE** /v1/coupon_reservations/{couponValue} | Delete coupon reservations
 [**DeleteCustomerData**](IntegrationApi.md#deletecustomerdata) | **DELETE** /v1/customer_data/{integrationId} | Delete the personal data of a customer.
 [**GetCustomerInventory**](IntegrationApi.md#getcustomerinventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | Get an inventory of all data associated with a specific customer profile.
-[**GetReservedCoupons**](IntegrationApi.md#getreservedcoupons) | **GET** /v1/coupon_reservations/coupons/{integrationId} | Get all valid reserved coupons
 [**GetReservedCustomers**](IntegrationApi.md#getreservedcustomers) | **GET** /v1/coupon_reservations/customerprofiles/{couponValue} | Get the users that have this coupon reserved
 [**TrackEvent**](IntegrationApi.md#trackevent) | **POST** /v1/events | Track an Event
 [**UpdateCustomerProfile**](IntegrationApi.md#updatecustomerprofile) | **PUT** /v1/customer_profiles/{integrationId} | Update a Customer Profile
+[**UpdateCustomerProfileV2**](IntegrationApi.md#updatecustomerprofilev2) | **PUT** /v2/customer_profiles/{customerProfileId} | Update a Customer Profile
 [**UpdateCustomerSession**](IntegrationApi.md#updatecustomersession) | **PUT** /v1/customer_sessions/{customerSessionId} | Update a Customer Session
 [**UpdateCustomerSessionV2**](IntegrationApi.md#updatecustomersessionv2) | **PUT** /v2/customer_sessions/{customerSessionId} | Update a Customer Session
 
@@ -358,11 +358,11 @@ void (empty response body)
 
 ## GetCustomerInventory
 
-> CustomerInventory GetCustomerInventory (string integrationId, bool profile = null, bool referrals = null)
+> CustomerInventory GetCustomerInventory (string integrationId, bool profile = null, bool referrals = null, bool coupons = null)
 
 Get an inventory of all data associated with a specific customer profile.
 
-Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
 
 ### Example
 
@@ -393,11 +393,12 @@ namespace Example
             var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
             var profile = true;  // bool | optional flag to decide if you would like customer profile information in the response (optional) 
             var referrals = true;  // bool | optional flag to decide if you would like referral information in the response (optional) 
+            var coupons = true;  // bool | optional flag to decide if you would like coupon information in the response (optional) 
 
             try
             {
                 // Get an inventory of all data associated with a specific customer profile.
-                CustomerInventory result = apiInstance.GetCustomerInventory(integrationId, profile, referrals);
+                CustomerInventory result = apiInstance.GetCustomerInventory(integrationId, profile, referrals, coupons);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -419,94 +420,11 @@ Name | Type | Description  | Notes
  **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
  **profile** | **bool**| optional flag to decide if you would like customer profile information in the response | [optional] 
  **referrals** | **bool**| optional flag to decide if you would like referral information in the response | [optional] 
+ **coupons** | **bool**| optional flag to decide if you would like coupon information in the response | [optional] 
 
 ### Return type
 
 [**CustomerInventory**](CustomerInventory.md)
-
-### Authorization
-
-[api_key_v1](../README.md#api_key_v1), [integration_auth](../README.md#integration_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetReservedCoupons
-
-> InlineResponse2001 GetReservedCoupons (string integrationId)
-
-Get all valid reserved coupons
-
-Returns all coupons this user is subscribed to that are valid and usable 
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetReservedCouponsExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: api_key_v1
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure API key authorization: integration_auth
-            Configuration.Default.AddApiKey("Content-Signature", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Content-Signature", "Bearer");
-
-            var apiInstance = new IntegrationApi(Configuration.Default);
-            var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
-
-            try
-            {
-                // Get all valid reserved coupons
-                InlineResponse2001 result = apiInstance.GetReservedCoupons(integrationId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling IntegrationApi.GetReservedCoupons: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
-
-### Return type
-
-[**InlineResponse2001**](InlineResponse2001.md)
 
 ### Authorization
 
@@ -614,7 +532,7 @@ Name | Type | Description  | Notes
 
 ## TrackEvent
 
-> IntegrationState TrackEvent (NewEvent body)
+> IntegrationState TrackEvent (NewEvent body, bool dry = null)
 
 Track an Event
 
@@ -647,11 +565,12 @@ namespace Example
 
             var apiInstance = new IntegrationApi(Configuration.Default);
             var body = new NewEvent(); // NewEvent | 
+            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
 
             try
             {
                 // Track an Event
-                IntegrationState result = apiInstance.TrackEvent(body);
+                IntegrationState result = apiInstance.TrackEvent(body, dry);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -671,6 +590,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**NewEvent**](NewEvent.md)|  | 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -698,7 +618,7 @@ Name | Type | Description  | Notes
 
 ## UpdateCustomerProfile
 
-> IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body)
+> IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool dry = null)
 
 Update a Customer Profile
 
@@ -732,11 +652,12 @@ namespace Example
             var apiInstance = new IntegrationApi(Configuration.Default);
             var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
             var body = new NewCustomerProfile(); // NewCustomerProfile | 
+            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
 
             try
             {
                 // Update a Customer Profile
-                IntegrationState result = apiInstance.UpdateCustomerProfile(integrationId, body);
+                IntegrationState result = apiInstance.UpdateCustomerProfile(integrationId, body, dry);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -757,6 +678,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
  **body** | [**NewCustomerProfile**](NewCustomerProfile.md)|  | 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -782,9 +704,91 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## UpdateCustomerProfileV2
+
+> CustomerProfileUpdate UpdateCustomerProfileV2 (string customerProfileId, NewCustomerProfile body)
+
+Update a Customer Profile
+
+Update (or create) a [Customer Profile][].   The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class UpdateCustomerProfileV2Example
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: api_key_v1
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(Configuration.Default);
+            var customerProfileId = customerProfileId_example;  // string | The custom identifier for this profile, must be unique within the account.
+            var body = new NewCustomerProfile(); // NewCustomerProfile | 
+
+            try
+            {
+                // Update a Customer Profile
+                CustomerProfileUpdate result = apiInstance.UpdateCustomerProfileV2(customerProfileId, body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.UpdateCustomerProfileV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **customerProfileId** | **string**| The custom identifier for this profile, must be unique within the account. | 
+ **body** | [**NewCustomerProfile**](NewCustomerProfile.md)|  | 
+
+### Return type
+
+[**CustomerProfileUpdate**](CustomerProfileUpdate.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateCustomerSession
 
-> IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body)
+> IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool dry = null)
 
 Update a Customer Session
 
@@ -818,11 +822,12 @@ namespace Example
             var apiInstance = new IntegrationApi(Configuration.Default);
             var customerSessionId = customerSessionId_example;  // string | The custom identifier for this session, must be unique within the account.
             var body = new NewCustomerSession(); // NewCustomerSession | 
+            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
 
             try
             {
                 // Update a Customer Session
-                IntegrationState result = apiInstance.UpdateCustomerSession(customerSessionId, body);
+                IntegrationState result = apiInstance.UpdateCustomerSession(customerSessionId, body, dry);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -843,6 +848,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerSessionId** | **string**| The custom identifier for this session, must be unique within the account. | 
  **body** | [**NewCustomerSession**](NewCustomerSession.md)|  | 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -870,7 +876,7 @@ Name | Type | Description  | Notes
 
 ## UpdateCustomerSessionV2
 
-> IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body)
+> IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body, bool dry = null)
 
 Update a Customer Session
 
@@ -900,11 +906,12 @@ namespace Example
             var apiInstance = new IntegrationApi(Configuration.Default);
             var customerSessionId = customerSessionId_example;  // string | The custom identifier for this session, must be unique within the account.
             var body = new IntegrationRequest(); // IntegrationRequest | 
+            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
 
             try
             {
                 // Update a Customer Session
-                IntegrationStateV2 result = apiInstance.UpdateCustomerSessionV2(customerSessionId, body);
+                IntegrationStateV2 result = apiInstance.UpdateCustomerSessionV2(customerSessionId, body, dry);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -925,6 +932,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerSessionId** | **string**| The custom identifier for this session, must be unique within the account. | 
  **body** | [**IntegrationRequest**](IntegrationRequest.md)|  | 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 

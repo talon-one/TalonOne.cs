@@ -116,48 +116,29 @@ namespace TalonOne.Api
         /// Get an inventory of all data associated with a specific customer profile.
         /// </summary>
         /// <remarks>
-        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <returns>CustomerInventory</returns>
-        CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool));
+        CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool));
 
         /// <summary>
         /// Get an inventory of all data associated with a specific customer profile.
         /// </summary>
         /// <remarks>
-        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <returns>ApiResponse of CustomerInventory</returns>
-        ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool));
-        /// <summary>
-        /// Get all valid reserved coupons
-        /// </summary>
-        /// <remarks>
-        /// Returns all coupons this user is subscribed to that are valid and usable 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetReservedCoupons (string integrationId);
-
-        /// <summary>
-        /// Get all valid reserved coupons
-        /// </summary>
-        /// <remarks>
-        /// Returns all coupons this user is subscribed to that are valid and usable 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetReservedCouponsWithHttpInfo (string integrationId);
+        ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool));
         /// <summary>
         /// Get the users that have this coupon reserved
         /// </summary>
@@ -187,8 +168,9 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        IntegrationState TrackEvent (NewEvent body);
+        IntegrationState TrackEvent (NewEvent body, bool dry = default(bool));
 
         /// <summary>
         /// Track an Event
@@ -198,8 +180,9 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        ApiResponse<IntegrationState> TrackEventWithHttpInfo (NewEvent body);
+        ApiResponse<IntegrationState> TrackEventWithHttpInfo (NewEvent body, bool dry = default(bool));
         /// <summary>
         /// Update a Customer Profile
         /// </summary>
@@ -209,8 +192,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body);
+        IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool dry = default(bool));
 
         /// <summary>
         /// Update a Customer Profile
@@ -221,8 +205,32 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body);
+        ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool));
+        /// <summary>
+        /// Update a Customer Profile
+        /// </summary>
+        /// <remarks>
+        /// Update (or create) a [Customer Profile][].   The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="body"></param>
+        /// <returns>CustomerProfileUpdate</returns>
+        CustomerProfileUpdate UpdateCustomerProfileV2 (string customerProfileId, NewCustomerProfile body);
+
+        /// <summary>
+        /// Update a Customer Profile
+        /// </summary>
+        /// <remarks>
+        /// Update (or create) a [Customer Profile][].   The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of CustomerProfileUpdate</returns>
+        ApiResponse<CustomerProfileUpdate> UpdateCustomerProfileV2WithHttpInfo (string customerProfileId, NewCustomerProfile body);
         /// <summary>
         /// Update a Customer Session
         /// </summary>
@@ -232,8 +240,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body);
+        IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool dry = default(bool));
 
         /// <summary>
         /// Update a Customer Session
@@ -244,8 +253,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        ApiResponse<IntegrationState> UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body);
+        ApiResponse<IntegrationState> UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body, bool dry = default(bool));
         /// <summary>
         /// Update a Customer Session
         /// </summary>
@@ -255,8 +265,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationStateV2</returns>
-        IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body);
+        IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body, bool dry = default(bool));
 
         /// <summary>
         /// Update a Customer Session
@@ -267,8 +278,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationStateV2</returns>
-        ApiResponse<IntegrationStateV2> UpdateCustomerSessionV2WithHttpInfo (string customerSessionId, IntegrationRequest body);
+        ApiResponse<IntegrationStateV2> UpdateCustomerSessionV2WithHttpInfo (string customerSessionId, IntegrationRequest body, bool dry = default(bool));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -363,48 +375,29 @@ namespace TalonOne.Api
         /// Get an inventory of all data associated with a specific customer profile.
         /// </summary>
         /// <remarks>
-        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <returns>Task of CustomerInventory</returns>
-        System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool));
+        System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool));
 
         /// <summary>
         /// Get an inventory of all data associated with a specific customer profile.
         /// </summary>
         /// <remarks>
-        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <returns>Task of ApiResponse (CustomerInventory)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool));
-        /// <summary>
-        /// Get all valid reserved coupons
-        /// </summary>
-        /// <remarks>
-        /// Returns all coupons this user is subscribed to that are valid and usable 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetReservedCouponsAsync (string integrationId);
-
-        /// <summary>
-        /// Get all valid reserved coupons
-        /// </summary>
-        /// <remarks>
-        /// Returns all coupons this user is subscribed to that are valid and usable 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetReservedCouponsAsyncWithHttpInfo (string integrationId);
+        System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool));
         /// <summary>
         /// Get the users that have this coupon reserved
         /// </summary>
@@ -434,8 +427,9 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        System.Threading.Tasks.Task<IntegrationState> TrackEventAsync (NewEvent body);
+        System.Threading.Tasks.Task<IntegrationState> TrackEventAsync (NewEvent body, bool dry = default(bool));
 
         /// <summary>
         /// Track an Event
@@ -445,8 +439,9 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> TrackEventAsyncWithHttpInfo (NewEvent body);
+        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> TrackEventAsyncWithHttpInfo (NewEvent body, bool dry = default(bool));
         /// <summary>
         /// Update a Customer Profile
         /// </summary>
@@ -456,8 +451,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body);
+        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body, bool dry = default(bool));
 
         /// <summary>
         /// Update a Customer Profile
@@ -468,8 +464,32 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body);
+        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool));
+        /// <summary>
+        /// Update a Customer Profile
+        /// </summary>
+        /// <remarks>
+        /// Update (or create) a [Customer Profile][].   The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="body"></param>
+        /// <returns>Task of CustomerProfileUpdate</returns>
+        System.Threading.Tasks.Task<CustomerProfileUpdate> UpdateCustomerProfileV2Async (string customerProfileId, NewCustomerProfile body);
+
+        /// <summary>
+        /// Update a Customer Profile
+        /// </summary>
+        /// <remarks>
+        /// Update (or create) a [Customer Profile][].   The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse (CustomerProfileUpdate)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CustomerProfileUpdate>> UpdateCustomerProfileV2AsyncWithHttpInfo (string customerProfileId, NewCustomerProfile body);
         /// <summary>
         /// Update a Customer Session
         /// </summary>
@@ -479,8 +499,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body);
+        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body, bool dry = default(bool));
 
         /// <summary>
         /// Update a Customer Session
@@ -491,8 +512,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body);
+        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body, bool dry = default(bool));
         /// <summary>
         /// Update a Customer Session
         /// </summary>
@@ -502,8 +524,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationStateV2</returns>
-        System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerSessionV2Async (string customerSessionId, IntegrationRequest body);
+        System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerSessionV2Async (string customerSessionId, IntegrationRequest body, bool dry = default(bool));
 
         /// <summary>
         /// Update a Customer Session
@@ -514,8 +537,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationStateV2)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerSessionV2AsyncWithHttpInfo (string customerSessionId, IntegrationRequest body);
+        System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerSessionV2AsyncWithHttpInfo (string customerSessionId, IntegrationRequest body, bool dry = default(bool));
         #endregion Asynchronous Operations
     }
 
@@ -1304,28 +1328,30 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <returns>CustomerInventory</returns>
-        public CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool))
+        public CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool))
         {
-             ApiResponse<CustomerInventory> localVarResponse = GetCustomerInventoryWithHttpInfo(integrationId, profile, referrals);
+             ApiResponse<CustomerInventory> localVarResponse = GetCustomerInventoryWithHttpInfo(integrationId, profile, referrals, coupons);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <returns>ApiResponse of CustomerInventory</returns>
-        public ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool))
+        public ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -1355,6 +1381,7 @@ namespace TalonOne.Api
             if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
             if (profile != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profile", profile)); // query parameter
             if (referrals != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referrals", referrals)); // query parameter
+            if (coupons != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "coupons", coupons)); // query parameter
 
             // authentication (api_key_v1) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -1386,29 +1413,31 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <returns>Task of CustomerInventory</returns>
-        public async System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool))
+        public async System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool))
         {
-             ApiResponse<CustomerInventory> localVarResponse = await GetCustomerInventoryAsyncWithHttpInfo(integrationId, profile, referrals);
+             ApiResponse<CustomerInventory> localVarResponse = await GetCustomerInventoryAsyncWithHttpInfo(integrationId, profile, referrals, coupons);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information and referral codes. In the future, this will be expanded with coupon codes and loyalty points.
+        /// Get an inventory of all data associated with a specific customer profile. Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
+        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <returns>Task of ApiResponse (CustomerInventory)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -1438,6 +1467,7 @@ namespace TalonOne.Api
             if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
             if (profile != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profile", profile)); // query parameter
             if (referrals != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referrals", referrals)); // query parameter
+            if (coupons != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "coupons", coupons)); // query parameter
 
             // authentication (api_key_v1) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -1466,159 +1496,6 @@ namespace TalonOne.Api
             return new ApiResponse<CustomerInventory>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (CustomerInventory) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerInventory)));
-        }
-
-        /// <summary>
-        /// Get all valid reserved coupons Returns all coupons this user is subscribed to that are valid and usable 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetReservedCoupons (string integrationId)
-        {
-             ApiResponse<InlineResponse2001> localVarResponse = GetReservedCouponsWithHttpInfo(integrationId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get all valid reserved coupons Returns all coupons this user is subscribed to that are valid and usable 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse<InlineResponse2001> GetReservedCouponsWithHttpInfo (string integrationId)
-        {
-            // verify the required parameter 'integrationId' is set
-            if (integrationId == null)
-                throw new ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetReservedCoupons");
-
-            var localVarPath = "/v1/coupon_reservations/coupons/{integrationId}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
-
-            // authentication (api_key_v1) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
-            }
-            // authentication (integration_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Content-Signature")))
-            {
-                localVarHeaderParams["Content-Signature"] = this.Configuration.GetApiKeyWithPrefix("Content-Signature");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetReservedCoupons", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2001) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
-        }
-
-        /// <summary>
-        /// Get all valid reserved coupons Returns all coupons this user is subscribed to that are valid and usable 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetReservedCouponsAsync (string integrationId)
-        {
-             ApiResponse<InlineResponse2001> localVarResponse = await GetReservedCouponsAsyncWithHttpInfo(integrationId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get all valid reserved coupons Returns all coupons this user is subscribed to that are valid and usable 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetReservedCouponsAsyncWithHttpInfo (string integrationId)
-        {
-            // verify the required parameter 'integrationId' is set
-            if (integrationId == null)
-                throw new ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetReservedCoupons");
-
-            var localVarPath = "/v1/coupon_reservations/coupons/{integrationId}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
-
-            // authentication (api_key_v1) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
-            }
-            // authentication (integration_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Content-Signature")))
-            {
-                localVarHeaderParams["Content-Signature"] = this.Configuration.GetApiKeyWithPrefix("Content-Signature");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetReservedCoupons", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse2001) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
         }
 
         /// <summary>
@@ -1779,10 +1656,11 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        public IntegrationState TrackEvent (NewEvent body)
+        public IntegrationState TrackEvent (NewEvent body, bool dry = default(bool))
         {
-             ApiResponse<IntegrationState> localVarResponse = TrackEventWithHttpInfo(body);
+             ApiResponse<IntegrationState> localVarResponse = TrackEventWithHttpInfo(body, dry);
              return localVarResponse.Data;
         }
 
@@ -1791,8 +1669,9 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        public ApiResponse<IntegrationState> TrackEventWithHttpInfo (NewEvent body)
+        public ApiResponse<IntegrationState> TrackEventWithHttpInfo (NewEvent body, bool dry = default(bool))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1820,6 +1699,7 @@ namespace TalonOne.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -1863,10 +1743,11 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        public async System.Threading.Tasks.Task<IntegrationState> TrackEventAsync (NewEvent body)
+        public async System.Threading.Tasks.Task<IntegrationState> TrackEventAsync (NewEvent body, bool dry = default(bool))
         {
-             ApiResponse<IntegrationState> localVarResponse = await TrackEventAsyncWithHttpInfo(body);
+             ApiResponse<IntegrationState> localVarResponse = await TrackEventAsyncWithHttpInfo(body, dry);
              return localVarResponse.Data;
 
         }
@@ -1876,8 +1757,9 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> TrackEventAsyncWithHttpInfo (NewEvent body)
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> TrackEventAsyncWithHttpInfo (NewEvent body, bool dry = default(bool))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1905,6 +1787,7 @@ namespace TalonOne.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -1949,10 +1832,11 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        public IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body)
+        public IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool dry = default(bool))
         {
-             ApiResponse<IntegrationState> localVarResponse = UpdateCustomerProfileWithHttpInfo(integrationId, body);
+             ApiResponse<IntegrationState> localVarResponse = UpdateCustomerProfileWithHttpInfo(integrationId, body, dry);
              return localVarResponse.Data;
         }
 
@@ -1962,8 +1846,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        public ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body)
+        public ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -1995,6 +1880,7 @@ namespace TalonOne.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -2039,10 +1925,11 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body)
+        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body, bool dry = default(bool))
         {
-             ApiResponse<IntegrationState> localVarResponse = await UpdateCustomerProfileAsyncWithHttpInfo(integrationId, body);
+             ApiResponse<IntegrationState> localVarResponse = await UpdateCustomerProfileAsyncWithHttpInfo(integrationId, body, dry);
              return localVarResponse.Data;
 
         }
@@ -2053,8 +1940,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body)
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -2086,6 +1974,7 @@ namespace TalonOne.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -2125,15 +2014,187 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Update a Customer Profile Update (or create) a [Customer Profile][].   The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="body"></param>
+        /// <returns>CustomerProfileUpdate</returns>
+        public CustomerProfileUpdate UpdateCustomerProfileV2 (string customerProfileId, NewCustomerProfile body)
+        {
+             ApiResponse<CustomerProfileUpdate> localVarResponse = UpdateCustomerProfileV2WithHttpInfo(customerProfileId, body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update a Customer Profile Update (or create) a [Customer Profile][].   The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of CustomerProfileUpdate</returns>
+        public ApiResponse<CustomerProfileUpdate> UpdateCustomerProfileV2WithHttpInfo (string customerProfileId, NewCustomerProfile body)
+        {
+            // verify the required parameter 'customerProfileId' is set
+            if (customerProfileId == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileId' when calling IntegrationApi->UpdateCustomerProfileV2");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfileV2");
+
+            var localVarPath = "/v2/customer_profiles/{customerProfileId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileId != null) localVarPathParams.Add("customerProfileId", this.Configuration.ApiClient.ParameterToString(customerProfileId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomerProfileV2", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerProfileUpdate>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerProfileUpdate) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerProfileUpdate)));
+        }
+
+        /// <summary>
+        /// Update a Customer Profile Update (or create) a [Customer Profile][].   The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="body"></param>
+        /// <returns>Task of CustomerProfileUpdate</returns>
+        public async System.Threading.Tasks.Task<CustomerProfileUpdate> UpdateCustomerProfileV2Async (string customerProfileId, NewCustomerProfile body)
+        {
+             ApiResponse<CustomerProfileUpdate> localVarResponse = await UpdateCustomerProfileV2AsyncWithHttpInfo(customerProfileId, body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update a Customer Profile Update (or create) a [Customer Profile][].   The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse (CustomerProfileUpdate)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerProfileUpdate>> UpdateCustomerProfileV2AsyncWithHttpInfo (string customerProfileId, NewCustomerProfile body)
+        {
+            // verify the required parameter 'customerProfileId' is set
+            if (customerProfileId == null)
+                throw new ApiException(400, "Missing required parameter 'customerProfileId' when calling IntegrationApi->UpdateCustomerProfileV2");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfileV2");
+
+            var localVarPath = "/v2/customer_profiles/{customerProfileId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (customerProfileId != null) localVarPathParams.Add("customerProfileId", this.Configuration.ApiClient.ParameterToString(customerProfileId)); // path parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomerProfileV2", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<CustomerProfileUpdate>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (CustomerProfileUpdate) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerProfileUpdate)));
+        }
+
+        /// <summary>
         /// Update a Customer Session Update (or create) a [Customer Session][]. For example, the items in a customers cart are part of a session.  The Talon.One platform supports multiple simultaneous sessions for the same profile, so if you have multiple ways of accessing the same application you have the option of either tracking multiple independent sessions or using the same session across all of them. You should share sessions when application access points share other state, such as the users cart. If two points of access to the application have independent state (e.g. a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  The &#x60;profileId&#x60; parameter in the request body should correspond to an &#x60;integrationId&#x60; for a customer profile, to track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. Note that you do **not** need to create a customer profile first: if the specified profile does not yet exist, an empty profile will be created automatically.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated.  [Customer Session]: /Getting-Started/entities#customer-session 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        public IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body)
+        public IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool dry = default(bool))
         {
-             ApiResponse<IntegrationState> localVarResponse = UpdateCustomerSessionWithHttpInfo(customerSessionId, body);
+             ApiResponse<IntegrationState> localVarResponse = UpdateCustomerSessionWithHttpInfo(customerSessionId, body, dry);
              return localVarResponse.Data;
         }
 
@@ -2143,8 +2204,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        public ApiResponse<IntegrationState> UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body)
+        public ApiResponse<IntegrationState> UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body, bool dry = default(bool))
         {
             // verify the required parameter 'customerSessionId' is set
             if (customerSessionId == null)
@@ -2176,6 +2238,7 @@ namespace TalonOne.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (customerSessionId != null) localVarPathParams.Add("customerSessionId", this.Configuration.ApiClient.ParameterToString(customerSessionId)); // path parameter
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -2220,10 +2283,11 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body)
+        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body, bool dry = default(bool))
         {
-             ApiResponse<IntegrationState> localVarResponse = await UpdateCustomerSessionAsyncWithHttpInfo(customerSessionId, body);
+             ApiResponse<IntegrationState> localVarResponse = await UpdateCustomerSessionAsyncWithHttpInfo(customerSessionId, body, dry);
              return localVarResponse.Data;
 
         }
@@ -2234,8 +2298,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body)
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body, bool dry = default(bool))
         {
             // verify the required parameter 'customerSessionId' is set
             if (customerSessionId == null)
@@ -2267,6 +2332,7 @@ namespace TalonOne.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (customerSessionId != null) localVarPathParams.Add("customerSessionId", this.Configuration.ApiClient.ParameterToString(customerSessionId)); // path parameter
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -2311,10 +2377,11 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationStateV2</returns>
-        public IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body)
+        public IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body, bool dry = default(bool))
         {
-             ApiResponse<IntegrationStateV2> localVarResponse = UpdateCustomerSessionV2WithHttpInfo(customerSessionId, body);
+             ApiResponse<IntegrationStateV2> localVarResponse = UpdateCustomerSessionV2WithHttpInfo(customerSessionId, body, dry);
              return localVarResponse.Data;
         }
 
@@ -2324,8 +2391,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationStateV2</returns>
-        public ApiResponse<IntegrationStateV2> UpdateCustomerSessionV2WithHttpInfo (string customerSessionId, IntegrationRequest body)
+        public ApiResponse<IntegrationStateV2> UpdateCustomerSessionV2WithHttpInfo (string customerSessionId, IntegrationRequest body, bool dry = default(bool))
         {
             // verify the required parameter 'customerSessionId' is set
             if (customerSessionId == null)
@@ -2357,6 +2425,7 @@ namespace TalonOne.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (customerSessionId != null) localVarPathParams.Add("customerSessionId", this.Configuration.ApiClient.ParameterToString(customerSessionId)); // path parameter
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -2396,10 +2465,11 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationStateV2</returns>
-        public async System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerSessionV2Async (string customerSessionId, IntegrationRequest body)
+        public async System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerSessionV2Async (string customerSessionId, IntegrationRequest body, bool dry = default(bool))
         {
-             ApiResponse<IntegrationStateV2> localVarResponse = await UpdateCustomerSessionV2AsyncWithHttpInfo(customerSessionId, body);
+             ApiResponse<IntegrationStateV2> localVarResponse = await UpdateCustomerSessionV2AsyncWithHttpInfo(customerSessionId, body, dry);
              return localVarResponse.Data;
 
         }
@@ -2410,8 +2480,9 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
         /// <param name="body"></param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationStateV2)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerSessionV2AsyncWithHttpInfo (string customerSessionId, IntegrationRequest body)
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerSessionV2AsyncWithHttpInfo (string customerSessionId, IntegrationRequest body, bool dry = default(bool))
         {
             // verify the required parameter 'customerSessionId' is set
             if (customerSessionId == null)
@@ -2443,6 +2514,7 @@ namespace TalonOne.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (customerSessionId != null) localVarPathParams.Add("customerSessionId", this.Configuration.ApiClient.ParameterToString(customerSessionId)); // path parameter
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter

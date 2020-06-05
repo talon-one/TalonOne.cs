@@ -31,31 +31,6 @@ namespace TalonOne.Model
     public partial class LoyaltyLedgerEntry :  IEquatable<LoyaltyLedgerEntry>, IValidatableObject
     {
         /// <summary>
-        /// Defines Type
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum Addition for value: addition
-            /// </summary>
-            [EnumMember(Value = "addition")]
-            Addition = 1,
-
-            /// <summary>
-            /// Enum Subtraction for value: subtraction
-            /// </summary>
-            [EnumMember(Value = "subtraction")]
-            Subtraction = 2
-
-        }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum Type { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltyLedgerEntry" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -68,12 +43,13 @@ namespace TalonOne.Model
         /// <param name="customerProfileID">customerProfileID (required).</param>
         /// <param name="customerSessionID">customerSessionID.</param>
         /// <param name="eventID">eventID.</param>
-        /// <param name="type">type (required).</param>
+        /// <param name="type">The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers)  (required).</param>
         /// <param name="amount">amount (required).</param>
         /// <param name="expiryDate">expiryDate.</param>
         /// <param name="name">A name referencing the condition or effect that added this entry, or the specific name provided in an API call. (required).</param>
         /// <param name="subLedgerID">This specifies if we are adding loyalty points to the main ledger or a subledger (required).</param>
-        public LoyaltyLedgerEntry(DateTime created = default(DateTime), int programID = default(int), string customerProfileID = default(string), string customerSessionID = default(string), int eventID = default(int), TypeEnum type = default(TypeEnum), decimal amount = default(decimal), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string))
+        /// <param name="userID">This is the ID of the user who created this entry, if the addition or subtraction was done manually..</param>
+        public LoyaltyLedgerEntry(DateTime created = default(DateTime), int programID = default(int), string customerProfileID = default(string), string customerSessionID = default(string), int eventID = default(int), string type = default(string), decimal amount = default(decimal), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), int userID = default(int))
         {
             // to ensure "created" is required (not null)
             if (created == null)
@@ -148,6 +124,7 @@ namespace TalonOne.Model
             this.CustomerSessionID = customerSessionID;
             this.EventID = eventID;
             this.ExpiryDate = expiryDate;
+            this.UserID = userID;
         }
         
         /// <summary>
@@ -180,6 +157,12 @@ namespace TalonOne.Model
         [DataMember(Name="eventID", EmitDefaultValue=false)]
         public int EventID { get; set; }
 
+        /// <summary>
+        /// The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers) 
+        /// </summary>
+        /// <value>The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers) </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
@@ -208,6 +191,13 @@ namespace TalonOne.Model
         public string SubLedgerID { get; set; }
 
         /// <summary>
+        /// This is the ID of the user who created this entry, if the addition or subtraction was done manually.
+        /// </summary>
+        /// <value>This is the ID of the user who created this entry, if the addition or subtraction was done manually.</value>
+        [DataMember(Name="userID", EmitDefaultValue=false)]
+        public int UserID { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -225,6 +215,7 @@ namespace TalonOne.Model
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  SubLedgerID: ").Append(SubLedgerID).Append("\n");
+            sb.Append("  UserID: ").Append(UserID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -308,6 +299,11 @@ namespace TalonOne.Model
                     this.SubLedgerID == input.SubLedgerID ||
                     (this.SubLedgerID != null &&
                     this.SubLedgerID.Equals(input.SubLedgerID))
+                ) && 
+                (
+                    this.UserID == input.UserID ||
+                    (this.UserID != null &&
+                    this.UserID.Equals(input.UserID))
                 );
         }
 
@@ -340,6 +336,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.SubLedgerID != null)
                     hashCode = hashCode * 59 + this.SubLedgerID.GetHashCode();
+                if (this.UserID != null)
+                    hashCode = hashCode * 59 + this.UserID.GetHashCode();
                 return hashCode;
             }
         }

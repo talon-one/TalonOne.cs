@@ -82,7 +82,7 @@ namespace TalonOne.Model
         /// <param name="state">Indicating if the customer session is in progress (\&quot;open\&quot;), \&quot;closed\&quot;, or \&quot;cancelled\&quot;. (required).</param>
         /// <param name="cartItems">Serialized JSON representation. (required).</param>
         /// <param name="discounts">A map of labelled discount values, in the same currency as the session. (required).</param>
-        /// <param name="total">The total sum of the session before any discounts applied..</param>
+        /// <param name="total">The total sum of the session before any discounts applied. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
         public ApplicationSession(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int profileId = default(int), string integrationId = default(string), string profileintegrationid = default(string), string coupon = default(string), string referral = default(string), StateEnum state = default(StateEnum), List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), decimal total = default(decimal), Object attributes = default(Object))
         {
@@ -176,9 +176,18 @@ namespace TalonOne.Model
                 this.Discounts = discounts;
             }
             
+            // to ensure "total" is required (not null)
+            if (total == null)
+            {
+                throw new InvalidDataException("total is a required property for ApplicationSession and cannot be null");
+            }
+            else
+            {
+                this.Total = total;
+            }
+            
             this.ProfileId = profileId;
             this.Profileintegrationid = profileintegrationid;
-            this.Total = total;
             this.Attributes = attributes;
         }
         

@@ -64,6 +64,39 @@ namespace TalonOne.Model
         [DataMember(Name="caseSensitivity", EmitDefaultValue=false)]
         public CaseSensitivityEnum? CaseSensitivity { get; set; }
         /// <summary>
+        /// Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)
+        /// </summary>
+        /// <value>Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CampaignPriorityEnum
+        {
+            /// <summary>
+            /// Enum Universal for value: universal
+            /// </summary>
+            [EnumMember(Value = "universal")]
+            Universal = 1,
+
+            /// <summary>
+            /// Enum Stackable for value: stackable
+            /// </summary>
+            [EnumMember(Value = "stackable")]
+            Stackable = 2,
+
+            /// <summary>
+            /// Enum Exclusive for value: exclusive
+            /// </summary>
+            [EnumMember(Value = "exclusive")]
+            Exclusive = 3
+
+        }
+
+        /// <summary>
+        /// Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)
+        /// </summary>
+        /// <value>Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)</value>
+        [DataMember(Name="campaignPriority", EmitDefaultValue=false)]
+        public CampaignPriorityEnum? CampaignPriority { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="UpdateApplication" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -78,8 +111,9 @@ namespace TalonOne.Model
         /// <param name="caseSensitivity">A string indicating how should campaigns in this application deal with case sensitivity on coupon codes..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         /// <param name="limits">Default limits for campaigns created in this application.</param>
+        /// <param name="campaignPriority">Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive).</param>
         /// <param name="attributesSettings">attributesSettings.</param>
-        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), AttributesSettings attributesSettings = default(AttributesSettings))
+        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = default(CampaignPriorityEnum?), AttributesSettings attributesSettings = default(AttributesSettings))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -115,6 +149,7 @@ namespace TalonOne.Model
             this.CaseSensitivity = caseSensitivity;
             this.Attributes = attributes;
             this.Limits = limits;
+            this.CampaignPriority = campaignPriority;
             this.AttributesSettings = attributesSettings;
         }
         
@@ -161,6 +196,7 @@ namespace TalonOne.Model
         [DataMember(Name="limits", EmitDefaultValue=false)]
         public List<LimitConfig> Limits { get; set; }
 
+
         /// <summary>
         /// Gets or Sets AttributesSettings
         /// </summary>
@@ -182,6 +218,7 @@ namespace TalonOne.Model
             sb.Append("  CaseSensitivity: ").Append(CaseSensitivity).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
+            sb.Append("  CampaignPriority: ").Append(CampaignPriority).Append("\n");
             sb.Append("  AttributesSettings: ").Append(AttributesSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -254,6 +291,11 @@ namespace TalonOne.Model
                     this.Limits.SequenceEqual(input.Limits)
                 ) && 
                 (
+                    this.CampaignPriority == input.CampaignPriority ||
+                    (this.CampaignPriority != null &&
+                    this.CampaignPriority.Equals(input.CampaignPriority))
+                ) && 
+                (
                     this.AttributesSettings == input.AttributesSettings ||
                     (this.AttributesSettings != null &&
                     this.AttributesSettings.Equals(input.AttributesSettings))
@@ -283,6 +325,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
+                if (this.CampaignPriority != null)
+                    hashCode = hashCode * 59 + this.CampaignPriority.GetHashCode();
                 if (this.AttributesSettings != null)
                     hashCode = hashCode * 59 + this.AttributesSettings.GetHashCode();
                 return hashCode;

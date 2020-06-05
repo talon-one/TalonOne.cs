@@ -39,6 +39,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="NewCoupons" /> class.
         /// </summary>
         /// <param name="usageLimit">The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.  (required).</param>
+        /// <param name="discountLimit">The amount of discounts that can be given with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
         /// <param name="expiryDate">Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
         /// <param name="validCharacters">Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp). (required).</param>
@@ -47,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="uniquePrefix">A unique prefix to prepend to all generated coupons..</param>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
         /// <param name="recipientIntegrationId">The integration ID for this coupon&#39;s beneficiary&#39;s profile.</param>
-        public NewCoupons(int usageLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<string> validCharacters = default(List<string>), string couponPattern = default(string), int numberOfCoupons = default(int), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string))
+        public NewCoupons(int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<string> validCharacters = default(List<string>), string couponPattern = default(string), int numberOfCoupons = default(int), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string))
         {
             // to ensure "usageLimit" is required (not null)
             if (usageLimit == null)
@@ -89,6 +90,7 @@ namespace TalonOne.Model
                 this.NumberOfCoupons = numberOfCoupons;
             }
             
+            this.DiscountLimit = discountLimit;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
             this.UniquePrefix = uniquePrefix;
@@ -102,6 +104,13 @@ namespace TalonOne.Model
         /// <value>The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply. </value>
         [DataMember(Name="usageLimit", EmitDefaultValue=false)]
         public int UsageLimit { get; set; }
+
+        /// <summary>
+        /// The amount of discounts that can be given with this coupon code. 
+        /// </summary>
+        /// <value>The amount of discounts that can be given with this coupon code. </value>
+        [DataMember(Name="discountLimit", EmitDefaultValue=false)]
+        public decimal DiscountLimit { get; set; }
 
         /// <summary>
         /// Timestamp at which point the coupon becomes valid.
@@ -168,6 +177,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class NewCoupons {\n");
             sb.Append("  UsageLimit: ").Append(UsageLimit).Append("\n");
+            sb.Append("  DiscountLimit: ").Append(DiscountLimit).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  ValidCharacters: ").Append(ValidCharacters).Append("\n");
@@ -214,6 +224,11 @@ namespace TalonOne.Model
                     this.UsageLimit == input.UsageLimit ||
                     (this.UsageLimit != null &&
                     this.UsageLimit.Equals(input.UsageLimit))
+                ) && 
+                (
+                    this.DiscountLimit == input.DiscountLimit ||
+                    (this.DiscountLimit != null &&
+                    this.DiscountLimit.Equals(input.DiscountLimit))
                 ) && 
                 (
                     this.StartDate == input.StartDate ||
@@ -269,6 +284,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.UsageLimit != null)
                     hashCode = hashCode * 59 + this.UsageLimit.GetHashCode();
+                if (this.DiscountLimit != null)
+                    hashCode = hashCode * 59 + this.DiscountLimit.GetHashCode();
                 if (this.StartDate != null)
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.ExpiryDate != null)
@@ -306,6 +323,18 @@ namespace TalonOne.Model
             if(this.UsageLimit < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
+            }
+
+            // DiscountLimit (decimal) maximum
+            if(this.DiscountLimit > (decimal)999999)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value less than or equal to 999999.", new [] { "DiscountLimit" });
+            }
+
+            // DiscountLimit (decimal) minimum
+            if(this.DiscountLimit < (decimal)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value greater than or equal to 0.", new [] { "DiscountLimit" });
             }
 
             // CouponPattern (string) minLength

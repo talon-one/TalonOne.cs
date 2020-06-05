@@ -123,20 +123,9 @@ namespace TalonOne.Test
             //string integrationId = null;
             //bool profile = null;
             //bool referrals = null;
-            //var response = instance.GetCustomerInventory(integrationId, profile, referrals);
+            //bool coupons = null;
+            //var response = instance.GetCustomerInventory(integrationId, profile, referrals, coupons);
             //Assert.IsInstanceOf(typeof(CustomerInventory), response, "response is CustomerInventory");
-        }
-        
-        /// <summary>
-        /// Test GetReservedCoupons
-        /// </summary>
-        [Test]
-        public void GetReservedCouponsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string integrationId = null;
-            //var response = instance.GetReservedCoupons(integrationId);
-            //Assert.IsInstanceOf(typeof(InlineResponse2001), response, "response is InlineResponse2001");
         }
         
         /// <summary>
@@ -159,7 +148,8 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //NewEvent body = null;
-            //var response = instance.TrackEvent(body);
+            //bool dry = null;
+            //var response = instance.TrackEvent(body, dry);
             //Assert.IsInstanceOf(typeof(IntegrationState), response, "response is IntegrationState");
         }
         
@@ -172,8 +162,22 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string integrationId = null;
             //NewCustomerProfile body = null;
-            //var response = instance.UpdateCustomerProfile(integrationId, body);
+            //bool dry = null;
+            //var response = instance.UpdateCustomerProfile(integrationId, body, dry);
             //Assert.IsInstanceOf(typeof(IntegrationState), response, "response is IntegrationState");
+        }
+        
+        /// <summary>
+        /// Test UpdateCustomerProfileV2
+        /// </summary>
+        [Test]
+        public void UpdateCustomerProfileV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string customerProfileId = null;
+            //NewCustomerProfile body = null;
+            //var response = instance.UpdateCustomerProfileV2(customerProfileId, body);
+            //Assert.IsInstanceOf(typeof(CustomerProfileUpdate), response, "response is CustomerProfileUpdate");
         }
         
         /// <summary>
@@ -185,7 +189,8 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string customerSessionId = null;
             //NewCustomerSession body = null;
-            //var response = instance.UpdateCustomerSession(customerSessionId, body);
+            //bool dry = null;
+            //var response = instance.UpdateCustomerSession(customerSessionId, body, dry);
             //Assert.IsInstanceOf(typeof(IntegrationState), response, "response is IntegrationState");
         }
         
@@ -198,7 +203,8 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string customerSessionId = null;
             //IntegrationRequest body = null;
-            //var response = instance.UpdateCustomerSessionV2(customerSessionId, body);
+            //bool dry = null;
+            //var response = instance.UpdateCustomerSessionV2(customerSessionId, body, dry);
             //Assert.IsInstanceOf(typeof(IntegrationStateV2), response, "response is IntegrationStateV2");
         }
         

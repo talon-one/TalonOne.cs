@@ -145,6 +145,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'SubLedgerID'
         }
+        /// <summary>
+        /// Test the property 'UserID'
+        /// </summary>
+        [Test]
+        public void UserIDTest()
+        {
+            // TODO unit test for the property 'UserID'
+        }
 
     }
 

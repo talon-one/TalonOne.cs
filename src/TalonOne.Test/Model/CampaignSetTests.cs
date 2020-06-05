@@ -90,6 +90,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ApplicationId'
         }
         /// <summary>
+        /// Test the property 'Version'
+        /// </summary>
+        [Test]
+        public void VersionTest()
+        {
+            // TODO unit test for the property 'Version'
+        }
+        /// <summary>
         /// Test the property 'Set'
         /// </summary>
         [Test]
