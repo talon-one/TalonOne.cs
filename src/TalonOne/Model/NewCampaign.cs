@@ -104,6 +104,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewCampaign" /> class.
         /// </summary>
+        /// <param name="campaignGroups">The IDs of the campaign groups that own this entity..</param>
         /// <param name="name">A friendly name for this campaign. (required).</param>
         /// <param name="description">A detailed description of the campaign..</param>
         /// <param name="startTime">Datetime when the campaign will become active..</param>
@@ -116,7 +117,7 @@ namespace TalonOne.Model
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of limits that will operate for this campaign (required).</param>
-        public NewCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>))
+        public NewCampaign(List<int> campaignGroups = default(List<int>), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -168,6 +169,7 @@ namespace TalonOne.Model
                 this.Limits = limits;
             }
             
+            this.CampaignGroups = campaignGroups;
             this.Description = description;
             this.StartTime = startTime;
             this.EndTime = endTime;
@@ -177,6 +179,13 @@ namespace TalonOne.Model
             this.ReferralSettings = referralSettings;
         }
         
+        /// <summary>
+        /// The IDs of the campaign groups that own this entity.
+        /// </summary>
+        /// <value>The IDs of the campaign groups that own this entity.</value>
+        [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
+        public List<int> CampaignGroups { get; set; }
+
         /// <summary>
         /// A friendly name for this campaign.
         /// </summary>
@@ -255,6 +264,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class NewCampaign {\n");
+            sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
@@ -301,6 +311,12 @@ namespace TalonOne.Model
                 return false;
 
             return 
+                (
+                    this.CampaignGroups == input.CampaignGroups ||
+                    this.CampaignGroups != null &&
+                    input.CampaignGroups != null &&
+                    this.CampaignGroups.SequenceEqual(input.CampaignGroups)
+                ) && 
                 (
                     this.Name == input.Name ||
                     (this.Name != null &&
@@ -375,6 +391,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.CampaignGroups != null)
+                    hashCode = hashCode * 59 + this.CampaignGroups.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)

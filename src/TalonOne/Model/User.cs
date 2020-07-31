@@ -80,12 +80,11 @@ namespace TalonOne.Model
         /// <param name="state">Current user state. (required).</param>
         /// <param name="name">Full name (required).</param>
         /// <param name="policy">A blob of ACL JSON (required).</param>
-        /// <param name="releaseUpdate">Update the user via email (required).</param>
-        /// <param name="latestFeature">Latest feature the user has been notified..</param>
+        /// <param name="latestFeedTimestamp">Latest timestamp the user has been notified for feed..</param>
         /// <param name="roles">Contains a list of all roles the user is a member of.</param>
         /// <param name="applicationNotificationSubscriptions">applicationNotificationSubscriptions.</param>
         /// <param name="authMethod">The Authentication method for this user.</param>
-        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string inviteToken = default(string), StateEnum state = default(StateEnum), string name = default(string), string policy = default(string), bool releaseUpdate = default(bool), string latestFeature = default(string), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object), string authMethod = default(string))
+        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string inviteToken = default(string), StateEnum state = default(StateEnum), string name = default(string), string policy = default(string), DateTime latestFeedTimestamp = default(DateTime), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object), string authMethod = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -177,17 +176,7 @@ namespace TalonOne.Model
                 this.Policy = policy;
             }
             
-            // to ensure "releaseUpdate" is required (not null)
-            if (releaseUpdate == null)
-            {
-                throw new InvalidDataException("releaseUpdate is a required property for User and cannot be null");
-            }
-            else
-            {
-                this.ReleaseUpdate = releaseUpdate;
-            }
-            
-            this.LatestFeature = latestFeature;
+            this.LatestFeedTimestamp = latestFeedTimestamp;
             this.Roles = roles;
             this.ApplicationNotificationSubscriptions = applicationNotificationSubscriptions;
             this.AuthMethod = authMethod;
@@ -251,18 +240,11 @@ namespace TalonOne.Model
         public string Policy { get; set; }
 
         /// <summary>
-        /// Update the user via email
+        /// Latest timestamp the user has been notified for feed.
         /// </summary>
-        /// <value>Update the user via email</value>
-        [DataMember(Name="releaseUpdate", EmitDefaultValue=false)]
-        public bool ReleaseUpdate { get; set; }
-
-        /// <summary>
-        /// Latest feature the user has been notified.
-        /// </summary>
-        /// <value>Latest feature the user has been notified.</value>
-        [DataMember(Name="latestFeature", EmitDefaultValue=false)]
-        public string LatestFeature { get; set; }
+        /// <value>Latest timestamp the user has been notified for feed.</value>
+        [DataMember(Name="latestFeedTimestamp", EmitDefaultValue=false)]
+        public DateTime LatestFeedTimestamp { get; set; }
 
         /// <summary>
         /// Contains a list of all roles the user is a member of
@@ -301,8 +283,7 @@ namespace TalonOne.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
-            sb.Append("  ReleaseUpdate: ").Append(ReleaseUpdate).Append("\n");
-            sb.Append("  LatestFeature: ").Append(LatestFeature).Append("\n");
+            sb.Append("  LatestFeedTimestamp: ").Append(LatestFeedTimestamp).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
             sb.Append("  ApplicationNotificationSubscriptions: ").Append(ApplicationNotificationSubscriptions).Append("\n");
             sb.Append("  AuthMethod: ").Append(AuthMethod).Append("\n");
@@ -386,14 +367,9 @@ namespace TalonOne.Model
                     this.Policy.Equals(input.Policy))
                 ) && 
                 (
-                    this.ReleaseUpdate == input.ReleaseUpdate ||
-                    (this.ReleaseUpdate != null &&
-                    this.ReleaseUpdate.Equals(input.ReleaseUpdate))
-                ) && 
-                (
-                    this.LatestFeature == input.LatestFeature ||
-                    (this.LatestFeature != null &&
-                    this.LatestFeature.Equals(input.LatestFeature))
+                    this.LatestFeedTimestamp == input.LatestFeedTimestamp ||
+                    (this.LatestFeedTimestamp != null &&
+                    this.LatestFeedTimestamp.Equals(input.LatestFeedTimestamp))
                 ) && 
                 (
                     this.Roles == input.Roles ||
@@ -440,10 +416,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Policy != null)
                     hashCode = hashCode * 59 + this.Policy.GetHashCode();
-                if (this.ReleaseUpdate != null)
-                    hashCode = hashCode * 59 + this.ReleaseUpdate.GetHashCode();
-                if (this.LatestFeature != null)
-                    hashCode = hashCode * 59 + this.LatestFeature.GetHashCode();
+                if (this.LatestFeedTimestamp != null)
+                    hashCode = hashCode * 59 + this.LatestFeedTimestamp.GetHashCode();
                 if (this.Roles != null)
                     hashCode = hashCode * 59 + this.Roles.GetHashCode();
                 if (this.ApplicationNotificationSubscriptions != null)

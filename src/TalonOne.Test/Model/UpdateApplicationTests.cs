@@ -130,12 +130,36 @@ namespace TalonOne.Test
             // TODO unit test for the property 'CampaignPriority'
         }
         /// <summary>
+        /// Test the property 'ExclusiveCampaignsStrategy'
+        /// </summary>
+        [Test]
+        public void ExclusiveCampaignsStrategyTest()
+        {
+            // TODO unit test for the property 'ExclusiveCampaignsStrategy'
+        }
+        /// <summary>
+        /// Test the property 'EnableCascadingDiscounts'
+        /// </summary>
+        [Test]
+        public void EnableCascadingDiscountsTest()
+        {
+            // TODO unit test for the property 'EnableCascadingDiscounts'
+        }
+        /// <summary>
         /// Test the property 'AttributesSettings'
         /// </summary>
         [Test]
         public void AttributesSettingsTest()
         {
             // TODO unit test for the property 'AttributesSettings'
+        }
+        /// <summary>
+        /// Test the property 'Sandbox'
+        /// </summary>
+        [Test]
+        public void SandboxTest()
+        {
+            // TODO unit test for the property 'Sandbox'
         }
 
     }

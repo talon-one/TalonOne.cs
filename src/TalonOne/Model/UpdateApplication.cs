@@ -64,9 +64,9 @@ namespace TalonOne.Model
         [DataMember(Name="caseSensitivity", EmitDefaultValue=false)]
         public CaseSensitivityEnum? CaseSensitivity { get; set; }
         /// <summary>
-        /// Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)
+        /// Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot;
         /// </summary>
-        /// <value>Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)</value>
+        /// <value>Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot;</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum CampaignPriorityEnum
         {
@@ -91,11 +91,44 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)
+        /// Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot;
         /// </summary>
-        /// <value>Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive)</value>
+        /// <value>Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot;</value>
         [DataMember(Name="campaignPriority", EmitDefaultValue=false)]
         public CampaignPriorityEnum? CampaignPriority { get; set; }
+        /// <summary>
+        /// The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot;
+        /// </summary>
+        /// <value>The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot;</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ExclusiveCampaignsStrategyEnum
+        {
+            /// <summary>
+            /// Enum ListOrder for value: listOrder
+            /// </summary>
+            [EnumMember(Value = "listOrder")]
+            ListOrder = 1,
+
+            /// <summary>
+            /// Enum LowestDiscount for value: lowestDiscount
+            /// </summary>
+            [EnumMember(Value = "lowestDiscount")]
+            LowestDiscount = 2,
+
+            /// <summary>
+            /// Enum HighestDiscount for value: highestDiscount
+            /// </summary>
+            [EnumMember(Value = "highestDiscount")]
+            HighestDiscount = 3
+
+        }
+
+        /// <summary>
+        /// The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot;
+        /// </summary>
+        /// <value>The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot;</value>
+        [DataMember(Name="exclusiveCampaignsStrategy", EmitDefaultValue=false)]
+        public ExclusiveCampaignsStrategyEnum? ExclusiveCampaignsStrategy { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateApplication" /> class.
         /// </summary>
@@ -111,9 +144,12 @@ namespace TalonOne.Model
         /// <param name="caseSensitivity">A string indicating how should campaigns in this application deal with case sensitivity on coupon codes..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         /// <param name="limits">Default limits for campaigns created in this application.</param>
-        /// <param name="campaignPriority">Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive).</param>
+        /// <param name="campaignPriority">Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot;.</param>
+        /// <param name="exclusiveCampaignsStrategy">The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot;.</param>
+        /// <param name="enableCascadingDiscounts">Flag indicating if discounts should cascade for this application.</param>
         /// <param name="attributesSettings">attributesSettings.</param>
-        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = default(CampaignPriorityEnum?), AttributesSettings attributesSettings = default(AttributesSettings))
+        /// <param name="sandbox">Flag indicating if this is a live or sandbox application.</param>
+        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = default(CampaignPriorityEnum?), ExclusiveCampaignsStrategyEnum? exclusiveCampaignsStrategy = default(ExclusiveCampaignsStrategyEnum?), bool enableCascadingDiscounts = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -150,7 +186,10 @@ namespace TalonOne.Model
             this.Attributes = attributes;
             this.Limits = limits;
             this.CampaignPriority = campaignPriority;
+            this.ExclusiveCampaignsStrategy = exclusiveCampaignsStrategy;
+            this.EnableCascadingDiscounts = enableCascadingDiscounts;
             this.AttributesSettings = attributesSettings;
+            this.Sandbox = sandbox;
         }
         
         /// <summary>
@@ -197,11 +236,26 @@ namespace TalonOne.Model
         public List<LimitConfig> Limits { get; set; }
 
 
+
+        /// <summary>
+        /// Flag indicating if discounts should cascade for this application
+        /// </summary>
+        /// <value>Flag indicating if discounts should cascade for this application</value>
+        [DataMember(Name="enableCascadingDiscounts", EmitDefaultValue=false)]
+        public bool EnableCascadingDiscounts { get; set; }
+
         /// <summary>
         /// Gets or Sets AttributesSettings
         /// </summary>
         [DataMember(Name="attributesSettings", EmitDefaultValue=false)]
         public AttributesSettings AttributesSettings { get; set; }
+
+        /// <summary>
+        /// Flag indicating if this is a live or sandbox application
+        /// </summary>
+        /// <value>Flag indicating if this is a live or sandbox application</value>
+        [DataMember(Name="sandbox", EmitDefaultValue=false)]
+        public bool Sandbox { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -219,7 +273,10 @@ namespace TalonOne.Model
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  CampaignPriority: ").Append(CampaignPriority).Append("\n");
+            sb.Append("  ExclusiveCampaignsStrategy: ").Append(ExclusiveCampaignsStrategy).Append("\n");
+            sb.Append("  EnableCascadingDiscounts: ").Append(EnableCascadingDiscounts).Append("\n");
             sb.Append("  AttributesSettings: ").Append(AttributesSettings).Append("\n");
+            sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -296,9 +353,24 @@ namespace TalonOne.Model
                     this.CampaignPriority.Equals(input.CampaignPriority))
                 ) && 
                 (
+                    this.ExclusiveCampaignsStrategy == input.ExclusiveCampaignsStrategy ||
+                    (this.ExclusiveCampaignsStrategy != null &&
+                    this.ExclusiveCampaignsStrategy.Equals(input.ExclusiveCampaignsStrategy))
+                ) && 
+                (
+                    this.EnableCascadingDiscounts == input.EnableCascadingDiscounts ||
+                    (this.EnableCascadingDiscounts != null &&
+                    this.EnableCascadingDiscounts.Equals(input.EnableCascadingDiscounts))
+                ) && 
+                (
                     this.AttributesSettings == input.AttributesSettings ||
                     (this.AttributesSettings != null &&
                     this.AttributesSettings.Equals(input.AttributesSettings))
+                ) && 
+                (
+                    this.Sandbox == input.Sandbox ||
+                    (this.Sandbox != null &&
+                    this.Sandbox.Equals(input.Sandbox))
                 );
         }
 
@@ -327,8 +399,14 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
                 if (this.CampaignPriority != null)
                     hashCode = hashCode * 59 + this.CampaignPriority.GetHashCode();
+                if (this.ExclusiveCampaignsStrategy != null)
+                    hashCode = hashCode * 59 + this.ExclusiveCampaignsStrategy.GetHashCode();
+                if (this.EnableCascadingDiscounts != null)
+                    hashCode = hashCode * 59 + this.EnableCascadingDiscounts.GetHashCode();
                 if (this.AttributesSettings != null)
                     hashCode = hashCode * 59 + this.AttributesSettings.GetHashCode();
+                if (this.Sandbox != null)
+                    hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 return hashCode;
             }
         }

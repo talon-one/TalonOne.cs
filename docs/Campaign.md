@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Created** | **DateTime** | The exact moment this entity was created. | 
 **ApplicationId** | **int** | The ID of the application that owns this entity. | 
 **UserId** | **int** | The ID of the account that owns this entity. | 
+**CampaignGroups** | **List&lt;int&gt;** | The IDs of the campaign groups that own this entity. | [optional] 
 **Name** | **string** | A friendly name for this campaign. | 
 **Description** | **string** | A detailed description of the campaign. | 
 **StartTime** | **DateTime** | Datetime when the campaign will become active. | [optional] 

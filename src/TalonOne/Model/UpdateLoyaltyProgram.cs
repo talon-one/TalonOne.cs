@@ -36,14 +36,16 @@ namespace TalonOne.Model
         /// <param name="title">The display title for the Loyalty Program..</param>
         /// <param name="description">Description of our Loyalty Program..</param>
         /// <param name="subscribedApplications">A list containing the IDs of all applications that are subscribed to this Loyalty Program..</param>
-        /// <param name="defaultValidity">Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39; or &#39;30d&#39;..</param>
+        /// <param name="defaultValidity">Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;..</param>
+        /// <param name="defaultPending">Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;..</param>
         /// <param name="allowSubledger">Indicates if this program supports subledgers inside the program.</param>
-        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), bool allowSubledger = default(bool))
+        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool))
         {
             this.Title = title;
             this.Description = description;
             this.SubscribedApplications = subscribedApplications;
             this.DefaultValidity = defaultValidity;
+            this.DefaultPending = defaultPending;
             this.AllowSubledger = allowSubledger;
         }
         
@@ -69,11 +71,18 @@ namespace TalonOne.Model
         public List<int> SubscribedApplications { get; set; }
 
         /// <summary>
-        /// Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39; or &#39;30d&#39;.
+        /// Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;.
         /// </summary>
-        /// <value>Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39; or &#39;30d&#39;.</value>
+        /// <value>Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;.</value>
         [DataMember(Name="defaultValidity", EmitDefaultValue=false)]
         public string DefaultValidity { get; set; }
+
+        /// <summary>
+        /// Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;.
+        /// </summary>
+        /// <value>Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;.</value>
+        [DataMember(Name="defaultPending", EmitDefaultValue=false)]
+        public string DefaultPending { get; set; }
 
         /// <summary>
         /// Indicates if this program supports subledgers inside the program
@@ -94,6 +103,7 @@ namespace TalonOne.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  SubscribedApplications: ").Append(SubscribedApplications).Append("\n");
             sb.Append("  DefaultValidity: ").Append(DefaultValidity).Append("\n");
+            sb.Append("  DefaultPending: ").Append(DefaultPending).Append("\n");
             sb.Append("  AllowSubledger: ").Append(AllowSubledger).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -151,6 +161,11 @@ namespace TalonOne.Model
                     this.DefaultValidity.Equals(input.DefaultValidity))
                 ) && 
                 (
+                    this.DefaultPending == input.DefaultPending ||
+                    (this.DefaultPending != null &&
+                    this.DefaultPending.Equals(input.DefaultPending))
+                ) && 
+                (
                     this.AllowSubledger == input.AllowSubledger ||
                     (this.AllowSubledger != null &&
                     this.AllowSubledger.Equals(input.AllowSubledger))
@@ -174,6 +189,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.SubscribedApplications.GetHashCode();
                 if (this.DefaultValidity != null)
                     hashCode = hashCode * 59 + this.DefaultValidity.GetHashCode();
+                if (this.DefaultPending != null)
+                    hashCode = hashCode * 59 + this.DefaultPending.GetHashCode();
                 if (this.AllowSubledger != null)
                     hashCode = hashCode * 59 + this.AllowSubledger.GetHashCode();
                 return hashCode;

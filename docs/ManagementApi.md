@@ -3306,7 +3306,7 @@ Name | Type | Description  | Notes
 
 ## GetCampaigns
 
-> InlineResponse2002 GetCampaigns (int applicationId, int pageSize = null, int skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime createdBefore = null, DateTime createdAfter = null)
+> InlineResponse2002 GetCampaigns (int applicationId, int pageSize = null, int skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime createdBefore = null, DateTime createdAfter = null, int campaignGroupId = null)
 
 List your Campaigns
 
@@ -3341,11 +3341,12 @@ namespace Example
             var tags = tags_example;  // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional) 
+            var campaignGroupId = 56;  // int | Filter results to campaigns owned by the specified campaign group ID. (optional) 
 
             try
             {
                 // List your Campaigns
-                InlineResponse2002 result = apiInstance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter);
+                InlineResponse2002 result = apiInstance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3373,6 +3374,7 @@ Name | Type | Description  | Notes
  **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
  **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional] 
  **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional] 
+ **campaignGroupId** | **int**| Filter results to campaigns owned by the specified campaign group ID. | [optional] 
 
 ### Return type
 
@@ -4300,7 +4302,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerProfile
 
-> ApplicationCustomer GetCustomerProfile (int applicationId, int customerId)
+> ApplicationCustomer GetCustomerProfile (int customerId)
 
 Get Customer Profile
 
@@ -4326,13 +4328,12 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
             var customerId = 56;  // int | 
 
             try
             {
                 // Get Customer Profile
-                ApplicationCustomer result = apiInstance.GetCustomerProfile(applicationId, customerId);
+                ApplicationCustomer result = apiInstance.GetCustomerProfile(customerId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -4351,7 +4352,6 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
  **customerId** | **int**|  | 
 
 ### Return type

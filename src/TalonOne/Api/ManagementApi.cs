@@ -1061,8 +1061,9 @@ namespace TalonOne.Api
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetCampaigns (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        InlineResponse2002 GetCampaigns (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int));
 
         /// <summary>
         /// List your Campaigns
@@ -1080,8 +1081,9 @@ namespace TalonOne.Api
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int));
         /// <summary>
         /// Get audit log for an account
         /// </summary>
@@ -1462,10 +1464,9 @@ namespace TalonOne.Api
         /// 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
         /// <param name="customerId"></param>
         /// <returns>ApplicationCustomer</returns>
-        ApplicationCustomer GetCustomerProfile (int applicationId, int customerId);
+        ApplicationCustomer GetCustomerProfile (int customerId);
 
         /// <summary>
         /// Get Customer Profile
@@ -1474,10 +1475,9 @@ namespace TalonOne.Api
         /// 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
         /// <param name="customerId"></param>
         /// <returns>ApiResponse of ApplicationCustomer</returns>
-        ApiResponse<ApplicationCustomer> GetCustomerProfileWithHttpInfo (int applicationId, int customerId);
+        ApiResponse<ApplicationCustomer> GetCustomerProfileWithHttpInfo (int customerId);
         /// <summary>
         /// List Customer Profiles
         /// </summary>
@@ -3429,8 +3429,9 @@ namespace TalonOne.Api
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int));
 
         /// <summary>
         /// List your Campaigns
@@ -3448,8 +3449,9 @@ namespace TalonOne.Api
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int));
         /// <summary>
         /// Get audit log for an account
         /// </summary>
@@ -3830,10 +3832,9 @@ namespace TalonOne.Api
         /// 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
         /// <param name="customerId"></param>
         /// <returns>Task of ApplicationCustomer</returns>
-        System.Threading.Tasks.Task<ApplicationCustomer> GetCustomerProfileAsync (int applicationId, int customerId);
+        System.Threading.Tasks.Task<ApplicationCustomer> GetCustomerProfileAsync (int customerId);
 
         /// <summary>
         /// Get Customer Profile
@@ -3842,10 +3843,9 @@ namespace TalonOne.Api
         /// 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
         /// <param name="customerId"></param>
         /// <returns>Task of ApiResponse (ApplicationCustomer)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApplicationCustomer>> GetCustomerProfileAsyncWithHttpInfo (int applicationId, int customerId);
+        System.Threading.Tasks.Task<ApiResponse<ApplicationCustomer>> GetCustomerProfileAsyncWithHttpInfo (int customerId);
         /// <summary>
         /// List Customer Profiles
         /// </summary>
@@ -11285,10 +11285,11 @@ namespace TalonOne.Api
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetCampaigns (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public InlineResponse2002 GetCampaigns (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int))
         {
-             ApiResponse<InlineResponse2002> localVarResponse = GetCampaignsWithHttpInfo(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter);
+             ApiResponse<InlineResponse2002> localVarResponse = GetCampaignsWithHttpInfo(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
              return localVarResponse.Data;
         }
 
@@ -11305,8 +11306,9 @@ namespace TalonOne.Api
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -11342,6 +11344,7 @@ namespace TalonOne.Api
             if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "tags", tags)); // query parameter
             if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
             if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (campaignGroupId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignGroupId", campaignGroupId)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -11380,10 +11383,11 @@ namespace TalonOne.Api
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public async System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int))
         {
-             ApiResponse<InlineResponse2002> localVarResponse = await GetCampaignsAsyncWithHttpInfo(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter);
+             ApiResponse<InlineResponse2002> localVarResponse = await GetCampaignsAsyncWithHttpInfo(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
              return localVarResponse.Data;
 
         }
@@ -11401,8 +11405,9 @@ namespace TalonOne.Api
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -11438,6 +11443,7 @@ namespace TalonOne.Api
             if (tags != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "tags", tags)); // query parameter
             if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
             if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (campaignGroupId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignGroupId", campaignGroupId)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -13410,12 +13416,11 @@ namespace TalonOne.Api
         /// Get Customer Profile 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
         /// <param name="customerId"></param>
         /// <returns>ApplicationCustomer</returns>
-        public ApplicationCustomer GetCustomerProfile (int applicationId, int customerId)
+        public ApplicationCustomer GetCustomerProfile (int customerId)
         {
-             ApiResponse<ApplicationCustomer> localVarResponse = GetCustomerProfileWithHttpInfo(applicationId, customerId);
+             ApiResponse<ApplicationCustomer> localVarResponse = GetCustomerProfileWithHttpInfo(customerId);
              return localVarResponse.Data;
         }
 
@@ -13423,14 +13428,10 @@ namespace TalonOne.Api
         /// Get Customer Profile 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
         /// <param name="customerId"></param>
         /// <returns>ApiResponse of ApplicationCustomer</returns>
-        public ApiResponse<ApplicationCustomer> GetCustomerProfileWithHttpInfo (int applicationId, int customerId)
+        public ApiResponse<ApplicationCustomer> GetCustomerProfileWithHttpInfo (int customerId)
         {
-            // verify the required parameter 'applicationId' is set
-            if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->GetCustomerProfile");
             // verify the required parameter 'customerId' is set
             if (customerId == null)
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling ManagementApi->GetCustomerProfile");
@@ -13456,7 +13457,6 @@ namespace TalonOne.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
             if (customerId != null) localVarPathParams.Add("customerId", this.Configuration.ApiClient.ParameterToString(customerId)); // path parameter
 
             // authentication (manager_auth) required
@@ -13487,12 +13487,11 @@ namespace TalonOne.Api
         /// Get Customer Profile 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
         /// <param name="customerId"></param>
         /// <returns>Task of ApplicationCustomer</returns>
-        public async System.Threading.Tasks.Task<ApplicationCustomer> GetCustomerProfileAsync (int applicationId, int customerId)
+        public async System.Threading.Tasks.Task<ApplicationCustomer> GetCustomerProfileAsync (int customerId)
         {
-             ApiResponse<ApplicationCustomer> localVarResponse = await GetCustomerProfileAsyncWithHttpInfo(applicationId, customerId);
+             ApiResponse<ApplicationCustomer> localVarResponse = await GetCustomerProfileAsyncWithHttpInfo(customerId);
              return localVarResponse.Data;
 
         }
@@ -13501,14 +13500,10 @@ namespace TalonOne.Api
         /// Get Customer Profile 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId"></param>
         /// <param name="customerId"></param>
         /// <returns>Task of ApiResponse (ApplicationCustomer)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApplicationCustomer>> GetCustomerProfileAsyncWithHttpInfo (int applicationId, int customerId)
+        public async System.Threading.Tasks.Task<ApiResponse<ApplicationCustomer>> GetCustomerProfileAsyncWithHttpInfo (int customerId)
         {
-            // verify the required parameter 'applicationId' is set
-            if (applicationId == null)
-                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->GetCustomerProfile");
             // verify the required parameter 'customerId' is set
             if (customerId == null)
                 throw new ApiException(400, "Missing required parameter 'customerId' when calling ManagementApi->GetCustomerProfile");
@@ -13534,7 +13529,6 @@ namespace TalonOne.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
             if (customerId != null) localVarPathParams.Add("customerId", this.Configuration.ApiClient.ParameterToString(customerId)); // path parameter
 
             // authentication (manager_auth) required

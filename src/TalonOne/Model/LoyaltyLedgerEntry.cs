@@ -45,11 +45,12 @@ namespace TalonOne.Model
         /// <param name="eventID">eventID.</param>
         /// <param name="type">The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers)  (required).</param>
         /// <param name="amount">amount (required).</param>
+        /// <param name="startDate">startDate.</param>
         /// <param name="expiryDate">expiryDate.</param>
         /// <param name="name">A name referencing the condition or effect that added this entry, or the specific name provided in an API call. (required).</param>
         /// <param name="subLedgerID">This specifies if we are adding loyalty points to the main ledger or a subledger (required).</param>
         /// <param name="userID">This is the ID of the user who created this entry, if the addition or subtraction was done manually..</param>
-        public LoyaltyLedgerEntry(DateTime created = default(DateTime), int programID = default(int), string customerProfileID = default(string), string customerSessionID = default(string), int eventID = default(int), string type = default(string), decimal amount = default(decimal), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), int userID = default(int))
+        public LoyaltyLedgerEntry(DateTime created = default(DateTime), int programID = default(int), string customerProfileID = default(string), string customerSessionID = default(string), int eventID = default(int), string type = default(string), decimal amount = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), int userID = default(int))
         {
             // to ensure "created" is required (not null)
             if (created == null)
@@ -123,6 +124,7 @@ namespace TalonOne.Model
             
             this.CustomerSessionID = customerSessionID;
             this.EventID = eventID;
+            this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
             this.UserID = userID;
         }
@@ -171,6 +173,12 @@ namespace TalonOne.Model
         public decimal Amount { get; set; }
 
         /// <summary>
+        /// Gets or Sets StartDate
+        /// </summary>
+        [DataMember(Name="startDate", EmitDefaultValue=false)]
+        public DateTime StartDate { get; set; }
+
+        /// <summary>
         /// Gets or Sets ExpiryDate
         /// </summary>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
@@ -212,6 +220,7 @@ namespace TalonOne.Model
             sb.Append("  EventID: ").Append(EventID).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  SubLedgerID: ").Append(SubLedgerID).Append("\n");
@@ -286,6 +295,11 @@ namespace TalonOne.Model
                     this.Amount.Equals(input.Amount))
                 ) && 
                 (
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
+                ) && 
+                (
                     this.ExpiryDate == input.ExpiryDate ||
                     (this.ExpiryDate != null &&
                     this.ExpiryDate.Equals(input.ExpiryDate))
@@ -330,6 +344,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Amount != null)
                     hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                if (this.StartDate != null)
+                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
                 if (this.Name != null)

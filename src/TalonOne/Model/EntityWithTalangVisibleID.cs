@@ -25,25 +25,58 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// MiscUpdateUserLatestFeature
+    /// EntityWithTalangVisibleID
     /// </summary>
     [DataContract]
-    public partial class MiscUpdateUserLatestFeature :  IEquatable<MiscUpdateUserLatestFeature>, IValidatableObject
+    public partial class EntityWithTalangVisibleID :  IEquatable<EntityWithTalangVisibleID>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MiscUpdateUserLatestFeature" /> class.
+        /// Initializes a new instance of the <see cref="EntityWithTalangVisibleID" /> class.
         /// </summary>
-        /// <param name="latestFeature">latestFeature.</param>
-        public MiscUpdateUserLatestFeature(string latestFeature = default(string))
+        [JsonConstructorAttribute]
+        protected EntityWithTalangVisibleID() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EntityWithTalangVisibleID" /> class.
+        /// </summary>
+        /// <param name="id">Unique ID for this entity. (required).</param>
+        /// <param name="created">The exact moment this entity was created. (required).</param>
+        public EntityWithTalangVisibleID(int id = default(int), DateTime created = default(DateTime))
         {
-            this.LatestFeature = latestFeature;
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new InvalidDataException("id is a required property for EntityWithTalangVisibleID and cannot be null");
+            }
+            else
+            {
+                this.Id = id;
+            }
+            
+            // to ensure "created" is required (not null)
+            if (created == null)
+            {
+                throw new InvalidDataException("created is a required property for EntityWithTalangVisibleID and cannot be null");
+            }
+            else
+            {
+                this.Created = created;
+            }
+            
         }
         
         /// <summary>
-        /// Gets or Sets LatestFeature
+        /// Unique ID for this entity.
         /// </summary>
-        [DataMember(Name="latestFeature", EmitDefaultValue=false)]
-        public string LatestFeature { get; set; }
+        /// <value>Unique ID for this entity.</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// The exact moment this entity was created.
+        /// </summary>
+        /// <value>The exact moment this entity was created.</value>
+        [DataMember(Name="created", EmitDefaultValue=false)]
+        public DateTime Created { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +85,9 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MiscUpdateUserLatestFeature {\n");
-            sb.Append("  LatestFeature: ").Append(LatestFeature).Append("\n");
+            sb.Append("class EntityWithTalangVisibleID {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +108,29 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MiscUpdateUserLatestFeature);
+            return this.Equals(input as EntityWithTalangVisibleID);
         }
 
         /// <summary>
-        /// Returns true if MiscUpdateUserLatestFeature instances are equal
+        /// Returns true if EntityWithTalangVisibleID instances are equal
         /// </summary>
-        /// <param name="input">Instance of MiscUpdateUserLatestFeature to be compared</param>
+        /// <param name="input">Instance of EntityWithTalangVisibleID to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MiscUpdateUserLatestFeature input)
+        public bool Equals(EntityWithTalangVisibleID input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.LatestFeature == input.LatestFeature ||
-                    (this.LatestFeature != null &&
-                    this.LatestFeature.Equals(input.LatestFeature))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
                 );
         }
 
@@ -104,8 +143,10 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.LatestFeature != null)
-                    hashCode = hashCode * 59 + this.LatestFeature.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
                 return hashCode;
             }
         }

@@ -40,9 +40,10 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="points">Amount of loyalty points (required).</param>
         /// <param name="name">Allows to specify a name for the addition or deduction.</param>
-        /// <param name="expiryDuration">Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the unit, like &#39;1h&#39; or &#39;40m&#39; or &#39;30d&#39;..</param>
+        /// <param name="validityDuration">Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the time unit, like &#39;1h&#39; or &#39;40m&#39; (defined by Go time package)..</param>
+        /// <param name="pendingDuration">Indicates the amount of time before the points are considered valid. The format is a number followed by one letter indicating the time unit, like &#39;1h&#39; or &#39;40m&#39; (defined by Go time package)..</param>
         /// <param name="subLedgerID">This specifies if we are adding loyalty points to the main ledger or a subledger.</param>
-        public LoyaltyPoints(decimal points = default(decimal), string name = default(string), string expiryDuration = default(string), string subLedgerID = default(string))
+        public LoyaltyPoints(decimal points = default(decimal), string name = default(string), string validityDuration = default(string), string pendingDuration = default(string), string subLedgerID = default(string))
         {
             // to ensure "points" is required (not null)
             if (points == null)
@@ -55,7 +56,8 @@ namespace TalonOne.Model
             }
             
             this.Name = name;
-            this.ExpiryDuration = expiryDuration;
+            this.ValidityDuration = validityDuration;
+            this.PendingDuration = pendingDuration;
             this.SubLedgerID = subLedgerID;
         }
         
@@ -74,11 +76,18 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the unit, like &#39;1h&#39; or &#39;40m&#39; or &#39;30d&#39;.
+        /// Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the time unit, like &#39;1h&#39; or &#39;40m&#39; (defined by Go time package).
         /// </summary>
-        /// <value>Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the unit, like &#39;1h&#39; or &#39;40m&#39; or &#39;30d&#39;.</value>
-        [DataMember(Name="expiryDuration", EmitDefaultValue=false)]
-        public string ExpiryDuration { get; set; }
+        /// <value>Indicates the duration after which the added loyalty points should expire. The format is a number followed by one letter indicating the time unit, like &#39;1h&#39; or &#39;40m&#39; (defined by Go time package).</value>
+        [DataMember(Name="validityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
+
+        /// <summary>
+        /// Indicates the amount of time before the points are considered valid. The format is a number followed by one letter indicating the time unit, like &#39;1h&#39; or &#39;40m&#39; (defined by Go time package).
+        /// </summary>
+        /// <value>Indicates the amount of time before the points are considered valid. The format is a number followed by one letter indicating the time unit, like &#39;1h&#39; or &#39;40m&#39; (defined by Go time package).</value>
+        [DataMember(Name="pendingDuration", EmitDefaultValue=false)]
+        public string PendingDuration { get; set; }
 
         /// <summary>
         /// This specifies if we are adding loyalty points to the main ledger or a subledger
@@ -97,7 +106,8 @@ namespace TalonOne.Model
             sb.Append("class LoyaltyPoints {\n");
             sb.Append("  Points: ").Append(Points).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  ExpiryDuration: ").Append(ExpiryDuration).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
+            sb.Append("  PendingDuration: ").Append(PendingDuration).Append("\n");
             sb.Append("  SubLedgerID: ").Append(SubLedgerID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -144,9 +154,14 @@ namespace TalonOne.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.ExpiryDuration == input.ExpiryDuration ||
-                    (this.ExpiryDuration != null &&
-                    this.ExpiryDuration.Equals(input.ExpiryDuration))
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
+                ) && 
+                (
+                    this.PendingDuration == input.PendingDuration ||
+                    (this.PendingDuration != null &&
+                    this.PendingDuration.Equals(input.PendingDuration))
                 ) && 
                 (
                     this.SubLedgerID == input.SubLedgerID ||
@@ -168,8 +183,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Points.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.ExpiryDuration != null)
-                    hashCode = hashCode * 59 + this.ExpiryDuration.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
+                if (this.PendingDuration != null)
+                    hashCode = hashCode * 59 + this.PendingDuration.GetHashCode();
                 if (this.SubLedgerID != null)
                     hashCode = hashCode * 59 + this.SubLedgerID.GetHashCode();
                 return hashCode;

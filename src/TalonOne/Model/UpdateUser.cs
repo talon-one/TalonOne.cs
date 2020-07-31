@@ -63,17 +63,13 @@ namespace TalonOne.Model
         /// <param name="name">Your name..</param>
         /// <param name="policy">a blob of acl json.</param>
         /// <param name="state">New state (\&quot;deactivated\&quot; or \&quot;active\&quot;) for the user. Only usable by admins for the user..</param>
-        /// <param name="releaseUpdate">Update the user via email.</param>
-        /// <param name="latestFeature">The latest feature you&#39;ve been notified..</param>
         /// <param name="roles">Update.</param>
         /// <param name="applicationNotificationSubscriptions">applicationNotificationSubscriptions.</param>
-        public UpdateUser(string name = default(string), string policy = default(string), StateEnum? state = default(StateEnum?), bool releaseUpdate = default(bool), string latestFeature = default(string), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object))
+        public UpdateUser(string name = default(string), string policy = default(string), StateEnum? state = default(StateEnum?), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object))
         {
             this.Name = name;
             this.Policy = policy;
             this.State = state;
-            this.ReleaseUpdate = releaseUpdate;
-            this.LatestFeature = latestFeature;
             this.Roles = roles;
             this.ApplicationNotificationSubscriptions = applicationNotificationSubscriptions;
         }
@@ -92,20 +88,6 @@ namespace TalonOne.Model
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public string Policy { get; set; }
 
-
-        /// <summary>
-        /// Update the user via email
-        /// </summary>
-        /// <value>Update the user via email</value>
-        [DataMember(Name="releaseUpdate", EmitDefaultValue=false)]
-        public bool ReleaseUpdate { get; set; }
-
-        /// <summary>
-        /// The latest feature you&#39;ve been notified.
-        /// </summary>
-        /// <value>The latest feature you&#39;ve been notified.</value>
-        [DataMember(Name="latestFeature", EmitDefaultValue=false)]
-        public string LatestFeature { get; set; }
 
         /// <summary>
         /// Update
@@ -131,8 +113,6 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
-            sb.Append("  ReleaseUpdate: ").Append(ReleaseUpdate).Append("\n");
-            sb.Append("  LatestFeature: ").Append(LatestFeature).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
             sb.Append("  ApplicationNotificationSubscriptions: ").Append(ApplicationNotificationSubscriptions).Append("\n");
             sb.Append("}\n");
@@ -185,16 +165,6 @@ namespace TalonOne.Model
                     this.State.Equals(input.State))
                 ) && 
                 (
-                    this.ReleaseUpdate == input.ReleaseUpdate ||
-                    (this.ReleaseUpdate != null &&
-                    this.ReleaseUpdate.Equals(input.ReleaseUpdate))
-                ) && 
-                (
-                    this.LatestFeature == input.LatestFeature ||
-                    (this.LatestFeature != null &&
-                    this.LatestFeature.Equals(input.LatestFeature))
-                ) && 
-                (
                     this.Roles == input.Roles ||
                     this.Roles != null &&
                     input.Roles != null &&
@@ -222,10 +192,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Policy.GetHashCode();
                 if (this.State != null)
                     hashCode = hashCode * 59 + this.State.GetHashCode();
-                if (this.ReleaseUpdate != null)
-                    hashCode = hashCode * 59 + this.ReleaseUpdate.GetHashCode();
-                if (this.LatestFeature != null)
-                    hashCode = hashCode * 59 + this.LatestFeature.GetHashCode();
                 if (this.Roles != null)
                     hashCode = hashCode * 59 + this.Roles.GetHashCode();
                 if (this.ApplicationNotificationSubscriptions != null)

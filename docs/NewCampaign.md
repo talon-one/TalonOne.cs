@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CampaignGroups** | **List&lt;int&gt;** | The IDs of the campaign groups that own this entity. | [optional] 
 **Name** | **string** | A friendly name for this campaign. | 
 **Description** | **string** | A detailed description of the campaign. | [optional] 
 **StartTime** | **DateTime** | Datetime when the campaign will become active. | [optional] 

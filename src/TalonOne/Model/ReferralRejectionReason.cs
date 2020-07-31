@@ -55,58 +55,52 @@ namespace TalonOne.Model
             ReferralPartOfNotRunningCampaign = 3,
 
             /// <summary>
-            /// Enum ReferralValidConditionMissing for value: ReferralValidConditionMissing
-            /// </summary>
-            [EnumMember(Value = "ReferralValidConditionMissing")]
-            ReferralValidConditionMissing = 4,
-
-            /// <summary>
             /// Enum ReferralLimitReached for value: ReferralLimitReached
             /// </summary>
             [EnumMember(Value = "ReferralLimitReached")]
-            ReferralLimitReached = 5,
+            ReferralLimitReached = 4,
 
             /// <summary>
             /// Enum CampaignLimitReached for value: CampaignLimitReached
             /// </summary>
             [EnumMember(Value = "CampaignLimitReached")]
-            CampaignLimitReached = 6,
+            CampaignLimitReached = 5,
 
             /// <summary>
             /// Enum ProfileLimitReached for value: ProfileLimitReached
             /// </summary>
             [EnumMember(Value = "ProfileLimitReached")]
-            ProfileLimitReached = 7,
+            ProfileLimitReached = 6,
 
             /// <summary>
             /// Enum ReferralRecipientDoesNotMatch for value: ReferralRecipientDoesNotMatch
             /// </summary>
             [EnumMember(Value = "ReferralRecipientDoesNotMatch")]
-            ReferralRecipientDoesNotMatch = 8,
+            ReferralRecipientDoesNotMatch = 7,
 
             /// <summary>
             /// Enum ReferralExpired for value: ReferralExpired
             /// </summary>
             [EnumMember(Value = "ReferralExpired")]
-            ReferralExpired = 9,
+            ReferralExpired = 8,
 
             /// <summary>
             /// Enum ReferralStartDateInFuture for value: ReferralStartDateInFuture
             /// </summary>
             [EnumMember(Value = "ReferralStartDateInFuture")]
-            ReferralStartDateInFuture = 10,
+            ReferralStartDateInFuture = 9,
 
             /// <summary>
             /// Enum ReferralRejectedByCondition for value: ReferralRejectedByCondition
             /// </summary>
             [EnumMember(Value = "ReferralRejectedByCondition")]
-            ReferralRejectedByCondition = 11,
+            ReferralRejectedByCondition = 10,
 
             /// <summary>
             /// Enum EffectCouldNotBeApplied for value: EffectCouldNotBeApplied
             /// </summary>
             [EnumMember(Value = "EffectCouldNotBeApplied")]
-            EffectCouldNotBeApplied = 12
+            EffectCouldNotBeApplied = 11
 
         }
 

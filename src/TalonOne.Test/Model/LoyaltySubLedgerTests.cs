@@ -74,6 +74,38 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Total'
         }
         /// <summary>
+        /// Test the property 'TotalActivePoints'
+        /// </summary>
+        [Test]
+        public void TotalActivePointsTest()
+        {
+            // TODO unit test for the property 'TotalActivePoints'
+        }
+        /// <summary>
+        /// Test the property 'TotalPendingPoints'
+        /// </summary>
+        [Test]
+        public void TotalPendingPointsTest()
+        {
+            // TODO unit test for the property 'TotalPendingPoints'
+        }
+        /// <summary>
+        /// Test the property 'TotalSpentPoints'
+        /// </summary>
+        [Test]
+        public void TotalSpentPointsTest()
+        {
+            // TODO unit test for the property 'TotalSpentPoints'
+        }
+        /// <summary>
+        /// Test the property 'TotalExpiredPoints'
+        /// </summary>
+        [Test]
+        public void TotalExpiredPointsTest()
+        {
+            // TODO unit test for the property 'TotalExpiredPoints'
+        }
+        /// <summary>
         /// Test the property 'Transactions'
         /// </summary>
         [Test]
@@ -88,6 +120,30 @@ namespace TalonOne.Test
         public void ExpiringPointsTest()
         {
             // TODO unit test for the property 'ExpiringPoints'
+        }
+        /// <summary>
+        /// Test the property 'ActivePoints'
+        /// </summary>
+        [Test]
+        public void ActivePointsTest()
+        {
+            // TODO unit test for the property 'ActivePoints'
+        }
+        /// <summary>
+        /// Test the property 'PendingPoints'
+        /// </summary>
+        [Test]
+        public void PendingPointsTest()
+        {
+            // TODO unit test for the property 'PendingPoints'
+        }
+        /// <summary>
+        /// Test the property 'ExpiredPoints'
+        /// </summary>
+        [Test]
+        public void ExpiredPointsTest()
+        {
+            // TODO unit test for the property 'ExpiredPoints'
         }
 
     }

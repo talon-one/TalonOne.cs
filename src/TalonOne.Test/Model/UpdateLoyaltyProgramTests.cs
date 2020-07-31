@@ -98,6 +98,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'DefaultValidity'
         }
         /// <summary>
+        /// Test the property 'DefaultPending'
+        /// </summary>
+        [Test]
+        public void DefaultPendingTest()
+        {
+            // TODO unit test for the property 'DefaultPending'
+        }
+        /// <summary>
         /// Test the property 'AllowSubledger'
         /// </summary>
         [Test]

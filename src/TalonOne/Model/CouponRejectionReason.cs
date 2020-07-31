@@ -49,58 +49,52 @@ namespace TalonOne.Model
             CouponPartOfNotRunningCampaign = 2,
 
             /// <summary>
-            /// Enum CouponValidConditionMissing for value: CouponValidConditionMissing
-            /// </summary>
-            [EnumMember(Value = "CouponValidConditionMissing")]
-            CouponValidConditionMissing = 3,
-
-            /// <summary>
             /// Enum CouponLimitReached for value: CouponLimitReached
             /// </summary>
             [EnumMember(Value = "CouponLimitReached")]
-            CouponLimitReached = 4,
+            CouponLimitReached = 3,
 
             /// <summary>
             /// Enum CampaignLimitReached for value: CampaignLimitReached
             /// </summary>
             [EnumMember(Value = "CampaignLimitReached")]
-            CampaignLimitReached = 5,
+            CampaignLimitReached = 4,
 
             /// <summary>
             /// Enum ProfileLimitReached for value: ProfileLimitReached
             /// </summary>
             [EnumMember(Value = "ProfileLimitReached")]
-            ProfileLimitReached = 6,
+            ProfileLimitReached = 5,
 
             /// <summary>
             /// Enum CouponRecipientDoesNotMatch for value: CouponRecipientDoesNotMatch
             /// </summary>
             [EnumMember(Value = "CouponRecipientDoesNotMatch")]
-            CouponRecipientDoesNotMatch = 7,
+            CouponRecipientDoesNotMatch = 6,
 
             /// <summary>
             /// Enum CouponExpired for value: CouponExpired
             /// </summary>
             [EnumMember(Value = "CouponExpired")]
-            CouponExpired = 8,
+            CouponExpired = 7,
 
             /// <summary>
             /// Enum CouponStartDateInFuture for value: CouponStartDateInFuture
             /// </summary>
             [EnumMember(Value = "CouponStartDateInFuture")]
-            CouponStartDateInFuture = 9,
+            CouponStartDateInFuture = 8,
 
             /// <summary>
             /// Enum CouponRejectedByCondition for value: CouponRejectedByCondition
             /// </summary>
             [EnumMember(Value = "CouponRejectedByCondition")]
-            CouponRejectedByCondition = 10,
+            CouponRejectedByCondition = 9,
 
             /// <summary>
             /// Enum EffectCouldNotBeApplied for value: EffectCouldNotBeApplied
             /// </summary>
             [EnumMember(Value = "EffectCouldNotBeApplied")]
-            EffectCouldNotBeApplied = 11
+            EffectCouldNotBeApplied = 10
 
         }
 

@@ -185,6 +185,22 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ActiveRules'
         }
+        /// <summary>
+        /// Test the property 'SandboxApplications'
+        /// </summary>
+        [Test]
+        public void SandboxApplicationsTest()
+        {
+            // TODO unit test for the property 'SandboxApplications'
+        }
+        /// <summary>
+        /// Test the property 'LiveApplications'
+        /// </summary>
+        [Test]
+        public void LiveApplicationsTest()
+        {
+            // TODO unit test for the property 'LiveApplications'
+        }
 
     }
 

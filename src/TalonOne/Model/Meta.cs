@@ -37,7 +37,7 @@ namespace TalonOne.Model
         /// <param name="coupons">Maps the coupon value to a key-value list of that coupons attributes..</param>
         /// <param name="couponRejectionReason">couponRejectionReason.</param>
         /// <param name="referralRejectionReason">referralRejectionReason.</param>
-        /// <param name="warnings">warnings.</param>
+        /// <param name="warnings">Contains warnings about possible misuse..</param>
         public Meta(Object campaigns = default(Object), Object coupons = default(Object), CouponRejectionReason couponRejectionReason = default(CouponRejectionReason), ReferralRejectionReason referralRejectionReason = default(ReferralRejectionReason), Object warnings = default(Object))
         {
             this.Campaigns = campaigns;
@@ -74,8 +74,9 @@ namespace TalonOne.Model
         public ReferralRejectionReason ReferralRejectionReason { get; set; }
 
         /// <summary>
-        /// Gets or Sets Warnings
+        /// Contains warnings about possible misuse.
         /// </summary>
+        /// <value>Contains warnings about possible misuse.</value>
         [DataMember(Name="warnings", EmitDefaultValue=false)]
         public Object Warnings { get; set; }
 

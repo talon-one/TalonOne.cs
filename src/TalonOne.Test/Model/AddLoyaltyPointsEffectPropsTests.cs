@@ -106,12 +106,20 @@ namespace TalonOne.Test
             // TODO unit test for the property 'RecipientIntegrationId'
         }
         /// <summary>
-        /// Test the property 'ExpiryCondition'
+        /// Test the property 'StartDate'
         /// </summary>
         [Test]
-        public void ExpiryConditionTest()
+        public void StartDateTest()
         {
-            // TODO unit test for the property 'ExpiryCondition'
+            // TODO unit test for the property 'StartDate'
+        }
+        /// <summary>
+        /// Test the property 'ExpiryDate'
+        /// </summary>
+        [Test]
+        public void ExpiryDateTest()
+        {
+            // TODO unit test for the property 'ExpiryDate'
         }
 
     }
