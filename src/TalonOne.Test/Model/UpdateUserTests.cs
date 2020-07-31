@@ -90,22 +90,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'State'
         }
         /// <summary>
-        /// Test the property 'ReleaseUpdate'
-        /// </summary>
-        [Test]
-        public void ReleaseUpdateTest()
-        {
-            // TODO unit test for the property 'ReleaseUpdate'
-        }
-        /// <summary>
-        /// Test the property 'LatestFeature'
-        /// </summary>
-        [Test]
-        public void LatestFeatureTest()
-        {
-            // TODO unit test for the property 'LatestFeature'
-        }
-        /// <summary>
         /// Test the property 'Roles'
         /// </summary>
         [Test]

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **EventID** | **int** |  | [optional] 
 **Type** | **string** | The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers)  | 
 **Amount** | **decimal** |  | 
+**StartDate** | **DateTime** |  | [optional] 
 **ExpiryDate** | **DateTime** |  | [optional] 
 **Name** | **string** | A name referencing the condition or effect that added this entry, or the specific name provided in an API call. | 
 **SubLedgerID** | **string** | This specifies if we are adding loyalty points to the main ledger or a subledger | 

@@ -646,7 +646,8 @@ namespace TalonOne.Test
             //string tags = null;
             //DateTime createdBefore = null;
             //DateTime createdAfter = null;
-            //var response = instance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter);
+            //int campaignGroupId = null;
+            //var response = instance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
             //Assert.IsInstanceOf(typeof(InlineResponse2002), response, "response is InlineResponse2002");
         }
         
@@ -857,9 +858,8 @@ namespace TalonOne.Test
         public void GetCustomerProfileTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
             //int customerId = null;
-            //var response = instance.GetCustomerProfile(applicationId, customerId);
+            //var response = instance.GetCustomerProfile(customerId);
             //Assert.IsInstanceOf(typeof(ApplicationCustomer), response, "response is ApplicationCustomer");
         }
         

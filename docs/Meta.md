@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Coupons** | [**Object**](.md) | Maps the coupon value to a key-value list of that coupons attributes. | [optional] 
 **CouponRejectionReason** | [**CouponRejectionReason**](CouponRejectionReason.md) |  | [optional] 
 **ReferralRejectionReason** | [**ReferralRejectionReason**](ReferralRejectionReason.md) |  | [optional] 
-**Warnings** | [**Object**](.md) |  | [optional] 
+**Warnings** | [**Object**](.md) | Contains warnings about possible misuse. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

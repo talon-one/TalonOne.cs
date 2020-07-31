@@ -43,8 +43,9 @@ namespace TalonOne.Model
         /// <param name="subLedgerId">The ID of the subledger within the loyalty program where these points were added (required).</param>
         /// <param name="value">The amount of points that were added (required).</param>
         /// <param name="recipientIntegrationId">The user for whom these points were added (required).</param>
-        /// <param name="expiryCondition">The amount of time (in days) these points are valid (required).</param>
-        public AddLoyaltyPointsEffectProps(string name = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), string expiryCondition = default(string))
+        /// <param name="startDate">Date after which points will be valid.</param>
+        /// <param name="expiryDate">Date after which points will expire.</param>
+        public AddLoyaltyPointsEffectProps(string name = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -96,16 +97,8 @@ namespace TalonOne.Model
                 this.RecipientIntegrationId = recipientIntegrationId;
             }
             
-            // to ensure "expiryCondition" is required (not null)
-            if (expiryCondition == null)
-            {
-                throw new InvalidDataException("expiryCondition is a required property for AddLoyaltyPointsEffectProps and cannot be null");
-            }
-            else
-            {
-                this.ExpiryCondition = expiryCondition;
-            }
-            
+            this.StartDate = startDate;
+            this.ExpiryDate = expiryDate;
         }
         
         /// <summary>
@@ -144,11 +137,18 @@ namespace TalonOne.Model
         public string RecipientIntegrationId { get; set; }
 
         /// <summary>
-        /// The amount of time (in days) these points are valid
+        /// Date after which points will be valid
         /// </summary>
-        /// <value>The amount of time (in days) these points are valid</value>
-        [DataMember(Name="expiryCondition", EmitDefaultValue=false)]
-        public string ExpiryCondition { get; set; }
+        /// <value>Date after which points will be valid</value>
+        [DataMember(Name="startDate", EmitDefaultValue=false)]
+        public DateTime StartDate { get; set; }
+
+        /// <summary>
+        /// Date after which points will expire
+        /// </summary>
+        /// <value>Date after which points will expire</value>
+        [DataMember(Name="expiryDate", EmitDefaultValue=false)]
+        public DateTime ExpiryDate { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -163,7 +163,8 @@ namespace TalonOne.Model
             sb.Append("  SubLedgerId: ").Append(SubLedgerId).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  RecipientIntegrationId: ").Append(RecipientIntegrationId).Append("\n");
-            sb.Append("  ExpiryCondition: ").Append(ExpiryCondition).Append("\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -224,9 +225,14 @@ namespace TalonOne.Model
                     this.RecipientIntegrationId.Equals(input.RecipientIntegrationId))
                 ) && 
                 (
-                    this.ExpiryCondition == input.ExpiryCondition ||
-                    (this.ExpiryCondition != null &&
-                    this.ExpiryCondition.Equals(input.ExpiryCondition))
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
+                ) && 
+                (
+                    this.ExpiryDate == input.ExpiryDate ||
+                    (this.ExpiryDate != null &&
+                    this.ExpiryDate.Equals(input.ExpiryDate))
                 );
         }
 
@@ -249,8 +255,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.RecipientIntegrationId != null)
                     hashCode = hashCode * 59 + this.RecipientIntegrationId.GetHashCode();
-                if (this.ExpiryCondition != null)
-                    hashCode = hashCode * 59 + this.ExpiryCondition.GetHashCode();
+                if (this.StartDate != null)
+                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                if (this.ExpiryDate != null)
+                    hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
                 return hashCode;
             }
         }

@@ -14,8 +14,7 @@ Name | Type | Description | Notes
 **State** | **string** | Current user state. | 
 **Name** | **string** | Full name | 
 **Policy** | **string** | A blob of ACL JSON | 
-**ReleaseUpdate** | **bool** | Update the user via email | 
-**LatestFeature** | **string** | Latest feature the user has been notified. | [optional] 
+**LatestFeedTimestamp** | **DateTime** | Latest timestamp the user has been notified for feed. | [optional] 
 **Roles** | **List&lt;int&gt;** | Contains a list of all roles the user is a member of | [optional] 
 **ApplicationNotificationSubscriptions** | [**Object**](.md) |  | [optional] 
 **AuthMethod** | **string** | The Authentication method for this user | [optional] 

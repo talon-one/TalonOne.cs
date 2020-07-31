@@ -53,7 +53,9 @@ namespace TalonOne.Model
         /// <param name="webhooks">Total Number of webhooks inside the account (required).</param>
         /// <param name="loyaltyPrograms">Total Number of loyalty programs inside the account (required).</param>
         /// <param name="activeRules">Total Number of active rules in the account (required).</param>
-        public AccountAnalytics(int applications = default(int), int activeCampaigns = default(int), int campaigns = default(int), int coupons = default(int), int activeCoupons = default(int), int expiredCoupons = default(int), int customAttributes = default(int), int referralCodes = default(int), int activeReferralCodes = default(int), int expiredReferralCodes = default(int), int users = default(int), int roles = default(int), int webhooks = default(int), int loyaltyPrograms = default(int), int activeRules = default(int))
+        /// <param name="sandboxApplications">Total Number of sandbox applications in the account (required).</param>
+        /// <param name="liveApplications">Total Number of live applications in the account (required).</param>
+        public AccountAnalytics(int applications = default(int), int activeCampaigns = default(int), int campaigns = default(int), int coupons = default(int), int activeCoupons = default(int), int expiredCoupons = default(int), int customAttributes = default(int), int referralCodes = default(int), int activeReferralCodes = default(int), int expiredReferralCodes = default(int), int users = default(int), int roles = default(int), int webhooks = default(int), int loyaltyPrograms = default(int), int activeRules = default(int), int sandboxApplications = default(int), int liveApplications = default(int))
         {
             // to ensure "applications" is required (not null)
             if (applications == null)
@@ -205,6 +207,26 @@ namespace TalonOne.Model
                 this.ActiveRules = activeRules;
             }
             
+            // to ensure "sandboxApplications" is required (not null)
+            if (sandboxApplications == null)
+            {
+                throw new InvalidDataException("sandboxApplications is a required property for AccountAnalytics and cannot be null");
+            }
+            else
+            {
+                this.SandboxApplications = sandboxApplications;
+            }
+            
+            // to ensure "liveApplications" is required (not null)
+            if (liveApplications == null)
+            {
+                throw new InvalidDataException("liveApplications is a required property for AccountAnalytics and cannot be null");
+            }
+            else
+            {
+                this.LiveApplications = liveApplications;
+            }
+            
         }
         
         /// <summary>
@@ -313,6 +335,20 @@ namespace TalonOne.Model
         public int ActiveRules { get; set; }
 
         /// <summary>
+        /// Total Number of sandbox applications in the account
+        /// </summary>
+        /// <value>Total Number of sandbox applications in the account</value>
+        [DataMember(Name="sandboxApplications", EmitDefaultValue=false)]
+        public int SandboxApplications { get; set; }
+
+        /// <summary>
+        /// Total Number of live applications in the account
+        /// </summary>
+        /// <value>Total Number of live applications in the account</value>
+        [DataMember(Name="liveApplications", EmitDefaultValue=false)]
+        public int LiveApplications { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -335,6 +371,8 @@ namespace TalonOne.Model
             sb.Append("  Webhooks: ").Append(Webhooks).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
             sb.Append("  ActiveRules: ").Append(ActiveRules).Append("\n");
+            sb.Append("  SandboxApplications: ").Append(SandboxApplications).Append("\n");
+            sb.Append("  LiveApplications: ").Append(LiveApplications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -443,6 +481,16 @@ namespace TalonOne.Model
                     this.ActiveRules == input.ActiveRules ||
                     (this.ActiveRules != null &&
                     this.ActiveRules.Equals(input.ActiveRules))
+                ) && 
+                (
+                    this.SandboxApplications == input.SandboxApplications ||
+                    (this.SandboxApplications != null &&
+                    this.SandboxApplications.Equals(input.SandboxApplications))
+                ) && 
+                (
+                    this.LiveApplications == input.LiveApplications ||
+                    (this.LiveApplications != null &&
+                    this.LiveApplications.Equals(input.LiveApplications))
                 );
         }
 
@@ -485,6 +533,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.LoyaltyPrograms.GetHashCode();
                 if (this.ActiveRules != null)
                     hashCode = hashCode * 59 + this.ActiveRules.GetHashCode();
+                if (this.SandboxApplications != null)
+                    hashCode = hashCode * 59 + this.SandboxApplications.GetHashCode();
+                if (this.LiveApplications != null)
+                    hashCode = hashCode * 59 + this.LiveApplications.GetHashCode();
                 return hashCode;
             }
         }

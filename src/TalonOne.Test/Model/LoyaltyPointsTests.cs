@@ -82,12 +82,20 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Name'
         }
         /// <summary>
-        /// Test the property 'ExpiryDuration'
+        /// Test the property 'ValidityDuration'
         /// </summary>
         [Test]
-        public void ExpiryDurationTest()
+        public void ValidityDurationTest()
         {
-            // TODO unit test for the property 'ExpiryDuration'
+            // TODO unit test for the property 'ValidityDuration'
+        }
+        /// <summary>
+        /// Test the property 'PendingDuration'
+        /// </summary>
+        [Test]
+        public void PendingDurationTest()
+        {
+            // TODO unit test for the property 'PendingDuration'
         }
         /// <summary>
         /// Test the property 'SubLedgerID'

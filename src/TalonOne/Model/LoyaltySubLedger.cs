@@ -38,10 +38,17 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltySubLedger" /> class.
         /// </summary>
-        /// <param name="total">total (required).</param>
-        /// <param name="transactions">Transactions contains a list of all events that have happened such as additions, subtractions and expiries.</param>
-        /// <param name="expiringPoints">ExpiringPoints contains a list of all points that will expiry and when.</param>
-        public LoyaltySubLedger(decimal total = default(decimal), List<LoyaltyLedgerEntry> transactions = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> expiringPoints = default(List<LoyaltyLedgerEntry>))
+        /// <param name="total">⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance  (required).</param>
+        /// <param name="totalActivePoints">Total amount of currently active and available points in the customer&#39;s balance (required).</param>
+        /// <param name="totalPendingPoints">Total amount of pending points, which are not active yet but will become active in the future (required).</param>
+        /// <param name="totalSpentPoints">Total amount of points already spent by this customer (required).</param>
+        /// <param name="totalExpiredPoints">Total amount of points, that expired without ever being spent (required).</param>
+        /// <param name="transactions">List of all events that have happened such as additions, subtractions and expiries.</param>
+        /// <param name="expiringPoints">List of all points that will expire.</param>
+        /// <param name="activePoints">List of all currently active points.</param>
+        /// <param name="pendingPoints">List of all points pending activation.</param>
+        /// <param name="expiredPoints">List of expired points.</param>
+        public LoyaltySubLedger(decimal total = default(decimal), decimal totalActivePoints = default(decimal), decimal totalPendingPoints = default(decimal), decimal totalSpentPoints = default(decimal), decimal totalExpiredPoints = default(decimal), List<LoyaltyLedgerEntry> transactions = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> expiringPoints = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> activePoints = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> pendingPoints = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> expiredPoints = default(List<LoyaltyLedgerEntry>))
         {
             // to ensure "total" is required (not null)
             if (total == null)
@@ -53,29 +60,122 @@ namespace TalonOne.Model
                 this.Total = total;
             }
             
+            // to ensure "totalActivePoints" is required (not null)
+            if (totalActivePoints == null)
+            {
+                throw new InvalidDataException("totalActivePoints is a required property for LoyaltySubLedger and cannot be null");
+            }
+            else
+            {
+                this.TotalActivePoints = totalActivePoints;
+            }
+            
+            // to ensure "totalPendingPoints" is required (not null)
+            if (totalPendingPoints == null)
+            {
+                throw new InvalidDataException("totalPendingPoints is a required property for LoyaltySubLedger and cannot be null");
+            }
+            else
+            {
+                this.TotalPendingPoints = totalPendingPoints;
+            }
+            
+            // to ensure "totalSpentPoints" is required (not null)
+            if (totalSpentPoints == null)
+            {
+                throw new InvalidDataException("totalSpentPoints is a required property for LoyaltySubLedger and cannot be null");
+            }
+            else
+            {
+                this.TotalSpentPoints = totalSpentPoints;
+            }
+            
+            // to ensure "totalExpiredPoints" is required (not null)
+            if (totalExpiredPoints == null)
+            {
+                throw new InvalidDataException("totalExpiredPoints is a required property for LoyaltySubLedger and cannot be null");
+            }
+            else
+            {
+                this.TotalExpiredPoints = totalExpiredPoints;
+            }
+            
             this.Transactions = transactions;
             this.ExpiringPoints = expiringPoints;
+            this.ActivePoints = activePoints;
+            this.PendingPoints = pendingPoints;
+            this.ExpiredPoints = expiredPoints;
         }
         
         /// <summary>
-        /// Gets or Sets Total
+        /// ⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance 
         /// </summary>
+        /// <value>⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance </value>
         [DataMember(Name="total", EmitDefaultValue=false)]
         public decimal Total { get; set; }
 
         /// <summary>
-        /// Transactions contains a list of all events that have happened such as additions, subtractions and expiries
+        /// Total amount of currently active and available points in the customer&#39;s balance
         /// </summary>
-        /// <value>Transactions contains a list of all events that have happened such as additions, subtractions and expiries</value>
+        /// <value>Total amount of currently active and available points in the customer&#39;s balance</value>
+        [DataMember(Name="totalActivePoints", EmitDefaultValue=false)]
+        public decimal TotalActivePoints { get; set; }
+
+        /// <summary>
+        /// Total amount of pending points, which are not active yet but will become active in the future
+        /// </summary>
+        /// <value>Total amount of pending points, which are not active yet but will become active in the future</value>
+        [DataMember(Name="totalPendingPoints", EmitDefaultValue=false)]
+        public decimal TotalPendingPoints { get; set; }
+
+        /// <summary>
+        /// Total amount of points already spent by this customer
+        /// </summary>
+        /// <value>Total amount of points already spent by this customer</value>
+        [DataMember(Name="totalSpentPoints", EmitDefaultValue=false)]
+        public decimal TotalSpentPoints { get; set; }
+
+        /// <summary>
+        /// Total amount of points, that expired without ever being spent
+        /// </summary>
+        /// <value>Total amount of points, that expired without ever being spent</value>
+        [DataMember(Name="totalExpiredPoints", EmitDefaultValue=false)]
+        public decimal TotalExpiredPoints { get; set; }
+
+        /// <summary>
+        /// List of all events that have happened such as additions, subtractions and expiries
+        /// </summary>
+        /// <value>List of all events that have happened such as additions, subtractions and expiries</value>
         [DataMember(Name="transactions", EmitDefaultValue=false)]
         public List<LoyaltyLedgerEntry> Transactions { get; set; }
 
         /// <summary>
-        /// ExpiringPoints contains a list of all points that will expiry and when
+        /// List of all points that will expire
         /// </summary>
-        /// <value>ExpiringPoints contains a list of all points that will expiry and when</value>
+        /// <value>List of all points that will expire</value>
         [DataMember(Name="expiringPoints", EmitDefaultValue=false)]
         public List<LoyaltyLedgerEntry> ExpiringPoints { get; set; }
+
+        /// <summary>
+        /// List of all currently active points
+        /// </summary>
+        /// <value>List of all currently active points</value>
+        [DataMember(Name="activePoints", EmitDefaultValue=false)]
+        public List<LoyaltyLedgerEntry> ActivePoints { get; set; }
+
+        /// <summary>
+        /// List of all points pending activation
+        /// </summary>
+        /// <value>List of all points pending activation</value>
+        [DataMember(Name="pendingPoints", EmitDefaultValue=false)]
+        public List<LoyaltyLedgerEntry> PendingPoints { get; set; }
+
+        /// <summary>
+        /// List of expired points
+        /// </summary>
+        /// <value>List of expired points</value>
+        [DataMember(Name="expiredPoints", EmitDefaultValue=false)]
+        public List<LoyaltyLedgerEntry> ExpiredPoints { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,8 +186,15 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class LoyaltySubLedger {\n");
             sb.Append("  Total: ").Append(Total).Append("\n");
+            sb.Append("  TotalActivePoints: ").Append(TotalActivePoints).Append("\n");
+            sb.Append("  TotalPendingPoints: ").Append(TotalPendingPoints).Append("\n");
+            sb.Append("  TotalSpentPoints: ").Append(TotalSpentPoints).Append("\n");
+            sb.Append("  TotalExpiredPoints: ").Append(TotalExpiredPoints).Append("\n");
             sb.Append("  Transactions: ").Append(Transactions).Append("\n");
             sb.Append("  ExpiringPoints: ").Append(ExpiringPoints).Append("\n");
+            sb.Append("  ActivePoints: ").Append(ActivePoints).Append("\n");
+            sb.Append("  PendingPoints: ").Append(PendingPoints).Append("\n");
+            sb.Append("  ExpiredPoints: ").Append(ExpiredPoints).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -128,6 +235,26 @@ namespace TalonOne.Model
                     this.Total.Equals(input.Total))
                 ) && 
                 (
+                    this.TotalActivePoints == input.TotalActivePoints ||
+                    (this.TotalActivePoints != null &&
+                    this.TotalActivePoints.Equals(input.TotalActivePoints))
+                ) && 
+                (
+                    this.TotalPendingPoints == input.TotalPendingPoints ||
+                    (this.TotalPendingPoints != null &&
+                    this.TotalPendingPoints.Equals(input.TotalPendingPoints))
+                ) && 
+                (
+                    this.TotalSpentPoints == input.TotalSpentPoints ||
+                    (this.TotalSpentPoints != null &&
+                    this.TotalSpentPoints.Equals(input.TotalSpentPoints))
+                ) && 
+                (
+                    this.TotalExpiredPoints == input.TotalExpiredPoints ||
+                    (this.TotalExpiredPoints != null &&
+                    this.TotalExpiredPoints.Equals(input.TotalExpiredPoints))
+                ) && 
+                (
                     this.Transactions == input.Transactions ||
                     this.Transactions != null &&
                     input.Transactions != null &&
@@ -138,6 +265,24 @@ namespace TalonOne.Model
                     this.ExpiringPoints != null &&
                     input.ExpiringPoints != null &&
                     this.ExpiringPoints.SequenceEqual(input.ExpiringPoints)
+                ) && 
+                (
+                    this.ActivePoints == input.ActivePoints ||
+                    this.ActivePoints != null &&
+                    input.ActivePoints != null &&
+                    this.ActivePoints.SequenceEqual(input.ActivePoints)
+                ) && 
+                (
+                    this.PendingPoints == input.PendingPoints ||
+                    this.PendingPoints != null &&
+                    input.PendingPoints != null &&
+                    this.PendingPoints.SequenceEqual(input.PendingPoints)
+                ) && 
+                (
+                    this.ExpiredPoints == input.ExpiredPoints ||
+                    this.ExpiredPoints != null &&
+                    input.ExpiredPoints != null &&
+                    this.ExpiredPoints.SequenceEqual(input.ExpiredPoints)
                 );
         }
 
@@ -152,10 +297,24 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Total != null)
                     hashCode = hashCode * 59 + this.Total.GetHashCode();
+                if (this.TotalActivePoints != null)
+                    hashCode = hashCode * 59 + this.TotalActivePoints.GetHashCode();
+                if (this.TotalPendingPoints != null)
+                    hashCode = hashCode * 59 + this.TotalPendingPoints.GetHashCode();
+                if (this.TotalSpentPoints != null)
+                    hashCode = hashCode * 59 + this.TotalSpentPoints.GetHashCode();
+                if (this.TotalExpiredPoints != null)
+                    hashCode = hashCode * 59 + this.TotalExpiredPoints.GetHashCode();
                 if (this.Transactions != null)
                     hashCode = hashCode * 59 + this.Transactions.GetHashCode();
                 if (this.ExpiringPoints != null)
                     hashCode = hashCode * 59 + this.ExpiringPoints.GetHashCode();
+                if (this.ActivePoints != null)
+                    hashCode = hashCode * 59 + this.ActivePoints.GetHashCode();
+                if (this.PendingPoints != null)
+                    hashCode = hashCode * 59 + this.PendingPoints.GetHashCode();
+                if (this.ExpiredPoints != null)
+                    hashCode = hashCode * 59 + this.ExpiredPoints.GetHashCode();
                 return hashCode;
             }
         }

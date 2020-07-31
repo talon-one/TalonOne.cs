@@ -138,20 +138,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Policy'
         }
         /// <summary>
-        /// Test the property 'ReleaseUpdate'
+        /// Test the property 'LatestFeedTimestamp'
         /// </summary>
         [Test]
-        public void ReleaseUpdateTest()
+        public void LatestFeedTimestampTest()
         {
-            // TODO unit test for the property 'ReleaseUpdate'
-        }
-        /// <summary>
-        /// Test the property 'LatestFeature'
-        /// </summary>
-        [Test]
-        public void LatestFeatureTest()
-        {
-            // TODO unit test for the property 'LatestFeature'
+            // TODO unit test for the property 'LatestFeedTimestamp'
         }
         /// <summary>
         /// Test the property 'Roles'
