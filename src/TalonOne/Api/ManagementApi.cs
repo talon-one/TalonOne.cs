@@ -15,6 +15,7 @@ using System.Linq;
 using RestSharp;
 using TalonOne.Client;
 using TalonOne.Model;
+using Attribute = TalonOne.Model.Attribute;
 
 namespace TalonOne.Api
 {
