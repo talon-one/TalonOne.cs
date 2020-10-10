@@ -146,6 +146,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'EnableCascadingDiscounts'
         }
         /// <summary>
+        /// Test the property 'EnableFlattenedCartItems'
+        /// </summary>
+        [Test]
+        public void EnableFlattenedCartItemsTest()
+        {
+            // TODO unit test for the property 'EnableFlattenedCartItems'
+        }
+        /// <summary>
         /// Test the property 'AttributesSettings'
         /// </summary>
         [Test]

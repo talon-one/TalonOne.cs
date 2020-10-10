@@ -79,12 +79,12 @@ namespace TalonOne.Model
         /// <param name="inviteToken">Invite token, empty if the user as already accepted their invite. (required).</param>
         /// <param name="state">Current user state. (required).</param>
         /// <param name="name">Full name (required).</param>
-        /// <param name="policy">A blob of ACL JSON (required).</param>
+        /// <param name="policy">User ACL Policy (required).</param>
         /// <param name="latestFeedTimestamp">Latest timestamp the user has been notified for feed..</param>
         /// <param name="roles">Contains a list of all roles the user is a member of.</param>
         /// <param name="applicationNotificationSubscriptions">applicationNotificationSubscriptions.</param>
         /// <param name="authMethod">The Authentication method for this user.</param>
-        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string inviteToken = default(string), StateEnum state = default(StateEnum), string name = default(string), string policy = default(string), DateTime latestFeedTimestamp = default(DateTime), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object), string authMethod = default(string))
+        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string inviteToken = default(string), StateEnum state = default(StateEnum), string name = default(string), Object policy = default(Object), DateTime latestFeedTimestamp = default(DateTime), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object), string authMethod = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -233,11 +233,11 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// A blob of ACL JSON
+        /// User ACL Policy
         /// </summary>
-        /// <value>A blob of ACL JSON</value>
+        /// <value>User ACL Policy</value>
         [DataMember(Name="policy", EmitDefaultValue=false)]
-        public string Policy { get; set; }
+        public Object Policy { get; set; }
 
         /// <summary>
         /// Latest timestamp the user has been notified for feed.

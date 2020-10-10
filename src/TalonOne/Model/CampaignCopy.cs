@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="startTime">Datetime when the campaign will become active..</param>
         /// <param name="endTime">Datetime when the campaign will become in-active..</param>
         /// <param name="tags">A list of tags for the campaign..</param>
-        public CampaignCopy(string name = default(string), List<string> applicationIds = default(List<string>), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), List<string> tags = default(List<string>))
+        public CampaignCopy(string name = default(string), List<int> applicationIds = default(List<int>), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), List<string> tags = default(List<string>))
         {
             // to ensure "applicationIds" is required (not null)
             if (applicationIds == null)
@@ -75,7 +75,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Application IDs of the applications to which a campaign should be copied to</value>
         [DataMember(Name="applicationIds", EmitDefaultValue=false)]
-        public List<string> ApplicationIds { get; set; }
+        public List<int> ApplicationIds { get; set; }
 
         /// <summary>
         /// A detailed description of the campaign.

@@ -41,7 +41,8 @@ namespace TalonOne.Model
         /// <param name="name">The name/description of this discount (required).</param>
         /// <param name="value">The total monetary value of the discount (required).</param>
         /// <param name="position">The index of the item in the cart items list on which this discount should be applied (required).</param>
-        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal))
+        /// <param name="subPosition">The sub-index of the item in an item stack on which this discount should be applied.</param>
+        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -73,6 +74,7 @@ namespace TalonOne.Model
                 this.Position = position;
             }
             
+            this.SubPosition = subPosition;
         }
         
         /// <summary>
@@ -97,6 +99,13 @@ namespace TalonOne.Model
         public decimal Position { get; set; }
 
         /// <summary>
+        /// The sub-index of the item in an item stack on which this discount should be applied
+        /// </summary>
+        /// <value>The sub-index of the item in an item stack on which this discount should be applied</value>
+        [DataMember(Name="subPosition", EmitDefaultValue=false)]
+        public decimal SubPosition { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,6 +116,7 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
+            sb.Append("  SubPosition: ").Append(SubPosition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +165,11 @@ namespace TalonOne.Model
                     this.Position == input.Position ||
                     (this.Position != null &&
                     this.Position.Equals(input.Position))
+                ) && 
+                (
+                    this.SubPosition == input.SubPosition ||
+                    (this.SubPosition != null &&
+                    this.SubPosition.Equals(input.SubPosition))
                 );
         }
 
@@ -173,6 +188,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.Position != null)
                     hashCode = hashCode * 59 + this.Position.GetHashCode();
+                if (this.SubPosition != null)
+                    hashCode = hashCode * 59 + this.SubPosition.GetHashCode();
                 return hashCode;
             }
         }

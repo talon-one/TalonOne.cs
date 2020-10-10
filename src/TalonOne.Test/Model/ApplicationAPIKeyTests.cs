@@ -66,6 +66,30 @@ namespace TalonOne.Test
 
 
         /// <summary>
+        /// Test the property 'Title'
+        /// </summary>
+        [Test]
+        public void TitleTest()
+        {
+            // TODO unit test for the property 'Title'
+        }
+        /// <summary>
+        /// Test the property 'Expires'
+        /// </summary>
+        [Test]
+        public void ExpiresTest()
+        {
+            // TODO unit test for the property 'Expires'
+        }
+        /// <summary>
+        /// Test the property 'Platform'
+        /// </summary>
+        [Test]
+        public void PlatformTest()
+        {
+            // TODO unit test for the property 'Platform'
+        }
+        /// <summary>
         /// Test the property 'Id'
         /// </summary>
         [Test]
@@ -80,14 +104,6 @@ namespace TalonOne.Test
         public void CreatedByTest()
         {
             // TODO unit test for the property 'CreatedBy'
-        }
-        /// <summary>
-        /// Test the property 'Title'
-        /// </summary>
-        [Test]
-        public void TitleTest()
-        {
-            // TODO unit test for the property 'Title'
         }
         /// <summary>
         /// Test the property 'AccountID'
@@ -112,14 +128,6 @@ namespace TalonOne.Test
         public void CreatedTest()
         {
             // TODO unit test for the property 'Created'
-        }
-        /// <summary>
-        /// Test the property 'Expires'
-        /// </summary>
-        [Test]
-        public void ExpiresTest()
-        {
-            // TODO unit test for the property 'Expires'
         }
 
     }

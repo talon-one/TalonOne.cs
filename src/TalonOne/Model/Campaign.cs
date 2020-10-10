@@ -108,7 +108,6 @@ namespace TalonOne.Model
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
         /// <param name="userId">The ID of the account that owns this entity. (required).</param>
-        /// <param name="campaignGroups">The IDs of the campaign groups that own this entity..</param>
         /// <param name="name">A friendly name for this campaign. (required).</param>
         /// <param name="description">A detailed description of the campaign. (required).</param>
         /// <param name="startTime">Datetime when the campaign will become active..</param>
@@ -121,6 +120,7 @@ namespace TalonOne.Model
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of limits that will operate for this campaign (required).</param>
+        /// <param name="campaignGroups">The IDs of the campaign groups that own this entity..</param>
         /// <param name="couponRedemptionCount">Number of coupons redeemed in the campaign..</param>
         /// <param name="referralRedemptionCount">Number of referral codes redeemed in the campaign..</param>
         /// <param name="discountCount">Total amount of discounts redeemed in the campaign..</param>
@@ -130,7 +130,7 @@ namespace TalonOne.Model
         /// <param name="updated">Timestamp of the most recent update to the campaign or any of its elements..</param>
         /// <param name="createdBy">Name of the user who created this campaign if available..</param>
         /// <param name="updatedBy">Name of the user who last updated this campaign if available..</param>
-        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), List<int> campaignGroups = default(List<int>), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), int discountCount = default(int), int discountEffectCount = default(int), int couponCreationCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string))
+        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), int discountCount = default(int), int discountEffectCount = default(int), int couponCreationCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -232,13 +232,13 @@ namespace TalonOne.Model
                 this.Limits = limits;
             }
             
-            this.CampaignGroups = campaignGroups;
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.Attributes = attributes;
             this.ActiveRulesetId = activeRulesetId;
             this.CouponSettings = couponSettings;
             this.ReferralSettings = referralSettings;
+            this.CampaignGroups = campaignGroups;
             this.CouponRedemptionCount = couponRedemptionCount;
             this.ReferralRedemptionCount = referralRedemptionCount;
             this.DiscountCount = discountCount;
@@ -277,13 +277,6 @@ namespace TalonOne.Model
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
         public int UserId { get; set; }
-
-        /// <summary>
-        /// The IDs of the campaign groups that own this entity.
-        /// </summary>
-        /// <value>The IDs of the campaign groups that own this entity.</value>
-        [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
-        public List<int> CampaignGroups { get; set; }
 
         /// <summary>
         /// A friendly name for this campaign.
@@ -354,6 +347,13 @@ namespace TalonOne.Model
         /// <value>The set of limits that will operate for this campaign</value>
         [DataMember(Name="limits", EmitDefaultValue=false)]
         public List<LimitConfig> Limits { get; set; }
+
+        /// <summary>
+        /// The IDs of the campaign groups that own this entity.
+        /// </summary>
+        /// <value>The IDs of the campaign groups that own this entity.</value>
+        [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
+        public List<int> CampaignGroups { get; set; }
 
         /// <summary>
         /// Number of coupons redeemed in the campaign.
@@ -430,7 +430,6 @@ namespace TalonOne.Model
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
-            sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
@@ -443,6 +442,7 @@ namespace TalonOne.Model
             sb.Append("  CouponSettings: ").Append(CouponSettings).Append("\n");
             sb.Append("  ReferralSettings: ").Append(ReferralSettings).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
+            sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
             sb.Append("  CouponRedemptionCount: ").Append(CouponRedemptionCount).Append("\n");
             sb.Append("  ReferralRedemptionCount: ").Append(ReferralRedemptionCount).Append("\n");
             sb.Append("  DiscountCount: ").Append(DiscountCount).Append("\n");
@@ -505,12 +505,6 @@ namespace TalonOne.Model
                     this.UserId == input.UserId ||
                     (this.UserId != null &&
                     this.UserId.Equals(input.UserId))
-                ) && 
-                (
-                    this.CampaignGroups == input.CampaignGroups ||
-                    this.CampaignGroups != null &&
-                    input.CampaignGroups != null &&
-                    this.CampaignGroups.SequenceEqual(input.CampaignGroups)
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -576,6 +570,12 @@ namespace TalonOne.Model
                     this.Limits.SequenceEqual(input.Limits)
                 ) && 
                 (
+                    this.CampaignGroups == input.CampaignGroups ||
+                    this.CampaignGroups != null &&
+                    input.CampaignGroups != null &&
+                    this.CampaignGroups.SequenceEqual(input.CampaignGroups)
+                ) && 
+                (
                     this.CouponRedemptionCount == input.CouponRedemptionCount ||
                     (this.CouponRedemptionCount != null &&
                     this.CouponRedemptionCount.Equals(input.CouponRedemptionCount))
@@ -639,8 +639,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
-                if (this.CampaignGroups != null)
-                    hashCode = hashCode * 59 + this.CampaignGroups.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
@@ -665,6 +663,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ReferralSettings.GetHashCode();
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
+                if (this.CampaignGroups != null)
+                    hashCode = hashCode * 59 + this.CampaignGroups.GetHashCode();
                 if (this.CouponRedemptionCount != null)
                     hashCode = hashCode * 59 + this.CouponRedemptionCount.GetHashCode();
                 if (this.ReferralRedemptionCount != null)

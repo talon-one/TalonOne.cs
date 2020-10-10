@@ -147,10 +147,11 @@ namespace TalonOne.Model
         /// <param name="campaignPriority">Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot;.</param>
         /// <param name="exclusiveCampaignsStrategy">The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot;.</param>
         /// <param name="enableCascadingDiscounts">Flag indicating if discounts should cascade for this application.</param>
+        /// <param name="enableFlattenedCartItems">Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one.</param>
         /// <param name="attributesSettings">attributesSettings.</param>
         /// <param name="sandbox">Flag indicating if this is a live or sandbox application.</param>
         /// <param name="key">Hex key for HMAC-signing API calls as coming from this application (16 hex digits).</param>
-        public NewApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = default(CampaignPriorityEnum?), ExclusiveCampaignsStrategyEnum? exclusiveCampaignsStrategy = default(ExclusiveCampaignsStrategyEnum?), bool enableCascadingDiscounts = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), string key = default(string))
+        public NewApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = default(CampaignPriorityEnum?), ExclusiveCampaignsStrategyEnum? exclusiveCampaignsStrategy = default(ExclusiveCampaignsStrategyEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), string key = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -189,6 +190,7 @@ namespace TalonOne.Model
             this.CampaignPriority = campaignPriority;
             this.ExclusiveCampaignsStrategy = exclusiveCampaignsStrategy;
             this.EnableCascadingDiscounts = enableCascadingDiscounts;
+            this.EnableFlattenedCartItems = enableFlattenedCartItems;
             this.AttributesSettings = attributesSettings;
             this.Sandbox = sandbox;
             this.Key = key;
@@ -247,6 +249,13 @@ namespace TalonOne.Model
         public bool EnableCascadingDiscounts { get; set; }
 
         /// <summary>
+        /// Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one
+        /// </summary>
+        /// <value>Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one</value>
+        [DataMember(Name="enableFlattenedCartItems", EmitDefaultValue=false)]
+        public bool EnableFlattenedCartItems { get; set; }
+
+        /// <summary>
         /// Gets or Sets AttributesSettings
         /// </summary>
         [DataMember(Name="attributesSettings", EmitDefaultValue=false)]
@@ -284,6 +293,7 @@ namespace TalonOne.Model
             sb.Append("  CampaignPriority: ").Append(CampaignPriority).Append("\n");
             sb.Append("  ExclusiveCampaignsStrategy: ").Append(ExclusiveCampaignsStrategy).Append("\n");
             sb.Append("  EnableCascadingDiscounts: ").Append(EnableCascadingDiscounts).Append("\n");
+            sb.Append("  EnableFlattenedCartItems: ").Append(EnableFlattenedCartItems).Append("\n");
             sb.Append("  AttributesSettings: ").Append(AttributesSettings).Append("\n");
             sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
@@ -373,6 +383,11 @@ namespace TalonOne.Model
                     this.EnableCascadingDiscounts.Equals(input.EnableCascadingDiscounts))
                 ) && 
                 (
+                    this.EnableFlattenedCartItems == input.EnableFlattenedCartItems ||
+                    (this.EnableFlattenedCartItems != null &&
+                    this.EnableFlattenedCartItems.Equals(input.EnableFlattenedCartItems))
+                ) && 
+                (
                     this.AttributesSettings == input.AttributesSettings ||
                     (this.AttributesSettings != null &&
                     this.AttributesSettings.Equals(input.AttributesSettings))
@@ -418,6 +433,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ExclusiveCampaignsStrategy.GetHashCode();
                 if (this.EnableCascadingDiscounts != null)
                     hashCode = hashCode * 59 + this.EnableCascadingDiscounts.GetHashCode();
+                if (this.EnableFlattenedCartItems != null)
+                    hashCode = hashCode * 59 + this.EnableFlattenedCartItems.GetHashCode();
                 if (this.AttributesSettings != null)
                     hashCode = hashCode * 59 + this.AttributesSettings.GetHashCode();
                 if (this.Sandbox != null)

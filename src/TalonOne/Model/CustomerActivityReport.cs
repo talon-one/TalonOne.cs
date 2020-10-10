@@ -38,7 +38,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerActivityReport" /> class.
         /// </summary>
-        /// <param name="integrationId">The ID used for this entity in the application system. (required).</param>
+        /// <param name="integrationId">The integration ID for this entity sent to and used in the Talon.One system. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="name">The name for this customer profile. (required).</param>
         /// <param name="customerId">The internal Talon.One ID of the customer. (required).</param>
@@ -177,9 +177,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The ID used for this entity in the application system.
+        /// The integration ID for this entity sent to and used in the Talon.One system.
         /// </summary>
-        /// <value>The ID used for this entity in the application system.</value>
+        /// <value>The integration ID for this entity sent to and used in the Talon.One system.</value>
         [DataMember(Name="integrationId", EmitDefaultValue=false)]
         public string IntegrationId { get; set; }
 

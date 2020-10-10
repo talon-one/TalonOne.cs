@@ -12,7 +12,9 @@ Method | HTTP request | Description
 [**GetReservedCustomers**](IntegrationApi.md#getreservedcustomers) | **GET** /v1/coupon_reservations/customerprofiles/{couponValue} | Get the users that have this coupon reserved
 [**TrackEvent**](IntegrationApi.md#trackevent) | **POST** /v1/events | Track an Event
 [**UpdateCustomerProfile**](IntegrationApi.md#updatecustomerprofile) | **PUT** /v1/customer_profiles/{integrationId} | Update a Customer Profile V1
-[**UpdateCustomerProfileV2**](IntegrationApi.md#updatecustomerprofilev2) | **PUT** /v2/customer_profiles/{customerProfileId} | Update a Customer Profile
+[**UpdateCustomerProfileAudiences**](IntegrationApi.md#updatecustomerprofileaudiences) | **POST** /v2/customer_audiences | Update a Customer Profile Audiences
+[**UpdateCustomerProfileV2**](IntegrationApi.md#updatecustomerprofilev2) | **PUT** /v2/customer_profiles/{integrationId} | Update a Customer Profile
+[**UpdateCustomerProfilesV2**](IntegrationApi.md#updatecustomerprofilesv2) | **PUT** /v2/customer_profiles | Update multiple Customer Profiles
 [**UpdateCustomerSession**](IntegrationApi.md#updatecustomersession) | **PUT** /v1/customer_sessions/{customerSessionId} | Update a Customer Session V1
 [**UpdateCustomerSessionV2**](IntegrationApi.md#updatecustomersessionv2) | **PUT** /v2/customer_sessions/{customerSessionId} | Update a Customer Session
 
@@ -358,7 +360,7 @@ void (empty response body)
 
 ## GetCustomerInventory
 
-> CustomerInventory GetCustomerInventory (string integrationId, bool profile = null, bool referrals = null, bool coupons = null)
+> CustomerInventory GetCustomerInventory (string integrationId, bool profile = null, bool referrals = null, bool coupons = null, bool loyalty = null)
 
 Get an inventory of all data associated with a specific customer profile.
 
@@ -394,11 +396,12 @@ namespace Example
             var profile = true;  // bool | optional flag to decide if you would like customer profile information in the response (optional) 
             var referrals = true;  // bool | optional flag to decide if you would like referral information in the response (optional) 
             var coupons = true;  // bool | optional flag to decide if you would like coupon information in the response (optional) 
+            var loyalty = true;  // bool | optional flag to decide if you would like loyalty information in the response (optional) 
 
             try
             {
                 // Get an inventory of all data associated with a specific customer profile.
-                CustomerInventory result = apiInstance.GetCustomerInventory(integrationId, profile, referrals, coupons);
+                CustomerInventory result = apiInstance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -421,6 +424,7 @@ Name | Type | Description  | Notes
  **profile** | **bool**| optional flag to decide if you would like customer profile information in the response | [optional] 
  **referrals** | **bool**| optional flag to decide if you would like referral information in the response | [optional] 
  **coupons** | **bool**| optional flag to decide if you would like coupon information in the response | [optional] 
+ **loyalty** | **bool**| optional flag to decide if you would like loyalty information in the response | [optional] 
 
 ### Return type
 
@@ -704,9 +708,88 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## UpdateCustomerProfileAudiences
+
+> void UpdateCustomerProfileAudiences (CustomerProfileAudienceRequest body)
+
+Update a Customer Profile Audiences
+
+Update one ore multiple Customer Profiles with the specified Audiences 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class UpdateCustomerProfileAudiencesExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: api_key_v1
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(Configuration.Default);
+            var body = new CustomerProfileAudienceRequest(); // CustomerProfileAudienceRequest | 
+
+            try
+            {
+                // Update a Customer Profile Audiences
+                apiInstance.UpdateCustomerProfileAudiences(body);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.UpdateCustomerProfileAudiences: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CustomerProfileAudienceRequest**](CustomerProfileAudienceRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateCustomerProfileV2
 
-> CustomerProfileUpdate UpdateCustomerProfileV2 (string customerProfileId, NewCustomerProfile body)
+> IntegrationStateV2 UpdateCustomerProfileV2 (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = null, bool dry = null)
 
 Update a Customer Profile
 
@@ -734,13 +817,15 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(Configuration.Default);
-            var customerProfileId = customerProfileId_example;  // string | The custom identifier for this profile, must be unique within the account.
-            var body = new NewCustomerProfile(); // NewCustomerProfile | 
+            var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
+            var body = new CustomerProfileIntegrationRequestV2(); // CustomerProfileIntegrationRequestV2 | 
+            var runRuleEngine = true;  // bool | Flag to indicate whether to run the rule engine (Defaults to false). (optional) 
+            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'. Only used when 'runRuleEngine' is set to 'true'). (optional) 
 
             try
             {
                 // Update a Customer Profile
-                CustomerProfileUpdate result = apiInstance.UpdateCustomerProfileV2(customerProfileId, body);
+                IntegrationStateV2 result = apiInstance.UpdateCustomerProfileV2(integrationId, body, runRuleEngine, dry);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -759,12 +844,96 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **customerProfileId** | **string**| The custom identifier for this profile, must be unique within the account. | 
- **body** | [**NewCustomerProfile**](NewCustomerProfile.md)|  | 
+ **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
+ **body** | [**CustomerProfileIntegrationRequestV2**](CustomerProfileIntegrationRequestV2.md)|  | 
+ **runRuleEngine** | **bool**| Flag to indicate whether to run the rule engine (Defaults to false). | [optional] 
+ **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
-[**CustomerProfileUpdate**](CustomerProfileUpdate.md)
+[**IntegrationStateV2**](IntegrationStateV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## UpdateCustomerProfilesV2
+
+> MultipleCustomerProfileIntegrationResponseV2 UpdateCustomerProfilesV2 (MultipleCustomerProfileIntegrationRequest body, string silent = null)
+
+Update multiple Customer Profiles
+
+Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class UpdateCustomerProfilesV2Example
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: api_key_v1
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(Configuration.Default);
+            var body = new MultipleCustomerProfileIntegrationRequest(); // MultipleCustomerProfileIntegrationRequest | 
+            var silent = silent_example;  // string | If set to 'yes', response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional) 
+
+            try
+            {
+                // Update multiple Customer Profiles
+                MultipleCustomerProfileIntegrationResponseV2 result = apiInstance.UpdateCustomerProfilesV2(body, silent);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.UpdateCustomerProfilesV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**MultipleCustomerProfileIntegrationRequest**](MultipleCustomerProfileIntegrationRequest.md)|  | 
+ **silent** | **string**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. | [optional] 
+
+### Return type
+
+[**MultipleCustomerProfileIntegrationResponseV2**](MultipleCustomerProfileIntegrationResponseV2.md)
 
 ### Authorization
 

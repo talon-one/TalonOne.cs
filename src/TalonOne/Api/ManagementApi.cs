@@ -670,8 +670,12 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
+        /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20012</returns>
-        InlineResponse20012 GetApplicationCustomers (int applicationId);
+        InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool));
 
         /// <summary>
         /// List Application Customers
@@ -681,8 +685,12 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
+        /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20012</returns>
-        ApiResponse<InlineResponse20012> GetApplicationCustomersWithHttpInfo (int applicationId);
+        ApiResponse<InlineResponse20012> GetApplicationCustomersWithHttpInfo (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool));
         /// <summary>
         /// Get a list of the customer profiles that match the given attributes (with total count)
         /// </summary>
@@ -865,12 +873,13 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
-        /// <param name="customerId">Filter by integration ID of the customer for the session (optional)</param>
         /// <returns>InlineResponse20016</returns>
-        InlineResponse20016 GetApplicationSessions (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), string coupon = default(string), string referral = default(string), string integrationId = default(string), string customerId = default(string));
+        InlineResponse20016 GetApplicationSessions (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string));
 
         /// <summary>
         /// List Application Sessions
@@ -885,12 +894,13 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
-        /// <param name="customerId">Filter by integration ID of the customer for the session (optional)</param>
         /// <returns>ApiResponse of InlineResponse20016</returns>
-        ApiResponse<InlineResponse20016> GetApplicationSessionsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), string coupon = default(string), string referral = default(string), string integrationId = default(string), string customerId = default(string));
+        ApiResponse<InlineResponse20016> GetApplicationSessionsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string));
         /// <summary>
         /// List Applications
         /// </summary>
@@ -1672,6 +1682,27 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of InlineResponse2008</returns>
         ApiResponse<InlineResponse2008> GetLoyaltyProgramsWithHttpInfo ();
+        /// <summary>
+        /// Get loyalty program statistics by loyalty program ID
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>LoyaltyStatistics</returns>
+        LoyaltyStatistics GetLoyaltyStatistics (string programID);
+
+        /// <summary>
+        /// Get loyalty program statistics by loyalty program ID
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>ApiResponse of LoyaltyStatistics</returns>
+        ApiResponse<LoyaltyStatistics> GetLoyaltyStatisticsWithHttpInfo (string programID);
         /// <summary>
         /// List Referrals (with total count)
         /// </summary>
@@ -3038,8 +3069,12 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
+        /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20012</returns>
-        System.Threading.Tasks.Task<InlineResponse20012> GetApplicationCustomersAsync (int applicationId);
+        System.Threading.Tasks.Task<InlineResponse20012> GetApplicationCustomersAsync (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool));
 
         /// <summary>
         /// List Application Customers
@@ -3049,8 +3084,12 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
+        /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool));
         /// <summary>
         /// Get a list of the customer profiles that match the given attributes (with total count)
         /// </summary>
@@ -3233,12 +3272,13 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
-        /// <param name="customerId">Filter by integration ID of the customer for the session (optional)</param>
         /// <returns>Task of InlineResponse20016</returns>
-        System.Threading.Tasks.Task<InlineResponse20016> GetApplicationSessionsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), string coupon = default(string), string referral = default(string), string integrationId = default(string), string customerId = default(string));
+        System.Threading.Tasks.Task<InlineResponse20016> GetApplicationSessionsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string));
 
         /// <summary>
         /// List Application Sessions
@@ -3253,12 +3293,13 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
-        /// <param name="customerId">Filter by integration ID of the customer for the session (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetApplicationSessionsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), string coupon = default(string), string referral = default(string), string integrationId = default(string), string customerId = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetApplicationSessionsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string));
         /// <summary>
         /// List Applications
         /// </summary>
@@ -4040,6 +4081,27 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (InlineResponse2008)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2008>> GetLoyaltyProgramsAsyncWithHttpInfo ();
+        /// <summary>
+        /// Get loyalty program statistics by loyalty program ID
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>Task of LoyaltyStatistics</returns>
+        System.Threading.Tasks.Task<LoyaltyStatistics> GetLoyaltyStatisticsAsync (string programID);
+
+        /// <summary>
+        /// Get loyalty program statistics by loyalty program ID
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>Task of ApiResponse (LoyaltyStatistics)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LoyaltyStatistics>> GetLoyaltyStatisticsAsyncWithHttpInfo (string programID);
         /// <summary>
         /// List Referrals (with total count)
         /// </summary>
@@ -9032,10 +9094,14 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
+        /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20012</returns>
-        public InlineResponse20012 GetApplicationCustomers (int applicationId)
+        public InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool))
         {
-             ApiResponse<InlineResponse20012> localVarResponse = GetApplicationCustomersWithHttpInfo(applicationId);
+             ApiResponse<InlineResponse20012> localVarResponse = GetApplicationCustomersWithHttpInfo(applicationId, integrationId, pageSize, skip, withTotalResultSize);
              return localVarResponse.Data;
         }
 
@@ -9044,8 +9110,12 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
+        /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20012</returns>
-        public ApiResponse<InlineResponse20012> GetApplicationCustomersWithHttpInfo (int applicationId)
+        public ApiResponse<InlineResponse20012> GetApplicationCustomersWithHttpInfo (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -9073,6 +9143,10 @@ namespace TalonOne.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (integrationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "integrationId", integrationId)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (withTotalResultSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "withTotalResultSize", withTotalResultSize)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -9103,10 +9177,14 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
+        /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20012> GetApplicationCustomersAsync (int applicationId)
+        public async System.Threading.Tasks.Task<InlineResponse20012> GetApplicationCustomersAsync (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool))
         {
-             ApiResponse<InlineResponse20012> localVarResponse = await GetApplicationCustomersAsyncWithHttpInfo(applicationId);
+             ApiResponse<InlineResponse20012> localVarResponse = await GetApplicationCustomersAsyncWithHttpInfo(applicationId, integrationId, pageSize, skip, withTotalResultSize);
              return localVarResponse.Data;
 
         }
@@ -9116,8 +9194,12 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
+        /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -9145,6 +9227,10 @@ namespace TalonOne.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (integrationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "integrationId", integrationId)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (withTotalResultSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "withTotalResultSize", withTotalResultSize)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -10109,14 +10195,15 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
-        /// <param name="customerId">Filter by integration ID of the customer for the session (optional)</param>
         /// <returns>InlineResponse20016</returns>
-        public InlineResponse20016 GetApplicationSessions (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), string coupon = default(string), string referral = default(string), string integrationId = default(string), string customerId = default(string))
+        public InlineResponse20016 GetApplicationSessions (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string))
         {
-             ApiResponse<InlineResponse20016> localVarResponse = GetApplicationSessionsWithHttpInfo(applicationId, pageSize, skip, sort, profile, state, coupon, referral, integrationId, customerId);
+             ApiResponse<InlineResponse20016> localVarResponse = GetApplicationSessionsWithHttpInfo(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
              return localVarResponse.Data;
         }
 
@@ -10130,12 +10217,13 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
-        /// <param name="customerId">Filter by integration ID of the customer for the session (optional)</param>
         /// <returns>ApiResponse of InlineResponse20016</returns>
-        public ApiResponse<InlineResponse20016> GetApplicationSessionsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), string coupon = default(string), string referral = default(string), string integrationId = default(string), string customerId = default(string))
+        public ApiResponse<InlineResponse20016> GetApplicationSessionsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -10168,10 +10256,11 @@ namespace TalonOne.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (profile != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profile", profile)); // query parameter
             if (state != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "state", state)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
             if (coupon != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "coupon", coupon)); // query parameter
             if (referral != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referral", referral)); // query parameter
             if (integrationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "integrationId", integrationId)); // query parameter
-            if (customerId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "customerId", customerId)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -10207,14 +10296,15 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
-        /// <param name="customerId">Filter by integration ID of the customer for the session (optional)</param>
         /// <returns>Task of InlineResponse20016</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20016> GetApplicationSessionsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), string coupon = default(string), string referral = default(string), string integrationId = default(string), string customerId = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20016> GetApplicationSessionsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string))
         {
-             ApiResponse<InlineResponse20016> localVarResponse = await GetApplicationSessionsAsyncWithHttpInfo(applicationId, pageSize, skip, sort, profile, state, coupon, referral, integrationId, customerId);
+             ApiResponse<InlineResponse20016> localVarResponse = await GetApplicationSessionsAsyncWithHttpInfo(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
              return localVarResponse.Data;
 
         }
@@ -10229,12 +10319,13 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
-        /// <param name="customerId">Filter by integration ID of the customer for the session (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetApplicationSessionsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), string coupon = default(string), string referral = default(string), string integrationId = default(string), string customerId = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetApplicationSessionsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -10267,10 +10358,11 @@ namespace TalonOne.Api
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (profile != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profile", profile)); // query parameter
             if (state != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "state", state)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
             if (coupon != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "coupon", coupon)); // query parameter
             if (referral != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referral", referral)); // query parameter
             if (integrationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "integrationId", integrationId)); // query parameter
-            if (customerId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "customerId", customerId)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -14767,6 +14859,149 @@ namespace TalonOne.Api
             return new ApiResponse<InlineResponse2008>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 (InlineResponse2008) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2008)));
+        }
+
+        /// <summary>
+        /// Get loyalty program statistics by loyalty program ID 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>LoyaltyStatistics</returns>
+        public LoyaltyStatistics GetLoyaltyStatistics (string programID)
+        {
+             ApiResponse<LoyaltyStatistics> localVarResponse = GetLoyaltyStatisticsWithHttpInfo(programID);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get loyalty program statistics by loyalty program ID 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>ApiResponse of LoyaltyStatistics</returns>
+        public ApiResponse<LoyaltyStatistics> GetLoyaltyStatisticsWithHttpInfo (string programID)
+        {
+            // verify the required parameter 'programID' is set
+            if (programID == null)
+                throw new ApiException(400, "Missing required parameter 'programID' when calling ManagementApi->GetLoyaltyStatistics");
+
+            var localVarPath = "/v1/loyalty_programs/{programID}/statistics";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (programID != null) localVarPathParams.Add("programID", this.Configuration.ApiClient.ParameterToString(programID)); // path parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLoyaltyStatistics", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LoyaltyStatistics>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (LoyaltyStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LoyaltyStatistics)));
+        }
+
+        /// <summary>
+        /// Get loyalty program statistics by loyalty program ID 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>Task of LoyaltyStatistics</returns>
+        public async System.Threading.Tasks.Task<LoyaltyStatistics> GetLoyaltyStatisticsAsync (string programID)
+        {
+             ApiResponse<LoyaltyStatistics> localVarResponse = await GetLoyaltyStatisticsAsyncWithHttpInfo(programID);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get loyalty program statistics by loyalty program ID 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>Task of ApiResponse (LoyaltyStatistics)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<LoyaltyStatistics>> GetLoyaltyStatisticsAsyncWithHttpInfo (string programID)
+        {
+            // verify the required parameter 'programID' is set
+            if (programID == null)
+                throw new ApiException(400, "Missing required parameter 'programID' when calling ManagementApi->GetLoyaltyStatistics");
+
+            var localVarPath = "/v1/loyalty_programs/{programID}/statistics";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (programID != null) localVarPathParams.Add("programID", this.Configuration.ApiClient.ParameterToString(programID)); // path parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetLoyaltyStatistics", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<LoyaltyStatistics>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (LoyaltyStatistics) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(LoyaltyStatistics)));
         }
 
         /// <summary>

@@ -75,7 +75,7 @@ namespace TalonOne.Model
         /// <param name="created">The exact moment this entity was created. The exact moment this entity was created. (required).</param>
         /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
         /// <param name="profileId">The globally unique Talon.One ID of the customer that created this entity..</param>
-        /// <param name="integrationId">The ID used for this entity in the application system. (required).</param>
+        /// <param name="integrationId">The integration ID for this entity sent to and used in the Talon.One system. (required).</param>
         /// <param name="profileintegrationid">Integration ID of the customer for the session..</param>
         /// <param name="coupon">Any coupon code entered. (required).</param>
         /// <param name="referral">Any referral code entered. (required).</param>
@@ -220,9 +220,9 @@ namespace TalonOne.Model
         public int ProfileId { get; set; }
 
         /// <summary>
-        /// The ID used for this entity in the application system.
+        /// The integration ID for this entity sent to and used in the Talon.One system.
         /// </summary>
-        /// <value>The ID used for this entity in the application system.</value>
+        /// <value>The integration ID for this entity sent to and used in the Talon.One system.</value>
         [DataMember(Name="integrationId", EmitDefaultValue=false)]
         public string IntegrationId { get; set; }
 

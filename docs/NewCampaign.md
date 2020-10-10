@@ -5,7 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**CampaignGroups** | **List&lt;int&gt;** | The IDs of the campaign groups that own this entity. | [optional] 
 **Name** | **string** | A friendly name for this campaign. | 
 **Description** | **string** | A detailed description of the campaign. | [optional] 
 **StartTime** | **DateTime** | Datetime when the campaign will become active. | [optional] 
@@ -18,6 +17,7 @@ Name | Type | Description | Notes
 **CouponSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **ReferralSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **Limits** | [**List&lt;LimitConfig&gt;**](LimitConfig.md) | The set of limits that will operate for this campaign | 
+**CampaignGroups** | **List&lt;int&gt;** | The IDs of the campaign groups that own this entity. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -81,6 +81,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Expires'
         }
+        /// <summary>
+        /// Test the property 'Platform'
+        /// </summary>
+        [Test]
+        public void PlatformTest()
+        {
+            // TODO unit test for the property 'Platform'
+        }
 
     }
 

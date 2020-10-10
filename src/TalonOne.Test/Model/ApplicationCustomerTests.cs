@@ -130,6 +130,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'LoyaltyMemberships'
         }
         /// <summary>
+        /// Test the property 'AudienceMemberships'
+        /// </summary>
+        [Test]
+        public void AudienceMembershipsTest()
+        {
+            // TODO unit test for the property 'AudienceMemberships'
+        }
+        /// <summary>
         /// Test the property 'LastActivity'
         /// </summary>
         [Test]

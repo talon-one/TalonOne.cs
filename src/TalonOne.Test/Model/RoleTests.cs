@@ -82,6 +82,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'AccountID'
         }
         /// <summary>
+        /// Test the property 'CampaignGroupID'
+        /// </summary>
+        [Test]
+        public void CampaignGroupIDTest()
+        {
+            // TODO unit test for the property 'CampaignGroupID'
+        }
+        /// <summary>
         /// Test the property 'Name'
         /// </summary>
         [Test]

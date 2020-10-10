@@ -5,7 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalResultSize** | **int** |  | 
+**TotalResultSize** | **int** |  | [optional] 
+**HasMore** | **bool** |  | [optional] 
 **Data** | [**List&lt;ApplicationCustomer&gt;**](ApplicationCustomer.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

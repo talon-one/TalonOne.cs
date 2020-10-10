@@ -123,8 +123,9 @@ namespace TalonOne.Api
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
+        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>CustomerInventory</returns>
-        CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool));
+        CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool));
 
         /// <summary>
         /// Get an inventory of all data associated with a specific customer profile.
@@ -137,8 +138,9 @@ namespace TalonOne.Api
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
+        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>ApiResponse of CustomerInventory</returns>
-        ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool));
+        ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool));
         /// <summary>
         /// Get the users that have this coupon reserved
         /// </summary>
@@ -209,16 +211,39 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of IntegrationState</returns>
         ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool));
         /// <summary>
+        /// Update a Customer Profile Audiences
+        /// </summary>
+        /// <remarks>
+        /// Update one ore multiple Customer Profiles with the specified Audiences 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        void UpdateCustomerProfileAudiences (CustomerProfileAudienceRequest body);
+
+        /// <summary>
+        /// Update a Customer Profile Audiences
+        /// </summary>
+        /// <remarks>
+        /// Update one ore multiple Customer Profiles with the specified Audiences 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateCustomerProfileAudiencesWithHttpInfo (CustomerProfileAudienceRequest body);
+        /// <summary>
         /// Update a Customer Profile
         /// </summary>
         /// <remarks>
         /// Update (or create) a [Customer Profile][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
-        /// <returns>CustomerProfileUpdate</returns>
-        CustomerProfileUpdate UpdateCustomerProfileV2 (string customerProfileId, NewCustomerProfile body);
+        /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
+        /// <returns>IntegrationStateV2</returns>
+        IntegrationStateV2 UpdateCustomerProfileV2 (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool));
 
         /// <summary>
         /// Update a Customer Profile
@@ -227,10 +252,35 @@ namespace TalonOne.Api
         /// Update (or create) a [Customer Profile][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
-        /// <returns>ApiResponse of CustomerProfileUpdate</returns>
-        ApiResponse<CustomerProfileUpdate> UpdateCustomerProfileV2WithHttpInfo (string customerProfileId, NewCustomerProfile body);
+        /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
+        /// <returns>ApiResponse of IntegrationStateV2</returns>
+        ApiResponse<IntegrationStateV2> UpdateCustomerProfileV2WithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool));
+        /// <summary>
+        /// Update multiple Customer Profiles
+        /// </summary>
+        /// <remarks>
+        /// Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)</param>
+        /// <returns>MultipleCustomerProfileIntegrationResponseV2</returns>
+        MultipleCustomerProfileIntegrationResponseV2 UpdateCustomerProfilesV2 (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
+
+        /// <summary>
+        /// Update multiple Customer Profiles
+        /// </summary>
+        /// <remarks>
+        /// Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)</param>
+        /// <returns>ApiResponse of MultipleCustomerProfileIntegrationResponseV2</returns>
+        ApiResponse<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2WithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
         /// <summary>
         /// Update a Customer Session V1
         /// </summary>
@@ -382,8 +432,9 @@ namespace TalonOne.Api
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
+        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>Task of CustomerInventory</returns>
-        System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool));
+        System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool));
 
         /// <summary>
         /// Get an inventory of all data associated with a specific customer profile.
@@ -396,8 +447,9 @@ namespace TalonOne.Api
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
+        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>Task of ApiResponse (CustomerInventory)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool));
         /// <summary>
         /// Get the users that have this coupon reserved
         /// </summary>
@@ -468,16 +520,39 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
         System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool));
         /// <summary>
+        /// Update a Customer Profile Audiences
+        /// </summary>
+        /// <remarks>
+        /// Update one ore multiple Customer Profiles with the specified Audiences 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateCustomerProfileAudiencesAsync (CustomerProfileAudienceRequest body);
+
+        /// <summary>
+        /// Update a Customer Profile Audiences
+        /// </summary>
+        /// <remarks>
+        /// Update one ore multiple Customer Profiles with the specified Audiences 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateCustomerProfileAudiencesAsyncWithHttpInfo (CustomerProfileAudienceRequest body);
+        /// <summary>
         /// Update a Customer Profile
         /// </summary>
         /// <remarks>
         /// Update (or create) a [Customer Profile][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
-        /// <returns>Task of CustomerProfileUpdate</returns>
-        System.Threading.Tasks.Task<CustomerProfileUpdate> UpdateCustomerProfileV2Async (string customerProfileId, NewCustomerProfile body);
+        /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
+        /// <returns>Task of IntegrationStateV2</returns>
+        System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerProfileV2Async (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool));
 
         /// <summary>
         /// Update a Customer Profile
@@ -486,10 +561,35 @@ namespace TalonOne.Api
         /// Update (or create) a [Customer Profile][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (CustomerProfileUpdate)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerProfileUpdate>> UpdateCustomerProfileV2AsyncWithHttpInfo (string customerProfileId, NewCustomerProfile body);
+        /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
+        /// <returns>Task of ApiResponse (IntegrationStateV2)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerProfileV2AsyncWithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool));
+        /// <summary>
+        /// Update multiple Customer Profiles
+        /// </summary>
+        /// <remarks>
+        /// Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)</param>
+        /// <returns>Task of MultipleCustomerProfileIntegrationResponseV2</returns>
+        System.Threading.Tasks.Task<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2Async (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
+
+        /// <summary>
+        /// Update multiple Customer Profiles
+        /// </summary>
+        /// <remarks>
+        /// Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)</param>
+        /// <returns>Task of ApiResponse (MultipleCustomerProfileIntegrationResponseV2)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MultipleCustomerProfileIntegrationResponseV2>> UpdateCustomerProfilesV2AsyncWithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
         /// <summary>
         /// Update a Customer Session V1
         /// </summary>
@@ -1335,10 +1435,11 @@ namespace TalonOne.Api
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
+        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>CustomerInventory</returns>
-        public CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool))
+        public CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool))
         {
-             ApiResponse<CustomerInventory> localVarResponse = GetCustomerInventoryWithHttpInfo(integrationId, profile, referrals, coupons);
+             ApiResponse<CustomerInventory> localVarResponse = GetCustomerInventoryWithHttpInfo(integrationId, profile, referrals, coupons, loyalty);
              return localVarResponse.Data;
         }
 
@@ -1350,8 +1451,9 @@ namespace TalonOne.Api
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
+        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>ApiResponse of CustomerInventory</returns>
-        public ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool))
+        public ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -1382,6 +1484,7 @@ namespace TalonOne.Api
             if (profile != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profile", profile)); // query parameter
             if (referrals != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referrals", referrals)); // query parameter
             if (coupons != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "coupons", coupons)); // query parameter
+            if (loyalty != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "loyalty", loyalty)); // query parameter
 
             // authentication (api_key_v1) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -1420,10 +1523,11 @@ namespace TalonOne.Api
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
+        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>Task of CustomerInventory</returns>
-        public async System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool))
+        public async System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool))
         {
-             ApiResponse<CustomerInventory> localVarResponse = await GetCustomerInventoryAsyncWithHttpInfo(integrationId, profile, referrals, coupons);
+             ApiResponse<CustomerInventory> localVarResponse = await GetCustomerInventoryAsyncWithHttpInfo(integrationId, profile, referrals, coupons, loyalty);
              return localVarResponse.Data;
 
         }
@@ -1436,8 +1540,9 @@ namespace TalonOne.Api
         /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
         /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
+        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>Task of ApiResponse (CustomerInventory)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -1468,6 +1573,7 @@ namespace TalonOne.Api
             if (profile != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profile", profile)); // query parameter
             if (referrals != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referrals", referrals)); // query parameter
             if (coupons != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "coupons", coupons)); // query parameter
+            if (loyalty != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "loyalty", loyalty)); // query parameter
 
             // authentication (api_key_v1) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -2014,15 +2120,172 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Update a Customer Profile Audiences Update one ore multiple Customer Profiles with the specified Audiences 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        public void UpdateCustomerProfileAudiences (CustomerProfileAudienceRequest body)
+        {
+             UpdateCustomerProfileAudiencesWithHttpInfo(body);
+        }
+
+        /// <summary>
+        /// Update a Customer Profile Audiences Update one ore multiple Customer Profiles with the specified Audiences 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> UpdateCustomerProfileAudiencesWithHttpInfo (CustomerProfileAudienceRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfileAudiences");
+
+            var localVarPath = "/v2/customer_audiences";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomerProfileAudiences", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Update a Customer Profile Audiences Update one ore multiple Customer Profiles with the specified Audiences 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateCustomerProfileAudiencesAsync (CustomerProfileAudienceRequest body)
+        {
+             await UpdateCustomerProfileAudiencesAsyncWithHttpInfo(body);
+
+        }
+
+        /// <summary>
+        /// Update a Customer Profile Audiences Update one ore multiple Customer Profiles with the specified Audiences 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> UpdateCustomerProfileAudiencesAsyncWithHttpInfo (CustomerProfileAudienceRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfileAudiences");
+
+            var localVarPath = "/v2/customer_audiences";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomerProfileAudiences", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
         /// Update a Customer Profile Update (or create) a [Customer Profile][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
-        /// <returns>CustomerProfileUpdate</returns>
-        public CustomerProfileUpdate UpdateCustomerProfileV2 (string customerProfileId, NewCustomerProfile body)
+        /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
+        /// <returns>IntegrationStateV2</returns>
+        public IntegrationStateV2 UpdateCustomerProfileV2 (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool))
         {
-             ApiResponse<CustomerProfileUpdate> localVarResponse = UpdateCustomerProfileV2WithHttpInfo(customerProfileId, body);
+             ApiResponse<IntegrationStateV2> localVarResponse = UpdateCustomerProfileV2WithHttpInfo(integrationId, body, runRuleEngine, dry);
              return localVarResponse.Data;
         }
 
@@ -2030,19 +2293,21 @@ namespace TalonOne.Api
         /// Update a Customer Profile Update (or create) a [Customer Profile][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
-        /// <returns>ApiResponse of CustomerProfileUpdate</returns>
-        public ApiResponse<CustomerProfileUpdate> UpdateCustomerProfileV2WithHttpInfo (string customerProfileId, NewCustomerProfile body)
+        /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
+        /// <returns>ApiResponse of IntegrationStateV2</returns>
+        public ApiResponse<IntegrationStateV2> UpdateCustomerProfileV2WithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool))
         {
-            // verify the required parameter 'customerProfileId' is set
-            if (customerProfileId == null)
-                throw new ApiException(400, "Missing required parameter 'customerProfileId' when calling IntegrationApi->UpdateCustomerProfileV2");
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->UpdateCustomerProfileV2");
             // verify the required parameter 'body' is set
             if (body == null)
                 throw new ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfileV2");
 
-            var localVarPath = "/v2/customer_profiles/{customerProfileId}";
+            var localVarPath = "/v2/customer_profiles/{integrationId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2064,7 +2329,9 @@ namespace TalonOne.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (customerProfileId != null) localVarPathParams.Add("customerProfileId", this.Configuration.ApiClient.ParameterToString(customerProfileId)); // path parameter
+            if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
+            if (runRuleEngine != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "runRuleEngine", runRuleEngine)); // query parameter
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -2093,21 +2360,23 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CustomerProfileUpdate>(localVarStatusCode,
+            return new ApiResponse<IntegrationStateV2>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (CustomerProfileUpdate) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerProfileUpdate)));
+                (IntegrationStateV2) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegrationStateV2)));
         }
 
         /// <summary>
         /// Update a Customer Profile Update (or create) a [Customer Profile][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
-        /// <returns>Task of CustomerProfileUpdate</returns>
-        public async System.Threading.Tasks.Task<CustomerProfileUpdate> UpdateCustomerProfileV2Async (string customerProfileId, NewCustomerProfile body)
+        /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
+        /// <returns>Task of IntegrationStateV2</returns>
+        public async System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerProfileV2Async (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool))
         {
-             ApiResponse<CustomerProfileUpdate> localVarResponse = await UpdateCustomerProfileV2AsyncWithHttpInfo(customerProfileId, body);
+             ApiResponse<IntegrationStateV2> localVarResponse = await UpdateCustomerProfileV2AsyncWithHttpInfo(integrationId, body, runRuleEngine, dry);
              return localVarResponse.Data;
 
         }
@@ -2116,19 +2385,21 @@ namespace TalonOne.Api
         /// Update a Customer Profile Update (or create) a [Customer Profile][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profile]: /Getting-Started/entities#customer-profile 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerProfileId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
         /// <param name="body"></param>
-        /// <returns>Task of ApiResponse (CustomerProfileUpdate)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerProfileUpdate>> UpdateCustomerProfileV2AsyncWithHttpInfo (string customerProfileId, NewCustomerProfile body)
+        /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
+        /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
+        /// <returns>Task of ApiResponse (IntegrationStateV2)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerProfileV2AsyncWithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool))
         {
-            // verify the required parameter 'customerProfileId' is set
-            if (customerProfileId == null)
-                throw new ApiException(400, "Missing required parameter 'customerProfileId' when calling IntegrationApi->UpdateCustomerProfileV2");
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->UpdateCustomerProfileV2");
             // verify the required parameter 'body' is set
             if (body == null)
                 throw new ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfileV2");
 
-            var localVarPath = "/v2/customer_profiles/{customerProfileId}";
+            var localVarPath = "/v2/customer_profiles/{integrationId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -2150,7 +2421,9 @@ namespace TalonOne.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (customerProfileId != null) localVarPathParams.Add("customerProfileId", this.Configuration.ApiClient.ParameterToString(customerProfileId)); // path parameter
+            if (integrationId != null) localVarPathParams.Add("integrationId", this.Configuration.ApiClient.ParameterToString(integrationId)); // path parameter
+            if (runRuleEngine != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "runRuleEngine", runRuleEngine)); // query parameter
+            if (dry != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dry", dry)); // query parameter
             if (body != null && body.GetType() != typeof(byte[]))
             {
                 localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
@@ -2179,9 +2452,174 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CustomerProfileUpdate>(localVarStatusCode,
+            return new ApiResponse<IntegrationStateV2>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (CustomerProfileUpdate) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(CustomerProfileUpdate)));
+                (IntegrationStateV2) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(IntegrationStateV2)));
+        }
+
+        /// <summary>
+        /// Update multiple Customer Profiles Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)</param>
+        /// <returns>MultipleCustomerProfileIntegrationResponseV2</returns>
+        public MultipleCustomerProfileIntegrationResponseV2 UpdateCustomerProfilesV2 (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
+        {
+             ApiResponse<MultipleCustomerProfileIntegrationResponseV2> localVarResponse = UpdateCustomerProfilesV2WithHttpInfo(body, silent);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update multiple Customer Profiles Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)</param>
+        /// <returns>ApiResponse of MultipleCustomerProfileIntegrationResponseV2</returns>
+        public ApiResponse<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2WithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfilesV2");
+
+            var localVarPath = "/v2/customer_profiles";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (silent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "silent", silent)); // query parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomerProfilesV2", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MultipleCustomerProfileIntegrationResponseV2>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (MultipleCustomerProfileIntegrationResponseV2) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MultipleCustomerProfileIntegrationResponseV2)));
+        }
+
+        /// <summary>
+        /// Update multiple Customer Profiles Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)</param>
+        /// <returns>Task of MultipleCustomerProfileIntegrationResponseV2</returns>
+        public async System.Threading.Tasks.Task<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2Async (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
+        {
+             ApiResponse<MultipleCustomerProfileIntegrationResponseV2> localVarResponse = await UpdateCustomerProfilesV2AsyncWithHttpInfo(body, silent);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update multiple Customer Profiles Update (or create) up to 1000 [Customer Profiles][] in 1 request.  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  [Customer Profiles]: /Getting-Started/entities#customer-profile 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the IntegrationStateV2  generated. (optional)</param>
+        /// <returns>Task of ApiResponse (MultipleCustomerProfileIntegrationResponseV2)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<MultipleCustomerProfileIntegrationResponseV2>> UpdateCustomerProfilesV2AsyncWithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfilesV2");
+
+            var localVarPath = "/v2/customer_profiles";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (silent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "silent", silent)); // query parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.PUT, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateCustomerProfilesV2", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<MultipleCustomerProfileIntegrationResponseV2>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (MultipleCustomerProfileIntegrationResponseV2) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(MultipleCustomerProfileIntegrationResponseV2)));
         }
 
         /// <summary>

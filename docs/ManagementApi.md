@@ -61,6 +61,7 @@ Method | HTTP request | Description
 [**GetLoyaltyPoints**](ManagementApi.md#getloyaltypoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
 [**GetLoyaltyProgram**](ManagementApi.md#getloyaltyprogram) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
 [**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List all loyalty Programs
+[**GetLoyaltyStatistics**](ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{programID}/statistics | Get loyalty program statistics by loyalty program ID
 [**GetReferrals**](ManagementApi.md#getreferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
 [**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
 [**GetRole**](ManagementApi.md#getrole) | **GET** /v1/roles/{roleId} | Get information for the specified role.
@@ -2166,7 +2167,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationCustomers
 
-> InlineResponse20012 GetApplicationCustomers (int applicationId)
+> InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = null, int pageSize = null, int skip = null, bool withTotalResultSize = null)
 
 List Application Customers
 
@@ -2193,11 +2194,15 @@ namespace Example
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
+            var integrationId = integrationId_example;  // string | Filter results performing an exact matching against the profile integration identifier. (optional) 
+            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var withTotalResultSize = true;  // bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
 
             try
             {
                 // List Application Customers
-                InlineResponse20012 result = apiInstance.GetApplicationCustomers(applicationId);
+                InlineResponse20012 result = apiInstance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2217,6 +2222,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
+ **integrationId** | **string**| Filter results performing an exact matching against the profile integration identifier. | [optional] 
+ **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **withTotalResultSize** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
 
 ### Return type
 
@@ -2706,7 +2715,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationSessions
 
-> InlineResponse20016 GetApplicationSessions (int applicationId, int pageSize = null, int skip = null, string sort = null, string profile = null, string state = null, string coupon = null, string referral = null, string integrationId = null, string customerId = null)
+> InlineResponse20016 GetApplicationSessions (int applicationId, int pageSize = null, int skip = null, string sort = null, string profile = null, string state = null, DateTime createdBefore = null, DateTime createdAfter = null, string coupon = null, string referral = null, string integrationId = null)
 
 List Application Sessions
 
@@ -2738,15 +2747,16 @@ namespace Example
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var profile = profile_example;  // string | Profile integration ID filter for sessions. Must be exact match. (optional) 
             var state = state_example;  // string | Filter by sessions with this state. Must be exact match. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Only return events created before this date (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Only return events created after this date (optional) 
             var coupon = coupon_example;  // string | Filter by sessions with this coupon. Must be exact match. (optional) 
             var referral = referral_example;  // string | Filter by sessions with this referral. Must be exact match. (optional) 
             var integrationId = integrationId_example;  // string | Filter by sessions with this integrationId. Must be exact match. (optional) 
-            var customerId = customerId_example;  // string | Filter by integration ID of the customer for the session (optional) 
 
             try
             {
                 // List Application Sessions
-                InlineResponse20016 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, coupon, referral, integrationId, customerId);
+                InlineResponse20016 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2771,10 +2781,11 @@ Name | Type | Description  | Notes
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **profile** | **string**| Profile integration ID filter for sessions. Must be exact match. | [optional] 
  **state** | **string**| Filter by sessions with this state. Must be exact match. | [optional] 
+ **createdBefore** | **DateTime**| Only return events created before this date | [optional] 
+ **createdAfter** | **DateTime**| Only return events created after this date | [optional] 
  **coupon** | **string**| Filter by sessions with this coupon. Must be exact match. | [optional] 
  **referral** | **string**| Filter by sessions with this referral. Must be exact match. | [optional] 
  **integrationId** | **string**| Filter by sessions with this integrationId. Must be exact match. | [optional] 
- **customerId** | **string**| Filter by integration ID of the customer for the session | [optional] 
 
 ### Return type
 
@@ -5015,6 +5026,84 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**InlineResponse2008**](InlineResponse2008.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetLoyaltyStatistics
+
+> LoyaltyStatistics GetLoyaltyStatistics (string programID)
+
+Get loyalty program statistics by loyalty program ID
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetLoyaltyStatisticsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var programID = programID_example;  // string | 
+
+            try
+            {
+                // Get loyalty program statistics by loyalty program ID
+                LoyaltyStatistics result = apiInstance.GetLoyaltyStatistics(programID);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetLoyaltyStatistics: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **programID** | **string**|  | 
+
+### Return type
+
+[**LoyaltyStatistics**](LoyaltyStatistics.md)
 
 ### Authorization
 

@@ -106,6 +106,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ReferralCodes'
         }
         /// <summary>
+        /// Test the property 'ActiveRules'
+        /// </summary>
+        [Test]
+        public void ActiveRulesTest()
+        {
+            // TODO unit test for the property 'ActiveRules'
+        }
+        /// <summary>
         /// Test the property 'LiveLoyaltyPrograms'
         /// </summary>
         [Test]
@@ -144,14 +152,6 @@ namespace TalonOne.Test
         public void ApiVolumeTest()
         {
             // TODO unit test for the property 'ApiVolume'
-        }
-        /// <summary>
-        /// Test the property 'ActiveRules'
-        /// </summary>
-        [Test]
-        public void ActiveRulesTest()
-        {
-            // TODO unit test for the property 'ActiveRules'
         }
         /// <summary>
         /// Test the property 'PromotionTypes'

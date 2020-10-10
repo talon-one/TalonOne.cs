@@ -31,6 +31,45 @@ namespace TalonOne.Model
     public partial class ApplicationAPIKey :  IEquatable<ApplicationAPIKey>, IValidatableObject
     {
         /// <summary>
+        /// Platform the API key is valid for.
+        /// </summary>
+        /// <value>Platform the API key is valid for.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PlatformEnum
+        {
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None = 1,
+
+            /// <summary>
+            /// Enum Segment for value: segment
+            /// </summary>
+            [EnumMember(Value = "segment")]
+            Segment = 2,
+
+            /// <summary>
+            /// Enum Braze for value: braze
+            /// </summary>
+            [EnumMember(Value = "braze")]
+            Braze = 3,
+
+            /// <summary>
+            /// Enum Mparticle for value: mparticle
+            /// </summary>
+            [EnumMember(Value = "mparticle")]
+            Mparticle = 4
+
+        }
+
+        /// <summary>
+        /// Platform the API key is valid for.
+        /// </summary>
+        /// <value>Platform the API key is valid for.</value>
+        [DataMember(Name="platform", EmitDefaultValue=false)]
+        public PlatformEnum? Platform { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationAPIKey" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -38,15 +77,36 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationAPIKey" /> class.
         /// </summary>
+        /// <param name="title">Title for API Key (required).</param>
+        /// <param name="expires">The date the API key expired (required).</param>
+        /// <param name="platform">Platform the API key is valid for..</param>
         /// <param name="id">ID of the API Key (required).</param>
         /// <param name="createdBy">ID of user who created (required).</param>
-        /// <param name="title">Title for API Key (required).</param>
         /// <param name="accountID">ID of account the key is used for (required).</param>
         /// <param name="applicationID">ID of application the key is used for (required).</param>
         /// <param name="created">The date the API key was created (required).</param>
-        /// <param name="expires">The date the API key expired (required).</param>
-        public ApplicationAPIKey(int id = default(int), int createdBy = default(int), string title = default(string), int accountID = default(int), int applicationID = default(int), DateTime created = default(DateTime), DateTime expires = default(DateTime))
+        public ApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime), PlatformEnum? platform = default(PlatformEnum?), int id = default(int), int createdBy = default(int), int accountID = default(int), int applicationID = default(int), DateTime created = default(DateTime))
         {
+            // to ensure "title" is required (not null)
+            if (title == null)
+            {
+                throw new InvalidDataException("title is a required property for ApplicationAPIKey and cannot be null");
+            }
+            else
+            {
+                this.Title = title;
+            }
+            
+            // to ensure "expires" is required (not null)
+            if (expires == null)
+            {
+                throw new InvalidDataException("expires is a required property for ApplicationAPIKey and cannot be null");
+            }
+            else
+            {
+                this.Expires = expires;
+            }
+            
             // to ensure "id" is required (not null)
             if (id == null)
             {
@@ -65,16 +125,6 @@ namespace TalonOne.Model
             else
             {
                 this.CreatedBy = createdBy;
-            }
-            
-            // to ensure "title" is required (not null)
-            if (title == null)
-            {
-                throw new InvalidDataException("title is a required property for ApplicationAPIKey and cannot be null");
-            }
-            else
-            {
-                this.Title = title;
             }
             
             // to ensure "accountID" is required (not null)
@@ -107,18 +157,24 @@ namespace TalonOne.Model
                 this.Created = created;
             }
             
-            // to ensure "expires" is required (not null)
-            if (expires == null)
-            {
-                throw new InvalidDataException("expires is a required property for ApplicationAPIKey and cannot be null");
-            }
-            else
-            {
-                this.Expires = expires;
-            }
-            
+            this.Platform = platform;
         }
         
+        /// <summary>
+        /// Title for API Key
+        /// </summary>
+        /// <value>Title for API Key</value>
+        [DataMember(Name="title", EmitDefaultValue=false)]
+        public string Title { get; set; }
+
+        /// <summary>
+        /// The date the API key expired
+        /// </summary>
+        /// <value>The date the API key expired</value>
+        [DataMember(Name="expires", EmitDefaultValue=false)]
+        public DateTime Expires { get; set; }
+
+
         /// <summary>
         /// ID of the API Key
         /// </summary>
@@ -132,13 +188,6 @@ namespace TalonOne.Model
         /// <value>ID of user who created</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
         public int CreatedBy { get; set; }
-
-        /// <summary>
-        /// Title for API Key
-        /// </summary>
-        /// <value>Title for API Key</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
-        public string Title { get; set; }
 
         /// <summary>
         /// ID of account the key is used for
@@ -162,13 +211,6 @@ namespace TalonOne.Model
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// The date the API key expired
-        /// </summary>
-        /// <value>The date the API key expired</value>
-        [DataMember(Name="expires", EmitDefaultValue=false)]
-        public DateTime Expires { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -176,13 +218,14 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ApplicationAPIKey {\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Expires: ").Append(Expires).Append("\n");
+            sb.Append("  Platform: ").Append(Platform).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  AccountID: ").Append(AccountID).Append("\n");
             sb.Append("  ApplicationID: ").Append(ApplicationID).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
-            sb.Append("  Expires: ").Append(Expires).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -218,6 +261,21 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
+                ) && 
+                (
+                    this.Expires == input.Expires ||
+                    (this.Expires != null &&
+                    this.Expires.Equals(input.Expires))
+                ) && 
+                (
+                    this.Platform == input.Platform ||
+                    (this.Platform != null &&
+                    this.Platform.Equals(input.Platform))
+                ) && 
+                (
                     this.Id == input.Id ||
                     (this.Id != null &&
                     this.Id.Equals(input.Id))
@@ -226,11 +284,6 @@ namespace TalonOne.Model
                     this.CreatedBy == input.CreatedBy ||
                     (this.CreatedBy != null &&
                     this.CreatedBy.Equals(input.CreatedBy))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
                 ) && 
                 (
                     this.AccountID == input.AccountID ||
@@ -246,11 +299,6 @@ namespace TalonOne.Model
                     this.Created == input.Created ||
                     (this.Created != null &&
                     this.Created.Equals(input.Created))
-                ) && 
-                (
-                    this.Expires == input.Expires ||
-                    (this.Expires != null &&
-                    this.Expires.Equals(input.Expires))
                 );
         }
 
@@ -263,20 +311,22 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Title != null)
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.Expires != null)
+                    hashCode = hashCode * 59 + this.Expires.GetHashCode();
+                if (this.Platform != null)
+                    hashCode = hashCode * 59 + this.Platform.GetHashCode();
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.CreatedBy != null)
                     hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
-                if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.AccountID != null)
                     hashCode = hashCode * 59 + this.AccountID.GetHashCode();
                 if (this.ApplicationID != null)
                     hashCode = hashCode * 59 + this.ApplicationID.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
-                if (this.Expires != null)
-                    hashCode = hashCode * 59 + this.Expires.GetHashCode();
                 return hashCode;
             }
         }

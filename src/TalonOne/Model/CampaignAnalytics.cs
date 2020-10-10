@@ -59,7 +59,11 @@ namespace TalonOne.Model
         /// <param name="totalCouponsCreated">Number of coupons created in the campaign by the rule engine since it began. (required).</param>
         /// <param name="referralsCreated">Number of referrals created in the campaign by the rule engine. (required).</param>
         /// <param name="totalReferralsCreated">Number of referrals created in the campaign by the rule engine since it began. (required).</param>
-        public CampaignAnalytics(DateTime date = default(DateTime), decimal campaignRevenue = default(decimal), decimal totalCampaignRevenue = default(decimal), decimal campaignRefund = default(decimal), decimal totalCampaignRefund = default(decimal), decimal campaignDiscountCosts = default(decimal), decimal totalCampaignDiscountCosts = default(decimal), decimal campaignRefundedDiscounts = default(decimal), decimal totalCampaignRefundedDiscounts = default(decimal), int campaignFreeItems = default(int), int totalCampaignFreeItems = default(int), int couponRedemptions = default(int), int totalCouponRedemptions = default(int), int couponRolledbackRedemptions = default(int), int totalCouponRolledbackRedemptions = default(int), int referralRedemptions = default(int), int totalReferralRedemptions = default(int), int couponsCreated = default(int), int totalCouponsCreated = default(int), int referralsCreated = default(int), int totalReferralsCreated = default(int))
+        /// <param name="addedLoyaltyPoints">Number of added loyalty points in the campaign in a specific interval. (required).</param>
+        /// <param name="totalAddedLoyaltyPoints">Number of added loyalty points in the campaign since it began. (required).</param>
+        /// <param name="deductedLoyaltyPoints">Number of deducted loyalty points in the campaign in a specific interval. (required).</param>
+        /// <param name="totalDeductedLoyaltyPoints">Number of deducted loyalty points in the campaign since it began. (required).</param>
+        public CampaignAnalytics(DateTime date = default(DateTime), decimal campaignRevenue = default(decimal), decimal totalCampaignRevenue = default(decimal), decimal campaignRefund = default(decimal), decimal totalCampaignRefund = default(decimal), decimal campaignDiscountCosts = default(decimal), decimal totalCampaignDiscountCosts = default(decimal), decimal campaignRefundedDiscounts = default(decimal), decimal totalCampaignRefundedDiscounts = default(decimal), int campaignFreeItems = default(int), int totalCampaignFreeItems = default(int), int couponRedemptions = default(int), int totalCouponRedemptions = default(int), int couponRolledbackRedemptions = default(int), int totalCouponRolledbackRedemptions = default(int), int referralRedemptions = default(int), int totalReferralRedemptions = default(int), int couponsCreated = default(int), int totalCouponsCreated = default(int), int referralsCreated = default(int), int totalReferralsCreated = default(int), decimal addedLoyaltyPoints = default(decimal), decimal totalAddedLoyaltyPoints = default(decimal), decimal deductedLoyaltyPoints = default(decimal), decimal totalDeductedLoyaltyPoints = default(decimal))
         {
             // to ensure "date" is required (not null)
             if (date == null)
@@ -271,6 +275,46 @@ namespace TalonOne.Model
                 this.TotalReferralsCreated = totalReferralsCreated;
             }
             
+            // to ensure "addedLoyaltyPoints" is required (not null)
+            if (addedLoyaltyPoints == null)
+            {
+                throw new InvalidDataException("addedLoyaltyPoints is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.AddedLoyaltyPoints = addedLoyaltyPoints;
+            }
+            
+            // to ensure "totalAddedLoyaltyPoints" is required (not null)
+            if (totalAddedLoyaltyPoints == null)
+            {
+                throw new InvalidDataException("totalAddedLoyaltyPoints is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.TotalAddedLoyaltyPoints = totalAddedLoyaltyPoints;
+            }
+            
+            // to ensure "deductedLoyaltyPoints" is required (not null)
+            if (deductedLoyaltyPoints == null)
+            {
+                throw new InvalidDataException("deductedLoyaltyPoints is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.DeductedLoyaltyPoints = deductedLoyaltyPoints;
+            }
+            
+            // to ensure "totalDeductedLoyaltyPoints" is required (not null)
+            if (totalDeductedLoyaltyPoints == null)
+            {
+                throw new InvalidDataException("totalDeductedLoyaltyPoints is a required property for CampaignAnalytics and cannot be null");
+            }
+            else
+            {
+                this.TotalDeductedLoyaltyPoints = totalDeductedLoyaltyPoints;
+            }
+            
         }
         
         /// <summary>
@@ -420,6 +464,34 @@ namespace TalonOne.Model
         public int TotalReferralsCreated { get; set; }
 
         /// <summary>
+        /// Number of added loyalty points in the campaign in a specific interval.
+        /// </summary>
+        /// <value>Number of added loyalty points in the campaign in a specific interval.</value>
+        [DataMember(Name="addedLoyaltyPoints", EmitDefaultValue=false)]
+        public decimal AddedLoyaltyPoints { get; set; }
+
+        /// <summary>
+        /// Number of added loyalty points in the campaign since it began.
+        /// </summary>
+        /// <value>Number of added loyalty points in the campaign since it began.</value>
+        [DataMember(Name="totalAddedLoyaltyPoints", EmitDefaultValue=false)]
+        public decimal TotalAddedLoyaltyPoints { get; set; }
+
+        /// <summary>
+        /// Number of deducted loyalty points in the campaign in a specific interval.
+        /// </summary>
+        /// <value>Number of deducted loyalty points in the campaign in a specific interval.</value>
+        [DataMember(Name="deductedLoyaltyPoints", EmitDefaultValue=false)]
+        public decimal DeductedLoyaltyPoints { get; set; }
+
+        /// <summary>
+        /// Number of deducted loyalty points in the campaign since it began.
+        /// </summary>
+        /// <value>Number of deducted loyalty points in the campaign since it began.</value>
+        [DataMember(Name="totalDeductedLoyaltyPoints", EmitDefaultValue=false)]
+        public decimal TotalDeductedLoyaltyPoints { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -448,6 +520,10 @@ namespace TalonOne.Model
             sb.Append("  TotalCouponsCreated: ").Append(TotalCouponsCreated).Append("\n");
             sb.Append("  ReferralsCreated: ").Append(ReferralsCreated).Append("\n");
             sb.Append("  TotalReferralsCreated: ").Append(TotalReferralsCreated).Append("\n");
+            sb.Append("  AddedLoyaltyPoints: ").Append(AddedLoyaltyPoints).Append("\n");
+            sb.Append("  TotalAddedLoyaltyPoints: ").Append(TotalAddedLoyaltyPoints).Append("\n");
+            sb.Append("  DeductedLoyaltyPoints: ").Append(DeductedLoyaltyPoints).Append("\n");
+            sb.Append("  TotalDeductedLoyaltyPoints: ").Append(TotalDeductedLoyaltyPoints).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -586,6 +662,26 @@ namespace TalonOne.Model
                     this.TotalReferralsCreated == input.TotalReferralsCreated ||
                     (this.TotalReferralsCreated != null &&
                     this.TotalReferralsCreated.Equals(input.TotalReferralsCreated))
+                ) && 
+                (
+                    this.AddedLoyaltyPoints == input.AddedLoyaltyPoints ||
+                    (this.AddedLoyaltyPoints != null &&
+                    this.AddedLoyaltyPoints.Equals(input.AddedLoyaltyPoints))
+                ) && 
+                (
+                    this.TotalAddedLoyaltyPoints == input.TotalAddedLoyaltyPoints ||
+                    (this.TotalAddedLoyaltyPoints != null &&
+                    this.TotalAddedLoyaltyPoints.Equals(input.TotalAddedLoyaltyPoints))
+                ) && 
+                (
+                    this.DeductedLoyaltyPoints == input.DeductedLoyaltyPoints ||
+                    (this.DeductedLoyaltyPoints != null &&
+                    this.DeductedLoyaltyPoints.Equals(input.DeductedLoyaltyPoints))
+                ) && 
+                (
+                    this.TotalDeductedLoyaltyPoints == input.TotalDeductedLoyaltyPoints ||
+                    (this.TotalDeductedLoyaltyPoints != null &&
+                    this.TotalDeductedLoyaltyPoints.Equals(input.TotalDeductedLoyaltyPoints))
                 );
         }
 
@@ -640,6 +736,14 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ReferralsCreated.GetHashCode();
                 if (this.TotalReferralsCreated != null)
                     hashCode = hashCode * 59 + this.TotalReferralsCreated.GetHashCode();
+                if (this.AddedLoyaltyPoints != null)
+                    hashCode = hashCode * 59 + this.AddedLoyaltyPoints.GetHashCode();
+                if (this.TotalAddedLoyaltyPoints != null)
+                    hashCode = hashCode * 59 + this.TotalAddedLoyaltyPoints.GetHashCode();
+                if (this.DeductedLoyaltyPoints != null)
+                    hashCode = hashCode * 59 + this.DeductedLoyaltyPoints.GetHashCode();
+                if (this.TotalDeductedLoyaltyPoints != null)
+                    hashCode = hashCode * 59 + this.TotalDeductedLoyaltyPoints.GetHashCode();
                 return hashCode;
             }
         }

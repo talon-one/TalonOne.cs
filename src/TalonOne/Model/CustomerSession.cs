@@ -71,7 +71,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerSession" /> class.
         /// </summary>
-        /// <param name="integrationId">The ID used for this entity in the application system. (required).</param>
+        /// <param name="integrationId">The integration ID for this entity sent to and used in the Talon.One system. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
         /// <param name="profileId">ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID. (required).</param>
@@ -210,9 +210,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The ID used for this entity in the application system.
+        /// The integration ID for this entity sent to and used in the Talon.One system.
         /// </summary>
-        /// <value>The ID used for this entity in the application system.</value>
+        /// <value>The integration ID for this entity sent to and used in the Talon.One system.</value>
         [DataMember(Name="integrationId", EmitDefaultValue=false)]
         public string IntegrationId { get; set; }
 

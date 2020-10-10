@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **Created** | **DateTime** | The exact moment this entity was created. | 
 **ApplicationId** | **int** | The ID of the application that owns this entity. | 
 **UserId** | **int** | The ID of the account that owns this entity. | 
-**CampaignGroups** | **List&lt;int&gt;** | The IDs of the campaign groups that own this entity. | [optional] 
 **Name** | **string** | A friendly name for this campaign. | 
 **Description** | **string** | A detailed description of the campaign. | 
 **StartTime** | **DateTime** | Datetime when the campaign will become active. | [optional] 
@@ -22,6 +21,7 @@ Name | Type | Description | Notes
 **CouponSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **ReferralSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **Limits** | [**List&lt;LimitConfig&gt;**](LimitConfig.md) | The set of limits that will operate for this campaign | 
+**CampaignGroups** | **List&lt;int&gt;** | The IDs of the campaign groups that own this entity. | [optional] 
 **CouponRedemptionCount** | **int** | Number of coupons redeemed in the campaign. | [optional] 
 **ReferralRedemptionCount** | **int** | Number of referral codes redeemed in the campaign. | [optional] 
 **DiscountCount** | **int** | Total amount of discounts redeemed in the campaign. | [optional] 

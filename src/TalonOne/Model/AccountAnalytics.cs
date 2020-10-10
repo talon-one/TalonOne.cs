@@ -38,24 +38,25 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountAnalytics" /> class.
         /// </summary>
-        /// <param name="applications">Total Number of Applications inside the account (required).</param>
-        /// <param name="activeCampaigns">Total Number of Active Applications inside the account (required).</param>
-        /// <param name="campaigns">Total Number of campaigns inside the account (required).</param>
-        /// <param name="coupons">Total Number of coupons inside the account (required).</param>
-        /// <param name="activeCoupons">Total Number of active coupons inside the account (required).</param>
-        /// <param name="expiredCoupons">Total Number of expired coupons inside the account (required).</param>
-        /// <param name="customAttributes">Total Number of custom attributes inside the account (required).</param>
-        /// <param name="referralCodes">Total Number of referral codes inside the account (required).</param>
-        /// <param name="activeReferralCodes">Total Number of active referral codes inside the account (required).</param>
-        /// <param name="expiredReferralCodes">Total Number of expired referral codes inside the account (required).</param>
-        /// <param name="users">Total Number of users inside the account (required).</param>
-        /// <param name="roles">Total Number of roles inside the account (required).</param>
-        /// <param name="webhooks">Total Number of webhooks inside the account (required).</param>
-        /// <param name="loyaltyPrograms">Total Number of loyalty programs inside the account (required).</param>
-        /// <param name="activeRules">Total Number of active rules in the account (required).</param>
-        /// <param name="sandboxApplications">Total Number of sandbox applications in the account (required).</param>
-        /// <param name="liveApplications">Total Number of live applications in the account (required).</param>
-        public AccountAnalytics(int applications = default(int), int activeCampaigns = default(int), int campaigns = default(int), int coupons = default(int), int activeCoupons = default(int), int expiredCoupons = default(int), int customAttributes = default(int), int referralCodes = default(int), int activeReferralCodes = default(int), int expiredReferralCodes = default(int), int users = default(int), int roles = default(int), int webhooks = default(int), int loyaltyPrograms = default(int), int activeRules = default(int), int sandboxApplications = default(int), int liveApplications = default(int))
+        /// <param name="applications">Total number of applications in the account (required).</param>
+        /// <param name="liveApplications">Total number of live applications in the account (required).</param>
+        /// <param name="sandboxApplications">Total number of sandbox applications in the account (required).</param>
+        /// <param name="campaigns">Total number of campaigns in the account (required).</param>
+        /// <param name="activeCampaigns">Total number of active campaigns in the account (required).</param>
+        /// <param name="liveActiveCampaigns">Total number of active campaigns in live applications in the account (required).</param>
+        /// <param name="coupons">Total number of coupons in the account (required).</param>
+        /// <param name="activeCoupons">Total number of active coupons in the account (required).</param>
+        /// <param name="expiredCoupons">Total number of expired coupons in the account (required).</param>
+        /// <param name="referralCodes">Total number of referral codes in the account (required).</param>
+        /// <param name="activeReferralCodes">Total number of active referral codes in the account (required).</param>
+        /// <param name="expiredReferralCodes">Total number of expired referral codes in the account (required).</param>
+        /// <param name="activeRules">Total number of active rules in the account (required).</param>
+        /// <param name="users">Total number of users in the account (required).</param>
+        /// <param name="roles">Total number of roles in the account (required).</param>
+        /// <param name="customAttributes">Total number of custom attributes in the account (required).</param>
+        /// <param name="webhooks">Total number of webhooks in the account (required).</param>
+        /// <param name="loyaltyPrograms">Total number of loyalty programs in the account (required).</param>
+        public AccountAnalytics(int applications = default(int), int liveApplications = default(int), int sandboxApplications = default(int), int campaigns = default(int), int activeCampaigns = default(int), int liveActiveCampaigns = default(int), int coupons = default(int), int activeCoupons = default(int), int expiredCoupons = default(int), int referralCodes = default(int), int activeReferralCodes = default(int), int expiredReferralCodes = default(int), int activeRules = default(int), int users = default(int), int roles = default(int), int customAttributes = default(int), int webhooks = default(int), int loyaltyPrograms = default(int))
         {
             // to ensure "applications" is required (not null)
             if (applications == null)
@@ -65,6 +66,36 @@ namespace TalonOne.Model
             else
             {
                 this.Applications = applications;
+            }
+            
+            // to ensure "liveApplications" is required (not null)
+            if (liveApplications == null)
+            {
+                throw new InvalidDataException("liveApplications is a required property for AccountAnalytics and cannot be null");
+            }
+            else
+            {
+                this.LiveApplications = liveApplications;
+            }
+            
+            // to ensure "sandboxApplications" is required (not null)
+            if (sandboxApplications == null)
+            {
+                throw new InvalidDataException("sandboxApplications is a required property for AccountAnalytics and cannot be null");
+            }
+            else
+            {
+                this.SandboxApplications = sandboxApplications;
+            }
+            
+            // to ensure "campaigns" is required (not null)
+            if (campaigns == null)
+            {
+                throw new InvalidDataException("campaigns is a required property for AccountAnalytics and cannot be null");
+            }
+            else
+            {
+                this.Campaigns = campaigns;
             }
             
             // to ensure "activeCampaigns" is required (not null)
@@ -77,14 +108,14 @@ namespace TalonOne.Model
                 this.ActiveCampaigns = activeCampaigns;
             }
             
-            // to ensure "campaigns" is required (not null)
-            if (campaigns == null)
+            // to ensure "liveActiveCampaigns" is required (not null)
+            if (liveActiveCampaigns == null)
             {
-                throw new InvalidDataException("campaigns is a required property for AccountAnalytics and cannot be null");
+                throw new InvalidDataException("liveActiveCampaigns is a required property for AccountAnalytics and cannot be null");
             }
             else
             {
-                this.Campaigns = campaigns;
+                this.LiveActiveCampaigns = liveActiveCampaigns;
             }
             
             // to ensure "coupons" is required (not null)
@@ -117,16 +148,6 @@ namespace TalonOne.Model
                 this.ExpiredCoupons = expiredCoupons;
             }
             
-            // to ensure "customAttributes" is required (not null)
-            if (customAttributes == null)
-            {
-                throw new InvalidDataException("customAttributes is a required property for AccountAnalytics and cannot be null");
-            }
-            else
-            {
-                this.CustomAttributes = customAttributes;
-            }
-            
             // to ensure "referralCodes" is required (not null)
             if (referralCodes == null)
             {
@@ -157,6 +178,16 @@ namespace TalonOne.Model
                 this.ExpiredReferralCodes = expiredReferralCodes;
             }
             
+            // to ensure "activeRules" is required (not null)
+            if (activeRules == null)
+            {
+                throw new InvalidDataException("activeRules is a required property for AccountAnalytics and cannot be null");
+            }
+            else
+            {
+                this.ActiveRules = activeRules;
+            }
+            
             // to ensure "users" is required (not null)
             if (users == null)
             {
@@ -175,6 +206,16 @@ namespace TalonOne.Model
             else
             {
                 this.Roles = roles;
+            }
+            
+            // to ensure "customAttributes" is required (not null)
+            if (customAttributes == null)
+            {
+                throw new InvalidDataException("customAttributes is a required property for AccountAnalytics and cannot be null");
+            }
+            else
+            {
+                this.CustomAttributes = customAttributes;
             }
             
             // to ensure "webhooks" is required (not null)
@@ -197,156 +238,133 @@ namespace TalonOne.Model
                 this.LoyaltyPrograms = loyaltyPrograms;
             }
             
-            // to ensure "activeRules" is required (not null)
-            if (activeRules == null)
-            {
-                throw new InvalidDataException("activeRules is a required property for AccountAnalytics and cannot be null");
-            }
-            else
-            {
-                this.ActiveRules = activeRules;
-            }
-            
-            // to ensure "sandboxApplications" is required (not null)
-            if (sandboxApplications == null)
-            {
-                throw new InvalidDataException("sandboxApplications is a required property for AccountAnalytics and cannot be null");
-            }
-            else
-            {
-                this.SandboxApplications = sandboxApplications;
-            }
-            
-            // to ensure "liveApplications" is required (not null)
-            if (liveApplications == null)
-            {
-                throw new InvalidDataException("liveApplications is a required property for AccountAnalytics and cannot be null");
-            }
-            else
-            {
-                this.LiveApplications = liveApplications;
-            }
-            
         }
         
         /// <summary>
-        /// Total Number of Applications inside the account
+        /// Total number of applications in the account
         /// </summary>
-        /// <value>Total Number of Applications inside the account</value>
+        /// <value>Total number of applications in the account</value>
         [DataMember(Name="applications", EmitDefaultValue=false)]
         public int Applications { get; set; }
 
         /// <summary>
-        /// Total Number of Active Applications inside the account
+        /// Total number of live applications in the account
         /// </summary>
-        /// <value>Total Number of Active Applications inside the account</value>
-        [DataMember(Name="activeCampaigns", EmitDefaultValue=false)]
-        public int ActiveCampaigns { get; set; }
+        /// <value>Total number of live applications in the account</value>
+        [DataMember(Name="liveApplications", EmitDefaultValue=false)]
+        public int LiveApplications { get; set; }
 
         /// <summary>
-        /// Total Number of campaigns inside the account
+        /// Total number of sandbox applications in the account
         /// </summary>
-        /// <value>Total Number of campaigns inside the account</value>
-        [DataMember(Name="campaigns", EmitDefaultValue=false)]
-        public int Campaigns { get; set; }
-
-        /// <summary>
-        /// Total Number of coupons inside the account
-        /// </summary>
-        /// <value>Total Number of coupons inside the account</value>
-        [DataMember(Name="coupons", EmitDefaultValue=false)]
-        public int Coupons { get; set; }
-
-        /// <summary>
-        /// Total Number of active coupons inside the account
-        /// </summary>
-        /// <value>Total Number of active coupons inside the account</value>
-        [DataMember(Name="activeCoupons", EmitDefaultValue=false)]
-        public int ActiveCoupons { get; set; }
-
-        /// <summary>
-        /// Total Number of expired coupons inside the account
-        /// </summary>
-        /// <value>Total Number of expired coupons inside the account</value>
-        [DataMember(Name="expiredCoupons", EmitDefaultValue=false)]
-        public int ExpiredCoupons { get; set; }
-
-        /// <summary>
-        /// Total Number of custom attributes inside the account
-        /// </summary>
-        /// <value>Total Number of custom attributes inside the account</value>
-        [DataMember(Name="customAttributes", EmitDefaultValue=false)]
-        public int CustomAttributes { get; set; }
-
-        /// <summary>
-        /// Total Number of referral codes inside the account
-        /// </summary>
-        /// <value>Total Number of referral codes inside the account</value>
-        [DataMember(Name="referralCodes", EmitDefaultValue=false)]
-        public int ReferralCodes { get; set; }
-
-        /// <summary>
-        /// Total Number of active referral codes inside the account
-        /// </summary>
-        /// <value>Total Number of active referral codes inside the account</value>
-        [DataMember(Name="activeReferralCodes", EmitDefaultValue=false)]
-        public int ActiveReferralCodes { get; set; }
-
-        /// <summary>
-        /// Total Number of expired referral codes inside the account
-        /// </summary>
-        /// <value>Total Number of expired referral codes inside the account</value>
-        [DataMember(Name="expiredReferralCodes", EmitDefaultValue=false)]
-        public int ExpiredReferralCodes { get; set; }
-
-        /// <summary>
-        /// Total Number of users inside the account
-        /// </summary>
-        /// <value>Total Number of users inside the account</value>
-        [DataMember(Name="users", EmitDefaultValue=false)]
-        public int Users { get; set; }
-
-        /// <summary>
-        /// Total Number of roles inside the account
-        /// </summary>
-        /// <value>Total Number of roles inside the account</value>
-        [DataMember(Name="roles", EmitDefaultValue=false)]
-        public int Roles { get; set; }
-
-        /// <summary>
-        /// Total Number of webhooks inside the account
-        /// </summary>
-        /// <value>Total Number of webhooks inside the account</value>
-        [DataMember(Name="webhooks", EmitDefaultValue=false)]
-        public int Webhooks { get; set; }
-
-        /// <summary>
-        /// Total Number of loyalty programs inside the account
-        /// </summary>
-        /// <value>Total Number of loyalty programs inside the account</value>
-        [DataMember(Name="loyaltyPrograms", EmitDefaultValue=false)]
-        public int LoyaltyPrograms { get; set; }
-
-        /// <summary>
-        /// Total Number of active rules in the account
-        /// </summary>
-        /// <value>Total Number of active rules in the account</value>
-        [DataMember(Name="activeRules", EmitDefaultValue=false)]
-        public int ActiveRules { get; set; }
-
-        /// <summary>
-        /// Total Number of sandbox applications in the account
-        /// </summary>
-        /// <value>Total Number of sandbox applications in the account</value>
+        /// <value>Total number of sandbox applications in the account</value>
         [DataMember(Name="sandboxApplications", EmitDefaultValue=false)]
         public int SandboxApplications { get; set; }
 
         /// <summary>
-        /// Total Number of live applications in the account
+        /// Total number of campaigns in the account
         /// </summary>
-        /// <value>Total Number of live applications in the account</value>
-        [DataMember(Name="liveApplications", EmitDefaultValue=false)]
-        public int LiveApplications { get; set; }
+        /// <value>Total number of campaigns in the account</value>
+        [DataMember(Name="campaigns", EmitDefaultValue=false)]
+        public int Campaigns { get; set; }
+
+        /// <summary>
+        /// Total number of active campaigns in the account
+        /// </summary>
+        /// <value>Total number of active campaigns in the account</value>
+        [DataMember(Name="activeCampaigns", EmitDefaultValue=false)]
+        public int ActiveCampaigns { get; set; }
+
+        /// <summary>
+        /// Total number of active campaigns in live applications in the account
+        /// </summary>
+        /// <value>Total number of active campaigns in live applications in the account</value>
+        [DataMember(Name="liveActiveCampaigns", EmitDefaultValue=false)]
+        public int LiveActiveCampaigns { get; set; }
+
+        /// <summary>
+        /// Total number of coupons in the account
+        /// </summary>
+        /// <value>Total number of coupons in the account</value>
+        [DataMember(Name="coupons", EmitDefaultValue=false)]
+        public int Coupons { get; set; }
+
+        /// <summary>
+        /// Total number of active coupons in the account
+        /// </summary>
+        /// <value>Total number of active coupons in the account</value>
+        [DataMember(Name="activeCoupons", EmitDefaultValue=false)]
+        public int ActiveCoupons { get; set; }
+
+        /// <summary>
+        /// Total number of expired coupons in the account
+        /// </summary>
+        /// <value>Total number of expired coupons in the account</value>
+        [DataMember(Name="expiredCoupons", EmitDefaultValue=false)]
+        public int ExpiredCoupons { get; set; }
+
+        /// <summary>
+        /// Total number of referral codes in the account
+        /// </summary>
+        /// <value>Total number of referral codes in the account</value>
+        [DataMember(Name="referralCodes", EmitDefaultValue=false)]
+        public int ReferralCodes { get; set; }
+
+        /// <summary>
+        /// Total number of active referral codes in the account
+        /// </summary>
+        /// <value>Total number of active referral codes in the account</value>
+        [DataMember(Name="activeReferralCodes", EmitDefaultValue=false)]
+        public int ActiveReferralCodes { get; set; }
+
+        /// <summary>
+        /// Total number of expired referral codes in the account
+        /// </summary>
+        /// <value>Total number of expired referral codes in the account</value>
+        [DataMember(Name="expiredReferralCodes", EmitDefaultValue=false)]
+        public int ExpiredReferralCodes { get; set; }
+
+        /// <summary>
+        /// Total number of active rules in the account
+        /// </summary>
+        /// <value>Total number of active rules in the account</value>
+        [DataMember(Name="activeRules", EmitDefaultValue=false)]
+        public int ActiveRules { get; set; }
+
+        /// <summary>
+        /// Total number of users in the account
+        /// </summary>
+        /// <value>Total number of users in the account</value>
+        [DataMember(Name="users", EmitDefaultValue=false)]
+        public int Users { get; set; }
+
+        /// <summary>
+        /// Total number of roles in the account
+        /// </summary>
+        /// <value>Total number of roles in the account</value>
+        [DataMember(Name="roles", EmitDefaultValue=false)]
+        public int Roles { get; set; }
+
+        /// <summary>
+        /// Total number of custom attributes in the account
+        /// </summary>
+        /// <value>Total number of custom attributes in the account</value>
+        [DataMember(Name="customAttributes", EmitDefaultValue=false)]
+        public int CustomAttributes { get; set; }
+
+        /// <summary>
+        /// Total number of webhooks in the account
+        /// </summary>
+        /// <value>Total number of webhooks in the account</value>
+        [DataMember(Name="webhooks", EmitDefaultValue=false)]
+        public int Webhooks { get; set; }
+
+        /// <summary>
+        /// Total number of loyalty programs in the account
+        /// </summary>
+        /// <value>Total number of loyalty programs in the account</value>
+        [DataMember(Name="loyaltyPrograms", EmitDefaultValue=false)]
+        public int LoyaltyPrograms { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -357,22 +375,23 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class AccountAnalytics {\n");
             sb.Append("  Applications: ").Append(Applications).Append("\n");
-            sb.Append("  ActiveCampaigns: ").Append(ActiveCampaigns).Append("\n");
+            sb.Append("  LiveApplications: ").Append(LiveApplications).Append("\n");
+            sb.Append("  SandboxApplications: ").Append(SandboxApplications).Append("\n");
             sb.Append("  Campaigns: ").Append(Campaigns).Append("\n");
+            sb.Append("  ActiveCampaigns: ").Append(ActiveCampaigns).Append("\n");
+            sb.Append("  LiveActiveCampaigns: ").Append(LiveActiveCampaigns).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("  ActiveCoupons: ").Append(ActiveCoupons).Append("\n");
             sb.Append("  ExpiredCoupons: ").Append(ExpiredCoupons).Append("\n");
-            sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
             sb.Append("  ReferralCodes: ").Append(ReferralCodes).Append("\n");
             sb.Append("  ActiveReferralCodes: ").Append(ActiveReferralCodes).Append("\n");
             sb.Append("  ExpiredReferralCodes: ").Append(ExpiredReferralCodes).Append("\n");
+            sb.Append("  ActiveRules: ").Append(ActiveRules).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
+            sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
             sb.Append("  Webhooks: ").Append(Webhooks).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
-            sb.Append("  ActiveRules: ").Append(ActiveRules).Append("\n");
-            sb.Append("  SandboxApplications: ").Append(SandboxApplications).Append("\n");
-            sb.Append("  LiveApplications: ").Append(LiveApplications).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -413,14 +432,29 @@ namespace TalonOne.Model
                     this.Applications.Equals(input.Applications))
                 ) && 
                 (
-                    this.ActiveCampaigns == input.ActiveCampaigns ||
-                    (this.ActiveCampaigns != null &&
-                    this.ActiveCampaigns.Equals(input.ActiveCampaigns))
+                    this.LiveApplications == input.LiveApplications ||
+                    (this.LiveApplications != null &&
+                    this.LiveApplications.Equals(input.LiveApplications))
+                ) && 
+                (
+                    this.SandboxApplications == input.SandboxApplications ||
+                    (this.SandboxApplications != null &&
+                    this.SandboxApplications.Equals(input.SandboxApplications))
                 ) && 
                 (
                     this.Campaigns == input.Campaigns ||
                     (this.Campaigns != null &&
                     this.Campaigns.Equals(input.Campaigns))
+                ) && 
+                (
+                    this.ActiveCampaigns == input.ActiveCampaigns ||
+                    (this.ActiveCampaigns != null &&
+                    this.ActiveCampaigns.Equals(input.ActiveCampaigns))
+                ) && 
+                (
+                    this.LiveActiveCampaigns == input.LiveActiveCampaigns ||
+                    (this.LiveActiveCampaigns != null &&
+                    this.LiveActiveCampaigns.Equals(input.LiveActiveCampaigns))
                 ) && 
                 (
                     this.Coupons == input.Coupons ||
@@ -438,11 +472,6 @@ namespace TalonOne.Model
                     this.ExpiredCoupons.Equals(input.ExpiredCoupons))
                 ) && 
                 (
-                    this.CustomAttributes == input.CustomAttributes ||
-                    (this.CustomAttributes != null &&
-                    this.CustomAttributes.Equals(input.CustomAttributes))
-                ) && 
-                (
                     this.ReferralCodes == input.ReferralCodes ||
                     (this.ReferralCodes != null &&
                     this.ReferralCodes.Equals(input.ReferralCodes))
@@ -458,6 +487,11 @@ namespace TalonOne.Model
                     this.ExpiredReferralCodes.Equals(input.ExpiredReferralCodes))
                 ) && 
                 (
+                    this.ActiveRules == input.ActiveRules ||
+                    (this.ActiveRules != null &&
+                    this.ActiveRules.Equals(input.ActiveRules))
+                ) && 
+                (
                     this.Users == input.Users ||
                     (this.Users != null &&
                     this.Users.Equals(input.Users))
@@ -468,6 +502,11 @@ namespace TalonOne.Model
                     this.Roles.Equals(input.Roles))
                 ) && 
                 (
+                    this.CustomAttributes == input.CustomAttributes ||
+                    (this.CustomAttributes != null &&
+                    this.CustomAttributes.Equals(input.CustomAttributes))
+                ) && 
+                (
                     this.Webhooks == input.Webhooks ||
                     (this.Webhooks != null &&
                     this.Webhooks.Equals(input.Webhooks))
@@ -476,21 +515,6 @@ namespace TalonOne.Model
                     this.LoyaltyPrograms == input.LoyaltyPrograms ||
                     (this.LoyaltyPrograms != null &&
                     this.LoyaltyPrograms.Equals(input.LoyaltyPrograms))
-                ) && 
-                (
-                    this.ActiveRules == input.ActiveRules ||
-                    (this.ActiveRules != null &&
-                    this.ActiveRules.Equals(input.ActiveRules))
-                ) && 
-                (
-                    this.SandboxApplications == input.SandboxApplications ||
-                    (this.SandboxApplications != null &&
-                    this.SandboxApplications.Equals(input.SandboxApplications))
-                ) && 
-                (
-                    this.LiveApplications == input.LiveApplications ||
-                    (this.LiveApplications != null &&
-                    this.LiveApplications.Equals(input.LiveApplications))
                 );
         }
 
@@ -505,38 +529,40 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Applications != null)
                     hashCode = hashCode * 59 + this.Applications.GetHashCode();
-                if (this.ActiveCampaigns != null)
-                    hashCode = hashCode * 59 + this.ActiveCampaigns.GetHashCode();
+                if (this.LiveApplications != null)
+                    hashCode = hashCode * 59 + this.LiveApplications.GetHashCode();
+                if (this.SandboxApplications != null)
+                    hashCode = hashCode * 59 + this.SandboxApplications.GetHashCode();
                 if (this.Campaigns != null)
                     hashCode = hashCode * 59 + this.Campaigns.GetHashCode();
+                if (this.ActiveCampaigns != null)
+                    hashCode = hashCode * 59 + this.ActiveCampaigns.GetHashCode();
+                if (this.LiveActiveCampaigns != null)
+                    hashCode = hashCode * 59 + this.LiveActiveCampaigns.GetHashCode();
                 if (this.Coupons != null)
                     hashCode = hashCode * 59 + this.Coupons.GetHashCode();
                 if (this.ActiveCoupons != null)
                     hashCode = hashCode * 59 + this.ActiveCoupons.GetHashCode();
                 if (this.ExpiredCoupons != null)
                     hashCode = hashCode * 59 + this.ExpiredCoupons.GetHashCode();
-                if (this.CustomAttributes != null)
-                    hashCode = hashCode * 59 + this.CustomAttributes.GetHashCode();
                 if (this.ReferralCodes != null)
                     hashCode = hashCode * 59 + this.ReferralCodes.GetHashCode();
                 if (this.ActiveReferralCodes != null)
                     hashCode = hashCode * 59 + this.ActiveReferralCodes.GetHashCode();
                 if (this.ExpiredReferralCodes != null)
                     hashCode = hashCode * 59 + this.ExpiredReferralCodes.GetHashCode();
+                if (this.ActiveRules != null)
+                    hashCode = hashCode * 59 + this.ActiveRules.GetHashCode();
                 if (this.Users != null)
                     hashCode = hashCode * 59 + this.Users.GetHashCode();
                 if (this.Roles != null)
                     hashCode = hashCode * 59 + this.Roles.GetHashCode();
+                if (this.CustomAttributes != null)
+                    hashCode = hashCode * 59 + this.CustomAttributes.GetHashCode();
                 if (this.Webhooks != null)
                     hashCode = hashCode * 59 + this.Webhooks.GetHashCode();
                 if (this.LoyaltyPrograms != null)
                     hashCode = hashCode * 59 + this.LoyaltyPrograms.GetHashCode();
-                if (this.ActiveRules != null)
-                    hashCode = hashCode * 59 + this.ActiveRules.GetHashCode();
-                if (this.SandboxApplications != null)
-                    hashCode = hashCode * 59 + this.SandboxApplications.GetHashCode();
-                if (this.LiveApplications != null)
-                    hashCode = hashCode * 59 + this.LiveApplications.GetHashCode();
                 return hashCode;
             }
         }

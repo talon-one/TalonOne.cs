@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IntegrationId** | **string** | The ID used for this entity in the application system. | 
+**IntegrationId** | **string** | The integration ID for this entity sent to and used in the Talon.One system. | 
 **Created** | **DateTime** | The exact moment this entity was created. | 
 **ApplicationId** | **int** | The ID of the application that owns this entity. | 
 **ProfileId** | **string** | ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID. | 

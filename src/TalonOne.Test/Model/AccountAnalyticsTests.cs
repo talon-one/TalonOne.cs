@@ -74,12 +74,20 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Applications'
         }
         /// <summary>
-        /// Test the property 'ActiveCampaigns'
+        /// Test the property 'LiveApplications'
         /// </summary>
         [Test]
-        public void ActiveCampaignsTest()
+        public void LiveApplicationsTest()
         {
-            // TODO unit test for the property 'ActiveCampaigns'
+            // TODO unit test for the property 'LiveApplications'
+        }
+        /// <summary>
+        /// Test the property 'SandboxApplications'
+        /// </summary>
+        [Test]
+        public void SandboxApplicationsTest()
+        {
+            // TODO unit test for the property 'SandboxApplications'
         }
         /// <summary>
         /// Test the property 'Campaigns'
@@ -88,6 +96,22 @@ namespace TalonOne.Test
         public void CampaignsTest()
         {
             // TODO unit test for the property 'Campaigns'
+        }
+        /// <summary>
+        /// Test the property 'ActiveCampaigns'
+        /// </summary>
+        [Test]
+        public void ActiveCampaignsTest()
+        {
+            // TODO unit test for the property 'ActiveCampaigns'
+        }
+        /// <summary>
+        /// Test the property 'LiveActiveCampaigns'
+        /// </summary>
+        [Test]
+        public void LiveActiveCampaignsTest()
+        {
+            // TODO unit test for the property 'LiveActiveCampaigns'
         }
         /// <summary>
         /// Test the property 'Coupons'
@@ -114,14 +138,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ExpiredCoupons'
         }
         /// <summary>
-        /// Test the property 'CustomAttributes'
-        /// </summary>
-        [Test]
-        public void CustomAttributesTest()
-        {
-            // TODO unit test for the property 'CustomAttributes'
-        }
-        /// <summary>
         /// Test the property 'ReferralCodes'
         /// </summary>
         [Test]
@@ -146,6 +162,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ExpiredReferralCodes'
         }
         /// <summary>
+        /// Test the property 'ActiveRules'
+        /// </summary>
+        [Test]
+        public void ActiveRulesTest()
+        {
+            // TODO unit test for the property 'ActiveRules'
+        }
+        /// <summary>
         /// Test the property 'Users'
         /// </summary>
         [Test]
@@ -162,6 +186,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Roles'
         }
         /// <summary>
+        /// Test the property 'CustomAttributes'
+        /// </summary>
+        [Test]
+        public void CustomAttributesTest()
+        {
+            // TODO unit test for the property 'CustomAttributes'
+        }
+        /// <summary>
         /// Test the property 'Webhooks'
         /// </summary>
         [Test]
@@ -176,30 +208,6 @@ namespace TalonOne.Test
         public void LoyaltyProgramsTest()
         {
             // TODO unit test for the property 'LoyaltyPrograms'
-        }
-        /// <summary>
-        /// Test the property 'ActiveRules'
-        /// </summary>
-        [Test]
-        public void ActiveRulesTest()
-        {
-            // TODO unit test for the property 'ActiveRules'
-        }
-        /// <summary>
-        /// Test the property 'SandboxApplications'
-        /// </summary>
-        [Test]
-        public void SandboxApplicationsTest()
-        {
-            // TODO unit test for the property 'SandboxApplications'
-        }
-        /// <summary>
-        /// Test the property 'LiveApplications'
-        /// </summary>
-        [Test]
-        public void LiveApplicationsTest()
-        {
-            // TODO unit test for the property 'LiveApplications'
         }
 
     }

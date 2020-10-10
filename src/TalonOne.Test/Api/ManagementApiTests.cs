@@ -427,7 +427,11 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
-            //var response = instance.GetApplicationCustomers(applicationId);
+            //string integrationId = null;
+            //int pageSize = null;
+            //int skip = null;
+            //bool withTotalResultSize = null;
+            //var response = instance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
             //Assert.IsInstanceOf(typeof(InlineResponse20012), response, "response is InlineResponse20012");
         }
         
@@ -536,11 +540,12 @@ namespace TalonOne.Test
             //string sort = null;
             //string profile = null;
             //string state = null;
+            //DateTime createdBefore = null;
+            //DateTime createdAfter = null;
             //string coupon = null;
             //string referral = null;
             //string integrationId = null;
-            //string customerId = null;
-            //var response = instance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, coupon, referral, integrationId, customerId);
+            //var response = instance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
             //Assert.IsInstanceOf(typeof(InlineResponse20016), response, "response is InlineResponse20016");
         }
         
@@ -970,6 +975,18 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetLoyaltyPrograms();
             //Assert.IsInstanceOf(typeof(InlineResponse2008), response, "response is InlineResponse2008");
+        }
+        
+        /// <summary>
+        /// Test GetLoyaltyStatistics
+        /// </summary>
+        [Test]
+        public void GetLoyaltyStatisticsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string programID = null;
+            //var response = instance.GetLoyaltyStatistics(programID);
+            //Assert.IsInstanceOf(typeof(LoyaltyStatistics), response, "response is LoyaltyStatistics");
         }
         
         /// <summary>
