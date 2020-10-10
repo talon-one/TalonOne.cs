@@ -81,7 +81,7 @@ namespace TalonOne.Model
         /// Name of the role
         /// </summary>
         /// <value>Name of the role</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -95,14 +95,14 @@ namespace TalonOne.Model
         /// Role Policy this should be a stringified blob of json
         /// </summary>
         /// <value>Role Policy this should be a stringified blob of json</value>
-        [DataMember(Name="acl", EmitDefaultValue=false)]
+        [DataMember(Name="acl", EmitDefaultValue=true)]
         public string Acl { get; set; }
 
         /// <summary>
         /// An array of userIDs
         /// </summary>
         /// <value>An array of userIDs</value>
-        [DataMember(Name="users", EmitDefaultValue=false)]
+        [DataMember(Name="users", EmitDefaultValue=true)]
         public List<int> Users { get; set; }
 
         /// <summary>

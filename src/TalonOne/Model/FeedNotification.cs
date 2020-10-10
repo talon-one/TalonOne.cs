@@ -73,7 +73,7 @@ namespace TalonOne.Model
         /// The type of the feed notification
         /// </summary>
         /// <value>The type of the feed notification</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public TypeEnum Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FeedNotification" /> class.
@@ -157,28 +157,28 @@ namespace TalonOne.Model
         /// Title of the feed notification
         /// </summary>
         /// <value>Title of the feed notification</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Timestamp of the moment this feed notification was created
         /// </summary>
         /// <value>Timestamp of the moment this feed notification was created</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// Timestamp of the moment this feed notification was last updated
         /// </summary>
         /// <value>Timestamp of the moment this feed notification was last updated</value>
-        [DataMember(Name="updated", EmitDefaultValue=false)]
+        [DataMember(Name="updated", EmitDefaultValue=true)]
         public DateTime Updated { get; set; }
 
         /// <summary>
         /// URL to the feed notification in the help center
         /// </summary>
         /// <value>URL to the feed notification in the help center</value>
-        [DataMember(Name="articleUrl", EmitDefaultValue=false)]
+        [DataMember(Name="articleUrl", EmitDefaultValue=true)]
         public string ArticleUrl { get; set; }
 
 
@@ -186,7 +186,7 @@ namespace TalonOne.Model
         /// Body of the feed notification
         /// </summary>
         /// <value>Body of the feed notification</value>
-        [DataMember(Name="body", EmitDefaultValue=false)]
+        [DataMember(Name="body", EmitDefaultValue=true)]
         public string Body { get; set; }
 
         /// <summary>

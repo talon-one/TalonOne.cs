@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The ID of the application that owns this entity.
         /// </summary>
         /// <value>The ID of the application that owns this entity.</value>
-        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        [DataMember(Name="applicationId", EmitDefaultValue=true)]
         public int ApplicationId { get; set; }
 
         /// <summary>

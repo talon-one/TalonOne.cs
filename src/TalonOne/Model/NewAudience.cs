@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// Integration that this audience was created in.
         /// </summary>
         /// <value>Integration that this audience was created in.</value>
-        [DataMember(Name="integration", EmitDefaultValue=false)]
+        [DataMember(Name="integration", EmitDefaultValue=true)]
         public IntegrationEnum Integration { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="NewAudience" /> class.
@@ -100,7 +100,7 @@ namespace TalonOne.Model
         /// The human-friendly display name for this Audience.
         /// </summary>
         /// <value>The human-friendly display name for this Audience.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
 
@@ -108,7 +108,7 @@ namespace TalonOne.Model
         /// The ID of this Audience in the third-party integration
         /// </summary>
         /// <value>The ID of this Audience in the third-party integration</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        [DataMember(Name="integrationId", EmitDefaultValue=true)]
         public string IntegrationId { get; set; }
 
         /// <summary>
@@ -199,18 +199,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
+            
 
             // IntegrationId (string) minLength
             if(this.IntegrationId != null && this.IntegrationId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationId, length must be greater than 1.", new [] { "IntegrationId" });
             }
-
+            
             yield break;
         }
     }

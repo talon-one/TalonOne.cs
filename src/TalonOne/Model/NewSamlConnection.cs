@@ -118,42 +118,42 @@ namespace TalonOne.Model
         /// X.509 Certificate.
         /// </summary>
         /// <value>X.509 Certificate.</value>
-        [DataMember(Name="x509certificate", EmitDefaultValue=false)]
+        [DataMember(Name="x509certificate", EmitDefaultValue=true)]
         public string X509certificate { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public int AccountId { get; set; }
 
         /// <summary>
         /// ID of the SAML service.
         /// </summary>
         /// <value>ID of the SAML service.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Determines if this SAML connection active.
         /// </summary>
         /// <value>Determines if this SAML connection active.</value>
-        [DataMember(Name="enabled", EmitDefaultValue=false)]
+        [DataMember(Name="enabled", EmitDefaultValue=true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Identity Provider Entity ID.
         /// </summary>
         /// <value>Identity Provider Entity ID.</value>
-        [DataMember(Name="issuer", EmitDefaultValue=false)]
+        [DataMember(Name="issuer", EmitDefaultValue=true)]
         public string Issuer { get; set; }
 
         /// <summary>
         /// Single Sign-On URL.
         /// </summary>
         /// <value>Single Sign-On URL.</value>
-        [DataMember(Name="signOnURL", EmitDefaultValue=false)]
+        [DataMember(Name="signOnURL", EmitDefaultValue=true)]
         public string SignOnURL { get; set; }
 
         /// <summary>
@@ -313,30 +313,34 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // X509certificate (string) minLength
             if(this.X509certificate != null && this.X509certificate.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for X509certificate, length must be greater than 1.", new [] { "X509certificate" });
             }
+            
 
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
+            
 
             // Issuer (string) minLength
             if(this.Issuer != null && this.Issuer.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Issuer, length must be greater than 1.", new [] { "Issuer" });
             }
+            
 
             // SignOnURL (string) minLength
             if(this.SignOnURL != null && this.SignOnURL.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SignOnURL, length must be greater than 1.", new [] { "SignOnURL" });
             }
-
+            
             yield break;
         }
     }

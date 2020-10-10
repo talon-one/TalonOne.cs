@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The IDs of the applications that are related to this entity.
         /// </summary>
         /// <value>The IDs of the applications that are related to this entity.</value>
-        [DataMember(Name="applicationIds", EmitDefaultValue=false)]
+        [DataMember(Name="applicationIds", EmitDefaultValue=true)]
         public List<int> ApplicationIds { get; set; }
 
         /// <summary>

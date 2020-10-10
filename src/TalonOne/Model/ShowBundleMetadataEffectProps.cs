@@ -79,21 +79,21 @@ namespace TalonOne.Model
         /// Description of the product bundle
         /// </summary>
         /// <value>Description of the product bundle</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>
         /// The cart item attributes that determined which items are being bundled together
         /// </summary>
         /// <value>The cart item attributes that determined which items are being bundled together</value>
-        [DataMember(Name="bundleAttributes", EmitDefaultValue=false)]
+        [DataMember(Name="bundleAttributes", EmitDefaultValue=true)]
         public List<string> BundleAttributes { get; set; }
 
         /// <summary>
         /// The indices in the cart items array of the bundled items
         /// </summary>
         /// <value>The indices in the cart items array of the bundled items</value>
-        [DataMember(Name="itemsIndices", EmitDefaultValue=false)]
+        [DataMember(Name="itemsIndices", EmitDefaultValue=true)]
         public List<decimal> ItemsIndices { get; set; }
 
         /// <summary>

@@ -129,28 +129,28 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// ID of the campaign from which the referral received the referral code.
         /// </summary>
         /// <value>ID of the campaign from which the referral received the referral code.</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        [DataMember(Name="campaignId", EmitDefaultValue=true)]
         public int CampaignId { get; set; }
 
         /// <summary>
         /// The Integration Id of the Advocate&#39;s Profile
         /// </summary>
         /// <value>The Integration Id of the Advocate&#39;s Profile</value>
-        [DataMember(Name="advocateProfileIntegrationId", EmitDefaultValue=false)]
+        [DataMember(Name="advocateProfileIntegrationId", EmitDefaultValue=true)]
         public string AdvocateProfileIntegrationId { get; set; }
 
         /// <summary>
@@ -178,21 +178,21 @@ namespace TalonOne.Model
         /// The actual referral code.
         /// </summary>
         /// <value>The actual referral code.</value>
-        [DataMember(Name="code", EmitDefaultValue=false)]
+        [DataMember(Name="code", EmitDefaultValue=true)]
         public string Code { get; set; }
 
         /// <summary>
         /// The number of times this referral code has been successfully used.
         /// </summary>
         /// <value>The number of times this referral code has been successfully used.</value>
-        [DataMember(Name="usageCounter", EmitDefaultValue=false)]
+        [DataMember(Name="usageCounter", EmitDefaultValue=true)]
         public int UsageCounter { get; set; }
 
         /// <summary>
         /// The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. 
         /// </summary>
         /// <value>The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. </value>
-        [DataMember(Name="usageLimit", EmitDefaultValue=false)]
+        [DataMember(Name="usageLimit", EmitDefaultValue=true)]
         public int UsageLimit { get; set; }
 
         /// <summary>
@@ -339,12 +339,15 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Code (string) minLength
             if(this.Code != null && this.Code.Length < 4)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 4.", new [] { "Code" });
             }
+            
 
+            
             // UsageLimit (int) minimum
             if(this.UsageLimit < (int)0)
             {

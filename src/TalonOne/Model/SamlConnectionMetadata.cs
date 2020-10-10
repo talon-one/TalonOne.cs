@@ -90,27 +90,27 @@ namespace TalonOne.Model
         /// ID of the SAML service.
         /// </summary>
         /// <value>ID of the SAML service.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Determines if this SAML connection active.
         /// </summary>
         /// <value>Determines if this SAML connection active.</value>
-        [DataMember(Name="enabled", EmitDefaultValue=false)]
+        [DataMember(Name="enabled", EmitDefaultValue=true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Gets or Sets AccountId
         /// </summary>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public decimal AccountId { get; set; }
 
         /// <summary>
         /// Identity Provider metadata XML document.
         /// </summary>
         /// <value>Identity Provider metadata XML document.</value>
-        [DataMember(Name="metadataDocument", EmitDefaultValue=false)]
+        [DataMember(Name="metadataDocument", EmitDefaultValue=true)]
         public string MetadataDocument { get; set; }
 
         /// <summary>
@@ -209,18 +209,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
+            
 
             // MetadataDocument (string) minLength
             if(this.MetadataDocument != null && this.MetadataDocument.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MetadataDocument, length must be greater than 1.", new [] { "MetadataDocument" });
             }
-
+            
             yield break;
         }
     }

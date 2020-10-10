@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The referral code that was created
         /// </summary>
         /// <value>The referral code that was created</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public string Value { get; set; }
 
         /// <summary>

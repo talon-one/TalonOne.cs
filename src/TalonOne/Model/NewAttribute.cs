@@ -91,7 +91,7 @@ namespace TalonOne.Model
         /// The name of the entity that can have this attribute. When creating or updating the entities of a given type, you can include an &#x60;attributes&#x60; object with keys corresponding to the &#x60;name&#x60; of the custom attributes for that type.
         /// </summary>
         /// <value>The name of the entity that can have this attribute. When creating or updating the entities of a given type, you can include an &#x60;attributes&#x60; object with keys corresponding to the &#x60;name&#x60; of the custom attributes for that type.</value>
-        [DataMember(Name="entity", EmitDefaultValue=false)]
+        [DataMember(Name="entity", EmitDefaultValue=true)]
         public EntityEnum Entity { get; set; }
         /// <summary>
         /// The data type of the attribute, a &#x60;time&#x60; attribute must be sent as a string that conforms to the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp format.
@@ -160,7 +160,7 @@ namespace TalonOne.Model
         /// The data type of the attribute, a &#x60;time&#x60; attribute must be sent as a string that conforms to the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp format.
         /// </summary>
         /// <value>The data type of the attribute, a &#x60;time&#x60; attribute must be sent as a string that conforms to the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp format.</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public TypeEnum Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="NewAttribute" /> class.
@@ -266,14 +266,14 @@ namespace TalonOne.Model
         /// The attribute name that will be used in API requests and Talang. E.g. if &#x60;name &#x3D;&#x3D; \&quot;region\&quot;&#x60; then you would set the region attribute by including an &#x60;attributes.region&#x60; property in your request payload.
         /// </summary>
         /// <value>The attribute name that will be used in API requests and Talang. E.g. if &#x60;name &#x3D;&#x3D; \&quot;region\&quot;&#x60; then you would set the region attribute by including an &#x60;attributes.region&#x60; property in your request payload.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The human-readable name for the attribute that will be shown in the Campaign Manager. Like &#x60;name&#x60;, the combination of entity and title must also be unique.
         /// </summary>
         /// <value>The human-readable name for the attribute that will be shown in the Campaign Manager. Like &#x60;name&#x60;, the combination of entity and title must also be unique.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
 
@@ -281,21 +281,21 @@ namespace TalonOne.Model
         /// A description of this attribute.
         /// </summary>
         /// <value>A description of this attribute.</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>
         /// A list of suggestions for the attribute.
         /// </summary>
         /// <value>A list of suggestions for the attribute.</value>
-        [DataMember(Name="suggestions", EmitDefaultValue=false)]
+        [DataMember(Name="suggestions", EmitDefaultValue=true)]
         public List<string> Suggestions { get; set; }
 
         /// <summary>
         /// Whether or not this attribute can be edited.
         /// </summary>
         /// <value>Whether or not this attribute can be edited.</value>
-        [DataMember(Name="editable", EmitDefaultValue=false)]
+        [DataMember(Name="editable", EmitDefaultValue=true)]
         public bool Editable { get; set; }
 
         /// <summary>

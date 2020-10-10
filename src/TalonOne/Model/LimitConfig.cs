@@ -73,7 +73,7 @@ namespace TalonOne.Model
         /// The limitable action to which this limit will be applied
         /// </summary>
         /// <value>The limitable action to which this limit will be applied</value>
-        [DataMember(Name="action", EmitDefaultValue=false)]
+        [DataMember(Name="action", EmitDefaultValue=true)]
         public ActionEnum Action { get; set; }
         /// <summary>
         /// Defines Entities
@@ -112,7 +112,7 @@ namespace TalonOne.Model
         /// The entities that make the address of this limit
         /// </summary>
         /// <value>The entities that make the address of this limit</value>
-        [DataMember(Name="entities", EmitDefaultValue=false)]
+        [DataMember(Name="entities", EmitDefaultValue=true)]
         public List<EntitiesEnum> Entities { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="LimitConfig" /> class.
@@ -164,7 +164,7 @@ namespace TalonOne.Model
         /// The value to set for the limit
         /// </summary>
         /// <value>The value to set for the limit</value>
-        [DataMember(Name="limit", EmitDefaultValue=false)]
+        [DataMember(Name="limit", EmitDefaultValue=true)]
         public decimal Limit { get; set; }
 
 
@@ -257,6 +257,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+            
             // Limit (decimal) minimum
             if(this.Limit < (decimal)0)
             {

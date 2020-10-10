@@ -74,7 +74,7 @@ namespace TalonOne.Model
         /// Application IDs of the applications to which a campaign should be copied to
         /// </summary>
         /// <value>Application IDs of the applications to which a campaign should be copied to</value>
-        [DataMember(Name="applicationIds", EmitDefaultValue=false)]
+        [DataMember(Name="applicationIds", EmitDefaultValue=true)]
         public List<int> ApplicationIds { get; set; }
 
         /// <summary>

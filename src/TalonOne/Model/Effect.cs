@@ -112,41 +112,41 @@ namespace TalonOne.Model
         /// The ID of the campaign that triggered this effect
         /// </summary>
         /// <value>The ID of the campaign that triggered this effect</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        [DataMember(Name="campaignId", EmitDefaultValue=true)]
         public int CampaignId { get; set; }
 
         /// <summary>
         /// The ID of the ruleset that was active in the campaign when this effect was triggered
         /// </summary>
         /// <value>The ID of the ruleset that was active in the campaign when this effect was triggered</value>
-        [DataMember(Name="rulesetId", EmitDefaultValue=false)]
+        [DataMember(Name="rulesetId", EmitDefaultValue=true)]
         public int RulesetId { get; set; }
 
         /// <summary>
         /// The position of the rule that triggered this effect within the ruleset
         /// </summary>
         /// <value>The position of the rule that triggered this effect within the ruleset</value>
-        [DataMember(Name="ruleIndex", EmitDefaultValue=false)]
+        [DataMember(Name="ruleIndex", EmitDefaultValue=true)]
         public int RuleIndex { get; set; }
 
         /// <summary>
         /// The name of the rule that triggered this effect
         /// </summary>
         /// <value>The name of the rule that triggered this effect</value>
-        [DataMember(Name="ruleName", EmitDefaultValue=false)]
+        [DataMember(Name="ruleName", EmitDefaultValue=true)]
         public string RuleName { get; set; }
 
         /// <summary>
         /// The type of effect that was triggered
         /// </summary>
         /// <value>The type of effect that was triggered</value>
-        [DataMember(Name="effectType", EmitDefaultValue=false)]
+        [DataMember(Name="effectType", EmitDefaultValue=true)]
         public string EffectType { get; set; }
 
         /// <summary>
         /// Gets or Sets Props
         /// </summary>
-        [DataMember(Name="props", EmitDefaultValue=false)]
+        [DataMember(Name="props", EmitDefaultValue=true)]
         public Object Props { get; set; }
 
         /// <summary>

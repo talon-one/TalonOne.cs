@@ -115,7 +115,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets CustomerSession
         /// </summary>
-        [DataMember(Name="customerSession", EmitDefaultValue=false)]
+        [DataMember(Name="customerSession", EmitDefaultValue=true)]
         public NewCustomerSessionV2 CustomerSession { get; set; }
 
 

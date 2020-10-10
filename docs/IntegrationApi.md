@@ -360,7 +360,7 @@ void (empty response body)
 
 ## GetCustomerInventory
 
-> CustomerInventory GetCustomerInventory (string integrationId, bool profile = null, bool referrals = null, bool coupons = null, bool loyalty = null)
+> CustomerInventory GetCustomerInventory (string integrationId, bool? profile = null, bool? referrals = null, bool? coupons = null, bool? loyalty = null)
 
 Get an inventory of all data associated with a specific customer profile.
 
@@ -393,10 +393,10 @@ namespace Example
 
             var apiInstance = new IntegrationApi(Configuration.Default);
             var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
-            var profile = true;  // bool | optional flag to decide if you would like customer profile information in the response (optional) 
-            var referrals = true;  // bool | optional flag to decide if you would like referral information in the response (optional) 
-            var coupons = true;  // bool | optional flag to decide if you would like coupon information in the response (optional) 
-            var loyalty = true;  // bool | optional flag to decide if you would like loyalty information in the response (optional) 
+            var profile = true;  // bool? | optional flag to decide if you would like customer profile information in the response (optional) 
+            var referrals = true;  // bool? | optional flag to decide if you would like referral information in the response (optional) 
+            var coupons = true;  // bool? | optional flag to decide if you would like coupon information in the response (optional) 
+            var loyalty = true;  // bool? | optional flag to decide if you would like loyalty information in the response (optional) 
 
             try
             {
@@ -421,10 +421,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
- **profile** | **bool**| optional flag to decide if you would like customer profile information in the response | [optional] 
- **referrals** | **bool**| optional flag to decide if you would like referral information in the response | [optional] 
- **coupons** | **bool**| optional flag to decide if you would like coupon information in the response | [optional] 
- **loyalty** | **bool**| optional flag to decide if you would like loyalty information in the response | [optional] 
+ **profile** | **bool?**| optional flag to decide if you would like customer profile information in the response | [optional] 
+ **referrals** | **bool?**| optional flag to decide if you would like referral information in the response | [optional] 
+ **coupons** | **bool?**| optional flag to decide if you would like coupon information in the response | [optional] 
+ **loyalty** | **bool?**| optional flag to decide if you would like loyalty information in the response | [optional] 
 
 ### Return type
 
@@ -536,7 +536,7 @@ Name | Type | Description  | Notes
 
 ## TrackEvent
 
-> IntegrationState TrackEvent (NewEvent body, bool dry = null)
+> IntegrationState TrackEvent (NewEvent body, bool? dry = null)
 
 Track an Event
 
@@ -569,7 +569,7 @@ namespace Example
 
             var apiInstance = new IntegrationApi(Configuration.Default);
             var body = new NewEvent(); // NewEvent | 
-            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
+            var dry = true;  // bool? | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
 
             try
             {
@@ -594,7 +594,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**NewEvent**](NewEvent.md)|  | 
- **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
+ **dry** | **bool?**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -622,7 +622,7 @@ Name | Type | Description  | Notes
 
 ## UpdateCustomerProfile
 
-> IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool dry = null)
+> IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool? dry = null)
 
 Update a Customer Profile V1
 
@@ -656,7 +656,7 @@ namespace Example
             var apiInstance = new IntegrationApi(Configuration.Default);
             var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
             var body = new NewCustomerProfile(); // NewCustomerProfile | 
-            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
+            var dry = true;  // bool? | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
 
             try
             {
@@ -682,7 +682,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
  **body** | [**NewCustomerProfile**](NewCustomerProfile.md)|  | 
- **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
+ **dry** | **bool?**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -789,7 +789,7 @@ void (empty response body)
 
 ## UpdateCustomerProfileV2
 
-> IntegrationStateV2 UpdateCustomerProfileV2 (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = null, bool dry = null)
+> IntegrationStateV2 UpdateCustomerProfileV2 (string integrationId, CustomerProfileIntegrationRequestV2 body, bool? runRuleEngine = null, bool? dry = null)
 
 Update a Customer Profile
 
@@ -819,8 +819,8 @@ namespace Example
             var apiInstance = new IntegrationApi(Configuration.Default);
             var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
             var body = new CustomerProfileIntegrationRequestV2(); // CustomerProfileIntegrationRequestV2 | 
-            var runRuleEngine = true;  // bool | Flag to indicate whether to run the rule engine (Defaults to false). (optional) 
-            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'. Only used when 'runRuleEngine' is set to 'true'). (optional) 
+            var runRuleEngine = true;  // bool? | Flag to indicate whether to run the rule engine (Defaults to false). (optional) 
+            var dry = true;  // bool? | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'. Only used when 'runRuleEngine' is set to 'true'). (optional) 
 
             try
             {
@@ -846,8 +846,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
  **body** | [**CustomerProfileIntegrationRequestV2**](CustomerProfileIntegrationRequestV2.md)|  | 
- **runRuleEngine** | **bool**| Flag to indicate whether to run the rule engine (Defaults to false). | [optional] 
- **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). | [optional] 
+ **runRuleEngine** | **bool?**| Flag to indicate whether to run the rule engine (Defaults to false). | [optional] 
+ **dry** | **bool?**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -957,7 +957,7 @@ Name | Type | Description  | Notes
 
 ## UpdateCustomerSession
 
-> IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool dry = null)
+> IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool? dry = null)
 
 Update a Customer Session V1
 
@@ -991,7 +991,7 @@ namespace Example
             var apiInstance = new IntegrationApi(Configuration.Default);
             var customerSessionId = customerSessionId_example;  // string | The custom identifier for this session, must be unique within the account.
             var body = new NewCustomerSession(); // NewCustomerSession | 
-            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
+            var dry = true;  // bool? | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
 
             try
             {
@@ -1017,7 +1017,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerSessionId** | **string**| The custom identifier for this session, must be unique within the account. | 
  **body** | [**NewCustomerSession**](NewCustomerSession.md)|  | 
- **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
+ **dry** | **bool?**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 
@@ -1045,7 +1045,7 @@ Name | Type | Description  | Notes
 
 ## UpdateCustomerSessionV2
 
-> IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body, bool dry = null)
+> IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body, bool? dry = null)
 
 Update a Customer Session
 
@@ -1075,7 +1075,7 @@ namespace Example
             var apiInstance = new IntegrationApi(Configuration.Default);
             var customerSessionId = customerSessionId_example;  // string | The custom identifier for this session, must be unique within the account.
             var body = new IntegrationRequest(); // IntegrationRequest | 
-            var dry = true;  // bool | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
+            var dry = true;  // bool? | Flag to indicate whether to skip persisting the changes or not (Will not persist if set to 'true'). (optional) 
 
             try
             {
@@ -1101,7 +1101,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **customerSessionId** | **string**| The custom identifier for this session, must be unique within the account. | 
  **body** | [**IntegrationRequest**](IntegrationRequest.md)|  | 
- **dry** | **bool**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
+ **dry** | **bool?**| Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). | [optional] 
 
 ### Return type
 

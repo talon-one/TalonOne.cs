@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// The name of the entity that was exported.
         /// </summary>
         /// <value>The name of the entity that was exported.</value>
-        [DataMember(Name="entity", EmitDefaultValue=false)]
+        [DataMember(Name="entity", EmitDefaultValue=true)]
         public EntityEnum Entity { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Export" /> class.
@@ -145,28 +145,28 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public int AccountId { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="userId", EmitDefaultValue=false)]
+        [DataMember(Name="userId", EmitDefaultValue=true)]
         public int UserId { get; set; }
 
 
@@ -174,7 +174,7 @@ namespace TalonOne.Model
         /// Map of keys and values that were used to filter the exported rows
         /// </summary>
         /// <value>Map of keys and values that were used to filter the exported rows</value>
-        [DataMember(Name="filter", EmitDefaultValue=false)]
+        [DataMember(Name="filter", EmitDefaultValue=true)]
         public Object Filter { get; set; }
 
         /// <summary>

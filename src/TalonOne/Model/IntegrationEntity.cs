@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// The integration ID for this entity sent to and used in the Talon.One system.
         /// </summary>
         /// <value>The integration ID for this entity sent to and used in the Talon.One system.</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        [DataMember(Name="integrationId", EmitDefaultValue=true)]
         public string IntegrationId { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>

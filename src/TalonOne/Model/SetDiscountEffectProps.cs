@@ -70,14 +70,14 @@ namespace TalonOne.Model
         /// The name/description of this discount
         /// </summary>
         /// <value>The name/description of this discount</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The total monetary value of the discount
         /// </summary>
         /// <value>The total monetary value of the discount</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public decimal Value { get; set; }
 
         /// <summary>

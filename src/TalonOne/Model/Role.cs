@@ -78,14 +78,14 @@ namespace TalonOne.Model
         /// The ID of the role corresponding to the DB row
         /// </summary>
         /// <value>The ID of the role corresponding to the DB row</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The ID of the Talon.One account that owns this role.
         /// </summary>
         /// <value>The ID of the Talon.One account that owns this role.</value>
-        [DataMember(Name="accountID", EmitDefaultValue=false)]
+        [DataMember(Name="accountID", EmitDefaultValue=true)]
         public int AccountID { get; set; }
 
         /// <summary>

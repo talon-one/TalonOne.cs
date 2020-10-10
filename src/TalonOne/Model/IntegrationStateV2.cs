@@ -134,19 +134,19 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Effects
         /// </summary>
-        [DataMember(Name="effects", EmitDefaultValue=false)]
+        [DataMember(Name="effects", EmitDefaultValue=true)]
         public List<Effect> Effects { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedCoupons
         /// </summary>
-        [DataMember(Name="createdCoupons", EmitDefaultValue=false)]
+        [DataMember(Name="createdCoupons", EmitDefaultValue=true)]
         public List<Coupon> CreatedCoupons { get; set; }
 
         /// <summary>
         /// Gets or Sets CreatedReferrals
         /// </summary>
-        [DataMember(Name="createdReferrals", EmitDefaultValue=false)]
+        [DataMember(Name="createdReferrals", EmitDefaultValue=true)]
         public List<Referral> CreatedReferrals { get; set; }
 
         /// <summary>

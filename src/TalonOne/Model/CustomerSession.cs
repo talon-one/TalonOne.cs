@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// Indicates the current state of the session. All sessions must start in the \&quot;open\&quot; state, after which valid transitions are...  1. open -&gt; closed 2. open -&gt; cancelled 3. closed -&gt; cancelled 
         /// </summary>
         /// <value>Indicates the current state of the session. All sessions must start in the \&quot;open\&quot; state, after which valid transitions are...  1. open -&gt; closed 2. open -&gt; cancelled 3. closed -&gt; cancelled </value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
+        [DataMember(Name="state", EmitDefaultValue=true)]
         public StateEnum State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerSession" /> class.
@@ -213,42 +213,42 @@ namespace TalonOne.Model
         /// The integration ID for this entity sent to and used in the Talon.One system.
         /// </summary>
         /// <value>The integration ID for this entity sent to and used in the Talon.One system.</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        [DataMember(Name="integrationId", EmitDefaultValue=true)]
         public string IntegrationId { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The ID of the application that owns this entity.
         /// </summary>
         /// <value>The ID of the application that owns this entity.</value>
-        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        [DataMember(Name="applicationId", EmitDefaultValue=true)]
         public int ApplicationId { get; set; }
 
         /// <summary>
         /// ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
         /// </summary>
         /// <value>ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.</value>
-        [DataMember(Name="profileId", EmitDefaultValue=false)]
+        [DataMember(Name="profileId", EmitDefaultValue=true)]
         public string ProfileId { get; set; }
 
         /// <summary>
         /// Any coupon code entered.
         /// </summary>
         /// <value>Any coupon code entered.</value>
-        [DataMember(Name="coupon", EmitDefaultValue=false)]
+        [DataMember(Name="coupon", EmitDefaultValue=true)]
         public string Coupon { get; set; }
 
         /// <summary>
         /// Any referral code entered.
         /// </summary>
         /// <value>Any referral code entered.</value>
-        [DataMember(Name="referral", EmitDefaultValue=false)]
+        [DataMember(Name="referral", EmitDefaultValue=true)]
         public string Referral { get; set; }
 
 
@@ -256,7 +256,7 @@ namespace TalonOne.Model
         /// Serialized JSON representation.
         /// </summary>
         /// <value>Serialized JSON representation.</value>
-        [DataMember(Name="cartItems", EmitDefaultValue=false)]
+        [DataMember(Name="cartItems", EmitDefaultValue=true)]
         public List<CartItem> CartItems { get; set; }
 
         /// <summary>
@@ -270,28 +270,28 @@ namespace TalonOne.Model
         /// The total sum of the cart in one session.
         /// </summary>
         /// <value>The total sum of the cart in one session.</value>
-        [DataMember(Name="total", EmitDefaultValue=false)]
+        [DataMember(Name="total", EmitDefaultValue=true)]
         public decimal Total { get; set; }
 
         /// <summary>
         /// A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings. 
         /// </summary>
         /// <value>A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings. </value>
-        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        [DataMember(Name="attributes", EmitDefaultValue=true)]
         public Object Attributes { get; set; }
 
         /// <summary>
         /// Indicates whether this is the first session for the customer&#39;s profile. Will always be true for anonymous sessions.
         /// </summary>
         /// <value>Indicates whether this is the first session for the customer&#39;s profile. Will always be true for anonymous sessions.</value>
-        [DataMember(Name="firstSession", EmitDefaultValue=false)]
+        [DataMember(Name="firstSession", EmitDefaultValue=true)]
         public bool FirstSession { get; set; }
 
         /// <summary>
         /// A map of labelled discount values, values will be in the same currency as the application associated with the session.
         /// </summary>
         /// <value>A map of labelled discount values, values will be in the same currency as the application associated with the session.</value>
-        [DataMember(Name="discounts", EmitDefaultValue=false)]
+        [DataMember(Name="discounts", EmitDefaultValue=true)]
         public Dictionary<string, decimal> Discounts { get; set; }
 
         /// <summary>

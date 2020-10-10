@@ -105,35 +105,35 @@ namespace TalonOne.Model
         /// The name/description of this loyalty point addition
         /// </summary>
         /// <value>The name/description of this loyalty point addition</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The ID of the loyalty program where these points were added
         /// </summary>
         /// <value>The ID of the loyalty program where these points were added</value>
-        [DataMember(Name="programId", EmitDefaultValue=false)]
+        [DataMember(Name="programId", EmitDefaultValue=true)]
         public int ProgramId { get; set; }
 
         /// <summary>
         /// The ID of the subledger within the loyalty program where these points were added
         /// </summary>
         /// <value>The ID of the subledger within the loyalty program where these points were added</value>
-        [DataMember(Name="subLedgerId", EmitDefaultValue=false)]
+        [DataMember(Name="subLedgerId", EmitDefaultValue=true)]
         public string SubLedgerId { get; set; }
 
         /// <summary>
         /// The amount of points that were added
         /// </summary>
         /// <value>The amount of points that were added</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public decimal Value { get; set; }
 
         /// <summary>
         /// The user for whom these points were added
         /// </summary>
         /// <value>The user for whom these points were added</value>
-        [DataMember(Name="recipientIntegrationId", EmitDefaultValue=false)]
+        [DataMember(Name="recipientIntegrationId", EmitDefaultValue=true)]
         public string RecipientIntegrationId { get; set; }
 
         /// <summary>

@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// The name of the \&quot;setDiscount\&quot; effect that was rolled back
         /// </summary>
         /// <value>The name of the \&quot;setDiscount\&quot; effect that was rolled back</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The value of the discount that was rolled back
         /// </summary>
         /// <value>The value of the discount that was rolled back</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public decimal Value { get; set; }
 
         /// <summary>

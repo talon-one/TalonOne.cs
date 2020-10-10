@@ -129,21 +129,21 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The ID of the application that owns this entity.
         /// </summary>
         /// <value>The ID of the application that owns this entity.</value>
-        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        [DataMember(Name="applicationId", EmitDefaultValue=true)]
         public int ApplicationId { get; set; }
 
         /// <summary>
@@ -157,14 +157,14 @@ namespace TalonOne.Model
         /// A string representing the event. Must not be a reserved event name.
         /// </summary>
         /// <value>A string representing the event. Must not be a reserved event name.</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Arbitrary additional JSON data associated with the event.
         /// </summary>
         /// <value>Arbitrary additional JSON data associated with the event.</value>
-        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        [DataMember(Name="attributes", EmitDefaultValue=true)]
         public Object Attributes { get; set; }
 
         /// <summary>
@@ -178,14 +178,14 @@ namespace TalonOne.Model
         /// An array of \&quot;effects\&quot; that must be applied in response to this event. Example effects include &#x60;addItemToCart&#x60; or &#x60;setDiscount&#x60;. 
         /// </summary>
         /// <value>An array of \&quot;effects\&quot; that must be applied in response to this event. Example effects include &#x60;addItemToCart&#x60; or &#x60;setDiscount&#x60;. </value>
-        [DataMember(Name="effects", EmitDefaultValue=false)]
+        [DataMember(Name="effects", EmitDefaultValue=true)]
         public List<Object> Effects { get; set; }
 
         /// <summary>
         /// Ledger entries for the event.
         /// </summary>
         /// <value>Ledger entries for the event.</value>
-        [DataMember(Name="ledgerEntries", EmitDefaultValue=false)]
+        [DataMember(Name="ledgerEntries", EmitDefaultValue=true)]
         public List<LedgerEntry> LedgerEntries { get; set; }
 
         /// <summary>
@@ -340,12 +340,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Type (string) minLength
             if(this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
-
+            
             yield break;
         }
     }

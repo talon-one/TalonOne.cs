@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets CompanyName
         /// </summary>
-        [DataMember(Name="companyName", EmitDefaultValue=false)]
+        [DataMember(Name="companyName", EmitDefaultValue=true)]
         public string CompanyName { get; set; }
 
         /// <summary>
@@ -131,12 +131,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // CompanyName (string) minLength
             if(this.CompanyName != null && this.CompanyName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyName, length must be greater than 1.", new [] { "CompanyName" });
             }
-
+            
             yield break;
         }
     }

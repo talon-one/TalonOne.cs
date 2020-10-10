@@ -218,18 +218,18 @@ namespace TalonOne.Test
             //int applicationId = null;
             //int campaignId = null;
             //string value = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
-            //DateTime startsAfter = null;
-            //DateTime startsBefore = null;
-            //DateTime expiresAfter = null;
-            //DateTime expiresBefore = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
+            //DateTime? startsAfter = null;
+            //DateTime? startsBefore = null;
+            //DateTime? expiresAfter = null;
+            //DateTime? expiresBefore = null;
             //string valid = null;
             //string batchId = null;
             //string usable = null;
-            //int referralId = null;
+            //int? referralId = null;
             //string recipientIntegrationId = null;
-            //bool exactMatch = null;
+            //bool? exactMatch = null;
             //instance.DeleteCoupons(applicationId, campaignId, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
             
         }
@@ -275,8 +275,8 @@ namespace TalonOne.Test
             //string path = null;
             //string method = null;
             //string status = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetAccessLogs(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse2009), response, "response is InlineResponse2009");
@@ -295,8 +295,8 @@ namespace TalonOne.Test
             //string path = null;
             //string method = null;
             //string status = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetAccessLogsWithoutTotalCount(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse20010), response, "response is InlineResponse20010");
@@ -345,8 +345,8 @@ namespace TalonOne.Test
         public void GetAdditionalCostsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetAdditionalCosts(pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse20021), response, "response is InlineResponse20021");
@@ -364,8 +364,8 @@ namespace TalonOne.Test
             //string path = null;
             //string method = null;
             //string status = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetAllAccessLogs(rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse2009), response, "response is InlineResponse2009");
@@ -428,9 +428,9 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //string integrationId = null;
-            //int pageSize = null;
-            //int skip = null;
-            //bool withTotalResultSize = null;
+            //int? pageSize = null;
+            //int? skip = null;
+            //bool? withTotalResultSize = null;
             //var response = instance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
             //Assert.IsInstanceOf(typeof(InlineResponse20012), response, "response is InlineResponse20012");
         }
@@ -455,8 +455,8 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse20019), response, "response is InlineResponse20019");
@@ -470,12 +470,12 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string type = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string session = null;
             //string profile = null;
             //string customerName = null;
@@ -496,12 +496,12 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string type = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string session = null;
             //string profile = null;
             //string customerName = null;
@@ -535,13 +535,13 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string profile = null;
             //string state = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string coupon = null;
             //string referral = null;
             //string integrationId = null;
@@ -556,8 +556,8 @@ namespace TalonOne.Test
         public void GetApplicationsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetApplications(pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse2001), response, "response is InlineResponse2001");
@@ -582,8 +582,8 @@ namespace TalonOne.Test
         public void GetAttributesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetAttributes(pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse20020), response, "response is InlineResponse20020");
@@ -627,8 +627,8 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //CampaignSearch body = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string campaignState = null;
             //var response = instance.GetCampaignByAttributes(applicationId, body, pageSize, skip, sort, campaignState);
@@ -643,15 +643,15 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string campaignState = null;
             //string name = null;
             //string tags = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
-            //int campaignGroupId = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
+            //int? campaignGroupId = null;
             //var response = instance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
             //Assert.IsInstanceOf(typeof(InlineResponse2002), response, "response is InlineResponse2002");
         }
@@ -663,14 +663,14 @@ namespace TalonOne.Test
         public void GetChangesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
-            //int applicationId = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
-            //bool withTotalResultSize = null;
-            //bool includeOld = null;
+            //int? applicationId = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
+            //bool? withTotalResultSize = null;
+            //bool? includeOld = null;
             //var response = instance.GetChanges(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
             //Assert.IsInstanceOf(typeof(InlineResponse20027), response, "response is InlineResponse20027");
         }
@@ -684,22 +684,22 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //int campaignId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string value = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
-            //DateTime startsAfter = null;
-            //DateTime startsBefore = null;
-            //DateTime expiresAfter = null;
-            //DateTime expiresBefore = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
+            //DateTime? startsAfter = null;
+            //DateTime? startsBefore = null;
+            //DateTime? expiresAfter = null;
+            //DateTime? expiresBefore = null;
             //string valid = null;
             //string batchId = null;
             //string usable = null;
-            //int referralId = null;
+            //int? referralId = null;
             //string recipientIntegrationId = null;
-            //bool exactMatch = null;
+            //bool? exactMatch = null;
             //var response = instance.GetCoupons(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
             //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
         }
@@ -714,17 +714,17 @@ namespace TalonOne.Test
             //int applicationId = null;
             //int campaignId = null;
             //CouponSearch body = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string value = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string valid = null;
             //string usable = null;
-            //int referralId = null;
+            //int? referralId = null;
             //string recipientIntegrationId = null;
-            //bool exactMatch = null;
+            //bool? exactMatch = null;
             //string batchId = null;
             //var response = instance.GetCouponsByAttributes(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
             //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
@@ -739,18 +739,18 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //CouponSearch body = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string value = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string valid = null;
             //string usable = null;
-            //int referralId = null;
+            //int? referralId = null;
             //string recipientIntegrationId = null;
             //string batchId = null;
-            //bool exactMatch = null;
+            //bool? exactMatch = null;
             //string campaignState = null;
             //var response = instance.GetCouponsByAttributesApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
             //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
@@ -765,18 +765,18 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //int campaignId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string value = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string valid = null;
             //string usable = null;
-            //int referralId = null;
+            //int? referralId = null;
             //string recipientIntegrationId = null;
             //string batchId = null;
-            //bool exactMatch = null;
+            //bool? exactMatch = null;
             //var response = instance.GetCouponsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch);
             //Assert.IsInstanceOf(typeof(InlineResponse2005), response, "response is InlineResponse2005");
         }
@@ -792,8 +792,8 @@ namespace TalonOne.Test
             //DateTime rangeEnd = null;
             //int applicationId = null;
             //int customerId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //var response = instance.GetCustomerActivityReport(rangeStart, rangeEnd, applicationId, customerId, pageSize, skip);
             //Assert.IsInstanceOf(typeof(CustomerActivityReport), response, "response is CustomerActivityReport");
         }
@@ -808,8 +808,8 @@ namespace TalonOne.Test
             //DateTime rangeStart = null;
             //DateTime rangeEnd = null;
             //int applicationId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string name = null;
             //string integrationId = null;
@@ -829,8 +829,8 @@ namespace TalonOne.Test
             //DateTime rangeStart = null;
             //DateTime rangeEnd = null;
             //int applicationId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string name = null;
             //string integrationId = null;
@@ -849,8 +849,8 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //int customerId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetCustomerAnalytics(applicationId, customerId, pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(CustomerAnalytics), response, "response is CustomerAnalytics");
@@ -875,8 +875,8 @@ namespace TalonOne.Test
         public void GetCustomerProfilesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //var response = instance.GetCustomerProfiles(pageSize, skip);
             //Assert.IsInstanceOf(typeof(InlineResponse20013), response, "response is InlineResponse20013");
         }
@@ -889,8 +889,8 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //ApplicationCustomerSearch body = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //var response = instance.GetCustomersByAttributes(body, pageSize, skip);
             //Assert.IsInstanceOf(typeof(InlineResponse20013), response, "response is InlineResponse20013");
         }
@@ -904,9 +904,9 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string applicationIds = null;
             //string name = null;
-            //bool includeOldVersions = null;
-            //int pageSize = null;
-            //int skip = null;
+            //bool? includeOldVersions = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetEventTypes(applicationIds, name, includeOldVersions, pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse20025), response, "response is InlineResponse20025");
@@ -919,10 +919,10 @@ namespace TalonOne.Test
         public void GetExportsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
-            //int applicationId = null;
-            //int campaignId = null;
+            //int? pageSize = null;
+            //int? skip = null;
+            //int? applicationId = null;
+            //int? campaignId = null;
             //string entity = null;
             //var response = instance.GetExports(pageSize, skip, applicationId, campaignId, entity);
             //Assert.IsInstanceOf(typeof(InlineResponse20028), response, "response is InlineResponse20028");
@@ -935,8 +935,8 @@ namespace TalonOne.Test
         public void GetImportsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //var response = instance.GetImports(pageSize, skip);
             //Assert.IsInstanceOf(typeof(InlineResponse20029), response, "response is InlineResponse20029");
         }
@@ -998,12 +998,12 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //int campaignId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string code = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string valid = null;
             //string usable = null;
             //string advocate = null;
@@ -1020,12 +1020,12 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //int campaignId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string code = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string valid = null;
             //string usable = null;
             //string advocate = null;
@@ -1068,8 +1068,8 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //int campaignId = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetRulesets(applicationId, campaignId, pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse2003), response, "response is InlineResponse2003");
@@ -1094,8 +1094,8 @@ namespace TalonOne.Test
         public void GetUsersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //var response = instance.GetUsers(pageSize, skip, sort);
             //Assert.IsInstanceOf(typeof(InlineResponse20026), response, "response is InlineResponse20026");
@@ -1120,15 +1120,15 @@ namespace TalonOne.Test
         public void GetWebhookActivationLogsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string integrationRequestUuid = null;
-            //decimal webhookId = null;
-            //decimal applicationId = null;
-            //decimal campaignId = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //decimal? webhookId = null;
+            //decimal? applicationId = null;
+            //decimal? campaignId = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //var response = instance.GetWebhookActivationLogs(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
             //Assert.IsInstanceOf(typeof(InlineResponse20023), response, "response is InlineResponse20023");
         }
@@ -1140,16 +1140,16 @@ namespace TalonOne.Test
         public void GetWebhookLogsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string status = null;
-            //decimal webhookId = null;
-            //decimal applicationId = null;
-            //decimal campaignId = null;
+            //decimal? webhookId = null;
+            //decimal? applicationId = null;
+            //decimal? campaignId = null;
             //string requestUuid = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //var response = instance.GetWebhookLogs(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
             //Assert.IsInstanceOf(typeof(InlineResponse20024), response, "response is InlineResponse20024");
         }
@@ -1163,8 +1163,8 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string applicationIds = null;
             //string sort = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //var response = instance.GetWebhooks(applicationIds, sort, pageSize, skip);
             //Assert.IsInstanceOf(typeof(InlineResponse20022), response, "response is InlineResponse20022");
         }
@@ -1205,17 +1205,17 @@ namespace TalonOne.Test
             //int applicationId = null;
             //int campaignId = null;
             //Object body = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string value = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string valid = null;
             //string usable = null;
-            //int referralId = null;
+            //int? referralId = null;
             //string recipientIntegrationId = null;
-            //bool exactMatch = null;
+            //bool? exactMatch = null;
             //string batchId = null;
             //var response = instance.SearchCouponsAdvanced(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
             //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
@@ -1230,18 +1230,18 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //Object body = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string value = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string valid = null;
             //string usable = null;
-            //int referralId = null;
+            //int? referralId = null;
             //string recipientIntegrationId = null;
             //string batchId = null;
-            //bool exactMatch = null;
+            //bool? exactMatch = null;
             //string campaignState = null;
             //var response = instance.SearchCouponsAdvancedApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
             //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
@@ -1256,18 +1256,18 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int applicationId = null;
             //Object body = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string value = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string valid = null;
             //string usable = null;
-            //int referralId = null;
+            //int? referralId = null;
             //string recipientIntegrationId = null;
             //string batchId = null;
-            //bool exactMatch = null;
+            //bool? exactMatch = null;
             //string campaignState = null;
             //var response = instance.SearchCouponsAdvancedApplicationWideWithoutTotalCount(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
             //Assert.IsInstanceOf(typeof(InlineResponse2005), response, "response is InlineResponse2005");
@@ -1283,17 +1283,17 @@ namespace TalonOne.Test
             //int applicationId = null;
             //int campaignId = null;
             //Object body = null;
-            //int pageSize = null;
-            //int skip = null;
+            //int? pageSize = null;
+            //int? skip = null;
             //string sort = null;
             //string value = null;
-            //DateTime createdBefore = null;
-            //DateTime createdAfter = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
             //string valid = null;
             //string usable = null;
-            //int referralId = null;
+            //int? referralId = null;
             //string recipientIntegrationId = null;
-            //bool exactMatch = null;
+            //bool? exactMatch = null;
             //string batchId = null;
             //var response = instance.SearchCouponsAdvancedWithoutTotalCount(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
             //Assert.IsInstanceOf(typeof(InlineResponse2005), response, "response is InlineResponse2005");

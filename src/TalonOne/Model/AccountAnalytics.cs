@@ -244,126 +244,126 @@ namespace TalonOne.Model
         /// Total number of applications in the account
         /// </summary>
         /// <value>Total number of applications in the account</value>
-        [DataMember(Name="applications", EmitDefaultValue=false)]
+        [DataMember(Name="applications", EmitDefaultValue=true)]
         public int Applications { get; set; }
 
         /// <summary>
         /// Total number of live applications in the account
         /// </summary>
         /// <value>Total number of live applications in the account</value>
-        [DataMember(Name="liveApplications", EmitDefaultValue=false)]
+        [DataMember(Name="liveApplications", EmitDefaultValue=true)]
         public int LiveApplications { get; set; }
 
         /// <summary>
         /// Total number of sandbox applications in the account
         /// </summary>
         /// <value>Total number of sandbox applications in the account</value>
-        [DataMember(Name="sandboxApplications", EmitDefaultValue=false)]
+        [DataMember(Name="sandboxApplications", EmitDefaultValue=true)]
         public int SandboxApplications { get; set; }
 
         /// <summary>
         /// Total number of campaigns in the account
         /// </summary>
         /// <value>Total number of campaigns in the account</value>
-        [DataMember(Name="campaigns", EmitDefaultValue=false)]
+        [DataMember(Name="campaigns", EmitDefaultValue=true)]
         public int Campaigns { get; set; }
 
         /// <summary>
         /// Total number of active campaigns in the account
         /// </summary>
         /// <value>Total number of active campaigns in the account</value>
-        [DataMember(Name="activeCampaigns", EmitDefaultValue=false)]
+        [DataMember(Name="activeCampaigns", EmitDefaultValue=true)]
         public int ActiveCampaigns { get; set; }
 
         /// <summary>
         /// Total number of active campaigns in live applications in the account
         /// </summary>
         /// <value>Total number of active campaigns in live applications in the account</value>
-        [DataMember(Name="liveActiveCampaigns", EmitDefaultValue=false)]
+        [DataMember(Name="liveActiveCampaigns", EmitDefaultValue=true)]
         public int LiveActiveCampaigns { get; set; }
 
         /// <summary>
         /// Total number of coupons in the account
         /// </summary>
         /// <value>Total number of coupons in the account</value>
-        [DataMember(Name="coupons", EmitDefaultValue=false)]
+        [DataMember(Name="coupons", EmitDefaultValue=true)]
         public int Coupons { get; set; }
 
         /// <summary>
         /// Total number of active coupons in the account
         /// </summary>
         /// <value>Total number of active coupons in the account</value>
-        [DataMember(Name="activeCoupons", EmitDefaultValue=false)]
+        [DataMember(Name="activeCoupons", EmitDefaultValue=true)]
         public int ActiveCoupons { get; set; }
 
         /// <summary>
         /// Total number of expired coupons in the account
         /// </summary>
         /// <value>Total number of expired coupons in the account</value>
-        [DataMember(Name="expiredCoupons", EmitDefaultValue=false)]
+        [DataMember(Name="expiredCoupons", EmitDefaultValue=true)]
         public int ExpiredCoupons { get; set; }
 
         /// <summary>
         /// Total number of referral codes in the account
         /// </summary>
         /// <value>Total number of referral codes in the account</value>
-        [DataMember(Name="referralCodes", EmitDefaultValue=false)]
+        [DataMember(Name="referralCodes", EmitDefaultValue=true)]
         public int ReferralCodes { get; set; }
 
         /// <summary>
         /// Total number of active referral codes in the account
         /// </summary>
         /// <value>Total number of active referral codes in the account</value>
-        [DataMember(Name="activeReferralCodes", EmitDefaultValue=false)]
+        [DataMember(Name="activeReferralCodes", EmitDefaultValue=true)]
         public int ActiveReferralCodes { get; set; }
 
         /// <summary>
         /// Total number of expired referral codes in the account
         /// </summary>
         /// <value>Total number of expired referral codes in the account</value>
-        [DataMember(Name="expiredReferralCodes", EmitDefaultValue=false)]
+        [DataMember(Name="expiredReferralCodes", EmitDefaultValue=true)]
         public int ExpiredReferralCodes { get; set; }
 
         /// <summary>
         /// Total number of active rules in the account
         /// </summary>
         /// <value>Total number of active rules in the account</value>
-        [DataMember(Name="activeRules", EmitDefaultValue=false)]
+        [DataMember(Name="activeRules", EmitDefaultValue=true)]
         public int ActiveRules { get; set; }
 
         /// <summary>
         /// Total number of users in the account
         /// </summary>
         /// <value>Total number of users in the account</value>
-        [DataMember(Name="users", EmitDefaultValue=false)]
+        [DataMember(Name="users", EmitDefaultValue=true)]
         public int Users { get; set; }
 
         /// <summary>
         /// Total number of roles in the account
         /// </summary>
         /// <value>Total number of roles in the account</value>
-        [DataMember(Name="roles", EmitDefaultValue=false)]
+        [DataMember(Name="roles", EmitDefaultValue=true)]
         public int Roles { get; set; }
 
         /// <summary>
         /// Total number of custom attributes in the account
         /// </summary>
         /// <value>Total number of custom attributes in the account</value>
-        [DataMember(Name="customAttributes", EmitDefaultValue=false)]
+        [DataMember(Name="customAttributes", EmitDefaultValue=true)]
         public int CustomAttributes { get; set; }
 
         /// <summary>
         /// Total number of webhooks in the account
         /// </summary>
         /// <value>Total number of webhooks in the account</value>
-        [DataMember(Name="webhooks", EmitDefaultValue=false)]
+        [DataMember(Name="webhooks", EmitDefaultValue=true)]
         public int Webhooks { get; set; }
 
         /// <summary>
         /// Total number of loyalty programs in the account
         /// </summary>
         /// <value>Total number of loyalty programs in the account</value>
-        [DataMember(Name="loyaltyPrograms", EmitDefaultValue=false)]
+        [DataMember(Name="loyaltyPrograms", EmitDefaultValue=true)]
         public int LoyaltyPrograms { get; set; }
 
         /// <summary>

@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// The ID of the audience belonging to this entity.
         /// </summary>
         /// <value>The ID of the audience belonging to this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The Name of the audience belonging to this entity.
         /// </summary>
         /// <value>The Name of the audience belonging to this entity.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>

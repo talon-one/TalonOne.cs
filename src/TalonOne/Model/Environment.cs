@@ -123,48 +123,48 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The ID of the application that owns this entity.
         /// </summary>
         /// <value>The ID of the application that owns this entity.</value>
-        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        [DataMember(Name="applicationId", EmitDefaultValue=true)]
         public int ApplicationId { get; set; }
 
         /// <summary>
         /// The slots defined for this application.
         /// </summary>
         /// <value>The slots defined for this application.</value>
-        [DataMember(Name="slots", EmitDefaultValue=false)]
+        [DataMember(Name="slots", EmitDefaultValue=true)]
         public List<SlotDef> Slots { get; set; }
 
         /// <summary>
         /// The functions defined for this application.
         /// </summary>
         /// <value>The functions defined for this application.</value>
-        [DataMember(Name="functions", EmitDefaultValue=false)]
+        [DataMember(Name="functions", EmitDefaultValue=true)]
         public List<FunctionDef> Functions { get; set; }
 
         /// <summary>
         /// The templates defined for this application.
         /// </summary>
         /// <value>The templates defined for this application.</value>
-        [DataMember(Name="templates", EmitDefaultValue=false)]
+        [DataMember(Name="templates", EmitDefaultValue=true)]
         public List<TemplateDef> Templates { get; set; }
 
         /// <summary>
         /// Gets or Sets Variables
         /// </summary>
-        [DataMember(Name="variables", EmitDefaultValue=false)]
+        [DataMember(Name="variables", EmitDefaultValue=true)]
         public string Variables { get; set; }
 
         /// <summary>

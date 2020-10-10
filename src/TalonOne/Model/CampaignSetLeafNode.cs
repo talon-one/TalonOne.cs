@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// Indicates the node type
         /// </summary>
         /// <value>Indicates the node type</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public TypeEnum Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignSetLeafNode" /> class.
@@ -90,7 +90,7 @@ namespace TalonOne.Model
         /// ID of the campaign
         /// </summary>
         /// <value>ID of the campaign</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        [DataMember(Name="campaignId", EmitDefaultValue=true)]
         public int CampaignId { get; set; }
 
         /// <summary>

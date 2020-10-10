@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// The email address associated with your account.
         /// </summary>
         /// <value>The email address associated with your account.</value>
-        [DataMember(Name="email", EmitDefaultValue=false)]
+        [DataMember(Name="email", EmitDefaultValue=true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The password for your account.
         /// </summary>
         /// <value>The password for your account.</value>
-        [DataMember(Name="password", EmitDefaultValue=false)]
+        [DataMember(Name="password", EmitDefaultValue=true)]
         public string Password { get; set; }
 
         /// <summary>

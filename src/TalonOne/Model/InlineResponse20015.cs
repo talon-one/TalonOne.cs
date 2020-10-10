@@ -67,13 +67,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets HasMore
         /// </summary>
-        [DataMember(Name="hasMore", EmitDefaultValue=false)]
+        [DataMember(Name="hasMore", EmitDefaultValue=true)]
         public bool HasMore { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
+        [DataMember(Name="data", EmitDefaultValue=true)]
         public List<CustomerActivityReport> Data { get; set; }
 
         /// <summary>

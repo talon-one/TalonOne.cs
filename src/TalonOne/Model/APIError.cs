@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// Short description of the problem.
         /// </summary>
         /// <value>Short description of the problem.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Source
         /// </summary>
-        [DataMember(Name="source", EmitDefaultValue=false)]
+        [DataMember(Name="source", EmitDefaultValue=true)]
         public ErrorSource Source { get; set; }
 
         /// <summary>

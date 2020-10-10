@@ -65,7 +65,7 @@ namespace TalonOne.Model
         /// Amount of loyalty points
         /// </summary>
         /// <value>Amount of loyalty points</value>
-        [DataMember(Name="points", EmitDefaultValue=false)]
+        [DataMember(Name="points", EmitDefaultValue=true)]
         public decimal Points { get; set; }
 
         /// <summary>

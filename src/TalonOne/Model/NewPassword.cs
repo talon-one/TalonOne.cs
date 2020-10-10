@@ -68,13 +68,13 @@ namespace TalonOne.Model
         /// The new password for your account.
         /// </summary>
         /// <value>The new password for your account.</value>
-        [DataMember(Name="password", EmitDefaultValue=false)]
+        [DataMember(Name="password", EmitDefaultValue=true)]
         public string Password { get; set; }
 
         /// <summary>
         /// Gets or Sets ResetToken
         /// </summary>
-        [DataMember(Name="resetToken", EmitDefaultValue=false)]
+        [DataMember(Name="resetToken", EmitDefaultValue=true)]
         public string ResetToken { get; set; }
 
         /// <summary>
@@ -157,12 +157,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // ResetToken (string) minLength
             if(this.ResetToken != null && this.ResetToken.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ResetToken, length must be greater than 1.", new [] { "ResetToken" });
             }
-
+            
             yield break;
         }
     }

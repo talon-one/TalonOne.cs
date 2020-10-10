@@ -101,35 +101,35 @@ namespace TalonOne.Model
         /// UUID reference of the integration request that triggered the effect with the webhook
         /// </summary>
         /// <value>UUID reference of the integration request that triggered the effect with the webhook</value>
-        [DataMember(Name="integrationRequestUuid", EmitDefaultValue=false)]
+        [DataMember(Name="integrationRequestUuid", EmitDefaultValue=true)]
         public string IntegrationRequestUuid { get; set; }
 
         /// <summary>
         /// ID of the webhook that triggered the request
         /// </summary>
         /// <value>ID of the webhook that triggered the request</value>
-        [DataMember(Name="webhookId", EmitDefaultValue=false)]
+        [DataMember(Name="webhookId", EmitDefaultValue=true)]
         public int WebhookId { get; set; }
 
         /// <summary>
         /// ID of the application that triggered the webhook
         /// </summary>
         /// <value>ID of the application that triggered the webhook</value>
-        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        [DataMember(Name="applicationId", EmitDefaultValue=true)]
         public int ApplicationId { get; set; }
 
         /// <summary>
         /// ID of the campaign that triggered the webhook
         /// </summary>
         /// <value>ID of the campaign that triggered the webhook</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        [DataMember(Name="campaignId", EmitDefaultValue=true)]
         public int CampaignId { get; set; }
 
         /// <summary>
         /// Timestamp of request
         /// </summary>
         /// <value>Timestamp of request</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>

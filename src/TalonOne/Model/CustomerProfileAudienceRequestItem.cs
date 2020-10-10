@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Action
         /// </summary>
-        [DataMember(Name="action", EmitDefaultValue=false)]
+        [DataMember(Name="action", EmitDefaultValue=true)]
         public ActionEnum Action { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerProfileAudienceRequestItem" /> class.
@@ -104,13 +104,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets ProfileIntegrationId
         /// </summary>
-        [DataMember(Name="profileIntegrationId", EmitDefaultValue=false)]
+        [DataMember(Name="profileIntegrationId", EmitDefaultValue=true)]
         public string ProfileIntegrationId { get; set; }
 
         /// <summary>
         /// Gets or Sets AudienceId
         /// </summary>
-        [DataMember(Name="audienceId", EmitDefaultValue=false)]
+        [DataMember(Name="audienceId", EmitDefaultValue=true)]
         public int AudienceId { get; set; }
 
         /// <summary>

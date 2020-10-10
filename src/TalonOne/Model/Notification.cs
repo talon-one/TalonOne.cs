@@ -79,21 +79,21 @@ namespace TalonOne.Model
         /// id of the notification
         /// </summary>
         /// <value>id of the notification</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// name of the notification
         /// </summary>
         /// <value>name of the notification</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// description of the notification
         /// </summary>
         /// <value>description of the notification</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>

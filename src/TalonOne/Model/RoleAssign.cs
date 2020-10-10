@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// An array of userIDs
         /// </summary>
         /// <value>An array of userIDs</value>
-        [DataMember(Name="users", EmitDefaultValue=false)]
+        [DataMember(Name="users", EmitDefaultValue=true)]
         public List<int> Users { get; set; }
 
         /// <summary>
         /// An array of roleIDs
         /// </summary>
         /// <value>An array of roleIDs</value>
-        [DataMember(Name="roles", EmitDefaultValue=false)]
+        [DataMember(Name="roles", EmitDefaultValue=true)]
         public List<int> Roles { get; set; }
 
         /// <summary>

@@ -200,7 +200,7 @@ namespace TalonOne.Model
         /// The name of this application.
         /// </summary>
         /// <value>The name of this application.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -214,14 +214,14 @@ namespace TalonOne.Model
         /// A string containing an IANA timezone descriptor.
         /// </summary>
         /// <value>A string containing an IANA timezone descriptor.</value>
-        [DataMember(Name="timezone", EmitDefaultValue=false)]
+        [DataMember(Name="timezone", EmitDefaultValue=true)]
         public string Timezone { get; set; }
 
         /// <summary>
         /// A string describing a default currency for new customer sessions.
         /// </summary>
         /// <value>A string describing a default currency for new customer sessions.</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency", EmitDefaultValue=true)]
         public string Currency { get; set; }
 
 
@@ -452,24 +452,29 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
+            
 
             // Timezone (string) minLength
             if(this.Timezone != null && this.Timezone.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Timezone, length must be greater than 1.", new [] { "Timezone" });
             }
+            
 
             // Currency (string) minLength
             if(this.Currency != null && this.Currency.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
             }
+            
 
+            
             // Key (string) pattern
             Regex regexKey = new Regex(@"^[a-fA-F0-9]{16}$", RegexOptions.CultureInvariant);
             if (false == regexKey.Match(this.Key).Success)

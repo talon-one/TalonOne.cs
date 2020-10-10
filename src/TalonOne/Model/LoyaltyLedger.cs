@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Ledger
         /// </summary>
-        [DataMember(Name="ledger", EmitDefaultValue=false)]
+        [DataMember(Name="ledger", EmitDefaultValue=true)]
         public LoyaltySubLedger Ledger { get; set; }
 
         /// <summary>

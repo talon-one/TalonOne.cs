@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// A disabled or archived campaign is not evaluated for rules or coupons. 
         /// </summary>
         /// <value>A disabled or archived campaign is not evaluated for rules or coupons. </value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
+        [DataMember(Name="state", EmitDefaultValue=true)]
         public StateEnum State { get; set; }
         /// <summary>
         /// Defines Features
@@ -94,7 +94,7 @@ namespace TalonOne.Model
         /// A list of features for the campaign.
         /// </summary>
         /// <value>A list of features for the campaign.</value>
-        [DataMember(Name="features", EmitDefaultValue=false)]
+        [DataMember(Name="features", EmitDefaultValue=true)]
         public List<FeaturesEnum> Features { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Campaign" /> class.
@@ -254,42 +254,42 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The ID of the application that owns this entity.
         /// </summary>
         /// <value>The ID of the application that owns this entity.</value>
-        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        [DataMember(Name="applicationId", EmitDefaultValue=true)]
         public int ApplicationId { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="userId", EmitDefaultValue=false)]
+        [DataMember(Name="userId", EmitDefaultValue=true)]
         public int UserId { get; set; }
 
         /// <summary>
         /// A friendly name for this campaign.
         /// </summary>
         /// <value>A friendly name for this campaign.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// A detailed description of the campaign.
         /// </summary>
         /// <value>A detailed description of the campaign.</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -325,7 +325,7 @@ namespace TalonOne.Model
         /// A list of tags for the campaign.
         /// </summary>
         /// <value>A list of tags for the campaign.</value>
-        [DataMember(Name="tags", EmitDefaultValue=false)]
+        [DataMember(Name="tags", EmitDefaultValue=true)]
         public List<string> Tags { get; set; }
 
 
@@ -345,7 +345,7 @@ namespace TalonOne.Model
         /// The set of limits that will operate for this campaign
         /// </summary>
         /// <value>The set of limits that will operate for this campaign</value>
-        [DataMember(Name="limits", EmitDefaultValue=false)]
+        [DataMember(Name="limits", EmitDefaultValue=true)]
         public List<LimitConfig> Limits { get; set; }
 
         /// <summary>
@@ -694,12 +694,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
-
+            
             yield break;
         }
     }

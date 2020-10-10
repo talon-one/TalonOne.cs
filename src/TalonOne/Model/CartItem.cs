@@ -105,25 +105,25 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Sku
         /// </summary>
-        [DataMember(Name="sku", EmitDefaultValue=false)]
+        [DataMember(Name="sku", EmitDefaultValue=true)]
         public string Sku { get; set; }
 
         /// <summary>
         /// Gets or Sets Quantity
         /// </summary>
-        [DataMember(Name="quantity", EmitDefaultValue=false)]
+        [DataMember(Name="quantity", EmitDefaultValue=true)]
         public int Quantity { get; set; }
 
         /// <summary>
         /// Gets or Sets Price
         /// </summary>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price", EmitDefaultValue=true)]
         public decimal Price { get; set; }
 
         /// <summary>
@@ -340,18 +340,22 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
+            
 
             // Sku (string) minLength
             if(this.Sku != null && this.Sku.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sku, length must be greater than 1.", new [] { "Sku" });
             }
+            
 
+            
             // Quantity (int) minimum
             if(this.Quantity < (int)1)
             {

@@ -149,42 +149,42 @@ namespace TalonOne.Model
         /// The location where the SAML assertion is sent with a HTTP POST.
         /// </summary>
         /// <value>The location where the SAML assertion is sent with a HTTP POST.</value>
-        [DataMember(Name="assertionConsumerServiceURL", EmitDefaultValue=false)]
+        [DataMember(Name="assertionConsumerServiceURL", EmitDefaultValue=true)]
         public string AssertionConsumerServiceURL { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public int AccountId { get; set; }
 
         /// <summary>
         /// ID of the SAML service.
         /// </summary>
         /// <value>ID of the SAML service.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Determines if this SAML connection active.
         /// </summary>
         /// <value>Determines if this SAML connection active.</value>
-        [DataMember(Name="enabled", EmitDefaultValue=false)]
+        [DataMember(Name="enabled", EmitDefaultValue=true)]
         public bool Enabled { get; set; }
 
         /// <summary>
         /// Identity Provider Entity ID.
         /// </summary>
         /// <value>Identity Provider Entity ID.</value>
-        [DataMember(Name="issuer", EmitDefaultValue=false)]
+        [DataMember(Name="issuer", EmitDefaultValue=true)]
         public string Issuer { get; set; }
 
         /// <summary>
         /// Single Sign-On URL.
         /// </summary>
         /// <value>Single Sign-On URL.</value>
-        [DataMember(Name="signOnURL", EmitDefaultValue=false)]
+        [DataMember(Name="signOnURL", EmitDefaultValue=true)]
         public string SignOnURL { get; set; }
 
         /// <summary>
@@ -205,21 +205,21 @@ namespace TalonOne.Model
         /// The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. 
         /// </summary>
         /// <value>The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. </value>
-        [DataMember(Name="audienceURI", EmitDefaultValue=false)]
+        [DataMember(Name="audienceURI", EmitDefaultValue=true)]
         public string AudienceURI { get; set; }
 
         /// <summary>
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
@@ -374,24 +374,27 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
+            
 
             // Issuer (string) minLength
             if(this.Issuer != null && this.Issuer.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Issuer, length must be greater than 1.", new [] { "Issuer" });
             }
+            
 
             // SignOnURL (string) minLength
             if(this.SignOnURL != null && this.SignOnURL.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SignOnURL, length must be greater than 1.", new [] { "SignOnURL" });
             }
-
+            
             yield break;
         }
     }

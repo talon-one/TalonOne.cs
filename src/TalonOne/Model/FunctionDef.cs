@@ -83,14 +83,14 @@ namespace TalonOne.Model
         /// The function name used in Talang.
         /// </summary>
         /// <value>The function name used in Talang.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The type of this function argument.
         /// </summary>
         /// <value>The type of this function argument.</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public string Type { get; set; }
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace TalonOne.Model
         /// An array of argument definitions.
         /// </summary>
         /// <value>An array of argument definitions.</value>
-        [DataMember(Name="args", EmitDefaultValue=false)]
+        [DataMember(Name="args", EmitDefaultValue=true)]
         public List<FuncArgDef> Args { get; set; }
 
         /// <summary>
@@ -219,12 +219,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
-
+            
             yield break;
         }
     }

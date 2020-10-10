@@ -127,42 +127,42 @@ namespace TalonOne.Model
         /// The integration ID for this entity sent to and used in the Talon.One system.
         /// </summary>
         /// <value>The integration ID for this entity sent to and used in the Talon.One system.</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        [DataMember(Name="integrationId", EmitDefaultValue=true)]
         public string IntegrationId { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// Arbitrary properties associated with this item
         /// </summary>
         /// <value>Arbitrary properties associated with this item</value>
-        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        [DataMember(Name="attributes", EmitDefaultValue=true)]
         public Object Attributes { get; set; }
 
         /// <summary>
         /// The ID of the Talon.One account that owns this profile.
         /// </summary>
         /// <value>The ID of the Talon.One account that owns this profile.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public int AccountId { get; set; }
 
         /// <summary>
         /// The total amount of closed sessions by a customer. A closed session is a successful purchase.
         /// </summary>
         /// <value>The total amount of closed sessions by a customer. A closed session is a successful purchase.</value>
-        [DataMember(Name="closedSessions", EmitDefaultValue=false)]
+        [DataMember(Name="closedSessions", EmitDefaultValue=true)]
         public int ClosedSessions { get; set; }
 
         /// <summary>
         /// Sum of all purchases made by this customer
         /// </summary>
         /// <value>Sum of all purchases made by this customer</value>
-        [DataMember(Name="totalSales", EmitDefaultValue=false)]
+        [DataMember(Name="totalSales", EmitDefaultValue=true)]
         public decimal TotalSales { get; set; }
 
         /// <summary>
@@ -183,7 +183,7 @@ namespace TalonOne.Model
         /// Timestamp of the most recent event received from this customer
         /// </summary>
         /// <value>Timestamp of the most recent event received from this customer</value>
-        [DataMember(Name="lastActivity", EmitDefaultValue=false)]
+        [DataMember(Name="lastActivity", EmitDefaultValue=true)]
         public DateTime LastActivity { get; set; }
 
         /// <summary>

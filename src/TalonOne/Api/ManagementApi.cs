@@ -305,7 +305,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns></returns>
-        void DeleteCoupons (int applicationId, int campaignId, string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool));
+        void DeleteCoupons (int applicationId, int campaignId, string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?));
 
         /// <summary>
         /// Delete Coupons
@@ -330,7 +330,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteCouponsWithHttpInfo (int applicationId, int campaignId, string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool));
+        ApiResponse<Object> DeleteCouponsWithHttpInfo (int applicationId, int campaignId, string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?));
         /// <summary>
         /// Delete one Referral
         /// </summary>
@@ -398,7 +398,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse2009 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// Get access logs for application (with total count)
@@ -417,7 +417,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetAccessLogsWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse2009> GetAccessLogsWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get access logs for application
         /// </summary>
@@ -435,7 +435,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20010</returns>
-        InlineResponse20010 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse20010 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// Get access logs for application
@@ -454,7 +454,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20010</returns>
-        ApiResponse<InlineResponse20010> GetAccessLogsWithoutTotalCountWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse20010> GetAccessLogsWithoutTotalCountWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Account Details
         /// </summary>
@@ -529,7 +529,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20021</returns>
-        InlineResponse20021 GetAdditionalCosts (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse20021 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List additional costs
@@ -542,7 +542,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20021</returns>
-        ApiResponse<InlineResponse20021> GetAdditionalCostsWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse20021> GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get all access logs
         /// </summary>
@@ -559,7 +559,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse2009 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// Get all access logs
@@ -577,7 +577,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetAllAccessLogsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse2009> GetAllAccessLogsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get all roles.
         /// </summary>
@@ -675,7 +675,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20012</returns>
-        InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool));
+        InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
 
         /// <summary>
         /// List Application Customers
@@ -690,7 +690,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20012</returns>
-        ApiResponse<InlineResponse20012> GetApplicationCustomersWithHttpInfo (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool));
+        ApiResponse<InlineResponse20012> GetApplicationCustomersWithHttpInfo (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
         /// <summary>
         /// Get a list of the customer profiles that match the given attributes (with total count)
         /// </summary>
@@ -724,7 +724,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20019</returns>
-        InlineResponse20019 GetApplicationEventTypes (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse20019 GetApplicationEventTypes (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Applications Event Types
@@ -738,7 +738,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20019</returns>
-        ApiResponse<InlineResponse20019> GetApplicationEventTypesWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse20019> GetApplicationEventTypesWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// List Applications Events (with total count)
         /// </summary>
@@ -762,7 +762,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>InlineResponse20017</returns>
-        InlineResponse20017 GetApplicationEvents (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        InlineResponse20017 GetApplicationEvents (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
 
         /// <summary>
         /// List Applications Events (with total count)
@@ -787,7 +787,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>ApiResponse of InlineResponse20017</returns>
-        ApiResponse<InlineResponse20017> GetApplicationEventsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        ApiResponse<InlineResponse20017> GetApplicationEventsWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
         /// <summary>
         /// List Applications Events
         /// </summary>
@@ -811,7 +811,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>InlineResponse20018</returns>
-        InlineResponse20018 GetApplicationEventsWithoutTotalCount (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        InlineResponse20018 GetApplicationEventsWithoutTotalCount (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
 
         /// <summary>
         /// List Applications Events
@@ -836,7 +836,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>ApiResponse of InlineResponse20018</returns>
-        ApiResponse<InlineResponse20018> GetApplicationEventsWithoutTotalCountWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        ApiResponse<InlineResponse20018> GetApplicationEventsWithoutTotalCountWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
         /// <summary>
         /// Get Application Session
         /// </summary>
@@ -879,7 +879,7 @@ namespace TalonOne.Api
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
         /// <returns>InlineResponse20016</returns>
-        InlineResponse20016 GetApplicationSessions (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string));
+        InlineResponse20016 GetApplicationSessions (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string profile = default(string), string state = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string coupon = default(string), string referral = default(string), string integrationId = default(string));
 
         /// <summary>
         /// List Application Sessions
@@ -900,7 +900,7 @@ namespace TalonOne.Api
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20016</returns>
-        ApiResponse<InlineResponse20016> GetApplicationSessionsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string));
+        ApiResponse<InlineResponse20016> GetApplicationSessionsWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string profile = default(string), string state = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string coupon = default(string), string referral = default(string), string integrationId = default(string));
         /// <summary>
         /// List Applications
         /// </summary>
@@ -912,7 +912,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetApplications (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse2001 GetApplications (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Applications
@@ -925,7 +925,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetApplicationsWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse2001> GetApplicationsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get a custom attribute
         /// </summary>
@@ -958,7 +958,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20020</returns>
-        InlineResponse20020 GetAttributes (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse20020 GetAttributes (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List custom attributes
@@ -971,7 +971,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20020</returns>
-        ApiResponse<InlineResponse20020> GetAttributesWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse20020> GetAttributesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get a Campaign
         /// </summary>
@@ -1038,7 +1038,7 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string));
+        InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
 
         /// <summary>
         /// Get a list of all campaigns that match the given attributes
@@ -1054,7 +1054,7 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetCampaignByAttributesWithHttpInfo (int applicationId, CampaignSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string));
+        ApiResponse<InlineResponse2002> GetCampaignByAttributesWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
         /// <summary>
         /// List your Campaigns
         /// </summary>
@@ -1073,7 +1073,7 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetCampaigns (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int));
+        InlineResponse2002 GetCampaigns (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?));
 
         /// <summary>
         /// List your Campaigns
@@ -1093,7 +1093,7 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int));
+        ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?));
         /// <summary>
         /// Get audit log for an account
         /// </summary>
@@ -1110,7 +1110,7 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>InlineResponse20027</returns>
-        InlineResponse20027 GetChanges (int pageSize = default(int), int skip = default(int), string sort = default(string), int applicationId = default(int), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), bool withTotalResultSize = default(bool), bool includeOld = default(bool));
+        InlineResponse20027 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
 
         /// <summary>
         /// Get audit log for an account
@@ -1128,7 +1128,7 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20027</returns>
-        ApiResponse<InlineResponse20027> GetChangesWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), int applicationId = default(int), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), bool withTotalResultSize = default(bool), bool includeOld = default(bool));
+        ApiResponse<InlineResponse20027> GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
         /// <summary>
         /// List Coupons (with total count)
         /// </summary>
@@ -1155,7 +1155,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GetCoupons (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool));
+        InlineResponse2004 GetCoupons (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?));
 
         /// <summary>
         /// List Coupons (with total count)
@@ -1183,7 +1183,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GetCouponsWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool));
+        ApiResponse<InlineResponse2004> GetCouponsWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?));
         /// <summary>
         /// Get a list of the coupons that match the given attributes
         /// </summary>
@@ -1207,7 +1207,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes
@@ -1232,7 +1232,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GetCouponsByAttributesWithHttpInfo (int applicationId, int campaignId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        ApiResponse<InlineResponse2004> GetCouponsByAttributesWithHttpInfo (int applicationId, int campaignId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
         /// </summary>
@@ -1256,7 +1256,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
@@ -1281,7 +1281,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GetCouponsByAttributesApplicationWideWithHttpInfo (int applicationId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        ApiResponse<InlineResponse2004> GetCouponsByAttributesApplicationWideWithHttpInfo (int applicationId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
         /// List Coupons
         /// </summary>
@@ -1304,7 +1304,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool));
+        InlineResponse2005 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?));
 
         /// <summary>
         /// List Coupons
@@ -1328,7 +1328,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> GetCouponsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool));
+        ApiResponse<InlineResponse2005> GetCouponsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?));
         /// <summary>
         /// Get Activity Report for Single Customer
         /// </summary>
@@ -1343,7 +1343,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>CustomerActivityReport</returns>
-        CustomerActivityReport GetCustomerActivityReport (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int pageSize = default(int), int skip = default(int));
+        CustomerActivityReport GetCustomerActivityReport (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// Get Activity Report for Single Customer
@@ -1359,7 +1359,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of CustomerActivityReport</returns>
-        ApiResponse<CustomerActivityReport> GetCustomerActivityReportWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int pageSize = default(int), int skip = default(int));
+        ApiResponse<CustomerActivityReport> GetCustomerActivityReportWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// Get Activity Reports for Application Customers (with total count)
         /// </summary>
@@ -1378,7 +1378,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>InlineResponse20014</returns>
-        InlineResponse20014 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
+        InlineResponse20014 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
 
         /// <summary>
         /// Get Activity Reports for Application Customers (with total count)
@@ -1398,7 +1398,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>ApiResponse of InlineResponse20014</returns>
-        ApiResponse<InlineResponse20014> GetCustomerActivityReportsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
+        ApiResponse<InlineResponse20014> GetCustomerActivityReportsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
         /// <summary>
         /// Get Activity Reports for Application Customers
         /// </summary>
@@ -1417,7 +1417,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>InlineResponse20015</returns>
-        InlineResponse20015 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
+        InlineResponse20015 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
 
         /// <summary>
         /// Get Activity Reports for Application Customers
@@ -1437,7 +1437,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>ApiResponse of InlineResponse20015</returns>
-        ApiResponse<InlineResponse20015> GetCustomerActivityReportsWithoutTotalCountWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
+        ApiResponse<InlineResponse20015> GetCustomerActivityReportsWithoutTotalCountWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
         /// <summary>
         /// Get Analytics Report for a Customer
         /// </summary>
@@ -1451,7 +1451,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>CustomerAnalytics</returns>
-        CustomerAnalytics GetCustomerAnalytics (int applicationId, int customerId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        CustomerAnalytics GetCustomerAnalytics (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// Get Analytics Report for a Customer
@@ -1466,7 +1466,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of CustomerAnalytics</returns>
-        ApiResponse<CustomerAnalytics> GetCustomerAnalyticsWithHttpInfo (int applicationId, int customerId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<CustomerAnalytics> GetCustomerAnalyticsWithHttpInfo (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Customer Profile
         /// </summary>
@@ -1498,7 +1498,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20013</returns>
-        InlineResponse20013 GetCustomerProfiles (int pageSize = default(int), int skip = default(int));
+        InlineResponse20013 GetCustomerProfiles (int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List Customer Profiles
@@ -1510,7 +1510,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20013</returns>
-        ApiResponse<InlineResponse20013> GetCustomerProfilesWithHttpInfo (int pageSize = default(int), int skip = default(int));
+        ApiResponse<InlineResponse20013> GetCustomerProfilesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// Get a list of the customer profiles that match the given attributes
         /// </summary>
@@ -1522,7 +1522,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20013</returns>
-        InlineResponse20013 GetCustomersByAttributes (ApplicationCustomerSearch body, int pageSize = default(int), int skip = default(int));
+        InlineResponse20013 GetCustomersByAttributes (ApplicationCustomerSearch body, int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// Get a list of the customer profiles that match the given attributes
@@ -1535,7 +1535,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20013</returns>
-        ApiResponse<InlineResponse20013> GetCustomersByAttributesWithHttpInfo (ApplicationCustomerSearch body, int pageSize = default(int), int skip = default(int));
+        ApiResponse<InlineResponse20013> GetCustomersByAttributesWithHttpInfo (ApplicationCustomerSearch body, int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List Event Types
         /// </summary>
@@ -1550,7 +1550,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20025</returns>
-        InlineResponse20025 GetEventTypes (string applicationIds = default(string), string name = default(string), bool includeOldVersions = default(bool), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse20025 GetEventTypes (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Event Types
@@ -1566,7 +1566,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20025</returns>
-        ApiResponse<InlineResponse20025> GetEventTypesWithHttpInfo (string applicationIds = default(string), string name = default(string), bool includeOldVersions = default(bool), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse20025> GetEventTypesWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Exports
         /// </summary>
@@ -1580,7 +1580,7 @@ namespace TalonOne.Api
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>InlineResponse20028</returns>
-        InlineResponse20028 GetExports (int pageSize = default(int), int skip = default(int), int applicationId = default(int), int campaignId = default(int), string entity = default(string));
+        InlineResponse20028 GetExports (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
 
         /// <summary>
         /// Get Exports
@@ -1595,7 +1595,7 @@ namespace TalonOne.Api
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20028</returns>
-        ApiResponse<InlineResponse20028> GetExportsWithHttpInfo (int pageSize = default(int), int skip = default(int), int applicationId = default(int), int campaignId = default(int), string entity = default(string));
+        ApiResponse<InlineResponse20028> GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
         /// <summary>
         /// Get Imports
         /// </summary>
@@ -1606,7 +1606,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20029</returns>
-        InlineResponse20029 GetImports (int pageSize = default(int), int skip = default(int));
+        InlineResponse20029 GetImports (int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// Get Imports
@@ -1618,7 +1618,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20029</returns>
-        ApiResponse<InlineResponse20029> GetImportsWithHttpInfo (int pageSize = default(int), int skip = default(int));
+        ApiResponse<InlineResponse20029> GetImportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// get the Loyalty Ledger for this integrationID
         /// </summary>
@@ -1722,7 +1722,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 GetReferrals (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string));
+        InlineResponse2006 GetReferrals (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
 
         /// <summary>
         /// List Referrals (with total count)
@@ -1743,7 +1743,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> GetReferralsWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string));
+        ApiResponse<InlineResponse2006> GetReferralsWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
         /// <summary>
         /// List Referrals
         /// </summary>
@@ -1763,7 +1763,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>InlineResponse2007</returns>
-        InlineResponse2007 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string));
+        InlineResponse2007 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
 
         /// <summary>
         /// List Referrals
@@ -1784,7 +1784,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        ApiResponse<InlineResponse2007> GetReferralsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string));
+        ApiResponse<InlineResponse2007> GetReferralsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
         /// <summary>
         /// Get information for the specified role.
         /// </summary>
@@ -1844,7 +1844,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 GetRulesets (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse2003 GetRulesets (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Campaign Rulesets
@@ -1859,7 +1859,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> GetRulesetsWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse2003> GetRulesetsWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get a single User
         /// </summary>
@@ -1892,7 +1892,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20026</returns>
-        InlineResponse20026 GetUsers (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        InlineResponse20026 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Users in your account
@@ -1905,7 +1905,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20026</returns>
-        ApiResponse<InlineResponse20026> GetUsersWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        ApiResponse<InlineResponse20026> GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Webhook
         /// </summary>
@@ -1944,7 +1944,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Only return events created before this date. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>InlineResponse20023</returns>
-        InlineResponse20023 GetWebhookActivationLogs (int pageSize = default(int), int skip = default(int), string sort = default(string), string integrationRequestUuid = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        InlineResponse20023 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
 
         /// <summary>
         /// List Webhook activation Log Entries
@@ -1963,7 +1963,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Only return events created before this date. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20023</returns>
-        ApiResponse<InlineResponse20023> GetWebhookActivationLogsWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), string integrationRequestUuid = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        ApiResponse<InlineResponse20023> GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List Webhook Log Entries
         /// </summary>
@@ -1982,7 +1982,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>InlineResponse20024</returns>
-        InlineResponse20024 GetWebhookLogs (int pageSize = default(int), int skip = default(int), string sort = default(string), string status = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), string requestUuid = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        InlineResponse20024 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
 
         /// <summary>
         /// List Webhook Log Entries
@@ -2002,7 +2002,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20024</returns>
-        ApiResponse<InlineResponse20024> GetWebhookLogsWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), string status = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), string requestUuid = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        ApiResponse<InlineResponse20024> GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List Webhooks
         /// </summary>
@@ -2015,7 +2015,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20022</returns>
-        InlineResponse20022 GetWebhooks (string applicationIds = default(string), string sort = default(string), int pageSize = default(int), int skip = default(int));
+        InlineResponse20022 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List Webhooks
@@ -2029,7 +2029,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20022</returns>
-        ApiResponse<InlineResponse20022> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int pageSize = default(int), int skip = default(int));
+        ApiResponse<InlineResponse20022> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// Deduct points in a certain loyalty program for the specified customer
         /// </summary>
@@ -2099,7 +2099,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        InlineResponse2004 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes (with total count)
@@ -2124,7 +2124,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> SearchCouponsAdvancedWithHttpInfo (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        ApiResponse<InlineResponse2004> SearchCouponsAdvancedWithHttpInfo (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
         /// </summary>
@@ -2148,7 +2148,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        InlineResponse2004 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
@@ -2173,7 +2173,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> SearchCouponsAdvancedApplicationWideWithHttpInfo (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        ApiResponse<InlineResponse2004> SearchCouponsAdvancedApplicationWideWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application
         /// </summary>
@@ -2197,7 +2197,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application
@@ -2222,7 +2222,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        ApiResponse<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
         /// Get a list of the coupons that match the given attributes
         /// </summary>
@@ -2246,7 +2246,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 SearchCouponsAdvancedWithoutTotalCount (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        InlineResponse2005 SearchCouponsAdvancedWithoutTotalCount (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes
@@ -2271,7 +2271,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> SearchCouponsAdvancedWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        ApiResponse<InlineResponse2005> SearchCouponsAdvancedWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
         /// <summary>
         /// Update an additional cost
         /// </summary>
@@ -2704,7 +2704,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteCouponsAsync (int applicationId, int campaignId, string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool));
+        System.Threading.Tasks.Task DeleteCouponsAsync (int applicationId, int campaignId, string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?));
 
         /// <summary>
         /// Delete Coupons
@@ -2729,7 +2729,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponsAsyncWithHttpInfo (int applicationId, int campaignId, string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponsAsyncWithHttpInfo (int applicationId, int campaignId, string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?));
         /// <summary>
         /// Delete one Referral
         /// </summary>
@@ -2797,7 +2797,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetAccessLogsAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse2009> GetAccessLogsAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// Get access logs for application (with total count)
@@ -2816,7 +2816,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetAccessLogsAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetAccessLogsAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get access logs for application
         /// </summary>
@@ -2834,7 +2834,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20010</returns>
-        System.Threading.Tasks.Task<InlineResponse20010> GetAccessLogsWithoutTotalCountAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse20010> GetAccessLogsWithoutTotalCountAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// Get access logs for application
@@ -2853,7 +2853,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> GetAccessLogsWithoutTotalCountAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> GetAccessLogsWithoutTotalCountAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Account Details
         /// </summary>
@@ -2928,7 +2928,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20021</returns>
-        System.Threading.Tasks.Task<InlineResponse20021> GetAdditionalCostsAsync (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse20021> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List additional costs
@@ -2941,7 +2941,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetAdditionalCostsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get all access logs
         /// </summary>
@@ -2958,7 +2958,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetAllAccessLogsAsync (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse2009> GetAllAccessLogsAsync (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// Get all access logs
@@ -2976,7 +2976,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetAllAccessLogsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetAllAccessLogsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get all roles.
         /// </summary>
@@ -3074,7 +3074,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20012</returns>
-        System.Threading.Tasks.Task<InlineResponse20012> GetApplicationCustomersAsync (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool));
+        System.Threading.Tasks.Task<InlineResponse20012> GetApplicationCustomersAsync (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
 
         /// <summary>
         /// List Application Customers
@@ -3089,7 +3089,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
         /// <summary>
         /// Get a list of the customer profiles that match the given attributes (with total count)
         /// </summary>
@@ -3123,7 +3123,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20019</returns>
-        System.Threading.Tasks.Task<InlineResponse20019> GetApplicationEventTypesAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse20019> GetApplicationEventTypesAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Applications Event Types
@@ -3137,7 +3137,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetApplicationEventTypesAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetApplicationEventTypesAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// List Applications Events (with total count)
         /// </summary>
@@ -3161,7 +3161,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>Task of InlineResponse20017</returns>
-        System.Threading.Tasks.Task<InlineResponse20017> GetApplicationEventsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        System.Threading.Tasks.Task<InlineResponse20017> GetApplicationEventsAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
 
         /// <summary>
         /// List Applications Events (with total count)
@@ -3186,7 +3186,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> GetApplicationEventsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> GetApplicationEventsAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
         /// <summary>
         /// List Applications Events
         /// </summary>
@@ -3210,7 +3210,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>Task of InlineResponse20018</returns>
-        System.Threading.Tasks.Task<InlineResponse20018> GetApplicationEventsWithoutTotalCountAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        System.Threading.Tasks.Task<InlineResponse20018> GetApplicationEventsWithoutTotalCountAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
 
         /// <summary>
         /// List Applications Events
@@ -3235,7 +3235,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20018>> GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20018>> GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
         /// <summary>
         /// Get Application Session
         /// </summary>
@@ -3278,7 +3278,7 @@ namespace TalonOne.Api
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
         /// <returns>Task of InlineResponse20016</returns>
-        System.Threading.Tasks.Task<InlineResponse20016> GetApplicationSessionsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string));
+        System.Threading.Tasks.Task<InlineResponse20016> GetApplicationSessionsAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string profile = default(string), string state = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string coupon = default(string), string referral = default(string), string integrationId = default(string));
 
         /// <summary>
         /// List Application Sessions
@@ -3299,7 +3299,7 @@ namespace TalonOne.Api
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetApplicationSessionsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetApplicationSessionsAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string profile = default(string), string state = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string coupon = default(string), string referral = default(string), string integrationId = default(string));
         /// <summary>
         /// List Applications
         /// </summary>
@@ -3311,7 +3311,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetApplicationsAsync (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse2001> GetApplicationsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Applications
@@ -3324,7 +3324,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetApplicationsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetApplicationsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get a custom attribute
         /// </summary>
@@ -3357,7 +3357,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20020</returns>
-        System.Threading.Tasks.Task<InlineResponse20020> GetAttributesAsync (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse20020> GetAttributesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List custom attributes
@@ -3370,7 +3370,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAttributesAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAttributesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get a Campaign
         /// </summary>
@@ -3437,7 +3437,7 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetCampaignByAttributesAsync (int applicationId, CampaignSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string));
+        System.Threading.Tasks.Task<InlineResponse2002> GetCampaignByAttributesAsync (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
 
         /// <summary>
         /// Get a list of all campaigns that match the given attributes
@@ -3453,7 +3453,7 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignByAttributesAsyncWithHttpInfo (int applicationId, CampaignSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignByAttributesAsyncWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
         /// <summary>
         /// List your Campaigns
         /// </summary>
@@ -3472,7 +3472,7 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int));
+        System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?));
 
         /// <summary>
         /// List your Campaigns
@@ -3492,7 +3492,7 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?));
         /// <summary>
         /// Get audit log for an account
         /// </summary>
@@ -3509,7 +3509,7 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>Task of InlineResponse20027</returns>
-        System.Threading.Tasks.Task<InlineResponse20027> GetChangesAsync (int pageSize = default(int), int skip = default(int), string sort = default(string), int applicationId = default(int), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), bool withTotalResultSize = default(bool), bool includeOld = default(bool));
+        System.Threading.Tasks.Task<InlineResponse20027> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
 
         /// <summary>
         /// Get audit log for an account
@@ -3527,7 +3527,7 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetChangesAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), int applicationId = default(int), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), bool withTotalResultSize = default(bool), bool includeOld = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
         /// <summary>
         /// List Coupons (with total count)
         /// </summary>
@@ -3554,7 +3554,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GetCouponsAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool));
+        System.Threading.Tasks.Task<InlineResponse2004> GetCouponsAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?));
 
         /// <summary>
         /// List Coupons (with total count)
@@ -3582,7 +3582,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?));
         /// <summary>
         /// Get a list of the coupons that match the given attributes
         /// </summary>
@@ -3606,7 +3606,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GetCouponsByAttributesAsync (int applicationId, int campaignId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        System.Threading.Tasks.Task<InlineResponse2004> GetCouponsByAttributesAsync (int applicationId, int campaignId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes
@@ -3631,7 +3631,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsByAttributesAsyncWithHttpInfo (int applicationId, int campaignId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsByAttributesAsyncWithHttpInfo (int applicationId, int campaignId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
         /// </summary>
@@ -3655,7 +3655,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GetCouponsByAttributesApplicationWideAsync (int applicationId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        System.Threading.Tasks.Task<InlineResponse2004> GetCouponsByAttributesApplicationWideAsync (int applicationId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
@@ -3680,7 +3680,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsByAttributesApplicationWideAsyncWithHttpInfo (int applicationId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsByAttributesApplicationWideAsyncWithHttpInfo (int applicationId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
         /// List Coupons
         /// </summary>
@@ -3703,7 +3703,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> GetCouponsWithoutTotalCountAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool));
+        System.Threading.Tasks.Task<InlineResponse2005> GetCouponsWithoutTotalCountAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?));
 
         /// <summary>
         /// List Coupons
@@ -3727,7 +3727,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetCouponsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetCouponsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?));
         /// <summary>
         /// Get Activity Report for Single Customer
         /// </summary>
@@ -3742,7 +3742,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of CustomerActivityReport</returns>
-        System.Threading.Tasks.Task<CustomerActivityReport> GetCustomerActivityReportAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<CustomerActivityReport> GetCustomerActivityReportAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// Get Activity Report for Single Customer
@@ -3758,7 +3758,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (CustomerActivityReport)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerActivityReport>> GetCustomerActivityReportAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<ApiResponse<CustomerActivityReport>> GetCustomerActivityReportAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// Get Activity Reports for Application Customers (with total count)
         /// </summary>
@@ -3777,7 +3777,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>Task of InlineResponse20014</returns>
-        System.Threading.Tasks.Task<InlineResponse20014> GetCustomerActivityReportsAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
+        System.Threading.Tasks.Task<InlineResponse20014> GetCustomerActivityReportsAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
 
         /// <summary>
         /// Get Activity Reports for Application Customers (with total count)
@@ -3797,7 +3797,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> GetCustomerActivityReportsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> GetCustomerActivityReportsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
         /// <summary>
         /// Get Activity Reports for Application Customers
         /// </summary>
@@ -3816,7 +3816,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>Task of InlineResponse20015</returns>
-        System.Threading.Tasks.Task<InlineResponse20015> GetCustomerActivityReportsWithoutTotalCountAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
+        System.Threading.Tasks.Task<InlineResponse20015> GetCustomerActivityReportsWithoutTotalCountAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
 
         /// <summary>
         /// Get Activity Reports for Application Customers
@@ -3836,7 +3836,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> GetCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> GetCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string));
         /// <summary>
         /// Get Analytics Report for a Customer
         /// </summary>
@@ -3850,7 +3850,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of CustomerAnalytics</returns>
-        System.Threading.Tasks.Task<CustomerAnalytics> GetCustomerAnalyticsAsync (int applicationId, int customerId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<CustomerAnalytics> GetCustomerAnalyticsAsync (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// Get Analytics Report for a Customer
@@ -3865,7 +3865,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (CustomerAnalytics)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerAnalytics>> GetCustomerAnalyticsAsyncWithHttpInfo (int applicationId, int customerId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<CustomerAnalytics>> GetCustomerAnalyticsAsyncWithHttpInfo (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Customer Profile
         /// </summary>
@@ -3897,7 +3897,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20013</returns>
-        System.Threading.Tasks.Task<InlineResponse20013> GetCustomerProfilesAsync (int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<InlineResponse20013> GetCustomerProfilesAsync (int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List Customer Profiles
@@ -3909,7 +3909,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetCustomerProfilesAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetCustomerProfilesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// Get a list of the customer profiles that match the given attributes
         /// </summary>
@@ -3921,7 +3921,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20013</returns>
-        System.Threading.Tasks.Task<InlineResponse20013> GetCustomersByAttributesAsync (ApplicationCustomerSearch body, int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<InlineResponse20013> GetCustomersByAttributesAsync (ApplicationCustomerSearch body, int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// Get a list of the customer profiles that match the given attributes
@@ -3934,7 +3934,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetCustomersByAttributesAsyncWithHttpInfo (ApplicationCustomerSearch body, int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetCustomersByAttributesAsyncWithHttpInfo (ApplicationCustomerSearch body, int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List Event Types
         /// </summary>
@@ -3949,7 +3949,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20025</returns>
-        System.Threading.Tasks.Task<InlineResponse20025> GetEventTypesAsync (string applicationIds = default(string), string name = default(string), bool includeOldVersions = default(bool), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse20025> GetEventTypesAsync (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Event Types
@@ -3965,7 +3965,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetEventTypesAsyncWithHttpInfo (string applicationIds = default(string), string name = default(string), bool includeOldVersions = default(bool), int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetEventTypesAsyncWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Exports
         /// </summary>
@@ -3979,7 +3979,7 @@ namespace TalonOne.Api
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>Task of InlineResponse20028</returns>
-        System.Threading.Tasks.Task<InlineResponse20028> GetExportsAsync (int pageSize = default(int), int skip = default(int), int applicationId = default(int), int campaignId = default(int), string entity = default(string));
+        System.Threading.Tasks.Task<InlineResponse20028> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
 
         /// <summary>
         /// Get Exports
@@ -3994,7 +3994,7 @@ namespace TalonOne.Api
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetExportsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), int applicationId = default(int), int campaignId = default(int), string entity = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
         /// <summary>
         /// Get Imports
         /// </summary>
@@ -4005,7 +4005,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20029</returns>
-        System.Threading.Tasks.Task<InlineResponse20029> GetImportsAsync (int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<InlineResponse20029> GetImportsAsync (int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// Get Imports
@@ -4017,7 +4017,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20029)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetImportsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetImportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// get the Loyalty Ledger for this integrationID
         /// </summary>
@@ -4121,7 +4121,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> GetReferralsAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string));
+        System.Threading.Tasks.Task<InlineResponse2006> GetReferralsAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
 
         /// <summary>
         /// List Referrals (with total count)
@@ -4142,7 +4142,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetReferralsAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetReferralsAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
         /// <summary>
         /// List Referrals
         /// </summary>
@@ -4162,7 +4162,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>Task of InlineResponse2007</returns>
-        System.Threading.Tasks.Task<InlineResponse2007> GetReferralsWithoutTotalCountAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string));
+        System.Threading.Tasks.Task<InlineResponse2007> GetReferralsWithoutTotalCountAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
 
         /// <summary>
         /// List Referrals
@@ -4183,7 +4183,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetReferralsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetReferralsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
         /// <summary>
         /// Get information for the specified role.
         /// </summary>
@@ -4243,7 +4243,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> GetRulesetsAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse2003> GetRulesetsAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Campaign Rulesets
@@ -4258,7 +4258,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetRulesetsAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetRulesetsAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get a single User
         /// </summary>
@@ -4291,7 +4291,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20026</returns>
-        System.Threading.Tasks.Task<InlineResponse20026> GetUsersAsync (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<InlineResponse20026> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Users in your account
@@ -4304,7 +4304,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20026)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetUsersAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Webhook
         /// </summary>
@@ -4343,7 +4343,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Only return events created before this date. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>Task of InlineResponse20023</returns>
-        System.Threading.Tasks.Task<InlineResponse20023> GetWebhookActivationLogsAsync (int pageSize = default(int), int skip = default(int), string sort = default(string), string integrationRequestUuid = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        System.Threading.Tasks.Task<InlineResponse20023> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
 
         /// <summary>
         /// List Webhook activation Log Entries
@@ -4362,7 +4362,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Only return events created before this date. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetWebhookActivationLogsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), string integrationRequestUuid = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List Webhook Log Entries
         /// </summary>
@@ -4381,7 +4381,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>Task of InlineResponse20024</returns>
-        System.Threading.Tasks.Task<InlineResponse20024> GetWebhookLogsAsync (int pageSize = default(int), int skip = default(int), string sort = default(string), string status = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), string requestUuid = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        System.Threading.Tasks.Task<InlineResponse20024> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
 
         /// <summary>
         /// List Webhook Log Entries
@@ -4401,7 +4401,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20024)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetWebhookLogsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), string status = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), string requestUuid = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List Webhooks
         /// </summary>
@@ -4414,7 +4414,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20022</returns>
-        System.Threading.Tasks.Task<InlineResponse20022> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<InlineResponse20022> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List Webhooks
@@ -4428,7 +4428,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int pageSize = default(int), int skip = default(int));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// Deduct points in a certain loyalty program for the specified customer
         /// </summary>
@@ -4498,7 +4498,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> SearchCouponsAdvancedAsync (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        System.Threading.Tasks.Task<InlineResponse2004> SearchCouponsAdvancedAsync (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes (with total count)
@@ -4523,7 +4523,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> SearchCouponsAdvancedAsyncWithHttpInfo (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> SearchCouponsAdvancedAsyncWithHttpInfo (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
         /// </summary>
@@ -4547,7 +4547,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> SearchCouponsAdvancedApplicationWideAsync (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        System.Threading.Tasks.Task<InlineResponse2004> SearchCouponsAdvancedApplicationWideAsync (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
@@ -4572,7 +4572,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> SearchCouponsAdvancedApplicationWideAsyncWithHttpInfo (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> SearchCouponsAdvancedApplicationWideAsyncWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application
         /// </summary>
@@ -4596,7 +4596,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsync (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsync (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes in all active campaigns of an application
@@ -4621,7 +4621,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
         /// Get a list of the coupons that match the given attributes
         /// </summary>
@@ -4645,7 +4645,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedWithoutTotalCountAsync (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedWithoutTotalCountAsync (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
 
         /// <summary>
         /// Get a list of the coupons that match the given attributes
@@ -4670,7 +4670,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string));
         /// <summary>
         /// Update an additional cost
         /// </summary>
@@ -6807,7 +6807,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns></returns>
-        public void DeleteCoupons (int applicationId, int campaignId, string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool))
+        public void DeleteCoupons (int applicationId, int campaignId, string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?))
         {
              DeleteCouponsWithHttpInfo(applicationId, campaignId, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
         }
@@ -6832,7 +6832,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> DeleteCouponsWithHttpInfo (int applicationId, int campaignId, string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool))
+        public ApiResponse<Object> DeleteCouponsWithHttpInfo (int applicationId, int campaignId, string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -6921,7 +6921,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteCouponsAsync (int applicationId, int campaignId, string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool))
+        public async System.Threading.Tasks.Task DeleteCouponsAsync (int applicationId, int campaignId, string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?))
         {
              await DeleteCouponsAsyncWithHttpInfo(applicationId, campaignId, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
 
@@ -6947,7 +6947,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponsAsyncWithHttpInfo (int applicationId, int campaignId, string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCouponsAsyncWithHttpInfo (int applicationId, int campaignId, string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -7356,7 +7356,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse2009 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse2009> localVarResponse = GetAccessLogsWithHttpInfo(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -7376,7 +7376,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse<InlineResponse2009> GetAccessLogsWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse2009> GetAccessLogsWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -7457,7 +7457,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> GetAccessLogsAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2009> GetAccessLogsAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse2009> localVarResponse = await GetAccessLogsAsyncWithHttpInfo(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -7478,7 +7478,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetAccessLogsAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetAccessLogsAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -7559,7 +7559,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20010</returns>
-        public InlineResponse20010 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse20010 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20010> localVarResponse = GetAccessLogsWithoutTotalCountWithHttpInfo(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -7579,7 +7579,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20010</returns>
-        public ApiResponse<InlineResponse20010> GetAccessLogsWithoutTotalCountWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse20010> GetAccessLogsWithoutTotalCountWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -7660,7 +7660,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20010</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20010> GetAccessLogsWithoutTotalCountAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20010> GetAccessLogsWithoutTotalCountAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20010> localVarResponse = await GetAccessLogsWithoutTotalCountAsyncWithHttpInfo(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -7681,7 +7681,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20010)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> GetAccessLogsWithoutTotalCountAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20010>> GetAccessLogsWithoutTotalCountAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -8185,7 +8185,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20021</returns>
-        public InlineResponse20021 GetAdditionalCosts (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse20021 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20021> localVarResponse = GetAdditionalCostsWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
@@ -8199,7 +8199,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20021</returns>
-        public ApiResponse<InlineResponse20021> GetAdditionalCostsWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse20021> GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/additional_costs";
@@ -8259,7 +8259,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20021</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20021> GetAdditionalCostsAsync (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20021> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20021> localVarResponse = await GetAdditionalCostsAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
@@ -8274,7 +8274,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetAdditionalCostsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/additional_costs";
@@ -8339,7 +8339,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse2009 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse2009> localVarResponse = GetAllAccessLogsWithHttpInfo(rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -8358,7 +8358,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public ApiResponse<InlineResponse2009> GetAllAccessLogsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse2009> GetAllAccessLogsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'rangeStart' is set
             if (rangeStart == null)
@@ -8434,7 +8434,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> GetAllAccessLogsAsync (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2009> GetAllAccessLogsAsync (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse2009> localVarResponse = await GetAllAccessLogsAsyncWithHttpInfo(rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -8454,7 +8454,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetAllAccessLogsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetAllAccessLogsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'rangeStart' is set
             if (rangeStart == null)
@@ -9099,7 +9099,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20012</returns>
-        public InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool))
+        public InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
         {
              ApiResponse<InlineResponse20012> localVarResponse = GetApplicationCustomersWithHttpInfo(applicationId, integrationId, pageSize, skip, withTotalResultSize);
              return localVarResponse.Data;
@@ -9115,7 +9115,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20012</returns>
-        public ApiResponse<InlineResponse20012> GetApplicationCustomersWithHttpInfo (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool))
+        public ApiResponse<InlineResponse20012> GetApplicationCustomersWithHttpInfo (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -9182,7 +9182,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20012</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20012> GetApplicationCustomersAsync (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool))
+        public async System.Threading.Tasks.Task<InlineResponse20012> GetApplicationCustomersAsync (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
         {
              ApiResponse<InlineResponse20012> localVarResponse = await GetApplicationCustomersAsyncWithHttpInfo(applicationId, integrationId, pageSize, skip, withTotalResultSize);
              return localVarResponse.Data;
@@ -9199,7 +9199,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId, string integrationId = default(string), int pageSize = default(int), int skip = default(int), bool withTotalResultSize = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -9424,7 +9424,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20019</returns>
-        public InlineResponse20019 GetApplicationEventTypes (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse20019 GetApplicationEventTypes (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20019> localVarResponse = GetApplicationEventTypesWithHttpInfo(applicationId, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -9439,7 +9439,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20019</returns>
-        public ApiResponse<InlineResponse20019> GetApplicationEventTypesWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse20019> GetApplicationEventTypesWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -9504,7 +9504,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20019</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20019> GetApplicationEventTypesAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20019> GetApplicationEventTypesAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20019> localVarResponse = await GetApplicationEventTypesAsyncWithHttpInfo(applicationId, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -9520,7 +9520,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetApplicationEventTypesAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetApplicationEventTypesAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -9596,7 +9596,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>InlineResponse20017</returns>
-        public InlineResponse20017 GetApplicationEvents (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public InlineResponse20017 GetApplicationEvents (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
         {
              ApiResponse<InlineResponse20017> localVarResponse = GetApplicationEventsWithHttpInfo(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
              return localVarResponse.Data;
@@ -9622,7 +9622,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>ApiResponse of InlineResponse20017</returns>
-        public ApiResponse<InlineResponse20017> GetApplicationEventsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public ApiResponse<InlineResponse20017> GetApplicationEventsWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -9709,7 +9709,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>Task of InlineResponse20017</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20017> GetApplicationEventsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20017> GetApplicationEventsAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
         {
              ApiResponse<InlineResponse20017> localVarResponse = await GetApplicationEventsAsyncWithHttpInfo(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
              return localVarResponse.Data;
@@ -9736,7 +9736,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> GetApplicationEventsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> GetApplicationEventsAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -9823,7 +9823,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>InlineResponse20018</returns>
-        public InlineResponse20018 GetApplicationEventsWithoutTotalCount (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public InlineResponse20018 GetApplicationEventsWithoutTotalCount (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
         {
              ApiResponse<InlineResponse20018> localVarResponse = GetApplicationEventsWithoutTotalCountWithHttpInfo(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
              return localVarResponse.Data;
@@ -9849,7 +9849,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>ApiResponse of InlineResponse20018</returns>
-        public ApiResponse<InlineResponse20018> GetApplicationEventsWithoutTotalCountWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public ApiResponse<InlineResponse20018> GetApplicationEventsWithoutTotalCountWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -9936,7 +9936,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>Task of InlineResponse20018</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20018> GetApplicationEventsWithoutTotalCountAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20018> GetApplicationEventsWithoutTotalCountAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
         {
              ApiResponse<InlineResponse20018> localVarResponse = await GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
              return localVarResponse.Data;
@@ -9963,7 +9963,7 @@ namespace TalonOne.Api
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20018>> GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string type = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20018>> GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -10201,7 +10201,7 @@ namespace TalonOne.Api
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
         /// <returns>InlineResponse20016</returns>
-        public InlineResponse20016 GetApplicationSessions (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string))
+        public InlineResponse20016 GetApplicationSessions (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string profile = default(string), string state = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string coupon = default(string), string referral = default(string), string integrationId = default(string))
         {
              ApiResponse<InlineResponse20016> localVarResponse = GetApplicationSessionsWithHttpInfo(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
              return localVarResponse.Data;
@@ -10223,7 +10223,7 @@ namespace TalonOne.Api
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20016</returns>
-        public ApiResponse<InlineResponse20016> GetApplicationSessionsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string))
+        public ApiResponse<InlineResponse20016> GetApplicationSessionsWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string profile = default(string), string state = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string coupon = default(string), string referral = default(string), string integrationId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -10302,7 +10302,7 @@ namespace TalonOne.Api
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
         /// <returns>Task of InlineResponse20016</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20016> GetApplicationSessionsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20016> GetApplicationSessionsAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string profile = default(string), string state = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string coupon = default(string), string referral = default(string), string integrationId = default(string))
         {
              ApiResponse<InlineResponse20016> localVarResponse = await GetApplicationSessionsAsyncWithHttpInfo(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
              return localVarResponse.Data;
@@ -10325,7 +10325,7 @@ namespace TalonOne.Api
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetApplicationSessionsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string profile = default(string), string state = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string coupon = default(string), string referral = default(string), string integrationId = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetApplicationSessionsAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string profile = default(string), string state = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string coupon = default(string), string referral = default(string), string integrationId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -10396,7 +10396,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetApplications (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse2001 GetApplications (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse2001> localVarResponse = GetApplicationsWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
@@ -10410,7 +10410,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse<InlineResponse2001> GetApplicationsWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse2001> GetApplicationsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/applications";
@@ -10470,7 +10470,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetApplicationsAsync (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2001> GetApplicationsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse2001> localVarResponse = await GetApplicationsAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
@@ -10485,7 +10485,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetApplicationsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetApplicationsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/applications";
@@ -10688,7 +10688,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20020</returns>
-        public InlineResponse20020 GetAttributes (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse20020 GetAttributes (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20020> localVarResponse = GetAttributesWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
@@ -10702,7 +10702,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20020</returns>
-        public ApiResponse<InlineResponse20020> GetAttributesWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse20020> GetAttributesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/attributes";
@@ -10762,7 +10762,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20020</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20020> GetAttributesAsync (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20020> GetAttributesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20020> localVarResponse = await GetAttributesAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
@@ -10777,7 +10777,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAttributesAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAttributesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/attributes";
@@ -11180,7 +11180,7 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string))
+        public InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
              ApiResponse<InlineResponse2002> localVarResponse = GetCampaignByAttributesWithHttpInfo(applicationId, body, pageSize, skip, sort, campaignState);
              return localVarResponse.Data;
@@ -11197,7 +11197,7 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse<InlineResponse2002> GetCampaignByAttributesWithHttpInfo (int applicationId, CampaignSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string))
+        public ApiResponse<InlineResponse2002> GetCampaignByAttributesWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -11277,7 +11277,7 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetCampaignByAttributesAsync (int applicationId, CampaignSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2002> GetCampaignByAttributesAsync (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
              ApiResponse<InlineResponse2002> localVarResponse = await GetCampaignByAttributesAsyncWithHttpInfo(applicationId, body, pageSize, skip, sort, campaignState);
              return localVarResponse.Data;
@@ -11295,7 +11295,7 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignByAttributesAsyncWithHttpInfo (int applicationId, CampaignSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignByAttributesAsyncWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -11379,7 +11379,7 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetCampaigns (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int))
+        public InlineResponse2002 GetCampaigns (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?))
         {
              ApiResponse<InlineResponse2002> localVarResponse = GetCampaignsWithHttpInfo(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
              return localVarResponse.Data;
@@ -11400,7 +11400,7 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int))
+        public ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -11477,7 +11477,7 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int))
+        public async System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?))
         {
              ApiResponse<InlineResponse2002> localVarResponse = await GetCampaignsAsyncWithHttpInfo(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
              return localVarResponse.Data;
@@ -11499,7 +11499,7 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), int campaignGroupId = default(int))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -11574,7 +11574,7 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>InlineResponse20027</returns>
-        public InlineResponse20027 GetChanges (int pageSize = default(int), int skip = default(int), string sort = default(string), int applicationId = default(int), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), bool withTotalResultSize = default(bool), bool includeOld = default(bool))
+        public InlineResponse20027 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
         {
              ApiResponse<InlineResponse20027> localVarResponse = GetChangesWithHttpInfo(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
              return localVarResponse.Data;
@@ -11593,7 +11593,7 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20027</returns>
-        public ApiResponse<InlineResponse20027> GetChangesWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), int applicationId = default(int), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), bool withTotalResultSize = default(bool), bool includeOld = default(bool))
+        public ApiResponse<InlineResponse20027> GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
         {
 
             var localVarPath = "/v1/changes";
@@ -11663,7 +11663,7 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>Task of InlineResponse20027</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20027> GetChangesAsync (int pageSize = default(int), int skip = default(int), string sort = default(string), int applicationId = default(int), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), bool withTotalResultSize = default(bool), bool includeOld = default(bool))
+        public async System.Threading.Tasks.Task<InlineResponse20027> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
         {
              ApiResponse<InlineResponse20027> localVarResponse = await GetChangesAsyncWithHttpInfo(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
              return localVarResponse.Data;
@@ -11683,7 +11683,7 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetChangesAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), int applicationId = default(int), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), bool withTotalResultSize = default(bool), bool includeOld = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
         {
 
             var localVarPath = "/v1/changes";
@@ -11763,7 +11763,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 GetCoupons (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool))
+        public InlineResponse2004 GetCoupons (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?))
         {
              ApiResponse<InlineResponse2004> localVarResponse = GetCouponsWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
              return localVarResponse.Data;
@@ -11792,7 +11792,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse<InlineResponse2004> GetCouponsWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool))
+        public ApiResponse<InlineResponse2004> GetCouponsWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -11888,7 +11888,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> GetCouponsAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool))
+        public async System.Threading.Tasks.Task<InlineResponse2004> GetCouponsAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?))
         {
              ApiResponse<InlineResponse2004> localVarResponse = await GetCouponsAsyncWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
              return localVarResponse.Data;
@@ -11918,7 +11918,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime), string valid = default(string), string batchId = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), DateTime? startsAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? expiresBefore = default(DateTime?), string valid = default(string), string batchId = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -12011,7 +12011,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
              ApiResponse<InlineResponse2004> localVarResponse = GetCouponsByAttributesWithHttpInfo(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
              return localVarResponse.Data;
@@ -12037,7 +12037,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse<InlineResponse2004> GetCouponsByAttributesWithHttpInfo (int applicationId, int campaignId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public ApiResponse<InlineResponse2004> GetCouponsByAttributesWithHttpInfo (int applicationId, int campaignId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -12138,7 +12138,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> GetCouponsByAttributesAsync (int applicationId, int campaignId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2004> GetCouponsByAttributesAsync (int applicationId, int campaignId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
              ApiResponse<InlineResponse2004> localVarResponse = await GetCouponsByAttributesAsyncWithHttpInfo(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
              return localVarResponse.Data;
@@ -12165,7 +12165,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsByAttributesAsyncWithHttpInfo (int applicationId, int campaignId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsByAttributesAsyncWithHttpInfo (int applicationId, int campaignId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -12266,7 +12266,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
              ApiResponse<InlineResponse2004> localVarResponse = GetCouponsByAttributesApplicationWideWithHttpInfo(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
              return localVarResponse.Data;
@@ -12292,7 +12292,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse<InlineResponse2004> GetCouponsByAttributesApplicationWideWithHttpInfo (int applicationId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public ApiResponse<InlineResponse2004> GetCouponsByAttributesApplicationWideWithHttpInfo (int applicationId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -12390,7 +12390,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> GetCouponsByAttributesApplicationWideAsync (int applicationId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2004> GetCouponsByAttributesApplicationWideAsync (int applicationId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
              ApiResponse<InlineResponse2004> localVarResponse = await GetCouponsByAttributesApplicationWideAsyncWithHttpInfo(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
              return localVarResponse.Data;
@@ -12417,7 +12417,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsByAttributesApplicationWideAsyncWithHttpInfo (int applicationId, CouponSearch body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetCouponsByAttributesApplicationWideAsyncWithHttpInfo (int applicationId, CouponSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -12514,7 +12514,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool))
+        public InlineResponse2005 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?))
         {
              ApiResponse<InlineResponse2005> localVarResponse = GetCouponsWithoutTotalCountWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch);
              return localVarResponse.Data;
@@ -12539,7 +12539,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse<InlineResponse2005> GetCouponsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool))
+        public ApiResponse<InlineResponse2005> GetCouponsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -12627,7 +12627,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> GetCouponsWithoutTotalCountAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool))
+        public async System.Threading.Tasks.Task<InlineResponse2005> GetCouponsWithoutTotalCountAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?))
         {
              ApiResponse<InlineResponse2005> localVarResponse = await GetCouponsWithoutTotalCountAsyncWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch);
              return localVarResponse.Data;
@@ -12653,7 +12653,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetCouponsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetCouponsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -12733,7 +12733,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>CustomerActivityReport</returns>
-        public CustomerActivityReport GetCustomerActivityReport (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int pageSize = default(int), int skip = default(int))
+        public CustomerActivityReport GetCustomerActivityReport (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<CustomerActivityReport> localVarResponse = GetCustomerActivityReportWithHttpInfo(rangeStart, rangeEnd, applicationId, customerId, pageSize, skip);
              return localVarResponse.Data;
@@ -12750,7 +12750,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of CustomerActivityReport</returns>
-        public ApiResponse<CustomerActivityReport> GetCustomerActivityReportWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int pageSize = default(int), int skip = default(int))
+        public ApiResponse<CustomerActivityReport> GetCustomerActivityReportWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'rangeStart' is set
             if (rangeStart == null)
@@ -12828,7 +12828,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of CustomerActivityReport</returns>
-        public async System.Threading.Tasks.Task<CustomerActivityReport> GetCustomerActivityReportAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<CustomerActivityReport> GetCustomerActivityReportAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<CustomerActivityReport> localVarResponse = await GetCustomerActivityReportAsyncWithHttpInfo(rangeStart, rangeEnd, applicationId, customerId, pageSize, skip);
              return localVarResponse.Data;
@@ -12846,7 +12846,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (CustomerActivityReport)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerActivityReport>> GetCustomerActivityReportAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerActivityReport>> GetCustomerActivityReportAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'rangeStart' is set
             if (rangeStart == null)
@@ -12928,7 +12928,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>InlineResponse20014</returns>
-        public InlineResponse20014 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
+        public InlineResponse20014 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
         {
              ApiResponse<InlineResponse20014> localVarResponse = GetCustomerActivityReportsWithHttpInfo(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
              return localVarResponse.Data;
@@ -12949,7 +12949,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>ApiResponse of InlineResponse20014</returns>
-        public ApiResponse<InlineResponse20014> GetCustomerActivityReportsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
+        public ApiResponse<InlineResponse20014> GetCustomerActivityReportsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
         {
             // verify the required parameter 'rangeStart' is set
             if (rangeStart == null)
@@ -13032,7 +13032,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>Task of InlineResponse20014</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20014> GetCustomerActivityReportsAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20014> GetCustomerActivityReportsAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
         {
              ApiResponse<InlineResponse20014> localVarResponse = await GetCustomerActivityReportsAsyncWithHttpInfo(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
              return localVarResponse.Data;
@@ -13054,7 +13054,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> GetCustomerActivityReportsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> GetCustomerActivityReportsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
         {
             // verify the required parameter 'rangeStart' is set
             if (rangeStart == null)
@@ -13137,7 +13137,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>InlineResponse20015</returns>
-        public InlineResponse20015 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
+        public InlineResponse20015 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
         {
              ApiResponse<InlineResponse20015> localVarResponse = GetCustomerActivityReportsWithoutTotalCountWithHttpInfo(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
              return localVarResponse.Data;
@@ -13158,7 +13158,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>ApiResponse of InlineResponse20015</returns>
-        public ApiResponse<InlineResponse20015> GetCustomerActivityReportsWithoutTotalCountWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
+        public ApiResponse<InlineResponse20015> GetCustomerActivityReportsWithoutTotalCountWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
         {
             // verify the required parameter 'rangeStart' is set
             if (rangeStart == null)
@@ -13241,7 +13241,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>Task of InlineResponse20015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20015> GetCustomerActivityReportsWithoutTotalCountAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20015> GetCustomerActivityReportsWithoutTotalCountAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
         {
              ApiResponse<InlineResponse20015> localVarResponse = await GetCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
              return localVarResponse.Data;
@@ -13263,7 +13263,7 @@ namespace TalonOne.Api
         /// <param name="campaignName">Only return reports matching the campaignName (optional)</param>
         /// <param name="advocateName">Only return reports matching the current customer referrer name (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> GetCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = default(int), int skip = default(int), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> GetCustomerActivityReportsWithoutTotalCountAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string name = default(string), string integrationId = default(string), string campaignName = default(string), string advocateName = default(string))
         {
             // verify the required parameter 'rangeStart' is set
             if (rangeStart == null)
@@ -13341,7 +13341,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>CustomerAnalytics</returns>
-        public CustomerAnalytics GetCustomerAnalytics (int applicationId, int customerId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public CustomerAnalytics GetCustomerAnalytics (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<CustomerAnalytics> localVarResponse = GetCustomerAnalyticsWithHttpInfo(applicationId, customerId, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -13357,7 +13357,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of CustomerAnalytics</returns>
-        public ApiResponse<CustomerAnalytics> GetCustomerAnalyticsWithHttpInfo (int applicationId, int customerId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<CustomerAnalytics> GetCustomerAnalyticsWithHttpInfo (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -13427,7 +13427,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of CustomerAnalytics</returns>
-        public async System.Threading.Tasks.Task<CustomerAnalytics> GetCustomerAnalyticsAsync (int applicationId, int customerId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<CustomerAnalytics> GetCustomerAnalyticsAsync (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<CustomerAnalytics> localVarResponse = await GetCustomerAnalyticsAsyncWithHttpInfo(applicationId, customerId, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -13444,7 +13444,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (CustomerAnalytics)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerAnalytics>> GetCustomerAnalyticsAsyncWithHttpInfo (int applicationId, int customerId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerAnalytics>> GetCustomerAnalyticsAsyncWithHttpInfo (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -13654,7 +13654,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20013</returns>
-        public InlineResponse20013 GetCustomerProfiles (int pageSize = default(int), int skip = default(int))
+        public InlineResponse20013 GetCustomerProfiles (int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<InlineResponse20013> localVarResponse = GetCustomerProfilesWithHttpInfo(pageSize, skip);
              return localVarResponse.Data;
@@ -13667,7 +13667,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20013</returns>
-        public ApiResponse<InlineResponse20013> GetCustomerProfilesWithHttpInfo (int pageSize = default(int), int skip = default(int))
+        public ApiResponse<InlineResponse20013> GetCustomerProfilesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?))
         {
 
             var localVarPath = "/v1/customers/no_total";
@@ -13725,7 +13725,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20013> GetCustomerProfilesAsync (int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<InlineResponse20013> GetCustomerProfilesAsync (int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<InlineResponse20013> localVarResponse = await GetCustomerProfilesAsyncWithHttpInfo(pageSize, skip);
              return localVarResponse.Data;
@@ -13739,7 +13739,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetCustomerProfilesAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetCustomerProfilesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?))
         {
 
             var localVarPath = "/v1/customers/no_total";
@@ -13798,7 +13798,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20013</returns>
-        public InlineResponse20013 GetCustomersByAttributes (ApplicationCustomerSearch body, int pageSize = default(int), int skip = default(int))
+        public InlineResponse20013 GetCustomersByAttributes (ApplicationCustomerSearch body, int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<InlineResponse20013> localVarResponse = GetCustomersByAttributesWithHttpInfo(body, pageSize, skip);
              return localVarResponse.Data;
@@ -13812,7 +13812,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20013</returns>
-        public ApiResponse<InlineResponse20013> GetCustomersByAttributesWithHttpInfo (ApplicationCustomerSearch body, int pageSize = default(int), int skip = default(int))
+        public ApiResponse<InlineResponse20013> GetCustomersByAttributesWithHttpInfo (ApplicationCustomerSearch body, int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -13883,7 +13883,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20013</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20013> GetCustomersByAttributesAsync (ApplicationCustomerSearch body, int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<InlineResponse20013> GetCustomersByAttributesAsync (ApplicationCustomerSearch body, int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<InlineResponse20013> localVarResponse = await GetCustomersByAttributesAsyncWithHttpInfo(body, pageSize, skip);
              return localVarResponse.Data;
@@ -13898,7 +13898,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20013)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetCustomersByAttributesAsyncWithHttpInfo (ApplicationCustomerSearch body, int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20013>> GetCustomersByAttributesAsyncWithHttpInfo (ApplicationCustomerSearch body, int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -13972,7 +13972,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20025</returns>
-        public InlineResponse20025 GetEventTypes (string applicationIds = default(string), string name = default(string), bool includeOldVersions = default(bool), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse20025 GetEventTypes (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20025> localVarResponse = GetEventTypesWithHttpInfo(applicationIds, name, includeOldVersions, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -13989,7 +13989,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20025</returns>
-        public ApiResponse<InlineResponse20025> GetEventTypesWithHttpInfo (string applicationIds = default(string), string name = default(string), bool includeOldVersions = default(bool), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse20025> GetEventTypesWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/event_types";
@@ -14055,7 +14055,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20025</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20025> GetEventTypesAsync (string applicationIds = default(string), string name = default(string), bool includeOldVersions = default(bool), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20025> GetEventTypesAsync (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20025> localVarResponse = await GetEventTypesAsyncWithHttpInfo(applicationIds, name, includeOldVersions, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -14073,7 +14073,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetEventTypesAsyncWithHttpInfo (string applicationIds = default(string), string name = default(string), bool includeOldVersions = default(bool), int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetEventTypesAsyncWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/event_types";
@@ -14138,7 +14138,7 @@ namespace TalonOne.Api
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>InlineResponse20028</returns>
-        public InlineResponse20028 GetExports (int pageSize = default(int), int skip = default(int), int applicationId = default(int), int campaignId = default(int), string entity = default(string))
+        public InlineResponse20028 GetExports (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
         {
              ApiResponse<InlineResponse20028> localVarResponse = GetExportsWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
              return localVarResponse.Data;
@@ -14154,7 +14154,7 @@ namespace TalonOne.Api
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20028</returns>
-        public ApiResponse<InlineResponse20028> GetExportsWithHttpInfo (int pageSize = default(int), int skip = default(int), int applicationId = default(int), int campaignId = default(int), string entity = default(string))
+        public ApiResponse<InlineResponse20028> GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
         {
 
             var localVarPath = "/v1/exports";
@@ -14218,7 +14218,7 @@ namespace TalonOne.Api
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>Task of InlineResponse20028</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20028> GetExportsAsync (int pageSize = default(int), int skip = default(int), int applicationId = default(int), int campaignId = default(int), string entity = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20028> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
         {
              ApiResponse<InlineResponse20028> localVarResponse = await GetExportsAsyncWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
              return localVarResponse.Data;
@@ -14235,7 +14235,7 @@ namespace TalonOne.Api
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetExportsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), int applicationId = default(int), int campaignId = default(int), string entity = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
         {
 
             var localVarPath = "/v1/exports";
@@ -14296,7 +14296,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20029</returns>
-        public InlineResponse20029 GetImports (int pageSize = default(int), int skip = default(int))
+        public InlineResponse20029 GetImports (int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<InlineResponse20029> localVarResponse = GetImportsWithHttpInfo(pageSize, skip);
              return localVarResponse.Data;
@@ -14309,7 +14309,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20029</returns>
-        public ApiResponse<InlineResponse20029> GetImportsWithHttpInfo (int pageSize = default(int), int skip = default(int))
+        public ApiResponse<InlineResponse20029> GetImportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?))
         {
 
             var localVarPath = "/v1/imports";
@@ -14367,7 +14367,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20029</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20029> GetImportsAsync (int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<InlineResponse20029> GetImportsAsync (int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<InlineResponse20029> localVarResponse = await GetImportsAsyncWithHttpInfo(pageSize, skip);
              return localVarResponse.Data;
@@ -14381,7 +14381,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20029)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetImportsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetImportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?))
         {
 
             var localVarPath = "/v1/imports";
@@ -15020,7 +15020,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 GetReferrals (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string))
+        public InlineResponse2006 GetReferrals (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string))
         {
              ApiResponse<InlineResponse2006> localVarResponse = GetReferralsWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
              return localVarResponse.Data;
@@ -15042,7 +15042,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        public ApiResponse<InlineResponse2006> GetReferralsWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string))
+        public ApiResponse<InlineResponse2006> GetReferralsWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -15124,7 +15124,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> GetReferralsAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2006> GetReferralsAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string))
         {
              ApiResponse<InlineResponse2006> localVarResponse = await GetReferralsAsyncWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
              return localVarResponse.Data;
@@ -15147,7 +15147,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetReferralsAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetReferralsAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -15229,7 +15229,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>InlineResponse2007</returns>
-        public InlineResponse2007 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string))
+        public InlineResponse2007 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string))
         {
              ApiResponse<InlineResponse2007> localVarResponse = GetReferralsWithoutTotalCountWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
              return localVarResponse.Data;
@@ -15251,7 +15251,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
-        public ApiResponse<InlineResponse2007> GetReferralsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string))
+        public ApiResponse<InlineResponse2007> GetReferralsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -15333,7 +15333,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>Task of InlineResponse2007</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2007> GetReferralsWithoutTotalCountAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2007> GetReferralsWithoutTotalCountAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string))
         {
              ApiResponse<InlineResponse2007> localVarResponse = await GetReferralsWithoutTotalCountAsyncWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
              return localVarResponse.Data;
@@ -15356,7 +15356,7 @@ namespace TalonOne.Api
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetReferralsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string), string code = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), string advocate = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetReferralsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -15742,7 +15742,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 GetRulesets (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse2003 GetRulesets (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse2003> localVarResponse = GetRulesetsWithHttpInfo(applicationId, campaignId, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -15758,7 +15758,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse<InlineResponse2003> GetRulesetsWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse2003> GetRulesetsWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -15828,7 +15828,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> GetRulesetsAsync (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2003> GetRulesetsAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse2003> localVarResponse = await GetRulesetsAsyncWithHttpInfo(applicationId, campaignId, pageSize, skip, sort);
              return localVarResponse.Data;
@@ -15845,7 +15845,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetRulesetsAsyncWithHttpInfo (int applicationId, int campaignId, int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetRulesetsAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -16056,7 +16056,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>InlineResponse20026</returns>
-        public InlineResponse20026 GetUsers (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public InlineResponse20026 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20026> localVarResponse = GetUsersWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
@@ -16070,7 +16070,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20026</returns>
-        public ApiResponse<InlineResponse20026> GetUsersWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public ApiResponse<InlineResponse20026> GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/users";
@@ -16130,7 +16130,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of InlineResponse20026</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20026> GetUsersAsync (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20026> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
              ApiResponse<InlineResponse20026> localVarResponse = await GetUsersAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
@@ -16145,7 +16145,7 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20026)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetUsersAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/users";
@@ -16354,7 +16354,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Only return events created before this date. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>InlineResponse20023</returns>
-        public InlineResponse20023 GetWebhookActivationLogs (int pageSize = default(int), int skip = default(int), string sort = default(string), string integrationRequestUuid = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public InlineResponse20023 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
              ApiResponse<InlineResponse20023> localVarResponse = GetWebhookActivationLogsWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
              return localVarResponse.Data;
@@ -16374,7 +16374,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Only return events created before this date. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20023</returns>
-        public ApiResponse<InlineResponse20023> GetWebhookActivationLogsWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), string integrationRequestUuid = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public ApiResponse<InlineResponse20023> GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
 
             var localVarPath = "/v1/webhook_activation_logs";
@@ -16446,7 +16446,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Only return events created before this date. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>Task of InlineResponse20023</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20023> GetWebhookActivationLogsAsync (int pageSize = default(int), int skip = default(int), string sort = default(string), string integrationRequestUuid = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public async System.Threading.Tasks.Task<InlineResponse20023> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
              ApiResponse<InlineResponse20023> localVarResponse = await GetWebhookActivationLogsAsyncWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
              return localVarResponse.Data;
@@ -16467,7 +16467,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Only return events created before this date. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetWebhookActivationLogsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), string integrationRequestUuid = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
 
             var localVarPath = "/v1/webhook_activation_logs";
@@ -16540,7 +16540,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>InlineResponse20024</returns>
-        public InlineResponse20024 GetWebhookLogs (int pageSize = default(int), int skip = default(int), string sort = default(string), string status = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), string requestUuid = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public InlineResponse20024 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
              ApiResponse<InlineResponse20024> localVarResponse = GetWebhookLogsWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
              return localVarResponse.Data;
@@ -16561,7 +16561,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20024</returns>
-        public ApiResponse<InlineResponse20024> GetWebhookLogsWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), string status = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), string requestUuid = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public ApiResponse<InlineResponse20024> GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
 
             var localVarPath = "/v1/webhook_logs";
@@ -16635,7 +16635,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>Task of InlineResponse20024</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20024> GetWebhookLogsAsync (int pageSize = default(int), int skip = default(int), string sort = default(string), string status = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), string requestUuid = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public async System.Threading.Tasks.Task<InlineResponse20024> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
              ApiResponse<InlineResponse20024> localVarResponse = await GetWebhookLogsAsyncWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
              return localVarResponse.Data;
@@ -16657,7 +16657,7 @@ namespace TalonOne.Api
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20024)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetWebhookLogsAsyncWithHttpInfo (int pageSize = default(int), int skip = default(int), string sort = default(string), string status = default(string), decimal webhookId = default(decimal), decimal applicationId = default(decimal), decimal campaignId = default(decimal), string requestUuid = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
 
             var localVarPath = "/v1/webhook_logs";
@@ -16725,7 +16725,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20022</returns>
-        public InlineResponse20022 GetWebhooks (string applicationIds = default(string), string sort = default(string), int pageSize = default(int), int skip = default(int))
+        public InlineResponse20022 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<InlineResponse20022> localVarResponse = GetWebhooksWithHttpInfo(applicationIds, sort, pageSize, skip);
              return localVarResponse.Data;
@@ -16740,7 +16740,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20022</returns>
-        public ApiResponse<InlineResponse20022> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int pageSize = default(int), int skip = default(int))
+        public ApiResponse<InlineResponse20022> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
         {
 
             var localVarPath = "/v1/webhooks";
@@ -16802,7 +16802,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20022</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20022> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<InlineResponse20022> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
         {
              ApiResponse<InlineResponse20022> localVarResponse = await GetWebhooksAsyncWithHttpInfo(applicationIds, sort, pageSize, skip);
              return localVarResponse.Data;
@@ -16818,7 +16818,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int pageSize = default(int), int skip = default(int))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
         {
 
             var localVarPath = "/v1/webhooks";
@@ -17229,7 +17229,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public InlineResponse2004 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
              ApiResponse<InlineResponse2004> localVarResponse = SearchCouponsAdvancedWithHttpInfo(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
              return localVarResponse.Data;
@@ -17255,7 +17255,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse<InlineResponse2004> SearchCouponsAdvancedWithHttpInfo (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public ApiResponse<InlineResponse2004> SearchCouponsAdvancedWithHttpInfo (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -17356,7 +17356,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> SearchCouponsAdvancedAsync (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2004> SearchCouponsAdvancedAsync (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
              ApiResponse<InlineResponse2004> localVarResponse = await SearchCouponsAdvancedAsyncWithHttpInfo(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
              return localVarResponse.Data;
@@ -17383,7 +17383,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> SearchCouponsAdvancedAsyncWithHttpInfo (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> SearchCouponsAdvancedAsyncWithHttpInfo (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -17484,7 +17484,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public InlineResponse2004 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
              ApiResponse<InlineResponse2004> localVarResponse = SearchCouponsAdvancedApplicationWideWithHttpInfo(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
              return localVarResponse.Data;
@@ -17510,7 +17510,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public ApiResponse<InlineResponse2004> SearchCouponsAdvancedApplicationWideWithHttpInfo (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public ApiResponse<InlineResponse2004> SearchCouponsAdvancedApplicationWideWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -17608,7 +17608,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> SearchCouponsAdvancedApplicationWideAsync (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2004> SearchCouponsAdvancedApplicationWideAsync (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
              ApiResponse<InlineResponse2004> localVarResponse = await SearchCouponsAdvancedApplicationWideAsyncWithHttpInfo(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
              return localVarResponse.Data;
@@ -17635,7 +17635,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> SearchCouponsAdvancedApplicationWideAsyncWithHttpInfo (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> SearchCouponsAdvancedApplicationWideAsyncWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -17733,7 +17733,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
              ApiResponse<InlineResponse2005> localVarResponse = SearchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
              return localVarResponse.Data;
@@ -17759,7 +17759,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public ApiResponse<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -17857,7 +17857,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsync (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsync (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
              ApiResponse<InlineResponse2005> localVarResponse = await SearchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
              return localVarResponse.Data;
@@ -17884,7 +17884,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo (int applicationId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), string batchId = default(string), bool exactMatch = default(bool), string campaignState = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -17982,7 +17982,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 SearchCouponsAdvancedWithoutTotalCount (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public InlineResponse2005 SearchCouponsAdvancedWithoutTotalCount (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
              ApiResponse<InlineResponse2005> localVarResponse = SearchCouponsAdvancedWithoutTotalCountWithHttpInfo(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
              return localVarResponse.Data;
@@ -18008,7 +18008,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public ApiResponse<InlineResponse2005> SearchCouponsAdvancedWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public ApiResponse<InlineResponse2005> SearchCouponsAdvancedWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)
@@ -18109,7 +18109,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedWithoutTotalCountAsync (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedWithoutTotalCountAsync (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
              ApiResponse<InlineResponse2005> localVarResponse = await SearchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
              return localVarResponse.Data;
@@ -18136,7 +18136,7 @@ namespace TalonOne.Api
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, Object body, int pageSize = default(int), int skip = default(int), string sort = default(string), string value = default(string), DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), string valid = default(string), string usable = default(string), int referralId = default(int), string recipientIntegrationId = default(string), bool exactMatch = default(bool), string batchId = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchCouponsAdvancedWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), bool? exactMatch = default(bool?), string batchId = default(string))
         {
             // verify the required parameter 'applicationId' is set
             if (applicationId == null)

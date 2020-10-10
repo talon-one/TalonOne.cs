@@ -164,14 +164,14 @@ namespace TalonOne.Model
         /// Title for API Key
         /// </summary>
         /// <value>Title for API Key</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The date the API key expired
         /// </summary>
         /// <value>The date the API key expired</value>
-        [DataMember(Name="expires", EmitDefaultValue=false)]
+        [DataMember(Name="expires", EmitDefaultValue=true)]
         public DateTime Expires { get; set; }
 
 
@@ -179,35 +179,35 @@ namespace TalonOne.Model
         /// ID of the API Key
         /// </summary>
         /// <value>ID of the API Key</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// ID of user who created
         /// </summary>
         /// <value>ID of user who created</value>
-        [DataMember(Name="createdBy", EmitDefaultValue=false)]
+        [DataMember(Name="createdBy", EmitDefaultValue=true)]
         public int CreatedBy { get; set; }
 
         /// <summary>
         /// ID of account the key is used for
         /// </summary>
         /// <value>ID of account the key is used for</value>
-        [DataMember(Name="accountID", EmitDefaultValue=false)]
+        [DataMember(Name="accountID", EmitDefaultValue=true)]
         public int AccountID { get; set; }
 
         /// <summary>
         /// ID of application the key is used for
         /// </summary>
         /// <value>ID of application the key is used for</value>
-        [DataMember(Name="applicationID", EmitDefaultValue=false)]
+        [DataMember(Name="applicationID", EmitDefaultValue=true)]
         public int ApplicationID { get; set; }
 
         /// <summary>
         /// The date the API key was created
         /// </summary>
         /// <value>The date the API key was created</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>

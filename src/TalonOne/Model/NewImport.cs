@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// The name of the entity that was imported.
         /// </summary>
         /// <value>The name of the entity that was imported.</value>
-        [DataMember(Name="entity", EmitDefaultValue=false)]
+        [DataMember(Name="entity", EmitDefaultValue=true)]
         public EntityEnum Entity { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="NewImport" /> class.

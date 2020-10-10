@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// List of Integration IDs
         /// </summary>
         /// <value>List of Integration IDs</value>
-        [DataMember(Name="integrationIDs", EmitDefaultValue=false)]
+        [DataMember(Name="integrationIDs", EmitDefaultValue=true)]
         public List<string> IntegrationIDs { get; set; }
 
         /// <summary>

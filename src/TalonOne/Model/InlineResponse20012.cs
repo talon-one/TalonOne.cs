@@ -72,7 +72,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
+        [DataMember(Name="data", EmitDefaultValue=true)]
         public List<ApplicationCustomer> Data { get; set; }
 
         /// <summary>

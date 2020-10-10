@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The exact moment this entity was last modified.
         /// </summary>
         /// <value>The exact moment this entity was last modified.</value>
-        [DataMember(Name="modified", EmitDefaultValue=false)]
+        [DataMember(Name="modified", EmitDefaultValue=true)]
         public DateTime Modified { get; set; }
 
         /// <summary>

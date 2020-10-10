@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The globally unique Talon.One ID of the session where this entity was created.
         /// </summary>
         /// <value>The globally unique Talon.One ID of the session where this entity was created.</value>
-        [DataMember(Name="sessionId", EmitDefaultValue=false)]
+        [DataMember(Name="sessionId", EmitDefaultValue=true)]
         public int SessionId { get; set; }
 
         /// <summary>

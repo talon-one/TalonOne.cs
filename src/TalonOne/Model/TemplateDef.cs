@@ -166,63 +166,63 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The ID of the application that owns this entity.
         /// </summary>
         /// <value>The ID of the application that owns this entity.</value>
-        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        [DataMember(Name="applicationId", EmitDefaultValue=true)]
         public int ApplicationId { get; set; }
 
         /// <summary>
         /// Campaigner-friendly name for the template that will be shown in the rule editor.
         /// </summary>
         /// <value>Campaigner-friendly name for the template that will be shown in the rule editor.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
         /// A short description of the template that will be shown in the rule editor.
         /// </summary>
         /// <value>A short description of the template that will be shown in the rule editor.</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>
         /// Extended help text for the template.
         /// </summary>
         /// <value>Extended help text for the template.</value>
-        [DataMember(Name="help", EmitDefaultValue=false)]
+        [DataMember(Name="help", EmitDefaultValue=true)]
         public string Help { get; set; }
 
         /// <summary>
         /// Used for grouping templates in the rule editor sidebar.
         /// </summary>
         /// <value>Used for grouping templates in the rule editor sidebar.</value>
-        [DataMember(Name="category", EmitDefaultValue=false)]
+        [DataMember(Name="category", EmitDefaultValue=true)]
         public string Category { get; set; }
 
         /// <summary>
         /// A Talang expression that contains variable bindings referring to args.
         /// </summary>
         /// <value>A Talang expression that contains variable bindings referring to args.</value>
-        [DataMember(Name="expr", EmitDefaultValue=false)]
+        [DataMember(Name="expr", EmitDefaultValue=true)]
         public List<Object> Expr { get; set; }
 
         /// <summary>
         /// An array of argument definitions.
         /// </summary>
         /// <value>An array of argument definitions.</value>
-        [DataMember(Name="args", EmitDefaultValue=false)]
+        [DataMember(Name="args", EmitDefaultValue=true)]
         public List<TemplateArgDef> Args { get; set; }
 
         /// <summary>
@@ -236,7 +236,7 @@ namespace TalonOne.Model
         /// The template name used in Talang.
         /// </summary>
         /// <value>The template name used in Talang.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -393,24 +393,27 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Title (string) minLength
             if(this.Title != null && this.Title.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
+            
 
             // Category (string) minLength
             if(this.Category != null && this.Category.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Category, length must be greater than 1.", new [] { "Category" });
             }
+            
 
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
-
+            
             yield break;
         }
     }

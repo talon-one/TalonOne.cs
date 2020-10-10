@@ -111,35 +111,35 @@ namespace TalonOne.Model
         /// ⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance 
         /// </summary>
         /// <value>⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance </value>
-        [DataMember(Name="total", EmitDefaultValue=false)]
+        [DataMember(Name="total", EmitDefaultValue=true)]
         public decimal Total { get; set; }
 
         /// <summary>
         /// Total amount of currently active and available points in the customer&#39;s balance
         /// </summary>
         /// <value>Total amount of currently active and available points in the customer&#39;s balance</value>
-        [DataMember(Name="totalActivePoints", EmitDefaultValue=false)]
+        [DataMember(Name="totalActivePoints", EmitDefaultValue=true)]
         public decimal TotalActivePoints { get; set; }
 
         /// <summary>
         /// Total amount of pending points, which are not active yet but will become active in the future
         /// </summary>
         /// <value>Total amount of pending points, which are not active yet but will become active in the future</value>
-        [DataMember(Name="totalPendingPoints", EmitDefaultValue=false)]
+        [DataMember(Name="totalPendingPoints", EmitDefaultValue=true)]
         public decimal TotalPendingPoints { get; set; }
 
         /// <summary>
         /// Total amount of points already spent by this customer
         /// </summary>
         /// <value>Total amount of points already spent by this customer</value>
-        [DataMember(Name="totalSpentPoints", EmitDefaultValue=false)]
+        [DataMember(Name="totalSpentPoints", EmitDefaultValue=true)]
         public decimal TotalSpentPoints { get; set; }
 
         /// <summary>
         /// Total amount of points, that expired without ever being spent
         /// </summary>
         /// <value>Total amount of points, that expired without ever being spent</value>
-        [DataMember(Name="totalExpiredPoints", EmitDefaultValue=false)]
+        [DataMember(Name="totalExpiredPoints", EmitDefaultValue=true)]
         public decimal TotalExpiredPoints { get; set; }
 
         /// <summary>

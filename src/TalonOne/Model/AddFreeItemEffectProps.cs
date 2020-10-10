@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// SKU of the item that needs to be added
         /// </summary>
         /// <value>SKU of the item that needs to be added</value>
-        [DataMember(Name="sku", EmitDefaultValue=false)]
+        [DataMember(Name="sku", EmitDefaultValue=true)]
         public string Sku { get; set; }
 
         /// <summary>
         /// The name/description of the effect
         /// </summary>
         /// <value>The name/description of the effect</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>

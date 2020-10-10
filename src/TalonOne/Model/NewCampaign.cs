@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// A disabled or archived campaign is not evaluated for rules or coupons. 
         /// </summary>
         /// <value>A disabled or archived campaign is not evaluated for rules or coupons. </value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
+        [DataMember(Name="state", EmitDefaultValue=true)]
         public StateEnum State { get; set; }
         /// <summary>
         /// Defines Features
@@ -94,7 +94,7 @@ namespace TalonOne.Model
         /// A list of features for the campaign.
         /// </summary>
         /// <value>A list of features for the campaign.</value>
-        [DataMember(Name="features", EmitDefaultValue=false)]
+        [DataMember(Name="features", EmitDefaultValue=true)]
         public List<FeaturesEnum> Features { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="NewCampaign" /> class.
@@ -183,7 +183,7 @@ namespace TalonOne.Model
         /// A friendly name for this campaign.
         /// </summary>
         /// <value>A friendly name for this campaign.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace TalonOne.Model
         /// A list of tags for the campaign.
         /// </summary>
         /// <value>A list of tags for the campaign.</value>
-        [DataMember(Name="tags", EmitDefaultValue=false)]
+        [DataMember(Name="tags", EmitDefaultValue=true)]
         public List<string> Tags { get; set; }
 
 
@@ -246,7 +246,7 @@ namespace TalonOne.Model
         /// The set of limits that will operate for this campaign
         /// </summary>
         /// <value>The set of limits that will operate for this campaign</value>
-        [DataMember(Name="limits", EmitDefaultValue=false)]
+        [DataMember(Name="limits", EmitDefaultValue=true)]
         public List<LimitConfig> Limits { get; set; }
 
         /// <summary>
@@ -428,12 +428,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
-
+            
             yield break;
         }
     }

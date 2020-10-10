@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="userId", EmitDefaultValue=false)]
+        [DataMember(Name="userId", EmitDefaultValue=true)]
         public int UserId { get; set; }
 
         /// <summary>

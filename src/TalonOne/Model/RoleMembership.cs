@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// ID of role
         /// </summary>
         /// <value>ID of role</value>
-        [DataMember(Name="RoleID", EmitDefaultValue=false)]
+        [DataMember(Name="RoleID", EmitDefaultValue=true)]
         public int RoleID { get; set; }
 
         /// <summary>
         /// ID of User
         /// </summary>
         /// <value>ID of User</value>
-        [DataMember(Name="UserID", EmitDefaultValue=false)]
+        [DataMember(Name="UserID", EmitDefaultValue=true)]
         public int UserID { get; set; }
 
         /// <summary>

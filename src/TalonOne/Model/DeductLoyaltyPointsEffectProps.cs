@@ -90,28 +90,28 @@ namespace TalonOne.Model
         /// The title of the rule that contained triggered this points deduction
         /// </summary>
         /// <value>The title of the rule that contained triggered this points deduction</value>
-        [DataMember(Name="ruleTitle", EmitDefaultValue=false)]
+        [DataMember(Name="ruleTitle", EmitDefaultValue=true)]
         public string RuleTitle { get; set; }
 
         /// <summary>
         /// The ID of the loyalty program where these points were added
         /// </summary>
         /// <value>The ID of the loyalty program where these points were added</value>
-        [DataMember(Name="programId", EmitDefaultValue=false)]
+        [DataMember(Name="programId", EmitDefaultValue=true)]
         public int ProgramId { get; set; }
 
         /// <summary>
         /// The ID of the subledger within the loyalty program where these points were added
         /// </summary>
         /// <value>The ID of the subledger within the loyalty program where these points were added</value>
-        [DataMember(Name="subLedgerId", EmitDefaultValue=false)]
+        [DataMember(Name="subLedgerId", EmitDefaultValue=true)]
         public string SubLedgerId { get; set; }
 
         /// <summary>
         /// The amount of points that were deducted
         /// </summary>
         /// <value>The amount of points that were deducted</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public decimal Value { get; set; }
 
         /// <summary>

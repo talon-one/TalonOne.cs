@@ -67,13 +67,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
-        [DataMember(Name="email", EmitDefaultValue=false)]
+        [DataMember(Name="email", EmitDefaultValue=true)]
         public string Email { get; set; }
 
         /// <summary>
         /// Gets or Sets Token
         /// </summary>
-        [DataMember(Name="token", EmitDefaultValue=false)]
+        [DataMember(Name="token", EmitDefaultValue=true)]
         public string Token { get; set; }
 
         /// <summary>
@@ -156,18 +156,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Email (string) minLength
             if(this.Email != null && this.Email.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be greater than 1.", new [] { "Email" });
             }
+            
 
             // Token (string) minLength
             if(this.Token != null && this.Token.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, length must be greater than 1.", new [] { "Token" });
             }
-
+            
             yield break;
         }
     }

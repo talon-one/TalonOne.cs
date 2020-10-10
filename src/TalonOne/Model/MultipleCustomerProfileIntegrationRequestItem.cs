@@ -66,7 +66,7 @@ namespace TalonOne.Model
         /// The custom identifier for this profile, must be unique within the account.
         /// </summary>
         /// <value>The custom identifier for this profile, must be unique within the account.</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        [DataMember(Name="integrationId", EmitDefaultValue=true)]
         public string IntegrationId { get; set; }
 
         /// <summary>

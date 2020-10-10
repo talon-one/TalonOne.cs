@@ -74,14 +74,14 @@ namespace TalonOne.Model
         /// ID of the campaign from which the referral received the referral code.
         /// </summary>
         /// <value>ID of the campaign from which the referral received the referral code.</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        [DataMember(Name="campaignId", EmitDefaultValue=true)]
         public int CampaignId { get; set; }
 
         /// <summary>
         /// The Integration Id of the Advocate&#39;s Profile
         /// </summary>
         /// <value>The Integration Id of the Advocate&#39;s Profile</value>
-        [DataMember(Name="advocateProfileIntegrationId", EmitDefaultValue=false)]
+        [DataMember(Name="advocateProfileIntegrationId", EmitDefaultValue=true)]
         public string AdvocateProfileIntegrationId { get; set; }
 
         /// <summary>

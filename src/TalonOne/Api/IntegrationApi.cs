@@ -125,7 +125,7 @@ namespace TalonOne.Api
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>CustomerInventory</returns>
-        CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool));
+        CustomerInventory GetCustomerInventory (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?));
 
         /// <summary>
         /// Get an inventory of all data associated with a specific customer profile.
@@ -140,7 +140,7 @@ namespace TalonOne.Api
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>ApiResponse of CustomerInventory</returns>
-        ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool));
+        ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?));
         /// <summary>
         /// Get the users that have this coupon reserved
         /// </summary>
@@ -172,7 +172,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        IntegrationState TrackEvent (NewEvent body, bool dry = default(bool));
+        IntegrationState TrackEvent (NewEvent body, bool? dry = default(bool?));
 
         /// <summary>
         /// Track an Event
@@ -184,7 +184,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        ApiResponse<IntegrationState> TrackEventWithHttpInfo (NewEvent body, bool dry = default(bool));
+        ApiResponse<IntegrationState> TrackEventWithHttpInfo (NewEvent body, bool? dry = default(bool?));
         /// <summary>
         /// Update a Customer Profile V1
         /// </summary>
@@ -196,7 +196,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool dry = default(bool));
+        IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool? dry = default(bool?));
 
         /// <summary>
         /// Update a Customer Profile V1
@@ -209,7 +209,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool));
+        ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body, bool? dry = default(bool?));
         /// <summary>
         /// Update a Customer Profile Audiences
         /// </summary>
@@ -243,7 +243,7 @@ namespace TalonOne.Api
         /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationStateV2</returns>
-        IntegrationStateV2 UpdateCustomerProfileV2 (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool));
+        IntegrationStateV2 UpdateCustomerProfileV2 (string integrationId, CustomerProfileIntegrationRequestV2 body, bool? runRuleEngine = default(bool?), bool? dry = default(bool?));
 
         /// <summary>
         /// Update a Customer Profile
@@ -257,7 +257,7 @@ namespace TalonOne.Api
         /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationStateV2</returns>
-        ApiResponse<IntegrationStateV2> UpdateCustomerProfileV2WithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool));
+        ApiResponse<IntegrationStateV2> UpdateCustomerProfileV2WithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool? runRuleEngine = default(bool?), bool? dry = default(bool?));
         /// <summary>
         /// Update multiple Customer Profiles
         /// </summary>
@@ -292,7 +292,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool dry = default(bool));
+        IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?));
 
         /// <summary>
         /// Update a Customer Session V1
@@ -305,7 +305,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        ApiResponse<IntegrationState> UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body, bool dry = default(bool));
+        ApiResponse<IntegrationState> UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?));
         /// <summary>
         /// Update a Customer Session
         /// </summary>
@@ -317,7 +317,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationStateV2</returns>
-        IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body, bool dry = default(bool));
+        IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body, bool? dry = default(bool?));
 
         /// <summary>
         /// Update a Customer Session
@@ -330,7 +330,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationStateV2</returns>
-        ApiResponse<IntegrationStateV2> UpdateCustomerSessionV2WithHttpInfo (string customerSessionId, IntegrationRequest body, bool dry = default(bool));
+        ApiResponse<IntegrationStateV2> UpdateCustomerSessionV2WithHttpInfo (string customerSessionId, IntegrationRequest body, bool? dry = default(bool?));
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -434,7 +434,7 @@ namespace TalonOne.Api
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>Task of CustomerInventory</returns>
-        System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool));
+        System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?));
 
         /// <summary>
         /// Get an inventory of all data associated with a specific customer profile.
@@ -449,7 +449,7 @@ namespace TalonOne.Api
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>Task of ApiResponse (CustomerInventory)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?));
         /// <summary>
         /// Get the users that have this coupon reserved
         /// </summary>
@@ -481,7 +481,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        System.Threading.Tasks.Task<IntegrationState> TrackEventAsync (NewEvent body, bool dry = default(bool));
+        System.Threading.Tasks.Task<IntegrationState> TrackEventAsync (NewEvent body, bool? dry = default(bool?));
 
         /// <summary>
         /// Track an Event
@@ -493,7 +493,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> TrackEventAsyncWithHttpInfo (NewEvent body, bool dry = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> TrackEventAsyncWithHttpInfo (NewEvent body, bool? dry = default(bool?));
         /// <summary>
         /// Update a Customer Profile V1
         /// </summary>
@@ -505,7 +505,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body, bool dry = default(bool));
+        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body, bool? dry = default(bool?));
 
         /// <summary>
         /// Update a Customer Profile V1
@@ -518,7 +518,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body, bool? dry = default(bool?));
         /// <summary>
         /// Update a Customer Profile Audiences
         /// </summary>
@@ -552,7 +552,7 @@ namespace TalonOne.Api
         /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationStateV2</returns>
-        System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerProfileV2Async (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool));
+        System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerProfileV2Async (string integrationId, CustomerProfileIntegrationRequestV2 body, bool? runRuleEngine = default(bool?), bool? dry = default(bool?));
 
         /// <summary>
         /// Update a Customer Profile
@@ -566,7 +566,7 @@ namespace TalonOne.Api
         /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationStateV2)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerProfileV2AsyncWithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerProfileV2AsyncWithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool? runRuleEngine = default(bool?), bool? dry = default(bool?));
         /// <summary>
         /// Update multiple Customer Profiles
         /// </summary>
@@ -601,7 +601,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body, bool dry = default(bool));
+        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?));
 
         /// <summary>
         /// Update a Customer Session V1
@@ -614,7 +614,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body, bool dry = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?));
         /// <summary>
         /// Update a Customer Session
         /// </summary>
@@ -626,7 +626,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationStateV2</returns>
-        System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerSessionV2Async (string customerSessionId, IntegrationRequest body, bool dry = default(bool));
+        System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerSessionV2Async (string customerSessionId, IntegrationRequest body, bool? dry = default(bool?));
 
         /// <summary>
         /// Update a Customer Session
@@ -639,7 +639,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationStateV2)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerSessionV2AsyncWithHttpInfo (string customerSessionId, IntegrationRequest body, bool dry = default(bool));
+        System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerSessionV2AsyncWithHttpInfo (string customerSessionId, IntegrationRequest body, bool? dry = default(bool?));
         #endregion Asynchronous Operations
     }
 
@@ -1437,7 +1437,7 @@ namespace TalonOne.Api
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>CustomerInventory</returns>
-        public CustomerInventory GetCustomerInventory (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool))
+        public CustomerInventory GetCustomerInventory (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?))
         {
              ApiResponse<CustomerInventory> localVarResponse = GetCustomerInventoryWithHttpInfo(integrationId, profile, referrals, coupons, loyalty);
              return localVarResponse.Data;
@@ -1453,7 +1453,7 @@ namespace TalonOne.Api
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>ApiResponse of CustomerInventory</returns>
-        public ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool))
+        public ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -1525,7 +1525,7 @@ namespace TalonOne.Api
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>Task of CustomerInventory</returns>
-        public async System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool))
+        public async System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?))
         {
              ApiResponse<CustomerInventory> localVarResponse = await GetCustomerInventoryAsyncWithHttpInfo(integrationId, profile, referrals, coupons, loyalty);
              return localVarResponse.Data;
@@ -1542,7 +1542,7 @@ namespace TalonOne.Api
         /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
         /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
         /// <returns>Task of ApiResponse (CustomerInventory)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool profile = default(bool), bool referrals = default(bool), bool coupons = default(bool), bool loyalty = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -1764,7 +1764,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        public IntegrationState TrackEvent (NewEvent body, bool dry = default(bool))
+        public IntegrationState TrackEvent (NewEvent body, bool? dry = default(bool?))
         {
              ApiResponse<IntegrationState> localVarResponse = TrackEventWithHttpInfo(body, dry);
              return localVarResponse.Data;
@@ -1777,7 +1777,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        public ApiResponse<IntegrationState> TrackEventWithHttpInfo (NewEvent body, bool dry = default(bool))
+        public ApiResponse<IntegrationState> TrackEventWithHttpInfo (NewEvent body, bool? dry = default(bool?))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1851,7 +1851,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        public async System.Threading.Tasks.Task<IntegrationState> TrackEventAsync (NewEvent body, bool dry = default(bool))
+        public async System.Threading.Tasks.Task<IntegrationState> TrackEventAsync (NewEvent body, bool? dry = default(bool?))
         {
              ApiResponse<IntegrationState> localVarResponse = await TrackEventAsyncWithHttpInfo(body, dry);
              return localVarResponse.Data;
@@ -1865,7 +1865,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> TrackEventAsyncWithHttpInfo (NewEvent body, bool dry = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> TrackEventAsyncWithHttpInfo (NewEvent body, bool? dry = default(bool?))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -1940,7 +1940,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        public IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool dry = default(bool))
+        public IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool? dry = default(bool?))
         {
              ApiResponse<IntegrationState> localVarResponse = UpdateCustomerProfileWithHttpInfo(integrationId, body, dry);
              return localVarResponse.Data;
@@ -1954,7 +1954,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        public ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool))
+        public ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body, bool? dry = default(bool?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -2033,7 +2033,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body, bool dry = default(bool))
+        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body, bool? dry = default(bool?))
         {
              ApiResponse<IntegrationState> localVarResponse = await UpdateCustomerProfileAsyncWithHttpInfo(integrationId, body, dry);
              return localVarResponse.Data;
@@ -2048,7 +2048,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body, bool dry = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body, bool? dry = default(bool?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -2283,7 +2283,7 @@ namespace TalonOne.Api
         /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationStateV2</returns>
-        public IntegrationStateV2 UpdateCustomerProfileV2 (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool))
+        public IntegrationStateV2 UpdateCustomerProfileV2 (string integrationId, CustomerProfileIntegrationRequestV2 body, bool? runRuleEngine = default(bool?), bool? dry = default(bool?))
         {
              ApiResponse<IntegrationStateV2> localVarResponse = UpdateCustomerProfileV2WithHttpInfo(integrationId, body, runRuleEngine, dry);
              return localVarResponse.Data;
@@ -2298,7 +2298,7 @@ namespace TalonOne.Api
         /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationStateV2</returns>
-        public ApiResponse<IntegrationStateV2> UpdateCustomerProfileV2WithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool))
+        public ApiResponse<IntegrationStateV2> UpdateCustomerProfileV2WithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool? runRuleEngine = default(bool?), bool? dry = default(bool?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -2374,7 +2374,7 @@ namespace TalonOne.Api
         /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationStateV2</returns>
-        public async System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerProfileV2Async (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool))
+        public async System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerProfileV2Async (string integrationId, CustomerProfileIntegrationRequestV2 body, bool? runRuleEngine = default(bool?), bool? dry = default(bool?))
         {
              ApiResponse<IntegrationStateV2> localVarResponse = await UpdateCustomerProfileV2AsyncWithHttpInfo(integrationId, body, runRuleEngine, dry);
              return localVarResponse.Data;
@@ -2390,7 +2390,7 @@ namespace TalonOne.Api
         /// <param name="runRuleEngine">Flag to indicate whether to run the rule engine (Defaults to false). (optional)</param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;. Only used when &#39;runRuleEngine&#39; is set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationStateV2)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerProfileV2AsyncWithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool runRuleEngine = default(bool), bool dry = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerProfileV2AsyncWithHttpInfo (string integrationId, CustomerProfileIntegrationRequestV2 body, bool? runRuleEngine = default(bool?), bool? dry = default(bool?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -2630,7 +2630,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationState</returns>
-        public IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool dry = default(bool))
+        public IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?))
         {
              ApiResponse<IntegrationState> localVarResponse = UpdateCustomerSessionWithHttpInfo(customerSessionId, body, dry);
              return localVarResponse.Data;
@@ -2644,7 +2644,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationState</returns>
-        public ApiResponse<IntegrationState> UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body, bool dry = default(bool))
+        public ApiResponse<IntegrationState> UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?))
         {
             // verify the required parameter 'customerSessionId' is set
             if (customerSessionId == null)
@@ -2723,7 +2723,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationState</returns>
-        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body, bool dry = default(bool))
+        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?))
         {
              ApiResponse<IntegrationState> localVarResponse = await UpdateCustomerSessionAsyncWithHttpInfo(customerSessionId, body, dry);
              return localVarResponse.Data;
@@ -2738,7 +2738,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body, bool dry = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?))
         {
             // verify the required parameter 'customerSessionId' is set
             if (customerSessionId == null)
@@ -2817,7 +2817,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>IntegrationStateV2</returns>
-        public IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body, bool dry = default(bool))
+        public IntegrationStateV2 UpdateCustomerSessionV2 (string customerSessionId, IntegrationRequest body, bool? dry = default(bool?))
         {
              ApiResponse<IntegrationStateV2> localVarResponse = UpdateCustomerSessionV2WithHttpInfo(customerSessionId, body, dry);
              return localVarResponse.Data;
@@ -2831,7 +2831,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>ApiResponse of IntegrationStateV2</returns>
-        public ApiResponse<IntegrationStateV2> UpdateCustomerSessionV2WithHttpInfo (string customerSessionId, IntegrationRequest body, bool dry = default(bool))
+        public ApiResponse<IntegrationStateV2> UpdateCustomerSessionV2WithHttpInfo (string customerSessionId, IntegrationRequest body, bool? dry = default(bool?))
         {
             // verify the required parameter 'customerSessionId' is set
             if (customerSessionId == null)
@@ -2905,7 +2905,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of IntegrationStateV2</returns>
-        public async System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerSessionV2Async (string customerSessionId, IntegrationRequest body, bool dry = default(bool))
+        public async System.Threading.Tasks.Task<IntegrationStateV2> UpdateCustomerSessionV2Async (string customerSessionId, IntegrationRequest body, bool? dry = default(bool?))
         {
              ApiResponse<IntegrationStateV2> localVarResponse = await UpdateCustomerSessionV2AsyncWithHttpInfo(customerSessionId, body, dry);
              return localVarResponse.Data;
@@ -2920,7 +2920,7 @@ namespace TalonOne.Api
         /// <param name="body"></param>
         /// <param name="dry">Flag to indicate whether to skip persisting the changes or not (Will not persist if set to &#39;true&#39;). (optional)</param>
         /// <returns>Task of ApiResponse (IntegrationStateV2)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerSessionV2AsyncWithHttpInfo (string customerSessionId, IntegrationRequest body, bool dry = default(bool))
+        public async System.Threading.Tasks.Task<ApiResponse<IntegrationStateV2>> UpdateCustomerSessionV2AsyncWithHttpInfo (string customerSessionId, IntegrationRequest body, bool? dry = default(bool?))
         {
             // verify the required parameter 'customerSessionId' is set
             if (customerSessionId == null)

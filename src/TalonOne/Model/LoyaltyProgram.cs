@@ -145,63 +145,63 @@ namespace TalonOne.Model
         /// The ID of loyalty program.
         /// </summary>
         /// <value>The ID of loyalty program.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The ID of the Talon.One account that owns this program.
         /// </summary>
         /// <value>The ID of the Talon.One account that owns this program.</value>
-        [DataMember(Name="accountID", EmitDefaultValue=false)]
+        [DataMember(Name="accountID", EmitDefaultValue=true)]
         public int AccountID { get; set; }
 
         /// <summary>
         /// The internal name for the Loyalty Program.
         /// </summary>
         /// <value>The internal name for the Loyalty Program.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The display title for the Loyalty Program.
         /// </summary>
         /// <value>The display title for the Loyalty Program.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Description of our Loyalty Program.
         /// </summary>
         /// <value>Description of our Loyalty Program.</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>
         /// A list containing the IDs of all applications that are subscribed to this Loyalty Program.
         /// </summary>
         /// <value>A list containing the IDs of all applications that are subscribed to this Loyalty Program.</value>
-        [DataMember(Name="subscribedApplications", EmitDefaultValue=false)]
+        [DataMember(Name="subscribedApplications", EmitDefaultValue=true)]
         public List<int> SubscribedApplications { get; set; }
 
         /// <summary>
         /// Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;.
         /// </summary>
         /// <value>Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;.</value>
-        [DataMember(Name="defaultValidity", EmitDefaultValue=false)]
+        [DataMember(Name="defaultValidity", EmitDefaultValue=true)]
         public string DefaultValidity { get; set; }
 
         /// <summary>
         /// Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;.
         /// </summary>
         /// <value>Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;.</value>
-        [DataMember(Name="defaultPending", EmitDefaultValue=false)]
+        [DataMember(Name="defaultPending", EmitDefaultValue=true)]
         public string DefaultPending { get; set; }
 
         /// <summary>
         /// Indicates if this program supports subledgers inside the program
         /// </summary>
         /// <value>Indicates if this program supports subledgers inside the program</value>
-        [DataMember(Name="allowSubledger", EmitDefaultValue=false)]
+        [DataMember(Name="allowSubledger", EmitDefaultValue=true)]
         public bool AllowSubledger { get; set; }
 
         /// <summary>

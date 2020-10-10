@@ -178,84 +178,84 @@ namespace TalonOne.Model
         /// Total number of allowed live applications in the account
         /// </summary>
         /// <value>Total number of allowed live applications in the account</value>
-        [DataMember(Name="liveApplications", EmitDefaultValue=false)]
+        [DataMember(Name="liveApplications", EmitDefaultValue=true)]
         public int LiveApplications { get; set; }
 
         /// <summary>
         /// Total number of allowed sandbox applications in the account
         /// </summary>
         /// <value>Total number of allowed sandbox applications in the account</value>
-        [DataMember(Name="sandboxApplications", EmitDefaultValue=false)]
+        [DataMember(Name="sandboxApplications", EmitDefaultValue=true)]
         public int SandboxApplications { get; set; }
 
         /// <summary>
         /// Total number of allowed active campaigns in live applications in the account
         /// </summary>
         /// <value>Total number of allowed active campaigns in live applications in the account</value>
-        [DataMember(Name="activeCampaigns", EmitDefaultValue=false)]
+        [DataMember(Name="activeCampaigns", EmitDefaultValue=true)]
         public int ActiveCampaigns { get; set; }
 
         /// <summary>
         /// Total number of allowed coupons in the account
         /// </summary>
         /// <value>Total number of allowed coupons in the account</value>
-        [DataMember(Name="coupons", EmitDefaultValue=false)]
+        [DataMember(Name="coupons", EmitDefaultValue=true)]
         public int Coupons { get; set; }
 
         /// <summary>
         /// Total number of allowed referral codes in the account
         /// </summary>
         /// <value>Total number of allowed referral codes in the account</value>
-        [DataMember(Name="referralCodes", EmitDefaultValue=false)]
+        [DataMember(Name="referralCodes", EmitDefaultValue=true)]
         public int ReferralCodes { get; set; }
 
         /// <summary>
         /// Total number of allowed active rulesets in the account
         /// </summary>
         /// <value>Total number of allowed active rulesets in the account</value>
-        [DataMember(Name="activeRules", EmitDefaultValue=false)]
+        [DataMember(Name="activeRules", EmitDefaultValue=true)]
         public int ActiveRules { get; set; }
 
         /// <summary>
         /// Total number of allowed live loyalty programs in the account
         /// </summary>
         /// <value>Total number of allowed live loyalty programs in the account</value>
-        [DataMember(Name="liveLoyaltyPrograms", EmitDefaultValue=false)]
+        [DataMember(Name="liveLoyaltyPrograms", EmitDefaultValue=true)]
         public int LiveLoyaltyPrograms { get; set; }
 
         /// <summary>
         /// Total number of allowed sandbox loyalty programs in the account
         /// </summary>
         /// <value>Total number of allowed sandbox loyalty programs in the account</value>
-        [DataMember(Name="sandboxLoyaltyPrograms", EmitDefaultValue=false)]
+        [DataMember(Name="sandboxLoyaltyPrograms", EmitDefaultValue=true)]
         public int SandboxLoyaltyPrograms { get; set; }
 
         /// <summary>
         /// Total number of allowed webhooks in the account
         /// </summary>
         /// <value>Total number of allowed webhooks in the account</value>
-        [DataMember(Name="webhooks", EmitDefaultValue=false)]
+        [DataMember(Name="webhooks", EmitDefaultValue=true)]
         public int Webhooks { get; set; }
 
         /// <summary>
         /// Total number of allowed users in the account
         /// </summary>
         /// <value>Total number of allowed users in the account</value>
-        [DataMember(Name="users", EmitDefaultValue=false)]
+        [DataMember(Name="users", EmitDefaultValue=true)]
         public int Users { get; set; }
 
         /// <summary>
         /// Allowed volume of API requests to the account
         /// </summary>
         /// <value>Allowed volume of API requests to the account</value>
-        [DataMember(Name="apiVolume", EmitDefaultValue=false)]
+        [DataMember(Name="apiVolume", EmitDefaultValue=true)]
         public int ApiVolume { get; set; }
 
         /// <summary>
         /// Array of promotion types that are employed in the account
         /// </summary>
         /// <value>Array of promotion types that are employed in the account</value>
-        [DataMember(Name="promotionTypes", EmitDefaultValue=false)]
+        [DataMember(Name="promotionTypes", EmitDefaultValue=true)]
         public List<string> PromotionTypes { get; set; }
 
         /// <summary>

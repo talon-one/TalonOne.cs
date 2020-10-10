@@ -66,7 +66,7 @@ namespace TalonOne.Model
         /// The ID of the loyalty program belonging to this entity.
         /// </summary>
         /// <value>The ID of the loyalty program belonging to this entity.</value>
-        [DataMember(Name="loyaltyProgramId", EmitDefaultValue=false)]
+        [DataMember(Name="loyaltyProgramId", EmitDefaultValue=true)]
         public int LoyaltyProgramId { get; set; }
 
         /// <summary>

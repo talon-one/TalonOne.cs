@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// Current user state.
         /// </summary>
         /// <value>Current user state.</value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
+        [DataMember(Name="state", EmitDefaultValue=true)]
         public StateEnum State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
@@ -186,42 +186,42 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The exact moment this entity was last modified.
         /// </summary>
         /// <value>The exact moment this entity was last modified.</value>
-        [DataMember(Name="modified", EmitDefaultValue=false)]
+        [DataMember(Name="modified", EmitDefaultValue=true)]
         public DateTime Modified { get; set; }
 
         /// <summary>
         /// The email address associated with your account.
         /// </summary>
         /// <value>The email address associated with your account.</value>
-        [DataMember(Name="email", EmitDefaultValue=false)]
+        [DataMember(Name="email", EmitDefaultValue=true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public int AccountId { get; set; }
 
         /// <summary>
         /// Invite token, empty if the user as already accepted their invite.
         /// </summary>
         /// <value>Invite token, empty if the user as already accepted their invite.</value>
-        [DataMember(Name="inviteToken", EmitDefaultValue=false)]
+        [DataMember(Name="inviteToken", EmitDefaultValue=true)]
         public string InviteToken { get; set; }
 
 
@@ -229,14 +229,14 @@ namespace TalonOne.Model
         /// Full name
         /// </summary>
         /// <value>Full name</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// User ACL Policy
         /// </summary>
         /// <value>User ACL Policy</value>
-        [DataMember(Name="policy", EmitDefaultValue=false)]
+        [DataMember(Name="policy", EmitDefaultValue=true)]
         public Object Policy { get; set; }
 
         /// <summary>

@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets CurrentBalance
         /// </summary>
-        [DataMember(Name="currentBalance", EmitDefaultValue=false)]
+        [DataMember(Name="currentBalance", EmitDefaultValue=true)]
         public decimal CurrentBalance { get; set; }
 
         /// <summary>

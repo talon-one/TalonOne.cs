@@ -72,14 +72,14 @@ namespace TalonOne.Model
         /// The name for the featureflag
         /// </summary>
         /// <value>The name for the featureflag</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The value for the featureflag
         /// </summary>
         /// <value>The value for the featureflag</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public string Value { get; set; }
 
         /// <summary>

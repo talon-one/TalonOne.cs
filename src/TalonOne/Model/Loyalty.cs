@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// A map holding information about the loyalty programs balance
         /// </summary>
         /// <value>A map holding information about the loyalty programs balance</value>
-        [DataMember(Name="programs", EmitDefaultValue=false)]
+        [DataMember(Name="programs", EmitDefaultValue=true)]
         public Dictionary<string, LoyaltyProgramLedgers> Programs { get; set; }
 
         /// <summary>

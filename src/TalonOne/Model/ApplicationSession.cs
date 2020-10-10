@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// Indicating if the customer session is in progress (\&quot;open\&quot;), \&quot;closed\&quot;, or \&quot;cancelled\&quot;.
         /// </summary>
         /// <value>Indicating if the customer session is in progress (\&quot;open\&quot;), \&quot;closed\&quot;, or \&quot;cancelled\&quot;.</value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
+        [DataMember(Name="state", EmitDefaultValue=true)]
         public StateEnum State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationSession" /> class.
@@ -195,21 +195,21 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created. The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created. The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The ID of the application that owns this entity.
         /// </summary>
         /// <value>The ID of the application that owns this entity.</value>
-        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        [DataMember(Name="applicationId", EmitDefaultValue=true)]
         public int ApplicationId { get; set; }
 
         /// <summary>
@@ -223,7 +223,7 @@ namespace TalonOne.Model
         /// The integration ID for this entity sent to and used in the Talon.One system.
         /// </summary>
         /// <value>The integration ID for this entity sent to and used in the Talon.One system.</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        [DataMember(Name="integrationId", EmitDefaultValue=true)]
         public string IntegrationId { get; set; }
 
         /// <summary>
@@ -237,14 +237,14 @@ namespace TalonOne.Model
         /// Any coupon code entered.
         /// </summary>
         /// <value>Any coupon code entered.</value>
-        [DataMember(Name="coupon", EmitDefaultValue=false)]
+        [DataMember(Name="coupon", EmitDefaultValue=true)]
         public string Coupon { get; set; }
 
         /// <summary>
         /// Any referral code entered.
         /// </summary>
         /// <value>Any referral code entered.</value>
-        [DataMember(Name="referral", EmitDefaultValue=false)]
+        [DataMember(Name="referral", EmitDefaultValue=true)]
         public string Referral { get; set; }
 
 
@@ -252,21 +252,21 @@ namespace TalonOne.Model
         /// Serialized JSON representation.
         /// </summary>
         /// <value>Serialized JSON representation.</value>
-        [DataMember(Name="cartItems", EmitDefaultValue=false)]
+        [DataMember(Name="cartItems", EmitDefaultValue=true)]
         public List<CartItem> CartItems { get; set; }
 
         /// <summary>
         /// A map of labelled discount values, in the same currency as the session.
         /// </summary>
         /// <value>A map of labelled discount values, in the same currency as the session.</value>
-        [DataMember(Name="discounts", EmitDefaultValue=false)]
+        [DataMember(Name="discounts", EmitDefaultValue=true)]
         public Dictionary<string, decimal> Discounts { get; set; }
 
         /// <summary>
         /// The total sum of the session before any discounts applied.
         /// </summary>
         /// <value>The total sum of the session before any discounts applied.</value>
-        [DataMember(Name="total", EmitDefaultValue=false)]
+        [DataMember(Name="total", EmitDefaultValue=true)]
         public decimal Total { get; set; }
 
         /// <summary>

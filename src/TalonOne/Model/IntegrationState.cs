@@ -82,19 +82,19 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Session
         /// </summary>
-        [DataMember(Name="session", EmitDefaultValue=false)]
+        [DataMember(Name="session", EmitDefaultValue=true)]
         public CustomerSession Session { get; set; }
 
         /// <summary>
         /// Gets or Sets Profile
         /// </summary>
-        [DataMember(Name="profile", EmitDefaultValue=false)]
+        [DataMember(Name="profile", EmitDefaultValue=true)]
         public CustomerProfile Profile { get; set; }
 
         /// <summary>
         /// Gets or Sets Event
         /// </summary>
-        [DataMember(Name="event", EmitDefaultValue=false)]
+        [DataMember(Name="event", EmitDefaultValue=true)]
         public Event Event { get; set; }
 
         /// <summary>

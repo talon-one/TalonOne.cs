@@ -90,28 +90,28 @@ namespace TalonOne.Model
         /// Total of active points for this loyalty program
         /// </summary>
         /// <value>Total of active points for this loyalty program</value>
-        [DataMember(Name="totalActivePoints", EmitDefaultValue=false)]
+        [DataMember(Name="totalActivePoints", EmitDefaultValue=true)]
         public decimal TotalActivePoints { get; set; }
 
         /// <summary>
         /// Total of pending points for this loyalty program
         /// </summary>
         /// <value>Total of pending points for this loyalty program</value>
-        [DataMember(Name="totalPendingPoints", EmitDefaultValue=false)]
+        [DataMember(Name="totalPendingPoints", EmitDefaultValue=true)]
         public decimal TotalPendingPoints { get; set; }
 
         /// <summary>
         /// Total of spent points for this loyalty program
         /// </summary>
         /// <value>Total of spent points for this loyalty program</value>
-        [DataMember(Name="totalSpentPoints", EmitDefaultValue=false)]
+        [DataMember(Name="totalSpentPoints", EmitDefaultValue=true)]
         public decimal TotalSpentPoints { get; set; }
 
         /// <summary>
         /// Total of expired points for this loyalty program
         /// </summary>
         /// <value>Total of expired points for this loyalty program</value>
-        [DataMember(Name="totalExpiredPoints", EmitDefaultValue=false)]
+        [DataMember(Name="totalExpiredPoints", EmitDefaultValue=true)]
         public decimal TotalExpiredPoints { get; set; }
 
         /// <summary>

@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// The exact path of the attribute that was updated
         /// </summary>
         /// <value>The exact path of the attribute that was updated</value>
-        [DataMember(Name="path", EmitDefaultValue=false)]
+        [DataMember(Name="path", EmitDefaultValue=true)]
         public string Path { get; set; }
 
         /// <summary>
         /// The new value of this attribute. Value can be any of the following types (time, string, number, location, boolean) or a list of any of those types
         /// </summary>
         /// <value>The new value of this attribute. Value can be any of the following types (time, string, number, location, boolean) or a list of any of those types</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public Object Value { get; set; }
 
         /// <summary>

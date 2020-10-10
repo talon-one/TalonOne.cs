@@ -108,14 +108,14 @@ namespace TalonOne.Model
         /// Name of your company.
         /// </summary>
         /// <value>Name of your company.</value>
-        [DataMember(Name="companyName", EmitDefaultValue=false)]
+        [DataMember(Name="companyName", EmitDefaultValue=true)]
         public string CompanyName { get; set; }
 
         /// <summary>
         /// The billing email address associated with your company account.
         /// </summary>
         /// <value>The billing email address associated with your company account.</value>
-        [DataMember(Name="billingEmail", EmitDefaultValue=false)]
+        [DataMember(Name="billingEmail", EmitDefaultValue=true)]
         public string BillingEmail { get; set; }
 
 
@@ -230,12 +230,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // CompanyName (string) minLength
             if(this.CompanyName != null && this.CompanyName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyName, length must be greater than 1.", new [] { "CompanyName" });
             }
-
+            
             yield break;
         }
     }

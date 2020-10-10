@@ -123,49 +123,49 @@ namespace TalonOne.Model
         /// Total accepted coupons for this customer
         /// </summary>
         /// <value>Total accepted coupons for this customer</value>
-        [DataMember(Name="acceptedCoupons", EmitDefaultValue=false)]
+        [DataMember(Name="acceptedCoupons", EmitDefaultValue=true)]
         public int AcceptedCoupons { get; set; }
 
         /// <summary>
         /// Total created coupons for this customer
         /// </summary>
         /// <value>Total created coupons for this customer</value>
-        [DataMember(Name="createdCoupons", EmitDefaultValue=false)]
+        [DataMember(Name="createdCoupons", EmitDefaultValue=true)]
         public int CreatedCoupons { get; set; }
 
         /// <summary>
         /// Total free items given to this customer
         /// </summary>
         /// <value>Total free items given to this customer</value>
-        [DataMember(Name="freeItems", EmitDefaultValue=false)]
+        [DataMember(Name="freeItems", EmitDefaultValue=true)]
         public int FreeItems { get; set; }
 
         /// <summary>
         /// Total orders made by this customer
         /// </summary>
         /// <value>Total orders made by this customer</value>
-        [DataMember(Name="totalOrders", EmitDefaultValue=false)]
+        [DataMember(Name="totalOrders", EmitDefaultValue=true)]
         public int TotalOrders { get; set; }
 
         /// <summary>
         /// Total orders made by this customer that had a discount
         /// </summary>
         /// <value>Total orders made by this customer that had a discount</value>
-        [DataMember(Name="totalDiscountedOrders", EmitDefaultValue=false)]
+        [DataMember(Name="totalDiscountedOrders", EmitDefaultValue=true)]
         public int TotalDiscountedOrders { get; set; }
 
         /// <summary>
         /// Total Revenue across all closed sessions
         /// </summary>
         /// <value>Total Revenue across all closed sessions</value>
-        [DataMember(Name="totalRevenue", EmitDefaultValue=false)]
+        [DataMember(Name="totalRevenue", EmitDefaultValue=true)]
         public decimal TotalRevenue { get; set; }
 
         /// <summary>
         /// The sum of discounts that were given across all closed sessions
         /// </summary>
         /// <value>The sum of discounts that were given across all closed sessions</value>
-        [DataMember(Name="totalDiscounts", EmitDefaultValue=false)]
+        [DataMember(Name="totalDiscounts", EmitDefaultValue=true)]
         public decimal TotalDiscounts { get; set; }
 
         /// <summary>

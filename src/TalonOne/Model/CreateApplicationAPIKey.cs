@@ -109,14 +109,14 @@ namespace TalonOne.Model
         /// Title for API Key
         /// </summary>
         /// <value>Title for API Key</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The date the API key expired
         /// </summary>
         /// <value>The date the API key expired</value>
-        [DataMember(Name="expires", EmitDefaultValue=false)]
+        [DataMember(Name="expires", EmitDefaultValue=true)]
         public DateTime Expires { get; set; }
 
 

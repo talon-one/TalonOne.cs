@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// The coupon code that was created
         /// </summary>
         /// <value>The coupon code that was created</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public string Value { get; set; }
 
         /// <summary>
         /// The integration identifier of the customer for whom this coupon was created
         /// </summary>
         /// <value>The integration identifier of the customer for whom this coupon was created</value>
-        [DataMember(Name="profileId", EmitDefaultValue=false)]
+        [DataMember(Name="profileId", EmitDefaultValue=true)]
         public string ProfileId { get; set; }
 
         /// <summary>

@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// ID of the SAML service.
         /// </summary>
         /// <value>ID of the SAML service.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Single Sign-On URL.
         /// </summary>
         /// <value>Single Sign-On URL.</value>
-        [DataMember(Name="loginURL", EmitDefaultValue=false)]
+        [DataMember(Name="loginURL", EmitDefaultValue=true)]
         public string LoginURL { get; set; }
 
         /// <summary>
@@ -158,18 +158,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
+            
 
             // LoginURL (string) minLength
             if(this.LoginURL != null && this.LoginURL.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoginURL, length must be greater than 1.", new [] { "LoginURL" });
             }
-
+            
             yield break;
         }
     }

@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// Integration that this audience was created in.
         /// </summary>
         /// <value>Integration that this audience was created in.</value>
-        [DataMember(Name="integration", EmitDefaultValue=false)]
+        [DataMember(Name="integration", EmitDefaultValue=true)]
         public IntegrationEnum Integration { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Audience" /> class.
@@ -133,28 +133,28 @@ namespace TalonOne.Model
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public int AccountId { get; set; }
 
         /// <summary>
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The human-friendly display name for this Audience.
         /// </summary>
         /// <value>The human-friendly display name for this Audience.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
 
@@ -162,7 +162,7 @@ namespace TalonOne.Model
         /// The ID of this Audience in the third-party integration
         /// </summary>
         /// <value>The ID of this Audience in the third-party integration</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        [DataMember(Name="integrationId", EmitDefaultValue=true)]
         public string IntegrationId { get; set; }
 
         /// <summary>
@@ -277,18 +277,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
+            
 
             // IntegrationId (string) minLength
             if(this.IntegrationId != null && this.IntegrationId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationId, length must be greater than 1.", new [] { "IntegrationId" });
             }
-
+            
             yield break;
         }
     }
