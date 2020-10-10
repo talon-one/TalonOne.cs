@@ -147,63 +147,63 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
         /// </summary>
         /// <value>ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.</value>
-        [DataMember(Name="profileId", EmitDefaultValue=false)]
+        [DataMember(Name="profileId", EmitDefaultValue=true)]
         public string ProfileId { get; set; }
 
         /// <summary>
         /// The ID of the Talon.One account that owns this profile.
         /// </summary>
         /// <value>The ID of the Talon.One account that owns this profile.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public int AccountId { get; set; }
 
         /// <summary>
         /// ID of the ledger
         /// </summary>
         /// <value>ID of the ledger</value>
-        [DataMember(Name="loyaltyProgramId", EmitDefaultValue=false)]
+        [DataMember(Name="loyaltyProgramId", EmitDefaultValue=true)]
         public int LoyaltyProgramId { get; set; }
 
         /// <summary>
         /// ID of the related event
         /// </summary>
         /// <value>ID of the related event</value>
-        [DataMember(Name="eventId", EmitDefaultValue=false)]
+        [DataMember(Name="eventId", EmitDefaultValue=true)]
         public int EventId { get; set; }
 
         /// <summary>
         /// Amount of loyalty points
         /// </summary>
         /// <value>Amount of loyalty points</value>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount", EmitDefaultValue=true)]
         public int Amount { get; set; }
 
         /// <summary>
         /// reason for awarding/deducting points
         /// </summary>
         /// <value>reason for awarding/deducting points</value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
+        [DataMember(Name="reason", EmitDefaultValue=true)]
         public string Reason { get; set; }
 
         /// <summary>
         /// Expiry date of the points
         /// </summary>
         /// <value>Expiry date of the points</value>
-        [DataMember(Name="expiryDate", EmitDefaultValue=false)]
+        [DataMember(Name="expiryDate", EmitDefaultValue=true)]
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>

@@ -25,39 +25,58 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// CustomerProfileUpdate
+    /// AudienceMembership
     /// </summary>
     [DataContract]
-    public partial class CustomerProfileUpdate :  IEquatable<CustomerProfileUpdate>, IValidatableObject
+    public partial class AudienceMembership :  IEquatable<AudienceMembership>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomerProfileUpdate" /> class.
+        /// Initializes a new instance of the <see cref="AudienceMembership" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CustomerProfileUpdate() { }
+        protected AudienceMembership() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CustomerProfileUpdate" /> class.
+        /// Initializes a new instance of the <see cref="AudienceMembership" /> class.
         /// </summary>
-        /// <param name="customerProfile">customerProfile (required).</param>
-        public CustomerProfileUpdate(CustomerProfile customerProfile = default(CustomerProfile))
+        /// <param name="id">The ID of the audience belonging to this entity. (required).</param>
+        /// <param name="name">The Name of the audience belonging to this entity. (required).</param>
+        public AudienceMembership(int id = default(int), string name = default(string))
         {
-            // to ensure "customerProfile" is required (not null)
-            if (customerProfile == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new InvalidDataException("customerProfile is a required property for CustomerProfileUpdate and cannot be null");
+                throw new InvalidDataException("id is a required property for AudienceMembership and cannot be null");
             }
             else
             {
-                this.CustomerProfile = customerProfile;
+                this.Id = id;
+            }
+            
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new InvalidDataException("name is a required property for AudienceMembership and cannot be null");
+            }
+            else
+            {
+                this.Name = name;
             }
             
         }
         
         /// <summary>
-        /// Gets or Sets CustomerProfile
+        /// The ID of the audience belonging to this entity.
         /// </summary>
-        [DataMember(Name="customerProfile", EmitDefaultValue=false)]
-        public CustomerProfile CustomerProfile { get; set; }
+        /// <value>The ID of the audience belonging to this entity.</value>
+        [DataMember(Name="id", EmitDefaultValue=true)]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// The Name of the audience belonging to this entity.
+        /// </summary>
+        /// <value>The Name of the audience belonging to this entity.</value>
+        [DataMember(Name="name", EmitDefaultValue=true)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +85,9 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CustomerProfileUpdate {\n");
-            sb.Append("  CustomerProfile: ").Append(CustomerProfile).Append("\n");
+            sb.Append("class AudienceMembership {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +108,29 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CustomerProfileUpdate);
+            return this.Equals(input as AudienceMembership);
         }
 
         /// <summary>
-        /// Returns true if CustomerProfileUpdate instances are equal
+        /// Returns true if AudienceMembership instances are equal
         /// </summary>
-        /// <param name="input">Instance of CustomerProfileUpdate to be compared</param>
+        /// <param name="input">Instance of AudienceMembership to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CustomerProfileUpdate input)
+        public bool Equals(AudienceMembership input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.CustomerProfile == input.CustomerProfile ||
-                    (this.CustomerProfile != null &&
-                    this.CustomerProfile.Equals(input.CustomerProfile))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -118,8 +143,10 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CustomerProfile != null)
-                    hashCode = hashCode * 59 + this.CustomerProfile.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// This defines how the request payload will be parsed before your handler code is run.
         /// </summary>
         /// <value>This defines how the request payload will be parsed before your handler code is run.</value>
-        [DataMember(Name="mimeType", EmitDefaultValue=false)]
+        [DataMember(Name="mimeType", EmitDefaultValue=true)]
         public MimeTypeEnum MimeType { get; set; }
         /// <summary>
         /// The language of the handler code. Currently only &#x60;\&quot;talang\&quot;&#x60; is supported.
@@ -205,42 +205,42 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The IDs of the applications that are related to this entity.
         /// </summary>
         /// <value>The IDs of the applications that are related to this entity.</value>
-        [DataMember(Name="applicationIds", EmitDefaultValue=false)]
+        [DataMember(Name="applicationIds", EmitDefaultValue=true)]
         public List<int> ApplicationIds { get; set; }
 
         /// <summary>
         /// The human-friendly display name for this event type. Use a short, past-tense, description of the event.
         /// </summary>
         /// <value>The human-friendly display name for this event type. Use a short, past-tense, description of the event.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The machine-friendly canonical name for this event type. This will be used in URLs, and cannot be changed after an event type has been created.
         /// </summary>
         /// <value>The machine-friendly canonical name for this event type. This will be used in URLs, and cannot be changed after an event type has been created.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// An explanation of when the event type is triggered. Write this with a campaign manager in mind. For example:  &gt; The \&quot;Payment Accepted\&quot; event is triggered after successful processing of a payment by our payment gateway. 
         /// </summary>
         /// <value>An explanation of when the event type is triggered. Write this with a campaign manager in mind. For example:  &gt; The \&quot;Payment Accepted\&quot; event is triggered after successful processing of a payment by our payment gateway. </value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
 
@@ -263,14 +263,14 @@ namespace TalonOne.Model
         /// Code that will be run after successful parsing &amp; validation of the payload for this event. This code _may_ choose to evaluate campaign rules. 
         /// </summary>
         /// <value>Code that will be run after successful parsing &amp; validation of the payload for this event. This code _may_ choose to evaluate campaign rules. </value>
-        [DataMember(Name="handler", EmitDefaultValue=false)]
+        [DataMember(Name="handler", EmitDefaultValue=true)]
         public string Handler { get; set; }
 
         /// <summary>
         /// The version of this event type. When updating an existing event type this must be **exactly** &#x60;currentVersion + 1&#x60;. 
         /// </summary>
         /// <value>The version of this event type. When updating an existing event type this must be **exactly** &#x60;currentVersion + 1&#x60;. </value>
-        [DataMember(Name="version", EmitDefaultValue=false)]
+        [DataMember(Name="version", EmitDefaultValue=true)]
         public int Version { get; set; }
 
         /// <summary>
@@ -434,18 +434,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Title (string) minLength
             if(this.Title != null && this.Title.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
+            
 
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
-
+            
             yield break;
         }
     }

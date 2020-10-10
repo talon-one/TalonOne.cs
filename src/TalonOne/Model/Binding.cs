@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// A descriptive name for the value to be bound.
         /// </summary>
         /// <value>A descriptive name for the value to be bound.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// A Talang expression that will be evaluated and its result attached to the name of the binding.
         /// </summary>
         /// <value>A Talang expression that will be evaluated and its result attached to the name of the binding.</value>
-        [DataMember(Name="expression", EmitDefaultValue=false)]
+        [DataMember(Name="expression", EmitDefaultValue=true)]
         public List<Object> Expression { get; set; }
 
         /// <summary>

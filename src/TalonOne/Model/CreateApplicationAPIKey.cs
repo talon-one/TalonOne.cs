@@ -31,6 +31,45 @@ namespace TalonOne.Model
     public partial class CreateApplicationAPIKey :  IEquatable<CreateApplicationAPIKey>, IValidatableObject
     {
         /// <summary>
+        /// Platform the API key is valid for.
+        /// </summary>
+        /// <value>Platform the API key is valid for.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PlatformEnum
+        {
+            /// <summary>
+            /// Enum None for value: none
+            /// </summary>
+            [EnumMember(Value = "none")]
+            None = 1,
+
+            /// <summary>
+            /// Enum Segment for value: segment
+            /// </summary>
+            [EnumMember(Value = "segment")]
+            Segment = 2,
+
+            /// <summary>
+            /// Enum Braze for value: braze
+            /// </summary>
+            [EnumMember(Value = "braze")]
+            Braze = 3,
+
+            /// <summary>
+            /// Enum Mparticle for value: mparticle
+            /// </summary>
+            [EnumMember(Value = "mparticle")]
+            Mparticle = 4
+
+        }
+
+        /// <summary>
+        /// Platform the API key is valid for.
+        /// </summary>
+        /// <value>Platform the API key is valid for.</value>
+        [DataMember(Name="platform", EmitDefaultValue=false)]
+        public PlatformEnum? Platform { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CreateApplicationAPIKey" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,7 +79,8 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="title">Title for API Key (required).</param>
         /// <param name="expires">The date the API key expired (required).</param>
-        public CreateApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime))
+        /// <param name="platform">Platform the API key is valid for..</param>
+        public CreateApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime), PlatformEnum? platform = default(PlatformEnum?))
         {
             // to ensure "title" is required (not null)
             if (title == null)
@@ -62,21 +102,23 @@ namespace TalonOne.Model
                 this.Expires = expires;
             }
             
+            this.Platform = platform;
         }
         
         /// <summary>
         /// Title for API Key
         /// </summary>
         /// <value>Title for API Key</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
         /// The date the API key expired
         /// </summary>
         /// <value>The date the API key expired</value>
-        [DataMember(Name="expires", EmitDefaultValue=false)]
+        [DataMember(Name="expires", EmitDefaultValue=true)]
         public DateTime Expires { get; set; }
+
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -88,6 +130,7 @@ namespace TalonOne.Model
             sb.Append("class CreateApplicationAPIKey {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Expires: ").Append(Expires).Append("\n");
+            sb.Append("  Platform: ").Append(Platform).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +174,11 @@ namespace TalonOne.Model
                     this.Expires == input.Expires ||
                     (this.Expires != null &&
                     this.Expires.Equals(input.Expires))
+                ) && 
+                (
+                    this.Platform == input.Platform ||
+                    (this.Platform != null &&
+                    this.Platform.Equals(input.Platform))
                 );
         }
 
@@ -147,6 +195,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Expires != null)
                     hashCode = hashCode * 59 + this.Expires.GetHashCode();
+                if (this.Platform != null)
+                    hashCode = hashCode * 59 + this.Platform.GetHashCode();
                 return hashCode;
             }
         }

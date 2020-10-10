@@ -94,21 +94,21 @@ namespace TalonOne.Model
         /// The dot-separated path to this slot for use in Talang.
         /// </summary>
         /// <value>The dot-separated path to this slot for use in Talang.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The type of this slot, one of string, number, boolean, or list[type].
         /// </summary>
         /// <value>The type of this slot, one of string, number, boolean, or list[type].</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Campaigner-friendly name for the slot.
         /// </summary>
         /// <value>Campaigner-friendly name for the slot.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -129,7 +129,7 @@ namespace TalonOne.Model
         /// Whether or not this slot can be updated by rule effects.
         /// </summary>
         /// <value>Whether or not this slot can be updated by rule effects.</value>
-        [DataMember(Name="writable", EmitDefaultValue=false)]
+        [DataMember(Name="writable", EmitDefaultValue=true)]
         public bool Writable { get; set; }
 
         /// <summary>

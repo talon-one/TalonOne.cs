@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// Current user state.
         /// </summary>
         /// <value>Current user state.</value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
+        [DataMember(Name="state", EmitDefaultValue=true)]
         public StateEnum State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="User" /> class.
@@ -79,12 +79,12 @@ namespace TalonOne.Model
         /// <param name="inviteToken">Invite token, empty if the user as already accepted their invite. (required).</param>
         /// <param name="state">Current user state. (required).</param>
         /// <param name="name">Full name (required).</param>
-        /// <param name="policy">A blob of ACL JSON (required).</param>
+        /// <param name="policy">User ACL Policy (required).</param>
         /// <param name="latestFeedTimestamp">Latest timestamp the user has been notified for feed..</param>
         /// <param name="roles">Contains a list of all roles the user is a member of.</param>
         /// <param name="applicationNotificationSubscriptions">applicationNotificationSubscriptions.</param>
         /// <param name="authMethod">The Authentication method for this user.</param>
-        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string inviteToken = default(string), StateEnum state = default(StateEnum), string name = default(string), string policy = default(string), DateTime latestFeedTimestamp = default(DateTime), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object), string authMethod = default(string))
+        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string inviteToken = default(string), StateEnum state = default(StateEnum), string name = default(string), Object policy = default(Object), DateTime latestFeedTimestamp = default(DateTime), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object), string authMethod = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -186,42 +186,42 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The exact moment this entity was last modified.
         /// </summary>
         /// <value>The exact moment this entity was last modified.</value>
-        [DataMember(Name="modified", EmitDefaultValue=false)]
+        [DataMember(Name="modified", EmitDefaultValue=true)]
         public DateTime Modified { get; set; }
 
         /// <summary>
         /// The email address associated with your account.
         /// </summary>
         /// <value>The email address associated with your account.</value>
-        [DataMember(Name="email", EmitDefaultValue=false)]
+        [DataMember(Name="email", EmitDefaultValue=true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public int AccountId { get; set; }
 
         /// <summary>
         /// Invite token, empty if the user as already accepted their invite.
         /// </summary>
         /// <value>Invite token, empty if the user as already accepted their invite.</value>
-        [DataMember(Name="inviteToken", EmitDefaultValue=false)]
+        [DataMember(Name="inviteToken", EmitDefaultValue=true)]
         public string InviteToken { get; set; }
 
 
@@ -229,15 +229,15 @@ namespace TalonOne.Model
         /// Full name
         /// </summary>
         /// <value>Full name</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// A blob of ACL JSON
+        /// User ACL Policy
         /// </summary>
-        /// <value>A blob of ACL JSON</value>
-        [DataMember(Name="policy", EmitDefaultValue=false)]
-        public string Policy { get; set; }
+        /// <value>User ACL Policy</value>
+        [DataMember(Name="policy", EmitDefaultValue=true)]
+        public Object Policy { get; set; }
 
         /// <summary>
         /// Latest timestamp the user has been notified for feed.

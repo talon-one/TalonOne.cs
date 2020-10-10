@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **CampaignPriority** | **string** | Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot; | [optional] 
 **ExclusiveCampaignsStrategy** | **string** | The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot; | [optional] 
 **EnableCascadingDiscounts** | **bool** | Flag indicating if discounts should cascade for this application | [optional] 
+**EnableFlattenedCartItems** | **bool** | Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one | [optional] 
 **AttributesSettings** | [**AttributesSettings**](AttributesSettings.md) |  | [optional] 
 **Sandbox** | **bool** | Flag indicating if this is a live or sandbox application | [optional] 
 **Key** | **string** | Hex key for HMAC-signing API calls as coming from this application (16 hex digits) | [optional] 

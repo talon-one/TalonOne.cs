@@ -94,7 +94,7 @@ namespace TalonOne.Model
         /// A list of features for the campaign.
         /// </summary>
         /// <value>A list of features for the campaign.</value>
-        [DataMember(Name="features", EmitDefaultValue=false)]
+        [DataMember(Name="features", EmitDefaultValue=true)]
         public List<FeaturesEnum> Features { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateCampaign" /> class.
@@ -116,7 +116,8 @@ namespace TalonOne.Model
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of limits that will operate for this campaign (required).</param>
-        public UpdateCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum? state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>))
+        /// <param name="campaignGroups">The IDs of the campaign groups that own this entity..</param>
+        public UpdateCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum? state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -174,13 +175,14 @@ namespace TalonOne.Model
             this.ActiveRulesetId = activeRulesetId;
             this.CouponSettings = couponSettings;
             this.ReferralSettings = referralSettings;
+            this.CampaignGroups = campaignGroups;
         }
         
         /// <summary>
         /// A friendly name for this campaign.
         /// </summary>
         /// <value>A friendly name for this campaign.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -223,7 +225,7 @@ namespace TalonOne.Model
         /// A list of tags for the campaign.
         /// </summary>
         /// <value>A list of tags for the campaign.</value>
-        [DataMember(Name="tags", EmitDefaultValue=false)]
+        [DataMember(Name="tags", EmitDefaultValue=true)]
         public List<string> Tags { get; set; }
 
 
@@ -243,8 +245,15 @@ namespace TalonOne.Model
         /// The set of limits that will operate for this campaign
         /// </summary>
         /// <value>The set of limits that will operate for this campaign</value>
-        [DataMember(Name="limits", EmitDefaultValue=false)]
+        [DataMember(Name="limits", EmitDefaultValue=true)]
         public List<LimitConfig> Limits { get; set; }
+
+        /// <summary>
+        /// The IDs of the campaign groups that own this entity.
+        /// </summary>
+        /// <value>The IDs of the campaign groups that own this entity.</value>
+        [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
+        public List<int> CampaignGroups { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -266,6 +275,7 @@ namespace TalonOne.Model
             sb.Append("  CouponSettings: ").Append(CouponSettings).Append("\n");
             sb.Append("  ReferralSettings: ").Append(ReferralSettings).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
+            sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -362,6 +372,12 @@ namespace TalonOne.Model
                     this.Limits != null &&
                     input.Limits != null &&
                     this.Limits.SequenceEqual(input.Limits)
+                ) && 
+                (
+                    this.CampaignGroups == input.CampaignGroups ||
+                    this.CampaignGroups != null &&
+                    input.CampaignGroups != null &&
+                    this.CampaignGroups.SequenceEqual(input.CampaignGroups)
                 );
         }
 
@@ -398,6 +414,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ReferralSettings.GetHashCode();
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
+                if (this.CampaignGroups != null)
+                    hashCode = hashCode * 59 + this.CampaignGroups.GetHashCode();
                 return hashCode;
             }
         }
@@ -409,12 +427,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
-
+            
             yield break;
         }
     }

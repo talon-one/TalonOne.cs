@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// Your old password.
         /// </summary>
         /// <value>Your old password.</value>
-        [DataMember(Name="password", EmitDefaultValue=false)]
+        [DataMember(Name="password", EmitDefaultValue=true)]
         public string Password { get; set; }
 
         /// <summary>
         /// Your new password.
         /// </summary>
         /// <value>Your new password.</value>
-        [DataMember(Name="newPassword", EmitDefaultValue=false)]
+        [DataMember(Name="newPassword", EmitDefaultValue=true)]
         public string NewPassword { get; set; }
 
         /// <summary>

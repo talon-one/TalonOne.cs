@@ -105,14 +105,14 @@ namespace TalonOne.Model
         /// The internal name for the Loyalty Program. This is an immutable value.
         /// </summary>
         /// <value>The internal name for the Loyalty Program. This is an immutable value.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The display title for the Loyalty Program.
         /// </summary>
         /// <value>The display title for the Loyalty Program.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -133,21 +133,21 @@ namespace TalonOne.Model
         /// Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;.
         /// </summary>
         /// <value>Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;.</value>
-        [DataMember(Name="defaultValidity", EmitDefaultValue=false)]
+        [DataMember(Name="defaultValidity", EmitDefaultValue=true)]
         public string DefaultValidity { get; set; }
 
         /// <summary>
         /// Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;.
         /// </summary>
         /// <value>Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;.</value>
-        [DataMember(Name="defaultPending", EmitDefaultValue=false)]
+        [DataMember(Name="defaultPending", EmitDefaultValue=true)]
         public string DefaultPending { get; set; }
 
         /// <summary>
         /// Indicates if this program supports subledgers inside the program
         /// </summary>
         /// <value>Indicates if this program supports subledgers inside the program</value>
-        [DataMember(Name="allowSubledger", EmitDefaultValue=false)]
+        [DataMember(Name="allowSubledger", EmitDefaultValue=true)]
         public bool AllowSubledger { get; set; }
 
         /// <summary>

@@ -98,14 +98,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'UserId'
         }
         /// <summary>
-        /// Test the property 'CampaignGroups'
-        /// </summary>
-        [Test]
-        public void CampaignGroupsTest()
-        {
-            // TODO unit test for the property 'CampaignGroups'
-        }
-        /// <summary>
         /// Test the property 'Name'
         /// </summary>
         [Test]
@@ -200,6 +192,14 @@ namespace TalonOne.Test
         public void LimitsTest()
         {
             // TODO unit test for the property 'Limits'
+        }
+        /// <summary>
+        /// Test the property 'CampaignGroups'
+        /// </summary>
+        [Test]
+        public void CampaignGroupsTest()
+        {
+            // TODO unit test for the property 'CampaignGroups'
         }
         /// <summary>
         /// Test the property 'CouponRedemptionCount'

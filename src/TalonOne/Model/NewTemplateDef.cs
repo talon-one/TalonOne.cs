@@ -104,7 +104,7 @@ namespace TalonOne.Model
         /// Campaigner-friendly name for the template that will be shown in the rule editor.
         /// </summary>
         /// <value>Campaigner-friendly name for the template that will be shown in the rule editor.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -125,21 +125,21 @@ namespace TalonOne.Model
         /// Used for grouping templates in the rule editor sidebar.
         /// </summary>
         /// <value>Used for grouping templates in the rule editor sidebar.</value>
-        [DataMember(Name="category", EmitDefaultValue=false)]
+        [DataMember(Name="category", EmitDefaultValue=true)]
         public string Category { get; set; }
 
         /// <summary>
         /// A Talang expression that contains variable bindings referring to args.
         /// </summary>
         /// <value>A Talang expression that contains variable bindings referring to args.</value>
-        [DataMember(Name="expr", EmitDefaultValue=false)]
+        [DataMember(Name="expr", EmitDefaultValue=true)]
         public List<Object> Expr { get; set; }
 
         /// <summary>
         /// An array of argument definitions.
         /// </summary>
         /// <value>An array of argument definitions.</value>
-        [DataMember(Name="args", EmitDefaultValue=false)]
+        [DataMember(Name="args", EmitDefaultValue=true)]
         public List<TemplateArgDef> Args { get; set; }
 
         /// <summary>
@@ -271,18 +271,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Title (string) minLength
             if(this.Title != null && this.Title.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Title, length must be greater than 1.", new [] { "Title" });
             }
+            
 
             // Category (string) minLength
             if(this.Category != null && this.Category.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Category, length must be greater than 1.", new [] { "Category" });
             }
-
+            
             yield break;
         }
     }

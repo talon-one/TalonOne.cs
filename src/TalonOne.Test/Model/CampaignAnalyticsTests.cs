@@ -233,6 +233,38 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'TotalReferralsCreated'
         }
+        /// <summary>
+        /// Test the property 'AddedLoyaltyPoints'
+        /// </summary>
+        [Test]
+        public void AddedLoyaltyPointsTest()
+        {
+            // TODO unit test for the property 'AddedLoyaltyPoints'
+        }
+        /// <summary>
+        /// Test the property 'TotalAddedLoyaltyPoints'
+        /// </summary>
+        [Test]
+        public void TotalAddedLoyaltyPointsTest()
+        {
+            // TODO unit test for the property 'TotalAddedLoyaltyPoints'
+        }
+        /// <summary>
+        /// Test the property 'DeductedLoyaltyPoints'
+        /// </summary>
+        [Test]
+        public void DeductedLoyaltyPointsTest()
+        {
+            // TODO unit test for the property 'DeductedLoyaltyPoints'
+        }
+        /// <summary>
+        /// Test the property 'TotalDeductedLoyaltyPoints'
+        /// </summary>
+        [Test]
+        public void TotalDeductedLoyaltyPointsTest()
+        {
+            // TODO unit test for the property 'TotalDeductedLoyaltyPoints'
+        }
 
     }
 

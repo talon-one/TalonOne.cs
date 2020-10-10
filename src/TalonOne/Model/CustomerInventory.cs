@@ -34,11 +34,13 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CustomerInventory" /> class.
         /// </summary>
         /// <param name="profile">profile.</param>
+        /// <param name="loyalty">loyalty.</param>
         /// <param name="referrals">referrals.</param>
         /// <param name="coupons">coupons.</param>
-        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), List<Referral> referrals = default(List<Referral>), List<Coupon> coupons = default(List<Coupon>))
+        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<Referral> referrals = default(List<Referral>), List<Coupon> coupons = default(List<Coupon>))
         {
             this.Profile = profile;
+            this.Loyalty = loyalty;
             this.Referrals = referrals;
             this.Coupons = coupons;
         }
@@ -48,6 +50,12 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="profile", EmitDefaultValue=false)]
         public CustomerProfile Profile { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Loyalty
+        /// </summary>
+        [DataMember(Name="loyalty", EmitDefaultValue=false)]
+        public Loyalty Loyalty { get; set; }
 
         /// <summary>
         /// Gets or Sets Referrals
@@ -70,6 +78,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class CustomerInventory {\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
+            sb.Append("  Loyalty: ").Append(Loyalty).Append("\n");
             sb.Append("  Referrals: ").Append(Referrals).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("}\n");
@@ -112,6 +121,11 @@ namespace TalonOne.Model
                     this.Profile.Equals(input.Profile))
                 ) && 
                 (
+                    this.Loyalty == input.Loyalty ||
+                    (this.Loyalty != null &&
+                    this.Loyalty.Equals(input.Loyalty))
+                ) && 
+                (
                     this.Referrals == input.Referrals ||
                     this.Referrals != null &&
                     input.Referrals != null &&
@@ -136,6 +150,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Profile != null)
                     hashCode = hashCode * 59 + this.Profile.GetHashCode();
+                if (this.Loyalty != null)
+                    hashCode = hashCode * 59 + this.Loyalty.GetHashCode();
                 if (this.Referrals != null)
                     hashCode = hashCode * 59 + this.Referrals.GetHashCode();
                 if (this.Coupons != null)

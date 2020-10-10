@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// Indicates the node type
         /// </summary>
         /// <value>Indicates the node type</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public TypeEnum Type { get; set; }
         /// <summary>
         /// How does the set operates on its elements
@@ -76,7 +76,7 @@ namespace TalonOne.Model
         /// How does the set operates on its elements
         /// </summary>
         /// <value>How does the set operates on its elements</value>
-        [DataMember(Name="operator", EmitDefaultValue=false)]
+        [DataMember(Name="operator", EmitDefaultValue=true)]
         public OperatorEnum Operator { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignSetBranchNode" /> class.
@@ -139,7 +139,7 @@ namespace TalonOne.Model
         /// Name of the set
         /// </summary>
         /// <value>Name of the set</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
 
@@ -147,7 +147,7 @@ namespace TalonOne.Model
         /// Child elements of this set
         /// </summary>
         /// <value>Child elements of this set</value>
-        [DataMember(Name="elements", EmitDefaultValue=false)]
+        [DataMember(Name="elements", EmitDefaultValue=true)]
         public List<CampaignSetNode> Elements { get; set; }
 
         /// <summary>

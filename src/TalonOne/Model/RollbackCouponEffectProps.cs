@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The coupon code whose usage has been rolled back
         /// </summary>
         /// <value>The coupon code whose usage has been rolled back</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public string Value { get; set; }
 
         /// <summary>

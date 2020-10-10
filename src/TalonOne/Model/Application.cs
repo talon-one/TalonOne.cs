@@ -151,10 +151,11 @@ namespace TalonOne.Model
         /// <param name="campaignPriority">Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot;.</param>
         /// <param name="exclusiveCampaignsStrategy">The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot;.</param>
         /// <param name="enableCascadingDiscounts">Flag indicating if discounts should cascade for this application.</param>
+        /// <param name="enableFlattenedCartItems">Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one.</param>
         /// <param name="attributesSettings">attributesSettings.</param>
         /// <param name="sandbox">Flag indicating if this is a live or sandbox application.</param>
         /// <param name="loyaltyPrograms">An array containing all the loyalty programs to which this application is subscribed (required).</param>
-        public Application(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = default(CampaignPriorityEnum?), ExclusiveCampaignsStrategyEnum? exclusiveCampaignsStrategy = default(ExclusiveCampaignsStrategyEnum?), bool enableCascadingDiscounts = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>))
+        public Application(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = default(CampaignPriorityEnum?), ExclusiveCampaignsStrategyEnum? exclusiveCampaignsStrategy = default(ExclusiveCampaignsStrategyEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -243,6 +244,7 @@ namespace TalonOne.Model
             this.CampaignPriority = campaignPriority;
             this.ExclusiveCampaignsStrategy = exclusiveCampaignsStrategy;
             this.EnableCascadingDiscounts = enableCascadingDiscounts;
+            this.EnableFlattenedCartItems = enableFlattenedCartItems;
             this.AttributesSettings = attributesSettings;
             this.Sandbox = sandbox;
         }
@@ -251,35 +253,35 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The exact moment this entity was last modified.
         /// </summary>
         /// <value>The exact moment this entity was last modified.</value>
-        [DataMember(Name="modified", EmitDefaultValue=false)]
+        [DataMember(Name="modified", EmitDefaultValue=true)]
         public DateTime Modified { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
-        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
         public int AccountId { get; set; }
 
         /// <summary>
         /// The name of this application.
         /// </summary>
         /// <value>The name of this application.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -293,14 +295,14 @@ namespace TalonOne.Model
         /// A string containing an IANA timezone descriptor.
         /// </summary>
         /// <value>A string containing an IANA timezone descriptor.</value>
-        [DataMember(Name="timezone", EmitDefaultValue=false)]
+        [DataMember(Name="timezone", EmitDefaultValue=true)]
         public string Timezone { get; set; }
 
         /// <summary>
         /// A string describing a default currency for new customer sessions.
         /// </summary>
         /// <value>A string describing a default currency for new customer sessions.</value>
-        [DataMember(Name="currency", EmitDefaultValue=false)]
+        [DataMember(Name="currency", EmitDefaultValue=true)]
         public string Currency { get; set; }
 
 
@@ -328,6 +330,13 @@ namespace TalonOne.Model
         public bool EnableCascadingDiscounts { get; set; }
 
         /// <summary>
+        /// Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one
+        /// </summary>
+        /// <value>Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one</value>
+        [DataMember(Name="enableFlattenedCartItems", EmitDefaultValue=false)]
+        public bool EnableFlattenedCartItems { get; set; }
+
+        /// <summary>
         /// Gets or Sets AttributesSettings
         /// </summary>
         [DataMember(Name="attributesSettings", EmitDefaultValue=false)]
@@ -344,7 +353,7 @@ namespace TalonOne.Model
         /// An array containing all the loyalty programs to which this application is subscribed
         /// </summary>
         /// <value>An array containing all the loyalty programs to which this application is subscribed</value>
-        [DataMember(Name="loyaltyPrograms", EmitDefaultValue=false)]
+        [DataMember(Name="loyaltyPrograms", EmitDefaultValue=true)]
         public List<LoyaltyProgram> LoyaltyPrograms { get; set; }
 
         /// <summary>
@@ -369,6 +378,7 @@ namespace TalonOne.Model
             sb.Append("  CampaignPriority: ").Append(CampaignPriority).Append("\n");
             sb.Append("  ExclusiveCampaignsStrategy: ").Append(ExclusiveCampaignsStrategy).Append("\n");
             sb.Append("  EnableCascadingDiscounts: ").Append(EnableCascadingDiscounts).Append("\n");
+            sb.Append("  EnableFlattenedCartItems: ").Append(EnableFlattenedCartItems).Append("\n");
             sb.Append("  AttributesSettings: ").Append(AttributesSettings).Append("\n");
             sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
@@ -478,6 +488,11 @@ namespace TalonOne.Model
                     this.EnableCascadingDiscounts.Equals(input.EnableCascadingDiscounts))
                 ) && 
                 (
+                    this.EnableFlattenedCartItems == input.EnableFlattenedCartItems ||
+                    (this.EnableFlattenedCartItems != null &&
+                    this.EnableFlattenedCartItems.Equals(input.EnableFlattenedCartItems))
+                ) && 
+                (
                     this.AttributesSettings == input.AttributesSettings ||
                     (this.AttributesSettings != null &&
                     this.AttributesSettings.Equals(input.AttributesSettings))
@@ -532,6 +547,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ExclusiveCampaignsStrategy.GetHashCode();
                 if (this.EnableCascadingDiscounts != null)
                     hashCode = hashCode * 59 + this.EnableCascadingDiscounts.GetHashCode();
+                if (this.EnableFlattenedCartItems != null)
+                    hashCode = hashCode * 59 + this.EnableFlattenedCartItems.GetHashCode();
                 if (this.AttributesSettings != null)
                     hashCode = hashCode * 59 + this.AttributesSettings.GetHashCode();
                 if (this.Sandbox != null)
@@ -549,24 +566,27 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Name (string) minLength
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
+            
 
             // Timezone (string) minLength
             if(this.Timezone != null && this.Timezone.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Timezone, length must be greater than 1.", new [] { "Timezone" });
             }
+            
 
             // Currency (string) minLength
             if(this.Currency != null && this.Currency.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Currency, length must be greater than 1.", new [] { "Currency" });
             }
-
+            
             yield break;
         }
     }

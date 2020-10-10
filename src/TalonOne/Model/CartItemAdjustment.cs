@@ -70,14 +70,14 @@ namespace TalonOne.Model
         /// Loyalty Program to be used for payment
         /// </summary>
         /// <value>Loyalty Program to be used for payment</value>
-        [DataMember(Name="payFromLoyaltyProgram", EmitDefaultValue=false)]
+        [DataMember(Name="payFromLoyaltyProgram", EmitDefaultValue=true)]
         public int PayFromLoyaltyProgram { get; set; }
 
         /// <summary>
         /// Amount of points to be spend
         /// </summary>
         /// <value>Amount of points to be spend</value>
-        [DataMember(Name="pointPayment", EmitDefaultValue=false)]
+        [DataMember(Name="pointPayment", EmitDefaultValue=true)]
         public int PointPayment { get; set; }
 
         /// <summary>
@@ -175,12 +175,16 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+            
             // PointPayment (int) minimum
             if(this.PointPayment < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PointPayment, must be a value greater than or equal to 1.", new [] { "PointPayment" });
             }
 
+
+            
             // RemainingPrice (decimal) minimum
             if(this.RemainingPrice < (decimal)0)
             {

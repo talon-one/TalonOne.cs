@@ -78,14 +78,14 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Email
         /// </summary>
-        [DataMember(Name="email", EmitDefaultValue=false)]
+        [DataMember(Name="email", EmitDefaultValue=true)]
         public string Email { get; set; }
 
         /// <summary>
         /// a blob of acl json
         /// </summary>
         /// <value>a blob of acl json</value>
-        [DataMember(Name="acl", EmitDefaultValue=false)]
+        [DataMember(Name="acl", EmitDefaultValue=true)]
         public string Acl { get; set; }
 
         /// <summary>

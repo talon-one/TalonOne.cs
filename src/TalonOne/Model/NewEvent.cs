@@ -88,21 +88,21 @@ namespace TalonOne.Model
         /// A string representing the event. Must not be a reserved event name.
         /// </summary>
         /// <value>A string representing the event. Must not be a reserved event name.</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Arbitrary additional JSON data associated with the event.
         /// </summary>
         /// <value>Arbitrary additional JSON data associated with the event.</value>
-        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        [DataMember(Name="attributes", EmitDefaultValue=true)]
         public Object Attributes { get; set; }
 
         /// <summary>
         /// The ID of the session that this event occurred in.
         /// </summary>
         /// <value>The ID of the session that this event occurred in.</value>
-        [DataMember(Name="sessionId", EmitDefaultValue=false)]
+        [DataMember(Name="sessionId", EmitDefaultValue=true)]
         public string SessionId { get; set; }
 
         /// <summary>
@@ -201,18 +201,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Type (string) minLength
             if(this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
+            
 
             // SessionId (string) minLength
             if(this.SessionId != null && this.SessionId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SessionId, length must be greater than 1.", new [] { "SessionId" });
             }
-
+            
             yield break;
         }
     }

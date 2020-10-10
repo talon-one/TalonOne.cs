@@ -169,6 +169,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+            
             // UsageLimit (int) maximum
             if(this.UsageLimit > (int)999999)
             {
@@ -181,6 +183,8 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }
 
+
+            
             // DiscountLimit (decimal) maximum
             if(this.DiscountLimit > (decimal)999999)
             {

@@ -81,14 +81,14 @@ namespace TalonOne.Model
         /// The email address associated with your account.
         /// </summary>
         /// <value>The email address associated with your account.</value>
-        [DataMember(Name="email", EmitDefaultValue=false)]
+        [DataMember(Name="email", EmitDefaultValue=true)]
         public string Email { get; set; }
 
         /// <summary>
         /// The password for your account.
         /// </summary>
         /// <value>The password for your account.</value>
-        [DataMember(Name="password", EmitDefaultValue=false)]
+        [DataMember(Name="password", EmitDefaultValue=true)]
         public string Password { get; set; }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets InviteToken
         /// </summary>
-        [DataMember(Name="inviteToken", EmitDefaultValue=false)]
+        [DataMember(Name="inviteToken", EmitDefaultValue=true)]
         public string InviteToken { get; set; }
 
         /// <summary>
@@ -200,12 +200,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // InviteToken (string) minLength
             if(this.InviteToken != null && this.InviteToken.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for InviteToken, length must be greater than 1.", new [] { "InviteToken" });
             }
-
+            
             yield break;
         }
     }

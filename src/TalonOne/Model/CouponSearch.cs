@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// Properties to match against a coupon. All provided attributes will be exactly matched against attributes
         /// </summary>
         /// <value>Properties to match against a coupon. All provided attributes will be exactly matched against attributes</value>
-        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        [DataMember(Name="attributes", EmitDefaultValue=true)]
         public Object Attributes { get; set; }
 
         /// <summary>

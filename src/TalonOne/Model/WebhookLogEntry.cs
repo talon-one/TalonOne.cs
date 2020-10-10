@@ -120,21 +120,21 @@ namespace TalonOne.Model
         /// UUID reference of the webhook request
         /// </summary>
         /// <value>UUID reference of the webhook request</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public string Id { get; set; }
 
         /// <summary>
         /// UUID reference of the integration request linked to this webhook request
         /// </summary>
         /// <value>UUID reference of the integration request linked to this webhook request</value>
-        [DataMember(Name="integrationRequestUuid", EmitDefaultValue=false)]
+        [DataMember(Name="integrationRequestUuid", EmitDefaultValue=true)]
         public string IntegrationRequestUuid { get; set; }
 
         /// <summary>
         /// ID of the webhook that triggered the request
         /// </summary>
         /// <value>ID of the webhook that triggered the request</value>
-        [DataMember(Name="webhookId", EmitDefaultValue=false)]
+        [DataMember(Name="webhookId", EmitDefaultValue=true)]
         public int WebhookId { get; set; }
 
         /// <summary>
@@ -148,14 +148,14 @@ namespace TalonOne.Model
         /// Target url of request
         /// </summary>
         /// <value>Target url of request</value>
-        [DataMember(Name="url", EmitDefaultValue=false)]
+        [DataMember(Name="url", EmitDefaultValue=true)]
         public string Url { get; set; }
 
         /// <summary>
         /// Request message
         /// </summary>
         /// <value>Request message</value>
-        [DataMember(Name="request", EmitDefaultValue=false)]
+        [DataMember(Name="request", EmitDefaultValue=true)]
         public string Request { get; set; }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace TalonOne.Model
         /// Timestamp of request
         /// </summary>
         /// <value>Timestamp of request</value>
-        [DataMember(Name="requestTime", EmitDefaultValue=false)]
+        [DataMember(Name="requestTime", EmitDefaultValue=true)]
         public DateTime RequestTime { get; set; }
 
         /// <summary>

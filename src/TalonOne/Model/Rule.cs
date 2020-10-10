@@ -83,7 +83,7 @@ namespace TalonOne.Model
         /// A short description of the rule.
         /// </summary>
         /// <value>A short description of the rule.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
@@ -104,14 +104,14 @@ namespace TalonOne.Model
         /// A Talang expression that will be evaluated in the context of the given event.
         /// </summary>
         /// <value>A Talang expression that will be evaluated in the context of the given event.</value>
-        [DataMember(Name="condition", EmitDefaultValue=false)]
+        [DataMember(Name="condition", EmitDefaultValue=true)]
         public List<Object> Condition { get; set; }
 
         /// <summary>
         /// An array of effectful Talang expressions in arrays that will be evaluated when a rule matches.
         /// </summary>
         /// <value>An array of effectful Talang expressions in arrays that will be evaluated when a rule matches.</value>
-        [DataMember(Name="effects", EmitDefaultValue=false)]
+        [DataMember(Name="effects", EmitDefaultValue=true)]
         public List<Object> Effects { get; set; }
 
         /// <summary>

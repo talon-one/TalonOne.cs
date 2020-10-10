@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// The id of the referral code that was redeemed
         /// </summary>
         /// <value>The id of the referral code that was redeemed</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The referral code that was redeemed
         /// </summary>
         /// <value>The referral code that was redeemed</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public string Value { get; set; }
 
         /// <summary>

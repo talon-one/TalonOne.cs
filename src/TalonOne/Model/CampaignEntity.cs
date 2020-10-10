@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The ID of the campaign that owns this entity.
         /// </summary>
         /// <value>The ID of the campaign that owns this entity.</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        [DataMember(Name="campaignId", EmitDefaultValue=true)]
         public int CampaignId { get; set; }
 
         /// <summary>

@@ -72,14 +72,14 @@ namespace TalonOne.Model
         /// Set of rules to apply.
         /// </summary>
         /// <value>Set of rules to apply.</value>
-        [DataMember(Name="rules", EmitDefaultValue=false)]
+        [DataMember(Name="rules", EmitDefaultValue=true)]
         public List<Rule> Rules { get; set; }
 
         /// <summary>
         /// An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array.
         /// </summary>
         /// <value>An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array.</value>
-        [DataMember(Name="bindings", EmitDefaultValue=false)]
+        [DataMember(Name="bindings", EmitDefaultValue=true)]
         public List<Binding> Bindings { get; set; }
 
         /// <summary>

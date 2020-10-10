@@ -55,7 +55,7 @@ namespace TalonOne.Model
         /// State of the account (active, deactivated)
         /// </summary>
         /// <value>State of the account (active, deactivated)</value>
-        [DataMember(Name="state", EmitDefaultValue=false)]
+        [DataMember(Name="state", EmitDefaultValue=true)]
         public StateEnum State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Account" /> class.
@@ -208,34 +208,34 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The exact moment this entity was last modified.
         /// </summary>
         /// <value>The exact moment this entity was last modified.</value>
-        [DataMember(Name="modified", EmitDefaultValue=false)]
+        [DataMember(Name="modified", EmitDefaultValue=true)]
         public DateTime Modified { get; set; }
 
         /// <summary>
         /// Gets or Sets CompanyName
         /// </summary>
-        [DataMember(Name="companyName", EmitDefaultValue=false)]
+        [DataMember(Name="companyName", EmitDefaultValue=true)]
         public string CompanyName { get; set; }
 
         /// <summary>
         /// Subdomain Name for yourcompany.talon.one
         /// </summary>
         /// <value>Subdomain Name for yourcompany.talon.one</value>
-        [DataMember(Name="domainName", EmitDefaultValue=false)]
+        [DataMember(Name="domainName", EmitDefaultValue=true)]
         public string DomainName { get; set; }
 
 
@@ -243,7 +243,7 @@ namespace TalonOne.Model
         /// The billing email address associated with your company account.
         /// </summary>
         /// <value>The billing email address associated with your company account.</value>
-        [DataMember(Name="billingEmail", EmitDefaultValue=false)]
+        [DataMember(Name="billingEmail", EmitDefaultValue=true)]
         public string BillingEmail { get; set; }
 
         /// <summary>
@@ -292,28 +292,28 @@ namespace TalonOne.Model
         /// The current number of Applications in your account.
         /// </summary>
         /// <value>The current number of Applications in your account.</value>
-        [DataMember(Name="applicationCount", EmitDefaultValue=false)]
+        [DataMember(Name="applicationCount", EmitDefaultValue=true)]
         public int ApplicationCount { get; set; }
 
         /// <summary>
         /// The current number of Campaign Manager Users in your account.
         /// </summary>
         /// <value>The current number of Campaign Manager Users in your account.</value>
-        [DataMember(Name="userCount", EmitDefaultValue=false)]
+        [DataMember(Name="userCount", EmitDefaultValue=true)]
         public int UserCount { get; set; }
 
         /// <summary>
         /// The current number of active Campaigns in your account.
         /// </summary>
         /// <value>The current number of active Campaigns in your account.</value>
-        [DataMember(Name="campaignsActiveCount", EmitDefaultValue=false)]
+        [DataMember(Name="campaignsActiveCount", EmitDefaultValue=true)]
         public int CampaignsActiveCount { get; set; }
 
         /// <summary>
         /// The current number of inactive Campaigns in your account.
         /// </summary>
         /// <value>The current number of inactive Campaigns in your account.</value>
-        [DataMember(Name="campaignsInactiveCount", EmitDefaultValue=false)]
+        [DataMember(Name="campaignsInactiveCount", EmitDefaultValue=true)]
         public int CampaignsInactiveCount { get; set; }
 
         /// <summary>
@@ -531,12 +531,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // CompanyName (string) minLength
             if(this.CompanyName != null && this.CompanyName.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompanyName, length must be greater than 1.", new [] { "CompanyName" });
             }
-
+            
             yield break;
         }
     }

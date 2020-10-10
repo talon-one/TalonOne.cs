@@ -73,7 +73,7 @@ namespace TalonOne.Model
         /// API method for this webhook
         /// </summary>
         /// <value>API method for this webhook</value>
-        [DataMember(Name="verb", EmitDefaultValue=false)]
+        [DataMember(Name="verb", EmitDefaultValue=true)]
         public VerbEnum Verb { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Webhook" /> class.
@@ -203,35 +203,35 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The exact moment this entity was last modified.
         /// </summary>
         /// <value>The exact moment this entity was last modified.</value>
-        [DataMember(Name="modified", EmitDefaultValue=false)]
+        [DataMember(Name="modified", EmitDefaultValue=true)]
         public DateTime Modified { get; set; }
 
         /// <summary>
         /// The IDs of the applications that are related to this entity. The IDs of the applications that are related to this entity.
         /// </summary>
         /// <value>The IDs of the applications that are related to this entity. The IDs of the applications that are related to this entity.</value>
-        [DataMember(Name="applicationIds", EmitDefaultValue=false)]
+        [DataMember(Name="applicationIds", EmitDefaultValue=true)]
         public List<int> ApplicationIds { get; set; }
 
         /// <summary>
         /// Friendly title for this webhook
         /// </summary>
         /// <value>Friendly title for this webhook</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
 
@@ -239,14 +239,14 @@ namespace TalonOne.Model
         /// API url (supports templating using parameters) for this webhook
         /// </summary>
         /// <value>API url (supports templating using parameters) for this webhook</value>
-        [DataMember(Name="url", EmitDefaultValue=false)]
+        [DataMember(Name="url", EmitDefaultValue=true)]
         public string Url { get; set; }
 
         /// <summary>
         /// List of API HTTP headers for this webhook
         /// </summary>
         /// <value>List of API HTTP headers for this webhook</value>
-        [DataMember(Name="headers", EmitDefaultValue=false)]
+        [DataMember(Name="headers", EmitDefaultValue=true)]
         public List<string> Headers { get; set; }
 
         /// <summary>
@@ -260,14 +260,14 @@ namespace TalonOne.Model
         /// Array of template argument definitions
         /// </summary>
         /// <value>Array of template argument definitions</value>
-        [DataMember(Name="params", EmitDefaultValue=false)]
+        [DataMember(Name="params", EmitDefaultValue=true)]
         public List<TemplateArgDef> Params { get; set; }
 
         /// <summary>
         /// Enables or disables webhook from showing in rule builder
         /// </summary>
         /// <value>Enables or disables webhook from showing in rule builder</value>
-        [DataMember(Name="enabled", EmitDefaultValue=false)]
+        [DataMember(Name="enabled", EmitDefaultValue=true)]
         public bool Enabled { get; set; }
 
         /// <summary>

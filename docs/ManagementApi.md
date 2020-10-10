@@ -61,6 +61,7 @@ Method | HTTP request | Description
 [**GetLoyaltyPoints**](ManagementApi.md#getloyaltypoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
 [**GetLoyaltyProgram**](ManagementApi.md#getloyaltyprogram) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
 [**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List all loyalty Programs
+[**GetLoyaltyStatistics**](ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{programID}/statistics | Get loyalty program statistics by loyalty program ID
 [**GetReferrals**](ManagementApi.md#getreferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
 [**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
 [**GetRole**](ManagementApi.md#getrole) | **GET** /v1/roles/{roleId} | Get information for the specified role.
@@ -981,7 +982,7 @@ void (empty response body)
 
 ## DeleteCoupons
 
-> void DeleteCoupons (int applicationId, int campaignId, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, DateTime startsAfter = null, DateTime startsBefore = null, DateTime expiresAfter = null, DateTime expiresBefore = null, string valid = null, string batchId = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null)
+> void DeleteCoupons (int applicationId, int campaignId, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startsAfter = null, DateTime? startsBefore = null, DateTime? expiresAfter = null, DateTime? expiresBefore = null, string valid = null, string batchId = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null)
 
 Delete Coupons
 
@@ -1010,18 +1011,18 @@ namespace Example
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var startsAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var startsBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var expiresAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var expiresBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var startsAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var startsBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var expiresAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var expiresBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
             var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
+            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
             var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
-            var exactMatch = true;  // bool | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
+            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
 
             try
             {
@@ -1047,18 +1048,18 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **startsAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **startsBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **expiresAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **expiresBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **startsAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **startsBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **expiresAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **expiresBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **batchId** | **string**| Filter results by batches of coupons | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
+ **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
 
 ### Return type
 
@@ -1248,7 +1249,7 @@ void (empty response body)
 
 ## GetAccessLogs
 
-> InlineResponse2009 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int pageSize = null, int skip = null, string sort = null)
+> InlineResponse2009 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
 
 Get access logs for application (with total count)
 
@@ -1280,8 +1281,8 @@ namespace Example
             var path = path_example;  // string | Only return results where the request path matches the given regular expression. (optional) 
             var method = method_example;  // string | Only return results where the request method matches the given regular expression. (optional) 
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -1312,8 +1313,8 @@ Name | Type | Description  | Notes
  **path** | **string**| Only return results where the request path matches the given regular expression. | [optional] 
  **method** | **string**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -1342,7 +1343,7 @@ Name | Type | Description  | Notes
 
 ## GetAccessLogsWithoutTotalCount
 
-> InlineResponse20010 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int pageSize = null, int skip = null, string sort = null)
+> InlineResponse20010 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
 
 Get access logs for application
 
@@ -1374,8 +1375,8 @@ namespace Example
             var path = path_example;  // string | Only return results where the request path matches the given regular expression. (optional) 
             var method = method_example;  // string | Only return results where the request method matches the given regular expression. (optional) 
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -1406,8 +1407,8 @@ Name | Type | Description  | Notes
  **path** | **string**| Only return results where the request path matches the given regular expression. | [optional] 
  **method** | **string**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -1676,7 +1677,7 @@ Name | Type | Description  | Notes
 
 ## GetAdditionalCosts
 
-> InlineResponse20021 GetAdditionalCosts (int pageSize = null, int skip = null, string sort = null)
+> InlineResponse20021 GetAdditionalCosts (int? pageSize = null, int? skip = null, string sort = null)
 
 List additional costs
 
@@ -1704,8 +1705,8 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -1730,8 +1731,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -1760,7 +1761,7 @@ Name | Type | Description  | Notes
 
 ## GetAllAccessLogs
 
-> InlineResponse2009 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int pageSize = null, int skip = null, string sort = null)
+> InlineResponse2009 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
 
 Get all access logs
 
@@ -1793,8 +1794,8 @@ namespace Example
             var path = path_example;  // string | Only return results where the request path matches the given regular expression. (optional) 
             var method = method_example;  // string | Only return results where the request method matches the given regular expression. (optional) 
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -1824,8 +1825,8 @@ Name | Type | Description  | Notes
  **path** | **string**| Only return results where the request path matches the given regular expression. | [optional] 
  **method** | **string**| Only return results where the request method matches the given regular expression. | [optional] 
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -2166,7 +2167,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationCustomers
 
-> InlineResponse20012 GetApplicationCustomers (int applicationId)
+> InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = null, int? pageSize = null, int? skip = null, bool? withTotalResultSize = null)
 
 List Application Customers
 
@@ -2193,11 +2194,15 @@ namespace Example
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
+            var integrationId = integrationId_example;  // string | Filter results performing an exact matching against the profile integration identifier. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
 
             try
             {
                 // List Application Customers
-                InlineResponse20012 result = apiInstance.GetApplicationCustomers(applicationId);
+                InlineResponse20012 result = apiInstance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2217,6 +2222,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
+ **integrationId** | **string**| Filter results performing an exact matching against the profile integration identifier. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
 
 ### Return type
 
@@ -2324,7 +2333,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationEventTypes
 
-> InlineResponse20019 GetApplicationEventTypes (int applicationId, int pageSize = null, int skip = null, string sort = null)
+> InlineResponse20019 GetApplicationEventTypes (int applicationId, int? pageSize = null, int? skip = null, string sort = null)
 
 List Applications Event Types
 
@@ -2353,8 +2362,8 @@ namespace Example
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -2380,8 +2389,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -2410,7 +2419,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationEvents
 
-> InlineResponse20017 GetApplicationEvents (int applicationId, int pageSize = null, int skip = null, string sort = null, string type = null, DateTime createdBefore = null, DateTime createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
+> InlineResponse20017 GetApplicationEvents (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
 
 List Applications Events (with total count)
 
@@ -2439,12 +2448,12 @@ namespace Example
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var type = type_example;  // string | Comma-separated list of types by which to filter events. Must be exact match(es). (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Only return events created before this date (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Only return events created after this date (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created after this date (optional) 
             var session = session_example;  // string | Session integration ID filter for events. Must be exact match. (optional) 
             var profile = profile_example;  // string | Profile integration ID filter for events. Must be exact match. (optional) 
             var customerName = customerName_example;  // string | Customer name filter for events. Will match substrings case-insensitively. (optional) 
@@ -2477,12 +2486,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
- **createdBefore** | **DateTime**| Only return events created before this date | [optional] 
- **createdAfter** | **DateTime**| Only return events created after this date | [optional] 
+ **createdBefore** | **DateTime?**| Only return events created before this date | [optional] 
+ **createdAfter** | **DateTime?**| Only return events created after this date | [optional] 
  **session** | **string**| Session integration ID filter for events. Must be exact match. | [optional] 
  **profile** | **string**| Profile integration ID filter for events. Must be exact match. | [optional] 
  **customerName** | **string**| Customer name filter for events. Will match substrings case-insensitively. | [optional] 
@@ -2518,7 +2527,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationEventsWithoutTotalCount
 
-> InlineResponse20018 GetApplicationEventsWithoutTotalCount (int applicationId, int pageSize = null, int skip = null, string sort = null, string type = null, DateTime createdBefore = null, DateTime createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
+> InlineResponse20018 GetApplicationEventsWithoutTotalCount (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
 
 List Applications Events
 
@@ -2547,12 +2556,12 @@ namespace Example
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var type = type_example;  // string | Comma-separated list of types by which to filter events. Must be exact match(es). (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Only return events created before this date (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Only return events created after this date (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created after this date (optional) 
             var session = session_example;  // string | Session integration ID filter for events. Must be exact match. (optional) 
             var profile = profile_example;  // string | Profile integration ID filter for events. Must be exact match. (optional) 
             var customerName = customerName_example;  // string | Customer name filter for events. Will match substrings case-insensitively. (optional) 
@@ -2585,12 +2594,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
- **createdBefore** | **DateTime**| Only return events created before this date | [optional] 
- **createdAfter** | **DateTime**| Only return events created after this date | [optional] 
+ **createdBefore** | **DateTime?**| Only return events created before this date | [optional] 
+ **createdAfter** | **DateTime?**| Only return events created after this date | [optional] 
  **session** | **string**| Session integration ID filter for events. Must be exact match. | [optional] 
  **profile** | **string**| Profile integration ID filter for events. Must be exact match. | [optional] 
  **customerName** | **string**| Customer name filter for events. Will match substrings case-insensitively. | [optional] 
@@ -2706,7 +2715,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationSessions
 
-> InlineResponse20016 GetApplicationSessions (int applicationId, int pageSize = null, int skip = null, string sort = null, string profile = null, string state = null, string coupon = null, string referral = null, string integrationId = null, string customerId = null)
+> InlineResponse20016 GetApplicationSessions (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string profile = null, string state = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string coupon = null, string referral = null, string integrationId = null)
 
 List Application Sessions
 
@@ -2733,20 +2742,21 @@ namespace Example
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var profile = profile_example;  // string | Profile integration ID filter for sessions. Must be exact match. (optional) 
             var state = state_example;  // string | Filter by sessions with this state. Must be exact match. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created after this date (optional) 
             var coupon = coupon_example;  // string | Filter by sessions with this coupon. Must be exact match. (optional) 
             var referral = referral_example;  // string | Filter by sessions with this referral. Must be exact match. (optional) 
             var integrationId = integrationId_example;  // string | Filter by sessions with this integrationId. Must be exact match. (optional) 
-            var customerId = customerId_example;  // string | Filter by integration ID of the customer for the session (optional) 
 
             try
             {
                 // List Application Sessions
-                InlineResponse20016 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, coupon, referral, integrationId, customerId);
+                InlineResponse20016 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2766,15 +2776,16 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **profile** | **string**| Profile integration ID filter for sessions. Must be exact match. | [optional] 
  **state** | **string**| Filter by sessions with this state. Must be exact match. | [optional] 
+ **createdBefore** | **DateTime?**| Only return events created before this date | [optional] 
+ **createdAfter** | **DateTime?**| Only return events created after this date | [optional] 
  **coupon** | **string**| Filter by sessions with this coupon. Must be exact match. | [optional] 
  **referral** | **string**| Filter by sessions with this referral. Must be exact match. | [optional] 
  **integrationId** | **string**| Filter by sessions with this integrationId. Must be exact match. | [optional] 
- **customerId** | **string**| Filter by integration ID of the customer for the session | [optional] 
 
 ### Return type
 
@@ -2802,7 +2813,7 @@ Name | Type | Description  | Notes
 
 ## GetApplications
 
-> InlineResponse2001 GetApplications (int pageSize = null, int skip = null, string sort = null)
+> InlineResponse2001 GetApplications (int? pageSize = null, int? skip = null, string sort = null)
 
 List Applications
 
@@ -2830,8 +2841,8 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -2856,8 +2867,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -2966,7 +2977,7 @@ Name | Type | Description  | Notes
 
 ## GetAttributes
 
-> InlineResponse20020 GetAttributes (int pageSize = null, int skip = null, string sort = null)
+> InlineResponse20020 GetAttributes (int? pageSize = null, int? skip = null, string sort = null)
 
 List custom attributes
 
@@ -2994,8 +3005,8 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -3020,8 +3031,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -3216,7 +3227,7 @@ Name | Type | Description  | Notes
 
 ## GetCampaignByAttributes
 
-> InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int pageSize = null, int skip = null, string sort = null, string campaignState = null)
+> InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int? pageSize = null, int? skip = null, string sort = null, string campaignState = null)
 
 Get a list of all campaigns that match the given attributes
 
@@ -3246,8 +3257,8 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var body = new CampaignSearch(); // CampaignSearch | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign. (optional) 
 
@@ -3275,8 +3286,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **body** | [**CampaignSearch**](CampaignSearch.md)|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **campaignState** | **string**| Filter results by the state of the campaign. | [optional] 
 
@@ -3306,7 +3317,7 @@ Name | Type | Description  | Notes
 
 ## GetCampaigns
 
-> InlineResponse2002 GetCampaigns (int applicationId, int pageSize = null, int skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime createdBefore = null, DateTime createdAfter = null, int campaignGroupId = null)
+> InlineResponse2002 GetCampaigns (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime? createdBefore = null, DateTime? createdAfter = null, int? campaignGroupId = null)
 
 List your Campaigns
 
@@ -3333,15 +3344,15 @@ namespace Example
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign. (optional) 
             var name = name_example;  // string | Filter results performing case-insensitive matching against the name of the campaign. (optional) 
             var tags = tags_example;  // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional) 
-            var campaignGroupId = 56;  // int | Filter results to campaigns owned by the specified campaign group ID. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional) 
+            var campaignGroupId = 56;  // int? | Filter results to campaigns owned by the specified campaign group ID. (optional) 
 
             try
             {
@@ -3366,15 +3377,15 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **campaignState** | **string**| Filter results by the state of the campaign. | [optional] 
  **name** | **string**| Filter results performing case-insensitive matching against the name of the campaign. | [optional] 
  **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional] 
- **campaignGroupId** | **int**| Filter results to campaigns owned by the specified campaign group ID. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. | [optional] 
+ **campaignGroupId** | **int?**| Filter results to campaigns owned by the specified campaign group ID. | [optional] 
 
 ### Return type
 
@@ -3402,7 +3413,7 @@ Name | Type | Description  | Notes
 
 ## GetChanges
 
-> InlineResponse20027 GetChanges (int pageSize = null, int skip = null, string sort = null, int applicationId = null, DateTime createdBefore = null, DateTime createdAfter = null, bool withTotalResultSize = null, bool includeOld = null)
+> InlineResponse20027 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
 
 Get audit log for an account
 
@@ -3430,14 +3441,14 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var applicationId = 56;  // int |  (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional) 
-            var withTotalResultSize = true;  // bool | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
-            var includeOld = true;  // bool | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional) 
+            var applicationId = 56;  // int? |  (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
+            var includeOld = true;  // bool? | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional) 
 
             try
             {
@@ -3461,14 +3472,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **applicationId** | **int**|  | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional] 
- **withTotalResultSize** | **bool**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
- **includeOld** | **bool**| When this flag is set to false, the state without the change will not be returned. The default value is true. | [optional] 
+ **applicationId** | **int?**|  | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+ **includeOld** | **bool?**| When this flag is set to false, the state without the change will not be returned. The default value is true. | [optional] 
 
 ### Return type
 
@@ -3496,7 +3507,7 @@ Name | Type | Description  | Notes
 
 ## GetCoupons
 
-> InlineResponse2004 GetCoupons (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, DateTime startsAfter = null, DateTime startsBefore = null, DateTime expiresAfter = null, DateTime expiresBefore = null, string valid = null, string batchId = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null)
+> InlineResponse2004 GetCoupons (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startsAfter = null, DateTime? startsBefore = null, DateTime? expiresAfter = null, DateTime? expiresBefore = null, string valid = null, string batchId = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null)
 
 List Coupons (with total count)
 
@@ -3524,22 +3535,22 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var startsAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var startsBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var expiresAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var expiresBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var startsAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var startsBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var expiresAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var expiresBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
             var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
+            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
             var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
-            var exactMatch = true;  // bool | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
+            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
 
             try
             {
@@ -3565,22 +3576,22 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **startsAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **startsBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **expiresAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **expiresBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **startsAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **startsBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **expiresAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **expiresBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **batchId** | **string**| Filter results by batches of coupons | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
+ **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
 
 ### Return type
 
@@ -3608,7 +3619,7 @@ Name | Type | Description  | Notes
 
 ## GetCouponsByAttributes
 
-> InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null, string batchId = null)
+> InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
 
 Get a list of the coupons that match the given attributes
 
@@ -3639,17 +3650,17 @@ namespace Example
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var body = new CouponSearch(); // CouponSearch | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
+            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
             var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
-            var exactMatch = true;  // bool | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
+            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
             var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
 
             try
@@ -3677,17 +3688,17 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
  **body** | [**CouponSearch**](CouponSearch.md)|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
+ **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
  **batchId** | **string**| Filter results by batches of coupons | [optional] 
 
 ### Return type
@@ -3716,7 +3727,7 @@ Name | Type | Description  | Notes
 
 ## GetCouponsByAttributesApplicationWide
 
-> InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, string batchId = null, bool exactMatch = null, string campaignState = null)
+> InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
 
 Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 
@@ -3746,18 +3757,18 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var body = new CouponSearch(); // CouponSearch | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
+            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
             var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
             var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
-            var exactMatch = true;  // bool | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
+            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign. (optional) 
 
             try
@@ -3784,18 +3795,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **body** | [**CouponSearch**](CouponSearch.md)|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
+ **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
  **batchId** | **string**| Filter results by batches of coupons | [optional] 
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
  **campaignState** | **string**| Filter results by the state of the campaign. | [optional] 
 
 ### Return type
@@ -3824,7 +3835,7 @@ Name | Type | Description  | Notes
 
 ## GetCouponsWithoutTotalCount
 
-> InlineResponse2005 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, string batchId = null, bool exactMatch = null)
+> InlineResponse2005 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null)
 
 List Coupons
 
@@ -3852,18 +3863,18 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
+            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
             var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
             var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
-            var exactMatch = true;  // bool | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
+            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
 
             try
             {
@@ -3889,18 +3900,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
+ **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
  **batchId** | **string**| Filter results by batches of coupons | [optional] 
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
 
 ### Return type
 
@@ -3928,7 +3939,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerActivityReport
 
-> CustomerActivityReport GetCustomerActivityReport (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int pageSize = null, int skip = null)
+> CustomerActivityReport GetCustomerActivityReport (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = null, int? skip = null)
 
 Get Activity Report for Single Customer
 
@@ -3960,8 +3971,8 @@ namespace Example
             var rangeEnd = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
             var applicationId = 56;  // int | 
             var customerId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
 
             try
             {
@@ -3989,8 +4000,8 @@ Name | Type | Description  | Notes
  **rangeEnd** | **DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
  **applicationId** | **int**|  | 
  **customerId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -4018,7 +4029,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerActivityReports
 
-> InlineResponse20014 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = null, int skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
+> InlineResponse20014 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = null, int? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
 
 Get Activity Reports for Application Customers (with total count)
 
@@ -4049,8 +4060,8 @@ namespace Example
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
             var rangeEnd = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
             var applicationId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var name = name_example;  // string | Only return reports matching the customer name (optional) 
             var integrationId = integrationId_example;  // string | Only return reports matching the integrationId (optional) 
@@ -4082,8 +4093,8 @@ Name | Type | Description  | Notes
  **rangeStart** | **DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **rangeEnd** | **DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
  **applicationId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **name** | **string**| Only return reports matching the customer name | [optional] 
  **integrationId** | **string**| Only return reports matching the integrationId | [optional] 
@@ -4116,7 +4127,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerActivityReportsWithoutTotalCount
 
-> InlineResponse20015 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int pageSize = null, int skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
+> InlineResponse20015 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = null, int? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
 
 Get Activity Reports for Application Customers
 
@@ -4147,8 +4158,8 @@ namespace Example
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
             var rangeEnd = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
             var applicationId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var name = name_example;  // string | Only return reports matching the customer name (optional) 
             var integrationId = integrationId_example;  // string | Only return reports matching the integrationId (optional) 
@@ -4180,8 +4191,8 @@ Name | Type | Description  | Notes
  **rangeStart** | **DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **rangeEnd** | **DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
  **applicationId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **name** | **string**| Only return reports matching the customer name | [optional] 
  **integrationId** | **string**| Only return reports matching the integrationId | [optional] 
@@ -4214,7 +4225,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerAnalytics
 
-> CustomerAnalytics GetCustomerAnalytics (int applicationId, int customerId, int pageSize = null, int skip = null, string sort = null)
+> CustomerAnalytics GetCustomerAnalytics (int applicationId, int customerId, int? pageSize = null, int? skip = null, string sort = null)
 
 Get Analytics Report for a Customer
 
@@ -4244,8 +4255,8 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var customerId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -4272,8 +4283,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **customerId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -4380,7 +4391,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerProfiles
 
-> InlineResponse20013 GetCustomerProfiles (int pageSize = null, int skip = null)
+> InlineResponse20013 GetCustomerProfiles (int? pageSize = null, int? skip = null)
 
 List Customer Profiles
 
@@ -4406,8 +4417,8 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
 
             try
             {
@@ -4431,8 +4442,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -4460,7 +4471,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomersByAttributes
 
-> InlineResponse20013 GetCustomersByAttributes (ApplicationCustomerSearch body, int pageSize = null, int skip = null)
+> InlineResponse20013 GetCustomersByAttributes (ApplicationCustomerSearch body, int? pageSize = null, int? skip = null)
 
 Get a list of the customer profiles that match the given attributes
 
@@ -4489,8 +4500,8 @@ namespace Example
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var body = new ApplicationCustomerSearch(); // ApplicationCustomerSearch | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
 
             try
             {
@@ -4515,8 +4526,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -4544,7 +4555,7 @@ Name | Type | Description  | Notes
 
 ## GetEventTypes
 
-> InlineResponse20025 GetEventTypes (string applicationIds = null, string name = null, bool includeOldVersions = null, int pageSize = null, int skip = null, string sort = null)
+> InlineResponse20025 GetEventTypes (string applicationIds = null, string name = null, bool? includeOldVersions = null, int? pageSize = null, int? skip = null, string sort = null)
 
 List Event Types
 
@@ -4574,9 +4585,9 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationIds = applicationIds_example;  // string | Filter by one or more application ids separated by comma (optional) 
             var name = name_example;  // string | Filter results to event types with the given name. This parameter implies `includeOldVersions`. (optional) 
-            var includeOldVersions = true;  // bool | Include all versions of every event type. (optional)  (default to false)
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var includeOldVersions = true;  // bool? | Include all versions of every event type. (optional)  (default to false)
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -4603,9 +4614,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationIds** | **string**| Filter by one or more application ids separated by comma | [optional] 
  **name** | **string**| Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. | [optional] 
- **includeOldVersions** | **bool**| Include all versions of every event type. | [optional] [default to false]
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **includeOldVersions** | **bool?**| Include all versions of every event type. | [optional] [default to false]
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -4634,7 +4645,7 @@ Name | Type | Description  | Notes
 
 ## GetExports
 
-> InlineResponse20028 GetExports (int pageSize = null, int skip = null, int applicationId = null, int campaignId = null, string entity = null)
+> InlineResponse20028 GetExports (int? pageSize = null, int? skip = null, int? applicationId = null, int? campaignId = null, string entity = null)
 
 Get Exports
 
@@ -4662,10 +4673,10 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
-            var applicationId = 56;  // int |  (optional) 
-            var campaignId = 56;  // int |  (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
+            var applicationId = 56;  // int? |  (optional) 
+            var campaignId = 56;  // int? |  (optional) 
             var entity = entity_example;  // string | The name of the entity type that was exported. (optional) 
 
             try
@@ -4690,10 +4701,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
- **applicationId** | **int**|  | [optional] 
- **campaignId** | **int**|  | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
+ **applicationId** | **int?**|  | [optional] 
+ **campaignId** | **int?**|  | [optional] 
  **entity** | **string**| The name of the entity type that was exported. | [optional] 
 
 ### Return type
@@ -4722,7 +4733,7 @@ Name | Type | Description  | Notes
 
 ## GetImports
 
-> InlineResponse20029 GetImports (int pageSize = null, int skip = null)
+> InlineResponse20029 GetImports (int? pageSize = null, int? skip = null)
 
 Get Imports
 
@@ -4750,8 +4761,8 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
 
             try
             {
@@ -4775,8 +4786,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -5036,9 +5047,87 @@ This endpoint does not need any parameter.
 [[Back to README]](../README.md)
 
 
+## GetLoyaltyStatistics
+
+> LoyaltyStatistics GetLoyaltyStatistics (string programID)
+
+Get loyalty program statistics by loyalty program ID
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetLoyaltyStatisticsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var programID = programID_example;  // string | 
+
+            try
+            {
+                // Get loyalty program statistics by loyalty program ID
+                LoyaltyStatistics result = apiInstance.GetLoyaltyStatistics(programID);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetLoyaltyStatistics: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **programID** | **string**|  | 
+
+### Return type
+
+[**LoyaltyStatistics**](LoyaltyStatistics.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetReferrals
 
-> InlineResponse2006 GetReferrals (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null, string code = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, string advocate = null)
+> InlineResponse2006 GetReferrals (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
 
 List Referrals (with total count)
 
@@ -5066,12 +5155,12 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var code = code_example;  // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional) 
             var advocate = advocate_example;  // string | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional) 
@@ -5100,12 +5189,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **advocate** | **string**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional] 
@@ -5136,7 +5225,7 @@ Name | Type | Description  | Notes
 
 ## GetReferralsWithoutTotalCount
 
-> InlineResponse2007 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null, string code = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, string advocate = null)
+> InlineResponse2007 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
 
 List Referrals
 
@@ -5164,12 +5253,12 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var code = code_example;  // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional) 
             var advocate = advocate_example;  // string | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional) 
@@ -5198,12 +5287,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
  **advocate** | **string**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional] 
@@ -5394,7 +5483,7 @@ Name | Type | Description  | Notes
 
 ## GetRulesets
 
-> InlineResponse2003 GetRulesets (int applicationId, int campaignId, int pageSize = null, int skip = null, string sort = null)
+> InlineResponse2003 GetRulesets (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null)
 
 List Campaign Rulesets
 
@@ -5422,8 +5511,8 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -5450,8 +5539,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -5560,7 +5649,7 @@ Name | Type | Description  | Notes
 
 ## GetUsers
 
-> InlineResponse20026 GetUsers (int pageSize = null, int skip = null, string sort = null)
+> InlineResponse20026 GetUsers (int? pageSize = null, int? skip = null, string sort = null)
 
 List Users in your account
 
@@ -5588,8 +5677,8 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
 
             try
@@ -5614,8 +5703,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
 
 ### Return type
@@ -5724,7 +5813,7 @@ Name | Type | Description  | Notes
 
 ## GetWebhookActivationLogs
 
-> InlineResponse20023 GetWebhookActivationLogs (int pageSize = null, int skip = null, string sort = null, string integrationRequestUuid = null, decimal webhookId = null, decimal applicationId = null, decimal campaignId = null, DateTime createdBefore = null, DateTime createdAfter = null)
+> InlineResponse20023 GetWebhookActivationLogs (int? pageSize = null, int? skip = null, string sort = null, string integrationRequestUuid = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
 
 List Webhook activation Log Entries
 
@@ -5752,15 +5841,15 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var integrationRequestUuid = integrationRequestUuid_example;  // string | Filter results by integration request UUID. (optional) 
-            var webhookId = 8.14;  // decimal | Filter results by Webhook. (optional) 
-            var applicationId = 8.14;  // decimal |  (optional) 
-            var campaignId = 8.14;  // decimal | Filter results by campaign. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Only return events created before this date. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional) 
+            var webhookId = 8.14;  // decimal? | Filter results by Webhook. (optional) 
+            var applicationId = 8.14;  // decimal? |  (optional) 
+            var campaignId = 8.14;  // decimal? | Filter results by campaign. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional) 
 
             try
             {
@@ -5784,15 +5873,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **integrationRequestUuid** | **string**| Filter results by integration request UUID. | [optional] 
- **webhookId** | **decimal**| Filter results by Webhook. | [optional] 
- **applicationId** | **decimal**|  | [optional] 
- **campaignId** | **decimal**| Filter results by campaign. | [optional] 
- **createdBefore** | **DateTime**| Only return events created before this date. | [optional] 
- **createdAfter** | **DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. | [optional] 
+ **webhookId** | **decimal?**| Filter results by Webhook. | [optional] 
+ **applicationId** | **decimal?**|  | [optional] 
+ **campaignId** | **decimal?**| Filter results by campaign. | [optional] 
+ **createdBefore** | **DateTime?**| Only return events created before this date. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. | [optional] 
 
 ### Return type
 
@@ -5820,7 +5909,7 @@ Name | Type | Description  | Notes
 
 ## GetWebhookLogs
 
-> InlineResponse20024 GetWebhookLogs (int pageSize = null, int skip = null, string sort = null, string status = null, decimal webhookId = null, decimal applicationId = null, decimal campaignId = null, string requestUuid = null, DateTime createdBefore = null, DateTime createdAfter = null)
+> InlineResponse20024 GetWebhookLogs (int? pageSize = null, int? skip = null, string sort = null, string status = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, string requestUuid = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
 
 List Webhook Log Entries
 
@@ -5846,16 +5935,16 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
-            var webhookId = 8.14;  // decimal | Filter results by Webhook. (optional) 
-            var applicationId = 8.14;  // decimal |  (optional) 
-            var campaignId = 8.14;  // decimal | Filter results by campaign. (optional) 
+            var webhookId = 8.14;  // decimal? | Filter results by Webhook. (optional) 
+            var applicationId = 8.14;  // decimal? |  (optional) 
+            var campaignId = 8.14;  // decimal? | Filter results by campaign. (optional) 
             var requestUuid = requestUuid_example;  // string | Filter results by request UUID. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional) 
 
             try
             {
@@ -5879,16 +5968,16 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
- **webhookId** | **decimal**| Filter results by Webhook. | [optional] 
- **applicationId** | **decimal**|  | [optional] 
- **campaignId** | **decimal**| Filter results by campaign. | [optional] 
+ **webhookId** | **decimal?**| Filter results by Webhook. | [optional] 
+ **applicationId** | **decimal?**|  | [optional] 
+ **campaignId** | **decimal?**| Filter results by campaign. | [optional] 
  **requestUuid** | **string**| Filter results by request UUID. | [optional] 
- **createdBefore** | **DateTime**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. | [optional] 
- **createdAfter** | **DateTime**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. | [optional] 
 
 ### Return type
 
@@ -5916,7 +6005,7 @@ Name | Type | Description  | Notes
 
 ## GetWebhooks
 
-> InlineResponse20022 GetWebhooks (string applicationIds = null, string sort = null, int pageSize = null, int skip = null)
+> InlineResponse20022 GetWebhooks (string applicationIds = null, string sort = null, int? pageSize = null, int? skip = null)
 
 List Webhooks
 
@@ -5944,8 +6033,8 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationIds = applicationIds_example;  // string | Filter by one or more application ids separated by comma (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
 
             try
             {
@@ -5971,8 +6060,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationIds** | **string**| Filter by one or more application ids separated by comma | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -6161,7 +6250,7 @@ Name | Type | Description  | Notes
 
 ## SearchCouponsAdvanced
 
-> InlineResponse2004 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null, string batchId = null)
+> InlineResponse2004 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
 
 Get a list of the coupons that match the given attributes (with total count)
 
@@ -6192,17 +6281,17 @@ namespace Example
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var body = ;  // Object | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
+            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
             var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
-            var exactMatch = true;  // bool | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
+            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
             var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
 
             try
@@ -6230,17 +6319,17 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
  **body** | **Object**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
+ **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
  **batchId** | **string**| Filter results by batches of coupons | [optional] 
 
 ### Return type
@@ -6269,7 +6358,7 @@ Name | Type | Description  | Notes
 
 ## SearchCouponsAdvancedApplicationWide
 
-> InlineResponse2004 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, string batchId = null, bool exactMatch = null, string campaignState = null)
+> InlineResponse2004 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
 
 Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
 
@@ -6299,18 +6388,18 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var body = ;  // Object | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
+            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
             var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
             var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
-            var exactMatch = true;  // bool | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
+            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign. (optional) 
 
             try
@@ -6337,18 +6426,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **body** | **Object**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
+ **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
  **batchId** | **string**| Filter results by batches of coupons | [optional] 
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
  **campaignState** | **string**| Filter results by the state of the campaign. | [optional] 
 
 ### Return type
@@ -6377,7 +6466,7 @@ Name | Type | Description  | Notes
 
 ## SearchCouponsAdvancedApplicationWideWithoutTotalCount
 
-> InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, string batchId = null, bool exactMatch = null, string campaignState = null)
+> InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
 
 Get a list of the coupons that match the given attributes in all active campaigns of an application
 
@@ -6407,18 +6496,18 @@ namespace Example
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var body = ;  // Object | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
+            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
             var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
             var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
-            var exactMatch = true;  // bool | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
+            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign. (optional) 
 
             try
@@ -6445,18 +6534,18 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **body** | **Object**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
+ **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
  **batchId** | **string**| Filter results by batches of coupons | [optional] 
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
  **campaignState** | **string**| Filter results by the state of the campaign. | [optional] 
 
 ### Return type
@@ -6485,7 +6574,7 @@ Name | Type | Description  | Notes
 
 ## SearchCouponsAdvancedWithoutTotalCount
 
-> InlineResponse2005 SearchCouponsAdvancedWithoutTotalCount (int applicationId, int campaignId, Object body, int pageSize = null, int skip = null, string sort = null, string value = null, DateTime createdBefore = null, DateTime createdAfter = null, string valid = null, string usable = null, int referralId = null, string recipientIntegrationId = null, bool exactMatch = null, string batchId = null)
+> InlineResponse2005 SearchCouponsAdvancedWithoutTotalCount (int applicationId, int campaignId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
 
 Get a list of the coupons that match the given attributes
 
@@ -6516,17 +6605,17 @@ namespace Example
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var body = ;  // Object | 
-            var pageSize = 56;  // int | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int | Skips the given number of items when paging through large result sets. (optional) 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional) 
             var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
             var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
+            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
             var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
-            var exactMatch = true;  // bool | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
+            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
             var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
 
             try
@@ -6554,17 +6643,17 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
  **body** | **Object**|  | 
- **pageSize** | **int**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int**| Skips the given number of items when paging through large result sets. | [optional] 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
- **createdAfter** | **DateTime**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. | [optional] 
  **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
  **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
+ **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
  **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exactMatch** | **bool**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
+ **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
  **batchId** | **string**| Filter results by batches of coupons | [optional] 
 
 ### Return type

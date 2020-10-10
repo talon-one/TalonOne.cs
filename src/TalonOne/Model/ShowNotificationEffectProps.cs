@@ -79,21 +79,21 @@ namespace TalonOne.Model
         /// The type of notification that should be shown (e.g. error/warning/info)
         /// </summary>
         /// <value>The type of notification that should be shown (e.g. error/warning/info)</value>
-        [DataMember(Name="notificationType", EmitDefaultValue=false)]
+        [DataMember(Name="notificationType", EmitDefaultValue=true)]
         public string NotificationType { get; set; }
 
         /// <summary>
         /// Title of the notification
         /// </summary>
         /// <value>Title of the notification</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Body of the notification
         /// </summary>
         /// <value>Body of the notification</value>
-        [DataMember(Name="body", EmitDefaultValue=false)]
+        [DataMember(Name="body", EmitDefaultValue=true)]
         public string Body { get; set; }
 
         /// <summary>

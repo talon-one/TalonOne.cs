@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IntegrationId** | **string** | The ID used for this entity in the application system. | 
+**IntegrationId** | **string** | The integration ID for this entity sent to and used in the Talon.One system. | 
 **Created** | **DateTime** | The exact moment this entity was created. | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

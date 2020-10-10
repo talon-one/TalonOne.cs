@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// The ID of the webhook that was triggered
         /// </summary>
         /// <value>The ID of the webhook that was triggered</value>
-        [DataMember(Name="webhookId", EmitDefaultValue=false)]
+        [DataMember(Name="webhookId", EmitDefaultValue=true)]
         public decimal WebhookId { get; set; }
 
         /// <summary>
         /// The name of the webhook that was triggered
         /// </summary>
         /// <value>The name of the webhook that was triggered</value>
-        [DataMember(Name="webhookName", EmitDefaultValue=false)]
+        [DataMember(Name="webhookName", EmitDefaultValue=true)]
         public string WebhookName { get; set; }
 
         /// <summary>

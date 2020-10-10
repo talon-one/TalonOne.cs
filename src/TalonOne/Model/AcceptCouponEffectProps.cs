@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The coupon code that was accepted
         /// </summary>
         /// <value>The coupon code that was accepted</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public string Value { get; set; }
 
         /// <summary>

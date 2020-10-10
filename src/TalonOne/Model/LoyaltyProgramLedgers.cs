@@ -81,20 +81,20 @@ namespace TalonOne.Model
         /// Visible name of loyalty program
         /// </summary>
         /// <value>Visible name of loyalty program</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
+        [DataMember(Name="title", EmitDefaultValue=true)]
         public string Title { get; set; }
 
         /// <summary>
         /// Internal name of loyalty program
         /// </summary>
         /// <value>Internal name of loyalty program</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Ledger
         /// </summary>
-        [DataMember(Name="ledger", EmitDefaultValue=false)]
+        [DataMember(Name="ledger", EmitDefaultValue=true)]
         public LoyaltyProgramBalance Ledger { get; set; }
 
         /// <summary>

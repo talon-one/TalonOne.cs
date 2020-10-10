@@ -132,19 +132,19 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// Gets or Sets ProgramID
         /// </summary>
-        [DataMember(Name="programID", EmitDefaultValue=false)]
+        [DataMember(Name="programID", EmitDefaultValue=true)]
         public int ProgramID { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerProfileID
         /// </summary>
-        [DataMember(Name="customerProfileID", EmitDefaultValue=false)]
+        [DataMember(Name="customerProfileID", EmitDefaultValue=true)]
         public string CustomerProfileID { get; set; }
 
         /// <summary>
@@ -163,13 +163,13 @@ namespace TalonOne.Model
         /// The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers) 
         /// </summary>
         /// <value>The type of the ledger transaction. Possible values are addition, subtraction, expire or expiring (for expiring points ledgers) </value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public string Type { get; set; }
 
         /// <summary>
         /// Gets or Sets Amount
         /// </summary>
-        [DataMember(Name="amount", EmitDefaultValue=false)]
+        [DataMember(Name="amount", EmitDefaultValue=true)]
         public decimal Amount { get; set; }
 
         /// <summary>
@@ -188,14 +188,14 @@ namespace TalonOne.Model
         /// A name referencing the condition or effect that added this entry, or the specific name provided in an API call.
         /// </summary>
         /// <value>A name referencing the condition or effect that added this entry, or the specific name provided in an API call.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// This specifies if we are adding loyalty points to the main ledger or a subledger
         /// </summary>
         /// <value>This specifies if we are adding loyalty points to the main ledger or a subledger</value>
-        [DataMember(Name="subLedgerID", EmitDefaultValue=false)]
+        [DataMember(Name="subLedgerID", EmitDefaultValue=true)]
         public string SubLedgerID { get; set; }
 
         /// <summary>

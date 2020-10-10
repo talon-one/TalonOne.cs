@@ -73,7 +73,7 @@ namespace TalonOne.Model
         /// One-word summary of the health of the API connection of an application
         /// </summary>
         /// <value>One-word summary of the health of the API connection of an application</value>
-        [DataMember(Name="summary", EmitDefaultValue=false)]
+        [DataMember(Name="summary", EmitDefaultValue=true)]
         public SummaryEnum Summary { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationApiHealth" /> class.
@@ -114,7 +114,7 @@ namespace TalonOne.Model
         /// time of last request relevant to the API health test
         /// </summary>
         /// <value>time of last request relevant to the API health test</value>
-        [DataMember(Name="lastUsed", EmitDefaultValue=false)]
+        [DataMember(Name="lastUsed", EmitDefaultValue=true)]
         public DateTime LastUsed { get; set; }
 
         /// <summary>

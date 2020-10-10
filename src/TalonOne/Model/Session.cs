@@ -79,21 +79,21 @@ namespace TalonOne.Model
         /// The ID of the user of this session
         /// </summary>
         /// <value>The ID of the user of this session</value>
-        [DataMember(Name="userId", EmitDefaultValue=false)]
+        [DataMember(Name="userId", EmitDefaultValue=true)]
         public int UserId { get; set; }
 
         /// <summary>
         /// An opaque session identifier
         /// </summary>
         /// <value>An opaque session identifier</value>
-        [DataMember(Name="token", EmitDefaultValue=false)]
+        [DataMember(Name="token", EmitDefaultValue=true)]
         public string Token { get; set; }
 
         /// <summary>
         /// Unix timestamp indicating when the session was first created.
         /// </summary>
         /// <value>Unix timestamp indicating when the session was first created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>

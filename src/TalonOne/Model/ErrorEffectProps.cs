@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// The error message.
         /// </summary>
         /// <value>The error message.</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
+        [DataMember(Name="message", EmitDefaultValue=true)]
         public string Message { get; set; }
 
         /// <summary>

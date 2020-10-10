@@ -38,7 +38,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerActivityReport" /> class.
         /// </summary>
-        /// <param name="integrationId">The ID used for this entity in the application system. (required).</param>
+        /// <param name="integrationId">The integration ID for this entity sent to and used in the Talon.One system. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="name">The name for this customer profile. (required).</param>
         /// <param name="customerId">The internal Talon.One ID of the customer. (required).</param>
@@ -177,31 +177,31 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The ID used for this entity in the application system.
+        /// The integration ID for this entity sent to and used in the Talon.One system.
         /// </summary>
-        /// <value>The ID used for this entity in the application system.</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        /// <value>The integration ID for this entity sent to and used in the Talon.One system.</value>
+        [DataMember(Name="integrationId", EmitDefaultValue=true)]
         public string IntegrationId { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The name for this customer profile.
         /// </summary>
         /// <value>The name for this customer profile.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The internal Talon.One ID of the customer.
         /// </summary>
         /// <value>The internal Talon.One ID of the customer.</value>
-        [DataMember(Name="customerId", EmitDefaultValue=false)]
+        [DataMember(Name="customerId", EmitDefaultValue=true)]
         public int CustomerId { get; set; }
 
         /// <summary>
@@ -215,56 +215,56 @@ namespace TalonOne.Model
         /// Number of coupon redemptions in all customer campaigns.
         /// </summary>
         /// <value>Number of coupon redemptions in all customer campaigns.</value>
-        [DataMember(Name="couponRedemptions", EmitDefaultValue=false)]
+        [DataMember(Name="couponRedemptions", EmitDefaultValue=true)]
         public int CouponRedemptions { get; set; }
 
         /// <summary>
         /// Number of coupon use attempts in all customer campaigns.
         /// </summary>
         /// <value>Number of coupon use attempts in all customer campaigns.</value>
-        [DataMember(Name="couponUseAttempts", EmitDefaultValue=false)]
+        [DataMember(Name="couponUseAttempts", EmitDefaultValue=true)]
         public int CouponUseAttempts { get; set; }
 
         /// <summary>
         /// Number of failed coupon use attempts in all customer campaigns.
         /// </summary>
         /// <value>Number of failed coupon use attempts in all customer campaigns.</value>
-        [DataMember(Name="couponFailedAttempts", EmitDefaultValue=false)]
+        [DataMember(Name="couponFailedAttempts", EmitDefaultValue=true)]
         public int CouponFailedAttempts { get; set; }
 
         /// <summary>
         /// Number of accrued discounts in all customer campaigns.
         /// </summary>
         /// <value>Number of accrued discounts in all customer campaigns.</value>
-        [DataMember(Name="accruedDiscounts", EmitDefaultValue=false)]
+        [DataMember(Name="accruedDiscounts", EmitDefaultValue=true)]
         public decimal AccruedDiscounts { get; set; }
 
         /// <summary>
         /// Amount of accrued revenue in all customer campaigns.
         /// </summary>
         /// <value>Amount of accrued revenue in all customer campaigns.</value>
-        [DataMember(Name="accruedRevenue", EmitDefaultValue=false)]
+        [DataMember(Name="accruedRevenue", EmitDefaultValue=true)]
         public decimal AccruedRevenue { get; set; }
 
         /// <summary>
         /// Number of orders in all customer campaigns.
         /// </summary>
         /// <value>Number of orders in all customer campaigns.</value>
-        [DataMember(Name="totalOrders", EmitDefaultValue=false)]
+        [DataMember(Name="totalOrders", EmitDefaultValue=true)]
         public int TotalOrders { get; set; }
 
         /// <summary>
         /// Number of orders without coupon used in all customer campaigns.
         /// </summary>
         /// <value>Number of orders without coupon used in all customer campaigns.</value>
-        [DataMember(Name="totalOrdersNoCoupon", EmitDefaultValue=false)]
+        [DataMember(Name="totalOrdersNoCoupon", EmitDefaultValue=true)]
         public int TotalOrdersNoCoupon { get; set; }
 
         /// <summary>
         /// The name of the campaign this customer belongs to.
         /// </summary>
         /// <value>The name of the campaign this customer belongs to.</value>
-        [DataMember(Name="campaignName", EmitDefaultValue=false)]
+        [DataMember(Name="campaignName", EmitDefaultValue=true)]
         public string CampaignName { get; set; }
 
         /// <summary>

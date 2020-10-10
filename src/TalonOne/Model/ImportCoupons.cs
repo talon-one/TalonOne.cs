@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Coupons
         /// </summary>
-        [DataMember(Name="coupons", EmitDefaultValue=false)]
+        [DataMember(Name="coupons", EmitDefaultValue=true)]
         public string Coupons { get; set; }
 
         /// <summary>

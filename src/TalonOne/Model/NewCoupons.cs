@@ -102,7 +102,7 @@ namespace TalonOne.Model
         /// The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply. 
         /// </summary>
         /// <value>The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply. </value>
-        [DataMember(Name="usageLimit", EmitDefaultValue=false)]
+        [DataMember(Name="usageLimit", EmitDefaultValue=true)]
         public int UsageLimit { get; set; }
 
         /// <summary>
@@ -130,21 +130,21 @@ namespace TalonOne.Model
         /// Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
         /// </summary>
         /// <value>Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).</value>
-        [DataMember(Name="validCharacters", EmitDefaultValue=false)]
+        [DataMember(Name="validCharacters", EmitDefaultValue=true)]
         public List<string> ValidCharacters { get; set; }
 
         /// <summary>
         /// The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. 
         /// </summary>
         /// <value>The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. </value>
-        [DataMember(Name="couponPattern", EmitDefaultValue=false)]
+        [DataMember(Name="couponPattern", EmitDefaultValue=true)]
         public string CouponPattern { get; set; }
 
         /// <summary>
         /// The number of new coupon codes to generate for the campaign. Must be at least 1.
         /// </summary>
         /// <value>The number of new coupon codes to generate for the campaign. Must be at least 1.</value>
-        [DataMember(Name="numberOfCoupons", EmitDefaultValue=false)]
+        [DataMember(Name="numberOfCoupons", EmitDefaultValue=true)]
         public int NumberOfCoupons { get; set; }
 
         /// <summary>
@@ -313,6 +313,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+            
             // UsageLimit (int) maximum
             if(this.UsageLimit > (int)999999)
             {
@@ -325,6 +327,8 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }
 
+
+            
             // DiscountLimit (decimal) maximum
             if(this.DiscountLimit > (decimal)999999)
             {
@@ -337,12 +341,13 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value greater than or equal to 0.", new [] { "DiscountLimit" });
             }
 
+
             // CouponPattern (string) minLength
             if(this.CouponPattern != null && this.CouponPattern.Length < 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CouponPattern, length must be greater than 3.", new [] { "CouponPattern" });
             }
-
+            
             yield break;
         }
     }

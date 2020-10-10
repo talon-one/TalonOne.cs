@@ -67,7 +67,7 @@ namespace TalonOne.Model
         /// The type of value this argument expects.
         /// </summary>
         /// <value>The type of value this argument expects.</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
+        [DataMember(Name="type", EmitDefaultValue=true)]
         public TypeEnum Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="FuncArgDef" /> class.
@@ -108,7 +108,7 @@ namespace TalonOne.Model
         /// A campaigner-friendly description of the argument, this will also be shown in the rule editor.
         /// </summary>
         /// <value>A campaigner-friendly description of the argument, this will also be shown in the rule editor.</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>
@@ -191,12 +191,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Type (string) minLength
             if(this.Type != default(TypeEnum))
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
-
+            
             yield break;
         }
     }

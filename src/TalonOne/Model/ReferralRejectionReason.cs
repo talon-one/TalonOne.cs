@@ -107,7 +107,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets Reason
         /// </summary>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
+        [DataMember(Name="reason", EmitDefaultValue=true)]
         public ReasonEnum Reason { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferralRejectionReason" /> class.
@@ -157,13 +157,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets CampaignId
         /// </summary>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        [DataMember(Name="campaignId", EmitDefaultValue=true)]
         public int CampaignId { get; set; }
 
         /// <summary>
         /// Gets or Sets ReferralId
         /// </summary>
-        [DataMember(Name="referralId", EmitDefaultValue=false)]
+        [DataMember(Name="referralId", EmitDefaultValue=true)]
         public int ReferralId { get; set; }
 
 

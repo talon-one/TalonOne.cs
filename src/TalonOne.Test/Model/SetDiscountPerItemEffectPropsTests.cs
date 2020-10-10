@@ -89,6 +89,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Position'
         }
+        /// <summary>
+        /// Test the property 'SubPosition'
+        /// </summary>
+        [Test]
+        public void SubPositionTest()
+        {
+            // TODO unit test for the property 'SubPosition'
+        }
 
     }
 

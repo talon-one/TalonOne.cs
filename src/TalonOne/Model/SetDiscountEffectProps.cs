@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;setDiscount\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount\&quot; effect. This is a discount that should be applied globally on the session total.
+    /// The properties specific to the \&quot;setDiscount\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set discount\&quot; effect. This is a discount that should be applied on the scope of defined with it.
     /// </summary>
     [DataContract]
     public partial class SetDiscountEffectProps :  IEquatable<SetDiscountEffectProps>, IValidatableObject
@@ -40,7 +40,8 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">The name/description of this discount (required).</param>
         /// <param name="value">The total monetary value of the discount (required).</param>
-        public SetDiscountEffectProps(string name = default(string), decimal value = default(decimal))
+        /// <param name="scope">The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal).</param>
+        public SetDiscountEffectProps(string name = default(string), decimal value = default(decimal), string scope = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -62,21 +63,29 @@ namespace TalonOne.Model
                 this.Value = value;
             }
             
+            this.Scope = scope;
         }
         
         /// <summary>
         /// The name/description of this discount
         /// </summary>
         /// <value>The name/description of this discount</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
         /// The total monetary value of the discount
         /// </summary>
         /// <value>The total monetary value of the discount</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public decimal Value { get; set; }
+
+        /// <summary>
+        /// The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal)
+        /// </summary>
+        /// <value>The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal)</value>
+        [DataMember(Name="scope", EmitDefaultValue=false)]
+        public string Scope { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -88,6 +97,7 @@ namespace TalonOne.Model
             sb.Append("class SetDiscountEffectProps {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +141,11 @@ namespace TalonOne.Model
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.Scope == input.Scope ||
+                    (this.Scope != null &&
+                    this.Scope.Equals(input.Scope))
                 );
         }
 
@@ -147,6 +162,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.Scope != null)
+                    hashCode = hashCode * 59 + this.Scope.GetHashCode();
                 return hashCode;
             }
         }

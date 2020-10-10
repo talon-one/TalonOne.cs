@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// Timestamp of the last request for this list
         /// </summary>
         /// <value>Timestamp of the last request for this list</value>
-        [DataMember(Name="lastUpdate", EmitDefaultValue=false)]
+        [DataMember(Name="lastUpdate", EmitDefaultValue=true)]
         public DateTime LastUpdate { get; set; }
 
         /// <summary>
         /// List of all notifications to notify the user about
         /// </summary>
         /// <value>List of all notifications to notify the user about</value>
-        [DataMember(Name="notifications", EmitDefaultValue=false)]
+        [DataMember(Name="notifications", EmitDefaultValue=true)]
         public List<FeedNotification> Notifications { get; set; }
 
         /// <summary>

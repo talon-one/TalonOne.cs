@@ -123,49 +123,49 @@ namespace TalonOne.Model
         /// UUID reference of request
         /// </summary>
         /// <value>UUID reference of request</value>
-        [DataMember(Name="uuid", EmitDefaultValue=false)]
+        [DataMember(Name="uuid", EmitDefaultValue=true)]
         public string Uuid { get; set; }
 
         /// <summary>
         /// HTTP status code of response
         /// </summary>
         /// <value>HTTP status code of response</value>
-        [DataMember(Name="status", EmitDefaultValue=false)]
+        [DataMember(Name="status", EmitDefaultValue=true)]
         public int Status { get; set; }
 
         /// <summary>
         /// HTTP method of request
         /// </summary>
         /// <value>HTTP method of request</value>
-        [DataMember(Name="method", EmitDefaultValue=false)]
+        [DataMember(Name="method", EmitDefaultValue=true)]
         public string Method { get; set; }
 
         /// <summary>
         /// target URI of request
         /// </summary>
         /// <value>target URI of request</value>
-        [DataMember(Name="requestUri", EmitDefaultValue=false)]
+        [DataMember(Name="requestUri", EmitDefaultValue=true)]
         public string RequestUri { get; set; }
 
         /// <summary>
         /// timestamp of request
         /// </summary>
         /// <value>timestamp of request</value>
-        [DataMember(Name="time", EmitDefaultValue=false)]
+        [DataMember(Name="time", EmitDefaultValue=true)]
         public DateTime Time { get; set; }
 
         /// <summary>
         /// payload of request
         /// </summary>
         /// <value>payload of request</value>
-        [DataMember(Name="requestPayload", EmitDefaultValue=false)]
+        [DataMember(Name="requestPayload", EmitDefaultValue=true)]
         public string RequestPayload { get; set; }
 
         /// <summary>
         /// payload of response
         /// </summary>
         /// <value>payload of response</value>
-        [DataMember(Name="responsePayload", EmitDefaultValue=false)]
+        [DataMember(Name="responsePayload", EmitDefaultValue=true)]
         public string ResponsePayload { get; set; }
 
         /// <summary>

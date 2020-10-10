@@ -134,35 +134,35 @@ namespace TalonOne.Model
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.
         /// </summary>
         /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
+        [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
         /// <summary>
         /// The ID of the campaign that owns this entity.
         /// </summary>
         /// <value>The ID of the campaign that owns this entity.</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        [DataMember(Name="campaignId", EmitDefaultValue=true)]
         public int CampaignId { get; set; }
 
         /// <summary>
         /// The actual coupon code.
         /// </summary>
         /// <value>The actual coupon code.</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public string Value { get; set; }
 
         /// <summary>
         /// The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply. 
         /// </summary>
         /// <value>The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply. </value>
-        [DataMember(Name="usageLimit", EmitDefaultValue=false)]
+        [DataMember(Name="usageLimit", EmitDefaultValue=true)]
         public int UsageLimit { get; set; }
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace TalonOne.Model
         /// The number of times this coupon has been successfully used.
         /// </summary>
         /// <value>The number of times this coupon has been successfully used.</value>
-        [DataMember(Name="usageCounter", EmitDefaultValue=false)]
+        [DataMember(Name="usageCounter", EmitDefaultValue=true)]
         public int UsageCounter { get; set; }
 
         /// <summary>
@@ -449,12 +449,15 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // Value (string) minLength
             if(this.Value != null && this.Value.Length < 4)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be greater than 4.", new [] { "Value" });
             }
+            
 
+            
             // UsageLimit (int) maximum
             if(this.UsageLimit > (int)999999)
             {
@@ -467,6 +470,8 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }
 
+
+            
             // DiscountLimit (decimal) maximum
             if(this.DiscountLimit > (decimal)999999)
             {

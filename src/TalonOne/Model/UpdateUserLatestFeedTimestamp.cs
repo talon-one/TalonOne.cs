@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// New timestamp to update for the current user
         /// </summary>
         /// <value>New timestamp to update for the current user</value>
-        [DataMember(Name="newLatestFeedTimestamp", EmitDefaultValue=false)]
+        [DataMember(Name="newLatestFeedTimestamp", EmitDefaultValue=true)]
         public DateTime NewLatestFeedTimestamp { get; set; }
 
         /// <summary>

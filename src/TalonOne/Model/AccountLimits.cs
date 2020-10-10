@@ -38,19 +38,19 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AccountLimits" /> class.
         /// </summary>
-        /// <param name="liveApplications">Total Number of allowed live applications in the account (required).</param>
-        /// <param name="sandboxApplications">Total Number of allowed sandbox applications in the account (required).</param>
-        /// <param name="activeCampaigns">Total Number of allowed active campaigns in the account (required).</param>
-        /// <param name="coupons">Total Number of allowed coupons in the account (required).</param>
-        /// <param name="referralCodes">Total Number of allowed referral codes in the account (required).</param>
-        /// <param name="liveLoyaltyPrograms">Total Number of allowed live loyalty programs in the account (required).</param>
-        /// <param name="sandboxLoyaltyPrograms">Total Number of allowed sandbox loyalty programs in the account (required).</param>
-        /// <param name="webhooks">Total Number of allowed webhooks in the account (required).</param>
-        /// <param name="users">Total Number of allowed users in the account (required).</param>
-        /// <param name="apiVolume">Total allowed api volume (required).</param>
-        /// <param name="activeRules">Total allowed active rulesets.</param>
-        /// <param name="promotionTypes">array of rulesets where webhook is used (required).</param>
-        public AccountLimits(int liveApplications = default(int), int sandboxApplications = default(int), int activeCampaigns = default(int), int coupons = default(int), int referralCodes = default(int), int liveLoyaltyPrograms = default(int), int sandboxLoyaltyPrograms = default(int), int webhooks = default(int), int users = default(int), int apiVolume = default(int), int activeRules = default(int), List<string> promotionTypes = default(List<string>))
+        /// <param name="liveApplications">Total number of allowed live applications in the account (required).</param>
+        /// <param name="sandboxApplications">Total number of allowed sandbox applications in the account (required).</param>
+        /// <param name="activeCampaigns">Total number of allowed active campaigns in live applications in the account (required).</param>
+        /// <param name="coupons">Total number of allowed coupons in the account (required).</param>
+        /// <param name="referralCodes">Total number of allowed referral codes in the account (required).</param>
+        /// <param name="activeRules">Total number of allowed active rulesets in the account (required).</param>
+        /// <param name="liveLoyaltyPrograms">Total number of allowed live loyalty programs in the account (required).</param>
+        /// <param name="sandboxLoyaltyPrograms">Total number of allowed sandbox loyalty programs in the account (required).</param>
+        /// <param name="webhooks">Total number of allowed webhooks in the account (required).</param>
+        /// <param name="users">Total number of allowed users in the account (required).</param>
+        /// <param name="apiVolume">Allowed volume of API requests to the account (required).</param>
+        /// <param name="promotionTypes">Array of promotion types that are employed in the account (required).</param>
+        public AccountLimits(int liveApplications = default(int), int sandboxApplications = default(int), int activeCampaigns = default(int), int coupons = default(int), int referralCodes = default(int), int activeRules = default(int), int liveLoyaltyPrograms = default(int), int sandboxLoyaltyPrograms = default(int), int webhooks = default(int), int users = default(int), int apiVolume = default(int), List<string> promotionTypes = default(List<string>))
         {
             // to ensure "liveApplications" is required (not null)
             if (liveApplications == null)
@@ -100,6 +100,16 @@ namespace TalonOne.Model
             else
             {
                 this.ReferralCodes = referralCodes;
+            }
+            
+            // to ensure "activeRules" is required (not null)
+            if (activeRules == null)
+            {
+                throw new InvalidDataException("activeRules is a required property for AccountLimits and cannot be null");
+            }
+            else
+            {
+                this.ActiveRules = activeRules;
             }
             
             // to ensure "liveLoyaltyPrograms" is required (not null)
@@ -162,91 +172,90 @@ namespace TalonOne.Model
                 this.PromotionTypes = promotionTypes;
             }
             
-            this.ActiveRules = activeRules;
         }
         
         /// <summary>
-        /// Total Number of allowed live applications in the account
+        /// Total number of allowed live applications in the account
         /// </summary>
-        /// <value>Total Number of allowed live applications in the account</value>
-        [DataMember(Name="liveApplications", EmitDefaultValue=false)]
+        /// <value>Total number of allowed live applications in the account</value>
+        [DataMember(Name="liveApplications", EmitDefaultValue=true)]
         public int LiveApplications { get; set; }
 
         /// <summary>
-        /// Total Number of allowed sandbox applications in the account
+        /// Total number of allowed sandbox applications in the account
         /// </summary>
-        /// <value>Total Number of allowed sandbox applications in the account</value>
-        [DataMember(Name="sandboxApplications", EmitDefaultValue=false)]
+        /// <value>Total number of allowed sandbox applications in the account</value>
+        [DataMember(Name="sandboxApplications", EmitDefaultValue=true)]
         public int SandboxApplications { get; set; }
 
         /// <summary>
-        /// Total Number of allowed active campaigns in the account
+        /// Total number of allowed active campaigns in live applications in the account
         /// </summary>
-        /// <value>Total Number of allowed active campaigns in the account</value>
-        [DataMember(Name="activeCampaigns", EmitDefaultValue=false)]
+        /// <value>Total number of allowed active campaigns in live applications in the account</value>
+        [DataMember(Name="activeCampaigns", EmitDefaultValue=true)]
         public int ActiveCampaigns { get; set; }
 
         /// <summary>
-        /// Total Number of allowed coupons in the account
+        /// Total number of allowed coupons in the account
         /// </summary>
-        /// <value>Total Number of allowed coupons in the account</value>
-        [DataMember(Name="coupons", EmitDefaultValue=false)]
+        /// <value>Total number of allowed coupons in the account</value>
+        [DataMember(Name="coupons", EmitDefaultValue=true)]
         public int Coupons { get; set; }
 
         /// <summary>
-        /// Total Number of allowed referral codes in the account
+        /// Total number of allowed referral codes in the account
         /// </summary>
-        /// <value>Total Number of allowed referral codes in the account</value>
-        [DataMember(Name="referralCodes", EmitDefaultValue=false)]
+        /// <value>Total number of allowed referral codes in the account</value>
+        [DataMember(Name="referralCodes", EmitDefaultValue=true)]
         public int ReferralCodes { get; set; }
 
         /// <summary>
-        /// Total Number of allowed live loyalty programs in the account
+        /// Total number of allowed active rulesets in the account
         /// </summary>
-        /// <value>Total Number of allowed live loyalty programs in the account</value>
-        [DataMember(Name="liveLoyaltyPrograms", EmitDefaultValue=false)]
-        public int LiveLoyaltyPrograms { get; set; }
-
-        /// <summary>
-        /// Total Number of allowed sandbox loyalty programs in the account
-        /// </summary>
-        /// <value>Total Number of allowed sandbox loyalty programs in the account</value>
-        [DataMember(Name="sandboxLoyaltyPrograms", EmitDefaultValue=false)]
-        public int SandboxLoyaltyPrograms { get; set; }
-
-        /// <summary>
-        /// Total Number of allowed webhooks in the account
-        /// </summary>
-        /// <value>Total Number of allowed webhooks in the account</value>
-        [DataMember(Name="webhooks", EmitDefaultValue=false)]
-        public int Webhooks { get; set; }
-
-        /// <summary>
-        /// Total Number of allowed users in the account
-        /// </summary>
-        /// <value>Total Number of allowed users in the account</value>
-        [DataMember(Name="users", EmitDefaultValue=false)]
-        public int Users { get; set; }
-
-        /// <summary>
-        /// Total allowed api volume
-        /// </summary>
-        /// <value>Total allowed api volume</value>
-        [DataMember(Name="apiVolume", EmitDefaultValue=false)]
-        public int ApiVolume { get; set; }
-
-        /// <summary>
-        /// Total allowed active rulesets
-        /// </summary>
-        /// <value>Total allowed active rulesets</value>
-        [DataMember(Name="activeRules", EmitDefaultValue=false)]
+        /// <value>Total number of allowed active rulesets in the account</value>
+        [DataMember(Name="activeRules", EmitDefaultValue=true)]
         public int ActiveRules { get; set; }
 
         /// <summary>
-        /// array of rulesets where webhook is used
+        /// Total number of allowed live loyalty programs in the account
         /// </summary>
-        /// <value>array of rulesets where webhook is used</value>
-        [DataMember(Name="promotionTypes", EmitDefaultValue=false)]
+        /// <value>Total number of allowed live loyalty programs in the account</value>
+        [DataMember(Name="liveLoyaltyPrograms", EmitDefaultValue=true)]
+        public int LiveLoyaltyPrograms { get; set; }
+
+        /// <summary>
+        /// Total number of allowed sandbox loyalty programs in the account
+        /// </summary>
+        /// <value>Total number of allowed sandbox loyalty programs in the account</value>
+        [DataMember(Name="sandboxLoyaltyPrograms", EmitDefaultValue=true)]
+        public int SandboxLoyaltyPrograms { get; set; }
+
+        /// <summary>
+        /// Total number of allowed webhooks in the account
+        /// </summary>
+        /// <value>Total number of allowed webhooks in the account</value>
+        [DataMember(Name="webhooks", EmitDefaultValue=true)]
+        public int Webhooks { get; set; }
+
+        /// <summary>
+        /// Total number of allowed users in the account
+        /// </summary>
+        /// <value>Total number of allowed users in the account</value>
+        [DataMember(Name="users", EmitDefaultValue=true)]
+        public int Users { get; set; }
+
+        /// <summary>
+        /// Allowed volume of API requests to the account
+        /// </summary>
+        /// <value>Allowed volume of API requests to the account</value>
+        [DataMember(Name="apiVolume", EmitDefaultValue=true)]
+        public int ApiVolume { get; set; }
+
+        /// <summary>
+        /// Array of promotion types that are employed in the account
+        /// </summary>
+        /// <value>Array of promotion types that are employed in the account</value>
+        [DataMember(Name="promotionTypes", EmitDefaultValue=true)]
         public List<string> PromotionTypes { get; set; }
 
         /// <summary>
@@ -262,12 +271,12 @@ namespace TalonOne.Model
             sb.Append("  ActiveCampaigns: ").Append(ActiveCampaigns).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("  ReferralCodes: ").Append(ReferralCodes).Append("\n");
+            sb.Append("  ActiveRules: ").Append(ActiveRules).Append("\n");
             sb.Append("  LiveLoyaltyPrograms: ").Append(LiveLoyaltyPrograms).Append("\n");
             sb.Append("  SandboxLoyaltyPrograms: ").Append(SandboxLoyaltyPrograms).Append("\n");
             sb.Append("  Webhooks: ").Append(Webhooks).Append("\n");
             sb.Append("  Users: ").Append(Users).Append("\n");
             sb.Append("  ApiVolume: ").Append(ApiVolume).Append("\n");
-            sb.Append("  ActiveRules: ").Append(ActiveRules).Append("\n");
             sb.Append("  PromotionTypes: ").Append(PromotionTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -329,6 +338,11 @@ namespace TalonOne.Model
                     this.ReferralCodes.Equals(input.ReferralCodes))
                 ) && 
                 (
+                    this.ActiveRules == input.ActiveRules ||
+                    (this.ActiveRules != null &&
+                    this.ActiveRules.Equals(input.ActiveRules))
+                ) && 
+                (
                     this.LiveLoyaltyPrograms == input.LiveLoyaltyPrograms ||
                     (this.LiveLoyaltyPrograms != null &&
                     this.LiveLoyaltyPrograms.Equals(input.LiveLoyaltyPrograms))
@@ -352,11 +366,6 @@ namespace TalonOne.Model
                     this.ApiVolume == input.ApiVolume ||
                     (this.ApiVolume != null &&
                     this.ApiVolume.Equals(input.ApiVolume))
-                ) && 
-                (
-                    this.ActiveRules == input.ActiveRules ||
-                    (this.ActiveRules != null &&
-                    this.ActiveRules.Equals(input.ActiveRules))
                 ) && 
                 (
                     this.PromotionTypes == input.PromotionTypes ||
@@ -385,6 +394,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Coupons.GetHashCode();
                 if (this.ReferralCodes != null)
                     hashCode = hashCode * 59 + this.ReferralCodes.GetHashCode();
+                if (this.ActiveRules != null)
+                    hashCode = hashCode * 59 + this.ActiveRules.GetHashCode();
                 if (this.LiveLoyaltyPrograms != null)
                     hashCode = hashCode * 59 + this.LiveLoyaltyPrograms.GetHashCode();
                 if (this.SandboxLoyaltyPrograms != null)
@@ -395,8 +406,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Users.GetHashCode();
                 if (this.ApiVolume != null)
                     hashCode = hashCode * 59 + this.ApiVolume.GetHashCode();
-                if (this.ActiveRules != null)
-                    hashCode = hashCode * 59 + this.ActiveRules.GetHashCode();
                 if (this.PromotionTypes != null)
                     hashCode = hashCode * 59 + this.PromotionTypes.GetHashCode();
                 return hashCode;

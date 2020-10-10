@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets SchemaVersion
         /// </summary>
-        [DataMember(Name="schemaVersion", EmitDefaultValue=false)]
+        [DataMember(Name="schemaVersion", EmitDefaultValue=true)]
         public int SchemaVersion { get; set; }
 
         /// <summary>

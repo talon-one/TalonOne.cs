@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// The referral code that was rejected
         /// </summary>
         /// <value>The referral code that was rejected</value>
-        [DataMember(Name="value", EmitDefaultValue=false)]
+        [DataMember(Name="value", EmitDefaultValue=true)]
         public string Value { get; set; }
 
         /// <summary>
         /// The reason why this referral code was rejected
         /// </summary>
         /// <value>The reason why this referral code was rejected</value>
-        [DataMember(Name="rejectionReason", EmitDefaultValue=false)]
+        [DataMember(Name="rejectionReason", EmitDefaultValue=true)]
         public string RejectionReason { get; set; }
 
         /// <summary>

@@ -40,11 +40,12 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">The ID of the role corresponding to the DB row (required).</param>
         /// <param name="accountID">The ID of the Talon.One account that owns this role. (required).</param>
+        /// <param name="campaignGroupID">The ID of the Campaign Group this role was created for..</param>
         /// <param name="name">Name of the role.</param>
         /// <param name="description">Description of the role.</param>
         /// <param name="members">A list of user identifiers assigned to this role.</param>
-        /// <param name="acl">Role Policy this should be a stringified blob of json.</param>
-        public Role(int id = default(int), int accountID = default(int), string name = default(string), string description = default(string), List<int> members = default(List<int>), string acl = default(string))
+        /// <param name="acl">Role ACL Policy.</param>
+        public Role(int id = default(int), int accountID = default(int), int campaignGroupID = default(int), string name = default(string), string description = default(string), List<int> members = default(List<int>), Object acl = default(Object))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -66,6 +67,7 @@ namespace TalonOne.Model
                 this.AccountID = accountID;
             }
             
+            this.CampaignGroupID = campaignGroupID;
             this.Name = name;
             this.Description = description;
             this.Members = members;
@@ -76,15 +78,22 @@ namespace TalonOne.Model
         /// The ID of the role corresponding to the DB row
         /// </summary>
         /// <value>The ID of the role corresponding to the DB row</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
         /// The ID of the Talon.One account that owns this role.
         /// </summary>
         /// <value>The ID of the Talon.One account that owns this role.</value>
-        [DataMember(Name="accountID", EmitDefaultValue=false)]
+        [DataMember(Name="accountID", EmitDefaultValue=true)]
         public int AccountID { get; set; }
+
+        /// <summary>
+        /// The ID of the Campaign Group this role was created for.
+        /// </summary>
+        /// <value>The ID of the Campaign Group this role was created for.</value>
+        [DataMember(Name="campaignGroupID", EmitDefaultValue=false)]
+        public int CampaignGroupID { get; set; }
 
         /// <summary>
         /// Name of the role
@@ -108,11 +117,11 @@ namespace TalonOne.Model
         public List<int> Members { get; set; }
 
         /// <summary>
-        /// Role Policy this should be a stringified blob of json
+        /// Role ACL Policy
         /// </summary>
-        /// <value>Role Policy this should be a stringified blob of json</value>
+        /// <value>Role ACL Policy</value>
         [DataMember(Name="acl", EmitDefaultValue=false)]
-        public string Acl { get; set; }
+        public Object Acl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -124,6 +133,7 @@ namespace TalonOne.Model
             sb.Append("class Role {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  AccountID: ").Append(AccountID).Append("\n");
+            sb.Append("  CampaignGroupID: ").Append(CampaignGroupID).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Members: ").Append(Members).Append("\n");
@@ -173,6 +183,11 @@ namespace TalonOne.Model
                     this.AccountID.Equals(input.AccountID))
                 ) && 
                 (
+                    this.CampaignGroupID == input.CampaignGroupID ||
+                    (this.CampaignGroupID != null &&
+                    this.CampaignGroupID.Equals(input.CampaignGroupID))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -208,6 +223,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.AccountID != null)
                     hashCode = hashCode * 59 + this.AccountID.GetHashCode();
+                if (this.CampaignGroupID != null)
+                    hashCode = hashCode * 59 + this.CampaignGroupID.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)

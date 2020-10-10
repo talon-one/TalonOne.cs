@@ -67,13 +67,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Gets or Sets TotalResultSize
         /// </summary>
-        [DataMember(Name="totalResultSize", EmitDefaultValue=false)]
+        [DataMember(Name="totalResultSize", EmitDefaultValue=true)]
         public int TotalResultSize { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
+        [DataMember(Name="data", EmitDefaultValue=true)]
         public List<string> Data { get; set; }
 
         /// <summary>

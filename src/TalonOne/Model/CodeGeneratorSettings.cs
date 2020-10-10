@@ -68,14 +68,14 @@ namespace TalonOne.Model
         /// Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
         /// </summary>
         /// <value>Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).</value>
-        [DataMember(Name="validCharacters", EmitDefaultValue=false)]
+        [DataMember(Name="validCharacters", EmitDefaultValue=true)]
         public List<string> ValidCharacters { get; set; }
 
         /// <summary>
         /// The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. 
         /// </summary>
         /// <value>The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. </value>
-        [DataMember(Name="couponPattern", EmitDefaultValue=false)]
+        [DataMember(Name="couponPattern", EmitDefaultValue=true)]
         public string CouponPattern { get; set; }
 
         /// <summary>
@@ -159,12 +159,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
             // CouponPattern (string) minLength
             if(this.CouponPattern != null && this.CouponPattern.Length < 3)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CouponPattern, length must be greater than 3.", new [] { "CouponPattern" });
             }
-
+            
             yield break;
         }
     }
