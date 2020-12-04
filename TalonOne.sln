@@ -1,7 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-VisualStudioVersion = 12.0.0.0
-MinimumVisualStudioVersion = 10.0.0.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalonOne", "src\TalonOne\TalonOne.csproj", "{9488BCE0-5E86-454A-9181-9AB2E7D3F3BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TalonOne.Test", "src\TalonOne.Test\TalonOne.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
@@ -23,5 +23,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC80E3DE-6EBE-4FE0-A0BE-FC9A4A3748FE}
 	EndGlobalSection
 EndGlobal
