@@ -38,12 +38,23 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltyProgramLedgers" /> class.
         /// </summary>
+        /// <param name="id">The internal ID of loyalty program (required).</param>
         /// <param name="title">Visible name of loyalty program (required).</param>
         /// <param name="name">Internal name of loyalty program (required).</param>
         /// <param name="ledger">ledger (required).</param>
         /// <param name="subLedgers">A map containing a list of all loyalty subledger balances.</param>
-        public LoyaltyProgramLedgers(string title = default(string), string name = default(string), LoyaltyProgramBalance ledger = default(LoyaltyProgramBalance), Dictionary<string, LoyaltyProgramBalance> subLedgers = default(Dictionary<string, LoyaltyProgramBalance>))
+        public LoyaltyProgramLedgers(int id = default(int), string title = default(string), string name = default(string), LoyaltyProgramBalance ledger = default(LoyaltyProgramBalance), Dictionary<string, LoyaltyProgramBalance> subLedgers = default(Dictionary<string, LoyaltyProgramBalance>))
         {
+            // to ensure "id" is required (not null)
+            if (id == null)
+            {
+                throw new InvalidDataException("id is a required property for LoyaltyProgramLedgers and cannot be null");
+            }
+            else
+            {
+                this.Id = id;
+            }
+            
             // to ensure "title" is required (not null)
             if (title == null)
             {
@@ -77,6 +88,13 @@ namespace TalonOne.Model
             this.SubLedgers = subLedgers;
         }
         
+        /// <summary>
+        /// The internal ID of loyalty program
+        /// </summary>
+        /// <value>The internal ID of loyalty program</value>
+        [DataMember(Name="id", EmitDefaultValue=true)]
+        public int Id { get; set; }
+
         /// <summary>
         /// Visible name of loyalty program
         /// </summary>
@@ -112,6 +130,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class LoyaltyProgramLedgers {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Ledger: ").Append(Ledger).Append("\n");
@@ -151,6 +170,11 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
+                ) && 
+                (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
@@ -182,6 +206,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Name != null)

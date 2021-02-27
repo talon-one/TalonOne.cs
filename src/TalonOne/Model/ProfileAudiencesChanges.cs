@@ -25,39 +25,58 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// ImportCoupons
+    /// ProfileAudiencesChanges
     /// </summary>
     [DataContract]
-    public partial class ImportCoupons :  IEquatable<ImportCoupons>, IValidatableObject
+    public partial class ProfileAudiencesChanges :  IEquatable<ProfileAudiencesChanges>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImportCoupons" /> class.
+        /// Initializes a new instance of the <see cref="ProfileAudiencesChanges" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ImportCoupons() { }
+        protected ProfileAudiencesChanges() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ImportCoupons" /> class.
+        /// Initializes a new instance of the <see cref="ProfileAudiencesChanges" /> class.
         /// </summary>
-        /// <param name="coupons">coupons (required).</param>
-        public ImportCoupons(string coupons = default(string))
+        /// <param name="adds">The IDs of the audiences for the customer to join. (required).</param>
+        /// <param name="deletes">The IDs of the audiences for the customer to leave. (required).</param>
+        public ProfileAudiencesChanges(List<int> adds = default(List<int>), List<int> deletes = default(List<int>))
         {
-            // to ensure "coupons" is required (not null)
-            if (coupons == null)
+            // to ensure "adds" is required (not null)
+            if (adds == null)
             {
-                throw new InvalidDataException("coupons is a required property for ImportCoupons and cannot be null");
+                throw new InvalidDataException("adds is a required property for ProfileAudiencesChanges and cannot be null");
             }
             else
             {
-                this.Coupons = coupons;
+                this.Adds = adds;
+            }
+            
+            // to ensure "deletes" is required (not null)
+            if (deletes == null)
+            {
+                throw new InvalidDataException("deletes is a required property for ProfileAudiencesChanges and cannot be null");
+            }
+            else
+            {
+                this.Deletes = deletes;
             }
             
         }
         
         /// <summary>
-        /// Gets or Sets Coupons
+        /// The IDs of the audiences for the customer to join.
         /// </summary>
-        [DataMember(Name="coupons", EmitDefaultValue=true)]
-        public string Coupons { get; set; }
+        /// <value>The IDs of the audiences for the customer to join.</value>
+        [DataMember(Name="adds", EmitDefaultValue=true)]
+        public List<int> Adds { get; set; }
+
+        /// <summary>
+        /// The IDs of the audiences for the customer to leave.
+        /// </summary>
+        /// <value>The IDs of the audiences for the customer to leave.</value>
+        [DataMember(Name="deletes", EmitDefaultValue=true)]
+        public List<int> Deletes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +85,9 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ImportCoupons {\n");
-            sb.Append("  Coupons: ").Append(Coupons).Append("\n");
+            sb.Append("class ProfileAudiencesChanges {\n");
+            sb.Append("  Adds: ").Append(Adds).Append("\n");
+            sb.Append("  Deletes: ").Append(Deletes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +108,31 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ImportCoupons);
+            return this.Equals(input as ProfileAudiencesChanges);
         }
 
         /// <summary>
-        /// Returns true if ImportCoupons instances are equal
+        /// Returns true if ProfileAudiencesChanges instances are equal
         /// </summary>
-        /// <param name="input">Instance of ImportCoupons to be compared</param>
+        /// <param name="input">Instance of ProfileAudiencesChanges to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ImportCoupons input)
+        public bool Equals(ProfileAudiencesChanges input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Coupons == input.Coupons ||
-                    (this.Coupons != null &&
-                    this.Coupons.Equals(input.Coupons))
+                    this.Adds == input.Adds ||
+                    this.Adds != null &&
+                    input.Adds != null &&
+                    this.Adds.SequenceEqual(input.Adds)
+                ) && 
+                (
+                    this.Deletes == input.Deletes ||
+                    this.Deletes != null &&
+                    input.Deletes != null &&
+                    this.Deletes.SequenceEqual(input.Deletes)
                 );
         }
 
@@ -118,8 +145,10 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Coupons != null)
-                    hashCode = hashCode * 59 + this.Coupons.GetHashCode();
+                if (this.Adds != null)
+                    hashCode = hashCode * 59 + this.Adds.GetHashCode();
+                if (this.Deletes != null)
+                    hashCode = hashCode * 59 + this.Deletes.GetHashCode();
                 return hashCode;
             }
         }

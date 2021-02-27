@@ -31,27 +31,6 @@ namespace TalonOne.Model
     public partial class Import :  IEquatable<Import>, IValidatableObject
     {
         /// <summary>
-        /// The name of the entity that was imported.
-        /// </summary>
-        /// <value>The name of the entity that was imported.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum EntityEnum
-        {
-            /// <summary>
-            /// Enum Coupon for value: Coupon
-            /// </summary>
-            [EnumMember(Value = "Coupon")]
-            Coupon = 1
-
-        }
-
-        /// <summary>
-        /// The name of the entity that was imported.
-        /// </summary>
-        /// <value>The name of the entity that was imported.</value>
-        [DataMember(Name="entity", EmitDefaultValue=true)]
-        public EntityEnum Entity { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="Import" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -63,9 +42,9 @@ namespace TalonOne.Model
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="userId">The ID of the account that owns this entity. (required).</param>
-        /// <param name="entity">The name of the entity that was imported. (required).</param>
+        /// <param name="entity">The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints. (required).</param>
         /// <param name="amount">The number of members that imported. (required).</param>
-        public Import(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), EntityEnum entity = default(EntityEnum), int amount = default(int))
+        public Import(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), string entity = default(string), int amount = default(int))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -157,6 +136,12 @@ namespace TalonOne.Model
         [DataMember(Name="userId", EmitDefaultValue=true)]
         public int UserId { get; set; }
 
+        /// <summary>
+        /// The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints.
+        /// </summary>
+        /// <value>The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints.</value>
+        [DataMember(Name="entity", EmitDefaultValue=true)]
+        public string Entity { get; set; }
 
         /// <summary>
         /// The number of members that imported.

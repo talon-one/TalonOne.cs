@@ -81,6 +81,30 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'RejectionReason'
         }
+        /// <summary>
+        /// Test the property 'ConditionIndex'
+        /// </summary>
+        [Test]
+        public void ConditionIndexTest()
+        {
+            // TODO unit test for the property 'ConditionIndex'
+        }
+        /// <summary>
+        /// Test the property 'EffectIndex'
+        /// </summary>
+        [Test]
+        public void EffectIndexTest()
+        {
+            // TODO unit test for the property 'EffectIndex'
+        }
+        /// <summary>
+        /// Test the property 'Details'
+        /// </summary>
+        [Test]
+        public void DetailsTest()
+        {
+            // TODO unit test for the property 'Details'
+        }
 
     }
 

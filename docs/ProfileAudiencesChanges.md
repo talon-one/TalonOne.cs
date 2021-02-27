@@ -1,11 +1,12 @@
 
-# TalonOne.Model.NewImport
+# TalonOne.Model.ProfileAudiencesChanges
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Entity** | **string** | The name of the entity that was imported. | 
+**Adds** | **List&lt;int&gt;** | The IDs of the audiences for the customer to join. | 
+**Deletes** | **List&lt;int&gt;** | The IDs of the audiences for the customer to leave. | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

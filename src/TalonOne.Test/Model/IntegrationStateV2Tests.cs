@@ -130,6 +130,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Effects'
         }
         /// <summary>
+        /// Test the property 'RuleFailureReasons'
+        /// </summary>
+        [Test]
+        public void RuleFailureReasonsTest()
+        {
+            // TODO unit test for the property 'RuleFailureReasons'
+        }
+        /// <summary>
         /// Test the property 'CreatedCoupons'
         /// </summary>
         [Test]

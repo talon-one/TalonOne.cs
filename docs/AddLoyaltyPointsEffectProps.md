@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **RecipientIntegrationId** | **string** | The user for whom these points were added | 
 **StartDate** | **DateTime** | Date after which points will be valid | [optional] 
 **ExpiryDate** | **DateTime** | Date after which points will expire | [optional] 
+**TransactionUUID** | **string** | The identifier of this addition in the loyalty ledger | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

@@ -38,20 +38,11 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20028" /> class.
         /// </summary>
-        /// <param name="totalResultSize">totalResultSize (required).</param>
+        /// <param name="totalResultSize">totalResultSize.</param>
+        /// <param name="hasMore">hasMore.</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20028(int totalResultSize = default(int), List<Export> data = default(List<Export>))
+        public InlineResponse20028(int totalResultSize = default(int), bool hasMore = default(bool), List<Change> data = default(List<Change>))
         {
-            // to ensure "totalResultSize" is required (not null)
-            if (totalResultSize == null)
-            {
-                throw new InvalidDataException("totalResultSize is a required property for InlineResponse20028 and cannot be null");
-            }
-            else
-            {
-                this.TotalResultSize = totalResultSize;
-            }
-            
             // to ensure "data" is required (not null)
             if (data == null)
             {
@@ -62,19 +53,27 @@ namespace TalonOne.Model
                 this.Data = data;
             }
             
+            this.TotalResultSize = totalResultSize;
+            this.HasMore = hasMore;
         }
         
         /// <summary>
         /// Gets or Sets TotalResultSize
         /// </summary>
-        [DataMember(Name="totalResultSize", EmitDefaultValue=true)]
+        [DataMember(Name="totalResultSize", EmitDefaultValue=false)]
         public int TotalResultSize { get; set; }
+
+        /// <summary>
+        /// Gets or Sets HasMore
+        /// </summary>
+        [DataMember(Name="hasMore", EmitDefaultValue=false)]
+        public bool HasMore { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=true)]
-        public List<Export> Data { get; set; }
+        public List<Change> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,6 +84,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20028 {\n");
             sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
+            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -126,6 +126,11 @@ namespace TalonOne.Model
                     this.TotalResultSize.Equals(input.TotalResultSize))
                 ) && 
                 (
+                    this.HasMore == input.HasMore ||
+                    (this.HasMore != null &&
+                    this.HasMore.Equals(input.HasMore))
+                ) && 
+                (
                     this.Data == input.Data ||
                     this.Data != null &&
                     input.Data != null &&
@@ -144,6 +149,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.TotalResultSize != null)
                     hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
+                if (this.HasMore != null)
+                    hashCode = hashCode * 59 + this.HasMore.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;

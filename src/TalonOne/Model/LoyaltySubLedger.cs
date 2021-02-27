@@ -38,7 +38,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltySubLedger" /> class.
         /// </summary>
-        /// <param name="total">⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance  (required).</param>
+        /// <param name="total">⚠️ Deprecated: Use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance  (required).</param>
         /// <param name="totalActivePoints">Total amount of currently active and available points in the customer&#39;s balance (required).</param>
         /// <param name="totalPendingPoints">Total amount of pending points, which are not active yet but will become active in the future (required).</param>
         /// <param name="totalSpentPoints">Total amount of points already spent by this customer (required).</param>
@@ -108,9 +108,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// ⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance 
+        /// ⚠️ Deprecated: Use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance 
         /// </summary>
-        /// <value>⚠️ Deprecated: Please use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance </value>
+        /// <value>⚠️ Deprecated: Use &#39;totalActivePoints&#39; property instead. Total amount of currently active and available points in the customer&#39;s balance </value>
         [DataMember(Name="total", EmitDefaultValue=true)]
         public decimal Total { get; set; }
 

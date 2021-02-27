@@ -25,55 +25,40 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// NewImport
+    /// The properties specific to the \&quot;rollbackReferral\&quot; effect. This gets triggered whenever previously closed session is now cancelled and a referral redemption was cancelled on our internal usage limit counters.
     /// </summary>
     [DataContract]
-    public partial class NewImport :  IEquatable<NewImport>, IValidatableObject
+    public partial class RollbackReferralEffectProps :  IEquatable<RollbackReferralEffectProps>, IValidatableObject
     {
         /// <summary>
-        /// The name of the entity that was imported.
-        /// </summary>
-        /// <value>The name of the entity that was imported.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum EntityEnum
-        {
-            /// <summary>
-            /// Enum Coupon for value: Coupon
-            /// </summary>
-            [EnumMember(Value = "Coupon")]
-            Coupon = 1
-
-        }
-
-        /// <summary>
-        /// The name of the entity that was imported.
-        /// </summary>
-        /// <value>The name of the entity that was imported.</value>
-        [DataMember(Name="entity", EmitDefaultValue=true)]
-        public EntityEnum Entity { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NewImport" /> class.
+        /// Initializes a new instance of the <see cref="RollbackReferralEffectProps" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected NewImport() { }
+        protected RollbackReferralEffectProps() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="NewImport" /> class.
+        /// Initializes a new instance of the <see cref="RollbackReferralEffectProps" /> class.
         /// </summary>
-        /// <param name="entity">The name of the entity that was imported. (required).</param>
-        public NewImport(EntityEnum entity = default(EntityEnum))
+        /// <param name="value">The referral code whose usage has been rolled back (required).</param>
+        public RollbackReferralEffectProps(string value = default(string))
         {
-            // to ensure "entity" is required (not null)
-            if (entity == null)
+            // to ensure "value" is required (not null)
+            if (value == null)
             {
-                throw new InvalidDataException("entity is a required property for NewImport and cannot be null");
+                throw new InvalidDataException("value is a required property for RollbackReferralEffectProps and cannot be null");
             }
             else
             {
-                this.Entity = entity;
+                this.Value = value;
             }
             
         }
         
+        /// <summary>
+        /// The referral code whose usage has been rolled back
+        /// </summary>
+        /// <value>The referral code whose usage has been rolled back</value>
+        [DataMember(Name="value", EmitDefaultValue=true)]
+        public string Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,8 +67,8 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NewImport {\n");
-            sb.Append("  Entity: ").Append(Entity).Append("\n");
+            sb.Append("class RollbackReferralEffectProps {\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,24 +89,24 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as NewImport);
+            return this.Equals(input as RollbackReferralEffectProps);
         }
 
         /// <summary>
-        /// Returns true if NewImport instances are equal
+        /// Returns true if RollbackReferralEffectProps instances are equal
         /// </summary>
-        /// <param name="input">Instance of NewImport to be compared</param>
+        /// <param name="input">Instance of RollbackReferralEffectProps to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NewImport input)
+        public bool Equals(RollbackReferralEffectProps input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Entity == input.Entity ||
-                    (this.Entity != null &&
-                    this.Entity.Equals(input.Entity))
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -134,8 +119,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Entity != null)
-                    hashCode = hashCode * 59 + this.Entity.GetHashCode();
+                if (this.Value != null)
+                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 return hashCode;
             }
         }

@@ -59,7 +59,13 @@ namespace TalonOne.Model
             /// Enum Mparticle for value: mparticle
             /// </summary>
             [EnumMember(Value = "mparticle")]
-            Mparticle = 4
+            Mparticle = 4,
+
+            /// <summary>
+            /// Enum Selligent for value: selligent
+            /// </summary>
+            [EnumMember(Value = "selligent")]
+            Selligent = 5
 
         }
 

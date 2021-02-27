@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **Length** | **decimal** | Length of item in mm | [optional] 
 **Position** | **decimal** | Position of the Cart Item in the Cart (calculated internally) | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this item | [optional] 
-**Adjustment** | [**CartItemAdjustment**](CartItemAdjustment.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

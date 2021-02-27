@@ -73,6 +73,38 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'CurrentBalance'
         }
+        /// <summary>
+        /// Test the property 'PendingBalance'
+        /// </summary>
+        [Test]
+        public void PendingBalanceTest()
+        {
+            // TODO unit test for the property 'PendingBalance'
+        }
+        /// <summary>
+        /// Test the property 'ExpiredBalance'
+        /// </summary>
+        [Test]
+        public void ExpiredBalanceTest()
+        {
+            // TODO unit test for the property 'ExpiredBalance'
+        }
+        /// <summary>
+        /// Test the property 'SpentBalance'
+        /// </summary>
+        [Test]
+        public void SpentBalanceTest()
+        {
+            // TODO unit test for the property 'SpentBalance'
+        }
+        /// <summary>
+        /// Test the property 'TentativeCurrentBalance'
+        /// </summary>
+        [Test]
+        public void TentativeCurrentBalanceTest()
+        {
+            // TODO unit test for the property 'TentativeCurrentBalance'
+        }
 
     }
 

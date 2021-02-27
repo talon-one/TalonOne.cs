@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalResultSize** | **int** |  | 
-**Data** | [**List&lt;Attribute&gt;**](Attribute.md) |  | 
+**TotalResultSize** | **int** |  | [optional] 
+**Data** | [**List&lt;Audience&gt;**](Audience.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

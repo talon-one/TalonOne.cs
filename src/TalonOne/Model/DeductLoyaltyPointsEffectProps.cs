@@ -42,7 +42,8 @@ namespace TalonOne.Model
         /// <param name="programId">The ID of the loyalty program where these points were added (required).</param>
         /// <param name="subLedgerId">The ID of the subledger within the loyalty program where these points were added (required).</param>
         /// <param name="value">The amount of points that were deducted (required).</param>
-        public DeductLoyaltyPointsEffectProps(string ruleTitle = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal))
+        /// <param name="transactionUUID">The identifier of this deduction in the loyalty ledger (required).</param>
+        public DeductLoyaltyPointsEffectProps(string ruleTitle = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string transactionUUID = default(string))
         {
             // to ensure "ruleTitle" is required (not null)
             if (ruleTitle == null)
@@ -84,6 +85,16 @@ namespace TalonOne.Model
                 this.Value = value;
             }
             
+            // to ensure "transactionUUID" is required (not null)
+            if (transactionUUID == null)
+            {
+                throw new InvalidDataException("transactionUUID is a required property for DeductLoyaltyPointsEffectProps and cannot be null");
+            }
+            else
+            {
+                this.TransactionUUID = transactionUUID;
+            }
+            
         }
         
         /// <summary>
@@ -115,6 +126,13 @@ namespace TalonOne.Model
         public decimal Value { get; set; }
 
         /// <summary>
+        /// The identifier of this deduction in the loyalty ledger
+        /// </summary>
+        /// <value>The identifier of this deduction in the loyalty ledger</value>
+        [DataMember(Name="transactionUUID", EmitDefaultValue=true)]
+        public string TransactionUUID { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -126,6 +144,7 @@ namespace TalonOne.Model
             sb.Append("  ProgramId: ").Append(ProgramId).Append("\n");
             sb.Append("  SubLedgerId: ").Append(SubLedgerId).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -179,6 +198,11 @@ namespace TalonOne.Model
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.TransactionUUID == input.TransactionUUID ||
+                    (this.TransactionUUID != null &&
+                    this.TransactionUUID.Equals(input.TransactionUUID))
                 );
         }
 
@@ -199,6 +223,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.SubLedgerId.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
+                if (this.TransactionUUID != null)
+                    hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
                 return hashCode;
             }
         }

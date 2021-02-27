@@ -41,10 +41,11 @@ namespace TalonOne.Model
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="userId">The ID of the account that owns this entity. (required).</param>
+        /// <param name="applicationId">ID of application associated with change.</param>
         /// <param name="entity">API endpoint on which the change was initiated. (required).</param>
         /// <param name="old">Resource before the change occurred..</param>
         /// <param name="_new">Resource after the change occurred..</param>
-        public Change(int id = default(int), DateTime created = default(DateTime), int userId = default(int), string entity = default(string), Object old = default(Object), Object _new = default(Object))
+        public Change(int id = default(int), DateTime created = default(DateTime), int userId = default(int), int applicationId = default(int), string entity = default(string), Object old = default(Object), Object _new = default(Object))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -86,6 +87,7 @@ namespace TalonOne.Model
                 this.Entity = entity;
             }
             
+            this.ApplicationId = applicationId;
             this.Old = old;
             this.New = _new;
         }
@@ -110,6 +112,13 @@ namespace TalonOne.Model
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="userId", EmitDefaultValue=true)]
         public int UserId { get; set; }
+
+        /// <summary>
+        /// ID of application associated with change
+        /// </summary>
+        /// <value>ID of application associated with change</value>
+        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        public int ApplicationId { get; set; }
 
         /// <summary>
         /// API endpoint on which the change was initiated.
@@ -143,6 +152,7 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
+            sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  Entity: ").Append(Entity).Append("\n");
             sb.Append("  Old: ").Append(Old).Append("\n");
             sb.Append("  New: ").Append(New).Append("\n");
@@ -196,6 +206,11 @@ namespace TalonOne.Model
                     this.UserId.Equals(input.UserId))
                 ) && 
                 (
+                    this.ApplicationId == input.ApplicationId ||
+                    (this.ApplicationId != null &&
+                    this.ApplicationId.Equals(input.ApplicationId))
+                ) && 
+                (
                     this.Entity == input.Entity ||
                     (this.Entity != null &&
                     this.Entity.Equals(input.Entity))
@@ -227,6 +242,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
+                if (this.ApplicationId != null)
+                    hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 if (this.Entity != null)
                     hashCode = hashCode * 59 + this.Entity.GetHashCode();
                 if (this.Old != null)

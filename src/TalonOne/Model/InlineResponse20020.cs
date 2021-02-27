@@ -38,20 +38,10 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20020" /> class.
         /// </summary>
-        /// <param name="totalResultSize">totalResultSize (required).</param>
+        /// <param name="totalResultSize">totalResultSize.</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20020(int totalResultSize = default(int), List<Attribute> data = default(List<Attribute>))
+        public InlineResponse20020(int totalResultSize = default(int), List<Audience> data = default(List<Audience>))
         {
-            // to ensure "totalResultSize" is required (not null)
-            if (totalResultSize == null)
-            {
-                throw new InvalidDataException("totalResultSize is a required property for InlineResponse20020 and cannot be null");
-            }
-            else
-            {
-                this.TotalResultSize = totalResultSize;
-            }
-            
             // to ensure "data" is required (not null)
             if (data == null)
             {
@@ -62,19 +52,20 @@ namespace TalonOne.Model
                 this.Data = data;
             }
             
+            this.TotalResultSize = totalResultSize;
         }
         
         /// <summary>
         /// Gets or Sets TotalResultSize
         /// </summary>
-        [DataMember(Name="totalResultSize", EmitDefaultValue=true)]
+        [DataMember(Name="totalResultSize", EmitDefaultValue=false)]
         public int TotalResultSize { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=true)]
-        public List<Attribute> Data { get; set; }
+        public List<Audience> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

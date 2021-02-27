@@ -98,22 +98,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ExpiryDate'
         }
         /// <summary>
-        /// Test the property 'ValidCharacters'
-        /// </summary>
-        [Test]
-        public void ValidCharactersTest()
-        {
-            // TODO unit test for the property 'ValidCharacters'
-        }
-        /// <summary>
-        /// Test the property 'CouponPattern'
-        /// </summary>
-        [Test]
-        public void CouponPatternTest()
-        {
-            // TODO unit test for the property 'CouponPattern'
-        }
-        /// <summary>
         /// Test the property 'NumberOfCoupons'
         /// </summary>
         [Test]
@@ -144,6 +128,22 @@ namespace TalonOne.Test
         public void RecipientIntegrationIdTest()
         {
             // TODO unit test for the property 'RecipientIntegrationId'
+        }
+        /// <summary>
+        /// Test the property 'ValidCharacters'
+        /// </summary>
+        [Test]
+        public void ValidCharactersTest()
+        {
+            // TODO unit test for the property 'ValidCharacters'
+        }
+        /// <summary>
+        /// Test the property 'CouponPattern'
+        /// </summary>
+        [Test]
+        public void CouponPatternTest()
+        {
+            // TODO unit test for the property 'CouponPattern'
         }
 
     }

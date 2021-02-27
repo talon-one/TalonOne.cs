@@ -39,8 +39,9 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="Binding" /> class.
         /// </summary>
         /// <param name="name">A descriptive name for the value to be bound. (required).</param>
+        /// <param name="type">The kind of binding. Possible values are cartItemFilter, subledgerBalance..</param>
         /// <param name="expression">A Talang expression that will be evaluated and its result attached to the name of the binding. (required).</param>
-        public Binding(string name = default(string), List<Object> expression = default(List<Object>))
+        public Binding(string name = default(string), string type = default(string), List<Object> expression = default(List<Object>))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -62,6 +63,7 @@ namespace TalonOne.Model
                 this.Expression = expression;
             }
             
+            this.Type = type;
         }
         
         /// <summary>
@@ -70,6 +72,13 @@ namespace TalonOne.Model
         /// <value>A descriptive name for the value to be bound.</value>
         [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// The kind of binding. Possible values are cartItemFilter, subledgerBalance.
+        /// </summary>
+        /// <value>The kind of binding. Possible values are cartItemFilter, subledgerBalance.</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// A Talang expression that will be evaluated and its result attached to the name of the binding.
@@ -87,6 +96,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class Binding {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Expression: ").Append(Expression).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -128,6 +138,11 @@ namespace TalonOne.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
+                ) && 
+                (
                     this.Expression == input.Expression ||
                     this.Expression != null &&
                     input.Expression != null &&
@@ -146,6 +161,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Type != null)
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Expression != null)
                     hashCode = hashCode * 59 + this.Expression.GetHashCode();
                 return hashCode;

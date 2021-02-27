@@ -159,6 +159,11 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CouponPattern (string) maxLength
+            if(this.CouponPattern != null && this.CouponPattern.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CouponPattern, length must be less than 100.", new [] { "CouponPattern" });
+            }
 
             // CouponPattern (string) minLength
             if(this.CouponPattern != null && this.CouponPattern.Length < 3)

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **Coupons** | [**List&lt;Coupon&gt;**](Coupon.md) |  | [optional] 
 **TriggeredCampaigns** | [**List&lt;Campaign&gt;**](Campaign.md) |  | [optional] 
 **Effects** | [**List&lt;Effect&gt;**](Effect.md) |  | 
+**RuleFailureReasons** | [**List&lt;RuleFailureReason&gt;**](RuleFailureReason.md) |  | [optional] 
 **CreatedCoupons** | [**List&lt;Coupon&gt;**](Coupon.md) |  | 
 **CreatedReferrals** | [**List&lt;Referral&gt;**](Referral.md) |  | 
 

@@ -200,6 +200,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+
+            
+            // Points (decimal) maximum
+            if(this.Points > (decimal)1E+8)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Points, must be a value less than or equal to 1E+8.", new [] { "Points" });
+            }
+
+            // Points (decimal) minimum
+            if(this.Points < (decimal)0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Points, must be a value greater than or equal to 0.", new [] { "Points" });
+            }
+
             yield break;
         }
     }

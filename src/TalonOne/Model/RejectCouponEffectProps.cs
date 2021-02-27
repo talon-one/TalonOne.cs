@@ -40,7 +40,10 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="value">The coupon code that was rejected (required).</param>
         /// <param name="rejectionReason">The reason why this coupon was rejected (required).</param>
-        public RejectCouponEffectProps(string value = default(string), string rejectionReason = default(string))
+        /// <param name="conditionIndex">The index of the condition that caused the rejection of the coupon.</param>
+        /// <param name="effectIndex">The index of the effect that caused the rejection of the coupon.</param>
+        /// <param name="details">More details about the failure.</param>
+        public RejectCouponEffectProps(string value = default(string), string rejectionReason = default(string), int conditionIndex = default(int), int effectIndex = default(int), string details = default(string))
         {
             // to ensure "value" is required (not null)
             if (value == null)
@@ -62,6 +65,9 @@ namespace TalonOne.Model
                 this.RejectionReason = rejectionReason;
             }
             
+            this.ConditionIndex = conditionIndex;
+            this.EffectIndex = effectIndex;
+            this.Details = details;
         }
         
         /// <summary>
@@ -79,6 +85,27 @@ namespace TalonOne.Model
         public string RejectionReason { get; set; }
 
         /// <summary>
+        /// The index of the condition that caused the rejection of the coupon
+        /// </summary>
+        /// <value>The index of the condition that caused the rejection of the coupon</value>
+        [DataMember(Name="conditionIndex", EmitDefaultValue=false)]
+        public int ConditionIndex { get; set; }
+
+        /// <summary>
+        /// The index of the effect that caused the rejection of the coupon
+        /// </summary>
+        /// <value>The index of the effect that caused the rejection of the coupon</value>
+        [DataMember(Name="effectIndex", EmitDefaultValue=false)]
+        public int EffectIndex { get; set; }
+
+        /// <summary>
+        /// More details about the failure
+        /// </summary>
+        /// <value>More details about the failure</value>
+        [DataMember(Name="details", EmitDefaultValue=false)]
+        public string Details { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +115,9 @@ namespace TalonOne.Model
             sb.Append("class RejectCouponEffectProps {\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  RejectionReason: ").Append(RejectionReason).Append("\n");
+            sb.Append("  ConditionIndex: ").Append(ConditionIndex).Append("\n");
+            sb.Append("  EffectIndex: ").Append(EffectIndex).Append("\n");
+            sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +161,21 @@ namespace TalonOne.Model
                     this.RejectionReason == input.RejectionReason ||
                     (this.RejectionReason != null &&
                     this.RejectionReason.Equals(input.RejectionReason))
+                ) && 
+                (
+                    this.ConditionIndex == input.ConditionIndex ||
+                    (this.ConditionIndex != null &&
+                    this.ConditionIndex.Equals(input.ConditionIndex))
+                ) && 
+                (
+                    this.EffectIndex == input.EffectIndex ||
+                    (this.EffectIndex != null &&
+                    this.EffectIndex.Equals(input.EffectIndex))
+                ) && 
+                (
+                    this.Details == input.Details ||
+                    (this.Details != null &&
+                    this.Details.Equals(input.Details))
                 );
         }
 
@@ -147,6 +192,12 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.RejectionReason != null)
                     hashCode = hashCode * 59 + this.RejectionReason.GetHashCode();
+                if (this.ConditionIndex != null)
+                    hashCode = hashCode * 59 + this.ConditionIndex.GetHashCode();
+                if (this.EffectIndex != null)
+                    hashCode = hashCode * 59 + this.EffectIndex.GetHashCode();
+                if (this.Details != null)
+                    hashCode = hashCode * 59 + this.Details.GetHashCode();
                 return hashCode;
             }
         }
