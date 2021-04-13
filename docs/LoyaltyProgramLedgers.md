@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **int** | The internal ID of loyalty program | 
 **Title** | **string** | Visible name of loyalty program | 
 **Name** | **string** | Internal name of loyalty program | 
 **Ledger** | [**LoyaltyProgramBalance**](LoyaltyProgramBalance.md) |  | 

@@ -130,6 +130,39 @@ namespace TalonOne.Model
         [DataMember(Name="exclusiveCampaignsStrategy", EmitDefaultValue=false)]
         public ExclusiveCampaignsStrategyEnum? ExclusiveCampaignsStrategy { get; set; }
         /// <summary>
+        /// The default scope to apply \&quot;setDiscount\&quot; effects on if no scope was provided with the effect.
+        /// </summary>
+        /// <value>The default scope to apply \&quot;setDiscount\&quot; effects on if no scope was provided with the effect.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DefaultDiscountScopeEnum
+        {
+            /// <summary>
+            /// Enum SessionTotal for value: sessionTotal
+            /// </summary>
+            [EnumMember(Value = "sessionTotal")]
+            SessionTotal = 1,
+
+            /// <summary>
+            /// Enum CartItems for value: cartItems
+            /// </summary>
+            [EnumMember(Value = "cartItems")]
+            CartItems = 2,
+
+            /// <summary>
+            /// Enum AdditionalCosts for value: additionalCosts
+            /// </summary>
+            [EnumMember(Value = "additionalCosts")]
+            AdditionalCosts = 3
+
+        }
+
+        /// <summary>
+        /// The default scope to apply \&quot;setDiscount\&quot; effects on if no scope was provided with the effect.
+        /// </summary>
+        /// <value>The default scope to apply \&quot;setDiscount\&quot; effects on if no scope was provided with the effect.</value>
+        [DataMember(Name="defaultDiscountScope", EmitDefaultValue=false)]
+        public DefaultDiscountScopeEnum? DefaultDiscountScope { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Application" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -150,12 +183,13 @@ namespace TalonOne.Model
         /// <param name="limits">Default limits for campaigns created in this application.</param>
         /// <param name="campaignPriority">Default priority for campaigns created in this application, can be one of (universal, stackable, exclusive). If no value is provided, this is set to \&quot;universal\&quot;.</param>
         /// <param name="exclusiveCampaignsStrategy">The strategy used when choosing exclusive campaigns for evaluation, can be one of (listOrder, lowestDiscount, highestDiscount). If no value is provided, this is set to \&quot;listOrder\&quot;.</param>
+        /// <param name="defaultDiscountScope">The default scope to apply \&quot;setDiscount\&quot; effects on if no scope was provided with the effect..</param>
         /// <param name="enableCascadingDiscounts">Flag indicating if discounts should cascade for this application.</param>
         /// <param name="enableFlattenedCartItems">Flag indicating if cart items of quantity larger than one should be separated into different items of quantity one.</param>
         /// <param name="attributesSettings">attributesSettings.</param>
         /// <param name="sandbox">Flag indicating if this is a live or sandbox application.</param>
         /// <param name="loyaltyPrograms">An array containing all the loyalty programs to which this application is subscribed (required).</param>
-        public Application(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = default(CampaignPriorityEnum?), ExclusiveCampaignsStrategyEnum? exclusiveCampaignsStrategy = default(ExclusiveCampaignsStrategyEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>))
+        public Application(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = default(CampaignPriorityEnum?), ExclusiveCampaignsStrategyEnum? exclusiveCampaignsStrategy = default(ExclusiveCampaignsStrategyEnum?), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -243,6 +277,7 @@ namespace TalonOne.Model
             this.Limits = limits;
             this.CampaignPriority = campaignPriority;
             this.ExclusiveCampaignsStrategy = exclusiveCampaignsStrategy;
+            this.DefaultDiscountScope = defaultDiscountScope;
             this.EnableCascadingDiscounts = enableCascadingDiscounts;
             this.EnableFlattenedCartItems = enableFlattenedCartItems;
             this.AttributesSettings = attributesSettings;
@@ -322,6 +357,7 @@ namespace TalonOne.Model
 
 
 
+
         /// <summary>
         /// Flag indicating if discounts should cascade for this application
         /// </summary>
@@ -377,6 +413,7 @@ namespace TalonOne.Model
             sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  CampaignPriority: ").Append(CampaignPriority).Append("\n");
             sb.Append("  ExclusiveCampaignsStrategy: ").Append(ExclusiveCampaignsStrategy).Append("\n");
+            sb.Append("  DefaultDiscountScope: ").Append(DefaultDiscountScope).Append("\n");
             sb.Append("  EnableCascadingDiscounts: ").Append(EnableCascadingDiscounts).Append("\n");
             sb.Append("  EnableFlattenedCartItems: ").Append(EnableFlattenedCartItems).Append("\n");
             sb.Append("  AttributesSettings: ").Append(AttributesSettings).Append("\n");
@@ -483,6 +520,11 @@ namespace TalonOne.Model
                     this.ExclusiveCampaignsStrategy.Equals(input.ExclusiveCampaignsStrategy))
                 ) && 
                 (
+                    this.DefaultDiscountScope == input.DefaultDiscountScope ||
+                    (this.DefaultDiscountScope != null &&
+                    this.DefaultDiscountScope.Equals(input.DefaultDiscountScope))
+                ) && 
+                (
                     this.EnableCascadingDiscounts == input.EnableCascadingDiscounts ||
                     (this.EnableCascadingDiscounts != null &&
                     this.EnableCascadingDiscounts.Equals(input.EnableCascadingDiscounts))
@@ -545,6 +587,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CampaignPriority.GetHashCode();
                 if (this.ExclusiveCampaignsStrategy != null)
                     hashCode = hashCode * 59 + this.ExclusiveCampaignsStrategy.GetHashCode();
+                if (this.DefaultDiscountScope != null)
+                    hashCode = hashCode * 59 + this.DefaultDiscountScope.GetHashCode();
                 if (this.EnableCascadingDiscounts != null)
                     hashCode = hashCode * 59 + this.EnableCascadingDiscounts.GetHashCode();
                 if (this.EnableFlattenedCartItems != null)

@@ -168,6 +168,33 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of InlineResponse2004</returns>
         ApiResponse<InlineResponse2004> CreateCouponsWithHttpInfo (int applicationId, int campaignId, NewCoupons body, string silent = default(string));
         /// <summary>
+        /// Create Coupons for Multiple Recipients
+        /// </summary>
+        /// <remarks>
+        /// Create coupons according to some pattern for up to 1000 recipients.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)</param>
+        /// <returns>InlineResponse2004</returns>
+        InlineResponse2004 CreateCouponsForMultipleRecipients (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string));
+
+        /// <summary>
+        /// Create Coupons for Multiple Recipients
+        /// </summary>
+        /// <remarks>
+        /// Create coupons according to some pattern for up to 1000 recipients.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        ApiResponse<InlineResponse2004> CreateCouponsForMultipleRecipientsWithHttpInfo (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string));
+        /// <summary>
         /// Request a password reset
         /// </summary>
         /// <remarks>
@@ -292,12 +319,12 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -317,12 +344,12 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -381,6 +408,182 @@ namespace TalonOne.Api
         /// <param name="rulesetId"></param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteRulesetWithHttpInfo (int applicationId, int campaignId, int rulesetId);
+        /// <summary>
+        /// Destroy a Session
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        void DestroySession ();
+
+        /// <summary>
+        /// Destroy a Session
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DestroySessionWithHttpInfo ();
+        /// <summary>
+        /// Export Coupons to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the coupons that match the given attributes.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
+        /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
+        /// <param name="batchId">Filter results by batches of coupons (optional)</param>
+        /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <returns>string</returns>
+        string ExportCoupons (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string));
+
+        /// <summary>
+        /// Export Coupons to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the coupons that match the given attributes.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
+        /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
+        /// <param name="batchId">Filter results by batches of coupons (optional)</param>
+        /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> ExportCouponsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string));
+        /// <summary>
+        /// Export Customer Sessions to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the customer sessions that match the request.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="profileIntegrationId">Only return sessions for the customer that matches this customer integration ID. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="customerSessionState">Filter results by state. (optional)</param>
+        /// <returns>string</returns>
+        string ExportCustomerSessions (int applicationId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string profileIntegrationId = default(string), string dateFormat = default(string), string customerSessionState = default(string));
+
+        /// <summary>
+        /// Export Customer Sessions to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the customer sessions that match the request.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="profileIntegrationId">Only return sessions for the customer that matches this customer integration ID. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="customerSessionState">Filter results by state. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> ExportCustomerSessionsWithHttpInfo (int applicationId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string profileIntegrationId = default(string), string dateFormat = default(string), string customerSessionState = default(string));
+        /// <summary>
+        /// Export triggered Effects to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the triggered effects that match the given attributes.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>string</returns>
+        string ExportEffects (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string));
+
+        /// <summary>
+        /// Export triggered Effects to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the triggered effects that match the given attributes.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> ExportEffectsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string));
+        /// <summary>
+        /// Export customer loyalty balance to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the balance of each customer in the loyalty program
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>string</returns>
+        string ExportLoyaltyBalance (string programID);
+
+        /// <summary>
+        /// Export customer loyalty balance to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the balance of each customer in the loyalty program
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> ExportLoyaltyBalanceWithHttpInfo (string programID);
+        /// <summary>
+        /// Export a customer&#39;s loyalty ledger log to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with a customer&#39;s ledger log in the loyalty program
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rangeStart">Only return results from after this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="rangeEnd">Only return results from before this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="programID"></param>
+        /// <param name="integrationID"></param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>string</returns>
+        string ExportLoyaltyLedger (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string));
+
+        /// <summary>
+        /// Export a customer&#39;s loyalty ledger log to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with a customer&#39;s ledger log in the loyalty program
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rangeStart">Only return results from after this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="rangeEnd">Only return results from before this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="programID"></param>
+        /// <param name="integrationID"></param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> ExportLoyaltyLedgerWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string));
         /// <summary>
         /// Get access logs for application (with total count)
         /// </summary>
@@ -528,8 +731,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>InlineResponse20021</returns>
-        InlineResponse20021 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>InlineResponse20022</returns>
+        InlineResponse20022 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List additional costs
@@ -541,8 +744,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20021</returns>
-        ApiResponse<InlineResponse20021> GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>ApiResponse of InlineResponse20022</returns>
+        ApiResponse<InlineResponse20022> GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get all access logs
         /// </summary>
@@ -579,7 +782,7 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of InlineResponse2009</returns>
         ApiResponse<InlineResponse2009> GetAllAccessLogsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
-        /// Get all roles.
+        /// Get all roles
         /// </summary>
         /// <remarks>
         /// 
@@ -589,7 +792,7 @@ namespace TalonOne.Api
         InlineResponse20030 GetAllRoles ();
 
         /// <summary>
-        /// Get all roles.
+        /// Get all roles
         /// </summary>
         /// <remarks>
         /// 
@@ -751,8 +954,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -776,8 +979,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -800,8 +1003,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -825,8 +1028,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -873,8 +1076,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
@@ -894,8 +1097,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
@@ -957,8 +1160,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>InlineResponse20020</returns>
-        InlineResponse20020 GetAttributes (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>InlineResponse20021</returns>
+        InlineResponse20021 GetAttributes (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List custom attributes
@@ -970,8 +1173,35 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20021</returns>
+        ApiResponse<InlineResponse20021> GetAttributesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <summary>
+        /// Get all audiences
+        /// </summary>
+        /// <remarks>
+        /// Get All audiences created in the account. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <returns>InlineResponse20020</returns>
+        InlineResponse20020 GetAudiences (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?));
+
+        /// <summary>
+        /// Get all audiences
+        /// </summary>
+        /// <remarks>
+        /// Get All audiences created in the account. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20020</returns>
-        ApiResponse<InlineResponse20020> GetAttributesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        ApiResponse<InlineResponse20020> GetAudiencesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?));
         /// <summary>
         /// Get a Campaign
         /// </summary>
@@ -1069,8 +1299,8 @@ namespace TalonOne.Api
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>InlineResponse2002</returns>
         InlineResponse2002 GetCampaigns (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?));
@@ -1089,8 +1319,8 @@ namespace TalonOne.Api
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
         ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?));
@@ -1105,12 +1335,14 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
+        /// <param name="userId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>InlineResponse20027</returns>
-        InlineResponse20027 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
+        /// <returns>InlineResponse20028</returns>
+        InlineResponse20028 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
 
         /// <summary>
         /// Get audit log for an account
@@ -1123,12 +1355,14 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
+        /// <param name="userId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20027</returns>
-        ApiResponse<InlineResponse20027> GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
+        /// <returns>ApiResponse of InlineResponse20028</returns>
+        ApiResponse<InlineResponse20028> GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
         /// <summary>
         /// List Coupons (with total count)
         /// </summary>
@@ -1142,12 +1376,12 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -1170,12 +1404,12 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -1198,8 +1432,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -1223,8 +1457,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -1246,8 +1480,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -1271,8 +1505,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -1295,8 +1529,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -1319,8 +1553,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -1549,8 +1783,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>InlineResponse20025</returns>
-        InlineResponse20025 GetEventTypes (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>InlineResponse20026</returns>
+        InlineResponse20026 GetEventTypes (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Event Types
@@ -1565,8 +1799,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20025</returns>
-        ApiResponse<InlineResponse20025> GetEventTypesWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>ApiResponse of InlineResponse20026</returns>
+        ApiResponse<InlineResponse20026> GetEventTypesWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Exports
         /// </summary>
@@ -1579,46 +1813,23 @@ namespace TalonOne.Api
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>InlineResponse20028</returns>
-        InlineResponse20028 GetExports (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
-
-        /// <summary>
-        /// Get Exports
-        /// </summary>
-        /// <remarks>
-        /// Get a list of all past exports 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId"> (optional)</param>
-        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20028</returns>
-        ApiResponse<InlineResponse20028> GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
-        /// <summary>
-        /// Get Imports
-        /// </summary>
-        /// <remarks>
-        /// Get a list of all past imports 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20029</returns>
-        InlineResponse20029 GetImports (int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse20029 GetExports (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
 
         /// <summary>
-        /// Get Imports
+        /// Get Exports
         /// </summary>
         /// <remarks>
-        /// Get a list of all past imports 
+        /// Get a list of all past exports 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId"> (optional)</param>
+        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20029</returns>
-        ApiResponse<InlineResponse20029> GetImportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse20029> GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
         /// <summary>
         /// get the Loyalty Ledger for this integrationID
         /// </summary>
@@ -1716,8 +1927,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -1737,8 +1948,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -1757,8 +1968,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -1778,15 +1989,15 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>ApiResponse of InlineResponse2007</returns>
         ApiResponse<InlineResponse2007> GetReferralsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
         /// <summary>
-        /// Get information for the specified role.
+        /// Get information for the specified role
         /// </summary>
         /// <remarks>
         /// 
@@ -1797,7 +2008,7 @@ namespace TalonOne.Api
         Role GetRole (int roleId);
 
         /// <summary>
-        /// Get information for the specified role.
+        /// Get information for the specified role
         /// </summary>
         /// <remarks>
         /// 
@@ -1891,8 +2102,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>InlineResponse20026</returns>
-        InlineResponse20026 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>InlineResponse20027</returns>
+        InlineResponse20027 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Users in your account
@@ -1904,8 +2115,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20026</returns>
-        ApiResponse<InlineResponse20026> GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>ApiResponse of InlineResponse20027</returns>
+        ApiResponse<InlineResponse20027> GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Webhook
         /// </summary>
@@ -1941,10 +2152,10 @@ namespace TalonOne.Api
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>InlineResponse20023</returns>
-        InlineResponse20023 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>InlineResponse20024</returns>
+        InlineResponse20024 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
 
         /// <summary>
         /// List Webhook activation Log Entries
@@ -1960,49 +2171,49 @@ namespace TalonOne.Api
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20023</returns>
-        ApiResponse<InlineResponse20023> GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-        /// <summary>
-        /// List Webhook Log Entries
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>InlineResponse20024</returns>
-        InlineResponse20024 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-
-        /// <summary>
-        /// List Webhook Log Entries
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20024</returns>
-        ApiResponse<InlineResponse20024> GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        ApiResponse<InlineResponse20024> GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <summary>
+        /// List Webhook Log Entries
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>InlineResponse20025</returns>
+        InlineResponse20025 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+
+        /// <summary>
+        /// List Webhook Log Entries
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20025</returns>
+        ApiResponse<InlineResponse20025> GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List Webhooks
         /// </summary>
@@ -2014,8 +2225,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse20022</returns>
-        InlineResponse20022 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>InlineResponse20023</returns>
+        InlineResponse20023 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List Webhooks
@@ -2028,8 +2239,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20022</returns>
-        ApiResponse<InlineResponse20022> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>ApiResponse of InlineResponse20023</returns>
+        ApiResponse<InlineResponse20023> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// Deduct points in a certain loyalty program for the specified customer
         /// </summary>
@@ -2090,8 +2301,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -2115,8 +2326,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -2138,8 +2349,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -2163,8 +2374,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -2187,8 +2398,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -2212,8 +2423,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -2237,8 +2448,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -2262,8 +2473,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -2567,6 +2778,33 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> CreateCouponsAsyncWithHttpInfo (int applicationId, int campaignId, NewCoupons body, string silent = default(string));
         /// <summary>
+        /// Create Coupons for Multiple Recipients
+        /// </summary>
+        /// <remarks>
+        /// Create coupons according to some pattern for up to 1000 recipients.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)</param>
+        /// <returns>Task of InlineResponse2004</returns>
+        System.Threading.Tasks.Task<InlineResponse2004> CreateCouponsForMultipleRecipientsAsync (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string));
+
+        /// <summary>
+        /// Create Coupons for Multiple Recipients
+        /// </summary>
+        /// <remarks>
+        /// Create coupons according to some pattern for up to 1000 recipients.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> CreateCouponsForMultipleRecipientsAsyncWithHttpInfo (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string));
+        /// <summary>
         /// Request a password reset
         /// </summary>
         /// <remarks>
@@ -2691,12 +2929,12 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -2716,12 +2954,12 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -2780,6 +3018,182 @@ namespace TalonOne.Api
         /// <param name="rulesetId"></param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRulesetAsyncWithHttpInfo (int applicationId, int campaignId, int rulesetId);
+        /// <summary>
+        /// Destroy a Session
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DestroySessionAsync ();
+
+        /// <summary>
+        /// Destroy a Session
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DestroySessionAsyncWithHttpInfo ();
+        /// <summary>
+        /// Export Coupons to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the coupons that match the given attributes.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
+        /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
+        /// <param name="batchId">Filter results by batches of coupons (optional)</param>
+        /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> ExportCouponsAsync (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string));
+
+        /// <summary>
+        /// Export Coupons to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the coupons that match the given attributes.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
+        /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
+        /// <param name="batchId">Filter results by batches of coupons (optional)</param>
+        /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> ExportCouponsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string));
+        /// <summary>
+        /// Export Customer Sessions to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the customer sessions that match the request.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="profileIntegrationId">Only return sessions for the customer that matches this customer integration ID. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="customerSessionState">Filter results by state. (optional)</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> ExportCustomerSessionsAsync (int applicationId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string profileIntegrationId = default(string), string dateFormat = default(string), string customerSessionState = default(string));
+
+        /// <summary>
+        /// Export Customer Sessions to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the customer sessions that match the request.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="profileIntegrationId">Only return sessions for the customer that matches this customer integration ID. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="customerSessionState">Filter results by state. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> ExportCustomerSessionsAsyncWithHttpInfo (int applicationId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string profileIntegrationId = default(string), string dateFormat = default(string), string customerSessionState = default(string));
+        /// <summary>
+        /// Export triggered Effects to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the triggered effects that match the given attributes.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> ExportEffectsAsync (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string));
+
+        /// <summary>
+        /// Export triggered Effects to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the triggered effects that match the given attributes.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> ExportEffectsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string));
+        /// <summary>
+        /// Export customer loyalty balance to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the balance of each customer in the loyalty program
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> ExportLoyaltyBalanceAsync (string programID);
+
+        /// <summary>
+        /// Export customer loyalty balance to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with the balance of each customer in the loyalty program
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> ExportLoyaltyBalanceAsyncWithHttpInfo (string programID);
+        /// <summary>
+        /// Export a customer&#39;s loyalty ledger log to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with a customer&#39;s ledger log in the loyalty program
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rangeStart">Only return results from after this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="rangeEnd">Only return results from before this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="programID"></param>
+        /// <param name="integrationID"></param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> ExportLoyaltyLedgerAsync (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string));
+
+        /// <summary>
+        /// Export a customer&#39;s loyalty ledger log to a CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file with a customer&#39;s ledger log in the loyalty program
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rangeStart">Only return results from after this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="rangeEnd">Only return results from before this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="programID"></param>
+        /// <param name="integrationID"></param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> ExportLoyaltyLedgerAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string));
         /// <summary>
         /// Get access logs for application (with total count)
         /// </summary>
@@ -2927,8 +3341,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of InlineResponse20021</returns>
-        System.Threading.Tasks.Task<InlineResponse20021> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of InlineResponse20022</returns>
+        System.Threading.Tasks.Task<InlineResponse20022> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List additional costs
@@ -2940,8 +3354,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get all access logs
         /// </summary>
@@ -2978,7 +3392,7 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetAllAccessLogsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
-        /// Get all roles.
+        /// Get all roles
         /// </summary>
         /// <remarks>
         /// 
@@ -2988,7 +3402,7 @@ namespace TalonOne.Api
         System.Threading.Tasks.Task<InlineResponse20030> GetAllRolesAsync ();
 
         /// <summary>
-        /// Get all roles.
+        /// Get all roles
         /// </summary>
         /// <remarks>
         /// 
@@ -3150,8 +3564,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -3175,8 +3589,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -3199,8 +3613,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -3224,8 +3638,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -3272,8 +3686,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
@@ -3293,8 +3707,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
@@ -3356,8 +3770,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of InlineResponse20020</returns>
-        System.Threading.Tasks.Task<InlineResponse20020> GetAttributesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of InlineResponse20021</returns>
+        System.Threading.Tasks.Task<InlineResponse20021> GetAttributesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List custom attributes
@@ -3369,8 +3783,35 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetAttributesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <summary>
+        /// Get all audiences
+        /// </summary>
+        /// <remarks>
+        /// Get All audiences created in the account. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <returns>Task of InlineResponse20020</returns>
+        System.Threading.Tasks.Task<InlineResponse20020> GetAudiencesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?));
+
+        /// <summary>
+        /// Get all audiences
+        /// </summary>
+        /// <remarks>
+        /// Get All audiences created in the account. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAttributesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAudiencesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?));
         /// <summary>
         /// Get a Campaign
         /// </summary>
@@ -3468,8 +3909,8 @@ namespace TalonOne.Api
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
         System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?));
@@ -3488,8 +3929,8 @@ namespace TalonOne.Api
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?));
@@ -3504,12 +3945,14 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
+        /// <param name="userId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of InlineResponse20027</returns>
-        System.Threading.Tasks.Task<InlineResponse20027> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
+        /// <returns>Task of InlineResponse20028</returns>
+        System.Threading.Tasks.Task<InlineResponse20028> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
 
         /// <summary>
         /// Get audit log for an account
@@ -3522,12 +3965,14 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
+        /// <param name="userId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
+        /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?));
         /// <summary>
         /// List Coupons (with total count)
         /// </summary>
@@ -3541,12 +3986,12 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -3569,12 +4014,12 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -3597,8 +4042,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -3622,8 +4067,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -3645,8 +4090,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -3670,8 +4115,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -3694,8 +4139,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -3718,8 +4163,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -3948,8 +4393,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of InlineResponse20025</returns>
-        System.Threading.Tasks.Task<InlineResponse20025> GetEventTypesAsync (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of InlineResponse20026</returns>
+        System.Threading.Tasks.Task<InlineResponse20026> GetEventTypesAsync (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Event Types
@@ -3964,8 +4409,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetEventTypesAsyncWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20026)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetEventTypesAsyncWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Exports
         /// </summary>
@@ -3978,46 +4423,23 @@ namespace TalonOne.Api
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of InlineResponse20028</returns>
-        System.Threading.Tasks.Task<InlineResponse20028> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
-
-        /// <summary>
-        /// Get Exports
-        /// </summary>
-        /// <remarks>
-        /// Get a list of all past exports 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId"> (optional)</param>
-        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
-        /// <summary>
-        /// Get Imports
-        /// </summary>
-        /// <remarks>
-        /// Get a list of all past imports 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20029</returns>
-        System.Threading.Tasks.Task<InlineResponse20029> GetImportsAsync (int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse20029> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
 
         /// <summary>
-        /// Get Imports
+        /// Get Exports
         /// </summary>
         /// <remarks>
-        /// Get a list of all past imports 
+        /// Get a list of all past exports 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId"> (optional)</param>
+        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20029)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetImportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string));
         /// <summary>
         /// get the Loyalty Ledger for this integrationID
         /// </summary>
@@ -4115,8 +4537,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -4136,8 +4558,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -4156,8 +4578,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -4177,15 +4599,15 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2007)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2007>> GetReferralsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string code = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string advocate = default(string));
         /// <summary>
-        /// Get information for the specified role.
+        /// Get information for the specified role
         /// </summary>
         /// <remarks>
         /// 
@@ -4196,7 +4618,7 @@ namespace TalonOne.Api
         System.Threading.Tasks.Task<Role> GetRoleAsync (int roleId);
 
         /// <summary>
-        /// Get information for the specified role.
+        /// Get information for the specified role
         /// </summary>
         /// <remarks>
         /// 
@@ -4290,8 +4712,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of InlineResponse20026</returns>
-        System.Threading.Tasks.Task<InlineResponse20026> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of InlineResponse20027</returns>
+        System.Threading.Tasks.Task<InlineResponse20027> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List Users in your account
@@ -4303,8 +4725,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20026)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get Webhook
         /// </summary>
@@ -4340,10 +4762,10 @@ namespace TalonOne.Api
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>Task of InlineResponse20023</returns>
-        System.Threading.Tasks.Task<InlineResponse20023> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of InlineResponse20024</returns>
+        System.Threading.Tasks.Task<InlineResponse20024> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
 
         /// <summary>
         /// List Webhook activation Log Entries
@@ -4359,49 +4781,49 @@ namespace TalonOne.Api
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-        /// <summary>
-        /// List Webhook Log Entries
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>Task of InlineResponse20024</returns>
-        System.Threading.Tasks.Task<InlineResponse20024> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-
-        /// <summary>
-        /// List Webhook Log Entries
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20024)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <summary>
+        /// List Webhook Log Entries
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of InlineResponse20025</returns>
+        System.Threading.Tasks.Task<InlineResponse20025> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+
+        /// <summary>
+        /// List Webhook Log Entries
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List Webhooks
         /// </summary>
@@ -4413,8 +4835,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse20022</returns>
-        System.Threading.Tasks.Task<InlineResponse20022> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>Task of InlineResponse20023</returns>
+        System.Threading.Tasks.Task<InlineResponse20023> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List Webhooks
@@ -4427,8 +4849,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// Deduct points in a certain loyalty program for the specified customer
         /// </summary>
@@ -4489,8 +4911,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -4514,8 +4936,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -4537,8 +4959,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -4562,8 +4984,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -4586,8 +5008,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -4611,8 +5033,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -4636,8 +5058,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -4661,8 +5083,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -5973,6 +6395,195 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Create Coupons for Multiple Recipients Create coupons according to some pattern for up to 1000 recipients.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)</param>
+        /// <returns>InlineResponse2004</returns>
+        public InlineResponse2004 CreateCouponsForMultipleRecipients (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string))
+        {
+             ApiResponse<InlineResponse2004> localVarResponse = CreateCouponsForMultipleRecipientsWithHttpInfo(applicationId, campaignId, body, silent);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create Coupons for Multiple Recipients Create coupons according to some pattern for up to 1000 recipients.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2004</returns>
+        public ApiResponse<InlineResponse2004> CreateCouponsForMultipleRecipientsWithHttpInfo (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string))
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->CreateCouponsForMultipleRecipients");
+            // verify the required parameter 'campaignId' is set
+            if (campaignId == null)
+                throw new ApiException(400, "Missing required parameter 'campaignId' when calling ManagementApi->CreateCouponsForMultipleRecipients");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ManagementApi->CreateCouponsForMultipleRecipients");
+
+            var localVarPath = "/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
+            if (silent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "silent", silent)); // query parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateCouponsForMultipleRecipients", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse2004) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004)));
+        }
+
+        /// <summary>
+        /// Create Coupons for Multiple Recipients Create coupons according to some pattern for up to 1000 recipients.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)</param>
+        /// <returns>Task of InlineResponse2004</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2004> CreateCouponsForMultipleRecipientsAsync (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string))
+        {
+             ApiResponse<InlineResponse2004> localVarResponse = await CreateCouponsForMultipleRecipientsAsyncWithHttpInfo(applicationId, campaignId, body, silent);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create Coupons for Multiple Recipients Create coupons according to some pattern for up to 1000 recipients.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="body"></param>
+        /// <param name="silent">If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> CreateCouponsForMultipleRecipientsAsyncWithHttpInfo (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string))
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->CreateCouponsForMultipleRecipients");
+            // verify the required parameter 'campaignId' is set
+            if (campaignId == null)
+                throw new ApiException(400, "Missing required parameter 'campaignId' when calling ManagementApi->CreateCouponsForMultipleRecipients");
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new ApiException(400, "Missing required parameter 'body' when calling ManagementApi->CreateCouponsForMultipleRecipients");
+
+            var localVarPath = "/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (campaignId != null) localVarPathParams.Add("campaignId", this.Configuration.ApiClient.ParameterToString(campaignId)); // path parameter
+            if (silent != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "silent", silent)); // query parameter
+            if (body != null && body.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = this.Configuration.ApiClient.Serialize(body); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = body; // byte array
+            }
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateCouponsForMultipleRecipients", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2004>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse2004) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2004)));
+        }
+
+        /// <summary>
         /// Request a password reset Sends an email with a password recovery link to the email of an existing account. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
@@ -6794,12 +7405,12 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -6819,12 +7430,12 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -6908,12 +7519,12 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -6934,12 +7545,12 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -7340,6 +7951,1022 @@ namespace TalonOne.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
                 null);
+        }
+
+        /// <summary>
+        /// Destroy a Session 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        public void DestroySession ()
+        {
+             DestroySessionWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Destroy a Session 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> DestroySessionWithHttpInfo ()
+        {
+
+            var localVarPath = "/v1/sessions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DestroySession", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Destroy a Session 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DestroySessionAsync ()
+        {
+             await DestroySessionAsyncWithHttpInfo();
+
+        }
+
+        /// <summary>
+        /// Destroy a Session 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> DestroySessionAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/v1/sessions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DestroySession", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                null);
+        }
+
+        /// <summary>
+        /// Export Coupons to a CSV file Download a file with the coupons that match the given attributes.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
+        /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
+        /// <param name="batchId">Filter results by batches of coupons (optional)</param>
+        /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <returns>string</returns>
+        public string ExportCoupons (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string))
+        {
+             ApiResponse<string> localVarResponse = ExportCouponsWithHttpInfo(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export Coupons to a CSV file Download a file with the coupons that match the given attributes.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
+        /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
+        /// <param name="batchId">Filter results by batches of coupons (optional)</param>
+        /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse<string> ExportCouponsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string))
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->ExportCoupons");
+
+            var localVarPath = "/v1/applications/{applicationId}/export_coupons";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (value != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "value", value)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (valid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "valid", valid)); // query parameter
+            if (usable != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "usable", usable)); // query parameter
+            if (referralId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referralId", referralId)); // query parameter
+            if (recipientIntegrationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "recipientIntegrationId", recipientIntegrationId)); // query parameter
+            if (batchId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "batchId", batchId)); // query parameter
+            if (exactMatch != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "exactMatch", exactMatch)); // query parameter
+            if (dateFormat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dateFormat", dateFormat)); // query parameter
+            if (campaignState != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignState", campaignState)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportCoupons", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Export Coupons to a CSV file Download a file with the coupons that match the given attributes.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
+        /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
+        /// <param name="batchId">Filter results by batches of coupons (optional)</param>
+        /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> ExportCouponsAsync (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string))
+        {
+             ApiResponse<string> localVarResponse = await ExportCouponsAsyncWithHttpInfo(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export Coupons to a CSV file Download a file with the coupons that match the given attributes.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
+        /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
+        /// <param name="batchId">Filter results by batches of coupons (optional)</param>
+        /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> ExportCouponsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string))
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->ExportCoupons");
+
+            var localVarPath = "/v1/applications/{applicationId}/export_coupons";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (value != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "value", value)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (valid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "valid", valid)); // query parameter
+            if (usable != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "usable", usable)); // query parameter
+            if (referralId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "referralId", referralId)); // query parameter
+            if (recipientIntegrationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "recipientIntegrationId", recipientIntegrationId)); // query parameter
+            if (batchId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "batchId", batchId)); // query parameter
+            if (exactMatch != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "exactMatch", exactMatch)); // query parameter
+            if (dateFormat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dateFormat", dateFormat)); // query parameter
+            if (campaignState != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignState", campaignState)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportCoupons", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Export Customer Sessions to a CSV file Download a file with the customer sessions that match the request.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="profileIntegrationId">Only return sessions for the customer that matches this customer integration ID. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="customerSessionState">Filter results by state. (optional)</param>
+        /// <returns>string</returns>
+        public string ExportCustomerSessions (int applicationId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string profileIntegrationId = default(string), string dateFormat = default(string), string customerSessionState = default(string))
+        {
+             ApiResponse<string> localVarResponse = ExportCustomerSessionsWithHttpInfo(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export Customer Sessions to a CSV file Download a file with the customer sessions that match the request.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="profileIntegrationId">Only return sessions for the customer that matches this customer integration ID. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="customerSessionState">Filter results by state. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse<string> ExportCustomerSessionsWithHttpInfo (int applicationId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string profileIntegrationId = default(string), string dateFormat = default(string), string customerSessionState = default(string))
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->ExportCustomerSessions");
+
+            var localVarPath = "/v1/applications/{applicationId}/export_customer_sessions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (profileIntegrationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profileIntegrationId", profileIntegrationId)); // query parameter
+            if (dateFormat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dateFormat", dateFormat)); // query parameter
+            if (customerSessionState != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "customerSessionState", customerSessionState)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportCustomerSessions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Export Customer Sessions to a CSV file Download a file with the customer sessions that match the request.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="profileIntegrationId">Only return sessions for the customer that matches this customer integration ID. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="customerSessionState">Filter results by state. (optional)</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> ExportCustomerSessionsAsync (int applicationId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string profileIntegrationId = default(string), string dateFormat = default(string), string customerSessionState = default(string))
+        {
+             ApiResponse<string> localVarResponse = await ExportCustomerSessionsAsyncWithHttpInfo(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export Customer Sessions to a CSV file Download a file with the customer sessions that match the request.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="profileIntegrationId">Only return sessions for the customer that matches this customer integration ID. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <param name="customerSessionState">Filter results by state. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> ExportCustomerSessionsAsyncWithHttpInfo (int applicationId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string profileIntegrationId = default(string), string dateFormat = default(string), string customerSessionState = default(string))
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->ExportCustomerSessions");
+
+            var localVarPath = "/v1/applications/{applicationId}/export_customer_sessions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (profileIntegrationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "profileIntegrationId", profileIntegrationId)); // query parameter
+            if (dateFormat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dateFormat", dateFormat)); // query parameter
+            if (customerSessionState != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "customerSessionState", customerSessionState)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportCustomerSessions", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Export triggered Effects to a CSV file Download a file with the triggered effects that match the given attributes.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>string</returns>
+        public string ExportEffects (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string))
+        {
+             ApiResponse<string> localVarResponse = ExportEffectsWithHttpInfo(applicationId, campaignId, createdBefore, createdAfter, dateFormat);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export triggered Effects to a CSV file Download a file with the triggered effects that match the given attributes.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse<string> ExportEffectsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string))
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->ExportEffects");
+
+            var localVarPath = "/v1/applications/{applicationId}/export_effects";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (dateFormat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dateFormat", dateFormat)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportEffects", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Export triggered Effects to a CSV file Download a file with the triggered effects that match the given attributes.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> ExportEffectsAsync (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string))
+        {
+             ApiResponse<string> localVarResponse = await ExportEffectsAsyncWithHttpInfo(applicationId, campaignId, createdBefore, createdAfter, dateFormat);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export triggered Effects to a CSV file Download a file with the triggered effects that match the given attributes.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> ExportEffectsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string))
+        {
+            // verify the required parameter 'applicationId' is set
+            if (applicationId == null)
+                throw new ApiException(400, "Missing required parameter 'applicationId' when calling ManagementApi->ExportEffects");
+
+            var localVarPath = "/v1/applications/{applicationId}/export_effects";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (applicationId != null) localVarPathParams.Add("applicationId", this.Configuration.ApiClient.ParameterToString(applicationId)); // path parameter
+            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+            if (dateFormat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dateFormat", dateFormat)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportEffects", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Export customer loyalty balance to a CSV file Download a file with the balance of each customer in the loyalty program
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>string</returns>
+        public string ExportLoyaltyBalance (string programID)
+        {
+             ApiResponse<string> localVarResponse = ExportLoyaltyBalanceWithHttpInfo(programID);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export customer loyalty balance to a CSV file Download a file with the balance of each customer in the loyalty program
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse<string> ExportLoyaltyBalanceWithHttpInfo (string programID)
+        {
+            // verify the required parameter 'programID' is set
+            if (programID == null)
+                throw new ApiException(400, "Missing required parameter 'programID' when calling ManagementApi->ExportLoyaltyBalance");
+
+            var localVarPath = "/v1/loyalty_programs/{programID}/export_customer_balance";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (programID != null) localVarPathParams.Add("programID", this.Configuration.ApiClient.ParameterToString(programID)); // path parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportLoyaltyBalance", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Export customer loyalty balance to a CSV file Download a file with the balance of each customer in the loyalty program
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> ExportLoyaltyBalanceAsync (string programID)
+        {
+             ApiResponse<string> localVarResponse = await ExportLoyaltyBalanceAsyncWithHttpInfo(programID);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export customer loyalty balance to a CSV file Download a file with the balance of each customer in the loyalty program
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="programID"></param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> ExportLoyaltyBalanceAsyncWithHttpInfo (string programID)
+        {
+            // verify the required parameter 'programID' is set
+            if (programID == null)
+                throw new ApiException(400, "Missing required parameter 'programID' when calling ManagementApi->ExportLoyaltyBalance");
+
+            var localVarPath = "/v1/loyalty_programs/{programID}/export_customer_balance";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (programID != null) localVarPathParams.Add("programID", this.Configuration.ApiClient.ParameterToString(programID)); // path parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportLoyaltyBalance", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Export a customer&#39;s loyalty ledger log to a CSV file Download a file with a customer&#39;s ledger log in the loyalty program
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rangeStart">Only return results from after this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="rangeEnd">Only return results from before this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="programID"></param>
+        /// <param name="integrationID"></param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>string</returns>
+        public string ExportLoyaltyLedger (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string))
+        {
+             ApiResponse<string> localVarResponse = ExportLoyaltyLedgerWithHttpInfo(rangeStart, rangeEnd, programID, integrationID, dateFormat);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export a customer&#39;s loyalty ledger log to a CSV file Download a file with a customer&#39;s ledger log in the loyalty program
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rangeStart">Only return results from after this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="rangeEnd">Only return results from before this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="programID"></param>
+        /// <param name="integrationID"></param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse<string> ExportLoyaltyLedgerWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string))
+        {
+            // verify the required parameter 'rangeStart' is set
+            if (rangeStart == null)
+                throw new ApiException(400, "Missing required parameter 'rangeStart' when calling ManagementApi->ExportLoyaltyLedger");
+            // verify the required parameter 'rangeEnd' is set
+            if (rangeEnd == null)
+                throw new ApiException(400, "Missing required parameter 'rangeEnd' when calling ManagementApi->ExportLoyaltyLedger");
+            // verify the required parameter 'programID' is set
+            if (programID == null)
+                throw new ApiException(400, "Missing required parameter 'programID' when calling ManagementApi->ExportLoyaltyLedger");
+            // verify the required parameter 'integrationID' is set
+            if (integrationID == null)
+                throw new ApiException(400, "Missing required parameter 'integrationID' when calling ManagementApi->ExportLoyaltyLedger");
+
+            var localVarPath = "/v1/loyalty_programs/{programID}/profile/{integrationID}/export_log";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (programID != null) localVarPathParams.Add("programID", this.Configuration.ApiClient.ParameterToString(programID)); // path parameter
+            if (integrationID != null) localVarPathParams.Add("integrationID", this.Configuration.ApiClient.ParameterToString(integrationID)); // path parameter
+            if (rangeStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "rangeStart", rangeStart)); // query parameter
+            if (rangeEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "rangeEnd", rangeEnd)); // query parameter
+            if (dateFormat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dateFormat", dateFormat)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportLoyaltyLedger", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Export a customer&#39;s loyalty ledger log to a CSV file Download a file with a customer&#39;s ledger log in the loyalty program
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rangeStart">Only return results from after this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="rangeEnd">Only return results from before this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="programID"></param>
+        /// <param name="integrationID"></param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> ExportLoyaltyLedgerAsync (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string))
+        {
+             ApiResponse<string> localVarResponse = await ExportLoyaltyLedgerAsyncWithHttpInfo(rangeStart, rangeEnd, programID, integrationID, dateFormat);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export a customer&#39;s loyalty ledger log to a CSV file Download a file with a customer&#39;s ledger log in the loyalty program
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="rangeStart">Only return results from after this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="rangeEnd">Only return results from before this timestamp, must be an RFC3339 timestamp string</param>
+        /// <param name="programID"></param>
+        /// <param name="integrationID"></param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> ExportLoyaltyLedgerAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string))
+        {
+            // verify the required parameter 'rangeStart' is set
+            if (rangeStart == null)
+                throw new ApiException(400, "Missing required parameter 'rangeStart' when calling ManagementApi->ExportLoyaltyLedger");
+            // verify the required parameter 'rangeEnd' is set
+            if (rangeEnd == null)
+                throw new ApiException(400, "Missing required parameter 'rangeEnd' when calling ManagementApi->ExportLoyaltyLedger");
+            // verify the required parameter 'programID' is set
+            if (programID == null)
+                throw new ApiException(400, "Missing required parameter 'programID' when calling ManagementApi->ExportLoyaltyLedger");
+            // verify the required parameter 'integrationID' is set
+            if (integrationID == null)
+                throw new ApiException(400, "Missing required parameter 'integrationID' when calling ManagementApi->ExportLoyaltyLedger");
+
+            var localVarPath = "/v1/loyalty_programs/{programID}/profile/{integrationID}/export_log";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/csv"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (programID != null) localVarPathParams.Add("programID", this.Configuration.ApiClient.ParameterToString(programID)); // path parameter
+            if (integrationID != null) localVarPathParams.Add("integrationID", this.Configuration.ApiClient.ParameterToString(integrationID)); // path parameter
+            if (rangeStart != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "rangeStart", rangeStart)); // query parameter
+            if (rangeEnd != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "rangeEnd", rangeEnd)); // query parameter
+            if (dateFormat != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "dateFormat", dateFormat)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ExportLoyaltyLedger", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (string) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
         }
 
         /// <summary>
@@ -8184,10 +9811,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>InlineResponse20021</returns>
-        public InlineResponse20021 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>InlineResponse20022</returns>
+        public InlineResponse20022 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             ApiResponse<InlineResponse20021> localVarResponse = GetAdditionalCostsWithHttpInfo(pageSize, skip, sort);
+             ApiResponse<InlineResponse20022> localVarResponse = GetAdditionalCostsWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
         }
 
@@ -8198,8 +9825,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20021</returns>
-        public ApiResponse<InlineResponse20021> GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>ApiResponse of InlineResponse20022</returns>
+        public ApiResponse<InlineResponse20022> GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/additional_costs";
@@ -8246,9 +9873,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20021>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20022>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20021) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20021)));
+                (InlineResponse20022) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20022)));
         }
 
         /// <summary>
@@ -8258,10 +9885,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of InlineResponse20021</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20021> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of InlineResponse20022</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20022> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             ApiResponse<InlineResponse20021> localVarResponse = await GetAdditionalCostsAsyncWithHttpInfo(pageSize, skip, sort);
+             ApiResponse<InlineResponse20022> localVarResponse = await GetAdditionalCostsAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
 
         }
@@ -8273,8 +9900,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/additional_costs";
@@ -8321,9 +9948,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20021>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20022>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20021) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20021)));
+                (InlineResponse20022) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20022)));
         }
 
         /// <summary>
@@ -8518,7 +10145,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get all roles. 
+        /// Get all roles 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>InlineResponse20030</returns>
@@ -8529,7 +10156,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get all roles. 
+        /// Get all roles 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of InlineResponse20030</returns>
@@ -8583,7 +10210,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get all roles. 
+        /// Get all roles 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of InlineResponse20030</returns>
@@ -8595,7 +10222,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get all roles. 
+        /// Get all roles 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (InlineResponse20030)</returns>
@@ -9585,8 +11212,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -9611,8 +11238,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -9698,8 +11325,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -9725,8 +11352,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -9812,8 +11439,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -9838,8 +11465,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -9925,8 +11552,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -9952,8 +11579,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="session">Session integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="profile">Profile integration ID filter for events. Must be exact match. (optional)</param>
         /// <param name="customerName">Customer name filter for events. Will match substrings case-insensitively. (optional)</param>
@@ -10195,8 +11822,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
@@ -10217,8 +11844,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
@@ -10296,8 +11923,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
@@ -10319,8 +11946,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="coupon">Filter by sessions with this coupon. Must be exact match. (optional)</param>
         /// <param name="referral">Filter by sessions with this referral. Must be exact match. (optional)</param>
         /// <param name="integrationId">Filter by sessions with this integrationId. Must be exact match. (optional)</param>
@@ -10687,10 +12314,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>InlineResponse20020</returns>
-        public InlineResponse20020 GetAttributes (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>InlineResponse20021</returns>
+        public InlineResponse20021 GetAttributes (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             ApiResponse<InlineResponse20020> localVarResponse = GetAttributesWithHttpInfo(pageSize, skip, sort);
+             ApiResponse<InlineResponse20021> localVarResponse = GetAttributesWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
         }
 
@@ -10701,8 +12328,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20020</returns>
-        public ApiResponse<InlineResponse20020> GetAttributesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>ApiResponse of InlineResponse20021</returns>
+        public ApiResponse<InlineResponse20021> GetAttributesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/attributes";
@@ -10749,9 +12376,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20020>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20021>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20020) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20020)));
+                (InlineResponse20021) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20021)));
         }
 
         /// <summary>
@@ -10761,10 +12388,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of InlineResponse20020</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20020> GetAttributesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of InlineResponse20021</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20021> GetAttributesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             ApiResponse<InlineResponse20020> localVarResponse = await GetAttributesAsyncWithHttpInfo(pageSize, skip, sort);
+             ApiResponse<InlineResponse20021> localVarResponse = await GetAttributesAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
 
         }
@@ -10776,8 +12403,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAttributesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetAttributesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/attributes";
@@ -10821,6 +12448,161 @@ namespace TalonOne.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetAttributes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse20021>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse20021) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20021)));
+        }
+
+        /// <summary>
+        /// Get all audiences Get All audiences created in the account. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <returns>InlineResponse20020</returns>
+        public InlineResponse20020 GetAudiences (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?))
+        {
+             ApiResponse<InlineResponse20020> localVarResponse = GetAudiencesWithHttpInfo(pageSize, skip, sort, withTotalResultSize);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all audiences Get All audiences created in the account. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20020</returns>
+        public ApiResponse<InlineResponse20020> GetAudiencesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?))
+        {
+
+            var localVarPath = "/v1/audiences";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (withTotalResultSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "withTotalResultSize", withTotalResultSize)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAudiences", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse20020>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse20020) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20020)));
+        }
+
+        /// <summary>
+        /// Get all audiences Get All audiences created in the account. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <returns>Task of InlineResponse20020</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20020> GetAudiencesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?))
+        {
+             ApiResponse<InlineResponse20020> localVarResponse = await GetAudiencesAsyncWithHttpInfo(pageSize, skip, sort, withTotalResultSize);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get all audiences Get All audiences created in the account. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAudiencesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?))
+        {
+
+            var localVarPath = "/v1/audiences";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (withTotalResultSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "withTotalResultSize", withTotalResultSize)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetAudiences", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -11375,8 +13157,8 @@ namespace TalonOne.Api
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetCampaigns (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?))
@@ -11396,8 +13178,8 @@ namespace TalonOne.Api
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
         public ApiResponse<InlineResponse2002> GetCampaignsWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?))
@@ -11473,8 +13255,8 @@ namespace TalonOne.Api
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
         public async System.Threading.Tasks.Task<InlineResponse2002> GetCampaignsAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?))
@@ -11495,8 +13277,8 @@ namespace TalonOne.Api
         /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="campaignGroupId">Filter results to campaigns owned by the specified campaign group ID. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignsAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string), string name = default(string), string tags = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), int? campaignGroupId = default(int?))
@@ -11569,14 +13351,16 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
+        /// <param name="userId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>InlineResponse20027</returns>
-        public InlineResponse20027 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
+        /// <returns>InlineResponse20028</returns>
+        public InlineResponse20028 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
         {
-             ApiResponse<InlineResponse20027> localVarResponse = GetChangesWithHttpInfo(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
+             ApiResponse<InlineResponse20028> localVarResponse = GetChangesWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, includeOld);
              return localVarResponse.Data;
         }
 
@@ -11588,12 +13372,14 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
+        /// <param name="userId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20027</returns>
-        public ApiResponse<InlineResponse20027> GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
+        /// <returns>ApiResponse of InlineResponse20028</returns>
+        public ApiResponse<InlineResponse20028> GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
         {
 
             var localVarPath = "/v1/changes";
@@ -11621,6 +13407,8 @@ namespace TalonOne.Api
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            if (entityPath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "entityPath", entityPath)); // query parameter
+            if (userId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "userId", userId)); // query parameter
             if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
             if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
             if (withTotalResultSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "withTotalResultSize", withTotalResultSize)); // query parameter
@@ -11645,9 +13433,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20027>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20028>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20027) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20027)));
+                (InlineResponse20028) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20028)));
         }
 
         /// <summary>
@@ -11658,14 +13446,16 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
+        /// <param name="userId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of InlineResponse20027</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20027> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
+        /// <returns>Task of InlineResponse20028</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20028> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
         {
-             ApiResponse<InlineResponse20027> localVarResponse = await GetChangesAsyncWithHttpInfo(pageSize, skip, sort, applicationId, createdBefore, createdAfter, withTotalResultSize, includeOld);
+             ApiResponse<InlineResponse20028> localVarResponse = await GetChangesAsyncWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, includeOld);
              return localVarResponse.Data;
 
         }
@@ -11678,12 +13468,14 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. (optional)</param>
+        /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
+        /// <param name="userId"> (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
+        /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), int? applicationId = default(int?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), bool? includeOld = default(bool?))
         {
 
             var localVarPath = "/v1/changes";
@@ -11711,6 +13503,8 @@ namespace TalonOne.Api
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            if (entityPath != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "entityPath", entityPath)); // query parameter
+            if (userId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "userId", userId)); // query parameter
             if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
             if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
             if (withTotalResultSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "withTotalResultSize", withTotalResultSize)); // query parameter
@@ -11735,9 +13529,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20027>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20028>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20027) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20027)));
+                (InlineResponse20028) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20028)));
         }
 
         /// <summary>
@@ -11750,12 +13544,12 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -11779,12 +13573,12 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -11875,12 +13669,12 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -11905,12 +13699,12 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
@@ -12002,8 +13796,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12028,8 +13822,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12129,8 +13923,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12156,8 +13950,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12256,8 +14050,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12282,8 +14076,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12380,8 +14174,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12407,8 +14201,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12505,8 +14299,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12530,8 +14324,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12618,8 +14412,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -12644,8 +14438,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -13971,10 +15765,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>InlineResponse20025</returns>
-        public InlineResponse20025 GetEventTypes (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>InlineResponse20026</returns>
+        public InlineResponse20026 GetEventTypes (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             ApiResponse<InlineResponse20025> localVarResponse = GetEventTypesWithHttpInfo(applicationIds, name, includeOldVersions, pageSize, skip, sort);
+             ApiResponse<InlineResponse20026> localVarResponse = GetEventTypesWithHttpInfo(applicationIds, name, includeOldVersions, pageSize, skip, sort);
              return localVarResponse.Data;
         }
 
@@ -13988,8 +15782,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20025</returns>
-        public ApiResponse<InlineResponse20025> GetEventTypesWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>ApiResponse of InlineResponse20026</returns>
+        public ApiResponse<InlineResponse20026> GetEventTypesWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/event_types";
@@ -14039,9 +15833,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20025>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20026>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20025) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20025)));
+                (InlineResponse20026) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20026)));
         }
 
         /// <summary>
@@ -14054,10 +15848,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of InlineResponse20025</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20025> GetEventTypesAsync (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of InlineResponse20026</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20026> GetEventTypesAsync (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             ApiResponse<InlineResponse20025> localVarResponse = await GetEventTypesAsyncWithHttpInfo(applicationIds, name, includeOldVersions, pageSize, skip, sort);
+             ApiResponse<InlineResponse20026> localVarResponse = await GetEventTypesAsyncWithHttpInfo(applicationIds, name, includeOldVersions, pageSize, skip, sort);
              return localVarResponse.Data;
 
         }
@@ -14072,8 +15866,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetEventTypesAsyncWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20026)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetEventTypesAsyncWithHttpInfo (string applicationIds = default(string), string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/event_types";
@@ -14123,9 +15917,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20025>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20026>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20025) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20025)));
+                (InlineResponse20026) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20026)));
         }
 
         /// <summary>
@@ -14137,182 +15931,27 @@ namespace TalonOne.Api
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId"> (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>InlineResponse20028</returns>
-        public InlineResponse20028 GetExports (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
-        {
-             ApiResponse<InlineResponse20028> localVarResponse = GetExportsWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get Exports Get a list of all past exports 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId"> (optional)</param>
-        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20028</returns>
-        public ApiResponse<InlineResponse20028> GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
-        {
-
-            var localVarPath = "/v1/exports";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
-            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
-            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
-            if (entity != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "entity", entity)); // query parameter
-
-            // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetExports", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse20028>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20028) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20028)));
-        }
-
-        /// <summary>
-        /// Get Exports Get a list of all past exports 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId"> (optional)</param>
-        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of InlineResponse20028</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20028> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
-        {
-             ApiResponse<InlineResponse20028> localVarResponse = await GetExportsAsyncWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get Exports Get a list of all past exports 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId"> (optional)</param>
-        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
-        {
-
-            var localVarPath = "/v1/exports";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
-            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
-            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
-            if (entity != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "entity", entity)); // query parameter
-
-            // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetExports", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse20028>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20028) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20028)));
-        }
-
-        /// <summary>
-        /// Get Imports Get a list of all past imports 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20029</returns>
-        public InlineResponse20029 GetImports (int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse20029 GetExports (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
         {
-             ApiResponse<InlineResponse20029> localVarResponse = GetImportsWithHttpInfo(pageSize, skip);
+             ApiResponse<InlineResponse20029> localVarResponse = GetExportsWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get Imports Get a list of all past imports 
+        /// Get Exports Get a list of all past exports 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId"> (optional)</param>
+        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20029</returns>
-        public ApiResponse<InlineResponse20029> GetImportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?))
+        public ApiResponse<InlineResponse20029> GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
         {
 
-            var localVarPath = "/v1/imports";
+            var localVarPath = "/v1/exports";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -14335,6 +15974,9 @@ namespace TalonOne.Api
 
             if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
+            if (entity != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "entity", entity)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -14351,7 +15993,7 @@ namespace TalonOne.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetImports", localVarResponse);
+                Exception exception = ExceptionFactory("GetExports", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -14361,30 +16003,36 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get Imports Get a list of all past imports 
+        /// Get Exports Get a list of all past exports 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId"> (optional)</param>
+        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>Task of InlineResponse20029</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20029> GetImportsAsync (int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse20029> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
         {
-             ApiResponse<InlineResponse20029> localVarResponse = await GetImportsAsyncWithHttpInfo(pageSize, skip);
+             ApiResponse<InlineResponse20029> localVarResponse = await GetExportsAsyncWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get Imports Get a list of all past imports 
+        /// Get Exports Get a list of all past exports 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId"> (optional)</param>
+        /// <param name="entity">The name of the entity type that was exported. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20029)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetImportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20029>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), int? applicationId = default(int?), int? campaignId = default(int?), string entity = default(string))
         {
 
-            var localVarPath = "/v1/imports";
+            var localVarPath = "/v1/exports";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -14407,6 +16055,9 @@ namespace TalonOne.Api
 
             if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
+            if (entity != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "entity", entity)); // query parameter
 
             // authentication (manager_auth) required
             if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
@@ -14423,7 +16074,7 @@ namespace TalonOne.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetImports", localVarResponse);
+                Exception exception = ExceptionFactory("GetExports", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -15014,8 +16665,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -15036,8 +16687,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -15118,8 +16769,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -15141,8 +16792,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -15223,8 +16874,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -15245,8 +16896,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -15327,8 +16978,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -15350,8 +17001,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="advocate">Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field (optional)</param>
@@ -15423,7 +17074,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get information for the specified role. 
+        /// Get information for the specified role 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleId"></param>
@@ -15435,7 +17086,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get information for the specified role. 
+        /// Get information for the specified role 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleId"></param>
@@ -15494,7 +17145,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get information for the specified role. 
+        /// Get information for the specified role 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleId"></param>
@@ -15507,7 +17158,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get information for the specified role. 
+        /// Get information for the specified role 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleId"></param>
@@ -16055,10 +17706,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>InlineResponse20026</returns>
-        public InlineResponse20026 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>InlineResponse20027</returns>
+        public InlineResponse20027 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             ApiResponse<InlineResponse20026> localVarResponse = GetUsersWithHttpInfo(pageSize, skip, sort);
+             ApiResponse<InlineResponse20027> localVarResponse = GetUsersWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
         }
 
@@ -16069,8 +17720,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20026</returns>
-        public ApiResponse<InlineResponse20026> GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>ApiResponse of InlineResponse20027</returns>
+        public ApiResponse<InlineResponse20027> GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/users";
@@ -16117,9 +17768,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20026>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20027>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20026) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20026)));
+                (InlineResponse20027) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20027)));
         }
 
         /// <summary>
@@ -16129,10 +17780,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of InlineResponse20026</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20026> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of InlineResponse20027</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20027> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             ApiResponse<InlineResponse20026> localVarResponse = await GetUsersAsyncWithHttpInfo(pageSize, skip, sort);
+             ApiResponse<InlineResponse20027> localVarResponse = await GetUsersAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
 
         }
@@ -16144,8 +17795,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20026)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20026>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20027)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20027>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             var localVarPath = "/v1/users";
@@ -16192,9 +17843,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20026>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20027>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20026) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20026)));
+                (InlineResponse20027) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20027)));
         }
 
         /// <summary>
@@ -16351,220 +18002,33 @@ namespace TalonOne.Api
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>InlineResponse20023</returns>
-        public InlineResponse20023 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-             ApiResponse<InlineResponse20023> localVarResponse = GetWebhookActivationLogsWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List Webhook activation Log Entries Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20023</returns>
-        public ApiResponse<InlineResponse20023> GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-
-            var localVarPath = "/v1/webhook_activation_logs";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
-            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
-            if (integrationRequestUuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "integrationRequestUuid", integrationRequestUuid)); // query parameter
-            if (webhookId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "webhookId", webhookId)); // query parameter
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
-            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
-            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
-            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
-
-            // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse20023>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20023) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20023)));
-        }
-
-        /// <summary>
-        /// List Webhook activation Log Entries Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>Task of InlineResponse20023</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20023> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-             ApiResponse<InlineResponse20023> localVarResponse = await GetWebhookActivationLogsAsyncWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List Webhook activation Log Entries Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-
-            var localVarPath = "/v1/webhook_activation_logs";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-            };
-            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
-            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
-            if (integrationRequestUuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "integrationRequestUuid", integrationRequestUuid)); // query parameter
-            if (webhookId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "webhookId", webhookId)); // query parameter
-            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
-            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
-            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
-            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
-
-            // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
-            }
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse20023>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20023) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20023)));
-        }
-
-        /// <summary>
-        /// List Webhook Log Entries 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId"> (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <returns>InlineResponse20024</returns>
-        public InlineResponse20024 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        public InlineResponse20024 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
-             ApiResponse<InlineResponse20024> localVarResponse = GetWebhookLogsWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
+             ApiResponse<InlineResponse20024> localVarResponse = GetWebhookActivationLogsWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List Webhook Log Entries 
+        /// List Webhook activation Log Entries Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20024</returns>
-        public ApiResponse<InlineResponse20024> GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        public ApiResponse<InlineResponse20024> GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
 
-            var localVarPath = "/v1/webhook_logs";
+            var localVarPath = "/v1/webhook_activation_logs";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
@@ -16588,11 +18052,10 @@ namespace TalonOne.Api
             if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
-            if (status != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "status", status)); // query parameter
+            if (integrationRequestUuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "integrationRequestUuid", integrationRequestUuid)); // query parameter
             if (webhookId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "webhookId", webhookId)); // query parameter
             if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
             if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
-            if (requestUuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "requestUuid", requestUuid)); // query parameter
             if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
             if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
 
@@ -16611,7 +18074,7 @@ namespace TalonOne.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetWebhookLogs", localVarResponse);
+                Exception exception = ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -16621,23 +18084,211 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List Webhook Log Entries 
+        /// List Webhook activation Log Entries Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <returns>Task of InlineResponse20024</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20024> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        public async System.Threading.Tasks.Task<InlineResponse20024> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
-             ApiResponse<InlineResponse20024> localVarResponse = await GetWebhookLogsAsyncWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
+             ApiResponse<InlineResponse20024> localVarResponse = await GetWebhookActivationLogsAsyncWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List Webhook activation Log Entries Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20024)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+
+            var localVarPath = "/v1/webhook_activation_logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (integrationRequestUuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "integrationRequestUuid", integrationRequestUuid)); // query parameter
+            if (webhookId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "webhookId", webhookId)); // query parameter
+            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await this.Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse20024>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse20024) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20024)));
+        }
+
+        /// <summary>
+        /// List Webhook Log Entries 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>InlineResponse20025</returns>
+        public InlineResponse20025 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+             ApiResponse<InlineResponse20025> localVarResponse = GetWebhookLogsWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List Webhook Log Entries 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20025</returns>
+        public ApiResponse<InlineResponse20025> GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+
+            var localVarPath = "/v1/webhook_logs";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(this.Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+            };
+            String localVarHttpContentType = this.Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = this.Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (skip != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "skip", skip)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (status != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "status", status)); // query parameter
+            if (webhookId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "webhookId", webhookId)); // query parameter
+            if (applicationId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "applicationId", applicationId)); // query parameter
+            if (campaignId != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "campaignId", campaignId)); // query parameter
+            if (requestUuid != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "requestUuid", requestUuid)); // query parameter
+            if (createdBefore != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdBefore", createdBefore)); // query parameter
+            if (createdAfter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "createdAfter", createdAfter)); // query parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarHeaderParams["Authorization"] = this.Configuration.GetApiKeyWithPrefix("Authorization");
+            }
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) this.Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetWebhookLogs", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse20025>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
+                (InlineResponse20025) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20025)));
+        }
+
+        /// <summary>
+        /// List Webhook Log Entries 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
+        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId"> (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of InlineResponse20025</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20025> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+             ApiResponse<InlineResponse20025> localVarResponse = await GetWebhookLogsAsyncWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
              return localVarResponse.Data;
 
         }
@@ -16654,10 +18305,10 @@ namespace TalonOne.Api
         /// <param name="applicationId"> (optional)</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
         /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20024)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20025)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20025>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
 
             var localVarPath = "/v1/webhook_logs";
@@ -16711,9 +18362,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20024>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20025>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20024) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20024)));
+                (InlineResponse20025) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20025)));
         }
 
         /// <summary>
@@ -16724,10 +18375,10 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse20022</returns>
-        public InlineResponse20022 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        /// <returns>InlineResponse20023</returns>
+        public InlineResponse20023 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
         {
-             ApiResponse<InlineResponse20022> localVarResponse = GetWebhooksWithHttpInfo(applicationIds, sort, pageSize, skip);
+             ApiResponse<InlineResponse20023> localVarResponse = GetWebhooksWithHttpInfo(applicationIds, sort, pageSize, skip);
              return localVarResponse.Data;
         }
 
@@ -16739,8 +18390,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20022</returns>
-        public ApiResponse<InlineResponse20022> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        /// <returns>ApiResponse of InlineResponse20023</returns>
+        public ApiResponse<InlineResponse20023> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
         {
 
             var localVarPath = "/v1/webhooks";
@@ -16788,9 +18439,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20022>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20023>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20022) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20022)));
+                (InlineResponse20023) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20023)));
         }
 
         /// <summary>
@@ -16801,10 +18452,10 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse20022</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20022> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        /// <returns>Task of InlineResponse20023</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20023> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
         {
-             ApiResponse<InlineResponse20022> localVarResponse = await GetWebhooksAsyncWithHttpInfo(applicationIds, sort, pageSize, skip);
+             ApiResponse<InlineResponse20023> localVarResponse = await GetWebhooksAsyncWithHttpInfo(applicationIds, sort, pageSize, skip);
              return localVarResponse.Data;
 
         }
@@ -16817,8 +18468,8 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
         {
 
             var localVarPath = "/v1/webhooks";
@@ -16866,9 +18517,9 @@ namespace TalonOne.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse20022>(localVarStatusCode,
+            return new ApiResponse<InlineResponse20023>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => string.Join(",", x.Value)),
-                (InlineResponse20022) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20022)));
+                (InlineResponse20023) this.Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse20023)));
         }
 
         /// <summary>
@@ -17220,8 +18871,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17246,8 +18897,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17347,8 +18998,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17374,8 +19025,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17474,8 +19125,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17500,8 +19151,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17598,8 +19249,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17625,8 +19276,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17723,8 +19374,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17749,8 +19400,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17847,8 +19498,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17874,8 +19525,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17973,8 +19624,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -17999,8 +19650,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -18100,8 +19751,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>
@@ -18127,8 +19778,8 @@ namespace TalonOne.Api
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional)</param>

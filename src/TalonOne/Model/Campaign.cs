@@ -126,11 +126,16 @@ namespace TalonOne.Model
         /// <param name="discountCount">Total amount of discounts redeemed in the campaign..</param>
         /// <param name="discountEffectCount">Total number of times discounts were redeemed in this campaign..</param>
         /// <param name="couponCreationCount">Total number of coupons created by rules in this campaign..</param>
+        /// <param name="referralCreationCount">Total number of referrals created by rules in this campaign..</param>
+        /// <param name="createdLoyaltyPointsCount">Total number of loyalty points created by rules in this campaign..</param>
+        /// <param name="createdLoyaltyPointsEffectCount">Total number of loyalty point creation effects triggered by rules in this campaign..</param>
+        /// <param name="redeemedLoyaltyPointsCount">Total number of loyalty points redeemed by rules in this campaign..</param>
+        /// <param name="redeemedLoyaltyPointsEffectCount">Total number of loyalty point redemption effects triggered by rules in this campaign..</param>
         /// <param name="lastActivity">Timestamp of the most recent event received by this campaign..</param>
         /// <param name="updated">Timestamp of the most recent update to the campaign or any of its elements..</param>
         /// <param name="createdBy">Name of the user who created this campaign if available..</param>
         /// <param name="updatedBy">Name of the user who last updated this campaign if available..</param>
-        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), int discountCount = default(int), int discountEffectCount = default(int), int couponCreationCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string))
+        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), decimal discountCount = default(decimal), int discountEffectCount = default(int), int couponCreationCount = default(int), int referralCreationCount = default(int), decimal createdLoyaltyPointsCount = default(decimal), int createdLoyaltyPointsEffectCount = default(int), decimal redeemedLoyaltyPointsCount = default(decimal), int redeemedLoyaltyPointsEffectCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -244,6 +249,11 @@ namespace TalonOne.Model
             this.DiscountCount = discountCount;
             this.DiscountEffectCount = discountEffectCount;
             this.CouponCreationCount = couponCreationCount;
+            this.ReferralCreationCount = referralCreationCount;
+            this.CreatedLoyaltyPointsCount = createdLoyaltyPointsCount;
+            this.CreatedLoyaltyPointsEffectCount = createdLoyaltyPointsEffectCount;
+            this.RedeemedLoyaltyPointsCount = redeemedLoyaltyPointsCount;
+            this.RedeemedLoyaltyPointsEffectCount = redeemedLoyaltyPointsEffectCount;
             this.LastActivity = lastActivity;
             this.Updated = updated;
             this.CreatedBy = createdBy;
@@ -374,7 +384,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Total amount of discounts redeemed in the campaign.</value>
         [DataMember(Name="discountCount", EmitDefaultValue=false)]
-        public int DiscountCount { get; set; }
+        public decimal DiscountCount { get; set; }
 
         /// <summary>
         /// Total number of times discounts were redeemed in this campaign.
@@ -389,6 +399,41 @@ namespace TalonOne.Model
         /// <value>Total number of coupons created by rules in this campaign.</value>
         [DataMember(Name="couponCreationCount", EmitDefaultValue=false)]
         public int CouponCreationCount { get; set; }
+
+        /// <summary>
+        /// Total number of referrals created by rules in this campaign.
+        /// </summary>
+        /// <value>Total number of referrals created by rules in this campaign.</value>
+        [DataMember(Name="referralCreationCount", EmitDefaultValue=false)]
+        public int ReferralCreationCount { get; set; }
+
+        /// <summary>
+        /// Total number of loyalty points created by rules in this campaign.
+        /// </summary>
+        /// <value>Total number of loyalty points created by rules in this campaign.</value>
+        [DataMember(Name="createdLoyaltyPointsCount", EmitDefaultValue=false)]
+        public decimal CreatedLoyaltyPointsCount { get; set; }
+
+        /// <summary>
+        /// Total number of loyalty point creation effects triggered by rules in this campaign.
+        /// </summary>
+        /// <value>Total number of loyalty point creation effects triggered by rules in this campaign.</value>
+        [DataMember(Name="createdLoyaltyPointsEffectCount", EmitDefaultValue=false)]
+        public int CreatedLoyaltyPointsEffectCount { get; set; }
+
+        /// <summary>
+        /// Total number of loyalty points redeemed by rules in this campaign.
+        /// </summary>
+        /// <value>Total number of loyalty points redeemed by rules in this campaign.</value>
+        [DataMember(Name="redeemedLoyaltyPointsCount", EmitDefaultValue=false)]
+        public decimal RedeemedLoyaltyPointsCount { get; set; }
+
+        /// <summary>
+        /// Total number of loyalty point redemption effects triggered by rules in this campaign.
+        /// </summary>
+        /// <value>Total number of loyalty point redemption effects triggered by rules in this campaign.</value>
+        [DataMember(Name="redeemedLoyaltyPointsEffectCount", EmitDefaultValue=false)]
+        public int RedeemedLoyaltyPointsEffectCount { get; set; }
 
         /// <summary>
         /// Timestamp of the most recent event received by this campaign.
@@ -448,6 +493,11 @@ namespace TalonOne.Model
             sb.Append("  DiscountCount: ").Append(DiscountCount).Append("\n");
             sb.Append("  DiscountEffectCount: ").Append(DiscountEffectCount).Append("\n");
             sb.Append("  CouponCreationCount: ").Append(CouponCreationCount).Append("\n");
+            sb.Append("  ReferralCreationCount: ").Append(ReferralCreationCount).Append("\n");
+            sb.Append("  CreatedLoyaltyPointsCount: ").Append(CreatedLoyaltyPointsCount).Append("\n");
+            sb.Append("  CreatedLoyaltyPointsEffectCount: ").Append(CreatedLoyaltyPointsEffectCount).Append("\n");
+            sb.Append("  RedeemedLoyaltyPointsCount: ").Append(RedeemedLoyaltyPointsCount).Append("\n");
+            sb.Append("  RedeemedLoyaltyPointsEffectCount: ").Append(RedeemedLoyaltyPointsEffectCount).Append("\n");
             sb.Append("  LastActivity: ").Append(LastActivity).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
@@ -601,6 +651,31 @@ namespace TalonOne.Model
                     this.CouponCreationCount.Equals(input.CouponCreationCount))
                 ) && 
                 (
+                    this.ReferralCreationCount == input.ReferralCreationCount ||
+                    (this.ReferralCreationCount != null &&
+                    this.ReferralCreationCount.Equals(input.ReferralCreationCount))
+                ) && 
+                (
+                    this.CreatedLoyaltyPointsCount == input.CreatedLoyaltyPointsCount ||
+                    (this.CreatedLoyaltyPointsCount != null &&
+                    this.CreatedLoyaltyPointsCount.Equals(input.CreatedLoyaltyPointsCount))
+                ) && 
+                (
+                    this.CreatedLoyaltyPointsEffectCount == input.CreatedLoyaltyPointsEffectCount ||
+                    (this.CreatedLoyaltyPointsEffectCount != null &&
+                    this.CreatedLoyaltyPointsEffectCount.Equals(input.CreatedLoyaltyPointsEffectCount))
+                ) && 
+                (
+                    this.RedeemedLoyaltyPointsCount == input.RedeemedLoyaltyPointsCount ||
+                    (this.RedeemedLoyaltyPointsCount != null &&
+                    this.RedeemedLoyaltyPointsCount.Equals(input.RedeemedLoyaltyPointsCount))
+                ) && 
+                (
+                    this.RedeemedLoyaltyPointsEffectCount == input.RedeemedLoyaltyPointsEffectCount ||
+                    (this.RedeemedLoyaltyPointsEffectCount != null &&
+                    this.RedeemedLoyaltyPointsEffectCount.Equals(input.RedeemedLoyaltyPointsEffectCount))
+                ) && 
+                (
                     this.LastActivity == input.LastActivity ||
                     (this.LastActivity != null &&
                     this.LastActivity.Equals(input.LastActivity))
@@ -675,6 +750,16 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.DiscountEffectCount.GetHashCode();
                 if (this.CouponCreationCount != null)
                     hashCode = hashCode * 59 + this.CouponCreationCount.GetHashCode();
+                if (this.ReferralCreationCount != null)
+                    hashCode = hashCode * 59 + this.ReferralCreationCount.GetHashCode();
+                if (this.CreatedLoyaltyPointsCount != null)
+                    hashCode = hashCode * 59 + this.CreatedLoyaltyPointsCount.GetHashCode();
+                if (this.CreatedLoyaltyPointsEffectCount != null)
+                    hashCode = hashCode * 59 + this.CreatedLoyaltyPointsEffectCount.GetHashCode();
+                if (this.RedeemedLoyaltyPointsCount != null)
+                    hashCode = hashCode * 59 + this.RedeemedLoyaltyPointsCount.GetHashCode();
+                if (this.RedeemedLoyaltyPointsEffectCount != null)
+                    hashCode = hashCode * 59 + this.RedeemedLoyaltyPointsEffectCount.GetHashCode();
                 if (this.LastActivity != null)
                     hashCode = hashCode * 59 + this.LastActivity.GetHashCode();
                 if (this.Updated != null)

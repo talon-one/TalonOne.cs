@@ -46,7 +46,8 @@ namespace TalonOne.Model
         /// <param name="type">A string representing the event. Must not be a reserved event name. (required).</param>
         /// <param name="attributes">Additional JSON serialized data associated with the event. (required).</param>
         /// <param name="effects">An array containing the effects that were applied as a result of this event. (required).</param>
-        public ApplicationEvent(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int profileId = default(int), int sessionId = default(int), string type = default(string), Object attributes = default(Object), List<Object> effects = default(List<Object>))
+        /// <param name="ruleFailureReasons">An array containing the rule failure reasons which happened during this event..</param>
+        public ApplicationEvent(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int profileId = default(int), int sessionId = default(int), string type = default(string), Object attributes = default(Object), List<Object> effects = default(List<Object>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -110,6 +111,7 @@ namespace TalonOne.Model
             
             this.ProfileId = profileId;
             this.SessionId = sessionId;
+            this.RuleFailureReasons = ruleFailureReasons;
         }
         
         /// <summary>
@@ -169,6 +171,13 @@ namespace TalonOne.Model
         public List<Object> Effects { get; set; }
 
         /// <summary>
+        /// An array containing the rule failure reasons which happened during this event.
+        /// </summary>
+        /// <value>An array containing the rule failure reasons which happened during this event.</value>
+        [DataMember(Name="ruleFailureReasons", EmitDefaultValue=false)]
+        public List<RuleFailureReason> RuleFailureReasons { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -184,6 +193,7 @@ namespace TalonOne.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Effects: ").Append(Effects).Append("\n");
+            sb.Append("  RuleFailureReasons: ").Append(RuleFailureReasons).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -258,6 +268,12 @@ namespace TalonOne.Model
                     this.Effects != null &&
                     input.Effects != null &&
                     this.Effects.SequenceEqual(input.Effects)
+                ) && 
+                (
+                    this.RuleFailureReasons == input.RuleFailureReasons ||
+                    this.RuleFailureReasons != null &&
+                    input.RuleFailureReasons != null &&
+                    this.RuleFailureReasons.SequenceEqual(input.RuleFailureReasons)
                 );
         }
 
@@ -286,6 +302,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Effects != null)
                     hashCode = hashCode * 59 + this.Effects.GetHashCode();
+                if (this.RuleFailureReasons != null)
+                    hashCode = hashCode * 59 + this.RuleFailureReasons.GetHashCode();
                 return hashCode;
             }
         }

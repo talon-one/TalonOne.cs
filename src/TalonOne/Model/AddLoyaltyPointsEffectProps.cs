@@ -45,7 +45,8 @@ namespace TalonOne.Model
         /// <param name="recipientIntegrationId">The user for whom these points were added (required).</param>
         /// <param name="startDate">Date after which points will be valid.</param>
         /// <param name="expiryDate">Date after which points will expire.</param>
-        public AddLoyaltyPointsEffectProps(string name = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime))
+        /// <param name="transactionUUID">The identifier of this addition in the loyalty ledger (required).</param>
+        public AddLoyaltyPointsEffectProps(string name = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -95,6 +96,16 @@ namespace TalonOne.Model
             else
             {
                 this.RecipientIntegrationId = recipientIntegrationId;
+            }
+            
+            // to ensure "transactionUUID" is required (not null)
+            if (transactionUUID == null)
+            {
+                throw new InvalidDataException("transactionUUID is a required property for AddLoyaltyPointsEffectProps and cannot be null");
+            }
+            else
+            {
+                this.TransactionUUID = transactionUUID;
             }
             
             this.StartDate = startDate;
@@ -151,6 +162,13 @@ namespace TalonOne.Model
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
+        /// The identifier of this addition in the loyalty ledger
+        /// </summary>
+        /// <value>The identifier of this addition in the loyalty ledger</value>
+        [DataMember(Name="transactionUUID", EmitDefaultValue=true)]
+        public string TransactionUUID { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -165,6 +183,7 @@ namespace TalonOne.Model
             sb.Append("  RecipientIntegrationId: ").Append(RecipientIntegrationId).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -233,6 +252,11 @@ namespace TalonOne.Model
                     this.ExpiryDate == input.ExpiryDate ||
                     (this.ExpiryDate != null &&
                     this.ExpiryDate.Equals(input.ExpiryDate))
+                ) && 
+                (
+                    this.TransactionUUID == input.TransactionUUID ||
+                    (this.TransactionUUID != null &&
+                    this.TransactionUUID.Equals(input.TransactionUUID))
                 );
         }
 
@@ -259,6 +283,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                if (this.TransactionUUID != null)
+                    hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
                 return hashCode;
             }
         }

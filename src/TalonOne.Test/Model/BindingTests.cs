@@ -74,6 +74,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Name'
         }
         /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Test]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
         /// Test the property 'Expression'
         /// </summary>
         [Test]

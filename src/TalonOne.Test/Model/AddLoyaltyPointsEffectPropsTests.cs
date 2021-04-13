@@ -121,6 +121,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ExpiryDate'
         }
+        /// <summary>
+        /// Test the property 'TransactionUUID'
+        /// </summary>
+        [Test]
+        public void TransactionUUIDTest()
+        {
+            // TODO unit test for the property 'TransactionUUID'
+        }
 
     }
 

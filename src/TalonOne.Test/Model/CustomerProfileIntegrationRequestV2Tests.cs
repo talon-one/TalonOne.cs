@@ -74,6 +74,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Attributes'
         }
         /// <summary>
+        /// Test the property 'AudiencesChanges'
+        /// </summary>
+        [Test]
+        public void AudiencesChangesTest()
+        {
+            // TODO unit test for the property 'AudiencesChanges'
+        }
+        /// <summary>
         /// Test the property 'ResponseContent'
         /// </summary>
         [Test]

@@ -49,8 +49,7 @@ namespace TalonOne.Model
         /// <param name="length">Length of item in mm.</param>
         /// <param name="position">Position of the Cart Item in the Cart (calculated internally).</param>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
-        /// <param name="adjustment">adjustment.</param>
-        public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), decimal price = default(decimal), string category = default(string), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object), CartItemAdjustment adjustment = default(CartItemAdjustment))
+        public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), decimal price = default(decimal), string category = default(string), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object))
         {
             // to ensure "name" is required (not null)
             if (name == null)
@@ -99,7 +98,6 @@ namespace TalonOne.Model
             this.Length = length;
             this.Position = position;
             this.Attributes = attributes;
-            this.Adjustment = adjustment;
         }
         
         /// <summary>
@@ -175,12 +173,6 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// Gets or Sets Adjustment
-        /// </summary>
-        [DataMember(Name="adjustment", EmitDefaultValue=false)]
-        public CartItemAdjustment Adjustment { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -199,7 +191,6 @@ namespace TalonOne.Model
             sb.Append("  Length: ").Append(Length).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
-            sb.Append("  Adjustment: ").Append(Adjustment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -288,11 +279,6 @@ namespace TalonOne.Model
                     this.Attributes == input.Attributes ||
                     (this.Attributes != null &&
                     this.Attributes.Equals(input.Attributes))
-                ) && 
-                (
-                    this.Adjustment == input.Adjustment ||
-                    (this.Adjustment != null &&
-                    this.Adjustment.Equals(input.Adjustment))
                 );
         }
 
@@ -327,8 +313,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Position.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
-                if (this.Adjustment != null)
-                    hashCode = hashCode * 59 + this.Adjustment.GetHashCode();
                 return hashCode;
             }
         }

@@ -153,14 +153,6 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Attributes'
         }
-        /// <summary>
-        /// Test the property 'Adjustment'
-        /// </summary>
-        [Test]
-        public void AdjustmentTest()
-        {
-            // TODO unit test for the property 'Adjustment'
-        }
 
     }
 

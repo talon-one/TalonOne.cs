@@ -276,6 +276,13 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ReferralCode (string) maxLength
+            if(this.ReferralCode != null && this.ReferralCode.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferralCode, length must be less than 100.", new [] { "ReferralCode" });
+            }
+
+            
             yield break;
         }
     }

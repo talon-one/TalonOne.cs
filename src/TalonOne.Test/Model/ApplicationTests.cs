@@ -170,6 +170,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ExclusiveCampaignsStrategy'
         }
         /// <summary>
+        /// Test the property 'DefaultDiscountScope'
+        /// </summary>
+        [Test]
+        public void DefaultDiscountScopeTest()
+        {
+            // TODO unit test for the property 'DefaultDiscountScope'
+        }
+        /// <summary>
         /// Test the property 'EnableCascadingDiscounts'
         /// </summary>
         [Test]

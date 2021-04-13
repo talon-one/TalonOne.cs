@@ -106,6 +106,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'EffectType'
         }
         /// <summary>
+        /// Test the property 'TriggeredByCoupon'
+        /// </summary>
+        [Test]
+        public void TriggeredByCouponTest()
+        {
+            // TODO unit test for the property 'TriggeredByCoupon'
+        }
+        /// <summary>
         /// Test the property 'Props'
         /// </summary>
         [Test]

@@ -1,11 +1,11 @@
 
-# TalonOne.Model.ImportCoupons
+# TalonOne.Model.RollbackReferralEffectProps
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Coupons** | **string** |  | 
+**Value** | **string** | The referral code whose usage has been rolled back | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

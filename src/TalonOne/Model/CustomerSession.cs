@@ -465,6 +465,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Coupon (string) maxLength
+            if(this.Coupon != null && this.Coupon.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Coupon, length must be less than 100.", new [] { "Coupon" });
+            }
+
+            
+            // Referral (string) maxLength
+            if(this.Referral != null && this.Referral.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Referral, length must be less than 100.", new [] { "Referral" });
+            }
+
+            
             yield break;
         }
     }

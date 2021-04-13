@@ -66,6 +66,14 @@ namespace TalonOne.Test
 
 
         /// <summary>
+        /// Test the property 'Id'
+        /// </summary>
+        [Test]
+        public void IdTest()
+        {
+            // TODO unit test for the property 'Id'
+        }
+        /// <summary>
         /// Test the property 'Title'
         /// </summary>
         [Test]

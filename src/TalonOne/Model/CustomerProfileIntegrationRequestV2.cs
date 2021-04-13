@@ -58,25 +58,33 @@ namespace TalonOne.Model
             /// Enum Event for value: event
             /// </summary>
             [EnumMember(Value = "event")]
-            Event = 4
+            Event = 4,
+
+            /// <summary>
+            /// Enum RuleFailureReasons for value: ruleFailureReasons
+            /// </summary>
+            [EnumMember(Value = "ruleFailureReasons")]
+            RuleFailureReasons = 5
 
         }
 
 
         /// <summary>
-        /// Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot; and \&quot;event\&quot;. 
+        /// Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;. 
         /// </summary>
-        /// <value>Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot; and \&quot;event\&quot;. </value>
+        /// <value>Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;. </value>
         [DataMember(Name="responseContent", EmitDefaultValue=false)]
         public List<ResponseContentEnum> ResponseContent { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerProfileIntegrationRequestV2" /> class.
         /// </summary>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
-        /// <param name="responseContent">Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot; and \&quot;event\&quot;. .</param>
-        public CustomerProfileIntegrationRequestV2(Object attributes = default(Object), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
+        /// <param name="audiencesChanges">audiencesChanges.</param>
+        /// <param name="responseContent">Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;. .</param>
+        public CustomerProfileIntegrationRequestV2(Object attributes = default(Object), ProfileAudiencesChanges audiencesChanges = default(ProfileAudiencesChanges), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             this.Attributes = attributes;
+            this.AudiencesChanges = audiencesChanges;
             this.ResponseContent = responseContent;
         }
         
@@ -86,6 +94,12 @@ namespace TalonOne.Model
         /// <value>Arbitrary properties associated with this item</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public Object Attributes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets AudiencesChanges
+        /// </summary>
+        [DataMember(Name="audiencesChanges", EmitDefaultValue=false)]
+        public ProfileAudiencesChanges AudiencesChanges { get; set; }
 
 
         /// <summary>
@@ -97,6 +111,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class CustomerProfileIntegrationRequestV2 {\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  AudiencesChanges: ").Append(AudiencesChanges).Append("\n");
             sb.Append("  ResponseContent: ").Append(ResponseContent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -138,6 +153,11 @@ namespace TalonOne.Model
                     this.Attributes.Equals(input.Attributes))
                 ) && 
                 (
+                    this.AudiencesChanges == input.AudiencesChanges ||
+                    (this.AudiencesChanges != null &&
+                    this.AudiencesChanges.Equals(input.AudiencesChanges))
+                ) && 
+                (
                     this.ResponseContent == input.ResponseContent ||
                     this.ResponseContent != null &&
                     input.ResponseContent != null &&
@@ -156,6 +176,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.AudiencesChanges != null)
+                    hashCode = hashCode * 59 + this.AudiencesChanges.GetHashCode();
                 if (this.ResponseContent != null)
                     hashCode = hashCode * 59 + this.ResponseContent.GetHashCode();
                 return hashCode;

@@ -38,8 +38,12 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltyProgramBalance" /> class.
         /// </summary>
-        /// <param name="currentBalance">currentBalance (required).</param>
-        public LoyaltyProgramBalance(decimal currentBalance = default(decimal))
+        /// <param name="currentBalance">Sum of current active points amounts (required).</param>
+        /// <param name="pendingBalance">Sum of pending points amounts (required).</param>
+        /// <param name="expiredBalance">Sum of expired points amounts (required).</param>
+        /// <param name="spentBalance">Sum of spent points amounts (required).</param>
+        /// <param name="tentativeCurrentBalance">Sum of current active points amounts, including additions and deductions on open sessions (required).</param>
+        public LoyaltyProgramBalance(decimal currentBalance = default(decimal), decimal pendingBalance = default(decimal), decimal expiredBalance = default(decimal), decimal spentBalance = default(decimal), decimal tentativeCurrentBalance = default(decimal))
         {
             // to ensure "currentBalance" is required (not null)
             if (currentBalance == null)
@@ -51,13 +55,82 @@ namespace TalonOne.Model
                 this.CurrentBalance = currentBalance;
             }
             
+            // to ensure "pendingBalance" is required (not null)
+            if (pendingBalance == null)
+            {
+                throw new InvalidDataException("pendingBalance is a required property for LoyaltyProgramBalance and cannot be null");
+            }
+            else
+            {
+                this.PendingBalance = pendingBalance;
+            }
+            
+            // to ensure "expiredBalance" is required (not null)
+            if (expiredBalance == null)
+            {
+                throw new InvalidDataException("expiredBalance is a required property for LoyaltyProgramBalance and cannot be null");
+            }
+            else
+            {
+                this.ExpiredBalance = expiredBalance;
+            }
+            
+            // to ensure "spentBalance" is required (not null)
+            if (spentBalance == null)
+            {
+                throw new InvalidDataException("spentBalance is a required property for LoyaltyProgramBalance and cannot be null");
+            }
+            else
+            {
+                this.SpentBalance = spentBalance;
+            }
+            
+            // to ensure "tentativeCurrentBalance" is required (not null)
+            if (tentativeCurrentBalance == null)
+            {
+                throw new InvalidDataException("tentativeCurrentBalance is a required property for LoyaltyProgramBalance and cannot be null");
+            }
+            else
+            {
+                this.TentativeCurrentBalance = tentativeCurrentBalance;
+            }
+            
         }
         
         /// <summary>
-        /// Gets or Sets CurrentBalance
+        /// Sum of current active points amounts
         /// </summary>
+        /// <value>Sum of current active points amounts</value>
         [DataMember(Name="currentBalance", EmitDefaultValue=true)]
         public decimal CurrentBalance { get; set; }
+
+        /// <summary>
+        /// Sum of pending points amounts
+        /// </summary>
+        /// <value>Sum of pending points amounts</value>
+        [DataMember(Name="pendingBalance", EmitDefaultValue=true)]
+        public decimal PendingBalance { get; set; }
+
+        /// <summary>
+        /// Sum of expired points amounts
+        /// </summary>
+        /// <value>Sum of expired points amounts</value>
+        [DataMember(Name="expiredBalance", EmitDefaultValue=true)]
+        public decimal ExpiredBalance { get; set; }
+
+        /// <summary>
+        /// Sum of spent points amounts
+        /// </summary>
+        /// <value>Sum of spent points amounts</value>
+        [DataMember(Name="spentBalance", EmitDefaultValue=true)]
+        public decimal SpentBalance { get; set; }
+
+        /// <summary>
+        /// Sum of current active points amounts, including additions and deductions on open sessions
+        /// </summary>
+        /// <value>Sum of current active points amounts, including additions and deductions on open sessions</value>
+        [DataMember(Name="tentativeCurrentBalance", EmitDefaultValue=true)]
+        public decimal TentativeCurrentBalance { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,6 +141,10 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class LoyaltyProgramBalance {\n");
             sb.Append("  CurrentBalance: ").Append(CurrentBalance).Append("\n");
+            sb.Append("  PendingBalance: ").Append(PendingBalance).Append("\n");
+            sb.Append("  ExpiredBalance: ").Append(ExpiredBalance).Append("\n");
+            sb.Append("  SpentBalance: ").Append(SpentBalance).Append("\n");
+            sb.Append("  TentativeCurrentBalance: ").Append(TentativeCurrentBalance).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,6 +183,26 @@ namespace TalonOne.Model
                     this.CurrentBalance == input.CurrentBalance ||
                     (this.CurrentBalance != null &&
                     this.CurrentBalance.Equals(input.CurrentBalance))
+                ) && 
+                (
+                    this.PendingBalance == input.PendingBalance ||
+                    (this.PendingBalance != null &&
+                    this.PendingBalance.Equals(input.PendingBalance))
+                ) && 
+                (
+                    this.ExpiredBalance == input.ExpiredBalance ||
+                    (this.ExpiredBalance != null &&
+                    this.ExpiredBalance.Equals(input.ExpiredBalance))
+                ) && 
+                (
+                    this.SpentBalance == input.SpentBalance ||
+                    (this.SpentBalance != null &&
+                    this.SpentBalance.Equals(input.SpentBalance))
+                ) && 
+                (
+                    this.TentativeCurrentBalance == input.TentativeCurrentBalance ||
+                    (this.TentativeCurrentBalance != null &&
+                    this.TentativeCurrentBalance.Equals(input.TentativeCurrentBalance))
                 );
         }
 
@@ -120,6 +217,14 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.CurrentBalance != null)
                     hashCode = hashCode * 59 + this.CurrentBalance.GetHashCode();
+                if (this.PendingBalance != null)
+                    hashCode = hashCode * 59 + this.PendingBalance.GetHashCode();
+                if (this.ExpiredBalance != null)
+                    hashCode = hashCode * 59 + this.ExpiredBalance.GetHashCode();
+                if (this.SpentBalance != null)
+                    hashCode = hashCode * 59 + this.SpentBalance.GetHashCode();
+                if (this.TentativeCurrentBalance != null)
+                    hashCode = hashCode * 59 + this.TentativeCurrentBalance.GetHashCode();
                 return hashCode;
             }
         }

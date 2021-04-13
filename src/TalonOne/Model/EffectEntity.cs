@@ -43,7 +43,8 @@ namespace TalonOne.Model
         /// <param name="ruleIndex">The position of the rule that triggered this effect within the ruleset (required).</param>
         /// <param name="ruleName">The name of the rule that triggered this effect (required).</param>
         /// <param name="effectType">The type of effect that was triggered (required).</param>
-        public EffectEntity(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string))
+        /// <param name="triggeredByCoupon">The ID of the coupon that was being evaluated when this effect was triggered.</param>
+        public EffectEntity(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int))
         {
             // to ensure "campaignId" is required (not null)
             if (campaignId == null)
@@ -95,6 +96,7 @@ namespace TalonOne.Model
                 this.EffectType = effectType;
             }
             
+            this.TriggeredByCoupon = triggeredByCoupon;
         }
         
         /// <summary>
@@ -133,6 +135,13 @@ namespace TalonOne.Model
         public string EffectType { get; set; }
 
         /// <summary>
+        /// The ID of the coupon that was being evaluated when this effect was triggered
+        /// </summary>
+        /// <value>The ID of the coupon that was being evaluated when this effect was triggered</value>
+        [DataMember(Name="triggeredByCoupon", EmitDefaultValue=false)]
+        public int TriggeredByCoupon { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +154,7 @@ namespace TalonOne.Model
             sb.Append("  RuleIndex: ").Append(RuleIndex).Append("\n");
             sb.Append("  RuleName: ").Append(RuleName).Append("\n");
             sb.Append("  EffectType: ").Append(EffectType).Append("\n");
+            sb.Append("  TriggeredByCoupon: ").Append(TriggeredByCoupon).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,6 +213,11 @@ namespace TalonOne.Model
                     this.EffectType == input.EffectType ||
                     (this.EffectType != null &&
                     this.EffectType.Equals(input.EffectType))
+                ) && 
+                (
+                    this.TriggeredByCoupon == input.TriggeredByCoupon ||
+                    (this.TriggeredByCoupon != null &&
+                    this.TriggeredByCoupon.Equals(input.TriggeredByCoupon))
                 );
         }
 
@@ -225,6 +240,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.RuleName.GetHashCode();
                 if (this.EffectType != null)
                     hashCode = hashCode * 59 + this.EffectType.GetHashCode();
+                if (this.TriggeredByCoupon != null)
+                    hashCode = hashCode * 59 + this.TriggeredByCoupon.GetHashCode();
                 return hashCode;
             }
         }

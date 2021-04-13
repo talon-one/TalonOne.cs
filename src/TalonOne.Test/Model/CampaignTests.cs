@@ -242,6 +242,46 @@ namespace TalonOne.Test
             // TODO unit test for the property 'CouponCreationCount'
         }
         /// <summary>
+        /// Test the property 'ReferralCreationCount'
+        /// </summary>
+        [Test]
+        public void ReferralCreationCountTest()
+        {
+            // TODO unit test for the property 'ReferralCreationCount'
+        }
+        /// <summary>
+        /// Test the property 'CreatedLoyaltyPointsCount'
+        /// </summary>
+        [Test]
+        public void CreatedLoyaltyPointsCountTest()
+        {
+            // TODO unit test for the property 'CreatedLoyaltyPointsCount'
+        }
+        /// <summary>
+        /// Test the property 'CreatedLoyaltyPointsEffectCount'
+        /// </summary>
+        [Test]
+        public void CreatedLoyaltyPointsEffectCountTest()
+        {
+            // TODO unit test for the property 'CreatedLoyaltyPointsEffectCount'
+        }
+        /// <summary>
+        /// Test the property 'RedeemedLoyaltyPointsCount'
+        /// </summary>
+        [Test]
+        public void RedeemedLoyaltyPointsCountTest()
+        {
+            // TODO unit test for the property 'RedeemedLoyaltyPointsCount'
+        }
+        /// <summary>
+        /// Test the property 'RedeemedLoyaltyPointsEffectCount'
+        /// </summary>
+        [Test]
+        public void RedeemedLoyaltyPointsEffectCountTest()
+        {
+            // TODO unit test for the property 'RedeemedLoyaltyPointsEffectCount'
+        }
+        /// <summary>
         /// Test the property 'LastActivity'
         /// </summary>
         [Test]

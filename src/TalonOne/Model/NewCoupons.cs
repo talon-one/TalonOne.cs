@@ -42,13 +42,13 @@ namespace TalonOne.Model
         /// <param name="discountLimit">The amount of discounts that can be given with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
         /// <param name="expiryDate">Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
-        /// <param name="validCharacters">Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp). (required).</param>
-        /// <param name="couponPattern">The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set.  (required).</param>
         /// <param name="numberOfCoupons">The number of new coupon codes to generate for the campaign. Must be at least 1. (required).</param>
         /// <param name="uniquePrefix">A unique prefix to prepend to all generated coupons..</param>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
         /// <param name="recipientIntegrationId">The integration ID for this coupon&#39;s beneficiary&#39;s profile.</param>
-        public NewCoupons(int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<string> validCharacters = default(List<string>), string couponPattern = default(string), int numberOfCoupons = default(int), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string))
+        /// <param name="validCharacters">Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp)..</param>
+        /// <param name="couponPattern">The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. .</param>
+        public NewCoupons(int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int numberOfCoupons = default(int), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string), List<string> validCharacters = default(List<string>), string couponPattern = default(string))
         {
             // to ensure "usageLimit" is required (not null)
             if (usageLimit == null)
@@ -58,26 +58,6 @@ namespace TalonOne.Model
             else
             {
                 this.UsageLimit = usageLimit;
-            }
-            
-            // to ensure "validCharacters" is required (not null)
-            if (validCharacters == null)
-            {
-                throw new InvalidDataException("validCharacters is a required property for NewCoupons and cannot be null");
-            }
-            else
-            {
-                this.ValidCharacters = validCharacters;
-            }
-            
-            // to ensure "couponPattern" is required (not null)
-            if (couponPattern == null)
-            {
-                throw new InvalidDataException("couponPattern is a required property for NewCoupons and cannot be null");
-            }
-            else
-            {
-                this.CouponPattern = couponPattern;
             }
             
             // to ensure "numberOfCoupons" is required (not null)
@@ -96,6 +76,8 @@ namespace TalonOne.Model
             this.UniquePrefix = uniquePrefix;
             this.Attributes = attributes;
             this.RecipientIntegrationId = recipientIntegrationId;
+            this.ValidCharacters = validCharacters;
+            this.CouponPattern = couponPattern;
         }
         
         /// <summary>
@@ -127,20 +109,6 @@ namespace TalonOne.Model
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
-        /// Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
-        /// </summary>
-        /// <value>Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).</value>
-        [DataMember(Name="validCharacters", EmitDefaultValue=true)]
-        public List<string> ValidCharacters { get; set; }
-
-        /// <summary>
-        /// The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. 
-        /// </summary>
-        /// <value>The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. </value>
-        [DataMember(Name="couponPattern", EmitDefaultValue=true)]
-        public string CouponPattern { get; set; }
-
-        /// <summary>
         /// The number of new coupon codes to generate for the campaign. Must be at least 1.
         /// </summary>
         /// <value>The number of new coupon codes to generate for the campaign. Must be at least 1.</value>
@@ -169,6 +137,20 @@ namespace TalonOne.Model
         public string RecipientIntegrationId { get; set; }
 
         /// <summary>
+        /// Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
+        /// </summary>
+        /// <value>Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).</value>
+        [DataMember(Name="validCharacters", EmitDefaultValue=false)]
+        public List<string> ValidCharacters { get; set; }
+
+        /// <summary>
+        /// The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. 
+        /// </summary>
+        /// <value>The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. </value>
+        [DataMember(Name="couponPattern", EmitDefaultValue=false)]
+        public string CouponPattern { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -180,12 +162,12 @@ namespace TalonOne.Model
             sb.Append("  DiscountLimit: ").Append(DiscountLimit).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
-            sb.Append("  ValidCharacters: ").Append(ValidCharacters).Append("\n");
-            sb.Append("  CouponPattern: ").Append(CouponPattern).Append("\n");
             sb.Append("  NumberOfCoupons: ").Append(NumberOfCoupons).Append("\n");
             sb.Append("  UniquePrefix: ").Append(UniquePrefix).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  RecipientIntegrationId: ").Append(RecipientIntegrationId).Append("\n");
+            sb.Append("  ValidCharacters: ").Append(ValidCharacters).Append("\n");
+            sb.Append("  CouponPattern: ").Append(CouponPattern).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -241,17 +223,6 @@ namespace TalonOne.Model
                     this.ExpiryDate.Equals(input.ExpiryDate))
                 ) && 
                 (
-                    this.ValidCharacters == input.ValidCharacters ||
-                    this.ValidCharacters != null &&
-                    input.ValidCharacters != null &&
-                    this.ValidCharacters.SequenceEqual(input.ValidCharacters)
-                ) && 
-                (
-                    this.CouponPattern == input.CouponPattern ||
-                    (this.CouponPattern != null &&
-                    this.CouponPattern.Equals(input.CouponPattern))
-                ) && 
-                (
                     this.NumberOfCoupons == input.NumberOfCoupons ||
                     (this.NumberOfCoupons != null &&
                     this.NumberOfCoupons.Equals(input.NumberOfCoupons))
@@ -270,6 +241,17 @@ namespace TalonOne.Model
                     this.RecipientIntegrationId == input.RecipientIntegrationId ||
                     (this.RecipientIntegrationId != null &&
                     this.RecipientIntegrationId.Equals(input.RecipientIntegrationId))
+                ) && 
+                (
+                    this.ValidCharacters == input.ValidCharacters ||
+                    this.ValidCharacters != null &&
+                    input.ValidCharacters != null &&
+                    this.ValidCharacters.SequenceEqual(input.ValidCharacters)
+                ) && 
+                (
+                    this.CouponPattern == input.CouponPattern ||
+                    (this.CouponPattern != null &&
+                    this.CouponPattern.Equals(input.CouponPattern))
                 );
         }
 
@@ -290,10 +272,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
-                if (this.ValidCharacters != null)
-                    hashCode = hashCode * 59 + this.ValidCharacters.GetHashCode();
-                if (this.CouponPattern != null)
-                    hashCode = hashCode * 59 + this.CouponPattern.GetHashCode();
                 if (this.NumberOfCoupons != null)
                     hashCode = hashCode * 59 + this.NumberOfCoupons.GetHashCode();
                 if (this.UniquePrefix != null)
@@ -302,6 +280,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.RecipientIntegrationId != null)
                     hashCode = hashCode * 59 + this.RecipientIntegrationId.GetHashCode();
+                if (this.ValidCharacters != null)
+                    hashCode = hashCode * 59 + this.ValidCharacters.GetHashCode();
+                if (this.CouponPattern != null)
+                    hashCode = hashCode * 59 + this.CouponPattern.GetHashCode();
                 return hashCode;
             }
         }
@@ -341,6 +323,11 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value greater than or equal to 0.", new [] { "DiscountLimit" });
             }
 
+            // CouponPattern (string) maxLength
+            if(this.CouponPattern != null && this.CouponPattern.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CouponPattern, length must be less than 100.", new [] { "CouponPattern" });
+            }
 
             // CouponPattern (string) minLength
             if(this.CouponPattern != null && this.CouponPattern.Length < 3)

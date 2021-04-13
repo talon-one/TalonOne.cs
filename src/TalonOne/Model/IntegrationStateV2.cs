@@ -46,9 +46,10 @@ namespace TalonOne.Model
         /// <param name="coupons">coupons.</param>
         /// <param name="triggeredCampaigns">triggeredCampaigns.</param>
         /// <param name="effects">effects (required).</param>
+        /// <param name="ruleFailureReasons">ruleFailureReasons.</param>
         /// <param name="createdCoupons">createdCoupons (required).</param>
         /// <param name="createdReferrals">createdReferrals (required).</param>
-        public IntegrationStateV2(CustomerSessionV2 customerSession = default(CustomerSessionV2), CustomerProfile customerProfile = default(CustomerProfile), Event _event = default(Event), Loyalty loyalty = default(Loyalty), Referral referral = default(Referral), List<Coupon> coupons = default(List<Coupon>), List<Campaign> triggeredCampaigns = default(List<Campaign>), List<Effect> effects = default(List<Effect>), List<Coupon> createdCoupons = default(List<Coupon>), List<Referral> createdReferrals = default(List<Referral>))
+        public IntegrationStateV2(CustomerSessionV2 customerSession = default(CustomerSessionV2), CustomerProfile customerProfile = default(CustomerProfile), Event _event = default(Event), Loyalty loyalty = default(Loyalty), Referral referral = default(Referral), List<Coupon> coupons = default(List<Coupon>), List<Campaign> triggeredCampaigns = default(List<Campaign>), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>), List<Coupon> createdCoupons = default(List<Coupon>), List<Referral> createdReferrals = default(List<Referral>))
         {
             // to ensure "effects" is required (not null)
             if (effects == null)
@@ -87,6 +88,7 @@ namespace TalonOne.Model
             this.Referral = referral;
             this.Coupons = coupons;
             this.TriggeredCampaigns = triggeredCampaigns;
+            this.RuleFailureReasons = ruleFailureReasons;
         }
         
         /// <summary>
@@ -138,6 +140,12 @@ namespace TalonOne.Model
         public List<Effect> Effects { get; set; }
 
         /// <summary>
+        /// Gets or Sets RuleFailureReasons
+        /// </summary>
+        [DataMember(Name="ruleFailureReasons", EmitDefaultValue=false)]
+        public List<RuleFailureReason> RuleFailureReasons { get; set; }
+
+        /// <summary>
         /// Gets or Sets CreatedCoupons
         /// </summary>
         [DataMember(Name="createdCoupons", EmitDefaultValue=true)]
@@ -165,6 +173,7 @@ namespace TalonOne.Model
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("  TriggeredCampaigns: ").Append(TriggeredCampaigns).Append("\n");
             sb.Append("  Effects: ").Append(Effects).Append("\n");
+            sb.Append("  RuleFailureReasons: ").Append(RuleFailureReasons).Append("\n");
             sb.Append("  CreatedCoupons: ").Append(CreatedCoupons).Append("\n");
             sb.Append("  CreatedReferrals: ").Append(CreatedReferrals).Append("\n");
             sb.Append("}\n");
@@ -245,6 +254,12 @@ namespace TalonOne.Model
                     this.Effects.SequenceEqual(input.Effects)
                 ) && 
                 (
+                    this.RuleFailureReasons == input.RuleFailureReasons ||
+                    this.RuleFailureReasons != null &&
+                    input.RuleFailureReasons != null &&
+                    this.RuleFailureReasons.SequenceEqual(input.RuleFailureReasons)
+                ) && 
+                (
                     this.CreatedCoupons == input.CreatedCoupons ||
                     this.CreatedCoupons != null &&
                     input.CreatedCoupons != null &&
@@ -283,6 +298,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.TriggeredCampaigns.GetHashCode();
                 if (this.Effects != null)
                     hashCode = hashCode * 59 + this.Effects.GetHashCode();
+                if (this.RuleFailureReasons != null)
+                    hashCode = hashCode * 59 + this.RuleFailureReasons.GetHashCode();
                 if (this.CreatedCoupons != null)
                     hashCode = hashCode * 59 + this.CreatedCoupons.GetHashCode();
                 if (this.CreatedReferrals != null)

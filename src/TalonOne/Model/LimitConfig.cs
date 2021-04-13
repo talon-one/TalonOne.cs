@@ -31,51 +31,6 @@ namespace TalonOne.Model
     public partial class LimitConfig :  IEquatable<LimitConfig>, IValidatableObject
     {
         /// <summary>
-        /// The limitable action to which this limit will be applied
-        /// </summary>
-        /// <value>The limitable action to which this limit will be applied</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ActionEnum
-        {
-            /// <summary>
-            /// Enum RedeemCoupon for value: redeemCoupon
-            /// </summary>
-            [EnumMember(Value = "redeemCoupon")]
-            RedeemCoupon = 1,
-
-            /// <summary>
-            /// Enum RedeemReferral for value: redeemReferral
-            /// </summary>
-            [EnumMember(Value = "redeemReferral")]
-            RedeemReferral = 2,
-
-            /// <summary>
-            /// Enum SetDiscount for value: setDiscount
-            /// </summary>
-            [EnumMember(Value = "setDiscount")]
-            SetDiscount = 3,
-
-            /// <summary>
-            /// Enum CreateCoupon for value: createCoupon
-            /// </summary>
-            [EnumMember(Value = "createCoupon")]
-            CreateCoupon = 4,
-
-            /// <summary>
-            /// Enum SetDiscountEffect for value: setDiscountEffect
-            /// </summary>
-            [EnumMember(Value = "setDiscountEffect")]
-            SetDiscountEffect = 5
-
-        }
-
-        /// <summary>
-        /// The limitable action to which this limit will be applied
-        /// </summary>
-        /// <value>The limitable action to which this limit will be applied</value>
-        [DataMember(Name="action", EmitDefaultValue=true)]
-        public ActionEnum Action { get; set; }
-        /// <summary>
         /// Defines Entities
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
@@ -125,7 +80,7 @@ namespace TalonOne.Model
         /// <param name="action">The limitable action to which this limit will be applied (required).</param>
         /// <param name="limit">The value to set for the limit (required).</param>
         /// <param name="entities">The entities that make the address of this limit (required).</param>
-        public LimitConfig(ActionEnum action = default(ActionEnum), decimal limit = default(decimal), List<EntitiesEnum> entities = default(List<EntitiesEnum>))
+        public LimitConfig(string action = default(string), decimal limit = default(decimal), List<EntitiesEnum> entities = default(List<EntitiesEnum>))
         {
             // to ensure "action" is required (not null)
             if (action == null)
@@ -159,6 +114,12 @@ namespace TalonOne.Model
             
         }
         
+        /// <summary>
+        /// The limitable action to which this limit will be applied
+        /// </summary>
+        /// <value>The limitable action to which this limit will be applied</value>
+        [DataMember(Name="action", EmitDefaultValue=true)]
+        public string Action { get; set; }
 
         /// <summary>
         /// The value to set for the limit
