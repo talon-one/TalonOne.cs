@@ -69,12 +69,29 @@ namespace TalonOne.Test
         [Test]
         public void AddLoyaltyPointsTest()
         {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string programID = null;
-            //string integrationID = null;
-            //LoyaltyPoints body = null;
-            //instance.AddLoyaltyPoints(programID, integrationID, body);
+            var managementConfig = new Configuration {
+                BasePath = "http://host.docker.internal:9000",
+            };
+            var myInstance = new ManagementApi(managementConfig);
             
+            // Obtain session token
+            var loginParams = new LoginParams("demo@talon.one", "Demo1234");
+            var session = myInstance.CreateSession(loginParams);
+            // Console.WriteLine(session);
+
+            // Save token in the configuration for future management API calls
+            managementConfig.ApiKey.Add("Authorization", session.Token);
+            managementConfig.ApiKeyPrefix.Add("Authorization", "Bearer");
+
+            string programID = "1";
+            string integrationID = "test_dry_rule_engine";
+            LoyaltyPoints body = new LoyaltyPoints {
+                Points=(decimal)22.55,
+                Name = "testing API",
+                ValidityDuration = "unlimited",
+                PendingDuration = "72h"
+            };
+            myInstance.AddLoyaltyPoints(programID, integrationID, body);
         }
         
         /// <summary>
@@ -352,10 +369,24 @@ namespace TalonOne.Test
         [Test]
         public void ExportLoyaltyBalanceTest()
         {
+            var managementConfig = new Configuration {
+                BasePath = "http://host.docker.internal:9000"
+            };
+            var myInstance = new ManagementApi(managementConfig);
+
+            // Obtain session token
+            var loginParams = new LoginParams("demo@talon.one", "Demo1234");
+            var session = myInstance.CreateSession(loginParams);
+            // Console.WriteLine(session);
+
+            // Save token in the configuration for future management API calls
+            managementConfig.ApiKey.Add("Authorization", session.Token);
+            managementConfig.ApiKeyPrefix.Add("Authorization", "Bearer");
+
             // TODO uncomment below to test the method and replace null with proper value
-            //string programID = null;
-            //var response = instance.ExportLoyaltyBalance(programID);
-            //Assert.IsInstanceOf(typeof(string), response, "response is string");
+            string programID = "1";
+            var response = myInstance.ExportLoyaltyBalance(programID);
+            Console.WriteLine(response);
         }
         
         /// <summary>
@@ -500,10 +531,26 @@ namespace TalonOne.Test
         [Test]
         public void GetApplicationTest()
         {
+            var managementConfig = new Configuration {
+                BasePath = "http://host.docker.internal:9000"
+            };
+            var myInstance = new ManagementApi(managementConfig);
+
+            // Obtain session token
+            var loginParams = new LoginParams("demo@talon.one", "Demo1234");
+            var session = myInstance.CreateSession(loginParams);
+            // Console.WriteLine(session);
+
+            // Save token in the configuration for future management API calls
+            managementConfig.ApiKey.Add("Authorization", session.Token);
+            managementConfig.ApiKeyPrefix.Add("Authorization", "Bearer");
+
             // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //var response = instance.GetApplication(applicationId);
-            //Assert.IsInstanceOf(typeof(Application), response, "response is Application");
+            int applicationId = 1;
+            var application = myInstance.GetApplication(applicationId);
+            Assert.IsInstanceOf<Application> (application, "response is Application");
+            Assert.AreEqual("App - first of its name", application.Name);
+            Assert.AreEqual("c972ae569cb45e71d68e0738723de9becd39c677d365eb5e635a5f338ea96e75", application.Description);
         }
         
         /// <summary>
@@ -722,11 +769,27 @@ namespace TalonOne.Test
         [Test]
         public void GetCampaignTest()
         {
+            var managementConfig = new Configuration {
+                BasePath = "http://host.docker.internal:9000",
+            };
+            var myInstance = new ManagementApi(managementConfig);
+
+            // Obtain session token
+            var loginParams = new LoginParams("demo@talon.one", "Demo1234");
+            var session = myInstance.CreateSession(loginParams);
+            // Console.WriteLine(session);
+
+            // Save token in the configuration for future management API calls
+            managementConfig.ApiKey.Add("Authorization", session.Token);
+            managementConfig.ApiKeyPrefix.Add("Authorization", "Bearer");
+
             // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //int campaignId = null;
-            //var response = instance.GetCampaign(applicationId, campaignId);
-            //Assert.IsInstanceOf(typeof(Campaign), response, "response is Campaign");
+            int applicationId = 1;
+            int campaignId = 1;
+            var campaign = myInstance.GetCampaign(applicationId, campaignId);
+            Assert.IsInstanceOf<Campaign> (campaign, "response is Campaign");
+            Assert.AreEqual("Campagin A", campaign.Name);
+            Assert.AreEqual(new List<TalonOne.Model.Campaign.FeaturesEnum>{TalonOne.Model.Campaign.FeaturesEnum.Coupons, TalonOne.Model.Campaign.FeaturesEnum.Referrals}, campaign.Features);
         }
         
         /// <summary>

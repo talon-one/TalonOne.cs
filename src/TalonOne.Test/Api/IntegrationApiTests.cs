@@ -40,7 +40,16 @@ namespace TalonOne.Test
         [SetUp]
         public void Init()
         {
-            instance = new IntegrationApi();
+            var integrationConfig = new Configuration {
+                BasePath = "http://host.docker.internal:9000",
+                ApiKey = new Dictionary<string, string> {
+                    { "Authorization", "f10e9ee8463785b1aa0f40fa64bfed336253bddf2f3b55d76cb65055e638fdc9" }
+                },
+                ApiKeyPrefix = new Dictionary<string, string> {
+                    { "Authorization", "ApiKey-v1" }
+                }
+            };
+            instance = new IntegrationApi(integrationConfig);
         }
 
         /// <summary>
@@ -120,13 +129,14 @@ namespace TalonOne.Test
         public void GetCustomerInventoryTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string integrationId = null;
-            //bool? profile = null;
-            //bool? referrals = null;
-            //bool? coupons = null;
-            //bool? loyalty = null;
-            //var response = instance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty);
-            //Assert.IsInstanceOf(typeof(CustomerInventory), response, "response is CustomerInventory");
+            string integrationId = "PROFILE_ID";
+            bool? profile = true;
+            bool? referrals = true;
+            bool? coupons = null;
+            bool? loyalty = true;
+            var response = instance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty);
+            Assert.IsInstanceOf(typeof(CustomerInventory), response, "response is CustomerInventory");
+            Console.WriteLine(response);
         }
         
         /// <summary>
@@ -161,13 +171,19 @@ namespace TalonOne.Test
         public void UpdateCustomerProfileTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string integrationId = null;
-            //NewCustomerProfile body = null;
-            //bool? dry = null;
-            //var response = instance.UpdateCustomerProfile(integrationId, body, dry);
-            //Assert.IsInstanceOf(typeof(IntegrationState), response, "response is IntegrationState");
+            string integrationId = "PROFILE_ID";
+            NewCustomerProfile body = new NewCustomerProfile {
+                Attributes = new Dictionary<string, Object> {
+                    { "Name", "I'm new Here" },
+                    { "Email", "new@there.com" }
+                }
+            };
+            bool? dry = null;
+            var response = instance.UpdateCustomerProfile(integrationId, body, dry);
+            Assert.IsInstanceOf(typeof(IntegrationState), response, "response is IntegrationState");
+            Console.WriteLine(response);
         }
-        
+
         /// <summary>
         /// Test UpdateCustomerProfileAudiences
         /// </summary>
@@ -186,13 +202,22 @@ namespace TalonOne.Test
         [Test]
         public void UpdateCustomerProfileV2Test()
         {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string integrationId = null;
-            //CustomerProfileIntegrationRequestV2 body = null;
-            //bool? runRuleEngine = null;
-            //bool? dry = null;
-            //var response = instance.UpdateCustomerProfileV2(integrationId, body, runRuleEngine, dry);
-            //Assert.IsInstanceOf(typeof(IntegrationStateV2), response, "response is IntegrationStateV2");
+            string integrationId = "test_dry_rule_engine";
+            CustomerProfileIntegrationRequestV2 body = new CustomerProfileIntegrationRequestV2{
+                Attributes = new Dictionary<string, Object> {
+                    { "Name", "Well, Done." },
+                    { "Email", "well@done.com" }
+                },
+                ResponseContent = new List<CustomerProfileIntegrationRequestV2.ResponseContentEnum> {
+                    CustomerProfileIntegrationRequestV2.ResponseContentEnum.CustomerProfile,
+                    CustomerProfileIntegrationRequestV2.ResponseContentEnum.Loyalty
+                }
+            };
+            bool? runRuleEngine = true;
+            bool? dry = null;
+            var response = instance.UpdateCustomerProfileV2(integrationId, body, runRuleEngine, dry);
+            Assert.IsInstanceOf(typeof(IntegrationStateV2), response, "response is IntegrationStateV2");
+            Console.WriteLine(response);
         }
         
         /// <summary>
@@ -215,11 +240,17 @@ namespace TalonOne.Test
         public void UpdateCustomerSessionTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerSessionId = null;
-            //NewCustomerSession body = null;
-            //bool? dry = null;
-            //var response = instance.UpdateCustomerSession(customerSessionId, body, dry);
-            //Assert.IsInstanceOf(typeof(IntegrationState), response, "response is IntegrationState");
+            string customerSessionId = "Wow-No-Cow";
+            var body = new NewCustomerSession {
+                ProfileId = "DADBOOF",
+                Coupon = "TPWC8CADJN",
+                State = NewCustomerSession.StateEnum.Open, // `Open` would be the default value anyway
+                Total = (decimal)42.567
+            };
+            bool? dry = null;
+            var response = instance.UpdateCustomerSession(customerSessionId, body, dry);
+            Assert.IsInstanceOf<IntegrationState> (response, "response is IntegrationState");
+            Console.WriteLine(response);
         }
         
         /// <summary>
@@ -229,11 +260,69 @@ namespace TalonOne.Test
         public void UpdateCustomerSessionV2Test()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string customerSessionId = null;
-            //IntegrationRequest body = null;
-            //bool? dry = null;
-            //var response = instance.UpdateCustomerSessionV2(customerSessionId, body, dry);
-            //Assert.IsInstanceOf(typeof(IntegrationStateV2), response, "response is IntegrationStateV2");
+            string customerSessionId = "Like-Milk-but-for-Humans";
+
+            NewCustomerSessionV2 customerSession = new NewCustomerSessionV2 {
+                ProfileId = "PROFILE_ID",
+                CouponCodes = new List<string> {
+                    "Cool-Stuff-2020"
+                },
+                CartItems = new List<CartItem> {
+                    new CartItem(
+                        "Hummus Tahini", // Name
+                        "hum-t", // Sku
+                        1, // Quantity
+                        (decimal)5.5, // Price
+                        "Food" // Category
+                    ),
+                    new CartItem(
+                        "Iced Mint Lemonade", // Name
+                        "ice-mn-lemon", // Sku
+                        1, // Quantity
+                        (decimal)3.5, // Price
+                        "Beverages" // Category
+                    )
+                }
+            };
+
+            IntegrationRequest body = new IntegrationRequest(
+                customerSession,
+                new List<IntegrationRequest.ResponseContentEnum> {
+                    IntegrationRequest.ResponseContentEnum.CustomerSession,
+                    IntegrationRequest.ResponseContentEnum.CustomerProfile
+                }
+            );
+            var response = instance.UpdateCustomerSessionV2(customerSessionId, body);
+            Assert.IsInstanceOf(typeof(IntegrationStateV2), response, "response is IntegrationStateV2");
+            Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject( response, Newtonsoft.Json.Formatting.Indented ));
+            
+            // Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
+            foreach (Effect effect in response.Effects) {
+                switch(effect.EffectType) {
+                    case "setDiscount":
+                        // Initiating right props instance according to the effect type
+                        SetDiscountEffectProps setDiscountEffectProps = (SetDiscountEffectProps) Newtonsoft.Json.JsonConvert.DeserializeObject(effect.Props.ToString(), typeof(SetDiscountEffectProps));
+                        Assert.IsInstanceOf(typeof(SetDiscountEffectProps), setDiscountEffectProps, "setDiscountEffectProps is SetDiscountEffectProps");
+
+                        // Access the specific effect's properties
+                        Console.WriteLine("Set a discount '{0}' of {1:00.000}", setDiscountEffectProps.Name, setDiscountEffectProps.Value);
+                        break;
+                    case "rejectCoupon":
+                        // Initiating right props instance according to the effect type
+                        RejectCouponEffectProps rejectCouponEffectProps = (RejectCouponEffectProps) Newtonsoft.Json.JsonConvert.DeserializeObject(effect.Props.ToString(), typeof(RejectCouponEffectProps));
+                        Assert.IsInstanceOf(typeof(RejectCouponEffectProps), rejectCouponEffectProps, "rejectCouponEffectProps is RejectCouponEffectProps");
+
+                        // Access the specific effect's properties
+                        Console.WriteLine("REJECTED: {0}", rejectCouponEffectProps.Value);
+                        break;
+                    // case "acceptCoupon":
+                    // Work with AcceptCouponEffectProps' properties
+                    // ...
+                    default:
+                        Console.WriteLine("Encounter unknown effect type: {0}", effect.EffectType);
+                        break;
+                }
+            }
         }
         
     }
