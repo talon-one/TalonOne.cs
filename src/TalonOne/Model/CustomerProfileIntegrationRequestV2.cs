@@ -61,18 +61,24 @@ namespace TalonOne.Model
             Event = 4,
 
             /// <summary>
+            /// Enum AwardedGiveaways for value: awardedGiveaways
+            /// </summary>
+            [EnumMember(Value = "awardedGiveaways")]
+            AwardedGiveaways = 5,
+
+            /// <summary>
             /// Enum RuleFailureReasons for value: ruleFailureReasons
             /// </summary>
             [EnumMember(Value = "ruleFailureReasons")]
-            RuleFailureReasons = 5
+            RuleFailureReasons = 6
 
         }
 
 
         /// <summary>
-        /// Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;. 
+        /// Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot;, \&quot;awardedGiveaways\&quot;, \&quot;ruleFailureReasons\&quot;. 
         /// </summary>
-        /// <value>Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;. </value>
+        /// <value>Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot;, \&quot;awardedGiveaways\&quot;, \&quot;ruleFailureReasons\&quot;. </value>
         [DataMember(Name="responseContent", EmitDefaultValue=false)]
         public List<ResponseContentEnum> ResponseContent { get; set; }
         /// <summary>
@@ -80,7 +86,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
         /// <param name="audiencesChanges">audiencesChanges.</param>
-        /// <param name="responseContent">Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;. .</param>
+        /// <param name="responseContent">Optional list of requested information to be present on the response related to the customer profile update. Currently supported: \&quot;customerProfile\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot;, \&quot;awardedGiveaways\&quot;, \&quot;ruleFailureReasons\&quot;. .</param>
         public CustomerProfileIntegrationRequestV2(Object attributes = default(Object), ProfileAudiencesChanges audiencesChanges = default(ProfileAudiencesChanges), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             this.Attributes = attributes;

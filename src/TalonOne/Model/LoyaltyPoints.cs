@@ -203,9 +203,9 @@ namespace TalonOne.Model
 
             
             // Points (decimal) maximum
-            if(this.Points > (decimal)1E+8)
+            if(this.Points > (decimal)100000000)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Points, must be a value less than or equal to 1E+8.", new [] { "Points" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Points, must be a value less than or equal to 100000000.", new [] { "Points" });
             }
 
             // Points (decimal) minimum

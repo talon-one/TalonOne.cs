@@ -85,7 +85,13 @@ namespace TalonOne.Model
             /// Enum Loyalty for value: loyalty
             /// </summary>
             [EnumMember(Value = "loyalty")]
-            Loyalty = 3
+            Loyalty = 3,
+
+            /// <summary>
+            /// Enum Giveaways for value: giveaways
+            /// </summary>
+            [EnumMember(Value = "giveaways")]
+            Giveaways = 4
 
         }
 

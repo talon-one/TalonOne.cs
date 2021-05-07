@@ -79,18 +79,24 @@ namespace TalonOne.Model
             Event = 7,
 
             /// <summary>
+            /// Enum AwardedGiveaways for value: awardedGiveaways
+            /// </summary>
+            [EnumMember(Value = "awardedGiveaways")]
+            AwardedGiveaways = 8,
+
+            /// <summary>
             /// Enum RuleFailureReasons for value: ruleFailureReasons
             /// </summary>
             [EnumMember(Value = "ruleFailureReasons")]
-            RuleFailureReasons = 8
+            RuleFailureReasons = 9
 
         }
 
 
         /// <summary>
-        /// Optional list of requested information to be present on the response related to the customer session update. Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;. 
+        /// Optional list of requested information to be present on the response related to the customer session update. Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot;, \&quot;awardedGiveaways\&quot; and \&quot;ruleFailureReasons\&quot;. 
         /// </summary>
-        /// <value>Optional list of requested information to be present on the response related to the customer session update. Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;. </value>
+        /// <value>Optional list of requested information to be present on the response related to the customer session update. Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot;, \&quot;awardedGiveaways\&quot; and \&quot;ruleFailureReasons\&quot;. </value>
         [DataMember(Name="responseContent", EmitDefaultValue=false)]
         public List<ResponseContentEnum> ResponseContent { get; set; }
         /// <summary>
@@ -102,7 +108,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="IntegrationRequest" /> class.
         /// </summary>
         /// <param name="customerSession">customerSession (required).</param>
-        /// <param name="responseContent">Optional list of requested information to be present on the response related to the customer session update. Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot; and \&quot;ruleFailureReasons\&quot;. .</param>
+        /// <param name="responseContent">Optional list of requested information to be present on the response related to the customer session update. Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot;, \&quot;awardedGiveaways\&quot; and \&quot;ruleFailureReasons\&quot;. .</param>
         public IntegrationRequest(NewCustomerSessionV2 customerSession = default(NewCustomerSessionV2), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             // to ensure "customerSession" is required (not null)

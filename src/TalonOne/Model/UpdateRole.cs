@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// <param name="name">Name of the role.</param>
         /// <param name="description">Description of the role.</param>
         /// <param name="acl">Role Policy this should be a stringified blob of json.</param>
-        /// <param name="users">an array of user identifiers.</param>
+        /// <param name="users">An array of user identifiers.</param>
         public UpdateRole(string name = default(string), string description = default(string), string acl = default(string), List<int> users = default(List<int>))
         {
             this.Name = name;
@@ -67,9 +67,9 @@ namespace TalonOne.Model
         public string Acl { get; set; }
 
         /// <summary>
-        /// an array of user identifiers
+        /// An array of user identifiers
         /// </summary>
-        /// <value>an array of user identifiers</value>
+        /// <value>An array of user identifiers</value>
         [DataMember(Name="users", EmitDefaultValue=false)]
         public List<int> Users { get; set; }
 

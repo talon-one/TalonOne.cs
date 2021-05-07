@@ -193,7 +193,7 @@ namespace TalonOne.Model
         {
 
             // Type (string) minLength
-            if(this.Type != default(TypeEnum))
+            if(this.Type != null && this.Type.ToString().Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }

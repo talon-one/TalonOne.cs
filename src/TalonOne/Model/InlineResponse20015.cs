@@ -38,20 +38,10 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20015" /> class.
         /// </summary>
-        /// <param name="hasMore">hasMore (required).</param>
+        /// <param name="hasMore">hasMore.</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20015(bool hasMore = default(bool), List<CustomerActivityReport> data = default(List<CustomerActivityReport>))
+        public InlineResponse20015(bool hasMore = default(bool), List<ApplicationSession> data = default(List<ApplicationSession>))
         {
-            // to ensure "hasMore" is required (not null)
-            if (hasMore == null)
-            {
-                throw new InvalidDataException("hasMore is a required property for InlineResponse20015 and cannot be null");
-            }
-            else
-            {
-                this.HasMore = hasMore;
-            }
-            
             // to ensure "data" is required (not null)
             if (data == null)
             {
@@ -62,19 +52,20 @@ namespace TalonOne.Model
                 this.Data = data;
             }
             
+            this.HasMore = hasMore;
         }
         
         /// <summary>
         /// Gets or Sets HasMore
         /// </summary>
-        [DataMember(Name="hasMore", EmitDefaultValue=true)]
+        [DataMember(Name="hasMore", EmitDefaultValue=false)]
         public bool HasMore { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=true)]
-        public List<CustomerActivityReport> Data { get; set; }
+        public List<ApplicationSession> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

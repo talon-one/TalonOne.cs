@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalResultSize** | **int** |  | 
+**HasMore** | **bool** |  | 
 **Data** | [**List&lt;ApplicationEvent&gt;**](ApplicationEvent.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)

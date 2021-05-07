@@ -82,6 +82,30 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Created'
         }
         /// <summary>
+        /// Test the property 'StartDate'
+        /// </summary>
+        [Test]
+        public void StartDateTest()
+        {
+            // TODO unit test for the property 'StartDate'
+        }
+        /// <summary>
+        /// Test the property 'ExpiryDate'
+        /// </summary>
+        [Test]
+        public void ExpiryDateTest()
+        {
+            // TODO unit test for the property 'ExpiryDate'
+        }
+        /// <summary>
+        /// Test the property 'UsageLimit'
+        /// </summary>
+        [Test]
+        public void UsageLimitTest()
+        {
+            // TODO unit test for the property 'UsageLimit'
+        }
+        /// <summary>
         /// Test the property 'CampaignId'
         /// </summary>
         [Test]
@@ -106,20 +130,20 @@ namespace TalonOne.Test
             // TODO unit test for the property 'FriendProfileIntegrationId'
         }
         /// <summary>
-        /// Test the property 'StartDate'
+        /// Test the property 'Attributes'
         /// </summary>
         [Test]
-        public void StartDateTest()
+        public void AttributesTest()
         {
-            // TODO unit test for the property 'StartDate'
+            // TODO unit test for the property 'Attributes'
         }
         /// <summary>
-        /// Test the property 'ExpiryDate'
+        /// Test the property 'ImportId'
         /// </summary>
         [Test]
-        public void ExpiryDateTest()
+        public void ImportIdTest()
         {
-            // TODO unit test for the property 'ExpiryDate'
+            // TODO unit test for the property 'ImportId'
         }
         /// <summary>
         /// Test the property 'Code'
@@ -138,12 +162,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'UsageCounter'
         }
         /// <summary>
-        /// Test the property 'UsageLimit'
+        /// Test the property 'BatchId'
         /// </summary>
         [Test]
-        public void UsageLimitTest()
+        public void BatchIdTest()
         {
-            // TODO unit test for the property 'UsageLimit'
+            // TODO unit test for the property 'BatchId'
         }
 
     }

@@ -83,7 +83,19 @@ namespace TalonOne.Model
             /// Enum Event for value: Event
             /// </summary>
             [EnumMember(Value = "Event")]
-            Event = 8
+            Event = 8,
+
+            /// <summary>
+            /// Enum Giveaway for value: Giveaway
+            /// </summary>
+            [EnumMember(Value = "Giveaway")]
+            Giveaway = 9,
+
+            /// <summary>
+            /// Enum Referral for value: Referral
+            /// </summary>
+            [EnumMember(Value = "Referral")]
+            Referral = 10
 
         }
 

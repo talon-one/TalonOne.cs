@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TotalResultSize** | **int** |  | 
-**Data** | [**List&lt;WebhookLogEntry&gt;**](WebhookLogEntry.md) |  | 
+**Data** | [**List&lt;EventType&gt;**](EventType.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

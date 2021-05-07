@@ -49,7 +49,8 @@ namespace TalonOne.Model
         /// <param name="ruleFailureReasons">ruleFailureReasons.</param>
         /// <param name="createdCoupons">createdCoupons (required).</param>
         /// <param name="createdReferrals">createdReferrals (required).</param>
-        public IntegrationStateV2(CustomerSessionV2 customerSession = default(CustomerSessionV2), CustomerProfile customerProfile = default(CustomerProfile), Event _event = default(Event), Loyalty loyalty = default(Loyalty), Referral referral = default(Referral), List<Coupon> coupons = default(List<Coupon>), List<Campaign> triggeredCampaigns = default(List<Campaign>), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>), List<Coupon> createdCoupons = default(List<Coupon>), List<Referral> createdReferrals = default(List<Referral>))
+        /// <param name="awardedGiveaways">awardedGiveaways.</param>
+        public IntegrationStateV2(CustomerSessionV2 customerSession = default(CustomerSessionV2), CustomerProfile customerProfile = default(CustomerProfile), Event _event = default(Event), Loyalty loyalty = default(Loyalty), Referral referral = default(Referral), List<Coupon> coupons = default(List<Coupon>), List<Campaign> triggeredCampaigns = default(List<Campaign>), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>), List<Coupon> createdCoupons = default(List<Coupon>), List<Referral> createdReferrals = default(List<Referral>), List<Giveaway> awardedGiveaways = default(List<Giveaway>))
         {
             // to ensure "effects" is required (not null)
             if (effects == null)
@@ -89,6 +90,7 @@ namespace TalonOne.Model
             this.Coupons = coupons;
             this.TriggeredCampaigns = triggeredCampaigns;
             this.RuleFailureReasons = ruleFailureReasons;
+            this.AwardedGiveaways = awardedGiveaways;
         }
         
         /// <summary>
@@ -158,6 +160,12 @@ namespace TalonOne.Model
         public List<Referral> CreatedReferrals { get; set; }
 
         /// <summary>
+        /// Gets or Sets AwardedGiveaways
+        /// </summary>
+        [DataMember(Name="awardedGiveaways", EmitDefaultValue=false)]
+        public List<Giveaway> AwardedGiveaways { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -176,6 +184,7 @@ namespace TalonOne.Model
             sb.Append("  RuleFailureReasons: ").Append(RuleFailureReasons).Append("\n");
             sb.Append("  CreatedCoupons: ").Append(CreatedCoupons).Append("\n");
             sb.Append("  CreatedReferrals: ").Append(CreatedReferrals).Append("\n");
+            sb.Append("  AwardedGiveaways: ").Append(AwardedGiveaways).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -270,6 +279,12 @@ namespace TalonOne.Model
                     this.CreatedReferrals != null &&
                     input.CreatedReferrals != null &&
                     this.CreatedReferrals.SequenceEqual(input.CreatedReferrals)
+                ) && 
+                (
+                    this.AwardedGiveaways == input.AwardedGiveaways ||
+                    this.AwardedGiveaways != null &&
+                    input.AwardedGiveaways != null &&
+                    this.AwardedGiveaways.SequenceEqual(input.AwardedGiveaways)
                 );
         }
 
@@ -304,6 +319,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CreatedCoupons.GetHashCode();
                 if (this.CreatedReferrals != null)
                     hashCode = hashCode * 59 + this.CreatedReferrals.GetHashCode();
+                if (this.AwardedGiveaways != null)
+                    hashCode = hashCode * 59 + this.AwardedGiveaways.GetHashCode();
                 return hashCode;
             }
         }

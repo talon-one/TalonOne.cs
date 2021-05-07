@@ -38,14 +38,16 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Role" /> class.
         /// </summary>
-        /// <param name="id">The ID of the role corresponding to the DB row (required).</param>
-        /// <param name="accountID">The ID of the Talon.One account that owns this role. (required).</param>
+        /// <param name="id">Unique ID for this entity. (required).</param>
+        /// <param name="created">The exact moment this entity was created. (required).</param>
+        /// <param name="modified">The exact moment this entity was last modified. (required).</param>
+        /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="campaignGroupID">The ID of the Campaign Group this role was created for..</param>
-        /// <param name="name">Name of the role.</param>
+        /// <param name="name">Name of the role (required).</param>
         /// <param name="description">Description of the role.</param>
         /// <param name="members">A list of user identifiers assigned to this role.</param>
-        /// <param name="acl">Role ACL Policy.</param>
-        public Role(int id = default(int), int accountID = default(int), int campaignGroupID = default(int), string name = default(string), string description = default(string), List<int> members = default(List<int>), Object acl = default(Object))
+        /// <param name="acl">Role ACL Policy (required).</param>
+        public Role(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), int campaignGroupID = default(int), string name = default(string), string description = default(string), List<int> members = default(List<int>), Object acl = default(Object))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -57,36 +59,88 @@ namespace TalonOne.Model
                 this.Id = id;
             }
             
-            // to ensure "accountID" is required (not null)
-            if (accountID == null)
+            // to ensure "created" is required (not null)
+            if (created == null)
             {
-                throw new InvalidDataException("accountID is a required property for Role and cannot be null");
+                throw new InvalidDataException("created is a required property for Role and cannot be null");
             }
             else
             {
-                this.AccountID = accountID;
+                this.Created = created;
+            }
+            
+            // to ensure "modified" is required (not null)
+            if (modified == null)
+            {
+                throw new InvalidDataException("modified is a required property for Role and cannot be null");
+            }
+            else
+            {
+                this.Modified = modified;
+            }
+            
+            // to ensure "accountId" is required (not null)
+            if (accountId == null)
+            {
+                throw new InvalidDataException("accountId is a required property for Role and cannot be null");
+            }
+            else
+            {
+                this.AccountId = accountId;
+            }
+            
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new InvalidDataException("name is a required property for Role and cannot be null");
+            }
+            else
+            {
+                this.Name = name;
+            }
+            
+            // to ensure "acl" is required (not null)
+            if (acl == null)
+            {
+                throw new InvalidDataException("acl is a required property for Role and cannot be null");
+            }
+            else
+            {
+                this.Acl = acl;
             }
             
             this.CampaignGroupID = campaignGroupID;
-            this.Name = name;
             this.Description = description;
             this.Members = members;
-            this.Acl = acl;
         }
         
         /// <summary>
-        /// The ID of the role corresponding to the DB row
+        /// Unique ID for this entity.
         /// </summary>
-        /// <value>The ID of the role corresponding to the DB row</value>
+        /// <value>Unique ID for this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The ID of the Talon.One account that owns this role.
+        /// The exact moment this entity was created.
         /// </summary>
-        /// <value>The ID of the Talon.One account that owns this role.</value>
-        [DataMember(Name="accountID", EmitDefaultValue=true)]
-        public int AccountID { get; set; }
+        /// <value>The exact moment this entity was created.</value>
+        [DataMember(Name="created", EmitDefaultValue=true)]
+        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// The exact moment this entity was last modified.
+        /// </summary>
+        /// <value>The exact moment this entity was last modified.</value>
+        [DataMember(Name="modified", EmitDefaultValue=true)]
+        public DateTime Modified { get; set; }
+
+        /// <summary>
+        /// The ID of the account that owns this entity.
+        /// </summary>
+        /// <value>The ID of the account that owns this entity.</value>
+        [DataMember(Name="accountId", EmitDefaultValue=true)]
+        public int AccountId { get; set; }
 
         /// <summary>
         /// The ID of the Campaign Group this role was created for.
@@ -99,7 +153,7 @@ namespace TalonOne.Model
         /// Name of the role
         /// </summary>
         /// <value>Name of the role</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
+        [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
@@ -120,7 +174,7 @@ namespace TalonOne.Model
         /// Role ACL Policy
         /// </summary>
         /// <value>Role ACL Policy</value>
-        [DataMember(Name="acl", EmitDefaultValue=false)]
+        [DataMember(Name="acl", EmitDefaultValue=true)]
         public Object Acl { get; set; }
 
         /// <summary>
@@ -132,7 +186,9 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class Role {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  AccountID: ").Append(AccountID).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  Modified: ").Append(Modified).Append("\n");
+            sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("  CampaignGroupID: ").Append(CampaignGroupID).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -178,9 +234,19 @@ namespace TalonOne.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.AccountID == input.AccountID ||
-                    (this.AccountID != null &&
-                    this.AccountID.Equals(input.AccountID))
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.Modified == input.Modified ||
+                    (this.Modified != null &&
+                    this.Modified.Equals(input.Modified))
+                ) && 
+                (
+                    this.AccountId == input.AccountId ||
+                    (this.AccountId != null &&
+                    this.AccountId.Equals(input.AccountId))
                 ) && 
                 (
                     this.CampaignGroupID == input.CampaignGroupID ||
@@ -221,8 +287,12 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.AccountID != null)
-                    hashCode = hashCode * 59 + this.AccountID.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                if (this.Modified != null)
+                    hashCode = hashCode * 59 + this.Modified.GetHashCode();
+                if (this.AccountId != null)
+                    hashCode = hashCode * 59 + this.AccountId.GetHashCode();
                 if (this.CampaignGroupID != null)
                     hashCode = hashCode * 59 + this.CampaignGroupID.GetHashCode();
                 if (this.Name != null)

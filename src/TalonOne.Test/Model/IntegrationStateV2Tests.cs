@@ -153,6 +153,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'CreatedReferrals'
         }
+        /// <summary>
+        /// Test the property 'AwardedGiveaways'
+        /// </summary>
+        [Test]
+        public void AwardedGiveawaysTest()
+        {
+            // TODO unit test for the property 'AwardedGiveaways'
+        }
 
     }
 
