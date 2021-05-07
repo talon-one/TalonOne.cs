@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="LoyaltyLedger" /> class.
         /// </summary>
         /// <param name="ledger">ledger (required).</param>
-        /// <param name="subLedgers">A map containing a list of all loyalty subledger balances.</param>
+        /// <param name="subLedgers">A map containing a list of all loyalty subledger balances (required).</param>
         public LoyaltyLedger(LoyaltySubLedger ledger = default(LoyaltySubLedger), Dictionary<string, LoyaltySubLedger> subLedgers = default(Dictionary<string, LoyaltySubLedger>))
         {
             // to ensure "ledger" is required (not null)
@@ -52,7 +52,16 @@ namespace TalonOne.Model
                 this.Ledger = ledger;
             }
             
-            this.SubLedgers = subLedgers;
+            // to ensure "subLedgers" is required (not null)
+            if (subLedgers == null)
+            {
+                throw new InvalidDataException("subLedgers is a required property for LoyaltyLedger and cannot be null");
+            }
+            else
+            {
+                this.SubLedgers = subLedgers;
+            }
+            
         }
         
         /// <summary>
@@ -65,7 +74,7 @@ namespace TalonOne.Model
         /// A map containing a list of all loyalty subledger balances
         /// </summary>
         /// <value>A map containing a list of all loyalty subledger balances</value>
-        [DataMember(Name="subLedgers", EmitDefaultValue=false)]
+        [DataMember(Name="subLedgers", EmitDefaultValue=true)]
         public Dictionary<string, LoyaltySubLedger> SubLedgers { get; set; }
 
         /// <summary>

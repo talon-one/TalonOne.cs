@@ -53,7 +53,19 @@ namespace TalonOne.Model
             /// Enum CustomerSession for value: CustomerSession
             /// </summary>
             [EnumMember(Value = "CustomerSession")]
-            CustomerSession = 3
+            CustomerSession = 3,
+
+            /// <summary>
+            /// Enum LoyaltyLedger for value: LoyaltyLedger
+            /// </summary>
+            [EnumMember(Value = "LoyaltyLedger")]
+            LoyaltyLedger = 4,
+
+            /// <summary>
+            /// Enum LoyaltyLedgerLog for value: LoyaltyLedgerLog
+            /// </summary>
+            [EnumMember(Value = "LoyaltyLedgerLog")]
+            LoyaltyLedgerLog = 5
 
         }
 

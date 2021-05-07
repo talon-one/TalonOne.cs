@@ -38,18 +38,18 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2009" /> class.
         /// </summary>
-        /// <param name="totalResultSize">totalResultSize (required).</param>
+        /// <param name="hasMore">hasMore (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse2009(int totalResultSize = default(int), List<AccessLogEntry> data = default(List<AccessLogEntry>))
+        public InlineResponse2009(bool hasMore = default(bool), List<AccessLogEntry> data = default(List<AccessLogEntry>))
         {
-            // to ensure "totalResultSize" is required (not null)
-            if (totalResultSize == null)
+            // to ensure "hasMore" is required (not null)
+            if (hasMore == null)
             {
-                throw new InvalidDataException("totalResultSize is a required property for InlineResponse2009 and cannot be null");
+                throw new InvalidDataException("hasMore is a required property for InlineResponse2009 and cannot be null");
             }
             else
             {
-                this.TotalResultSize = totalResultSize;
+                this.HasMore = hasMore;
             }
             
             // to ensure "data" is required (not null)
@@ -65,10 +65,10 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Gets or Sets TotalResultSize
+        /// Gets or Sets HasMore
         /// </summary>
-        [DataMember(Name="totalResultSize", EmitDefaultValue=true)]
-        public int TotalResultSize { get; set; }
+        [DataMember(Name="hasMore", EmitDefaultValue=true)]
+        public bool HasMore { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
@@ -84,7 +84,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2009 {\n");
-            sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
+            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -121,9 +121,9 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.TotalResultSize == input.TotalResultSize ||
-                    (this.TotalResultSize != null &&
-                    this.TotalResultSize.Equals(input.TotalResultSize))
+                    this.HasMore == input.HasMore ||
+                    (this.HasMore != null &&
+                    this.HasMore.Equals(input.HasMore))
                 ) && 
                 (
                     this.Data == input.Data ||
@@ -142,8 +142,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TotalResultSize != null)
-                    hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
+                if (this.HasMore != null)
+                    hashCode = hashCode * 59 + this.HasMore.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;

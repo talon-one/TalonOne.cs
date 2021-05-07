@@ -137,6 +137,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'AllowSubledger'
         }
+        /// <summary>
+        /// Test the property 'Tiers'
+        /// </summary>
+        [Test]
+        public void TiersTest()
+        {
+            // TODO unit test for the property 'Tiers'
+        }
 
     }
 

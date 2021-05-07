@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **RuleFailureReasons** | [**List&lt;RuleFailureReason&gt;**](RuleFailureReason.md) |  | [optional] 
 **CreatedCoupons** | [**List&lt;Coupon&gt;**](Coupon.md) |  | 
 **CreatedReferrals** | [**List&lt;Referral&gt;**](Referral.md) |  | 
+**AwardedGiveaways** | [**List&lt;Giveaway&gt;**](Giveaway.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

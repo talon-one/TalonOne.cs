@@ -53,12 +53,12 @@ namespace TalonOne.Client
         public ApiClient()
         {
             Configuration = TalonOne.Client.Configuration.Default;
-            RestClient = new RestClient("http://localhost");
+            RestClient = new RestClient("http://your_domain.your_region.talon.one");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" /> class
-        /// with default base path (http://localhost).
+        /// with default base path (http://your_domain.your_region.talon.one).
         /// </summary>
         /// <param name="config">An instance of Configuration.</param>
         public ApiClient(Configuration config)
@@ -73,7 +73,7 @@ namespace TalonOne.Client
         /// with default configuration.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath = "http://localhost")
+        public ApiClient(String basePath = "http://your_domain.your_region.talon.one")
         {
            if (String.IsNullOrEmpty(basePath))
                 throw new ArgumentException("basePath cannot be empty");

@@ -20,6 +20,7 @@ using TalonOne.Model;
 using TalonOne.Client;
 using System.Reflection;
 using Newtonsoft.Json;
+using Attribute = TalonOne.Model.Attribute;
 
 namespace TalonOne.Test
 {

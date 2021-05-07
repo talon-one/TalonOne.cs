@@ -47,7 +47,8 @@ namespace TalonOne.Model
         /// <param name="defaultValidity">Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;. (required).</param>
         /// <param name="defaultPending">Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;. (required).</param>
         /// <param name="allowSubledger">Indicates if this program supports subledgers inside the program (required).</param>
-        public LoyaltyProgram(int id = default(int), int accountID = default(int), string name = default(string), string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool))
+        /// <param name="tiers">The tiers in this loyalty program.</param>
+        public LoyaltyProgram(int id = default(int), int accountID = default(int), string name = default(string), string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), List<LoyaltyTier> tiers = default(List<LoyaltyTier>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -139,6 +140,7 @@ namespace TalonOne.Model
                 this.AllowSubledger = allowSubledger;
             }
             
+            this.Tiers = tiers;
         }
         
         /// <summary>
@@ -205,6 +207,13 @@ namespace TalonOne.Model
         public bool AllowSubledger { get; set; }
 
         /// <summary>
+        /// The tiers in this loyalty program
+        /// </summary>
+        /// <value>The tiers in this loyalty program</value>
+        [DataMember(Name="tiers", EmitDefaultValue=false)]
+        public List<LoyaltyTier> Tiers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -221,6 +230,7 @@ namespace TalonOne.Model
             sb.Append("  DefaultValidity: ").Append(DefaultValidity).Append("\n");
             sb.Append("  DefaultPending: ").Append(DefaultPending).Append("\n");
             sb.Append("  AllowSubledger: ").Append(AllowSubledger).Append("\n");
+            sb.Append("  Tiers: ").Append(Tiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -300,6 +310,12 @@ namespace TalonOne.Model
                     this.AllowSubledger == input.AllowSubledger ||
                     (this.AllowSubledger != null &&
                     this.AllowSubledger.Equals(input.AllowSubledger))
+                ) && 
+                (
+                    this.Tiers == input.Tiers ||
+                    this.Tiers != null &&
+                    input.Tiers != null &&
+                    this.Tiers.SequenceEqual(input.Tiers)
                 );
         }
 
@@ -330,6 +346,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.DefaultPending.GetHashCode();
                 if (this.AllowSubledger != null)
                     hashCode = hashCode * 59 + this.AllowSubledger.GetHashCode();
+                if (this.Tiers != null)
+                    hashCode = hashCode * 59 + this.Tiers.GetHashCode();
                 return hashCode;
             }
         }

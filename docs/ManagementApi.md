@@ -1,26 +1,25 @@
 # TalonOne.Api.ManagementApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *http://your_domain.your_region.talon.one*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddLoyaltyPoints**](ManagementApi.md#addloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a certain loyalty program for the specified customer
+[**AddLoyaltyPoints**](ManagementApi.md#addloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a loyalty program for the specified customer
 [**CopyCampaignToApplications**](ManagementApi.md#copycampaigntoapplications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into every specified application
 [**CreateAdditionalCost**](ManagementApi.md#createadditionalcost) | **POST** /v1/additional_costs | Define a new additional cost
 [**CreateAttribute**](ManagementApi.md#createattribute) | **POST** /v1/attributes | Define a new custom attribute
-[**CreateCampaign**](ManagementApi.md#createcampaign) | **POST** /v1/applications/{applicationId}/campaigns | Create a Campaign
-[**CreateCoupons**](ManagementApi.md#createcoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create Coupons
-[**CreateCouponsForMultipleRecipients**](ManagementApi.md#createcouponsformultiplerecipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create Coupons for Multiple Recipients
+[**CreateCampaign**](ManagementApi.md#createcampaign) | **POST** /v1/applications/{applicationId}/campaigns | Create campaign
+[**CreateCoupons**](ManagementApi.md#createcoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
+[**CreateCouponsForMultipleRecipients**](ManagementApi.md#createcouponsformultiplerecipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create coupons for multiple recipients
 [**CreatePasswordRecoveryEmail**](ManagementApi.md#createpasswordrecoveryemail) | **POST** /v1/password_recovery_emails | Request a password reset
-[**CreateRuleset**](ManagementApi.md#createruleset) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create a Ruleset
-[**CreateSession**](ManagementApi.md#createsession) | **POST** /v1/sessions | Create a Session
-[**DeleteCampaign**](ManagementApi.md#deletecampaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete a Campaign
-[**DeleteCoupon**](ManagementApi.md#deletecoupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete one Coupon
-[**DeleteCoupons**](ManagementApi.md#deletecoupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete Coupons
-[**DeleteReferral**](ManagementApi.md#deletereferral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete one Referral
-[**DeleteRuleset**](ManagementApi.md#deleteruleset) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Delete a Ruleset
-[**DestroySession**](ManagementApi.md#destroysession) | **DELETE** /v1/sessions | Destroy a Session
-[**ExportCoupons**](ManagementApi.md#exportcoupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export Coupons to a CSV file
+[**CreateRuleset**](ManagementApi.md#createruleset) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create ruleset
+[**CreateSession**](ManagementApi.md#createsession) | **POST** /v1/sessions | Create session
+[**DeleteCampaign**](ManagementApi.md#deletecampaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
+[**DeleteCoupon**](ManagementApi.md#deletecoupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete coupon
+[**DeleteCoupons**](ManagementApi.md#deletecoupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete coupons
+[**DeleteReferral**](ManagementApi.md#deletereferral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete referral
+[**DeleteRuleset**](ManagementApi.md#deleteruleset) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Delete ruleset
+[**ExportCoupons**](ManagementApi.md#exportcoupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export coupons to a CSV file
 [**ExportCustomerSessions**](ManagementApi.md#exportcustomersessions) | **GET** /v1/applications/{applicationId}/export_customer_sessions | Export Customer Sessions to a CSV file
 [**ExportEffects**](ManagementApi.md#exporteffects) | **GET** /v1/applications/{applicationId}/export_effects | Export triggered Effects to a CSV file
 [**ExportLoyaltyBalance**](ManagementApi.md#exportloyaltybalance) | **GET** /v1/loyalty_programs/{programID}/export_customer_balance | Export customer loyalty balance to a CSV file
@@ -31,8 +30,8 @@ Method | HTTP request | Description
 [**GetAccountAnalytics**](ManagementApi.md#getaccountanalytics) | **GET** /v1/accounts/{accountId}/analytics | Get Account Analytics
 [**GetAdditionalCost**](ManagementApi.md#getadditionalcost) | **GET** /v1/additional_costs/{additionalCostId} | Get an additional cost
 [**GetAdditionalCosts**](ManagementApi.md#getadditionalcosts) | **GET** /v1/additional_costs | List additional costs
-[**GetAllAccessLogs**](ManagementApi.md#getallaccesslogs) | **GET** /v1/access_logs | Get all access logs
-[**GetAllRoles**](ManagementApi.md#getallroles) | **GET** /v1/roles | Get all roles
+[**GetAllAccessLogs**](ManagementApi.md#getallaccesslogs) | **GET** /v1/access_logs | List access logs
+[**GetAllRoles**](ManagementApi.md#getallroles) | **GET** /v1/roles | List roles
 [**GetApplication**](ManagementApi.md#getapplication) | **GET** /v1/applications/{applicationId} | Get Application
 [**GetApplicationApiHealth**](ManagementApi.md#getapplicationapihealth) | **GET** /v1/applications/{applicationId}/health_report | Get report of health of application API
 [**GetApplicationCustomer**](ManagementApi.md#getapplicationcustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get Application Customer
@@ -46,60 +45,65 @@ Method | HTTP request | Description
 [**GetApplications**](ManagementApi.md#getapplications) | **GET** /v1/applications | List Applications
 [**GetAttribute**](ManagementApi.md#getattribute) | **GET** /v1/attributes/{attributeId} | Get a custom attribute
 [**GetAttributes**](ManagementApi.md#getattributes) | **GET** /v1/attributes | List custom attributes
-[**GetAudiences**](ManagementApi.md#getaudiences) | **GET** /v1/audiences | Get all audiences
-[**GetCampaign**](ManagementApi.md#getcampaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get a Campaign
+[**GetAudiences**](ManagementApi.md#getaudiences) | **GET** /v1/audiences | List audiences
+[**GetCampaign**](ManagementApi.md#getcampaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get campaign
 [**GetCampaignAnalytics**](ManagementApi.md#getcampaignanalytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
-[**GetCampaignByAttributes**](ManagementApi.md#getcampaignbyattributes) | **POST** /v1/applications/{applicationId}/campaigns_search | Get a list of all campaigns that match the given attributes
-[**GetCampaigns**](ManagementApi.md#getcampaigns) | **GET** /v1/applications/{applicationId}/campaigns | List your Campaigns
+[**GetCampaignByAttributes**](ManagementApi.md#getcampaignbyattributes) | **POST** /v1/applications/{applicationId}/campaigns_search | List campaigns that match the given attributes
+[**GetCampaigns**](ManagementApi.md#getcampaigns) | **GET** /v1/applications/{applicationId}/campaigns | List campaigns
 [**GetChanges**](ManagementApi.md#getchanges) | **GET** /v1/changes | Get audit log for an account
-[**GetCoupons**](ManagementApi.md#getcoupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List Coupons (with total count)
-[**GetCouponsByAttributes**](ManagementApi.md#getcouponsbyattributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | Get a list of the coupons that match the given attributes
-[**GetCouponsByAttributesApplicationWide**](ManagementApi.md#getcouponsbyattributesapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-[**GetCouponsWithoutTotalCount**](ManagementApi.md#getcouponswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List Coupons
+[**GetCoupons**](ManagementApi.md#getcoupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List coupons (with total count)
+[**GetCouponsByAttributes**](ManagementApi.md#getcouponsbyattributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | List coupons that match the given attributes
+[**GetCouponsByAttributesApplicationWide**](ManagementApi.md#getcouponsbyattributesapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search | List coupons that match the given attributes in all active campaigns of an application (with total count)
+[**GetCouponsWithoutTotalCount**](ManagementApi.md#getcouponswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List coupons
 [**GetCustomerActivityReport**](ManagementApi.md#getcustomeractivityreport) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get Activity Report for Single Customer
 [**GetCustomerActivityReports**](ManagementApi.md#getcustomeractivityreports) | **GET** /v1/applications/{applicationId}/customer_activity_reports | Get Activity Reports for Application Customers (with total count)
 [**GetCustomerActivityReportsWithoutTotalCount**](ManagementApi.md#getcustomeractivityreportswithouttotalcount) | **GET** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
 [**GetCustomerAnalytics**](ManagementApi.md#getcustomeranalytics) | **GET** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get Analytics Report for a Customer
 [**GetCustomerProfile**](ManagementApi.md#getcustomerprofile) | **GET** /v1/customers/{customerId} | Get Customer Profile
 [**GetCustomerProfiles**](ManagementApi.md#getcustomerprofiles) | **GET** /v1/customers/no_total | List Customer Profiles
-[**GetCustomersByAttributes**](ManagementApi.md#getcustomersbyattributes) | **POST** /v1/customer_search/no_total | Get a list of the customer profiles that match the given attributes
-[**GetEventTypes**](ManagementApi.md#geteventtypes) | **GET** /v1/event_types | List Event Types
-[**GetExports**](ManagementApi.md#getexports) | **GET** /v1/exports | Get Exports
-[**GetLoyaltyPoints**](ManagementApi.md#getloyaltypoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
+[**GetCustomersByAttributes**](ManagementApi.md#getcustomersbyattributes) | **POST** /v1/customer_search/no_total | List customer profiles that match the given attributes
+[**GetEventTypes**](ManagementApi.md#geteventtypes) | **GET** /v1/event_types | List event types
+[**GetExports**](ManagementApi.md#getexports) | **GET** /v1/exports | Get exports
+[**GetLoyaltyPoints**](ManagementApi.md#getloyaltypoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | Get integration&#39;s Loyalty Ledger
 [**GetLoyaltyProgram**](ManagementApi.md#getloyaltyprogram) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
-[**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List all loyalty Programs
+[**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List loyalty programs
 [**GetLoyaltyStatistics**](ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{programID}/statistics | Get loyalty program statistics by loyalty program ID
-[**GetReferrals**](ManagementApi.md#getreferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
-[**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
+[**GetReferrals**](ManagementApi.md#getreferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List referrals (with total count)
+[**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**GetRole**](ManagementApi.md#getrole) | **GET** /v1/roles/{roleId} | Get information for the specified role
-[**GetRuleset**](ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get a Ruleset
-[**GetRulesets**](ManagementApi.md#getrulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List Campaign Rulesets
+[**GetRuleset**](ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
+[**GetRulesets**](ManagementApi.md#getrulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List rulesets
 [**GetUser**](ManagementApi.md#getuser) | **GET** /v1/users/{userId} | Get a single User
-[**GetUsers**](ManagementApi.md#getusers) | **GET** /v1/users | List Users in your account
+[**GetUsers**](ManagementApi.md#getusers) | **GET** /v1/users | List users
 [**GetWebhook**](ManagementApi.md#getwebhook) | **GET** /v1/webhooks/{webhookId} | Get Webhook
 [**GetWebhookActivationLogs**](ManagementApi.md#getwebhookactivationlogs) | **GET** /v1/webhook_activation_logs | List Webhook activation Log Entries
 [**GetWebhookLogs**](ManagementApi.md#getwebhooklogs) | **GET** /v1/webhook_logs | List Webhook Log Entries
 [**GetWebhooks**](ManagementApi.md#getwebhooks) | **GET** /v1/webhooks | List Webhooks
-[**RemoveLoyaltyPoints**](ManagementApi.md#removeloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a certain loyalty program for the specified customer
+[**ImportCoupons**](ManagementApi.md#importcoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons via CSV file
+[**ImportLoyaltyPoints**](ManagementApi.md#importloyaltypoints) | **POST** /v1/loyalty_programs/{programID}/import_points | Import loyalty points via CSV file
+[**ImportPoolGiveaways**](ManagementApi.md#importpoolgiveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaways codes into a giveaways pool
+[**ImportReferrals**](ManagementApi.md#importreferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals via CSV file
+[**RemoveLoyaltyPoints**](ManagementApi.md#removeloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a loyalty program for the specified customer
 [**ResetPassword**](ManagementApi.md#resetpassword) | **POST** /v1/reset_password | Reset password
-[**SearchCouponsAdvanced**](ManagementApi.md#searchcouponsadvanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | Get a list of the coupons that match the given attributes (with total count)
-[**SearchCouponsAdvancedApplicationWide**](ManagementApi.md#searchcouponsadvancedapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-[**SearchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedapplicationwidewithouttotalcount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes in all active campaigns of an application
-[**SearchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedwithouttotalcount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes
+[**SearchCouponsAdvanced**](ManagementApi.md#searchcouponsadvanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | List coupons that match the given attributes (with total count)
+[**SearchCouponsAdvancedApplicationWide**](ManagementApi.md#searchcouponsadvancedapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | List coupons that match the given attributes in all active campaigns of an application (with total count)
+[**SearchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedapplicationwidewithouttotalcount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | List coupons that match the given attributes in all active campaigns of an application
+[**SearchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedwithouttotalcount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | List coupons that match the given attributes
 [**UpdateAdditionalCost**](ManagementApi.md#updateadditionalcost) | **PUT** /v1/additional_costs/{additionalCostId} | Update an additional cost
 [**UpdateAttribute**](ManagementApi.md#updateattribute) | **PUT** /v1/attributes/{attributeId} | Update a custom attribute
-[**UpdateCampaign**](ManagementApi.md#updatecampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update a Campaign
-[**UpdateCoupon**](ManagementApi.md#updatecoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update a Coupon
-[**UpdateCouponBatch**](ManagementApi.md#updatecouponbatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a Batch of Coupons
-[**UpdateRuleset**](ManagementApi.md#updateruleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update a Ruleset
+[**UpdateCampaign**](ManagementApi.md#updatecampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign
+[**UpdateCoupon**](ManagementApi.md#updatecoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon
+[**UpdateCouponBatch**](ManagementApi.md#updatecouponbatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a batch of coupons
+[**UpdateReferral**](ManagementApi.md#updatereferral) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral
+[**UpdateRuleset**](ManagementApi.md#updateruleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update ruleset
 
 
 
 ## AddLoyaltyPoints
 
-> void AddLoyaltyPoints (string programID, string integrationID, LoyaltyPoints body)
+> void AddLoyaltyPoints (int programID, string integrationID, LoyaltyPoints loyaltyPoints)
 
-Add points in a certain loyalty program for the specified customer
+Add points in a loyalty program for the specified customer
 
 ### Example
 
@@ -116,21 +120,19 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var programID = programID_example;  // string | 
+            var programID = 56;  // int | The identifier for the loyalty program, must be unique within the account.
             var integrationID = integrationID_example;  // string | 
-            var body = new LoyaltyPoints(); // LoyaltyPoints | 
+            var loyaltyPoints = new LoyaltyPoints(); // LoyaltyPoints | 
 
             try
             {
-                // Add points in a certain loyalty program for the specified customer
-                apiInstance.AddLoyaltyPoints(programID, integrationID, body);
+                // Add points in a loyalty program for the specified customer
+                apiInstance.AddLoyaltyPoints(programID, integrationID, loyaltyPoints);
             }
             catch (ApiException e)
             {
@@ -148,9 +150,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  | 
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. | 
  **integrationID** | **string**|  | 
- **body** | [**LoyaltyPoints**](LoyaltyPoints.md)|  | 
+ **loyaltyPoints** | [**LoyaltyPoints**](LoyaltyPoints.md)|  | 
 
 ### Return type
 
@@ -178,7 +180,7 @@ void (empty response body)
 
 ## CopyCampaignToApplications
 
-> InlineResponse2002 CopyCampaignToApplications (int applicationId, int campaignId, CampaignCopy body)
+> InlineResponse2002 CopyCampaignToApplications (int applicationId, int campaignId, CampaignCopy campaignCopy)
 
 Copy the campaign into every specified application
 
@@ -199,21 +201,19 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var body = new CampaignCopy(); // CampaignCopy | 
+            var campaignCopy = new CampaignCopy(); // CampaignCopy | 
 
             try
             {
                 // Copy the campaign into every specified application
-                InlineResponse2002 result = apiInstance.CopyCampaignToApplications(applicationId, campaignId, body);
+                InlineResponse2002 result = apiInstance.CopyCampaignToApplications(applicationId, campaignId, campaignCopy);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **body** | [**CampaignCopy**](CampaignCopy.md)|  | 
+ **campaignCopy** | [**CampaignCopy**](CampaignCopy.md)|  | 
 
 ### Return type
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 
 ## CreateAdditionalCost
 
-> AccountAdditionalCost CreateAdditionalCost (NewAdditionalCost body)
+> AccountAdditionalCost CreateAdditionalCost (NewAdditionalCost newAdditionalCost)
 
 Define a new additional cost
 
@@ -283,19 +283,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var body = new NewAdditionalCost(); // NewAdditionalCost | 
+            var newAdditionalCost = new NewAdditionalCost(); // NewAdditionalCost | 
 
             try
             {
                 // Define a new additional cost
-                AccountAdditionalCost result = apiInstance.CreateAdditionalCost(body);
+                AccountAdditionalCost result = apiInstance.CreateAdditionalCost(newAdditionalCost);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -314,7 +312,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
+ **newAdditionalCost** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
 
 ### Return type
 
@@ -342,7 +340,7 @@ Name | Type | Description  | Notes
 
 ## CreateAttribute
 
-> Attribute CreateAttribute (NewAttribute body)
+> Attribute CreateAttribute (NewAttribute newAttribute)
 
 Define a new custom attribute
 
@@ -363,19 +361,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var body = new NewAttribute(); // NewAttribute | 
+            var newAttribute = new NewAttribute(); // NewAttribute | 
 
             try
             {
                 // Define a new custom attribute
-                Attribute result = apiInstance.CreateAttribute(body);
+                Attribute result = apiInstance.CreateAttribute(newAttribute);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -394,7 +390,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewAttribute**](NewAttribute.md)|  | 
+ **newAttribute** | [**NewAttribute**](NewAttribute.md)|  | 
 
 ### Return type
 
@@ -422,9 +418,9 @@ Name | Type | Description  | Notes
 
 ## CreateCampaign
 
-> Campaign CreateCampaign (int applicationId, NewCampaign body)
+> Campaign CreateCampaign (int applicationId, NewCampaign newCampaign)
 
-Create a Campaign
+Create campaign
 
 ### Example
 
@@ -441,20 +437,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
-            var body = new NewCampaign(); // NewCampaign | 
+            var newCampaign = new NewCampaign(); // NewCampaign | 
 
             try
             {
-                // Create a Campaign
-                Campaign result = apiInstance.CreateCampaign(applicationId, body);
+                // Create campaign
+                Campaign result = apiInstance.CreateCampaign(applicationId, newCampaign);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -474,7 +468,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
- **body** | [**NewCampaign**](NewCampaign.md)|  | 
+ **newCampaign** | [**NewCampaign**](NewCampaign.md)|  | 
 
 ### Return type
 
@@ -502,9 +496,9 @@ Name | Type | Description  | Notes
 
 ## CreateCoupons
 
-> InlineResponse2004 CreateCoupons (int applicationId, int campaignId, NewCoupons body, string silent = null)
+> InlineResponse2004 CreateCoupons (int applicationId, int campaignId, NewCoupons newCoupons, string silent = null)
 
-Create Coupons
+Create coupons
 
 Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.
 
@@ -523,22 +517,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var body = new NewCoupons(); // NewCoupons | 
-            var silent = silent_example;  // string | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional) 
+            var newCoupons = new NewCoupons(); // NewCoupons | 
+            var silent = silent_example;  // string | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional) 
 
             try
             {
-                // Create Coupons
-                InlineResponse2004 result = apiInstance.CreateCoupons(applicationId, campaignId, body, silent);
+                // Create coupons
+                InlineResponse2004 result = apiInstance.CreateCoupons(applicationId, campaignId, newCoupons, silent);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -559,8 +551,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **body** | [**NewCoupons**](NewCoupons.md)|  | 
- **silent** | **string**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional] 
+ **newCoupons** | [**NewCoupons**](NewCoupons.md)|  | 
+ **silent** | **string**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional] 
 
 ### Return type
 
@@ -589,11 +581,11 @@ Name | Type | Description  | Notes
 
 ## CreateCouponsForMultipleRecipients
 
-> InlineResponse2004 CreateCouponsForMultipleRecipients (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = null)
+> InlineResponse2004 CreateCouponsForMultipleRecipients (int applicationId, int campaignId, NewCouponsForMultipleRecipients newCouponsForMultipleRecipients, string silent = null)
 
-Create Coupons for Multiple Recipients
+Create coupons for multiple recipients
 
-Create coupons according to some pattern for up to 1000 recipients.
+Create coupons according to the specified pattern for up to 1000 recipients.
 
 ### Example
 
@@ -610,22 +602,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var body = new NewCouponsForMultipleRecipients(); // NewCouponsForMultipleRecipients | 
-            var silent = silent_example;  // string | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional) 
+            var newCouponsForMultipleRecipients = new NewCouponsForMultipleRecipients(); // NewCouponsForMultipleRecipients | 
+            var silent = silent_example;  // string | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional) 
 
             try
             {
-                // Create Coupons for Multiple Recipients
-                InlineResponse2004 result = apiInstance.CreateCouponsForMultipleRecipients(applicationId, campaignId, body, silent);
+                // Create coupons for multiple recipients
+                InlineResponse2004 result = apiInstance.CreateCouponsForMultipleRecipients(applicationId, campaignId, newCouponsForMultipleRecipients, silent);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -646,8 +636,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **body** | [**NewCouponsForMultipleRecipients**](NewCouponsForMultipleRecipients.md)|  | 
- **silent** | **string**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional] 
+ **newCouponsForMultipleRecipients** | [**NewCouponsForMultipleRecipients**](NewCouponsForMultipleRecipients.md)|  | 
+ **silent** | **string**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional] 
 
 ### Return type
 
@@ -676,7 +666,7 @@ Name | Type | Description  | Notes
 
 ## CreatePasswordRecoveryEmail
 
-> NewPasswordEmail CreatePasswordRecoveryEmail (NewPasswordEmail body)
+> NewPasswordEmail CreatePasswordRecoveryEmail (NewPasswordEmail newPasswordEmail)
 
 Request a password reset
 
@@ -697,19 +687,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var body = new NewPasswordEmail(); // NewPasswordEmail | 
+            var newPasswordEmail = new NewPasswordEmail(); // NewPasswordEmail | 
 
             try
             {
                 // Request a password reset
-                NewPasswordEmail result = apiInstance.CreatePasswordRecoveryEmail(body);
+                NewPasswordEmail result = apiInstance.CreatePasswordRecoveryEmail(newPasswordEmail);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -728,7 +716,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewPasswordEmail**](NewPasswordEmail.md)|  | 
+ **newPasswordEmail** | [**NewPasswordEmail**](NewPasswordEmail.md)|  | 
 
 ### Return type
 
@@ -756,9 +744,9 @@ Name | Type | Description  | Notes
 
 ## CreateRuleset
 
-> Ruleset CreateRuleset (int applicationId, int campaignId, NewRuleset body)
+> Ruleset CreateRuleset (int applicationId, int campaignId, NewRuleset newRuleset)
 
-Create a Ruleset
+Create ruleset
 
 ### Example
 
@@ -775,21 +763,19 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var body = new NewRuleset(); // NewRuleset | 
+            var newRuleset = new NewRuleset(); // NewRuleset | 
 
             try
             {
-                // Create a Ruleset
-                Ruleset result = apiInstance.CreateRuleset(applicationId, campaignId, body);
+                // Create ruleset
+                Ruleset result = apiInstance.CreateRuleset(applicationId, campaignId, newRuleset);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -810,7 +796,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **body** | [**NewRuleset**](NewRuleset.md)|  | 
+ **newRuleset** | [**NewRuleset**](NewRuleset.md)|  | 
 
 ### Return type
 
@@ -838,9 +824,11 @@ Name | Type | Description  | Notes
 
 ## CreateSession
 
-> Session CreateSession (LoginParams body)
+> Session CreateSession (LoginParams loginParams)
 
-Create a Session
+Create session
+
+Create a session to use the other Management API endpoints. Use the `token` property of the response as bearer token.
 
 ### Example
 
@@ -857,19 +845,14 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
             var apiInstance = new ManagementApi(Configuration.Default);
-            var body = new LoginParams(); // LoginParams | 
+            var loginParams = new LoginParams(); // LoginParams | 
 
             try
             {
-                // Create a Session
-                Session result = apiInstance.CreateSession(body);
+                // Create session
+                Session result = apiInstance.CreateSession(loginParams);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -888,7 +871,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**LoginParams**](LoginParams.md)|  | 
+ **loginParams** | [**LoginParams**](LoginParams.md)|  | 
 
 ### Return type
 
@@ -896,7 +879,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[manager_auth](../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -918,7 +901,7 @@ Name | Type | Description  | Notes
 
 > void DeleteCampaign (int applicationId, int campaignId)
 
-Delete a Campaign
+Delete campaign
 
 ### Example
 
@@ -935,11 +918,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -947,7 +928,7 @@ namespace Example
 
             try
             {
-                // Delete a Campaign
+                // Delete campaign
                 apiInstance.DeleteCampaign(applicationId, campaignId);
             }
             catch (ApiException e)
@@ -997,7 +978,7 @@ void (empty response body)
 
 > void DeleteCoupon (int applicationId, int campaignId, string couponId)
 
-Delete one Coupon
+Delete coupon
 
 ### Example
 
@@ -1014,12 +995,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
@@ -1027,7 +1003,7 @@ namespace Example
 
             try
             {
-                // Delete one Coupon
+                // Delete coupon
                 apiInstance.DeleteCoupon(applicationId, campaignId, couponId);
             }
             catch (ApiException e)
@@ -1056,7 +1032,7 @@ void (empty response body)
 
 ### Authorization
 
-[manager_auth](../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -1078,7 +1054,7 @@ void (empty response body)
 
 > void DeleteCoupons (int applicationId, int campaignId, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startsAfter = null, DateTime? startsBefore = null, DateTime? expiresAfter = null, DateTime? expiresBefore = null, string valid = null, string batchId = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null)
 
-Delete Coupons
+Delete coupons
 
 ### Example
 
@@ -1095,11 +1071,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -1120,7 +1094,7 @@ namespace Example
 
             try
             {
-                // Delete Coupons
+                // Delete coupons
                 apiInstance.DeleteCoupons(applicationId, campaignId, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
             }
             catch (ApiException e)
@@ -1183,7 +1157,7 @@ void (empty response body)
 
 > void DeleteReferral (int applicationId, int campaignId, string referralId)
 
-Delete one Referral
+Delete referral
 
 ### Example
 
@@ -1200,11 +1174,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -1213,7 +1185,7 @@ namespace Example
 
             try
             {
-                // Delete one Referral
+                // Delete referral
                 apiInstance.DeleteReferral(applicationId, campaignId, referralId);
             }
             catch (ApiException e)
@@ -1264,7 +1236,7 @@ void (empty response body)
 
 > void DeleteRuleset (int applicationId, int campaignId, int rulesetId)
 
-Delete a Ruleset
+Delete ruleset
 
 ### Example
 
@@ -1281,11 +1253,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -1294,7 +1264,7 @@ namespace Example
 
             try
             {
-                // Delete a Ruleset
+                // Delete ruleset
                 apiInstance.DeleteRuleset(applicationId, campaignId, rulesetId);
             }
             catch (ApiException e)
@@ -1341,84 +1311,11 @@ void (empty response body)
 [[Back to README]](../README.md)
 
 
-## DestroySession
-
-> void DestroySession ()
-
-Destroy a Session
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class DestroySessionExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-
-            try
-            {
-                // Destroy a Session
-                apiInstance.DestroySession();
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.DestroySession: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## ExportCoupons
 
 > string ExportCoupons (int applicationId, decimal? campaignId = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string dateFormat = null, string campaignState = null)
 
-Export Coupons to a CSV file
+Export coupons to a CSV file
 
 Download a file with the coupons that match the given attributes.
 
@@ -1437,16 +1334,14 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 8.14;  // decimal? | Filter results by campaign. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -1461,7 +1356,7 @@ namespace Example
 
             try
             {
-                // Export Coupons to a CSV file
+                // Export coupons to a CSV file
                 string result = apiInstance.ExportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState);
                 Debug.WriteLine(result);
             }
@@ -1483,7 +1378,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **decimal?**| Filter results by campaign. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -1507,7 +1402,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1543,11 +1438,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -1597,7 +1490,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1633,11 +1526,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -1685,7 +1576,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1700,7 +1591,7 @@ Name | Type | Description  | Notes
 
 ## ExportLoyaltyBalance
 
-> string ExportLoyaltyBalance (string programID)
+> string ExportLoyaltyBalance (int programID)
 
 Export customer loyalty balance to a CSV file
 
@@ -1721,14 +1612,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var programID = programID_example;  // string | 
+            var programID = 56;  // int | The identifier for the loyalty program, must be unique within the account.
 
             try
             {
@@ -1752,7 +1641,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  | 
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. | 
 
 ### Return type
 
@@ -1765,7 +1654,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1780,7 +1669,7 @@ Name | Type | Description  | Notes
 
 ## ExportLoyaltyLedger
 
-> string ExportLoyaltyLedger (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = null)
+> string ExportLoyaltyLedger (int programID, string integrationID, DateTime rangeStart, DateTime rangeEnd, string dateFormat = null)
 
 Export a customer's loyalty ledger log to a CSV file
 
@@ -1801,23 +1690,21 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
+            var programID = 56;  // int | The identifier for the loyalty program, must be unique within the account.
+            var integrationID = integrationID_example;  // string | 
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
             var rangeEnd = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-            var programID = programID_example;  // string | 
-            var integrationID = integrationID_example;  // string | 
             var dateFormat = dateFormat_example;  // string | Determines the format of dates in the export document. (optional) 
 
             try
             {
                 // Export a customer's loyalty ledger log to a CSV file
-                string result = apiInstance.ExportLoyaltyLedger(rangeStart, rangeEnd, programID, integrationID, dateFormat);
+                string result = apiInstance.ExportLoyaltyLedger(programID, integrationID, rangeStart, rangeEnd, dateFormat);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1836,10 +1723,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. | 
+ **integrationID** | **string**|  | 
  **rangeStart** | **DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
  **rangeEnd** | **DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **programID** | **string**|  | 
- **integrationID** | **string**|  | 
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional] 
 
 ### Return type
@@ -1853,7 +1740,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/csv
+- **Accept**: text/csv
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -1868,7 +1755,7 @@ Name | Type | Description  | Notes
 
 ## GetAccessLogs
 
-> InlineResponse2009 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse2008 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
 
 Get access logs for application (with total count)
 
@@ -1887,11 +1774,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -1902,12 +1787,12 @@ namespace Example
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
                 // Get access logs for application (with total count)
-                InlineResponse2009 result = apiInstance.GetAccessLogs(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
+                InlineResponse2008 result = apiInstance.GetAccessLogs(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -1934,11 +1819,11 @@ Name | Type | Description  | Notes
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -1962,7 +1847,7 @@ Name | Type | Description  | Notes
 
 ## GetAccessLogsWithoutTotalCount
 
-> InlineResponse20010 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse2009 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
 
 Get access logs for application
 
@@ -1981,11 +1866,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -1996,12 +1879,12 @@ namespace Example
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
                 // Get access logs for application
-                InlineResponse20010 result = apiInstance.GetAccessLogsWithoutTotalCount(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
+                InlineResponse2009 result = apiInstance.GetAccessLogsWithoutTotalCount(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2028,11 +1911,11 @@ Name | Type | Description  | Notes
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse2009**](InlineResponse2009.md)
 
 ### Authorization
 
@@ -2077,11 +1960,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var accountId = 56;  // int | 
@@ -2157,11 +2038,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var accountId = 56;  // int | 
@@ -2237,11 +2116,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var additionalCostId = 56;  // int | 
@@ -2296,7 +2173,7 @@ Name | Type | Description  | Notes
 
 ## GetAdditionalCosts
 
-> InlineResponse20022 GetAdditionalCosts (int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20021 GetAdditionalCosts (int? pageSize = null, int? skip = null, string sort = null)
 
 List additional costs
 
@@ -2317,21 +2194,19 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
                 // List additional costs
-                InlineResponse20022 result = apiInstance.GetAdditionalCosts(pageSize, skip, sort);
+                InlineResponse20021 result = apiInstance.GetAdditionalCosts(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2352,11 +2227,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -2380,9 +2255,9 @@ Name | Type | Description  | Notes
 
 ## GetAllAccessLogs
 
-> InlineResponse2009 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse2008 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
 
-Get all access logs
+List access logs
 
 Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs. 
 
@@ -2401,11 +2276,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
@@ -2415,12 +2288,12 @@ namespace Example
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
-                // Get all access logs
-                InlineResponse2009 result = apiInstance.GetAllAccessLogs(rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
+                // List access logs
+                InlineResponse2008 result = apiInstance.GetAllAccessLogs(rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2446,11 +2319,11 @@ Name | Type | Description  | Notes
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse2009**](InlineResponse2009.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -2474,9 +2347,9 @@ Name | Type | Description  | Notes
 
 ## GetAllRoles
 
-> InlineResponse20030 GetAllRoles ()
+> InlineResponse20029 GetAllRoles ()
 
-Get all roles
+List roles
 
 ### Example
 
@@ -2493,18 +2366,13 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
             var apiInstance = new ManagementApi(Configuration.Default);
 
             try
             {
-                // Get all roles
-                InlineResponse20030 result = apiInstance.GetAllRoles();
+                // List roles
+                InlineResponse20029 result = apiInstance.GetAllRoles();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2524,11 +2392,11 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
-[manager_auth](../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -2569,11 +2437,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -2647,11 +2513,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -2725,11 +2589,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -2786,7 +2648,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationCustomers
 
-> InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = null, int? pageSize = null, int? skip = null, bool? withTotalResultSize = null)
+> InlineResponse20011 GetApplicationCustomers (int applicationId, string integrationId = null, int? pageSize = null, int? skip = null, bool? withTotalResultSize = null)
 
 List Application Customers
 
@@ -2805,11 +2667,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -2821,7 +2681,7 @@ namespace Example
             try
             {
                 // List Application Customers
-                InlineResponse20012 result = apiInstance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
+                InlineResponse20011 result = apiInstance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2848,7 +2708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -2872,11 +2732,11 @@ Name | Type | Description  | Notes
 
 ## GetApplicationCustomersByAttributes
 
-> InlineResponse20013 GetApplicationCustomersByAttributes (ApplicationCustomerSearch body)
+> InlineResponse20012 GetApplicationCustomersByAttributes (ApplicationCustomerSearch applicationCustomerSearch)
 
 Get a list of the customer profiles that match the given attributes (with total count)
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
+Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#/customerProfile 
 
 ### Example
 
@@ -2893,19 +2753,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: integration_auth
-            Configuration.Default.AddApiKey("Content-Signature", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Content-Signature", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var body = new ApplicationCustomerSearch(); // ApplicationCustomerSearch | 
+            var applicationCustomerSearch = new ApplicationCustomerSearch(); // ApplicationCustomerSearch | 
 
             try
             {
                 // Get a list of the customer profiles that match the given attributes (with total count)
-                InlineResponse20013 result = apiInstance.GetApplicationCustomersByAttributes(body);
+                InlineResponse20012 result = apiInstance.GetApplicationCustomersByAttributes(applicationCustomerSearch);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2924,15 +2782,15 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
+ **applicationCustomerSearch** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
-[integration_auth](../README.md#integration_auth)
+[manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2952,7 +2810,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationEventTypes
 
-> InlineResponse20019 GetApplicationEventTypes (int applicationId, int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20018 GetApplicationEventTypes (int applicationId, int? pageSize = null, int? skip = null, string sort = null)
 
 List Applications Event Types
 
@@ -2973,22 +2831,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
                 // List Applications Event Types
-                InlineResponse20019 result = apiInstance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
+                InlineResponse20018 result = apiInstance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3010,11 +2866,11 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20019**](InlineResponse20019.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -3038,7 +2894,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationEvents
 
-> InlineResponse20017 GetApplicationEvents (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
+> InlineResponse20016 GetApplicationEvents (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
 
 List Applications Events (with total count)
 
@@ -3059,17 +2915,15 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var type = type_example;  // string | Comma-separated list of types by which to filter events. Must be exact match(es). (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -3085,7 +2939,7 @@ namespace Example
             try
             {
                 // List Applications Events (with total count)
-                InlineResponse20017 result = apiInstance.GetApplicationEvents(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
+                InlineResponse20016 result = apiInstance.GetApplicationEvents(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3107,7 +2961,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
  **createdBefore** | **DateTime?**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -3122,7 +2976,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20017**](InlineResponse20017.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -3146,7 +3000,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationEventsWithoutTotalCount
 
-> InlineResponse20018 GetApplicationEventsWithoutTotalCount (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
+> InlineResponse20017 GetApplicationEventsWithoutTotalCount (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
 
 List Applications Events
 
@@ -3167,17 +3021,15 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var type = type_example;  // string | Comma-separated list of types by which to filter events. Must be exact match(es). (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -3193,7 +3045,7 @@ namespace Example
             try
             {
                 // List Applications Events
-                InlineResponse20018 result = apiInstance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
+                InlineResponse20017 result = apiInstance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3215,7 +3067,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
  **createdBefore** | **DateTime?**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -3230,7 +3082,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20017**](InlineResponse20017.md)
 
 ### Authorization
 
@@ -3273,11 +3125,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -3334,7 +3184,7 @@ Name | Type | Description  | Notes
 
 ## GetApplicationSessions
 
-> InlineResponse20016 GetApplicationSessions (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string profile = null, string state = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string coupon = null, string referral = null, string integrationId = null)
+> InlineResponse20015 GetApplicationSessions (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string profile = null, string state = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string coupon = null, string referral = null, string integrationId = null)
 
 List Application Sessions
 
@@ -3353,17 +3203,15 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var profile = profile_example;  // string | Profile integration ID filter for sessions. Must be exact match. (optional) 
             var state = state_example;  // string | Filter by sessions with this state. Must be exact match. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -3375,7 +3223,7 @@ namespace Example
             try
             {
                 // List Application Sessions
-                InlineResponse20016 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
+                InlineResponse20015 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3397,7 +3245,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **profile** | **string**| Profile integration ID filter for sessions. Must be exact match. | [optional] 
  **state** | **string**| Filter by sessions with this state. Must be exact match. | [optional] 
  **createdBefore** | **DateTime?**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -3408,7 +3256,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -3453,16 +3301,14 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
@@ -3488,7 +3334,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
@@ -3537,11 +3383,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var attributeId = 56;  // int | 
@@ -3596,7 +3440,7 @@ Name | Type | Description  | Notes
 
 ## GetAttributes
 
-> InlineResponse20021 GetAttributes (int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20020 GetAttributes (int? pageSize = null, int? skip = null, string sort = null, string entity = null)
 
 List custom attributes
 
@@ -3617,21 +3461,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
+            var entity = entity_example;  // string |  (optional) 
 
             try
             {
                 // List custom attributes
-                InlineResponse20021 result = apiInstance.GetAttributes(pageSize, skip, sort);
+                InlineResponse20020 result = apiInstance.GetAttributes(pageSize, skip, sort, entity);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3652,93 +3495,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
-
-### Return type
-
-[**InlineResponse20021**](InlineResponse20021.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetAudiences
-
-> InlineResponse20020 GetAudiences (int? pageSize = null, int? skip = null, string sort = null, bool? withTotalResultSize = null)
-
-Get all audiences
-
-Get All audiences created in the account. 
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetAudiencesExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
-
-            try
-            {
-                // Get all audiences
-                InlineResponse20020 result = apiInstance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetAudiences: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+ **sort** | **string**|  | [optional] 
+ **entity** | **string**|  | [optional] 
 
 ### Return type
 
@@ -3764,11 +3522,95 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetAudiences
+
+> InlineResponse20019 GetAudiences (int? pageSize = null, int? skip = null, string sort = null, bool? withTotalResultSize = null)
+
+List audiences
+
+Get All audiences created in the account. 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetAudiencesExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
+            var sort = sort_example;  // string |  (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
+
+            try
+            {
+                // List audiences
+                InlineResponse20019 result = apiInstance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetAudiences: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
+ **sort** | **string**|  | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+
+### Return type
+
+[**InlineResponse20019**](InlineResponse20019.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetCampaign
 
 > Campaign GetCampaign (int applicationId, int campaignId)
 
-Get a Campaign
+Get campaign
 
 ### Example
 
@@ -3785,11 +3627,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -3797,7 +3637,7 @@ namespace Example
 
             try
             {
-                // Get a Campaign
+                // Get campaign
                 Campaign result = apiInstance.GetCampaign(applicationId, campaignId);
                 Debug.WriteLine(result);
             }
@@ -3846,7 +3686,7 @@ Name | Type | Description  | Notes
 
 ## GetCampaignAnalytics
 
-> InlineResponse20011 GetCampaignAnalytics (int applicationId, int campaignId, DateTime rangeStart, DateTime rangeEnd, string granularity = null)
+> InlineResponse20010 GetCampaignAnalytics (int applicationId, int campaignId, DateTime rangeStart, DateTime rangeEnd, string granularity = null)
 
 Get analytics of campaigns
 
@@ -3865,11 +3705,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -3881,7 +3719,7 @@ namespace Example
             try
             {
                 // Get analytics of campaigns
-                InlineResponse20011 result = apiInstance.GetCampaignAnalytics(applicationId, campaignId, rangeStart, rangeEnd, granularity);
+                InlineResponse20010 result = apiInstance.GetCampaignAnalytics(applicationId, campaignId, rangeStart, rangeEnd, granularity);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3908,7 +3746,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -3932,9 +3770,9 @@ Name | Type | Description  | Notes
 
 ## GetCampaignByAttributes
 
-> InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int? pageSize = null, int? skip = null, string sort = null, string campaignState = null)
+> InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch campaignSearch, int? pageSize = null, int? skip = null, string sort = null, string campaignState = null)
 
-Get a list of all campaigns that match the given attributes
+List campaigns that match the given attributes
 
 Gets a list of all the campaigns that exactly match a set of attributes. 
 
@@ -3953,24 +3791,22 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
-            var body = new CampaignSearch(); // CampaignSearch | 
+            var campaignSearch = new CampaignSearch(); // CampaignSearch | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign. (optional) 
 
             try
             {
-                // Get a list of all campaigns that match the given attributes
-                InlineResponse2002 result = apiInstance.GetCampaignByAttributes(applicationId, body, pageSize, skip, sort, campaignState);
+                // List campaigns that match the given attributes
+                InlineResponse2002 result = apiInstance.GetCampaignByAttributes(applicationId, campaignSearch, pageSize, skip, sort, campaignState);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3990,10 +3826,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
- **body** | [**CampaignSearch**](CampaignSearch.md)|  | 
+ **campaignSearch** | [**CampaignSearch**](CampaignSearch.md)|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **campaignState** | **string**| Filter results by the state of the campaign. | [optional] 
 
 ### Return type
@@ -4024,7 +3860,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2002 GetCampaigns (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime? createdBefore = null, DateTime? createdAfter = null, int? campaignGroupId = null)
 
-List your Campaigns
+List campaigns
 
 ### Example
 
@@ -4041,17 +3877,15 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign. (optional) 
             var name = name_example;  // string | Filter results performing case-insensitive matching against the name of the campaign. (optional) 
             var tags = tags_example;  // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional) 
@@ -4061,7 +3895,7 @@ namespace Example
 
             try
             {
-                // List your Campaigns
+                // List campaigns
                 InlineResponse2002 result = apiInstance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
                 Debug.WriteLine(result);
             }
@@ -4084,7 +3918,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **campaignState** | **string**| Filter results by the state of the campaign. | [optional] 
  **name** | **string**| Filter results performing case-insensitive matching against the name of the campaign. | [optional] 
  **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
@@ -4118,7 +3952,7 @@ Name | Type | Description  | Notes
 
 ## GetChanges
 
-> InlineResponse20028 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, string entityPath = null, int? userId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
+> InlineResponse20027 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, string entityPath = null, int? userId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
 
 Get audit log for an account
 
@@ -4139,16 +3973,14 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var applicationId = 56;  // int? |  (optional) 
             var entityPath = entityPath_example;  // string | Filter results on a case insensitive matching of the url path of the entity (optional) 
             var userId = 56;  // int? |  (optional) 
@@ -4160,7 +3992,7 @@ namespace Example
             try
             {
                 // Get audit log for an account
-                InlineResponse20028 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, includeOld);
+                InlineResponse20027 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, includeOld);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -4181,7 +4013,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **applicationId** | **int?**|  | [optional] 
  **entityPath** | **string**| Filter results on a case insensitive matching of the url path of the entity | [optional] 
  **userId** | **int?**|  | [optional] 
@@ -4192,7 +4024,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -4218,7 +4050,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2004 GetCoupons (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startsAfter = null, DateTime? startsBefore = null, DateTime? expiresAfter = null, DateTime? expiresBefore = null, string valid = null, string batchId = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null)
 
-List Coupons (with total count)
+List coupons (with total count)
 
 ### Example
 
@@ -4235,18 +4067,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -4263,7 +4093,7 @@ namespace Example
 
             try
             {
-                // List Coupons (with total count)
+                // List coupons (with total count)
                 InlineResponse2004 result = apiInstance.GetCoupons(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
                 Debug.WriteLine(result);
             }
@@ -4287,7 +4117,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -4328,9 +4158,9 @@ Name | Type | Description  | Notes
 
 ## GetCouponsByAttributes
 
-> InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
+> InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch couponSearch, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
 
-Get a list of the coupons that match the given attributes
+List coupons that match the given attributes
 
 Gets a list of all the coupons that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request. 
 
@@ -4349,19 +4179,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var body = new CouponSearch(); // CouponSearch | 
+            var couponSearch = new CouponSearch(); // CouponSearch | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -4374,8 +4202,8 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes
-                InlineResponse2004 result = apiInstance.GetCouponsByAttributes(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
+                // List coupons that match the given attributes
+                InlineResponse2004 result = apiInstance.GetCouponsByAttributes(applicationId, campaignId, couponSearch, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -4396,10 +4224,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **body** | [**CouponSearch**](CouponSearch.md)|  | 
+ **couponSearch** | [**CouponSearch**](CouponSearch.md)|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -4436,9 +4264,9 @@ Name | Type | Description  | Notes
 
 ## GetCouponsByAttributesApplicationWide
 
-> InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
+> InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch couponSearch, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+List coupons that match the given attributes in all active campaigns of an application (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria Application wide 
 
@@ -4457,18 +4285,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
-            var body = new CouponSearch(); // CouponSearch | 
+            var couponSearch = new CouponSearch(); // CouponSearch | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -4482,8 +4308,8 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-                InlineResponse2004 result = apiInstance.GetCouponsByAttributesApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
+                // List coupons that match the given attributes in all active campaigns of an application (with total count)
+                InlineResponse2004 result = apiInstance.GetCouponsByAttributesApplicationWide(applicationId, couponSearch, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -4503,10 +4329,10 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
- **body** | [**CouponSearch**](CouponSearch.md)|  | 
+ **couponSearch** | [**CouponSearch**](CouponSearch.md)|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -4546,7 +4372,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2005 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null)
 
-List Coupons
+List coupons
 
 ### Example
 
@@ -4563,18 +4389,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -4587,7 +4411,7 @@ namespace Example
 
             try
             {
-                // List Coupons
+                // List coupons
                 InlineResponse2005 result = apiInstance.GetCouponsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch);
                 Debug.WriteLine(result);
             }
@@ -4611,7 +4435,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -4669,11 +4493,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
@@ -4738,7 +4560,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerActivityReports
 
-> InlineResponse20014 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = null, int? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
+> InlineResponse20013 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = null, int? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
 
 Get Activity Reports for Application Customers (with total count)
 
@@ -4759,11 +4581,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
@@ -4771,7 +4591,7 @@ namespace Example
             var applicationId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var name = name_example;  // string | Only return reports matching the customer name (optional) 
             var integrationId = integrationId_example;  // string | Only return reports matching the integrationId (optional) 
             var campaignName = campaignName_example;  // string | Only return reports matching the campaignName (optional) 
@@ -4780,7 +4600,7 @@ namespace Example
             try
             {
                 // Get Activity Reports for Application Customers (with total count)
-                InlineResponse20014 result = apiInstance.GetCustomerActivityReports(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
+                InlineResponse20013 result = apiInstance.GetCustomerActivityReports(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -4804,7 +4624,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **name** | **string**| Only return reports matching the customer name | [optional] 
  **integrationId** | **string**| Only return reports matching the integrationId | [optional] 
  **campaignName** | **string**| Only return reports matching the campaignName | [optional] 
@@ -4812,7 +4632,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20014**](InlineResponse20014.md)
+[**InlineResponse20013**](InlineResponse20013.md)
 
 ### Authorization
 
@@ -4836,7 +4656,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerActivityReportsWithoutTotalCount
 
-> InlineResponse20015 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = null, int? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
+> InlineResponse20014 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = null, int? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
 
 Get Activity Reports for Application Customers
 
@@ -4857,11 +4677,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
@@ -4869,7 +4687,7 @@ namespace Example
             var applicationId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var name = name_example;  // string | Only return reports matching the customer name (optional) 
             var integrationId = integrationId_example;  // string | Only return reports matching the integrationId (optional) 
             var campaignName = campaignName_example;  // string | Only return reports matching the campaignName (optional) 
@@ -4878,7 +4696,7 @@ namespace Example
             try
             {
                 // Get Activity Reports for Application Customers
-                InlineResponse20015 result = apiInstance.GetCustomerActivityReportsWithoutTotalCount(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
+                InlineResponse20014 result = apiInstance.GetCustomerActivityReportsWithoutTotalCount(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -4902,7 +4720,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **name** | **string**| Only return reports matching the customer name | [optional] 
  **integrationId** | **string**| Only return reports matching the integrationId | [optional] 
  **campaignName** | **string**| Only return reports matching the campaignName | [optional] 
@@ -4910,7 +4728,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20015**](InlineResponse20015.md)
+[**InlineResponse20014**](InlineResponse20014.md)
 
 ### Authorization
 
@@ -4955,18 +4773,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var customerId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
@@ -4994,7 +4810,7 @@ Name | Type | Description  | Notes
  **customerId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
@@ -5041,11 +4857,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var customerId = 56;  // int | 
@@ -5100,7 +4914,7 @@ Name | Type | Description  | Notes
 
 ## GetCustomerProfiles
 
-> InlineResponse20013 GetCustomerProfiles (int? pageSize = null, int? skip = null)
+> InlineResponse20012 GetCustomerProfiles (int? pageSize = null, int? skip = null)
 
 List Customer Profiles
 
@@ -5119,11 +4933,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
@@ -5132,7 +4944,7 @@ namespace Example
             try
             {
                 // List Customer Profiles
-                InlineResponse20013 result = apiInstance.GetCustomerProfiles(pageSize, skip);
+                InlineResponse20012 result = apiInstance.GetCustomerProfiles(pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5156,7 +4968,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -5180,11 +4992,11 @@ Name | Type | Description  | Notes
 
 ## GetCustomersByAttributes
 
-> InlineResponse20013 GetCustomersByAttributes (ApplicationCustomerSearch body, int? pageSize = null, int? skip = null)
+> InlineResponse20012 GetCustomersByAttributes (ApplicationCustomerSearch applicationCustomerSearch, int? pageSize = null, int? skip = null)
 
-Get a list of the customer profiles that match the given attributes
+List customer profiles that match the given attributes
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
+Get a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#/customerProfile 
 
 ### Example
 
@@ -5201,21 +5013,19 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var body = new ApplicationCustomerSearch(); // ApplicationCustomerSearch | 
+            var applicationCustomerSearch = new ApplicationCustomerSearch(); // ApplicationCustomerSearch | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
 
             try
             {
-                // Get a list of the customer profiles that match the given attributes
-                InlineResponse20013 result = apiInstance.GetCustomersByAttributes(body, pageSize, skip);
+                // List customer profiles that match the given attributes
+                InlineResponse20012 result = apiInstance.GetCustomersByAttributes(applicationCustomerSearch, pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5234,13 +5044,13 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
+ **applicationCustomerSearch** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
@@ -5264,11 +5074,11 @@ Name | Type | Description  | Notes
 
 ## GetEventTypes
 
-> InlineResponse20026 GetEventTypes (string applicationIds = null, string name = null, bool? includeOldVersions = null, int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20025 GetEventTypes (string applicationIds = null, string name = null, bool? includeOldVersions = null, int? pageSize = null, int? skip = null, string sort = null)
 
-List Event Types
+List event types
 
-Fetch all event type definitions for your account. Each event type can be 
+Fetch all event type definitions for your account. 
 
 ### Example
 
@@ -5285,11 +5095,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationIds = applicationIds_example;  // string | Filter by one or more application ids separated by comma (optional) 
@@ -5297,12 +5105,12 @@ namespace Example
             var includeOldVersions = true;  // bool? | Include all versions of every event type. (optional)  (default to false)
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
-                // List Event Types
-                InlineResponse20026 result = apiInstance.GetEventTypes(applicationIds, name, includeOldVersions, pageSize, skip, sort);
+                // List event types
+                InlineResponse20025 result = apiInstance.GetEventTypes(applicationIds, name, includeOldVersions, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5326,11 +5134,11 @@ Name | Type | Description  | Notes
  **includeOldVersions** | **bool?**| Include all versions of every event type. | [optional] [default to false]
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -5354,9 +5162,9 @@ Name | Type | Description  | Notes
 
 ## GetExports
 
-> InlineResponse20029 GetExports (int? pageSize = null, int? skip = null, int? applicationId = null, int? campaignId = null, string entity = null)
+> InlineResponse20028 GetExports (int? pageSize = null, int? skip = null, int? applicationId = null, int? campaignId = null, string entity = null)
 
-Get Exports
+Get exports
 
 Get a list of all past exports 
 
@@ -5375,11 +5183,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
@@ -5390,8 +5196,8 @@ namespace Example
 
             try
             {
-                // Get Exports
-                InlineResponse20029 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
+                // Get exports
+                InlineResponse20028 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5418,7 +5224,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -5442,9 +5248,9 @@ Name | Type | Description  | Notes
 
 ## GetLoyaltyPoints
 
-> LoyaltyLedger GetLoyaltyPoints (string programID, string integrationID)
+> LoyaltyLedger GetLoyaltyPoints (int programID, string integrationID)
 
-get the Loyalty Ledger for this integrationID
+Get integration's Loyalty Ledger
 
 Get the Loyalty Ledger for this profile integration ID.
 
@@ -5463,19 +5269,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var programID = programID_example;  // string | The identifier for the application, must be unique within the account.
+            var programID = 56;  // int | The identifier for the loyalty program, must be unique within the account.
             var integrationID = integrationID_example;  // string | The identifier for the application, must be unique within the account.
 
             try
             {
-                // get the Loyalty Ledger for this integrationID
+                // Get integration's Loyalty Ledger
                 LoyaltyLedger result = apiInstance.GetLoyaltyPoints(programID, integrationID);
                 Debug.WriteLine(result);
             }
@@ -5495,7 +5299,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**| The identifier for the application, must be unique within the account. | 
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. | 
  **integrationID** | **string**| The identifier for the application, must be unique within the account. | 
 
 ### Return type
@@ -5524,9 +5328,11 @@ Name | Type | Description  | Notes
 
 ## GetLoyaltyProgram
 
-> LoyaltyProgram GetLoyaltyProgram (string programID)
+> LoyaltyProgram GetLoyaltyProgram (int programID)
 
 Get a loyalty program
+
+Get a loyalty program.
 
 ### Example
 
@@ -5543,14 +5349,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var programID = programID_example;  // string | 
+            var programID = 56;  // int | The identifier for the loyalty program, must be unique within the account.
 
             try
             {
@@ -5574,7 +5378,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  | 
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. | 
 
 ### Return type
 
@@ -5602,9 +5406,11 @@ Name | Type | Description  | Notes
 
 ## GetLoyaltyPrograms
 
-> InlineResponse2008 GetLoyaltyPrograms ()
+> InlineResponse2007 GetLoyaltyPrograms ()
 
-List all loyalty Programs
+List loyalty programs
+
+List all the loyalty programs.
 
 ### Example
 
@@ -5621,18 +5427,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
 
             try
             {
-                // List all loyalty Programs
-                InlineResponse2008 result = apiInstance.GetLoyaltyPrograms();
+                // List loyalty programs
+                InlineResponse2007 result = apiInstance.GetLoyaltyPrograms();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5652,7 +5456,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -5676,7 +5480,7 @@ This endpoint does not need any parameter.
 
 ## GetLoyaltyStatistics
 
-> LoyaltyStatistics GetLoyaltyStatistics (string programID)
+> LoyaltyStatistics GetLoyaltyStatistics (int programID)
 
 Get loyalty program statistics by loyalty program ID
 
@@ -5695,14 +5499,12 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var programID = programID_example;  // string | 
+            var programID = 56;  // int | The identifier for the loyalty program, must be unique within the account.
 
             try
             {
@@ -5726,7 +5528,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  | 
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. | 
 
 ### Return type
 
@@ -5754,9 +5556,9 @@ Name | Type | Description  | Notes
 
 ## GetReferrals
 
-> InlineResponse2006 GetReferrals (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
+> InlineResponse201 GetReferrals (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
 
-List Referrals (with total count)
+List referrals (with total count)
 
 ### Example
 
@@ -5773,18 +5575,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var code = code_example;  // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -5794,8 +5594,8 @@ namespace Example
 
             try
             {
-                // List Referrals (with total count)
-                InlineResponse2006 result = apiInstance.GetReferrals(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
+                // List referrals (with total count)
+                InlineResponse201 result = apiInstance.GetReferrals(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5818,7 +5618,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -5828,7 +5628,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2006**](InlineResponse2006.md)
+[**InlineResponse201**](InlineResponse201.md)
 
 ### Authorization
 
@@ -5852,9 +5652,9 @@ Name | Type | Description  | Notes
 
 ## GetReferralsWithoutTotalCount
 
-> InlineResponse2007 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
+> InlineResponse2006 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
 
-List Referrals
+List referrals
 
 ### Example
 
@@ -5871,18 +5671,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var code = code_example;  // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -5892,8 +5690,8 @@ namespace Example
 
             try
             {
-                // List Referrals
-                InlineResponse2007 result = apiInstance.GetReferralsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
+                // List referrals
+                InlineResponse2006 result = apiInstance.GetReferralsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5916,7 +5714,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -5926,7 +5724,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2007**](InlineResponse2007.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -5969,12 +5767,7 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
             var apiInstance = new ManagementApi(Configuration.Default);
             var roleId = 56;  // int | 
 
@@ -6008,7 +5801,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[manager_auth](../README.md#manager_auth)
+No authorization required
 
 ### HTTP request headers
 
@@ -6030,7 +5823,9 @@ Name | Type | Description  | Notes
 
 > Ruleset GetRuleset (int applicationId, int campaignId, int rulesetId)
 
-Get a Ruleset
+Get ruleset
+
+Retrieve the details of a ruleset.
 
 ### Example
 
@@ -6047,11 +5842,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -6060,7 +5853,7 @@ namespace Example
 
             try
             {
-                // Get a Ruleset
+                // Get ruleset
                 Ruleset result = apiInstance.GetRuleset(applicationId, campaignId, rulesetId);
                 Debug.WriteLine(result);
             }
@@ -6112,7 +5905,9 @@ Name | Type | Description  | Notes
 
 > InlineResponse2003 GetRulesets (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null)
 
-List Campaign Rulesets
+List rulesets
+
+List all rulesets in the given campaign.
 
 ### Example
 
@@ -6129,22 +5924,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
-                // List Campaign Rulesets
+                // List rulesets
                 InlineResponse2003 result = apiInstance.GetRulesets(applicationId, campaignId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
@@ -6168,7 +5961,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
@@ -6217,11 +6010,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var userId = 56;  // int | 
@@ -6276,9 +6067,9 @@ Name | Type | Description  | Notes
 
 ## GetUsers
 
-> InlineResponse20027 GetUsers (int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20026 GetUsers (int? pageSize = null, int? skip = null, string sort = null)
 
-List Users in your account
+List users
 
 Retrieve all users in your account. 
 
@@ -6297,21 +6088,19 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
 
             try
             {
-                // List Users in your account
-                InlineResponse20027 result = apiInstance.GetUsers(pageSize, skip, sort);
+                // List users
+                InlineResponse20026 result = apiInstance.GetUsers(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6332,11 +6121,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -6381,11 +6170,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var webhookId = 56;  // int | 
@@ -6440,7 +6227,7 @@ Name | Type | Description  | Notes
 
 ## GetWebhookActivationLogs
 
-> InlineResponse20024 GetWebhookActivationLogs (int? pageSize = null, int? skip = null, string sort = null, string integrationRequestUuid = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
+> InlineResponse20023 GetWebhookActivationLogs (int? pageSize = null, int? skip = null, string sort = null, string integrationRequestUuid = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
 
 List Webhook activation Log Entries
 
@@ -6461,16 +6248,14 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var integrationRequestUuid = integrationRequestUuid_example;  // string | Filter results by integration request UUID. (optional) 
             var webhookId = 8.14;  // decimal? | Filter results by Webhook. (optional) 
             var applicationId = 8.14;  // decimal? |  (optional) 
@@ -6481,7 +6266,7 @@ namespace Example
             try
             {
                 // List Webhook activation Log Entries
-                InlineResponse20024 result = apiInstance.GetWebhookActivationLogs(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
+                InlineResponse20023 result = apiInstance.GetWebhookActivationLogs(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6502,12 +6287,106 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **integrationRequestUuid** | **string**| Filter results by integration request UUID. | [optional] 
  **webhookId** | **decimal?**| Filter results by Webhook. | [optional] 
  **applicationId** | **decimal?**|  | [optional] 
  **campaignId** | **decimal?**| Filter results by campaign. | [optional] 
  **createdBefore** | **DateTime?**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
+
+### Return type
+
+[**InlineResponse20023**](InlineResponse20023.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetWebhookLogs
+
+> InlineResponse20024 GetWebhookLogs (int? pageSize = null, int? skip = null, string sort = null, string status = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, string requestUuid = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
+
+List Webhook Log Entries
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetWebhookLogsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
+            var sort = sort_example;  // string |  (optional) 
+            var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
+            var webhookId = 8.14;  // decimal? | Filter results by Webhook. (optional) 
+            var applicationId = 8.14;  // decimal? |  (optional) 
+            var campaignId = 8.14;  // decimal? | Filter results by campaign. (optional) 
+            var requestUuid = requestUuid_example;  // string | Filter results by request UUID. (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
+
+            try
+            {
+                // List Webhook Log Entries
+                InlineResponse20024 result = apiInstance.GetWebhookLogs(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetWebhookLogs: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
+ **sort** | **string**|  | [optional] 
+ **status** | **string**| Filter results by HTTP status codes. | [optional] 
+ **webhookId** | **decimal?**| Filter results by Webhook. | [optional] 
+ **applicationId** | **decimal?**|  | [optional] 
+ **campaignId** | **decimal?**| Filter results by campaign. | [optional] 
+ **requestUuid** | **string**| Filter results by request UUID. | [optional] 
+ **createdBefore** | **DateTime?**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
 
 ### Return type
@@ -6534,105 +6413,9 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetWebhookLogs
-
-> InlineResponse20025 GetWebhookLogs (int? pageSize = null, int? skip = null, string sort = null, string status = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, string requestUuid = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
-
-List Webhook Log Entries
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetWebhookLogsExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
-            var webhookId = 8.14;  // decimal? | Filter results by Webhook. (optional) 
-            var applicationId = 8.14;  // decimal? |  (optional) 
-            var campaignId = 8.14;  // decimal? | Filter results by campaign. (optional) 
-            var requestUuid = requestUuid_example;  // string | Filter results by request UUID. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-
-            try
-            {
-                // List Webhook Log Entries
-                InlineResponse20025 result = apiInstance.GetWebhookLogs(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetWebhookLogs: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **status** | **string**| Filter results by HTTP status codes. | [optional] 
- **webhookId** | **decimal?**| Filter results by Webhook. | [optional] 
- **applicationId** | **decimal?**|  | [optional] 
- **campaignId** | **decimal?**| Filter results by campaign. | [optional] 
- **requestUuid** | **string**| Filter results by request UUID. | [optional] 
- **createdBefore** | **DateTime?**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **createdAfter** | **DateTime?**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
-
-### Return type
-
-[**InlineResponse20025**](InlineResponse20025.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetWebhooks
 
-> InlineResponse20023 GetWebhooks (string applicationIds = null, string sort = null, int? pageSize = null, int? skip = null)
+> InlineResponse20022 GetWebhooks (string applicationIds = null, string sort = null, int? pageSize = null, int? skip = null)
 
 List Webhooks
 
@@ -6651,22 +6434,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationIds = applicationIds_example;  // string | Filter by one or more application ids separated by comma (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
 
             try
             {
                 // List Webhooks
-                InlineResponse20023 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip);
+                InlineResponse20022 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6686,13 +6467,13 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationIds** | **string**| Filter by one or more application ids separated by comma | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -6714,11 +6495,323 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ImportCoupons
+
+> Import ImportCoupons (int applicationId, int campaignId, string upfile = null)
+
+Import coupons via CSV file
+
+Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ImportCouponsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var applicationId = 56;  // int | 
+            var campaignId = 56;  // int | 
+            var upfile = upfile_example;  // string | The file with the information about the loyalty points that should be imported. (optional) 
+
+            try
+            {
+                // Import coupons via CSV file
+                Import result = apiInstance.ImportCoupons(applicationId, campaignId, upfile);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ImportCoupons: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  | 
+ **campaignId** | **int**|  | 
+ **upfile** | **string**| The file with the information about the loyalty points that should be imported. | [optional] 
+
+### Return type
+
+[**Import**](Import.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImportLoyaltyPoints
+
+> Import ImportLoyaltyPoints (int programID, string upFile = null)
+
+Import loyalty points via CSV file
+
+Upload a CSV file containing the loyalty points that should be created. The file should be sent as multipart data.
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ImportLoyaltyPointsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var programID = 56;  // int | The identifier for the loyalty program, must be unique within the account.
+            var upFile = upFile_example;  // string | The file with the information about the loyalty points that should be imported. (optional) 
+
+            try
+            {
+                // Import loyalty points via CSV file
+                Import result = apiInstance.ImportLoyaltyPoints(programID, upFile);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ImportLoyaltyPoints: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. | 
+ **upFile** | **string**| The file with the information about the loyalty points that should be imported. | [optional] 
+
+### Return type
+
+[**Import**](Import.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImportPoolGiveaways
+
+> Import ImportPoolGiveaways (int poolId, string upfile = null)
+
+Import giveaways codes into a giveaways pool
+
+Upload a CSV file containing the giveaways codes that should be created. Send the file as multipart data.  The CSV file can contain the following columns: - `code` (required): the code of your giveaway, for instance, a gift card redemption code. - `startdate`:  the start date in RFC3339 of the code redemption period. - `enddate`: the last date in RFC3339 of the code redemption period. - `attributes`: A json object describing _custom_ giveaways attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called `provider`, set it with `\"{\"\"provider\"\": \"\"myPartnerCompany\"\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the timezone of your choice. It is converted to UTC internally by Talon.One. 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ImportPoolGiveawaysExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var poolId = 56;  // int | 
+            var upfile = upfile_example;  // string | The file with the information about the loyalty points that should be imported. (optional) 
+
+            try
+            {
+                // Import giveaways codes into a giveaways pool
+                Import result = apiInstance.ImportPoolGiveaways(poolId, upfile);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ImportPoolGiveaways: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **poolId** | **int**|  | 
+ **upfile** | **string**| The file with the information about the loyalty points that should be imported. | [optional] 
+
+### Return type
+
+[**Import**](Import.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImportReferrals
+
+> Import ImportReferrals (int applicationId, int campaignId, string upFile = null)
+
+Import referrals via CSV file
+
+Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file can contain the following colums:  - `code` (required): the referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: the start date in RFC3339 of the code redemption period. - `expirydate`: the end date in RFC3339 of the code redemption period. - `limitval`: The maximum amount of redemptions of this code. Unlimited (0) when blank. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called `category`, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One. 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ImportReferralsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var applicationId = 56;  // int | 
+            var campaignId = 56;  // int | 
+            var upFile = upFile_example;  // string | The file with the information about the loyalty points that should be imported. (optional) 
+
+            try
+            {
+                // Import referrals via CSV file
+                Import result = apiInstance.ImportReferrals(applicationId, campaignId, upFile);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ImportReferrals: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  | 
+ **campaignId** | **int**|  | 
+ **upFile** | **string**| The file with the information about the loyalty points that should be imported. | [optional] 
+
+### Return type
+
+[**Import**](Import.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RemoveLoyaltyPoints
 
-> void RemoveLoyaltyPoints (string programID, string integrationID, LoyaltyPoints body)
+> void RemoveLoyaltyPoints (int programID, string integrationID, LoyaltyPoints loyaltyPoints)
 
-Deduct points in a certain loyalty program for the specified customer
+Deduct points in a loyalty program for the specified customer
 
 ### Example
 
@@ -6735,21 +6828,19 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var programID = programID_example;  // string | 
+            var programID = 56;  // int | The identifier for the loyalty program, must be unique within the account.
             var integrationID = integrationID_example;  // string | 
-            var body = new LoyaltyPoints(); // LoyaltyPoints | 
+            var loyaltyPoints = new LoyaltyPoints(); // LoyaltyPoints | 
 
             try
             {
-                // Deduct points in a certain loyalty program for the specified customer
-                apiInstance.RemoveLoyaltyPoints(programID, integrationID, body);
+                // Deduct points in a loyalty program for the specified customer
+                apiInstance.RemoveLoyaltyPoints(programID, integrationID, loyaltyPoints);
             }
             catch (ApiException e)
             {
@@ -6767,9 +6858,9 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  | 
+ **programID** | **int**| The identifier for the loyalty program, must be unique within the account. | 
  **integrationID** | **string**|  | 
- **body** | [**LoyaltyPoints**](LoyaltyPoints.md)|  | 
+ **loyaltyPoints** | [**LoyaltyPoints**](LoyaltyPoints.md)|  | 
 
 ### Return type
 
@@ -6797,7 +6888,7 @@ void (empty response body)
 
 ## ResetPassword
 
-> NewPassword ResetPassword (NewPassword body)
+> NewPassword ResetPassword (NewPassword newPassword)
 
 Reset password
 
@@ -6818,19 +6909,17 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var body = new NewPassword(); // NewPassword | 
+            var newPassword = new NewPassword(); // NewPassword | 
 
             try
             {
                 // Reset password
-                NewPassword result = apiInstance.ResetPassword(body);
+                NewPassword result = apiInstance.ResetPassword(newPassword);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6849,7 +6938,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**NewPassword**](NewPassword.md)|  | 
+ **newPassword** | [**NewPassword**](NewPassword.md)|  | 
 
 ### Return type
 
@@ -6879,7 +6968,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2004 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
 
-Get a list of the coupons that match the given attributes (with total count)
+List coupons that match the given attributes (with total count)
 
 Gets a list of all the coupons with attributes matching the query criteria 
 
@@ -6898,11 +6987,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -6910,7 +6997,7 @@ namespace Example
             var body = ;  // Object | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -6923,7 +7010,7 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes (with total count)
+                // List coupons that match the given attributes (with total count)
                 InlineResponse2004 result = apiInstance.SearchCouponsAdvanced(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
                 Debug.WriteLine(result);
             }
@@ -6948,7 +7035,7 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -6987,9 +7074,9 @@ Name | Type | Description  | Notes
 
 > InlineResponse2004 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+List coupons that match the given attributes in all active campaigns of an application (with total count)
 
-Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
+Get a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
 
 ### Example
 
@@ -7006,18 +7093,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var body = ;  // Object | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -7031,7 +7116,7 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
+                // List coupons that match the given attributes in all active campaigns of an application (with total count)
                 InlineResponse2004 result = apiInstance.SearchCouponsAdvancedApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
                 Debug.WriteLine(result);
             }
@@ -7055,7 +7140,7 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -7095,9 +7180,9 @@ Name | Type | Description  | Notes
 
 > InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application
+List coupons that match the given attributes in all active campaigns of an application
 
-Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
+List of all the coupons with attributes matching the query criteria in all active campaigns of an application. 
 
 ### Example
 
@@ -7114,18 +7199,16 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var body = ;  // Object | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -7139,7 +7222,7 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes in all active campaigns of an application
+                // List coupons that match the given attributes in all active campaigns of an application
                 InlineResponse2005 result = apiInstance.SearchCouponsAdvancedApplicationWideWithoutTotalCount(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
                 Debug.WriteLine(result);
             }
@@ -7163,7 +7246,7 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -7203,9 +7286,9 @@ Name | Type | Description  | Notes
 
 > InlineResponse2005 SearchCouponsAdvancedWithoutTotalCount (int applicationId, int campaignId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
 
-Get a list of the coupons that match the given attributes
+List coupons that match the given attributes
 
-Gets a list of all the coupons with attributes matching the query criteria 
+List of all the coupons with attributes matching the query criteria. 
 
 ### Example
 
@@ -7222,11 +7305,9 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
@@ -7234,7 +7315,7 @@ namespace Example
             var body = ;  // Object | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var sort = sort_example;  // string |  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
@@ -7247,7 +7328,7 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes
+                // List coupons that match the given attributes
                 InlineResponse2005 result = apiInstance.SearchCouponsAdvancedWithoutTotalCount(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
                 Debug.WriteLine(result);
             }
@@ -7272,7 +7353,7 @@ Name | Type | Description  | Notes
  **body** | **Object**|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **sort** | **string**|  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
@@ -7309,7 +7390,7 @@ Name | Type | Description  | Notes
 
 ## UpdateAdditionalCost
 
-> AccountAdditionalCost UpdateAdditionalCost (int additionalCostId, NewAdditionalCost body)
+> AccountAdditionalCost UpdateAdditionalCost (int additionalCostId, NewAdditionalCost newAdditionalCost)
 
 Update an additional cost
 
@@ -7330,20 +7411,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var additionalCostId = 56;  // int | 
-            var body = new NewAdditionalCost(); // NewAdditionalCost | 
+            var newAdditionalCost = new NewAdditionalCost(); // NewAdditionalCost | 
 
             try
             {
                 // Update an additional cost
-                AccountAdditionalCost result = apiInstance.UpdateAdditionalCost(additionalCostId, body);
+                AccountAdditionalCost result = apiInstance.UpdateAdditionalCost(additionalCostId, newAdditionalCost);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -7363,7 +7442,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **additionalCostId** | **int**|  | 
- **body** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
+ **newAdditionalCost** | [**NewAdditionalCost**](NewAdditionalCost.md)|  | 
 
 ### Return type
 
@@ -7391,7 +7470,7 @@ Name | Type | Description  | Notes
 
 ## UpdateAttribute
 
-> Attribute UpdateAttribute (int attributeId, NewAttribute body)
+> Attribute UpdateAttribute (int attributeId, NewAttribute newAttribute)
 
 Update a custom attribute
 
@@ -7412,20 +7491,18 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var attributeId = 56;  // int | 
-            var body = new NewAttribute(); // NewAttribute | 
+            var newAttribute = new NewAttribute(); // NewAttribute | 
 
             try
             {
                 // Update a custom attribute
-                Attribute result = apiInstance.UpdateAttribute(attributeId, body);
+                Attribute result = apiInstance.UpdateAttribute(attributeId, newAttribute);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -7445,7 +7522,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributeId** | **int**|  | 
- **body** | [**NewAttribute**](NewAttribute.md)|  | 
+ **newAttribute** | [**NewAttribute**](NewAttribute.md)|  | 
 
 ### Return type
 
@@ -7473,9 +7550,9 @@ Name | Type | Description  | Notes
 
 ## UpdateCampaign
 
-> Campaign UpdateCampaign (int applicationId, int campaignId, UpdateCampaign body)
+> Campaign UpdateCampaign (int applicationId, int campaignId, UpdateCampaign updateCampaign)
 
-Update a Campaign
+Update campaign
 
 ### Example
 
@@ -7492,21 +7569,19 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var body = new UpdateCampaign(); // UpdateCampaign | 
+            var updateCampaign = new UpdateCampaign(); // UpdateCampaign | 
 
             try
             {
-                // Update a Campaign
-                Campaign result = apiInstance.UpdateCampaign(applicationId, campaignId, body);
+                // Update campaign
+                Campaign result = apiInstance.UpdateCampaign(applicationId, campaignId, updateCampaign);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -7527,7 +7602,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **body** | [**UpdateCampaign**](UpdateCampaign.md)|  | 
+ **updateCampaign** | [**UpdateCampaign**](UpdateCampaign.md)|  | 
 
 ### Return type
 
@@ -7555,9 +7630,9 @@ Name | Type | Description  | Notes
 
 ## UpdateCoupon
 
-> Coupon UpdateCoupon (int applicationId, int campaignId, string couponId, UpdateCoupon body)
+> Coupon UpdateCoupon (int applicationId, int campaignId, string couponId, UpdateCoupon updateCoupon)
 
-Update a Coupon
+Update coupon
 
 ### Example
 
@@ -7574,22 +7649,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var couponId = couponId_example;  // string | The ID of the coupon code to update
-            var body = new UpdateCoupon(); // UpdateCoupon | 
+            var updateCoupon = new UpdateCoupon(); // UpdateCoupon | 
 
             try
             {
-                // Update a Coupon
-                Coupon result = apiInstance.UpdateCoupon(applicationId, campaignId, couponId, body);
+                // Update coupon
+                Coupon result = apiInstance.UpdateCoupon(applicationId, campaignId, couponId, updateCoupon);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -7611,7 +7684,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
  **couponId** | **string**| The ID of the coupon code to update | 
- **body** | [**UpdateCoupon**](UpdateCoupon.md)|  | 
+ **updateCoupon** | [**UpdateCoupon**](UpdateCoupon.md)|  | 
 
 ### Return type
 
@@ -7639,9 +7712,9 @@ Name | Type | Description  | Notes
 
 ## UpdateCouponBatch
 
-> void UpdateCouponBatch (int applicationId, int campaignId, UpdateCouponBatch body)
+> void UpdateCouponBatch (int applicationId, int campaignId, UpdateCouponBatch updateCouponBatch)
 
-Update a Batch of Coupons
+Update a batch of coupons
 
 ### Example
 
@@ -7658,21 +7731,19 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
-            var body = new UpdateCouponBatch(); // UpdateCouponBatch | 
+            var updateCouponBatch = new UpdateCouponBatch(); // UpdateCouponBatch | 
 
             try
             {
-                // Update a Batch of Coupons
-                apiInstance.UpdateCouponBatch(applicationId, campaignId, body);
+                // Update a batch of coupons
+                apiInstance.UpdateCouponBatch(applicationId, campaignId, updateCouponBatch);
             }
             catch (ApiException e)
             {
@@ -7692,7 +7763,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
- **body** | [**UpdateCouponBatch**](UpdateCouponBatch.md)|  | 
+ **updateCouponBatch** | [**UpdateCouponBatch**](UpdateCouponBatch.md)|  | 
 
 ### Return type
 
@@ -7718,11 +7789,92 @@ void (empty response body)
 [[Back to README]](../README.md)
 
 
+## UpdateReferral
+
+> Referral UpdateReferral (int applicationId, int campaignId, string referralId, UpdateReferral updateReferral)
+
+Update referral
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class UpdateReferralExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var applicationId = 56;  // int | 
+            var campaignId = 56;  // int | 
+            var referralId = referralId_example;  // string | The ID of the referral code to delete
+            var updateReferral = new UpdateReferral(); // UpdateReferral | 
+
+            try
+            {
+                // Update referral
+                Referral result = apiInstance.UpdateReferral(applicationId, campaignId, referralId, updateReferral);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.UpdateReferral: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  | 
+ **campaignId** | **int**|  | 
+ **referralId** | **string**| The ID of the referral code to delete | 
+ **updateReferral** | [**UpdateReferral**](UpdateReferral.md)|  | 
+
+### Return type
+
+[**Referral**](Referral.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateRuleset
 
-> Ruleset UpdateRuleset (int applicationId, int campaignId, int rulesetId, NewRuleset body)
+> Ruleset UpdateRuleset (int applicationId, int campaignId, int rulesetId, NewRuleset newRuleset)
 
-Update a Ruleset
+Update ruleset
+
+Update the specified ruleset.
 
 ### Example
 
@@ -7739,22 +7891,20 @@ namespace Example
     {
         public static void Main()
         {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+            Configuration.Default.BasePath = "http://your_domain.your_region.talon.one";
+            // Configure HTTP bearer authorization: manager_auth
+            Configuration.Default.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ManagementApi(Configuration.Default);
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var rulesetId = 56;  // int | 
-            var body = new NewRuleset(); // NewRuleset | 
+            var newRuleset = new NewRuleset(); // NewRuleset | 
 
             try
             {
-                // Update a Ruleset
-                Ruleset result = apiInstance.UpdateRuleset(applicationId, campaignId, rulesetId, body);
+                // Update ruleset
+                Ruleset result = apiInstance.UpdateRuleset(applicationId, campaignId, rulesetId, newRuleset);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -7776,7 +7926,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
  **rulesetId** | **int**|  | 
- **body** | [**NewRuleset**](NewRuleset.md)|  | 
+ **newRuleset** | [**NewRuleset**](NewRuleset.md)|  | 
 
 ### Return type
 

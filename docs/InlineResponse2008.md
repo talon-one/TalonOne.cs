@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TotalResultSize** | **int** |  | 
-**Data** | [**List&lt;LoyaltyProgram&gt;**](LoyaltyProgram.md) |  | 
+**Data** | [**List&lt;AccessLogEntry&gt;**](AccessLogEntry.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)
