@@ -37,12 +37,14 @@ namespace TalonOne.Model
         /// <param name="loyalty">loyalty.</param>
         /// <param name="referrals">referrals.</param>
         /// <param name="coupons">coupons.</param>
-        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<Referral> referrals = default(List<Referral>), List<Coupon> coupons = default(List<Coupon>))
+        /// <param name="giveaways">giveaways.</param>
+        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<Referral> referrals = default(List<Referral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>))
         {
             this.Profile = profile;
             this.Loyalty = loyalty;
             this.Referrals = referrals;
             this.Coupons = coupons;
+            this.Giveaways = giveaways;
         }
         
         /// <summary>
@@ -67,7 +69,13 @@ namespace TalonOne.Model
         /// Gets or Sets Coupons
         /// </summary>
         [DataMember(Name="coupons", EmitDefaultValue=false)]
-        public List<Coupon> Coupons { get; set; }
+        public List<InventoryCoupon> Coupons { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Giveaways
+        /// </summary>
+        [DataMember(Name="giveaways", EmitDefaultValue=false)]
+        public List<Giveaway> Giveaways { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -81,6 +89,7 @@ namespace TalonOne.Model
             sb.Append("  Loyalty: ").Append(Loyalty).Append("\n");
             sb.Append("  Referrals: ").Append(Referrals).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
+            sb.Append("  Giveaways: ").Append(Giveaways).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +145,12 @@ namespace TalonOne.Model
                     this.Coupons != null &&
                     input.Coupons != null &&
                     this.Coupons.SequenceEqual(input.Coupons)
+                ) && 
+                (
+                    this.Giveaways == input.Giveaways ||
+                    this.Giveaways != null &&
+                    input.Giveaways != null &&
+                    this.Giveaways.SequenceEqual(input.Giveaways)
                 );
         }
 
@@ -156,6 +171,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Referrals.GetHashCode();
                 if (this.Coupons != null)
                     hashCode = hashCode * 59 + this.Coupons.GetHashCode();
+                if (this.Giveaways != null)
+                    hashCode = hashCode * 59 + this.Giveaways.GetHashCode();
                 return hashCode;
             }
         }

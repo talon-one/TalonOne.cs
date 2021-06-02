@@ -84,7 +84,8 @@ namespace TalonOne.Model
         /// <param name="attributes">A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.  (required).</param>
         /// <param name="firstSession">Indicates whether this is the first session for the customer&#39;s profile. Will always be true for anonymous sessions. (required).</param>
         /// <param name="discounts">A map of labelled discount values, values will be in the same currency as the application associated with the session. (required).</param>
-        public CustomerSession(string integrationId = default(string), DateTime created = default(DateTime), int applicationId = default(int), string profileId = default(string), string coupon = default(string), string referral = default(string), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), List<string> identifiers = default(List<string>), decimal total = default(decimal), Object attributes = default(Object), bool firstSession = default(bool), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>))
+        /// <param name="updated">Timestamp of the most recent event received on this session (required).</param>
+        public CustomerSession(string integrationId = default(string), DateTime created = default(DateTime), int applicationId = default(int), string profileId = default(string), string coupon = default(string), string referral = default(string), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), List<string> identifiers = default(List<string>), decimal total = default(decimal), Object attributes = default(Object), bool firstSession = default(bool), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), DateTime updated = default(DateTime))
         {
             // to ensure "integrationId" is required (not null)
             if (integrationId == null)
@@ -206,6 +207,16 @@ namespace TalonOne.Model
                 this.Discounts = discounts;
             }
             
+            // to ensure "updated" is required (not null)
+            if (updated == null)
+            {
+                throw new InvalidDataException("updated is a required property for CustomerSession and cannot be null");
+            }
+            else
+            {
+                this.Updated = updated;
+            }
+            
             this.Identifiers = identifiers;
         }
         
@@ -295,6 +306,13 @@ namespace TalonOne.Model
         public Dictionary<string, decimal> Discounts { get; set; }
 
         /// <summary>
+        /// Timestamp of the most recent event received on this session
+        /// </summary>
+        /// <value>Timestamp of the most recent event received on this session</value>
+        [DataMember(Name="updated", EmitDefaultValue=true)]
+        public DateTime Updated { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -315,6 +333,7 @@ namespace TalonOne.Model
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  FirstSession: ").Append(FirstSession).Append("\n");
             sb.Append("  Discounts: ").Append(Discounts).Append("\n");
+            sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -416,6 +435,11 @@ namespace TalonOne.Model
                     this.Discounts != null &&
                     input.Discounts != null &&
                     this.Discounts.SequenceEqual(input.Discounts)
+                ) && 
+                (
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
                 );
         }
 
@@ -454,6 +478,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.FirstSession.GetHashCode();
                 if (this.Discounts != null)
                     hashCode = hashCode * 59 + this.Discounts.GetHashCode();
+                if (this.Updated != null)
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 return hashCode;
             }
         }

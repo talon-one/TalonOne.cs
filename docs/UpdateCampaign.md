@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | A friendly name for this campaign. | 
+**Name** | **string** | A user-facing name for this campaign. | 
 **Description** | **string** | A detailed description of the campaign. | [optional] 
-**StartTime** | **DateTime** | Datetime when the campaign will become active. | [optional] 
-**EndTime** | **DateTime** | Datetime when the campaign will become in-active. | [optional] 
+**StartTime** | **DateTime** | Timestamp when the campaign will become active. | [optional] 
+**EndTime** | **DateTime** | Timestamp when the campaign will become in-active. | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this campaign | [optional] 
 **State** | **string** | A disabled or archived campaign is not evaluated for rules or coupons.  | [optional] [default to StateEnum.Enabled]
 **ActiveRulesetId** | **int** | ID of Ruleset this campaign applies on customer session evaluation. | [optional] 

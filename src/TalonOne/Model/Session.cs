@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="Session" /> class.
         /// </summary>
         /// <param name="userId">The ID of the user of this session (required).</param>
-        /// <param name="token">An opaque session identifier (required).</param>
+        /// <param name="token">The token to use as a bearer token to query Management API endpoints. (required).</param>
         /// <param name="created">Unix timestamp indicating when the session was first created. (required).</param>
         public Session(int userId = default(int), string token = default(string), DateTime created = default(DateTime))
         {
@@ -83,9 +83,9 @@ namespace TalonOne.Model
         public int UserId { get; set; }
 
         /// <summary>
-        /// An opaque session identifier
+        /// The token to use as a bearer token to query Management API endpoints.
         /// </summary>
-        /// <value>An opaque session identifier</value>
+        /// <value>The token to use as a bearer token to query Management API endpoints.</value>
         [DataMember(Name="token", EmitDefaultValue=true)]
         public string Token { get; set; }
 

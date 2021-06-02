@@ -264,20 +264,6 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test DeleteRuleset
-        /// </summary>
-        [Test]
-        public void DeleteRulesetTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //int campaignId = null;
-            //int rulesetId = null;
-            //instance.DeleteRuleset(applicationId, campaignId, rulesetId);
-            
-        }
-        
-        /// <summary>
         /// Test DestroySession
         /// </summary>
         [Test]
@@ -375,26 +361,6 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test GetAccessLogs
-        /// </summary>
-        [Test]
-        public void GetAccessLogsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //DateTime rangeStart = null;
-            //DateTime rangeEnd = null;
-            //string path = null;
-            //string method = null;
-            //string status = null;
-            //int? pageSize = null;
-            //int? skip = null;
-            //string sort = null;
-            //var response = instance.GetAccessLogs(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
-            //Assert.IsInstanceOf(typeof(InlineResponse2009), response, "response is InlineResponse2009");
-        }
-        
-        /// <summary>
         /// Test GetAccessLogsWithoutTotalCount
         /// </summary>
         [Test]
@@ -411,7 +377,7 @@ namespace TalonOne.Test
             //int? skip = null;
             //string sort = null;
             //var response = instance.GetAccessLogsWithoutTotalCount(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
-            //Assert.IsInstanceOf(typeof(InlineResponse20010), response, "response is InlineResponse20010");
+            //Assert.IsInstanceOf(typeof(InlineResponse2008), response, "response is InlineResponse2008");
         }
         
         /// <summary>
@@ -461,7 +427,7 @@ namespace TalonOne.Test
             //int? skip = null;
             //string sort = null;
             //var response = instance.GetAdditionalCosts(pageSize, skip, sort);
-            //Assert.IsInstanceOf(typeof(InlineResponse20022), response, "response is InlineResponse20022");
+            //Assert.IsInstanceOf(typeof(InlineResponse20021), response, "response is InlineResponse20021");
         }
         
         /// <summary>
@@ -491,7 +457,7 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetAllRoles();
-            //Assert.IsInstanceOf(typeof(InlineResponse20030), response, "response is InlineResponse20030");
+            //Assert.IsInstanceOf(typeof(InlineResponse20029), response, "response is InlineResponse20029");
         }
         
         /// <summary>
@@ -532,6 +498,23 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test GetApplicationCustomerFriends
+        /// </summary>
+        [Test]
+        public void GetApplicationCustomerFriendsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int applicationId = null;
+            //string integrationId = null;
+            //int? pageSize = null;
+            //int? skip = null;
+            //string sort = null;
+            //bool? withTotalResultSize = null;
+            //var response = instance.GetApplicationCustomerFriends(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize);
+            //Assert.IsInstanceOf(typeof(InlineResponse20019), response, "response is InlineResponse20019");
+        }
+        
+        /// <summary>
         /// Test GetApplicationCustomers
         /// </summary>
         [Test]
@@ -544,7 +527,7 @@ namespace TalonOne.Test
             //int? skip = null;
             //bool? withTotalResultSize = null;
             //var response = instance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
-            //Assert.IsInstanceOf(typeof(InlineResponse20012), response, "response is InlineResponse20012");
+            //Assert.IsInstanceOf(typeof(InlineResponse20011), response, "response is InlineResponse20011");
         }
         
         /// <summary>
@@ -554,9 +537,13 @@ namespace TalonOne.Test
         public void GetApplicationCustomersByAttributesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //ApplicationCustomerSearch body = null;
-            //var response = instance.GetApplicationCustomersByAttributes(body);
-            //Assert.IsInstanceOf(typeof(InlineResponse20013), response, "response is InlineResponse20013");
+            //int applicationId = null;
+            //CustomerProfileSearchQuery body = null;
+            //int? pageSize = null;
+            //int? skip = null;
+            //bool? withTotalResultSize = null;
+            //var response = instance.GetApplicationCustomersByAttributes(applicationId, body, pageSize, skip, withTotalResultSize);
+            //Assert.IsInstanceOf(typeof(InlineResponse20012), response, "response is InlineResponse20012");
         }
         
         /// <summary>
@@ -571,32 +558,6 @@ namespace TalonOne.Test
             //int? skip = null;
             //string sort = null;
             //var response = instance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
-            //Assert.IsInstanceOf(typeof(InlineResponse20019), response, "response is InlineResponse20019");
-        }
-        
-        /// <summary>
-        /// Test GetApplicationEvents
-        /// </summary>
-        [Test]
-        public void GetApplicationEventsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //int? pageSize = null;
-            //int? skip = null;
-            //string sort = null;
-            //string type = null;
-            //DateTime? createdBefore = null;
-            //DateTime? createdAfter = null;
-            //string session = null;
-            //string profile = null;
-            //string customerName = null;
-            //string customerEmail = null;
-            //string couponCode = null;
-            //string referralCode = null;
-            //string ruleQuery = null;
-            //string campaignQuery = null;
-            //var response = instance.GetApplicationEvents(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
             //Assert.IsInstanceOf(typeof(InlineResponse20017), response, "response is InlineResponse20017");
         }
         
@@ -623,7 +584,7 @@ namespace TalonOne.Test
             //string ruleQuery = null;
             //string campaignQuery = null;
             //var response = instance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
-            //Assert.IsInstanceOf(typeof(InlineResponse20018), response, "response is InlineResponse20018");
+            //Assert.IsInstanceOf(typeof(InlineResponse20016), response, "response is InlineResponse20016");
         }
         
         /// <summary>
@@ -658,7 +619,7 @@ namespace TalonOne.Test
             //string referral = null;
             //string integrationId = null;
             //var response = instance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
-            //Assert.IsInstanceOf(typeof(InlineResponse20016), response, "response is InlineResponse20016");
+            //Assert.IsInstanceOf(typeof(InlineResponse20015), response, "response is InlineResponse20015");
         }
         
         /// <summary>
@@ -697,8 +658,9 @@ namespace TalonOne.Test
             //int? pageSize = null;
             //int? skip = null;
             //string sort = null;
-            //var response = instance.GetAttributes(pageSize, skip, sort);
-            //Assert.IsInstanceOf(typeof(InlineResponse20021), response, "response is InlineResponse20021");
+            //string entity = null;
+            //var response = instance.GetAttributes(pageSize, skip, sort, entity);
+            //Assert.IsInstanceOf(typeof(InlineResponse20020), response, "response is InlineResponse20020");
         }
         
         /// <summary>
@@ -713,7 +675,7 @@ namespace TalonOne.Test
             //string sort = null;
             //bool? withTotalResultSize = null;
             //var response = instance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
-            //Assert.IsInstanceOf(typeof(InlineResponse20020), response, "response is InlineResponse20020");
+            //Assert.IsInstanceOf(typeof(InlineResponse20018), response, "response is InlineResponse20018");
         }
         
         /// <summary>
@@ -742,7 +704,7 @@ namespace TalonOne.Test
             //DateTime rangeEnd = null;
             //string granularity = null;
             //var response = instance.GetCampaignAnalytics(applicationId, campaignId, rangeStart, rangeEnd, granularity);
-            //Assert.IsInstanceOf(typeof(InlineResponse20011), response, "response is InlineResponse20011");
+            //Assert.IsInstanceOf(typeof(InlineResponse20010), response, "response is InlineResponse20010");
         }
         
         /// <summary>
@@ -779,7 +741,8 @@ namespace TalonOne.Test
             //DateTime? createdBefore = null;
             //DateTime? createdAfter = null;
             //int? campaignGroupId = null;
-            //var response = instance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
+            //int? templateId = null;
+            //var response = instance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId, templateId);
             //Assert.IsInstanceOf(typeof(InlineResponse2002), response, "response is InlineResponse2002");
         }
         
@@ -801,36 +764,7 @@ namespace TalonOne.Test
             //bool? withTotalResultSize = null;
             //bool? includeOld = null;
             //var response = instance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, includeOld);
-            //Assert.IsInstanceOf(typeof(InlineResponse20028), response, "response is InlineResponse20028");
-        }
-        
-        /// <summary>
-        /// Test GetCoupons
-        /// </summary>
-        [Test]
-        public void GetCouponsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //int campaignId = null;
-            //int? pageSize = null;
-            //int? skip = null;
-            //string sort = null;
-            //string value = null;
-            //DateTime? createdBefore = null;
-            //DateTime? createdAfter = null;
-            //DateTime? startsAfter = null;
-            //DateTime? startsBefore = null;
-            //DateTime? expiresAfter = null;
-            //DateTime? expiresBefore = null;
-            //string valid = null;
-            //string batchId = null;
-            //string usable = null;
-            //int? referralId = null;
-            //string recipientIntegrationId = null;
-            //bool? exactMatch = null;
-            //var response = instance.GetCoupons(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
-            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
+            //Assert.IsInstanceOf(typeof(InlineResponse20027), response, "response is InlineResponse20027");
         }
         
         /// <summary>
@@ -856,32 +790,6 @@ namespace TalonOne.Test
             //bool? exactMatch = null;
             //string batchId = null;
             //var response = instance.GetCouponsByAttributes(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
-            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
-        }
-        
-        /// <summary>
-        /// Test GetCouponsByAttributesApplicationWide
-        /// </summary>
-        [Test]
-        public void GetCouponsByAttributesApplicationWideTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //CouponSearch body = null;
-            //int? pageSize = null;
-            //int? skip = null;
-            //string sort = null;
-            //string value = null;
-            //DateTime? createdBefore = null;
-            //DateTime? createdAfter = null;
-            //string valid = null;
-            //string usable = null;
-            //int? referralId = null;
-            //string recipientIntegrationId = null;
-            //string batchId = null;
-            //bool? exactMatch = null;
-            //string campaignState = null;
-            //var response = instance.GetCouponsByAttributesApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
             //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
         }
         
@@ -928,27 +836,6 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test GetCustomerActivityReports
-        /// </summary>
-        [Test]
-        public void GetCustomerActivityReportsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //DateTime rangeStart = null;
-            //DateTime rangeEnd = null;
-            //int applicationId = null;
-            //int? pageSize = null;
-            //int? skip = null;
-            //string sort = null;
-            //string name = null;
-            //string integrationId = null;
-            //string campaignName = null;
-            //string advocateName = null;
-            //var response = instance.GetCustomerActivityReports(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
-            //Assert.IsInstanceOf(typeof(InlineResponse20014), response, "response is InlineResponse20014");
-        }
-        
-        /// <summary>
         /// Test GetCustomerActivityReportsWithoutTotalCount
         /// </summary>
         [Test]
@@ -966,7 +853,7 @@ namespace TalonOne.Test
             //string campaignName = null;
             //string advocateName = null;
             //var response = instance.GetCustomerActivityReportsWithoutTotalCount(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
-            //Assert.IsInstanceOf(typeof(InlineResponse20015), response, "response is InlineResponse20015");
+            //Assert.IsInstanceOf(typeof(InlineResponse20014), response, "response is InlineResponse20014");
         }
         
         /// <summary>
@@ -994,7 +881,7 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int customerId = null;
             //var response = instance.GetCustomerProfile(customerId);
-            //Assert.IsInstanceOf(typeof(ApplicationCustomer), response, "response is ApplicationCustomer");
+            //Assert.IsInstanceOf(typeof(CustomerProfile), response, "response is CustomerProfile");
         }
         
         /// <summary>
@@ -1017,7 +904,7 @@ namespace TalonOne.Test
         public void GetCustomersByAttributesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //ApplicationCustomerSearch body = null;
+            //CustomerProfileSearchQuery body = null;
             //int? pageSize = null;
             //int? skip = null;
             //var response = instance.GetCustomersByAttributes(body, pageSize, skip);
@@ -1038,7 +925,7 @@ namespace TalonOne.Test
             //int? skip = null;
             //string sort = null;
             //var response = instance.GetEventTypes(applicationIds, name, includeOldVersions, pageSize, skip, sort);
-            //Assert.IsInstanceOf(typeof(InlineResponse20026), response, "response is InlineResponse20026");
+            //Assert.IsInstanceOf(typeof(InlineResponse20025), response, "response is InlineResponse20025");
         }
         
         /// <summary>
@@ -1054,7 +941,7 @@ namespace TalonOne.Test
             //int? campaignId = null;
             //string entity = null;
             //var response = instance.GetExports(pageSize, skip, applicationId, campaignId, entity);
-            //Assert.IsInstanceOf(typeof(InlineResponse20029), response, "response is InlineResponse20029");
+            //Assert.IsInstanceOf(typeof(InlineResponse20028), response, "response is InlineResponse20028");
         }
         
         /// <summary>
@@ -1077,7 +964,7 @@ namespace TalonOne.Test
         public void GetLoyaltyProgramTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string programID = null;
+            //int programID = null;
             //var response = instance.GetLoyaltyProgram(programID);
             //Assert.IsInstanceOf(typeof(LoyaltyProgram), response, "response is LoyaltyProgram");
         }
@@ -1090,7 +977,7 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.GetLoyaltyPrograms();
-            //Assert.IsInstanceOf(typeof(InlineResponse2008), response, "response is InlineResponse2008");
+            //Assert.IsInstanceOf(typeof(InlineResponse2007), response, "response is InlineResponse2007");
         }
         
         /// <summary>
@@ -1103,28 +990,6 @@ namespace TalonOne.Test
             //string programID = null;
             //var response = instance.GetLoyaltyStatistics(programID);
             //Assert.IsInstanceOf(typeof(LoyaltyStatistics), response, "response is LoyaltyStatistics");
-        }
-        
-        /// <summary>
-        /// Test GetReferrals
-        /// </summary>
-        [Test]
-        public void GetReferralsTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //int campaignId = null;
-            //int? pageSize = null;
-            //int? skip = null;
-            //string sort = null;
-            //string code = null;
-            //DateTime? createdBefore = null;
-            //DateTime? createdAfter = null;
-            //string valid = null;
-            //string usable = null;
-            //string advocate = null;
-            //var response = instance.GetReferrals(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
-            //Assert.IsInstanceOf(typeof(InlineResponse2006), response, "response is InlineResponse2006");
         }
         
         /// <summary>
@@ -1146,7 +1011,7 @@ namespace TalonOne.Test
             //string usable = null;
             //string advocate = null;
             //var response = instance.GetReferralsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
-            //Assert.IsInstanceOf(typeof(InlineResponse2007), response, "response is InlineResponse2007");
+            //Assert.IsInstanceOf(typeof(InlineResponse2006), response, "response is InlineResponse2006");
         }
         
         /// <summary>
@@ -1214,7 +1079,7 @@ namespace TalonOne.Test
             //int? skip = null;
             //string sort = null;
             //var response = instance.GetUsers(pageSize, skip, sort);
-            //Assert.IsInstanceOf(typeof(InlineResponse20027), response, "response is InlineResponse20027");
+            //Assert.IsInstanceOf(typeof(InlineResponse20026), response, "response is InlineResponse20026");
         }
         
         /// <summary>
@@ -1246,7 +1111,7 @@ namespace TalonOne.Test
             //DateTime? createdBefore = null;
             //DateTime? createdAfter = null;
             //var response = instance.GetWebhookActivationLogs(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
-            //Assert.IsInstanceOf(typeof(InlineResponse20024), response, "response is InlineResponse20024");
+            //Assert.IsInstanceOf(typeof(InlineResponse20023), response, "response is InlineResponse20023");
         }
         
         /// <summary>
@@ -1267,7 +1132,7 @@ namespace TalonOne.Test
             //DateTime? createdBefore = null;
             //DateTime? createdAfter = null;
             //var response = instance.GetWebhookLogs(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
-            //Assert.IsInstanceOf(typeof(InlineResponse20025), response, "response is InlineResponse20025");
+            //Assert.IsInstanceOf(typeof(InlineResponse20024), response, "response is InlineResponse20024");
         }
         
         /// <summary>
@@ -1282,7 +1147,61 @@ namespace TalonOne.Test
             //int? pageSize = null;
             //int? skip = null;
             //var response = instance.GetWebhooks(applicationIds, sort, pageSize, skip);
-            //Assert.IsInstanceOf(typeof(InlineResponse20023), response, "response is InlineResponse20023");
+            //Assert.IsInstanceOf(typeof(InlineResponse20022), response, "response is InlineResponse20022");
+        }
+        
+        /// <summary>
+        /// Test ImportCoupons
+        /// </summary>
+        [Test]
+        public void ImportCouponsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int applicationId = null;
+            //int campaignId = null;
+            //string upFile = null;
+            //var response = instance.ImportCoupons(applicationId, campaignId, upFile);
+            //Assert.IsInstanceOf(typeof(Import), response, "response is Import");
+        }
+        
+        /// <summary>
+        /// Test ImportLoyaltyPoints
+        /// </summary>
+        [Test]
+        public void ImportLoyaltyPointsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int programID = null;
+            //string upFile = null;
+            //var response = instance.ImportLoyaltyPoints(programID, upFile);
+            //Assert.IsInstanceOf(typeof(Import), response, "response is Import");
+        }
+        
+        /// <summary>
+        /// Test ImportPoolGiveaways
+        /// </summary>
+        [Test]
+        public void ImportPoolGiveawaysTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int poolId = null;
+            //string upFile = null;
+            //var response = instance.ImportPoolGiveaways(poolId, upFile);
+            //Assert.IsInstanceOf(typeof(Import), response, "response is Import");
+        }
+        
+        /// <summary>
+        /// Test ImportReferrals
+        /// </summary>
+        [Test]
+        public void ImportReferralsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int applicationId = null;
+            //int campaignId = null;
+            //string upFile = null;
+            //var response = instance.ImportReferrals(applicationId, campaignId, upFile);
+            //Assert.IsInstanceOf(typeof(Import), response, "response is Import");
         }
         
         /// <summary>
@@ -1309,58 +1228,6 @@ namespace TalonOne.Test
             //NewPassword body = null;
             //var response = instance.ResetPassword(body);
             //Assert.IsInstanceOf(typeof(NewPassword), response, "response is NewPassword");
-        }
-        
-        /// <summary>
-        /// Test SearchCouponsAdvanced
-        /// </summary>
-        [Test]
-        public void SearchCouponsAdvancedTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //int campaignId = null;
-            //Object body = null;
-            //int? pageSize = null;
-            //int? skip = null;
-            //string sort = null;
-            //string value = null;
-            //DateTime? createdBefore = null;
-            //DateTime? createdAfter = null;
-            //string valid = null;
-            //string usable = null;
-            //int? referralId = null;
-            //string recipientIntegrationId = null;
-            //bool? exactMatch = null;
-            //string batchId = null;
-            //var response = instance.SearchCouponsAdvanced(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
-            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
-        }
-        
-        /// <summary>
-        /// Test SearchCouponsAdvancedApplicationWide
-        /// </summary>
-        [Test]
-        public void SearchCouponsAdvancedApplicationWideTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //Object body = null;
-            //int? pageSize = null;
-            //int? skip = null;
-            //string sort = null;
-            //string value = null;
-            //DateTime? createdBefore = null;
-            //DateTime? createdAfter = null;
-            //string valid = null;
-            //string usable = null;
-            //int? referralId = null;
-            //string recipientIntegrationId = null;
-            //string batchId = null;
-            //bool? exactMatch = null;
-            //string campaignState = null;
-            //var response = instance.SearchCouponsAdvancedApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
-            //Assert.IsInstanceOf(typeof(InlineResponse2004), response, "response is InlineResponse2004");
         }
         
         /// <summary>
@@ -1482,6 +1349,21 @@ namespace TalonOne.Test
             //UpdateCouponBatch body = null;
             //instance.UpdateCouponBatch(applicationId, campaignId, body);
             
+        }
+        
+        /// <summary>
+        /// Test UpdateReferral
+        /// </summary>
+        [Test]
+        public void UpdateReferralTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int applicationId = null;
+            //int campaignId = null;
+            //string referralId = null;
+            //UpdateReferral body = null;
+            //var response = instance.UpdateReferral(applicationId, campaignId, referralId, body);
+            //Assert.IsInstanceOf(typeof(Referral), response, "response is Referral");
         }
         
         /// <summary>

@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// <param name="referralId">The integration ID of the referring customer (if any) for whom this coupon was created as an effect..</param>
         /// <param name="recipientIntegrationId">The Integration ID of the customer that is allowed to redeem this coupon..</param>
         /// <param name="importId">The ID of the Import which created this coupon..</param>
-        /// <param name="reservation">This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favourite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified..</param>
+        /// <param name="reservation">This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favorite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified..</param>
         /// <param name="batchId">The id of the batch the coupon belongs to..</param>
         public Coupon(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), string value = default(string), int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageCounter = default(int), decimal discountCounter = default(decimal), decimal discountRemainder = default(decimal), Object attributes = default(Object), int referralId = default(int), string recipientIntegrationId = default(string), int importId = default(int), bool reservation = default(bool), string batchId = default(string))
         {
@@ -236,9 +236,9 @@ namespace TalonOne.Model
         public int ImportId { get; set; }
 
         /// <summary>
-        /// This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favourite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified.
+        /// This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favorite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified.
         /// </summary>
-        /// <value>This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favourite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified.</value>
+        /// <value>This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favorite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified.</value>
         [DataMember(Name="reservation", EmitDefaultValue=false)]
         public bool Reservation { get; set; }
 

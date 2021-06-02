@@ -38,12 +38,12 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CartItem" /> class.
         /// </summary>
-        /// <param name="name">name (required).</param>
-        /// <param name="sku">sku (required).</param>
-        /// <param name="quantity">quantity (required).</param>
-        /// <param name="price">price (required).</param>
-        /// <param name="category">category.</param>
-        /// <param name="weight">Weight of item in mm.</param>
+        /// <param name="name">Name of item (required).</param>
+        /// <param name="sku">Stock keeping unit of item (required).</param>
+        /// <param name="quantity">Quantity of item (required).</param>
+        /// <param name="price">Price of item (required).</param>
+        /// <param name="category">Type, group or model of the item.</param>
+        /// <param name="weight">Weight of item in grams.</param>
         /// <param name="height">Height of item in mm.</param>
         /// <param name="width">Width of item in mm.</param>
         /// <param name="length">Length of item in mm.</param>
@@ -101,39 +101,44 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Gets or Sets Name
+        /// Name of item
         /// </summary>
+        /// <value>Name of item</value>
         [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Sku
+        /// Stock keeping unit of item
         /// </summary>
+        /// <value>Stock keeping unit of item</value>
         [DataMember(Name="sku", EmitDefaultValue=true)]
         public string Sku { get; set; }
 
         /// <summary>
-        /// Gets or Sets Quantity
+        /// Quantity of item
         /// </summary>
+        /// <value>Quantity of item</value>
         [DataMember(Name="quantity", EmitDefaultValue=true)]
         public int Quantity { get; set; }
 
         /// <summary>
-        /// Gets or Sets Price
+        /// Price of item
         /// </summary>
+        /// <value>Price of item</value>
         [DataMember(Name="price", EmitDefaultValue=true)]
         public decimal Price { get; set; }
 
         /// <summary>
-        /// Gets or Sets Category
+        /// Type, group or model of the item
         /// </summary>
+        /// <value>Type, group or model of the item</value>
         [DataMember(Name="category", EmitDefaultValue=false)]
         public string Category { get; set; }
 
         /// <summary>
-        /// Weight of item in mm
+        /// Weight of item in grams
         /// </summary>
-        /// <value>Weight of item in mm</value>
+        /// <value>Weight of item in grams</value>
         [DataMember(Name="weight", EmitDefaultValue=false)]
         public decimal Weight { get; set; }
 

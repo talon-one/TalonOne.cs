@@ -82,14 +82,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Created'
         }
         /// <summary>
-        /// Test the property 'CampaignId'
-        /// </summary>
-        [Test]
-        public void CampaignIdTest()
-        {
-            // TODO unit test for the property 'CampaignId'
-        }
-        /// <summary>
         /// Test the property 'UserId'
         /// </summary>
         [Test]
@@ -128,6 +120,22 @@ namespace TalonOne.Test
         public void ActivateTest()
         {
             // TODO unit test for the property 'Activate'
+        }
+        /// <summary>
+        /// Test the property 'CampaignId'
+        /// </summary>
+        [Test]
+        public void CampaignIdTest()
+        {
+            // TODO unit test for the property 'CampaignId'
+        }
+        /// <summary>
+        /// Test the property 'TemplateId'
+        /// </summary>
+        [Test]
+        public void TemplateIdTest()
+        {
+            // TODO unit test for the property 'TemplateId'
         }
         /// <summary>
         /// Test the property 'ActivatedAt'

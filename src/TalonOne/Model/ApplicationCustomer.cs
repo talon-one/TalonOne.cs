@@ -38,8 +38,8 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationCustomer" /> class.
         /// </summary>
-        /// <param name="id">Unique ID for this entity. (required).</param>
-        /// <param name="created">The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created. (required).</param>
+        /// <param name="id">Unique ID for this entity. Unique ID for this entity. (required).</param>
+        /// <param name="created">The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created. (required).</param>
         /// <param name="integrationId">The integration ID for this entity sent to and used in the Talon.One system. The integration ID for this entity sent to and used in the Talon.One system. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this item (required).</param>
         /// <param name="accountId">The ID of the Talon.One account that owns this profile. The ID of the Talon.One account that owns this profile. (required).</param>
@@ -48,7 +48,8 @@ namespace TalonOne.Model
         /// <param name="loyaltyMemberships">A list of loyalty programs joined by the customer.</param>
         /// <param name="audienceMemberships">A list of audiences the customer belongs to.</param>
         /// <param name="lastActivity">Timestamp of the most recent event received from this customer (required).</param>
-        public ApplicationCustomer(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), Object attributes = default(Object), int accountId = default(int), int closedSessions = default(int), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime))
+        /// <param name="advocateIntegrationId">The Integration ID of the Customer Profile that referred this Customer in the Application..</param>
+        public ApplicationCustomer(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), Object attributes = default(Object), int accountId = default(int), int closedSessions = default(int), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime), string advocateIntegrationId = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -132,19 +133,20 @@ namespace TalonOne.Model
             
             this.LoyaltyMemberships = loyaltyMemberships;
             this.AudienceMemberships = audienceMemberships;
+            this.AdvocateIntegrationId = advocateIntegrationId;
         }
         
         /// <summary>
-        /// Unique ID for this entity.
+        /// Unique ID for this entity. Unique ID for this entity.
         /// </summary>
-        /// <value>Unique ID for this entity.</value>
+        /// <value>Unique ID for this entity. Unique ID for this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=true)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created.
+        /// The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created.
         /// </summary>
-        /// <value>The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created.</value>
+        /// <value>The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created. The exact moment this entity was created.</value>
         [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
 
@@ -205,6 +207,13 @@ namespace TalonOne.Model
         public DateTime LastActivity { get; set; }
 
         /// <summary>
+        /// The Integration ID of the Customer Profile that referred this Customer in the Application.
+        /// </summary>
+        /// <value>The Integration ID of the Customer Profile that referred this Customer in the Application.</value>
+        [DataMember(Name="advocateIntegrationId", EmitDefaultValue=false)]
+        public string AdvocateIntegrationId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -222,6 +231,7 @@ namespace TalonOne.Model
             sb.Append("  LoyaltyMemberships: ").Append(LoyaltyMemberships).Append("\n");
             sb.Append("  AudienceMemberships: ").Append(AudienceMemberships).Append("\n");
             sb.Append("  LastActivity: ").Append(LastActivity).Append("\n");
+            sb.Append("  AdvocateIntegrationId: ").Append(AdvocateIntegrationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -307,6 +317,11 @@ namespace TalonOne.Model
                     this.LastActivity == input.LastActivity ||
                     (this.LastActivity != null &&
                     this.LastActivity.Equals(input.LastActivity))
+                ) && 
+                (
+                    this.AdvocateIntegrationId == input.AdvocateIntegrationId ||
+                    (this.AdvocateIntegrationId != null &&
+                    this.AdvocateIntegrationId.Equals(input.AdvocateIntegrationId))
                 );
         }
 
@@ -339,6 +354,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.AudienceMemberships.GetHashCode();
                 if (this.LastActivity != null)
                     hashCode = hashCode * 59 + this.LastActivity.GetHashCode();
+                if (this.AdvocateIntegrationId != null)
+                    hashCode = hashCode * 59 + this.AdvocateIntegrationId.GetHashCode();
                 return hashCode;
             }
         }

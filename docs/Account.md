@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **ApplicationCount** | **int** | The current number of Applications in your account. | 
 **UserCount** | **int** | The current number of Campaign Manager Users in your account. | 
 **CampaignsActiveCount** | **int** | The current number of active Campaigns in your account. | 
-**CampaignsInactiveCount** | **int** | The current number of inactive Campaigns in your account. | 
+**CampaignsInactiveCount** | **int** | The current number of in-active Campaigns in your account. | 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this campaign | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

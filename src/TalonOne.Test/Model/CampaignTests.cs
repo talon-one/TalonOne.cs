@@ -250,6 +250,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ReferralCreationCount'
         }
         /// <summary>
+        /// Test the property 'AwardedGiveawaysCount'
+        /// </summary>
+        [Test]
+        public void AwardedGiveawaysCountTest()
+        {
+            // TODO unit test for the property 'AwardedGiveawaysCount'
+        }
+        /// <summary>
         /// Test the property 'CreatedLoyaltyPointsCount'
         /// </summary>
         [Test]
@@ -312,6 +320,14 @@ namespace TalonOne.Test
         public void UpdatedByTest()
         {
             // TODO unit test for the property 'UpdatedBy'
+        }
+        /// <summary>
+        /// Test the property 'TemplateId'
+        /// </summary>
+        [Test]
+        public void TemplateIdTest()
+        {
+            // TODO unit test for the property 'TemplateId'
         }
 
     }

@@ -114,6 +114,46 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Templates'
         }
         /// <summary>
+        /// Test the property 'GiveawaysPools'
+        /// </summary>
+        [Test]
+        public void GiveawaysPoolsTest()
+        {
+            // TODO unit test for the property 'GiveawaysPools'
+        }
+        /// <summary>
+        /// Test the property 'LoyaltyPrograms'
+        /// </summary>
+        [Test]
+        public void LoyaltyProgramsTest()
+        {
+            // TODO unit test for the property 'LoyaltyPrograms'
+        }
+        /// <summary>
+        /// Test the property 'Attributes'
+        /// </summary>
+        [Test]
+        public void AttributesTest()
+        {
+            // TODO unit test for the property 'Attributes'
+        }
+        /// <summary>
+        /// Test the property 'AdditionalCosts'
+        /// </summary>
+        [Test]
+        public void AdditionalCostsTest()
+        {
+            // TODO unit test for the property 'AdditionalCosts'
+        }
+        /// <summary>
+        /// Test the property 'Audiences'
+        /// </summary>
+        [Test]
+        public void AudiencesTest()
+        {
+            // TODO unit test for the property 'Audiences'
+        }
+        /// <summary>
         /// Test the property 'Variables'
         /// </summary>
         [Test]

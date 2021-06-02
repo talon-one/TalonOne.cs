@@ -38,8 +38,9 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerProfile" /> class.
         /// </summary>
+        /// <param name="id">Unique ID for this entity. (required).</param>
+        /// <param name="created">The exact moment this entity was created. The exact moment this entity was created. (required).</param>
         /// <param name="integrationId">The integration ID for this entity sent to and used in the Talon.One system. (required).</param>
-        /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this item (required).</param>
         /// <param name="accountId">The ID of the Talon.One account that owns this profile. (required).</param>
         /// <param name="closedSessions">The total amount of closed sessions by a customer. A closed session is a successful purchase. (required).</param>
@@ -47,16 +48,16 @@ namespace TalonOne.Model
         /// <param name="loyaltyMemberships">A list of loyalty programs joined by the customer.</param>
         /// <param name="audienceMemberships">A list of audiences the customer belongs to.</param>
         /// <param name="lastActivity">Timestamp of the most recent event received from this customer (required).</param>
-        public CustomerProfile(string integrationId = default(string), DateTime created = default(DateTime), Object attributes = default(Object), int accountId = default(int), int closedSessions = default(int), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime))
+        public CustomerProfile(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), Object attributes = default(Object), int accountId = default(int), int closedSessions = default(int), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime))
         {
-            // to ensure "integrationId" is required (not null)
-            if (integrationId == null)
+            // to ensure "id" is required (not null)
+            if (id == null)
             {
-                throw new InvalidDataException("integrationId is a required property for CustomerProfile and cannot be null");
+                throw new InvalidDataException("id is a required property for CustomerProfile and cannot be null");
             }
             else
             {
-                this.IntegrationId = integrationId;
+                this.Id = id;
             }
             
             // to ensure "created" is required (not null)
@@ -67,6 +68,16 @@ namespace TalonOne.Model
             else
             {
                 this.Created = created;
+            }
+            
+            // to ensure "integrationId" is required (not null)
+            if (integrationId == null)
+            {
+                throw new InvalidDataException("integrationId is a required property for CustomerProfile and cannot be null");
+            }
+            else
+            {
+                this.IntegrationId = integrationId;
             }
             
             // to ensure "attributes" is required (not null)
@@ -124,18 +135,25 @@ namespace TalonOne.Model
         }
         
         /// <summary>
+        /// Unique ID for this entity.
+        /// </summary>
+        /// <value>Unique ID for this entity.</value>
+        [DataMember(Name="id", EmitDefaultValue=true)]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// The exact moment this entity was created. The exact moment this entity was created.
+        /// </summary>
+        /// <value>The exact moment this entity was created. The exact moment this entity was created.</value>
+        [DataMember(Name="created", EmitDefaultValue=true)]
+        public DateTime Created { get; set; }
+
+        /// <summary>
         /// The integration ID for this entity sent to and used in the Talon.One system.
         /// </summary>
         /// <value>The integration ID for this entity sent to and used in the Talon.One system.</value>
         [DataMember(Name="integrationId", EmitDefaultValue=true)]
         public string IntegrationId { get; set; }
-
-        /// <summary>
-        /// The exact moment this entity was created.
-        /// </summary>
-        /// <value>The exact moment this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=true)]
-        public DateTime Created { get; set; }
 
         /// <summary>
         /// Arbitrary properties associated with this item
@@ -194,8 +212,9 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CustomerProfile {\n");
-            sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("  ClosedSessions: ").Append(ClosedSessions).Append("\n");
@@ -238,14 +257,19 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.IntegrationId == input.IntegrationId ||
-                    (this.IntegrationId != null &&
-                    this.IntegrationId.Equals(input.IntegrationId))
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
                     this.Created == input.Created ||
                     (this.Created != null &&
                     this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.IntegrationId == input.IntegrationId ||
+                    (this.IntegrationId != null &&
+                    this.IntegrationId.Equals(input.IntegrationId))
                 ) && 
                 (
                     this.Attributes == input.Attributes ||
@@ -295,10 +319,12 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IntegrationId != null)
-                    hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
+                if (this.IntegrationId != null)
+                    hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.AccountId != null)

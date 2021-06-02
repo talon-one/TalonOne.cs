@@ -40,14 +40,15 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
-        /// <param name="campaignId">The ID of the campaign that owns this entity. (required).</param>
         /// <param name="userId">The ID of the account that owns this entity. (required).</param>
         /// <param name="rules">Set of rules to apply. (required).</param>
         /// <param name="bindings">An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array. (required).</param>
         /// <param name="rbVersion">A string indicating which version of the rulebuilder was used to create this ruleset..</param>
-        /// <param name="activate">A boolean indicating whether this newly created ruleset should also be activated for the campaign owns it.</param>
+        /// <param name="activate">A boolean indicating whether this newly created ruleset should also be activated for the campaign that owns it.</param>
+        /// <param name="campaignId">The ID of the campaign that owns this entity..</param>
+        /// <param name="templateId">The ID of the campaign template that owns this entity..</param>
         /// <param name="activatedAt">Timestamp indicating when this Ruleset was activated..</param>
-        public Ruleset(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), int userId = default(int), List<Rule> rules = default(List<Rule>), List<Binding> bindings = default(List<Binding>), string rbVersion = default(string), bool activate = default(bool), DateTime activatedAt = default(DateTime))
+        public Ruleset(int id = default(int), DateTime created = default(DateTime), int userId = default(int), List<Rule> rules = default(List<Rule>), List<Binding> bindings = default(List<Binding>), string rbVersion = default(string), bool activate = default(bool), int campaignId = default(int), int templateId = default(int), DateTime activatedAt = default(DateTime))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -67,16 +68,6 @@ namespace TalonOne.Model
             else
             {
                 this.Created = created;
-            }
-            
-            // to ensure "campaignId" is required (not null)
-            if (campaignId == null)
-            {
-                throw new InvalidDataException("campaignId is a required property for Ruleset and cannot be null");
-            }
-            else
-            {
-                this.CampaignId = campaignId;
             }
             
             // to ensure "userId" is required (not null)
@@ -111,6 +102,8 @@ namespace TalonOne.Model
             
             this.RbVersion = rbVersion;
             this.Activate = activate;
+            this.CampaignId = campaignId;
+            this.TemplateId = templateId;
             this.ActivatedAt = activatedAt;
         }
         
@@ -127,13 +120,6 @@ namespace TalonOne.Model
         /// <value>The exact moment this entity was created.</value>
         [DataMember(Name="created", EmitDefaultValue=true)]
         public DateTime Created { get; set; }
-
-        /// <summary>
-        /// The ID of the campaign that owns this entity.
-        /// </summary>
-        /// <value>The ID of the campaign that owns this entity.</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=true)]
-        public int CampaignId { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
@@ -164,11 +150,25 @@ namespace TalonOne.Model
         public string RbVersion { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether this newly created ruleset should also be activated for the campaign owns it
+        /// A boolean indicating whether this newly created ruleset should also be activated for the campaign that owns it
         /// </summary>
-        /// <value>A boolean indicating whether this newly created ruleset should also be activated for the campaign owns it</value>
+        /// <value>A boolean indicating whether this newly created ruleset should also be activated for the campaign that owns it</value>
         [DataMember(Name="activate", EmitDefaultValue=false)]
         public bool Activate { get; set; }
+
+        /// <summary>
+        /// The ID of the campaign that owns this entity.
+        /// </summary>
+        /// <value>The ID of the campaign that owns this entity.</value>
+        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        public int CampaignId { get; set; }
+
+        /// <summary>
+        /// The ID of the campaign template that owns this entity.
+        /// </summary>
+        /// <value>The ID of the campaign template that owns this entity.</value>
+        [DataMember(Name="templateId", EmitDefaultValue=false)]
+        public int TemplateId { get; set; }
 
         /// <summary>
         /// Timestamp indicating when this Ruleset was activated.
@@ -187,12 +187,13 @@ namespace TalonOne.Model
             sb.Append("class Ruleset {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
-            sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  Rules: ").Append(Rules).Append("\n");
             sb.Append("  Bindings: ").Append(Bindings).Append("\n");
             sb.Append("  RbVersion: ").Append(RbVersion).Append("\n");
             sb.Append("  Activate: ").Append(Activate).Append("\n");
+            sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
+            sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
             sb.Append("  ActivatedAt: ").Append(ActivatedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -239,11 +240,6 @@ namespace TalonOne.Model
                     this.Created.Equals(input.Created))
                 ) && 
                 (
-                    this.CampaignId == input.CampaignId ||
-                    (this.CampaignId != null &&
-                    this.CampaignId.Equals(input.CampaignId))
-                ) && 
-                (
                     this.UserId == input.UserId ||
                     (this.UserId != null &&
                     this.UserId.Equals(input.UserId))
@@ -271,6 +267,16 @@ namespace TalonOne.Model
                     this.Activate.Equals(input.Activate))
                 ) && 
                 (
+                    this.CampaignId == input.CampaignId ||
+                    (this.CampaignId != null &&
+                    this.CampaignId.Equals(input.CampaignId))
+                ) && 
+                (
+                    this.TemplateId == input.TemplateId ||
+                    (this.TemplateId != null &&
+                    this.TemplateId.Equals(input.TemplateId))
+                ) && 
+                (
                     this.ActivatedAt == input.ActivatedAt ||
                     (this.ActivatedAt != null &&
                     this.ActivatedAt.Equals(input.ActivatedAt))
@@ -290,8 +296,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
-                if (this.CampaignId != null)
-                    hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 if (this.UserId != null)
                     hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 if (this.Rules != null)
@@ -302,6 +306,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.RbVersion.GetHashCode();
                 if (this.Activate != null)
                     hashCode = hashCode * 59 + this.Activate.GetHashCode();
+                if (this.CampaignId != null)
+                    hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
+                if (this.TemplateId != null)
+                    hashCode = hashCode * 59 + this.TemplateId.GetHashCode();
                 if (this.ActivatedAt != null)
                     hashCode = hashCode * 59 + this.ActivatedAt.GetHashCode();
                 return hashCode;

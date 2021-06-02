@@ -25,56 +25,40 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// InlineResponse20030
+    /// LoyaltyProgramEntity
     /// </summary>
     [DataContract]
-    public partial class InlineResponse20030 :  IEquatable<InlineResponse20030>, IValidatableObject
+    public partial class LoyaltyProgramEntity :  IEquatable<LoyaltyProgramEntity>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse20030" /> class.
+        /// Initializes a new instance of the <see cref="LoyaltyProgramEntity" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InlineResponse20030() { }
+        protected LoyaltyProgramEntity() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse20030" /> class.
+        /// Initializes a new instance of the <see cref="LoyaltyProgramEntity" /> class.
         /// </summary>
-        /// <param name="totalResultSize">totalResultSize (required).</param>
-        /// <param name="data">data (required).</param>
-        public InlineResponse20030(int totalResultSize = default(int), List<Role> data = default(List<Role>))
+        /// <param name="programID">The ID of the loyalty program that owns this entity. (required).</param>
+        public LoyaltyProgramEntity(int programID = default(int))
         {
-            // to ensure "totalResultSize" is required (not null)
-            if (totalResultSize == null)
+            // to ensure "programID" is required (not null)
+            if (programID == null)
             {
-                throw new InvalidDataException("totalResultSize is a required property for InlineResponse20030 and cannot be null");
+                throw new InvalidDataException("programID is a required property for LoyaltyProgramEntity and cannot be null");
             }
             else
             {
-                this.TotalResultSize = totalResultSize;
-            }
-            
-            // to ensure "data" is required (not null)
-            if (data == null)
-            {
-                throw new InvalidDataException("data is a required property for InlineResponse20030 and cannot be null");
-            }
-            else
-            {
-                this.Data = data;
+                this.ProgramID = programID;
             }
             
         }
         
         /// <summary>
-        /// Gets or Sets TotalResultSize
+        /// The ID of the loyalty program that owns this entity.
         /// </summary>
-        [DataMember(Name="totalResultSize", EmitDefaultValue=true)]
-        public int TotalResultSize { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Data
-        /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=true)]
-        public List<Role> Data { get; set; }
+        /// <value>The ID of the loyalty program that owns this entity.</value>
+        [DataMember(Name="programID", EmitDefaultValue=true)]
+        public int ProgramID { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +67,8 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse20030 {\n");
-            sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class LoyaltyProgramEntity {\n");
+            sb.Append("  ProgramID: ").Append(ProgramID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,30 +89,24 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse20030);
+            return this.Equals(input as LoyaltyProgramEntity);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse20030 instances are equal
+        /// Returns true if LoyaltyProgramEntity instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse20030 to be compared</param>
+        /// <param name="input">Instance of LoyaltyProgramEntity to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse20030 input)
+        public bool Equals(LoyaltyProgramEntity input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.TotalResultSize == input.TotalResultSize ||
-                    (this.TotalResultSize != null &&
-                    this.TotalResultSize.Equals(input.TotalResultSize))
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.ProgramID == input.ProgramID ||
+                    (this.ProgramID != null &&
+                    this.ProgramID.Equals(input.ProgramID))
                 );
         }
 
@@ -142,10 +119,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.TotalResultSize != null)
-                    hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.ProgramID != null)
+                    hashCode = hashCode * 59 + this.ProgramID.GetHashCode();
                 return hashCode;
             }
         }

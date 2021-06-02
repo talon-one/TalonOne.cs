@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// <param name="rules">Set of rules to apply. (required).</param>
         /// <param name="bindings">An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array. (required).</param>
         /// <param name="rbVersion">A string indicating which version of the rulebuilder was used to create this ruleset..</param>
-        /// <param name="activate">A boolean indicating whether this newly created ruleset should also be activated for the campaign owns it.</param>
+        /// <param name="activate">A boolean indicating whether this newly created ruleset should also be activated for the campaign that owns it.</param>
         public NewRuleset(List<Rule> rules = default(List<Rule>), List<Binding> bindings = default(List<Binding>), string rbVersion = default(string), bool activate = default(bool))
         {
             // to ensure "rules" is required (not null)
@@ -90,9 +90,9 @@ namespace TalonOne.Model
         public string RbVersion { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether this newly created ruleset should also be activated for the campaign owns it
+        /// A boolean indicating whether this newly created ruleset should also be activated for the campaign that owns it
         /// </summary>
-        /// <value>A boolean indicating whether this newly created ruleset should also be activated for the campaign owns it</value>
+        /// <value>A boolean indicating whether this newly created ruleset should also be activated for the campaign that owns it</value>
         [DataMember(Name="activate", EmitDefaultValue=false)]
         public bool Activate { get; set; }
 

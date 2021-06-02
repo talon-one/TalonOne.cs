@@ -145,6 +145,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'LastActivity'
         }
+        /// <summary>
+        /// Test the property 'AdvocateIntegrationId'
+        /// </summary>
+        [Test]
+        public void AdvocateIntegrationIdTest()
+        {
+            // TODO unit test for the property 'AdvocateIntegrationId'
+        }
 
     }
 

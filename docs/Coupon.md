@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **ReferralId** | **int** | The integration ID of the referring customer (if any) for whom this coupon was created as an effect. | [optional] 
 **RecipientIntegrationId** | **string** | The Integration ID of the customer that is allowed to redeem this coupon. | [optional] 
 **ImportId** | **int** | The ID of the Import which created this coupon. | [optional] 
-**Reservation** | **bool** | This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favourite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified. | [optional] 
+**Reservation** | **bool** | This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favorite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified. | [optional] 
 **BatchId** | **string** | The id of the batch the coupon belongs to. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)

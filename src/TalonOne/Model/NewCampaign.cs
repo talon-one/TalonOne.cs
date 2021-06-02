@@ -85,7 +85,13 @@ namespace TalonOne.Model
             /// Enum Loyalty for value: loyalty
             /// </summary>
             [EnumMember(Value = "loyalty")]
-            Loyalty = 3
+            Loyalty = 3,
+
+            /// <summary>
+            /// Enum Giveaways for value: giveaways
+            /// </summary>
+            [EnumMember(Value = "giveaways")]
+            Giveaways = 4
 
         }
 
@@ -104,10 +110,10 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewCampaign" /> class.
         /// </summary>
-        /// <param name="name">A friendly name for this campaign. (required).</param>
+        /// <param name="name">A user-facing name for this campaign. (required).</param>
         /// <param name="description">A detailed description of the campaign..</param>
-        /// <param name="startTime">Datetime when the campaign will become active..</param>
-        /// <param name="endTime">Datetime when the campaign will become in-active..</param>
+        /// <param name="startTime">Timestamp when the campaign will become active..</param>
+        /// <param name="endTime">Timestamp the campaign will become in-active..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         /// <param name="state">A disabled or archived campaign is not evaluated for rules or coupons.  (required) (default to StateEnum.Enabled).</param>
         /// <param name="activeRulesetId">ID of Ruleset this campaign applies on customer session evaluation..</param>
@@ -180,9 +186,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// A friendly name for this campaign.
+        /// A user-facing name for this campaign.
         /// </summary>
-        /// <value>A friendly name for this campaign.</value>
+        /// <value>A user-facing name for this campaign.</value>
         [DataMember(Name="name", EmitDefaultValue=true)]
         public string Name { get; set; }
 
@@ -194,16 +200,16 @@ namespace TalonOne.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Datetime when the campaign will become active.
+        /// Timestamp when the campaign will become active.
         /// </summary>
-        /// <value>Datetime when the campaign will become active.</value>
+        /// <value>Timestamp when the campaign will become active.</value>
         [DataMember(Name="startTime", EmitDefaultValue=false)]
         public DateTime StartTime { get; set; }
 
         /// <summary>
-        /// Datetime when the campaign will become in-active.
+        /// Timestamp the campaign will become in-active.
         /// </summary>
-        /// <value>Datetime when the campaign will become in-active.</value>
+        /// <value>Timestamp the campaign will become in-active.</value>
         [DataMember(Name="endTime", EmitDefaultValue=false)]
         public DateTime EndTime { get; set; }
 
