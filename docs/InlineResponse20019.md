@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**HasMore** | **bool** |  | 
 **TotalResultSize** | **int** |  | 
-**Data** | **List&lt;string&gt;** |  | 
+**Data** | [**List&lt;ApplicationReferee&gt;**](ApplicationReferee.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

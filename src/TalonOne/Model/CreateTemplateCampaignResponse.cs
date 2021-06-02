@@ -25,42 +25,56 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// ApplicationCustomerSearch
+    /// CreateTemplateCampaignResponse
     /// </summary>
     [DataContract]
-    public partial class ApplicationCustomerSearch :  IEquatable<ApplicationCustomerSearch>, IValidatableObject
+    public partial class CreateTemplateCampaignResponse :  IEquatable<CreateTemplateCampaignResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApplicationCustomerSearch" /> class.
+        /// Initializes a new instance of the <see cref="CreateTemplateCampaignResponse" /> class.
         /// </summary>
-        /// <param name="attributes">Properties to match against a customer profile. All provided attributes will be exactly matched against profile attributes.</param>
-        /// <param name="integrationIDs">integrationIDs.</param>
-        /// <param name="profileIDs">profileIDs.</param>
-        public ApplicationCustomerSearch(Object attributes = default(Object), List<string> integrationIDs = default(List<string>), List<int> profileIDs = default(List<int>))
+        [JsonConstructorAttribute]
+        protected CreateTemplateCampaignResponse() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CreateTemplateCampaignResponse" /> class.
+        /// </summary>
+        /// <param name="campaign">campaign (required).</param>
+        /// <param name="ruleset">ruleset (required).</param>
+        public CreateTemplateCampaignResponse(Campaign campaign = default(Campaign), Ruleset ruleset = default(Ruleset))
         {
-            this.Attributes = attributes;
-            this.IntegrationIDs = integrationIDs;
-            this.ProfileIDs = profileIDs;
+            // to ensure "campaign" is required (not null)
+            if (campaign == null)
+            {
+                throw new InvalidDataException("campaign is a required property for CreateTemplateCampaignResponse and cannot be null");
+            }
+            else
+            {
+                this.Campaign = campaign;
+            }
+            
+            // to ensure "ruleset" is required (not null)
+            if (ruleset == null)
+            {
+                throw new InvalidDataException("ruleset is a required property for CreateTemplateCampaignResponse and cannot be null");
+            }
+            else
+            {
+                this.Ruleset = ruleset;
+            }
+            
         }
         
         /// <summary>
-        /// Properties to match against a customer profile. All provided attributes will be exactly matched against profile attributes
+        /// Gets or Sets Campaign
         /// </summary>
-        /// <value>Properties to match against a customer profile. All provided attributes will be exactly matched against profile attributes</value>
-        [DataMember(Name="attributes", EmitDefaultValue=false)]
-        public Object Attributes { get; set; }
+        [DataMember(Name="campaign", EmitDefaultValue=true)]
+        public Campaign Campaign { get; set; }
 
         /// <summary>
-        /// Gets or Sets IntegrationIDs
+        /// Gets or Sets Ruleset
         /// </summary>
-        [DataMember(Name="integrationIDs", EmitDefaultValue=false)]
-        public List<string> IntegrationIDs { get; set; }
-
-        /// <summary>
-        /// Gets or Sets ProfileIDs
-        /// </summary>
-        [DataMember(Name="profileIDs", EmitDefaultValue=false)]
-        public List<int> ProfileIDs { get; set; }
+        [DataMember(Name="ruleset", EmitDefaultValue=true)]
+        public Ruleset Ruleset { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,10 +83,9 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ApplicationCustomerSearch {\n");
-            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
-            sb.Append("  IntegrationIDs: ").Append(IntegrationIDs).Append("\n");
-            sb.Append("  ProfileIDs: ").Append(ProfileIDs).Append("\n");
+            sb.Append("class CreateTemplateCampaignResponse {\n");
+            sb.Append("  Campaign: ").Append(Campaign).Append("\n");
+            sb.Append("  Ruleset: ").Append(Ruleset).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,36 +106,29 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ApplicationCustomerSearch);
+            return this.Equals(input as CreateTemplateCampaignResponse);
         }
 
         /// <summary>
-        /// Returns true if ApplicationCustomerSearch instances are equal
+        /// Returns true if CreateTemplateCampaignResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ApplicationCustomerSearch to be compared</param>
+        /// <param name="input">Instance of CreateTemplateCampaignResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApplicationCustomerSearch input)
+        public bool Equals(CreateTemplateCampaignResponse input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Attributes == input.Attributes ||
-                    (this.Attributes != null &&
-                    this.Attributes.Equals(input.Attributes))
+                    this.Campaign == input.Campaign ||
+                    (this.Campaign != null &&
+                    this.Campaign.Equals(input.Campaign))
                 ) && 
                 (
-                    this.IntegrationIDs == input.IntegrationIDs ||
-                    this.IntegrationIDs != null &&
-                    input.IntegrationIDs != null &&
-                    this.IntegrationIDs.SequenceEqual(input.IntegrationIDs)
-                ) && 
-                (
-                    this.ProfileIDs == input.ProfileIDs ||
-                    this.ProfileIDs != null &&
-                    input.ProfileIDs != null &&
-                    this.ProfileIDs.SequenceEqual(input.ProfileIDs)
+                    this.Ruleset == input.Ruleset ||
+                    (this.Ruleset != null &&
+                    this.Ruleset.Equals(input.Ruleset))
                 );
         }
 
@@ -135,12 +141,10 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Attributes != null)
-                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
-                if (this.IntegrationIDs != null)
-                    hashCode = hashCode * 59 + this.IntegrationIDs.GetHashCode();
-                if (this.ProfileIDs != null)
-                    hashCode = hashCode * 59 + this.ProfileIDs.GetHashCode();
+                if (this.Campaign != null)
+                    hashCode = hashCode * 59 + this.Campaign.GetHashCode();
+                if (this.Ruleset != null)
+                    hashCode = hashCode * 59 + this.Ruleset.GetHashCode();
                 return hashCode;
             }
         }

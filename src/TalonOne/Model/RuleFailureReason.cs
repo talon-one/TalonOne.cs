@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Details about why a rule failed
+    /// Details about why a rule failed.
     /// </summary>
     [DataContract]
     public partial class RuleFailureReason :  IEquatable<RuleFailureReason>, IValidatableObject

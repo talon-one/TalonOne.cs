@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// <param name="name">Name of the role (required).</param>
         /// <param name="description">Description of the role.</param>
         /// <param name="acl">Role Policy this should be a stringified blob of json (required).</param>
-        /// <param name="users">An array of userIDs (required).</param>
+        /// <param name="users">An array of user identifiers (required).</param>
         public NewRole(string name = default(string), string description = default(string), string acl = default(string), List<int> users = default(List<int>))
         {
             // to ensure "name" is required (not null)
@@ -99,9 +99,9 @@ namespace TalonOne.Model
         public string Acl { get; set; }
 
         /// <summary>
-        /// An array of userIDs
+        /// An array of user identifiers
         /// </summary>
-        /// <value>An array of userIDs</value>
+        /// <value>An array of user identifiers</value>
         [DataMember(Name="users", EmitDefaultValue=true)]
         public List<int> Users { get; set; }
 

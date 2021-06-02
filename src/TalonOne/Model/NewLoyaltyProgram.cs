@@ -25,7 +25,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// A new loyalty program
+    /// NewLoyaltyProgram
     /// </summary>
     [DataContract]
     public partial class NewLoyaltyProgram :  IEquatable<NewLoyaltyProgram>, IValidatableObject
@@ -38,25 +38,16 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewLoyaltyProgram" /> class.
         /// </summary>
-        /// <param name="name">The internal name for the Loyalty Program. This is an immutable value. (required).</param>
         /// <param name="title">The display title for the Loyalty Program. (required).</param>
         /// <param name="description">Description of our Loyalty Program..</param>
         /// <param name="subscribedApplications">A list containing the IDs of all applications that are subscribed to this Loyalty Program..</param>
         /// <param name="defaultValidity">Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;. (required).</param>
         /// <param name="defaultPending">Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;. (required).</param>
         /// <param name="allowSubledger">Indicates if this program supports subledgers inside the program (required).</param>
-        public NewLoyaltyProgram(string name = default(string), string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool))
+        /// <param name="name">The internal name for the Loyalty Program. This is an immutable value. (required).</param>
+        /// <param name="tiers">The tiers in this loyalty program.</param>
+        public NewLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), string name = default(string), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
         {
-            // to ensure "name" is required (not null)
-            if (name == null)
-            {
-                throw new InvalidDataException("name is a required property for NewLoyaltyProgram and cannot be null");
-            }
-            else
-            {
-                this.Name = name;
-            }
-            
             // to ensure "title" is required (not null)
             if (title == null)
             {
@@ -97,17 +88,21 @@ namespace TalonOne.Model
                 this.AllowSubledger = allowSubledger;
             }
             
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new InvalidDataException("name is a required property for NewLoyaltyProgram and cannot be null");
+            }
+            else
+            {
+                this.Name = name;
+            }
+            
             this.Description = description;
             this.SubscribedApplications = subscribedApplications;
+            this.Tiers = tiers;
         }
         
-        /// <summary>
-        /// The internal name for the Loyalty Program. This is an immutable value.
-        /// </summary>
-        /// <value>The internal name for the Loyalty Program. This is an immutable value.</value>
-        [DataMember(Name="name", EmitDefaultValue=true)]
-        public string Name { get; set; }
-
         /// <summary>
         /// The display title for the Loyalty Program.
         /// </summary>
@@ -151,6 +146,20 @@ namespace TalonOne.Model
         public bool AllowSubledger { get; set; }
 
         /// <summary>
+        /// The internal name for the Loyalty Program. This is an immutable value.
+        /// </summary>
+        /// <value>The internal name for the Loyalty Program. This is an immutable value.</value>
+        [DataMember(Name="name", EmitDefaultValue=true)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// The tiers in this loyalty program
+        /// </summary>
+        /// <value>The tiers in this loyalty program</value>
+        [DataMember(Name="tiers", EmitDefaultValue=false)]
+        public List<NewLoyaltyTier> Tiers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -158,13 +167,14 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class NewLoyaltyProgram {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  SubscribedApplications: ").Append(SubscribedApplications).Append("\n");
             sb.Append("  DefaultValidity: ").Append(DefaultValidity).Append("\n");
             sb.Append("  DefaultPending: ").Append(DefaultPending).Append("\n");
             sb.Append("  AllowSubledger: ").Append(AllowSubledger).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Tiers: ").Append(Tiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,11 +210,6 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
@@ -234,6 +239,17 @@ namespace TalonOne.Model
                     this.AllowSubledger == input.AllowSubledger ||
                     (this.AllowSubledger != null &&
                     this.AllowSubledger.Equals(input.AllowSubledger))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.Tiers == input.Tiers ||
+                    this.Tiers != null &&
+                    input.Tiers != null &&
+                    this.Tiers.SequenceEqual(input.Tiers)
                 );
         }
 
@@ -246,8 +262,6 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Description != null)
@@ -260,6 +274,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.DefaultPending.GetHashCode();
                 if (this.AllowSubledger != null)
                     hashCode = hashCode * 59 + this.AllowSubledger.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Tiers != null)
+                    hashCode = hashCode * 59 + this.Tiers.GetHashCode();
                 return hashCode;
             }
         }

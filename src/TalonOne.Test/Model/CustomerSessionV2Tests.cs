@@ -185,6 +185,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'AdditionalCostTotal'
         }
+        /// <summary>
+        /// Test the property 'Updated'
+        /// </summary>
+        [Test]
+        public void UpdatedTest()
+        {
+            // TODO unit test for the property 'Updated'
+        }
 
     }
 

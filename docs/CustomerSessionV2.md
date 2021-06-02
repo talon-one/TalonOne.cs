@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **Total** | **decimal** | The total sum of cart-items, as well as additional costs, before any discounts applied | 
 **CartItemTotal** | **decimal** | The total sum of cart-items before any discounts applied | 
 **AdditionalCostTotal** | **decimal** | The total sum of additional costs before any discounts applied | 
+**Updated** | **DateTime** | Timestamp of the most recent event received on this session | 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

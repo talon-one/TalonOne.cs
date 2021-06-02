@@ -43,7 +43,8 @@ namespace TalonOne.Model
         /// <param name="subLedgerId">The ID of the subledger within the loyalty program where these points were added (required).</param>
         /// <param name="value">The amount of points that were deducted (required).</param>
         /// <param name="transactionUUID">The identifier of this deduction in the loyalty ledger (required).</param>
-        public DeductLoyaltyPointsEffectProps(string ruleTitle = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string transactionUUID = default(string))
+        /// <param name="name">The name property gets one of the following two values. It can be the loyalty program name or it can represent a reason for the respective deduction of loyalty points. The latter is an optional value defined in a deduction rule.  (required).</param>
+        public DeductLoyaltyPointsEffectProps(string ruleTitle = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string transactionUUID = default(string), string name = default(string))
         {
             // to ensure "ruleTitle" is required (not null)
             if (ruleTitle == null)
@@ -95,6 +96,16 @@ namespace TalonOne.Model
                 this.TransactionUUID = transactionUUID;
             }
             
+            // to ensure "name" is required (not null)
+            if (name == null)
+            {
+                throw new InvalidDataException("name is a required property for DeductLoyaltyPointsEffectProps and cannot be null");
+            }
+            else
+            {
+                this.Name = name;
+            }
+            
         }
         
         /// <summary>
@@ -133,6 +144,13 @@ namespace TalonOne.Model
         public string TransactionUUID { get; set; }
 
         /// <summary>
+        /// The name property gets one of the following two values. It can be the loyalty program name or it can represent a reason for the respective deduction of loyalty points. The latter is an optional value defined in a deduction rule. 
+        /// </summary>
+        /// <value>The name property gets one of the following two values. It can be the loyalty program name or it can represent a reason for the respective deduction of loyalty points. The latter is an optional value defined in a deduction rule. </value>
+        [DataMember(Name="name", EmitDefaultValue=true)]
+        public string Name { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -145,6 +163,7 @@ namespace TalonOne.Model
             sb.Append("  SubLedgerId: ").Append(SubLedgerId).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,6 +222,11 @@ namespace TalonOne.Model
                     this.TransactionUUID == input.TransactionUUID ||
                     (this.TransactionUUID != null &&
                     this.TransactionUUID.Equals(input.TransactionUUID))
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -225,6 +249,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.TransactionUUID != null)
                     hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 return hashCode;
             }
         }

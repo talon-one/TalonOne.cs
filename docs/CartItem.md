@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** |  | 
-**Sku** | **string** |  | 
-**Quantity** | **int** |  | 
-**Price** | **decimal** |  | 
-**Category** | **string** |  | [optional] 
-**Weight** | **decimal** | Weight of item in mm | [optional] 
+**Name** | **string** | Name of item | 
+**Sku** | **string** | Stock keeping unit of item | 
+**Quantity** | **int** | Quantity of item | 
+**Price** | **decimal** | Price of item | 
+**Category** | **string** | Type, group or model of the item | [optional] 
+**Weight** | **decimal** | Weight of item in grams | [optional] 
 **Height** | **decimal** | Height of item in mm | [optional] 
 **Width** | **decimal** | Width of item in mm | [optional] 
 **Length** | **decimal** | Length of item in mm | [optional] 

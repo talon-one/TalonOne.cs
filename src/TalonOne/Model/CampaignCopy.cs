@@ -41,8 +41,8 @@ namespace TalonOne.Model
         /// <param name="name">Name of the copied campaign (Defaults to \&quot;Copy of original campaign name\&quot;).</param>
         /// <param name="applicationIds">Application IDs of the applications to which a campaign should be copied to (required).</param>
         /// <param name="description">A detailed description of the campaign..</param>
-        /// <param name="startTime">Datetime when the campaign will become active..</param>
-        /// <param name="endTime">Datetime when the campaign will become in-active..</param>
+        /// <param name="startTime">Timestamp when the campaign will become active..</param>
+        /// <param name="endTime">Timestamp when the campaign will become in-active..</param>
         /// <param name="tags">A list of tags for the campaign..</param>
         public CampaignCopy(string name = default(string), List<int> applicationIds = default(List<int>), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), List<string> tags = default(List<string>))
         {
@@ -85,16 +85,16 @@ namespace TalonOne.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Datetime when the campaign will become active.
+        /// Timestamp when the campaign will become active.
         /// </summary>
-        /// <value>Datetime when the campaign will become active.</value>
+        /// <value>Timestamp when the campaign will become active.</value>
         [DataMember(Name="startTime", EmitDefaultValue=false)]
         public DateTime StartTime { get; set; }
 
         /// <summary>
-        /// Datetime when the campaign will become in-active.
+        /// Timestamp when the campaign will become in-active.
         /// </summary>
-        /// <value>Datetime when the campaign will become in-active.</value>
+        /// <value>Timestamp when the campaign will become in-active.</value>
         [DataMember(Name="endTime", EmitDefaultValue=false)]
         public DateTime EndTime { get; set; }
 

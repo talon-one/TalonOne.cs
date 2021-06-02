@@ -89,6 +89,19 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test CreateReferralsForMultipleAdvocates
+        /// </summary>
+        [Test]
+        public void CreateReferralsForMultipleAdvocatesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //NewReferralsForMultipleAdvocates body = null;
+            //string silent = null;
+            //var response = instance.CreateReferralsForMultipleAdvocates(body, silent);
+            //Assert.IsInstanceOf(typeof(InlineResponse201), response, "response is InlineResponse201");
+        }
+        
+        /// <summary>
         /// Test DeleteCouponReservation
         /// </summary>
         [Test]
@@ -125,7 +138,8 @@ namespace TalonOne.Test
             //bool? referrals = null;
             //bool? coupons = null;
             //bool? loyalty = null;
-            //var response = instance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty);
+            //bool? giveaways = null;
+            //var response = instance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty, giveaways);
             //Assert.IsInstanceOf(typeof(CustomerInventory), response, "response is CustomerInventory");
         }
         
@@ -166,18 +180,6 @@ namespace TalonOne.Test
             //bool? dry = null;
             //var response = instance.UpdateCustomerProfile(integrationId, body, dry);
             //Assert.IsInstanceOf(typeof(IntegrationState), response, "response is IntegrationState");
-        }
-        
-        /// <summary>
-        /// Test UpdateCustomerProfileAudiences
-        /// </summary>
-        [Test]
-        public void UpdateCustomerProfileAudiencesTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //CustomerProfileAudienceRequest body = null;
-            //instance.UpdateCustomerProfileAudiences(body);
-            
         }
         
         /// <summary>

@@ -4,94 +4,91 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddLoyaltyPoints**](ManagementApi.md#addloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in a certain loyalty program for the specified customer
+[**AddLoyaltyPoints**](ManagementApi.md#addloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/add_points | Add points in loyalty program for given customer
 [**CopyCampaignToApplications**](ManagementApi.md#copycampaigntoapplications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into every specified application
 [**CreateAdditionalCost**](ManagementApi.md#createadditionalcost) | **POST** /v1/additional_costs | Define a new additional cost
-[**CreateAttribute**](ManagementApi.md#createattribute) | **POST** /v1/attributes | Define a new custom attribute
-[**CreateCampaign**](ManagementApi.md#createcampaign) | **POST** /v1/applications/{applicationId}/campaigns | Create a Campaign
-[**CreateCoupons**](ManagementApi.md#createcoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create Coupons
-[**CreateCouponsForMultipleRecipients**](ManagementApi.md#createcouponsformultiplerecipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create Coupons for Multiple Recipients
+[**CreateAttribute**](ManagementApi.md#createattribute) | **POST** /v1/attributes | Create custom attribute
+[**CreateCampaign**](ManagementApi.md#createcampaign) | **POST** /v1/applications/{applicationId}/campaigns | Create campaign
+[**CreateCoupons**](ManagementApi.md#createcoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
+[**CreateCouponsForMultipleRecipients**](ManagementApi.md#createcouponsformultiplerecipients) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_with_recipients | Create coupons for multiple recipients
 [**CreatePasswordRecoveryEmail**](ManagementApi.md#createpasswordrecoveryemail) | **POST** /v1/password_recovery_emails | Request a password reset
-[**CreateRuleset**](ManagementApi.md#createruleset) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create a Ruleset
-[**CreateSession**](ManagementApi.md#createsession) | **POST** /v1/sessions | Create a Session
-[**DeleteCampaign**](ManagementApi.md#deletecampaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete a Campaign
-[**DeleteCoupon**](ManagementApi.md#deletecoupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete one Coupon
-[**DeleteCoupons**](ManagementApi.md#deletecoupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete Coupons
-[**DeleteReferral**](ManagementApi.md#deletereferral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete one Referral
-[**DeleteRuleset**](ManagementApi.md#deleteruleset) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Delete a Ruleset
-[**DestroySession**](ManagementApi.md#destroysession) | **DELETE** /v1/sessions | Destroy a Session
-[**ExportCoupons**](ManagementApi.md#exportcoupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export Coupons to a CSV file
-[**ExportCustomerSessions**](ManagementApi.md#exportcustomersessions) | **GET** /v1/applications/{applicationId}/export_customer_sessions | Export Customer Sessions to a CSV file
-[**ExportEffects**](ManagementApi.md#exporteffects) | **GET** /v1/applications/{applicationId}/export_effects | Export triggered Effects to a CSV file
+[**CreateRuleset**](ManagementApi.md#createruleset) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create ruleset
+[**CreateSession**](ManagementApi.md#createsession) | **POST** /v1/sessions | Create session
+[**DeleteCampaign**](ManagementApi.md#deletecampaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
+[**DeleteCoupon**](ManagementApi.md#deletecoupon) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Delete coupon
+[**DeleteCoupons**](ManagementApi.md#deletecoupons) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Delete coupons
+[**DeleteReferral**](ManagementApi.md#deletereferral) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Delete referral
+[**DestroySession**](ManagementApi.md#destroysession) | **DELETE** /v1/sessions | Destroy session
+[**ExportCoupons**](ManagementApi.md#exportcoupons) | **GET** /v1/applications/{applicationId}/export_coupons | Export coupons to CSV file
+[**ExportCustomerSessions**](ManagementApi.md#exportcustomersessions) | **GET** /v1/applications/{applicationId}/export_customer_sessions | Export customer sessions to CSV file
+[**ExportEffects**](ManagementApi.md#exporteffects) | **GET** /v1/applications/{applicationId}/export_effects | Export triggered effects to CSV file
 [**ExportLoyaltyBalance**](ManagementApi.md#exportloyaltybalance) | **GET** /v1/loyalty_programs/{programID}/export_customer_balance | Export customer loyalty balance to a CSV file
-[**ExportLoyaltyLedger**](ManagementApi.md#exportloyaltyledger) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID}/export_log | Export a customer&#39;s loyalty ledger log to a CSV file
-[**GetAccessLogs**](ManagementApi.md#getaccesslogs) | **GET** /v1/applications/{applicationId}/access_logs | Get access logs for application (with total count)
-[**GetAccessLogsWithoutTotalCount**](ManagementApi.md#getaccesslogswithouttotalcount) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for application
-[**GetAccount**](ManagementApi.md#getaccount) | **GET** /v1/accounts/{accountId} | Get Account Details
-[**GetAccountAnalytics**](ManagementApi.md#getaccountanalytics) | **GET** /v1/accounts/{accountId}/analytics | Get Account Analytics
+[**ExportLoyaltyLedger**](ManagementApi.md#exportloyaltyledger) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID}/export_log | Export a customer&#39;s loyalty ledger log to CSV file
+[**GetAccessLogsWithoutTotalCount**](ManagementApi.md#getaccesslogswithouttotalcount) | **GET** /v1/applications/{applicationId}/access_logs/no_total | Get access logs for Application
+[**GetAccount**](ManagementApi.md#getaccount) | **GET** /v1/accounts/{accountId} | Get account details
+[**GetAccountAnalytics**](ManagementApi.md#getaccountanalytics) | **GET** /v1/accounts/{accountId}/analytics | Get account analytics
 [**GetAdditionalCost**](ManagementApi.md#getadditionalcost) | **GET** /v1/additional_costs/{additionalCostId} | Get an additional cost
 [**GetAdditionalCosts**](ManagementApi.md#getadditionalcosts) | **GET** /v1/additional_costs | List additional costs
-[**GetAllAccessLogs**](ManagementApi.md#getallaccesslogs) | **GET** /v1/access_logs | Get all access logs
-[**GetAllRoles**](ManagementApi.md#getallroles) | **GET** /v1/roles | Get all roles
+[**GetAllAccessLogs**](ManagementApi.md#getallaccesslogs) | **GET** /v1/access_logs | List access logs
+[**GetAllRoles**](ManagementApi.md#getallroles) | **GET** /v1/roles | List roles
 [**GetApplication**](ManagementApi.md#getapplication) | **GET** /v1/applications/{applicationId} | Get Application
 [**GetApplicationApiHealth**](ManagementApi.md#getapplicationapihealth) | **GET** /v1/applications/{applicationId}/health_report | Get report of health of application API
-[**GetApplicationCustomer**](ManagementApi.md#getapplicationcustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get Application Customer
-[**GetApplicationCustomers**](ManagementApi.md#getapplicationcustomers) | **GET** /v1/applications/{applicationId}/customers | List Application Customers
-[**GetApplicationCustomersByAttributes**](ManagementApi.md#getapplicationcustomersbyattributes) | **POST** /v1/application_customer_search | Get a list of the customer profiles that match the given attributes (with total count)
-[**GetApplicationEventTypes**](ManagementApi.md#getapplicationeventtypes) | **GET** /v1/applications/{applicationId}/event_types | List Applications Event Types
-[**GetApplicationEvents**](ManagementApi.md#getapplicationevents) | **GET** /v1/applications/{applicationId}/events | List Applications Events (with total count)
-[**GetApplicationEventsWithoutTotalCount**](ManagementApi.md#getapplicationeventswithouttotalcount) | **GET** /v1/applications/{applicationId}/events/no_total | List Applications Events
-[**GetApplicationSession**](ManagementApi.md#getapplicationsession) | **GET** /v1/applications/{applicationId}/sessions/{sessionId} | Get Application Session
-[**GetApplicationSessions**](ManagementApi.md#getapplicationsessions) | **GET** /v1/applications/{applicationId}/sessions | List Application Sessions
+[**GetApplicationCustomer**](ManagementApi.md#getapplicationcustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get application&#39;s customer
+[**GetApplicationCustomerFriends**](ManagementApi.md#getapplicationcustomerfriends) | **GET** /v1/applications/{applicationId}/profile/{integrationId}/friends | List friends referred by customer profile
+[**GetApplicationCustomers**](ManagementApi.md#getapplicationcustomers) | **GET** /v1/applications/{applicationId}/customers | List application&#39;s customers
+[**GetApplicationCustomersByAttributes**](ManagementApi.md#getapplicationcustomersbyattributes) | **POST** /v1/applications/{applicationId}/customer_search | List application customers matching the given attributes
+[**GetApplicationEventTypes**](ManagementApi.md#getapplicationeventtypes) | **GET** /v1/applications/{applicationId}/event_types | List Applications event types
+[**GetApplicationEventsWithoutTotalCount**](ManagementApi.md#getapplicationeventswithouttotalcount) | **GET** /v1/applications/{applicationId}/events/no_total | List Applications events
+[**GetApplicationSession**](ManagementApi.md#getapplicationsession) | **GET** /v1/applications/{applicationId}/sessions/{sessionId} | Get Application session
+[**GetApplicationSessions**](ManagementApi.md#getapplicationsessions) | **GET** /v1/applications/{applicationId}/sessions | List Application sessions
 [**GetApplications**](ManagementApi.md#getapplications) | **GET** /v1/applications | List Applications
 [**GetAttribute**](ManagementApi.md#getattribute) | **GET** /v1/attributes/{attributeId} | Get a custom attribute
 [**GetAttributes**](ManagementApi.md#getattributes) | **GET** /v1/attributes | List custom attributes
-[**GetAudiences**](ManagementApi.md#getaudiences) | **GET** /v1/audiences | Get all audiences
-[**GetCampaign**](ManagementApi.md#getcampaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get a Campaign
+[**GetAudiences**](ManagementApi.md#getaudiences) | **GET** /v1/audiences | List audiences
+[**GetCampaign**](ManagementApi.md#getcampaign) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId} | Get campaign
 [**GetCampaignAnalytics**](ManagementApi.md#getcampaignanalytics) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/analytics | Get analytics of campaigns
-[**GetCampaignByAttributes**](ManagementApi.md#getcampaignbyattributes) | **POST** /v1/applications/{applicationId}/campaigns_search | Get a list of all campaigns that match the given attributes
-[**GetCampaigns**](ManagementApi.md#getcampaigns) | **GET** /v1/applications/{applicationId}/campaigns | List your Campaigns
+[**GetCampaignByAttributes**](ManagementApi.md#getcampaignbyattributes) | **POST** /v1/applications/{applicationId}/campaigns_search | List campaigns that match the given attributes
+[**GetCampaigns**](ManagementApi.md#getcampaigns) | **GET** /v1/applications/{applicationId}/campaigns | List campaigns
 [**GetChanges**](ManagementApi.md#getchanges) | **GET** /v1/changes | Get audit log for an account
-[**GetCoupons**](ManagementApi.md#getcoupons) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | List Coupons (with total count)
-[**GetCouponsByAttributes**](ManagementApi.md#getcouponsbyattributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | Get a list of the coupons that match the given attributes
-[**GetCouponsByAttributesApplicationWide**](ManagementApi.md#getcouponsbyattributesapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-[**GetCouponsWithoutTotalCount**](ManagementApi.md#getcouponswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List Coupons
-[**GetCustomerActivityReport**](ManagementApi.md#getcustomeractivityreport) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get Activity Report for Single Customer
-[**GetCustomerActivityReports**](ManagementApi.md#getcustomeractivityreports) | **GET** /v1/applications/{applicationId}/customer_activity_reports | Get Activity Reports for Application Customers (with total count)
+[**GetCouponsByAttributes**](ManagementApi.md#getcouponsbyattributes) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search | List coupons that match the given attributes
+[**GetCouponsWithoutTotalCount**](ManagementApi.md#getcouponswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/no_total | List coupons
+[**GetCustomerActivityReport**](ManagementApi.md#getcustomeractivityreport) | **GET** /v1/applications/{applicationId}/customer_activity_reports/{customerId} | Get customer&#39;s activity report
 [**GetCustomerActivityReportsWithoutTotalCount**](ManagementApi.md#getcustomeractivityreportswithouttotalcount) | **GET** /v1/applications/{applicationId}/customer_activity_reports/no_total | Get Activity Reports for Application Customers
-[**GetCustomerAnalytics**](ManagementApi.md#getcustomeranalytics) | **GET** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get Analytics Report for a Customer
-[**GetCustomerProfile**](ManagementApi.md#getcustomerprofile) | **GET** /v1/customers/{customerId} | Get Customer Profile
-[**GetCustomerProfiles**](ManagementApi.md#getcustomerprofiles) | **GET** /v1/customers/no_total | List Customer Profiles
-[**GetCustomersByAttributes**](ManagementApi.md#getcustomersbyattributes) | **POST** /v1/customer_search/no_total | Get a list of the customer profiles that match the given attributes
+[**GetCustomerAnalytics**](ManagementApi.md#getcustomeranalytics) | **GET** /v1/applications/{applicationId}/customers/{customerId}/analytics | Get customer&#39;s analytics report
+[**GetCustomerProfile**](ManagementApi.md#getcustomerprofile) | **GET** /v1/customers/{customerId} | Get customer profile
+[**GetCustomerProfiles**](ManagementApi.md#getcustomerprofiles) | **GET** /v1/customers/no_total | List customer profiles
+[**GetCustomersByAttributes**](ManagementApi.md#getcustomersbyattributes) | **POST** /v1/customer_search/no_total | List customer profiles matching the given attributes
 [**GetEventTypes**](ManagementApi.md#geteventtypes) | **GET** /v1/event_types | List Event Types
 [**GetExports**](ManagementApi.md#getexports) | **GET** /v1/exports | Get Exports
-[**GetLoyaltyPoints**](ManagementApi.md#getloyaltypoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | get the Loyalty Ledger for this integrationID
-[**GetLoyaltyProgram**](ManagementApi.md#getloyaltyprogram) | **GET** /v1/loyalty_programs/{programID} | Get a loyalty program
-[**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List all loyalty Programs
+[**GetLoyaltyPoints**](ManagementApi.md#getloyaltypoints) | **GET** /v1/loyalty_programs/{programID}/profile/{integrationID} | Get the Loyalty Ledger for this integrationID
+[**GetLoyaltyProgram**](ManagementApi.md#getloyaltyprogram) | **GET** /v1/loyalty_programs/{programID} | Get loyalty program
+[**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List loyalty programs
 [**GetLoyaltyStatistics**](ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{programID}/statistics | Get loyalty program statistics by loyalty program ID
-[**GetReferrals**](ManagementApi.md#getreferrals) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals | List Referrals (with total count)
-[**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List Referrals
-[**GetRole**](ManagementApi.md#getrole) | **GET** /v1/roles/{roleId} | Get information for the specified role
-[**GetRuleset**](ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get a Ruleset
-[**GetRulesets**](ManagementApi.md#getrulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List Campaign Rulesets
-[**GetUser**](ManagementApi.md#getuser) | **GET** /v1/users/{userId} | Get a single User
-[**GetUsers**](ManagementApi.md#getusers) | **GET** /v1/users | List Users in your account
+[**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
+[**GetRole**](ManagementApi.md#getrole) | **GET** /v1/roles/{roleId} | Get role
+[**GetRuleset**](ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
+[**GetRulesets**](ManagementApi.md#getrulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List campaign rulesets
+[**GetUser**](ManagementApi.md#getuser) | **GET** /v1/users/{userId} | Get a single user
+[**GetUsers**](ManagementApi.md#getusers) | **GET** /v1/users | List users in account
 [**GetWebhook**](ManagementApi.md#getwebhook) | **GET** /v1/webhooks/{webhookId} | Get Webhook
-[**GetWebhookActivationLogs**](ManagementApi.md#getwebhookactivationlogs) | **GET** /v1/webhook_activation_logs | List Webhook activation Log Entries
-[**GetWebhookLogs**](ManagementApi.md#getwebhooklogs) | **GET** /v1/webhook_logs | List Webhook Log Entries
-[**GetWebhooks**](ManagementApi.md#getwebhooks) | **GET** /v1/webhooks | List Webhooks
-[**RemoveLoyaltyPoints**](ManagementApi.md#removeloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in a certain loyalty program for the specified customer
+[**GetWebhookActivationLogs**](ManagementApi.md#getwebhookactivationlogs) | **GET** /v1/webhook_activation_logs | List webhook activation log entries
+[**GetWebhookLogs**](ManagementApi.md#getwebhooklogs) | **GET** /v1/webhook_logs | List webhook log entries
+[**GetWebhooks**](ManagementApi.md#getwebhooks) | **GET** /v1/webhooks | List webhooks
+[**ImportCoupons**](ManagementApi.md#importcoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons via CSV file
+[**ImportLoyaltyPoints**](ManagementApi.md#importloyaltypoints) | **POST** /v1/loyalty_programs/{programID}/import_points | Import loyalty points via CSV file
+[**ImportPoolGiveaways**](ManagementApi.md#importpoolgiveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaway codes into a giveaway pool
+[**ImportReferrals**](ManagementApi.md#importreferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals via CSV file
+[**RemoveLoyaltyPoints**](ManagementApi.md#removeloyaltypoints) | **PUT** /v1/loyalty_programs/{programID}/profile/{integrationID}/deduct_points | Deduct points in loyalty program for given customer
 [**ResetPassword**](ManagementApi.md#resetpassword) | **POST** /v1/reset_password | Reset password
-[**SearchCouponsAdvanced**](ManagementApi.md#searchcouponsadvanced) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced | Get a list of the coupons that match the given attributes (with total count)
-[**SearchCouponsAdvancedApplicationWide**](ManagementApi.md#searchcouponsadvancedapplicationwide) | **POST** /v1/applications/{applicationId}/coupons_search_advanced | Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-[**SearchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedapplicationwidewithouttotalcount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes in all active campaigns of an application
-[**SearchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedwithouttotalcount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | Get a list of the coupons that match the given attributes
+[**SearchCouponsAdvancedApplicationWideWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedapplicationwidewithouttotalcount) | **POST** /v1/applications/{applicationId}/coupons_search_advanced/no_total | List coupons that match the given attributes in all active campaigns of an application
+[**SearchCouponsAdvancedWithoutTotalCount**](ManagementApi.md#searchcouponsadvancedwithouttotalcount) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons_search_advanced/no_total | List coupons that match the given attributes
 [**UpdateAdditionalCost**](ManagementApi.md#updateadditionalcost) | **PUT** /v1/additional_costs/{additionalCostId} | Update an additional cost
 [**UpdateAttribute**](ManagementApi.md#updateattribute) | **PUT** /v1/attributes/{attributeId} | Update a custom attribute
-[**UpdateCampaign**](ManagementApi.md#updatecampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update a Campaign
-[**UpdateCoupon**](ManagementApi.md#updatecoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update a Coupon
-[**UpdateCouponBatch**](ManagementApi.md#updatecouponbatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a Batch of Coupons
-[**UpdateRuleset**](ManagementApi.md#updateruleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update a Ruleset
+[**UpdateCampaign**](ManagementApi.md#updatecampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign
+[**UpdateCoupon**](ManagementApi.md#updatecoupon) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons/{couponId} | Update coupon
+[**UpdateCouponBatch**](ManagementApi.md#updatecouponbatch) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Update a batch of coupons
+[**UpdateReferral**](ManagementApi.md#updatereferral) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/{referralId} | Update referral
+[**UpdateRuleset**](ManagementApi.md#updateruleset) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Update ruleset
 
 
 
@@ -99,7 +96,9 @@ Method | HTTP request | Description
 
 > void AddLoyaltyPoints (string programID, string integrationID, LoyaltyPoints body)
 
-Add points in a certain loyalty program for the specified customer
+Add points in loyalty program for given customer
+
+Add points in the specified loyalty program for the given customer.  To get the `integrationId` of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
 
 ### Example
 
@@ -129,7 +128,7 @@ namespace Example
 
             try
             {
-                // Add points in a certain loyalty program for the specified customer
+                // Add points in loyalty program for given customer
                 apiInstance.AddLoyaltyPoints(programID, integrationID, body);
             }
             catch (ApiException e)
@@ -344,9 +343,9 @@ Name | Type | Description  | Notes
 
 > Attribute CreateAttribute (NewAttribute body)
 
-Define a new custom attribute
+Create custom attribute
 
-Defines a new _custom attribute_ in this account. Custom attributes allow you to attach new fields to Talon.One domain objects like campaigns, coupons, customers and so on. These attributes can then be given values when creating / updating these objects, and these values can be used in your campaign rules. For example, you could define a `zipCode` field for customer sessions, and add a rule to your campaign that only allows certain ZIP codes.  These attributes are shared across all applications in your account, and are never required. 
+Create a _custom attribute_ in this account. Custom attributes allow you to attach new fields to Talon.One domain objects like campaigns, coupons, customers and so on.  These attributes can then be given values when creating/updating these objects, and these values can be used in your campaign rules. For example, you could define a `zipCode` field for customer sessions, and add a rule to your campaign that only allows certain ZIP codes.  These attributes are shared across all applications in your account, and are never required. 
 
 ### Example
 
@@ -374,7 +373,7 @@ namespace Example
 
             try
             {
-                // Define a new custom attribute
+                // Create custom attribute
                 Attribute result = apiInstance.CreateAttribute(body);
                 Debug.WriteLine(result);
             }
@@ -424,7 +423,9 @@ Name | Type | Description  | Notes
 
 > Campaign CreateCampaign (int applicationId, NewCampaign body)
 
-Create a Campaign
+Create campaign
+
+Create a campaign. A campaign is part of an Application and contains a set of promotion rules.
 
 ### Example
 
@@ -453,7 +454,7 @@ namespace Example
 
             try
             {
-                // Create a Campaign
+                // Create campaign
                 Campaign result = apiInstance.CreateCampaign(applicationId, body);
                 Debug.WriteLine(result);
             }
@@ -504,7 +505,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2004 CreateCoupons (int applicationId, int campaignId, NewCoupons body, string silent = null)
 
-Create Coupons
+Create coupons
 
 Create coupons according to some pattern. Up to 20.000 coupons can be created without a unique prefix. When a unique prefix is provided, up to 200.000 coupons can be created.
 
@@ -533,11 +534,11 @@ namespace Example
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var body = new NewCoupons(); // NewCoupons | 
-            var silent = silent_example;  // string | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional) 
+            var silent = silent_example;  // string | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional) 
 
             try
             {
-                // Create Coupons
+                // Create coupons
                 InlineResponse2004 result = apiInstance.CreateCoupons(applicationId, campaignId, body, silent);
                 Debug.WriteLine(result);
             }
@@ -560,7 +561,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
  **body** | [**NewCoupons**](NewCoupons.md)|  | 
- **silent** | **string**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional] 
+ **silent** | **string**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional] 
 
 ### Return type
 
@@ -591,7 +592,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2004 CreateCouponsForMultipleRecipients (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = null)
 
-Create Coupons for Multiple Recipients
+Create coupons for multiple recipients
 
 Create coupons according to some pattern for up to 1000 recipients.
 
@@ -620,11 +621,11 @@ namespace Example
             var applicationId = 56;  // int | 
             var campaignId = 56;  // int | 
             var body = new NewCouponsForMultipleRecipients(); // NewCouponsForMultipleRecipients | 
-            var silent = silent_example;  // string | If set to 'yes', response will be an empty 204, otherwise a list of the coupons generated (to to 1000). (optional) 
+            var silent = silent_example;  // string | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional) 
 
             try
             {
-                // Create Coupons for Multiple Recipients
+                // Create coupons for multiple recipients
                 InlineResponse2004 result = apiInstance.CreateCouponsForMultipleRecipients(applicationId, campaignId, body, silent);
                 Debug.WriteLine(result);
             }
@@ -647,7 +648,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**|  | 
  **campaignId** | **int**|  | 
  **body** | [**NewCouponsForMultipleRecipients**](NewCouponsForMultipleRecipients.md)|  | 
- **silent** | **string**| If set to &#39;yes&#39;, response will be an empty 204, otherwise a list of the coupons generated (to to 1000). | [optional] 
+ **silent** | **string**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional] 
 
 ### Return type
 
@@ -680,7 +681,7 @@ Name | Type | Description  | Notes
 
 Request a password reset
 
-Sends an email with a password recovery link to the email of an existing account. 
+Send an email with a password recovery link to the email address of an existing account. 
 
 ### Example
 
@@ -758,7 +759,9 @@ Name | Type | Description  | Notes
 
 > Ruleset CreateRuleset (int applicationId, int campaignId, NewRuleset body)
 
-Create a Ruleset
+Create ruleset
+
+Create a set of rules. A ruleset is a revision of all the rules of a campaign.
 
 ### Example
 
@@ -788,7 +791,7 @@ namespace Example
 
             try
             {
-                // Create a Ruleset
+                // Create ruleset
                 Ruleset result = apiInstance.CreateRuleset(applicationId, campaignId, body);
                 Debug.WriteLine(result);
             }
@@ -840,7 +843,9 @@ Name | Type | Description  | Notes
 
 > Session CreateSession (LoginParams body)
 
-Create a Session
+Create session
+
+Create a session to use the Management API endpoints. Use the value of the `token` property provided in the response as bearer token in other API calls.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
 
 ### Example
 
@@ -868,7 +873,7 @@ namespace Example
 
             try
             {
-                // Create a Session
+                // Create session
                 Session result = apiInstance.CreateSession(body);
                 Debug.WriteLine(result);
             }
@@ -918,7 +923,9 @@ Name | Type | Description  | Notes
 
 > void DeleteCampaign (int applicationId, int campaignId)
 
-Delete a Campaign
+Delete campaign
+
+Delete the given campaign.
 
 ### Example
 
@@ -947,7 +954,7 @@ namespace Example
 
             try
             {
-                // Delete a Campaign
+                // Delete campaign
                 apiInstance.DeleteCampaign(applicationId, campaignId);
             }
             catch (ApiException e)
@@ -997,7 +1004,9 @@ void (empty response body)
 
 > void DeleteCoupon (int applicationId, int campaignId, string couponId)
 
-Delete one Coupon
+Delete coupon
+
+Delete the specified coupon.
 
 ### Example
 
@@ -1027,7 +1036,7 @@ namespace Example
 
             try
             {
-                // Delete one Coupon
+                // Delete coupon
                 apiInstance.DeleteCoupon(applicationId, campaignId, couponId);
             }
             catch (ApiException e)
@@ -1078,7 +1087,9 @@ void (empty response body)
 
 > void DeleteCoupons (int applicationId, int campaignId, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startsAfter = null, DateTime? startsBefore = null, DateTime? expiresAfter = null, DateTime? expiresBefore = null, string valid = null, string batchId = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null)
 
-Delete Coupons
+Delete coupons
+
+Deletes all the coupons matching the specified criteria.
 
 ### Example
 
@@ -1120,7 +1131,7 @@ namespace Example
 
             try
             {
-                // Delete Coupons
+                // Delete coupons
                 apiInstance.DeleteCoupons(applicationId, campaignId, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
             }
             catch (ApiException e)
@@ -1183,7 +1194,9 @@ void (empty response body)
 
 > void DeleteReferral (int applicationId, int campaignId, string referralId)
 
-Delete one Referral
+Delete referral
+
+Delete the specified referral.
 
 ### Example
 
@@ -1213,7 +1226,7 @@ namespace Example
 
             try
             {
-                // Delete one Referral
+                // Delete referral
                 apiInstance.DeleteReferral(applicationId, campaignId, referralId);
             }
             catch (ApiException e)
@@ -1260,92 +1273,13 @@ void (empty response body)
 [[Back to README]](../README.md)
 
 
-## DeleteRuleset
-
-> void DeleteRuleset (int applicationId, int campaignId, int rulesetId)
-
-Delete a Ruleset
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class DeleteRulesetExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-            var campaignId = 56;  // int | 
-            var rulesetId = 56;  // int | 
-
-            try
-            {
-                // Delete a Ruleset
-                apiInstance.DeleteRuleset(applicationId, campaignId, rulesetId);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.DeleteRuleset: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
- **campaignId** | **int**|  | 
- **rulesetId** | **int**|  | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## DestroySession
 
 > void DestroySession ()
 
-Destroy a Session
+Destroy session
+
+Destroys the session.
 
 ### Example
 
@@ -1372,7 +1306,7 @@ namespace Example
 
             try
             {
-                // Destroy a Session
+                // Destroy session
                 apiInstance.DestroySession();
             }
             catch (ApiException e)
@@ -1418,9 +1352,9 @@ void (empty response body)
 
 > string ExportCoupons (int applicationId, decimal? campaignId = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string dateFormat = null, string campaignState = null)
 
-Export Coupons to a CSV file
+Export coupons to CSV file
 
-Download a file with the coupons that match the given attributes.
+Download a file containing the coupons that match the given attributes.
 
 ### Example
 
@@ -1461,7 +1395,7 @@ namespace Example
 
             try
             {
-                // Export Coupons to a CSV file
+                // Export coupons to CSV file
                 string result = apiInstance.ExportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState);
                 Debug.WriteLine(result);
             }
@@ -1524,9 +1458,9 @@ Name | Type | Description  | Notes
 
 > string ExportCustomerSessions (int applicationId, DateTime? createdBefore = null, DateTime? createdAfter = null, string profileIntegrationId = null, string dateFormat = null, string customerSessionState = null)
 
-Export Customer Sessions to a CSV file
+Export customer sessions to CSV file
 
-Download a file with the customer sessions that match the request.
+Download a file containing the customer sessions that match the request.
 
 ### Example
 
@@ -1559,7 +1493,7 @@ namespace Example
 
             try
             {
-                // Export Customer Sessions to a CSV file
+                // Export customer sessions to CSV file
                 string result = apiInstance.ExportCustomerSessions(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState);
                 Debug.WriteLine(result);
             }
@@ -1614,9 +1548,9 @@ Name | Type | Description  | Notes
 
 > string ExportEffects (int applicationId, decimal? campaignId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string dateFormat = null)
 
-Export triggered Effects to a CSV file
+Export triggered effects to CSV file
 
-Download a file with the triggered effects that match the given attributes.
+Download a file containing the triggered effects that match the given attributes.
 
 ### Example
 
@@ -1648,7 +1582,7 @@ namespace Example
 
             try
             {
-                // Export triggered Effects to a CSV file
+                // Export triggered effects to CSV file
                 string result = apiInstance.ExportEffects(applicationId, campaignId, createdBefore, createdAfter, dateFormat);
                 Debug.WriteLine(result);
             }
@@ -1782,7 +1716,7 @@ Name | Type | Description  | Notes
 
 > string ExportLoyaltyLedger (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = null)
 
-Export a customer's loyalty ledger log to a CSV file
+Export a customer's loyalty ledger log to CSV file
 
 Download a file with a customer's ledger log in the loyalty program
 
@@ -1816,7 +1750,7 @@ namespace Example
 
             try
             {
-                // Export a customer's loyalty ledger log to a CSV file
+                // Export a customer's loyalty ledger log to CSV file
                 string result = apiInstance.ExportLoyaltyLedger(rangeStart, rangeEnd, programID, integrationID, dateFormat);
                 Debug.WriteLine(result);
             }
@@ -1866,105 +1800,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetAccessLogs
-
-> InlineResponse2009 GetAccessLogs (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
-
-Get access logs for application (with total count)
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetAccessLogsExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-            var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-            var rangeEnd = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-            var path = path_example;  // string | Only return results where the request path matches the given regular expression. (optional) 
-            var method = method_example;  // string | Only return results where the request method matches the given regular expression. (optional) 
-            var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-
-            try
-            {
-                // Get access logs for application (with total count)
-                InlineResponse2009 result = apiInstance.GetAccessLogs(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetAccessLogs: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
- **rangeStart** | **DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
- **rangeEnd** | **DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **path** | **string**| Only return results where the request path matches the given regular expression. | [optional] 
- **method** | **string**| Only return results where the request method matches the given regular expression. | [optional] 
- **status** | **string**| Filter results by HTTP status codes. | [optional] 
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
-
-### Return type
-
-[**InlineResponse2009**](InlineResponse2009.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetAccessLogsWithoutTotalCount
 
-> InlineResponse20010 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse2008 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
 
-Get access logs for application
+Get access logs for Application
+
+Retrieve the list of API calls to this Application matching the specified criteria. 
 
 ### Example
 
@@ -2000,8 +1842,8 @@ namespace Example
 
             try
             {
-                // Get access logs for application
-                InlineResponse20010 result = apiInstance.GetAccessLogsWithoutTotalCount(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
+                // Get access logs for Application
+                InlineResponse2008 result = apiInstance.GetAccessLogsWithoutTotalCount(applicationId, rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2032,7 +1874,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20010**](InlineResponse20010.md)
+[**InlineResponse2008**](InlineResponse2008.md)
 
 ### Authorization
 
@@ -2058,7 +1900,7 @@ Name | Type | Description  | Notes
 
 > Account GetAccount (int accountId)
 
-Get Account Details
+Get account details
 
 Return the details of your companies Talon.One account. 
 
@@ -2088,7 +1930,7 @@ namespace Example
 
             try
             {
-                // Get Account Details
+                // Get account details
                 Account result = apiInstance.GetAccount(accountId);
                 Debug.WriteLine(result);
             }
@@ -2138,7 +1980,7 @@ Name | Type | Description  | Notes
 
 > AccountAnalytics GetAccountAnalytics (int accountId)
 
-Get Account Analytics
+Get account analytics
 
 Return the analytics of your companies Talon.One account. 
 
@@ -2168,7 +2010,7 @@ namespace Example
 
             try
             {
-                // Get Account Analytics
+                // Get account analytics
                 AccountAnalytics result = apiInstance.GetAccountAnalytics(accountId);
                 Debug.WriteLine(result);
             }
@@ -2296,7 +2138,7 @@ Name | Type | Description  | Notes
 
 ## GetAdditionalCosts
 
-> InlineResponse20022 GetAdditionalCosts (int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20021 GetAdditionalCosts (int? pageSize = null, int? skip = null, string sort = null)
 
 List additional costs
 
@@ -2331,7 +2173,7 @@ namespace Example
             try
             {
                 // List additional costs
-                InlineResponse20022 result = apiInstance.GetAdditionalCosts(pageSize, skip, sort);
+                InlineResponse20021 result = apiInstance.GetAdditionalCosts(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2356,7 +2198,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20022**](InlineResponse20022.md)
+[**InlineResponse20021**](InlineResponse20021.md)
 
 ### Authorization
 
@@ -2382,7 +2224,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2009 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = null, string method = null, string status = null, int? pageSize = null, int? skip = null, string sort = null)
 
-Get all access logs
+List access logs
 
 Fetches the access logs for the entire account. Sensitive requests (logins) are _always_ filtered from the logs. 
 
@@ -2419,7 +2261,7 @@ namespace Example
 
             try
             {
-                // Get all access logs
+                // List access logs
                 InlineResponse2009 result = apiInstance.GetAllAccessLogs(rangeStart, rangeEnd, path, method, status, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
@@ -2474,9 +2316,11 @@ Name | Type | Description  | Notes
 
 ## GetAllRoles
 
-> InlineResponse20030 GetAllRoles ()
+> InlineResponse20029 GetAllRoles ()
 
-Get all roles
+List roles
+
+List all roles.
 
 ### Example
 
@@ -2503,8 +2347,8 @@ namespace Example
 
             try
             {
-                // Get all roles
-                InlineResponse20030 result = apiInstance.GetAllRoles();
+                // List roles
+                InlineResponse20029 result = apiInstance.GetAllRoles();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2524,7 +2368,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20030**](InlineResponse20030.md)
+[**InlineResponse20029**](InlineResponse20029.md)
 
 ### Authorization
 
@@ -2632,6 +2476,8 @@ Name | Type | Description  | Notes
 
 Get report of health of application API
 
+Display the health of the application and show the last time the Application was used. 
+
 ### Example
 
 ```csharp
@@ -2708,7 +2554,9 @@ Name | Type | Description  | Notes
 
 > ApplicationCustomer GetApplicationCustomer (int applicationId, int customerId)
 
-Get Application Customer
+Get application's customer
+
+Retrieve the customers of the specified application.  The `customerId` parameter is the value of the `id` property of a customer profile. Get it with the [List application's customers](#operation/getApplicationCustomers) endpoint. 
 
 ### Example
 
@@ -2737,7 +2585,7 @@ namespace Example
 
             try
             {
-                // Get Application Customer
+                // Get application's customer
                 ApplicationCustomer result = apiInstance.GetApplicationCustomer(applicationId, customerId);
                 Debug.WriteLine(result);
             }
@@ -2784,11 +2632,103 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## GetApplicationCustomerFriends
+
+> InlineResponse20019 GetApplicationCustomerFriends (int applicationId, string integrationId, int? pageSize = null, int? skip = null, string sort = null, bool? withTotalResultSize = null)
+
+List friends referred by customer profile
+
+List the friends referred by the specified customer profile in this Application. 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetApplicationCustomerFriendsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var applicationId = 56;  // int | 
+            var integrationId = integrationId_example;  // string | The Integration ID of the Advocate's Profile.
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, `hasMore` will be true whenever there is a next page. `totalResultSize` will always be zero. With this flag set to false, `hasMore` will always be set to false. `totalResultSize` will contain the total number of results for this query.  (optional) 
+
+            try
+            {
+                // List friends referred by customer profile
+                InlineResponse20019 result = apiInstance.GetApplicationCustomerFriends(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetApplicationCustomerFriends: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  | 
+ **integrationId** | **string**| The Integration ID of the Advocate&#39;s Profile. | 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
+ **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, &#x60;hasMore&#x60; will be true whenever there is a next page. &#x60;totalResultSize&#x60; will always be zero. With this flag set to false, &#x60;hasMore&#x60; will always be set to false. &#x60;totalResultSize&#x60; will contain the total number of results for this query.  | [optional] 
+
+### Return type
+
+[**InlineResponse20019**](InlineResponse20019.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## GetApplicationCustomers
 
-> InlineResponse20012 GetApplicationCustomers (int applicationId, string integrationId = null, int? pageSize = null, int? skip = null, bool? withTotalResultSize = null)
+> InlineResponse20011 GetApplicationCustomers (int applicationId, string integrationId = null, int? pageSize = null, int? skip = null, bool? withTotalResultSize = null)
 
-List Application Customers
+List application's customers
+
+List all the customers of the specified application.
 
 ### Example
 
@@ -2816,12 +2756,12 @@ namespace Example
             var integrationId = integrationId_example;  // string | Filter results performing an exact matching against the profile integration identifier. (optional) 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, `hasMore` will be true whenever there is a next page. `totalResultSize` will always be zero. With this flag set to false, `hasMore` will always be set to false. `totalResultSize` will contain the total number of results for this query.  (optional) 
 
             try
             {
-                // List Application Customers
-                InlineResponse20012 result = apiInstance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
+                // List application's customers
+                InlineResponse20011 result = apiInstance.GetApplicationCustomers(applicationId, integrationId, pageSize, skip, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2844,11 +2784,11 @@ Name | Type | Description  | Notes
  **integrationId** | **string**| Filter results performing an exact matching against the profile integration identifier. | [optional] 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, &#x60;hasMore&#x60; will be true whenever there is a next page. &#x60;totalResultSize&#x60; will always be zero. With this flag set to false, &#x60;hasMore&#x60; will always be set to false. &#x60;totalResultSize&#x60; will contain the total number of results for this query.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20012**](InlineResponse20012.md)
+[**InlineResponse20011**](InlineResponse20011.md)
 
 ### Authorization
 
@@ -2872,11 +2812,11 @@ Name | Type | Description  | Notes
 
 ## GetApplicationCustomersByAttributes
 
-> InlineResponse20013 GetApplicationCustomersByAttributes (ApplicationCustomerSearch body)
+> InlineResponse20012 GetApplicationCustomersByAttributes (int applicationId, CustomerProfileSearchQuery body, int? pageSize = null, int? skip = null, bool? withTotalResultSize = null)
 
-Get a list of the customer profiles that match the given attributes (with total count)
+List application customers matching the given attributes
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
+Get a list of the application customers matching the provided criteria.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request. 
 
 ### Example
 
@@ -2894,18 +2834,22 @@ namespace Example
         public static void Main()
         {
             Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: integration_auth
-            Configuration.Default.AddApiKey("Content-Signature", "YOUR_API_KEY");
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Content-Signature", "Bearer");
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var body = new ApplicationCustomerSearch(); // ApplicationCustomerSearch | 
+            var applicationId = 56;  // int | 
+            var body = new CustomerProfileSearchQuery(); // CustomerProfileSearchQuery | 
+            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
+            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, `hasMore` will be true whenever there is a next page. `totalResultSize` will always be zero. With this flag set to false, `hasMore` will always be set to false. `totalResultSize` will contain the total number of results for this query.  (optional) 
 
             try
             {
-                // Get a list of the customer profiles that match the given attributes (with total count)
-                InlineResponse20013 result = apiInstance.GetApplicationCustomersByAttributes(body);
+                // List application customers matching the given attributes
+                InlineResponse20012 result = apiInstance.GetApplicationCustomersByAttributes(applicationId, body, pageSize, skip, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -2924,15 +2868,19 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
+ **applicationId** | **int**|  | 
+ **body** | [**CustomerProfileSearchQuery**](CustomerProfileSearchQuery.md)|  | 
+ **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
+ **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, &#x60;hasMore&#x60; will be true whenever there is a next page. &#x60;totalResultSize&#x60; will always be zero. With this flag set to false, &#x60;hasMore&#x60; will always be set to false. &#x60;totalResultSize&#x60; will contain the total number of results for this query.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20013**](InlineResponse20013.md)
+[**InlineResponse20012**](InlineResponse20012.md)
 
 ### Authorization
 
-[integration_auth](../README.md#integration_auth)
+[manager_auth](../README.md#manager_auth)
 
 ### HTTP request headers
 
@@ -2952,11 +2900,11 @@ Name | Type | Description  | Notes
 
 ## GetApplicationEventTypes
 
-> InlineResponse20019 GetApplicationEventTypes (int applicationId, int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20017 GetApplicationEventTypes (int applicationId, int? pageSize = null, int? skip = null, string sort = null)
 
-List Applications Event Types
+List Applications event types
 
-Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](/integration-api/reference/#trackEvent) 
+Get all of the distinct values of the Event `type` property for events recorded in the application.  See also: [Track an event](/integration-api/#operation/trackEvent) 
 
 ### Example
 
@@ -2987,8 +2935,8 @@ namespace Example
 
             try
             {
-                // List Applications Event Types
-                InlineResponse20019 result = apiInstance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
+                // List Applications event types
+                InlineResponse20017 result = apiInstance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3011,114 +2959,6 @@ Name | Type | Description  | Notes
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
-
-### Return type
-
-[**InlineResponse20019**](InlineResponse20019.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetApplicationEvents
-
-> InlineResponse20017 GetApplicationEvents (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
-
-List Applications Events (with total count)
-
-Lists all events recorded for an application. 
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetApplicationEventsExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var type = type_example;  // string | Comma-separated list of types by which to filter events. Must be exact match(es). (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var session = session_example;  // string | Session integration ID filter for events. Must be exact match. (optional) 
-            var profile = profile_example;  // string | Profile integration ID filter for events. Must be exact match. (optional) 
-            var customerName = customerName_example;  // string | Customer name filter for events. Will match substrings case-insensitively. (optional) 
-            var customerEmail = customerEmail_example;  // string | Customer e-mail address filter for events. Will match substrings case-insensitively. (optional) 
-            var couponCode = couponCode_example;  // string | Coupon code (optional) 
-            var referralCode = referralCode_example;  // string | Referral code (optional) 
-            var ruleQuery = ruleQuery_example;  // string | Rule name filter for events (optional) 
-            var campaignQuery = campaignQuery_example;  // string | Campaign name filter for events (optional) 
-
-            try
-            {
-                // List Applications Events (with total count)
-                InlineResponse20017 result = apiInstance.GetApplicationEvents(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetApplicationEvents: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
- **createdBefore** | **DateTime?**| Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **createdAfter** | **DateTime?**| Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **session** | **string**| Session integration ID filter for events. Must be exact match. | [optional] 
- **profile** | **string**| Profile integration ID filter for events. Must be exact match. | [optional] 
- **customerName** | **string**| Customer name filter for events. Will match substrings case-insensitively. | [optional] 
- **customerEmail** | **string**| Customer e-mail address filter for events. Will match substrings case-insensitively. | [optional] 
- **couponCode** | **string**| Coupon code | [optional] 
- **referralCode** | **string**| Referral code | [optional] 
- **ruleQuery** | **string**| Rule name filter for events | [optional] 
- **campaignQuery** | **string**| Campaign name filter for events | [optional] 
 
 ### Return type
 
@@ -3146,9 +2986,9 @@ Name | Type | Description  | Notes
 
 ## GetApplicationEventsWithoutTotalCount
 
-> InlineResponse20018 GetApplicationEventsWithoutTotalCount (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
+> InlineResponse20016 GetApplicationEventsWithoutTotalCount (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null)
 
-List Applications Events
+List Applications events
 
 Lists all events recorded for an application. Instead of having the total number of results in the response, this endpoint only if there are more results. 
 
@@ -3192,8 +3032,8 @@ namespace Example
 
             try
             {
-                // List Applications Events
-                InlineResponse20018 result = apiInstance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
+                // List Applications events
+                InlineResponse20016 result = apiInstance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3230,7 +3070,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20018**](InlineResponse20018.md)
+[**InlineResponse20016**](InlineResponse20016.md)
 
 ### Authorization
 
@@ -3256,7 +3096,9 @@ Name | Type | Description  | Notes
 
 > ApplicationSession GetApplicationSession (int applicationId, int sessionId)
 
-Get Application Session
+Get Application session
+
+Get the details of the given session. You can list the sessions with the [List application sessions](#operation/getApplicationSessions) endpoint. 
 
 ### Example
 
@@ -3285,7 +3127,7 @@ namespace Example
 
             try
             {
-                // Get Application Session
+                // Get Application session
                 ApplicationSession result = apiInstance.GetApplicationSession(applicationId, sessionId);
                 Debug.WriteLine(result);
             }
@@ -3334,9 +3176,11 @@ Name | Type | Description  | Notes
 
 ## GetApplicationSessions
 
-> InlineResponse20016 GetApplicationSessions (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string profile = null, string state = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string coupon = null, string referral = null, string integrationId = null)
+> InlineResponse20015 GetApplicationSessions (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string profile = null, string state = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string coupon = null, string referral = null, string integrationId = null)
 
-List Application Sessions
+List Application sessions
+
+List all the sessions of the specified Application. 
 
 ### Example
 
@@ -3374,8 +3218,8 @@ namespace Example
 
             try
             {
-                // List Application Sessions
-                InlineResponse20016 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
+                // List Application sessions
+                InlineResponse20015 result = apiInstance.GetApplicationSessions(applicationId, pageSize, skip, sort, profile, state, createdBefore, createdAfter, coupon, referral, integrationId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3408,7 +3252,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20016**](InlineResponse20016.md)
+[**InlineResponse20015**](InlineResponse20015.md)
 
 ### Authorization
 
@@ -3596,7 +3440,7 @@ Name | Type | Description  | Notes
 
 ## GetAttributes
 
-> InlineResponse20021 GetAttributes (int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20020 GetAttributes (int? pageSize = null, int? skip = null, string sort = null, string entity = null)
 
 List custom attributes
 
@@ -3627,11 +3471,12 @@ namespace Example
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
+            var entity = entity_example;  // string | Returned attributes will be filtered by supplied entity (optional) 
 
             try
             {
                 // List custom attributes
-                InlineResponse20021 result = apiInstance.GetAttributes(pageSize, skip, sort);
+                InlineResponse20020 result = apiInstance.GetAttributes(pageSize, skip, sort, entity);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3653,10 +3498,11 @@ Name | Type | Description  | Notes
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
+ **entity** | **string**| Returned attributes will be filtered by supplied entity | [optional] 
 
 ### Return type
 
-[**InlineResponse20021**](InlineResponse20021.md)
+[**InlineResponse20020**](InlineResponse20020.md)
 
 ### Authorization
 
@@ -3680,9 +3526,9 @@ Name | Type | Description  | Notes
 
 ## GetAudiences
 
-> InlineResponse20020 GetAudiences (int? pageSize = null, int? skip = null, string sort = null, bool? withTotalResultSize = null)
+> InlineResponse20018 GetAudiences (int? pageSize = null, int? skip = null, string sort = null, bool? withTotalResultSize = null)
 
-Get all audiences
+List audiences
 
 Get All audiences created in the account. 
 
@@ -3711,12 +3557,12 @@ namespace Example
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
             var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, `hasMore` will be true whenever there is a next page. `totalResultSize` will always be zero. With this flag set to false, `hasMore` will always be set to false. `totalResultSize` will contain the total number of results for this query.  (optional) 
 
             try
             {
-                // Get all audiences
-                InlineResponse20020 result = apiInstance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
+                // List audiences
+                InlineResponse20018 result = apiInstance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3738,11 +3584,11 @@ Name | Type | Description  | Notes
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
  **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, &#x60;hasMore&#x60; will be true whenever there is a next page. &#x60;totalResultSize&#x60; will always be zero. With this flag set to false, &#x60;hasMore&#x60; will always be set to false. &#x60;totalResultSize&#x60; will contain the total number of results for this query.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20020**](InlineResponse20020.md)
+[**InlineResponse20018**](InlineResponse20018.md)
 
 ### Authorization
 
@@ -3768,7 +3614,9 @@ Name | Type | Description  | Notes
 
 > Campaign GetCampaign (int applicationId, int campaignId)
 
-Get a Campaign
+Get campaign
+
+Retrieve the given campaign.
 
 ### Example
 
@@ -3797,7 +3645,7 @@ namespace Example
 
             try
             {
-                // Get a Campaign
+                // Get campaign
                 Campaign result = apiInstance.GetCampaign(applicationId, campaignId);
                 Debug.WriteLine(result);
             }
@@ -3846,9 +3694,11 @@ Name | Type | Description  | Notes
 
 ## GetCampaignAnalytics
 
-> InlineResponse20011 GetCampaignAnalytics (int applicationId, int campaignId, DateTime rangeStart, DateTime rangeEnd, string granularity = null)
+> InlineResponse20010 GetCampaignAnalytics (int applicationId, int campaignId, DateTime rangeStart, DateTime rangeEnd, string granularity = null)
 
 Get analytics of campaigns
+
+Retrieve statistical data about the performance of the given campaign.
 
 ### Example
 
@@ -3881,7 +3731,7 @@ namespace Example
             try
             {
                 // Get analytics of campaigns
-                InlineResponse20011 result = apiInstance.GetCampaignAnalytics(applicationId, campaignId, rangeStart, rangeEnd, granularity);
+                InlineResponse20010 result = apiInstance.GetCampaignAnalytics(applicationId, campaignId, rangeStart, rangeEnd, granularity);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -3908,7 +3758,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20011**](InlineResponse20011.md)
+[**InlineResponse20010**](InlineResponse20010.md)
 
 ### Authorization
 
@@ -3934,9 +3784,9 @@ Name | Type | Description  | Notes
 
 > InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int? pageSize = null, int? skip = null, string sort = null, string campaignState = null)
 
-Get a list of all campaigns that match the given attributes
+List campaigns that match the given attributes
 
-Gets a list of all the campaigns that exactly match a set of attributes. 
+Get a list of all the campaigns that match a set of attributes. 
 
 ### Example
 
@@ -3969,7 +3819,7 @@ namespace Example
 
             try
             {
-                // Get a list of all campaigns that match the given attributes
+                // List campaigns that match the given attributes
                 InlineResponse2002 result = apiInstance.GetCampaignByAttributes(applicationId, body, pageSize, skip, sort, campaignState);
                 Debug.WriteLine(result);
             }
@@ -4022,9 +3872,11 @@ Name | Type | Description  | Notes
 
 ## GetCampaigns
 
-> InlineResponse2002 GetCampaigns (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime? createdBefore = null, DateTime? createdAfter = null, int? campaignGroupId = null)
+> InlineResponse2002 GetCampaigns (int applicationId, int? pageSize = null, int? skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime? createdBefore = null, DateTime? createdAfter = null, int? campaignGroupId = null, int? templateId = null)
 
-List your Campaigns
+List campaigns
+
+List all the campaigns of the specified application.
 
 ### Example
 
@@ -4058,11 +3910,12 @@ namespace Example
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var campaignGroupId = 56;  // int? | Filter results to campaigns owned by the specified campaign group ID. (optional) 
+            var templateId = 56;  // int? | The ID of the Campaign Template this Campaign was created from. (optional) 
 
             try
             {
-                // List your Campaigns
-                InlineResponse2002 result = apiInstance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId);
+                // List campaigns
+                InlineResponse2002 result = apiInstance.GetCampaigns(applicationId, pageSize, skip, sort, campaignState, name, tags, createdBefore, createdAfter, campaignGroupId, templateId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -4091,6 +3944,7 @@ Name | Type | Description  | Notes
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **campaignGroupId** | **int?**| Filter results to campaigns owned by the specified campaign group ID. | [optional] 
+ **templateId** | **int?**| The ID of the Campaign Template this Campaign was created from. | [optional] 
 
 ### Return type
 
@@ -4118,7 +3972,7 @@ Name | Type | Description  | Notes
 
 ## GetChanges
 
-> InlineResponse20028 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, string entityPath = null, int? userId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
+> InlineResponse20027 GetChanges (int? pageSize = null, int? skip = null, string sort = null, int? applicationId = null, string entityPath = null, int? userId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, bool? includeOld = null)
 
 Get audit log for an account
 
@@ -4154,13 +4008,13 @@ namespace Example
             var userId = 56;  // int? |  (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, `hasMore` will be true whenever there is a next page. `totalResultSize` will always be zero. With this flag set to false, `hasMore` will always be set to false. `totalResultSize` will contain the total number of results for this query.  (optional) 
             var includeOld = true;  // bool? | When this flag is set to false, the state without the change will not be returned. The default value is true. (optional) 
 
             try
             {
                 // Get audit log for an account
-                InlineResponse20028 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, includeOld);
+                InlineResponse20027 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, includeOld);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -4187,124 +4041,12 @@ Name | Type | Description  | Notes
  **userId** | **int?**|  | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the change creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, hasMore will be be true whenever there is a next page. totalResultSize will always be zero. With this flag set to false, hasMore will always be set to false. totalResultSize will contain the total number of results for this query.  | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result will include the total size of the result, across all pages. This might decrease performance on large data sets. With this flag set to true, &#x60;hasMore&#x60; will be true whenever there is a next page. &#x60;totalResultSize&#x60; will always be zero. With this flag set to false, &#x60;hasMore&#x60; will always be set to false. &#x60;totalResultSize&#x60; will contain the total number of results for this query.  | [optional] 
  **includeOld** | **bool?**| When this flag is set to false, the state without the change will not be returned. The default value is true. | [optional] 
 
 ### Return type
 
-[**InlineResponse20028**](InlineResponse20028.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## GetCoupons
-
-> InlineResponse2004 GetCoupons (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startsAfter = null, DateTime? startsBefore = null, DateTime? expiresAfter = null, DateTime? expiresBefore = null, string valid = null, string batchId = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null)
-
-List Coupons (with total count)
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetCouponsExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-            var campaignId = 56;  // int | 
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var startsAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var startsBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var expiresAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var expiresBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
-            var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
-            var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
-            var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
-            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
-
-            try
-            {
-                // List Coupons (with total count)
-                InlineResponse2004 result = apiInstance.GetCoupons(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, startsAfter, startsBefore, expiresAfter, expiresBefore, valid, batchId, usable, referralId, recipientIntegrationId, exactMatch);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetCoupons: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
- **campaignId** | **int**|  | 
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **startsAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **startsBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **expiresAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **expiresBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
- **batchId** | **string**| Filter results by batches of coupons | [optional] 
- **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
- **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
-
-### Return type
-
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse20027**](InlineResponse20027.md)
 
 ### Authorization
 
@@ -4330,9 +4072,9 @@ Name | Type | Description  | Notes
 
 > InlineResponse2004 GetCouponsByAttributes (int applicationId, int campaignId, CouponSearch body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
 
-Get a list of the coupons that match the given attributes
+List coupons that match the given attributes
 
-Gets a list of all the coupons that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request. 
+Get a list of all the coupons that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request. 
 
 ### Example
 
@@ -4374,7 +4116,7 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes
+                // List coupons that match the given attributes
                 InlineResponse2004 result = apiInstance.GetCouponsByAttributes(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
                 Debug.WriteLine(result);
             }
@@ -4434,119 +4176,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetCouponsByAttributesApplicationWide
-
-> InlineResponse2004 GetCouponsByAttributesApplicationWide (int applicationId, CouponSearch body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
-
-Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-
-Gets a list of all the coupons with attributes matching the query criteria Application wide 
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetCouponsByAttributesApplicationWideExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-            var body = new CouponSearch(); // CouponSearch | 
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
-            var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
-            var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
-            var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
-            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
-            var campaignState = campaignState_example;  // string | Filter results by the state of the campaign. (optional) 
-
-            try
-            {
-                // Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-                InlineResponse2004 result = apiInstance.GetCouponsByAttributesApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetCouponsByAttributesApplicationWide: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
- **body** | [**CouponSearch**](CouponSearch.md)|  | 
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
- **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
- **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **batchId** | **string**| Filter results by batches of coupons | [optional] 
- **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **campaignState** | **string**| Filter results by the state of the campaign. | [optional] 
-
-### Return type
-
-[**InlineResponse2004**](InlineResponse2004.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetCouponsWithoutTotalCount
 
 > InlineResponse2005 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null)
 
-List Coupons
+List coupons
+
+List all the coupons matching the specified criteria. 
 
 ### Example
 
@@ -4587,7 +4223,7 @@ namespace Example
 
             try
             {
-                // List Coupons
+                // List coupons
                 InlineResponse2005 result = apiInstance.GetCouponsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch);
                 Debug.WriteLine(result);
             }
@@ -4650,9 +4286,9 @@ Name | Type | Description  | Notes
 
 > CustomerActivityReport GetCustomerActivityReport (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = null, int? skip = null)
 
-Get Activity Report for Single Customer
+Get customer's activity report
 
-Fetch summary report for single application customer based on a time range
+Fetch the summary report of a given customer in the given application, in a time range.
 
 ### Example
 
@@ -4685,7 +4321,7 @@ namespace Example
 
             try
             {
-                // Get Activity Report for Single Customer
+                // Get customer's activity report
                 CustomerActivityReport result = apiInstance.GetCustomerActivityReport(rangeStart, rangeEnd, applicationId, customerId, pageSize, skip);
                 Debug.WriteLine(result);
             }
@@ -4736,13 +4372,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetCustomerActivityReports
+## GetCustomerActivityReportsWithoutTotalCount
 
-> InlineResponse20014 GetCustomerActivityReports (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = null, int? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
+> InlineResponse20014 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = null, int? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
 
-Get Activity Reports for Application Customers (with total count)
+Get Activity Reports for Application Customers
 
-Fetch summary reports for all application customers based on a time range
+Fetch summary reports for all application customers based on a time range. Instead of having the total number of results in the response, this endpoint only if there are more results.
 
 ### Example
 
@@ -4755,7 +4391,7 @@ using TalonOne.Model;
 
 namespace Example
 {
-    public class GetCustomerActivityReportsExample
+    public class GetCustomerActivityReportsWithoutTotalCountExample
     {
         public static void Main()
         {
@@ -4779,13 +4415,13 @@ namespace Example
 
             try
             {
-                // Get Activity Reports for Application Customers (with total count)
-                InlineResponse20014 result = apiInstance.GetCustomerActivityReports(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
+                // Get Activity Reports for Application Customers
+                InlineResponse20014 result = apiInstance.GetCustomerActivityReportsWithoutTotalCount(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ManagementApi.GetCustomerActivityReports: " + e.Message );
+                Debug.Print("Exception when calling ManagementApi.GetCustomerActivityReportsWithoutTotalCount: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -4834,111 +4470,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetCustomerActivityReportsWithoutTotalCount
-
-> InlineResponse20015 GetCustomerActivityReportsWithoutTotalCount (DateTime rangeStart, DateTime rangeEnd, int applicationId, int? pageSize = null, int? skip = null, string sort = null, string name = null, string integrationId = null, string campaignName = null, string advocateName = null)
-
-Get Activity Reports for Application Customers
-
-Fetch summary reports for all application customers based on a time range. Instead of having the total number of results in the response, this endpoint only if there are more results.
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetCustomerActivityReportsWithoutTotalCountExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var rangeStart = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from after this timestamp, must be an RFC3339 timestamp string
-            var rangeEnd = 2013-10-20T19:20:30+01:00;  // DateTime | Only return results from before this timestamp, must be an RFC3339 timestamp string
-            var applicationId = 56;  // int | 
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var name = name_example;  // string | Only return reports matching the customer name (optional) 
-            var integrationId = integrationId_example;  // string | Only return reports matching the integrationId (optional) 
-            var campaignName = campaignName_example;  // string | Only return reports matching the campaignName (optional) 
-            var advocateName = advocateName_example;  // string | Only return reports matching the current customer referrer name (optional) 
-
-            try
-            {
-                // Get Activity Reports for Application Customers
-                InlineResponse20015 result = apiInstance.GetCustomerActivityReportsWithoutTotalCount(rangeStart, rangeEnd, applicationId, pageSize, skip, sort, name, integrationId, campaignName, advocateName);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetCustomerActivityReportsWithoutTotalCount: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **rangeStart** | **DateTime**| Only return results from after this timestamp, must be an RFC3339 timestamp string | 
- **rangeEnd** | **DateTime**| Only return results from before this timestamp, must be an RFC3339 timestamp string | 
- **applicationId** | **int**|  | 
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **name** | **string**| Only return reports matching the customer name | [optional] 
- **integrationId** | **string**| Only return reports matching the integrationId | [optional] 
- **campaignName** | **string**| Only return reports matching the campaignName | [optional] 
- **advocateName** | **string**| Only return reports matching the current customer referrer name | [optional] 
-
-### Return type
-
-[**InlineResponse20015**](InlineResponse20015.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetCustomerAnalytics
 
 > CustomerAnalytics GetCustomerAnalytics (int applicationId, int customerId, int? pageSize = null, int? skip = null, string sort = null)
 
-Get Analytics Report for a Customer
+Get customer's analytics report
 
-Fetch analytics for single application customer
+Fetch analytics for a given customer in the given application.
 
 ### Example
 
@@ -4970,7 +4508,7 @@ namespace Example
 
             try
             {
-                // Get Analytics Report for a Customer
+                // Get customer's analytics report
                 CustomerAnalytics result = apiInstance.GetCustomerAnalytics(applicationId, customerId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
@@ -5022,9 +4560,11 @@ Name | Type | Description  | Notes
 
 ## GetCustomerProfile
 
-> ApplicationCustomer GetCustomerProfile (int customerId)
+> CustomerProfile GetCustomerProfile (int customerId)
 
-Get Customer Profile
+Get customer profile
+
+Return the details of the specified customer profile.  **Performance tip:** You can retrieve the same information via the Integration API, which can save you extra API requests. Consider these options: - Request the customer profile to be part of the response content using   [Update Customer Session](/integration-api/operation#updateCustomerSessionV2). - Send an empty update with the [Update Customer Profile](/integration-api/#operation/updateCustomerProfileV2) endpoint with `runRuleEngine=false`. 
 
 ### Example
 
@@ -5052,8 +4592,8 @@ namespace Example
 
             try
             {
-                // Get Customer Profile
-                ApplicationCustomer result = apiInstance.GetCustomerProfile(customerId);
+                // Get customer profile
+                CustomerProfile result = apiInstance.GetCustomerProfile(customerId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5076,7 +4616,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ApplicationCustomer**](ApplicationCustomer.md)
+[**CustomerProfile**](CustomerProfile.md)
 
 ### Authorization
 
@@ -5102,7 +4642,9 @@ Name | Type | Description  | Notes
 
 > InlineResponse20013 GetCustomerProfiles (int? pageSize = null, int? skip = null)
 
-List Customer Profiles
+List customer profiles
+
+List all customer profiles.
 
 ### Example
 
@@ -5131,7 +4673,7 @@ namespace Example
 
             try
             {
-                // List Customer Profiles
+                // List customer profiles
                 InlineResponse20013 result = apiInstance.GetCustomerProfiles(pageSize, skip);
                 Debug.WriteLine(result);
             }
@@ -5180,11 +4722,11 @@ Name | Type | Description  | Notes
 
 ## GetCustomersByAttributes
 
-> InlineResponse20013 GetCustomersByAttributes (ApplicationCustomerSearch body, int? pageSize = null, int? skip = null)
+> InlineResponse20013 GetCustomersByAttributes (CustomerProfileSearchQuery body, int? pageSize = null, int? skip = null)
 
-Get a list of the customer profiles that match the given attributes
+List customer profiles matching the given attributes
 
-Gets a list of all the customer profiles for the account that exactly match a set of attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request.  [Customer Profile]: https://help.talon.one/hc/en-us/articles/360005130739-Data-Model#CustomerProfile 
+Get a list of the customer profiles matching the provided criteria.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request. 
 
 ### Example
 
@@ -5208,13 +4750,13 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var body = new ApplicationCustomerSearch(); // ApplicationCustomerSearch | 
+            var body = new CustomerProfileSearchQuery(); // CustomerProfileSearchQuery | 
             var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
             var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
 
             try
             {
-                // Get a list of the customer profiles that match the given attributes
+                // List customer profiles matching the given attributes
                 InlineResponse20013 result = apiInstance.GetCustomersByAttributes(body, pageSize, skip);
                 Debug.WriteLine(result);
             }
@@ -5234,7 +4776,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**ApplicationCustomerSearch**](ApplicationCustomerSearch.md)|  | 
+ **body** | [**CustomerProfileSearchQuery**](CustomerProfileSearchQuery.md)|  | 
  **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
  **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
 
@@ -5264,11 +4806,11 @@ Name | Type | Description  | Notes
 
 ## GetEventTypes
 
-> InlineResponse20026 GetEventTypes (string applicationIds = null, string name = null, bool? includeOldVersions = null, int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20025 GetEventTypes (string applicationIds = null, string name = null, bool? includeOldVersions = null, int? pageSize = null, int? skip = null, string sort = null)
 
 List Event Types
 
-Fetch all event type definitions for your account. Each event type can be 
+Fetch all event type definitions for your account. 
 
 ### Example
 
@@ -5302,7 +4844,7 @@ namespace Example
             try
             {
                 // List Event Types
-                InlineResponse20026 result = apiInstance.GetEventTypes(applicationIds, name, includeOldVersions, pageSize, skip, sort);
+                InlineResponse20025 result = apiInstance.GetEventTypes(applicationIds, name, includeOldVersions, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5330,7 +4872,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20026**](InlineResponse20026.md)
+[**InlineResponse20025**](InlineResponse20025.md)
 
 ### Authorization
 
@@ -5354,11 +4896,11 @@ Name | Type | Description  | Notes
 
 ## GetExports
 
-> InlineResponse20029 GetExports (int? pageSize = null, int? skip = null, int? applicationId = null, int? campaignId = null, string entity = null)
+> InlineResponse20028 GetExports (int? pageSize = null, int? skip = null, int? applicationId = null, int? campaignId = null, string entity = null)
 
 Get Exports
 
-Get a list of all past exports 
+List all past exports 
 
 ### Example
 
@@ -5391,7 +4933,7 @@ namespace Example
             try
             {
                 // Get Exports
-                InlineResponse20029 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
+                InlineResponse20028 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5418,7 +4960,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20029**](InlineResponse20029.md)
+[**InlineResponse20028**](InlineResponse20028.md)
 
 ### Authorization
 
@@ -5444,9 +4986,9 @@ Name | Type | Description  | Notes
 
 > LoyaltyLedger GetLoyaltyPoints (string programID, string integrationID)
 
-get the Loyalty Ledger for this integrationID
+Get the Loyalty Ledger for this integrationID
 
-Get the Loyalty Ledger for this profile integration ID.
+Get the loyalty ledger for this profile integration ID.  To get the `integrationId` of the profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
 
 ### Example
 
@@ -5475,7 +5017,7 @@ namespace Example
 
             try
             {
-                // get the Loyalty Ledger for this integrationID
+                // Get the Loyalty Ledger for this integrationID
                 LoyaltyLedger result = apiInstance.GetLoyaltyPoints(programID, integrationID);
                 Debug.WriteLine(result);
             }
@@ -5524,9 +5066,11 @@ Name | Type | Description  | Notes
 
 ## GetLoyaltyProgram
 
-> LoyaltyProgram GetLoyaltyProgram (string programID)
+> LoyaltyProgram GetLoyaltyProgram (int programID)
 
-Get a loyalty program
+Get loyalty program
+
+Get the specified [loyalty program](https://www.talon.one/glossary/loyalty). To list all loyalty programs, use [List loyalty programs](#operation/getLoyaltyPrograms). 
 
 ### Example
 
@@ -5550,11 +5094,11 @@ namespace Example
             // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(Configuration.Default);
-            var programID = programID_example;  // string | 
+            var programID = 56;  // int | 
 
             try
             {
-                // Get a loyalty program
+                // Get loyalty program
                 LoyaltyProgram result = apiInstance.GetLoyaltyProgram(programID);
                 Debug.WriteLine(result);
             }
@@ -5574,7 +5118,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **programID** | **string**|  | 
+ **programID** | **int**|  | 
 
 ### Return type
 
@@ -5602,9 +5146,11 @@ Name | Type | Description  | Notes
 
 ## GetLoyaltyPrograms
 
-> InlineResponse2008 GetLoyaltyPrograms ()
+> InlineResponse2007 GetLoyaltyPrograms ()
 
-List all loyalty Programs
+List loyalty programs
+
+List the loyalty programs of the account.
 
 ### Example
 
@@ -5631,8 +5177,8 @@ namespace Example
 
             try
             {
-                // List all loyalty Programs
-                InlineResponse2008 result = apiInstance.GetLoyaltyPrograms();
+                // List loyalty programs
+                InlineResponse2007 result = apiInstance.GetLoyaltyPrograms();
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -5652,7 +5198,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse2008**](InlineResponse2008.md)
+[**InlineResponse2007**](InlineResponse2007.md)
 
 ### Authorization
 
@@ -5679,6 +5225,8 @@ This endpoint does not need any parameter.
 > LoyaltyStatistics GetLoyaltyStatistics (string programID)
 
 Get loyalty program statistics by loyalty program ID
+
+Retrieve the statistics of the specified loyalty program such as the total active points, pending points, spent points and expired points. 
 
 ### Example
 
@@ -5752,11 +5300,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetReferrals
+## GetReferralsWithoutTotalCount
 
-> InlineResponse2006 GetReferrals (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
+> InlineResponse2006 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
 
-List Referrals (with total count)
+List referrals
+
+List all referrals of the specified campaign.
 
 ### Example
 
@@ -5769,7 +5319,7 @@ using TalonOne.Model;
 
 namespace Example
 {
-    public class GetReferralsExample
+    public class GetReferralsWithoutTotalCountExample
     {
         public static void Main()
         {
@@ -5794,13 +5344,13 @@ namespace Example
 
             try
             {
-                // List Referrals (with total count)
-                InlineResponse2006 result = apiInstance.GetReferrals(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
+                // List referrals
+                InlineResponse2006 result = apiInstance.GetReferralsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling ManagementApi.GetReferrals: " + e.Message );
+                Debug.Print("Exception when calling ManagementApi.GetReferralsWithoutTotalCount: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -5850,109 +5400,13 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## GetReferralsWithoutTotalCount
-
-> InlineResponse2007 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
-
-List Referrals
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetReferralsWithoutTotalCountExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-            var campaignId = 56;  // int | 
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var code = code_example;  // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional) 
-            var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only referrals where `usageCounter < usageLimit` will be returned, \"false\" will return only referrals where `usageCounter >= usageLimit`.  (optional) 
-            var advocate = advocate_example;  // string | Filter results by match with a profile id specified in the referral's AdvocateProfileIntegrationId field (optional) 
-
-            try
-            {
-                // List Referrals
-                InlineResponse2007 result = apiInstance.GetReferralsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, code, createdBefore, createdAfter, valid, usable, advocate);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetReferralsWithoutTotalCount: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
- **campaignId** | **int**|  | 
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  | [optional] 
- **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **advocate** | **string**| Filter results by match with a profile id specified in the referral&#39;s AdvocateProfileIntegrationId field | [optional] 
-
-### Return type
-
-[**InlineResponse2007**](InlineResponse2007.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## GetRole
 
 > Role GetRole (int roleId)
 
-Get information for the specified role
+Get role
+
+Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
 
 ### Example
 
@@ -5980,7 +5434,7 @@ namespace Example
 
             try
             {
-                // Get information for the specified role
+                // Get role
                 Role result = apiInstance.GetRole(roleId);
                 Debug.WriteLine(result);
             }
@@ -6030,7 +5484,9 @@ Name | Type | Description  | Notes
 
 > Ruleset GetRuleset (int applicationId, int campaignId, int rulesetId)
 
-Get a Ruleset
+Get ruleset
+
+Retrieve the specified ruleset.
 
 ### Example
 
@@ -6060,7 +5516,7 @@ namespace Example
 
             try
             {
-                // Get a Ruleset
+                // Get ruleset
                 Ruleset result = apiInstance.GetRuleset(applicationId, campaignId, rulesetId);
                 Debug.WriteLine(result);
             }
@@ -6112,7 +5568,9 @@ Name | Type | Description  | Notes
 
 > InlineResponse2003 GetRulesets (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null)
 
-List Campaign Rulesets
+List campaign rulesets
+
+List all rulesets of this campaign. A ruleset is a revision of the rules of a campaign. **Important:** The response also includes deleted rules. You should only consider the latest revision of the returned rulesets. 
 
 ### Example
 
@@ -6144,7 +5602,7 @@ namespace Example
 
             try
             {
-                // List Campaign Rulesets
+                // List campaign rulesets
                 InlineResponse2003 result = apiInstance.GetRulesets(applicationId, campaignId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
@@ -6198,7 +5656,7 @@ Name | Type | Description  | Notes
 
 > User GetUser (int userId)
 
-Get a single User
+Get a single user
 
 Retrieves the data (including an invitation code) for a user. Non-admin users can only get themselves. 
 
@@ -6228,7 +5686,7 @@ namespace Example
 
             try
             {
-                // Get a single User
+                // Get a single user
                 User result = apiInstance.GetUser(userId);
                 Debug.WriteLine(result);
             }
@@ -6276,9 +5734,9 @@ Name | Type | Description  | Notes
 
 ## GetUsers
 
-> InlineResponse20027 GetUsers (int? pageSize = null, int? skip = null, string sort = null)
+> InlineResponse20026 GetUsers (int? pageSize = null, int? skip = null, string sort = null)
 
-List Users in your account
+List users in account
 
 Retrieve all users in your account. 
 
@@ -6310,8 +5768,8 @@ namespace Example
 
             try
             {
-                // List Users in your account
-                InlineResponse20027 result = apiInstance.GetUsers(pageSize, skip, sort);
+                // List users in account
+                InlineResponse20026 result = apiInstance.GetUsers(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6336,7 +5794,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20027**](InlineResponse20027.md)
+[**InlineResponse20026**](InlineResponse20026.md)
 
 ### Authorization
 
@@ -6440,9 +5898,9 @@ Name | Type | Description  | Notes
 
 ## GetWebhookActivationLogs
 
-> InlineResponse20024 GetWebhookActivationLogs (int? pageSize = null, int? skip = null, string sort = null, string integrationRequestUuid = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
+> InlineResponse20023 GetWebhookActivationLogs (int? pageSize = null, int? skip = null, string sort = null, string integrationRequestUuid = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
 
-List Webhook activation Log Entries
+List webhook activation log entries
 
 Webhook activation log entries would be created as soon as an integration request triggered an effect with a webhook
 
@@ -6480,8 +5938,8 @@ namespace Example
 
             try
             {
-                // List Webhook activation Log Entries
-                InlineResponse20024 result = apiInstance.GetWebhookActivationLogs(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
+                // List webhook activation log entries
+                InlineResponse20023 result = apiInstance.GetWebhookActivationLogs(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6512,7 +5970,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20024**](InlineResponse20024.md)
+[**InlineResponse20023**](InlineResponse20023.md)
 
 ### Authorization
 
@@ -6536,9 +5994,11 @@ Name | Type | Description  | Notes
 
 ## GetWebhookLogs
 
-> InlineResponse20025 GetWebhookLogs (int? pageSize = null, int? skip = null, string sort = null, string status = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, string requestUuid = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
+> InlineResponse20024 GetWebhookLogs (int? pageSize = null, int? skip = null, string sort = null, string status = null, decimal? webhookId = null, decimal? applicationId = null, decimal? campaignId = null, string requestUuid = null, DateTime? createdBefore = null, DateTime? createdAfter = null)
 
-List Webhook Log Entries
+List webhook log entries
+
+Retrieve all webhook log entries.
 
 ### Example
 
@@ -6575,8 +6035,8 @@ namespace Example
 
             try
             {
-                // List Webhook Log Entries
-                InlineResponse20025 result = apiInstance.GetWebhookLogs(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
+                // List webhook log entries
+                InlineResponse20024 result = apiInstance.GetWebhookLogs(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6608,7 +6068,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20025**](InlineResponse20025.md)
+[**InlineResponse20024**](InlineResponse20024.md)
 
 ### Authorization
 
@@ -6632,9 +6092,11 @@ Name | Type | Description  | Notes
 
 ## GetWebhooks
 
-> InlineResponse20023 GetWebhooks (string applicationIds = null, string sort = null, int? pageSize = null, int? skip = null)
+> InlineResponse20022 GetWebhooks (string applicationIds = null, string sort = null, int? pageSize = null, int? skip = null)
 
-List Webhooks
+List webhooks
+
+List all webhooks.
 
 ### Example
 
@@ -6665,8 +6127,8 @@ namespace Example
 
             try
             {
-                // List Webhooks
-                InlineResponse20023 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip);
+                // List webhooks
+                InlineResponse20022 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -6692,7 +6154,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20023**](InlineResponse20023.md)
+[**InlineResponse20022**](InlineResponse20022.md)
 
 ### Authorization
 
@@ -6714,11 +6176,345 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ImportCoupons
+
+> Import ImportCoupons (int applicationId, int campaignId, string upFile = null)
+
+Import coupons via CSV file
+
+Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file can contain the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `limitval`: The maximum amount of redemptions of this code. Defaults to `1` when not provided. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called `category`, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use thhe timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  ``` \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\" ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#operation/getReservedCustomers). 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ImportCouponsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var applicationId = 56;  // int | 
+            var campaignId = 56;  // int | 
+            var upFile = upFile_example;  // string | The file with the information about the data that should be imported. (optional) 
+
+            try
+            {
+                // Import coupons via CSV file
+                Import result = apiInstance.ImportCoupons(applicationId, campaignId, upFile);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ImportCoupons: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  | 
+ **campaignId** | **int**|  | 
+ **upFile** | **string**| The file with the information about the data that should be imported. | [optional] 
+
+### Return type
+
+[**Import**](Import.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImportLoyaltyPoints
+
+> Import ImportLoyaltyPoints (int programID, string upFile = null)
+
+Import loyalty points via CSV file
+
+Upload a CSV file containing the [loyalty](https://www.talon.one/glossary/loyalty) points that should be created. The file should be sent as multipart data.\" 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ImportLoyaltyPointsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var programID = 56;  // int | 
+            var upFile = upFile_example;  // string | The file with the information about the data that should be imported. (optional) 
+
+            try
+            {
+                // Import loyalty points via CSV file
+                Import result = apiInstance.ImportLoyaltyPoints(programID, upFile);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ImportLoyaltyPoints: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **programID** | **int**|  | 
+ **upFile** | **string**| The file with the information about the data that should be imported. | [optional] 
+
+### Return type
+
+[**Import**](Import.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImportPoolGiveaways
+
+> Import ImportPoolGiveaways (int poolId, string upFile = null)
+
+Import giveaway codes into a giveaway pool
+
+Upload a CSV file containing the giveaway codes that should be created. Send the file as multipart data.  The CSV file can contain the following columns: - `code` (required): the code of your giveaway, for instance, a gift card redemption code. - `startdate`:  the start date in RFC3339 of the code redemption period. - `enddate`: the last date in RFC3339 of the code redemption period. - `attributes`: A json object describing _custom_ giveaway attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called `provider`, set it with `\"{\"\"provider\"\": \"\"myPartnerCompany\"\"}\"`.  The `startdate` and `enddate` have nothing to do with the _validity_ of the codes. They are only used by the Rule Engine to award the codes or not. You can use the timezone of your choice. It is converted to UTC internally by Talon.One. 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ImportPoolGiveawaysExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var poolId = 56;  // int | 
+            var upFile = upFile_example;  // string | The file with the information about the data that should be imported. (optional) 
+
+            try
+            {
+                // Import giveaway codes into a giveaway pool
+                Import result = apiInstance.ImportPoolGiveaways(poolId, upFile);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ImportPoolGiveaways: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **poolId** | **int**|  | 
+ **upFile** | **string**| The file with the information about the data that should be imported. | [optional] 
+
+### Return type
+
+[**Import**](Import.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ImportReferrals
+
+> Import ImportReferrals (int applicationId, int campaignId, string upFile = null)
+
+Import referrals via CSV file
+
+Upload a CSV file containing the referrals that should be created. The file should be sent as multipart data.  The CSV file can contain the following columns:  - `code` (required): The referral code. - `advocateprofileintegrationid` (required): The profile ID of the advocate. - `startdate`: The start date in RFC3339 of the code redemption period. - `expirydate`: The end date in RFC3339 of the code redemption period. - `limitval`: The maximum amount of redemptions of this code. Unlimited (0) when blank. - `attributes`: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called `category`, set it with `\"{\"\"category\"\": \"\"10_off\"\"}\"`.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One. 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ImportReferralsExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var applicationId = 56;  // int | 
+            var campaignId = 56;  // int | 
+            var upFile = upFile_example;  // string | The file with the information about the data that should be imported. (optional) 
+
+            try
+            {
+                // Import referrals via CSV file
+                Import result = apiInstance.ImportReferrals(applicationId, campaignId, upFile);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ImportReferrals: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  | 
+ **campaignId** | **int**|  | 
+ **upFile** | **string**| The file with the information about the data that should be imported. | [optional] 
+
+### Return type
+
+[**Import**](Import.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## RemoveLoyaltyPoints
 
 > void RemoveLoyaltyPoints (string programID, string integrationID, LoyaltyPoints body)
 
-Deduct points in a certain loyalty program for the specified customer
+Deduct points in loyalty program for given customer
+
+Remove points from the specified loyalty program and specified customer profile.  To get the `integrationId` of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
 
 ### Example
 
@@ -6748,7 +6544,7 @@ namespace Example
 
             try
             {
-                // Deduct points in a certain loyalty program for the specified customer
+                // Deduct points in loyalty program for given customer
                 apiInstance.RemoveLoyaltyPoints(programID, integrationID, body);
             }
             catch (ApiException e)
@@ -6875,227 +6671,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## SearchCouponsAdvanced
-
-> InlineResponse2004 SearchCouponsAdvanced (int applicationId, int campaignId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
-
-Get a list of the coupons that match the given attributes (with total count)
-
-Gets a list of all the coupons with attributes matching the query criteria 
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class SearchCouponsAdvancedExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-            var campaignId = 56;  // int | 
-            var body = ;  // Object | 
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
-            var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
-            var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
-            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
-            var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
-
-            try
-            {
-                // Get a list of the coupons that match the given attributes (with total count)
-                InlineResponse2004 result = apiInstance.SearchCouponsAdvanced(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.SearchCouponsAdvanced: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
- **campaignId** | **int**|  | 
- **body** | **Object**|  | 
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
- **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
- **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **batchId** | **string**| Filter results by batches of coupons | [optional] 
-
-### Return type
-
-[**InlineResponse2004**](InlineResponse2004.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
-## SearchCouponsAdvancedApplicationWide
-
-> InlineResponse2004 SearchCouponsAdvancedApplicationWide (int applicationId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
-
-Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-
-Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class SearchCouponsAdvancedApplicationWideExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "http://localhost";
-            // Configure API key authorization: manager_auth
-            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(Configuration.Default);
-            var applicationId = 56;  // int | 
-            var body = ;  // Object | 
-            var pageSize = 56;  // int? | The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional) 
-            var skip = 56;  // int? | Skips the given number of items when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with `-` to sort in descending order. (optional) 
-            var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
-            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional) 
-            var valid = valid_example;  // string | Either \"expired\", \"validNow\", or \"validFuture\". The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional) 
-            var usable = usable_example;  // string | Either \"true\" or \"false\". If \"true\", only coupons where `usageCounter < usageLimit` will be returned, \"false\" will return only coupons where `usageCounter >= usageLimit`.  (optional) 
-            var referralId = 56;  // int? | Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. (optional) 
-            var recipientIntegrationId = recipientIntegrationId_example;  // string | Filter results by match with a profile id specified in the coupon's RecipientIntegrationId field (optional) 
-            var batchId = batchId_example;  // string | Filter results by batches of coupons (optional) 
-            var exactMatch = true;  // bool? | Filter results to an exact case-insensitive matching against the coupon code (optional)  (default to false)
-            var campaignState = campaignState_example;  // string | Filter results by the state of the campaign. (optional) 
-
-            try
-            {
-                // Get a list of the coupons that match the given attributes in all active campaigns of an application (with total count)
-                InlineResponse2004 result = apiInstance.SearchCouponsAdvancedApplicationWide(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling ManagementApi.SearchCouponsAdvancedApplicationWide: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**|  | 
- **body** | **Object**|  | 
- **pageSize** | **int?**| The number of items to include in this response. When omitted, the maximum value of 1000 will be used. | [optional] 
- **skip** | **int?**| Skips the given number of items when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. | [optional] 
- **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
- **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. | [optional] 
- **valid** | **string**| Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiry date is set and in the past. The second matches coupons in which start date is null or in the past and expiry date is null or in the future, the third matches coupons in which start date is set and in the future.  | [optional] 
- **usable** | **string**| Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  | [optional] 
- **referralId** | **int?**| Filter the results by matching them with the Id of a referral, that meaning the coupons that had been created as an effect of the usage of a referral code. | [optional] 
- **recipientIntegrationId** | **string**| Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field | [optional] 
- **batchId** | **string**| Filter results by batches of coupons | [optional] 
- **exactMatch** | **bool?**| Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
- **campaignState** | **string**| Filter results by the state of the campaign. | [optional] 
-
-### Return type
-
-[**InlineResponse2004**](InlineResponse2004.md)
-
-### Authorization
-
-[manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## SearchCouponsAdvancedApplicationWideWithoutTotalCount
 
 > InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string campaignState = null)
 
-Get a list of the coupons that match the given attributes in all active campaigns of an application
+List coupons that match the given attributes in all active campaigns of an application
 
 Gets a list of all the coupons with attributes matching the query criteria in all active campaigns of an application 
 
@@ -7139,7 +6719,7 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes in all active campaigns of an application
+                // List coupons that match the given attributes in all active campaigns of an application
                 InlineResponse2005 result = apiInstance.SearchCouponsAdvancedApplicationWideWithoutTotalCount(applicationId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, campaignState);
                 Debug.WriteLine(result);
             }
@@ -7203,7 +6783,7 @@ Name | Type | Description  | Notes
 
 > InlineResponse2005 SearchCouponsAdvancedWithoutTotalCount (int applicationId, int campaignId, Object body, int? pageSize = null, int? skip = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, int? referralId = null, string recipientIntegrationId = null, bool? exactMatch = null, string batchId = null)
 
-Get a list of the coupons that match the given attributes
+List coupons that match the given attributes
 
 Gets a list of all the coupons with attributes matching the query criteria 
 
@@ -7247,7 +6827,7 @@ namespace Example
 
             try
             {
-                // Get a list of the coupons that match the given attributes
+                // List coupons that match the given attributes
                 InlineResponse2005 result = apiInstance.SearchCouponsAdvancedWithoutTotalCount(applicationId, campaignId, body, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, exactMatch, batchId);
                 Debug.WriteLine(result);
             }
@@ -7475,7 +7055,9 @@ Name | Type | Description  | Notes
 
 > Campaign UpdateCampaign (int applicationId, int campaignId, UpdateCampaign body)
 
-Update a Campaign
+Update campaign
+
+Update the given campaign.
 
 ### Example
 
@@ -7505,7 +7087,7 @@ namespace Example
 
             try
             {
-                // Update a Campaign
+                // Update campaign
                 Campaign result = apiInstance.UpdateCampaign(applicationId, campaignId, body);
                 Debug.WriteLine(result);
             }
@@ -7557,7 +7139,9 @@ Name | Type | Description  | Notes
 
 > Coupon UpdateCoupon (int applicationId, int campaignId, string couponId, UpdateCoupon body)
 
-Update a Coupon
+Update coupon
+
+Update the specified coupon.
 
 ### Example
 
@@ -7588,7 +7172,7 @@ namespace Example
 
             try
             {
-                // Update a Coupon
+                // Update coupon
                 Coupon result = apiInstance.UpdateCoupon(applicationId, campaignId, couponId, body);
                 Debug.WriteLine(result);
             }
@@ -7641,7 +7225,9 @@ Name | Type | Description  | Notes
 
 > void UpdateCouponBatch (int applicationId, int campaignId, UpdateCouponBatch body)
 
-Update a Batch of Coupons
+Update a batch of coupons
+
+Update a batch of coupons. You can find the `batchId` in the **Coupons** view of your Application in the Campaign Manager or by using [List coupons](#operation/getCouponsWithoutTotalCount).  To update a specific coupon, use [Update coupon](#operation/updateCoupon). 
 
 ### Example
 
@@ -7671,7 +7257,7 @@ namespace Example
 
             try
             {
-                // Update a Batch of Coupons
+                // Update a batch of coupons
                 apiInstance.UpdateCouponBatch(applicationId, campaignId, body);
             }
             catch (ApiException e)
@@ -7718,11 +7304,99 @@ void (empty response body)
 [[Back to README]](../README.md)
 
 
+## UpdateReferral
+
+> Referral UpdateReferral (int applicationId, int campaignId, string referralId, UpdateReferral body)
+
+Update referral
+
+Update the specified referral.
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class UpdateReferralExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(Configuration.Default);
+            var applicationId = 56;  // int | 
+            var campaignId = 56;  // int | 
+            var referralId = referralId_example;  // string | The ID of the referral code to delete
+            var body = new UpdateReferral(); // UpdateReferral | 
+
+            try
+            {
+                // Update referral
+                Referral result = apiInstance.UpdateReferral(applicationId, campaignId, referralId, body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling ManagementApi.UpdateReferral: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **int**|  | 
+ **campaignId** | **int**|  | 
+ **referralId** | **string**| The ID of the referral code to delete | 
+ **body** | [**UpdateReferral**](UpdateReferral.md)|  | 
+
+### Return type
+
+[**Referral**](Referral.md)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## UpdateRuleset
 
 > Ruleset UpdateRuleset (int applicationId, int campaignId, int rulesetId, NewRuleset body)
 
-Update a Ruleset
+Update ruleset
+
+Update a ruleset.
 
 ### Example
 
@@ -7753,7 +7427,7 @@ namespace Example
 
             try
             {
-                // Update a Ruleset
+                // Update ruleset
                 Ruleset result = apiInstance.UpdateRuleset(applicationId, campaignId, rulesetId, body);
                 Debug.WriteLine(result);
             }

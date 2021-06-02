@@ -40,15 +40,18 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
-        /// <param name="campaignId">ID of the campaign from which the referral received the referral code. (required).</param>
-        /// <param name="advocateProfileIntegrationId">The Integration Id of the Advocate&#39;s Profile (required).</param>
-        /// <param name="friendProfileIntegrationId">An optional Integration ID of the Friend&#39;s Profile.</param>
         /// <param name="startDate">Timestamp at which point the referral code becomes valid..</param>
         /// <param name="expiryDate">Expiry date of the referral code. Referral never expires if this is omitted, zero, or negative..</param>
+        /// <param name="usageLimit">The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply.  (required).</param>
+        /// <param name="campaignId">ID of the campaign from which the referral received the referral code. (required).</param>
+        /// <param name="advocateProfileIntegrationId">The Integration ID of the Advocate&#39;s Profile. (required).</param>
+        /// <param name="friendProfileIntegrationId">An optional Integration ID of the Friend&#39;s Profile.</param>
+        /// <param name="attributes">Arbitrary properties associated with this item..</param>
+        /// <param name="importId">The ID of the Import which created this referral..</param>
         /// <param name="code">The actual referral code. (required).</param>
         /// <param name="usageCounter">The number of times this referral code has been successfully used. (required).</param>
-        /// <param name="usageLimit">The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply.  (required).</param>
-        public Referral(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), string advocateProfileIntegrationId = default(string), string friendProfileIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string code = default(string), int usageCounter = default(int), int usageLimit = default(int))
+        /// <param name="batchId">The ID of the batch the referrals belong to..</param>
+        public Referral(int id = default(int), DateTime created = default(DateTime), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageLimit = default(int), int campaignId = default(int), string advocateProfileIntegrationId = default(string), string friendProfileIntegrationId = default(string), Object attributes = default(Object), int importId = default(int), string code = default(string), int usageCounter = default(int), string batchId = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -68,6 +71,16 @@ namespace TalonOne.Model
             else
             {
                 this.Created = created;
+            }
+            
+            // to ensure "usageLimit" is required (not null)
+            if (usageLimit == null)
+            {
+                throw new InvalidDataException("usageLimit is a required property for Referral and cannot be null");
+            }
+            else
+            {
+                this.UsageLimit = usageLimit;
             }
             
             // to ensure "campaignId" is required (not null)
@@ -110,19 +123,12 @@ namespace TalonOne.Model
                 this.UsageCounter = usageCounter;
             }
             
-            // to ensure "usageLimit" is required (not null)
-            if (usageLimit == null)
-            {
-                throw new InvalidDataException("usageLimit is a required property for Referral and cannot be null");
-            }
-            else
-            {
-                this.UsageLimit = usageLimit;
-            }
-            
-            this.FriendProfileIntegrationId = friendProfileIntegrationId;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
+            this.FriendProfileIntegrationId = friendProfileIntegrationId;
+            this.Attributes = attributes;
+            this.ImportId = importId;
+            this.BatchId = batchId;
         }
         
         /// <summary>
@@ -140,27 +146,6 @@ namespace TalonOne.Model
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// ID of the campaign from which the referral received the referral code.
-        /// </summary>
-        /// <value>ID of the campaign from which the referral received the referral code.</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=true)]
-        public int CampaignId { get; set; }
-
-        /// <summary>
-        /// The Integration Id of the Advocate&#39;s Profile
-        /// </summary>
-        /// <value>The Integration Id of the Advocate&#39;s Profile</value>
-        [DataMember(Name="advocateProfileIntegrationId", EmitDefaultValue=true)]
-        public string AdvocateProfileIntegrationId { get; set; }
-
-        /// <summary>
-        /// An optional Integration ID of the Friend&#39;s Profile
-        /// </summary>
-        /// <value>An optional Integration ID of the Friend&#39;s Profile</value>
-        [DataMember(Name="friendProfileIntegrationId", EmitDefaultValue=false)]
-        public string FriendProfileIntegrationId { get; set; }
-
-        /// <summary>
         /// Timestamp at which point the referral code becomes valid.
         /// </summary>
         /// <value>Timestamp at which point the referral code becomes valid.</value>
@@ -173,6 +158,48 @@ namespace TalonOne.Model
         /// <value>Expiry date of the referral code. Referral never expires if this is omitted, zero, or negative.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
+
+        /// <summary>
+        /// The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. 
+        /// </summary>
+        /// <value>The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. </value>
+        [DataMember(Name="usageLimit", EmitDefaultValue=true)]
+        public int UsageLimit { get; set; }
+
+        /// <summary>
+        /// ID of the campaign from which the referral received the referral code.
+        /// </summary>
+        /// <value>ID of the campaign from which the referral received the referral code.</value>
+        [DataMember(Name="campaignId", EmitDefaultValue=true)]
+        public int CampaignId { get; set; }
+
+        /// <summary>
+        /// The Integration ID of the Advocate&#39;s Profile.
+        /// </summary>
+        /// <value>The Integration ID of the Advocate&#39;s Profile.</value>
+        [DataMember(Name="advocateProfileIntegrationId", EmitDefaultValue=true)]
+        public string AdvocateProfileIntegrationId { get; set; }
+
+        /// <summary>
+        /// An optional Integration ID of the Friend&#39;s Profile
+        /// </summary>
+        /// <value>An optional Integration ID of the Friend&#39;s Profile</value>
+        [DataMember(Name="friendProfileIntegrationId", EmitDefaultValue=false)]
+        public string FriendProfileIntegrationId { get; set; }
+
+        /// <summary>
+        /// Arbitrary properties associated with this item.
+        /// </summary>
+        /// <value>Arbitrary properties associated with this item.</value>
+        [DataMember(Name="attributes", EmitDefaultValue=false)]
+        public Object Attributes { get; set; }
+
+        /// <summary>
+        /// The ID of the Import which created this referral.
+        /// </summary>
+        /// <value>The ID of the Import which created this referral.</value>
+        [DataMember(Name="importId", EmitDefaultValue=false)]
+        public int ImportId { get; set; }
 
         /// <summary>
         /// The actual referral code.
@@ -189,11 +216,11 @@ namespace TalonOne.Model
         public int UsageCounter { get; set; }
 
         /// <summary>
-        /// The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. 
+        /// The ID of the batch the referrals belong to.
         /// </summary>
-        /// <value>The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. </value>
-        [DataMember(Name="usageLimit", EmitDefaultValue=true)]
-        public int UsageLimit { get; set; }
+        /// <value>The ID of the batch the referrals belong to.</value>
+        [DataMember(Name="batchId", EmitDefaultValue=false)]
+        public string BatchId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -205,14 +232,17 @@ namespace TalonOne.Model
             sb.Append("class Referral {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  UsageLimit: ").Append(UsageLimit).Append("\n");
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("  AdvocateProfileIntegrationId: ").Append(AdvocateProfileIntegrationId).Append("\n");
             sb.Append("  FriendProfileIntegrationId: ").Append(FriendProfileIntegrationId).Append("\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  ImportId: ").Append(ImportId).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  UsageCounter: ").Append(UsageCounter).Append("\n");
-            sb.Append("  UsageLimit: ").Append(UsageLimit).Append("\n");
+            sb.Append("  BatchId: ").Append(BatchId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -258,6 +288,21 @@ namespace TalonOne.Model
                     this.Created.Equals(input.Created))
                 ) && 
                 (
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
+                ) && 
+                (
+                    this.ExpiryDate == input.ExpiryDate ||
+                    (this.ExpiryDate != null &&
+                    this.ExpiryDate.Equals(input.ExpiryDate))
+                ) && 
+                (
+                    this.UsageLimit == input.UsageLimit ||
+                    (this.UsageLimit != null &&
+                    this.UsageLimit.Equals(input.UsageLimit))
+                ) && 
+                (
                     this.CampaignId == input.CampaignId ||
                     (this.CampaignId != null &&
                     this.CampaignId.Equals(input.CampaignId))
@@ -273,14 +318,14 @@ namespace TalonOne.Model
                     this.FriendProfileIntegrationId.Equals(input.FriendProfileIntegrationId))
                 ) && 
                 (
-                    this.StartDate == input.StartDate ||
-                    (this.StartDate != null &&
-                    this.StartDate.Equals(input.StartDate))
+                    this.Attributes == input.Attributes ||
+                    (this.Attributes != null &&
+                    this.Attributes.Equals(input.Attributes))
                 ) && 
                 (
-                    this.ExpiryDate == input.ExpiryDate ||
-                    (this.ExpiryDate != null &&
-                    this.ExpiryDate.Equals(input.ExpiryDate))
+                    this.ImportId == input.ImportId ||
+                    (this.ImportId != null &&
+                    this.ImportId.Equals(input.ImportId))
                 ) && 
                 (
                     this.Code == input.Code ||
@@ -293,9 +338,9 @@ namespace TalonOne.Model
                     this.UsageCounter.Equals(input.UsageCounter))
                 ) && 
                 (
-                    this.UsageLimit == input.UsageLimit ||
-                    (this.UsageLimit != null &&
-                    this.UsageLimit.Equals(input.UsageLimit))
+                    this.BatchId == input.BatchId ||
+                    (this.BatchId != null &&
+                    this.BatchId.Equals(input.BatchId))
                 );
         }
 
@@ -312,22 +357,28 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
+                if (this.StartDate != null)
+                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                if (this.ExpiryDate != null)
+                    hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                if (this.UsageLimit != null)
+                    hashCode = hashCode * 59 + this.UsageLimit.GetHashCode();
                 if (this.CampaignId != null)
                     hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 if (this.AdvocateProfileIntegrationId != null)
                     hashCode = hashCode * 59 + this.AdvocateProfileIntegrationId.GetHashCode();
                 if (this.FriendProfileIntegrationId != null)
                     hashCode = hashCode * 59 + this.FriendProfileIntegrationId.GetHashCode();
-                if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
-                if (this.ExpiryDate != null)
-                    hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                if (this.Attributes != null)
+                    hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.ImportId != null)
+                    hashCode = hashCode * 59 + this.ImportId.GetHashCode();
                 if (this.Code != null)
                     hashCode = hashCode * 59 + this.Code.GetHashCode();
                 if (this.UsageCounter != null)
                     hashCode = hashCode * 59 + this.UsageCounter.GetHashCode();
-                if (this.UsageLimit != null)
-                    hashCode = hashCode * 59 + this.UsageLimit.GetHashCode();
+                if (this.BatchId != null)
+                    hashCode = hashCode * 59 + this.BatchId.GetHashCode();
                 return hashCode;
             }
         }
@@ -340,20 +391,26 @@ namespace TalonOne.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
 
-            // Code (string) minLength
-            if(this.Code != null && this.Code.Length < 4)
+            
+            // UsageLimit (int) maximum
+            if(this.UsageLimit > (int)999999)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 4.", new [] { "Code" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value less than or equal to 999999.", new [] { "UsageLimit" });
             }
-            
 
-            
             // UsageLimit (int) minimum
             if(this.UsageLimit < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }
 
+
+            // Code (string) minLength
+            if(this.Code != null && this.Code.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Code, length must be greater than 4.", new [] { "Code" });
+            }
+            
             yield break;
         }
     }

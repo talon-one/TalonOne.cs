@@ -74,20 +74,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'AccountID'
+        /// Test the property 'Created'
         /// </summary>
         [Test]
-        public void AccountIDTest()
+        public void CreatedTest()
         {
-            // TODO unit test for the property 'AccountID'
-        }
-        /// <summary>
-        /// Test the property 'Name'
-        /// </summary>
-        [Test]
-        public void NameTest()
-        {
-            // TODO unit test for the property 'Name'
+            // TODO unit test for the property 'Created'
         }
         /// <summary>
         /// Test the property 'Title'
@@ -136,6 +128,30 @@ namespace TalonOne.Test
         public void AllowSubledgerTest()
         {
             // TODO unit test for the property 'AllowSubledger'
+        }
+        /// <summary>
+        /// Test the property 'AccountID'
+        /// </summary>
+        [Test]
+        public void AccountIDTest()
+        {
+            // TODO unit test for the property 'AccountID'
+        }
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Test]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
+        }
+        /// <summary>
+        /// Test the property 'Tiers'
+        /// </summary>
+        [Test]
+        public void TiersTest()
+        {
+            // TODO unit test for the property 'Tiers'
         }
 
     }

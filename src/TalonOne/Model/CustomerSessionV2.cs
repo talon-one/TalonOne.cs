@@ -86,7 +86,8 @@ namespace TalonOne.Model
         /// <param name="total">The total sum of cart-items, as well as additional costs, before any discounts applied (required).</param>
         /// <param name="cartItemTotal">The total sum of cart-items before any discounts applied (required).</param>
         /// <param name="additionalCostTotal">The total sum of additional costs before any discounts applied (required).</param>
-        public CustomerSessionV2(string integrationId = default(string), DateTime created = default(DateTime), int applicationId = default(int), string profileId = default(string), List<string> couponCodes = default(List<string>), string referralCode = default(string), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object), bool firstSession = default(bool), decimal total = default(decimal), decimal cartItemTotal = default(decimal), decimal additionalCostTotal = default(decimal))
+        /// <param name="updated">Timestamp of the most recent event received on this session (required).</param>
+        public CustomerSessionV2(string integrationId = default(string), DateTime created = default(DateTime), int applicationId = default(int), string profileId = default(string), List<string> couponCodes = default(List<string>), string referralCode = default(string), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object), bool firstSession = default(bool), decimal total = default(decimal), decimal cartItemTotal = default(decimal), decimal additionalCostTotal = default(decimal), DateTime updated = default(DateTime))
         {
             // to ensure "integrationId" is required (not null)
             if (integrationId == null)
@@ -198,6 +199,16 @@ namespace TalonOne.Model
                 this.AdditionalCostTotal = additionalCostTotal;
             }
             
+            // to ensure "updated" is required (not null)
+            if (updated == null)
+            {
+                throw new InvalidDataException("updated is a required property for CustomerSessionV2 and cannot be null");
+            }
+            else
+            {
+                this.Updated = updated;
+            }
+            
             this.CouponCodes = couponCodes;
             this.ReferralCode = referralCode;
             this.AdditionalCosts = additionalCosts;
@@ -304,6 +315,13 @@ namespace TalonOne.Model
         public decimal AdditionalCostTotal { get; set; }
 
         /// <summary>
+        /// Timestamp of the most recent event received on this session
+        /// </summary>
+        /// <value>Timestamp of the most recent event received on this session</value>
+        [DataMember(Name="updated", EmitDefaultValue=true)]
+        public DateTime Updated { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -326,6 +344,7 @@ namespace TalonOne.Model
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  CartItemTotal: ").Append(CartItemTotal).Append("\n");
             sb.Append("  AdditionalCostTotal: ").Append(AdditionalCostTotal).Append("\n");
+            sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -438,6 +457,11 @@ namespace TalonOne.Model
                     this.AdditionalCostTotal == input.AdditionalCostTotal ||
                     (this.AdditionalCostTotal != null &&
                     this.AdditionalCostTotal.Equals(input.AdditionalCostTotal))
+                ) && 
+                (
+                    this.Updated == input.Updated ||
+                    (this.Updated != null &&
+                    this.Updated.Equals(input.Updated))
                 );
         }
 
@@ -480,6 +504,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CartItemTotal.GetHashCode();
                 if (this.AdditionalCostTotal != null)
                     hashCode = hashCode * 59 + this.AdditionalCostTotal.GetHashCode();
+                if (this.Updated != null)
+                    hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 return hashCode;
             }
         }
