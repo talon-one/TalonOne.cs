@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CartItem
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -17,7 +15,5 @@ Name | Type | Description | Notes
 **Position** | **decimal** | Position of the Cart Item in the Cart (calculated internally) | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this item | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

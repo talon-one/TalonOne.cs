@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CustomerSession
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -20,7 +18,5 @@ Name | Type | Description | Notes
 **Discounts** | **Dictionary&lt;string, decimal&gt;** | A map of labelled discount values, values will be in the same currency as the application associated with the session. | 
 **Updated** | **DateTime** | Timestamp of the most recent event received on this session | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

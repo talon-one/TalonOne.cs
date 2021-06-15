@@ -1,6 +1,4 @@
-
 # TalonOne.Model.ApplicationReferee
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +10,5 @@ Name | Type | Description | Notes
 **Code** | **string** | Advocate&#39;s referral code. | 
 **Created** | **DateTime** | Timestamp of the moment the customer redeemed the referral | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

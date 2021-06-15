@@ -1,6 +1,4 @@
-
 # TalonOne.Model.UpdateCoupon
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +10,5 @@ Name | Type | Description | Notes
 **RecipientIntegrationId** | **string** | The integration ID for this coupon&#39;s beneficiary&#39;s profile | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this item | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

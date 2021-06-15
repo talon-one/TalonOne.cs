@@ -1,6 +1,5 @@
-
 # TalonOne.Model.LoyaltyLedgerEntry
-
+A single row of the ledger, describing one addition or deduction.
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,7 +17,5 @@ Name | Type | Description | Notes
 **SubLedgerID** | **string** | This specifies if we are adding loyalty points to the main ledger or a subledger | 
 **UserID** | **int** | This is the ID of the user who created this entry, if the addition or subtraction was done manually. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

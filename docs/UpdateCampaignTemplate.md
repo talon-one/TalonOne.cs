@@ -1,6 +1,4 @@
-
 # TalonOne.Model.UpdateCampaignTemplate
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -20,7 +18,5 @@ Name | Type | Description | Notes
 **TemplateParams** | [**List&lt;CampaignTemplateParams&gt;**](CampaignTemplateParams.md) | Template parameters are fields which can be used to replace values in a rule. | [optional] 
 **ApplicationsIds** | **List&lt;int&gt;** | A list of the IDs of the applications that are subscribed to this campaign template | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

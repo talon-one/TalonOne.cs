@@ -1,6 +1,4 @@
-
 # TalonOne.Model.NewEventType
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +14,5 @@ Name | Type | Description | Notes
 **Handler** | **string** | Code that will be run after successful parsing &amp; validation of the payload for this event. This code _may_ choose to evaluate campaign rules.  | 
 **Version** | **int** | The version of this event type. When updating an existing event type this must be **exactly** &#x60;currentVersion + 1&#x60;.  | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

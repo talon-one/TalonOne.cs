@@ -1,6 +1,4 @@
-
 # TalonOne.Model.UpdateApplication
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -20,7 +18,5 @@ Name | Type | Description | Notes
 **AttributesSettings** | [**AttributesSettings**](AttributesSettings.md) |  | [optional] 
 **Sandbox** | **bool** | Flag indicating if this is a live or sandbox application | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

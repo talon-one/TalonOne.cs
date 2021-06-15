@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CustomerProfile
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +14,5 @@ Name | Type | Description | Notes
 **AudienceMemberships** | [**List&lt;AudienceMembership&gt;**](AudienceMembership.md) | A list of audiences the customer belongs to | [optional] 
 **LastActivity** | **DateTime** | Timestamp of the most recent event received from this customer | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

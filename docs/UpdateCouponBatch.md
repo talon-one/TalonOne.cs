@@ -1,6 +1,4 @@
-
 # TalonOne.Model.UpdateCouponBatch
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +10,5 @@ Name | Type | Description | Notes
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this item | [optional] 
 **BatchID** | **string** | The id of the batch the coupon belongs to. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

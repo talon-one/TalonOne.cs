@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CouponConstraints
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,7 +8,5 @@ Name | Type | Description | Notes
 **StartDate** | **DateTime** | Timestamp at which point the coupon becomes valid. | [optional] 
 **ExpiryDate** | **DateTime** | Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

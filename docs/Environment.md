@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Environment
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,7 +16,5 @@ Name | Type | Description | Notes
 **Audiences** | [**List&lt;Audience&gt;**](Audience.md) | The audiences contained in the account which the application belongs to. | [optional] 
 **Variables** | **string** |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

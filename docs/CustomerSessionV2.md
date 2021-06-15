@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CustomerSessionV2
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -22,7 +20,5 @@ Name | Type | Description | Notes
 **AdditionalCostTotal** | **decimal** | The total sum of additional costs before any discounts applied | 
 **Updated** | **DateTime** | Timestamp of the most recent event received on this session | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

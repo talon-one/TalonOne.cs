@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CampaignSetBranchNode
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,7 +8,5 @@ Name | Type | Description | Notes
 **Operator** | **string** | How does the set operates on its elements | 
 **Elements** | [**List&lt;CampaignSetNode&gt;**](CampaignSetNode.md) | Child elements of this set | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

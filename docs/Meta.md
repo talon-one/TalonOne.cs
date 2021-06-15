@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Meta
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,7 +9,5 @@ Name | Type | Description | Notes
 **ReferralRejectionReason** | [**ReferralRejectionReason**](ReferralRejectionReason.md) |  | [optional] 
 **Warnings** | [**Object**](.md) | Contains warnings about possible misuse. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

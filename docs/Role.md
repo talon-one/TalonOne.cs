@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Role
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,7 +13,5 @@ Name | Type | Description | Notes
 **Members** | **List&lt;int&gt;** | A list of user identifiers assigned to this role | [optional] 
 **Acl** | [**Object**](.md) | Role ACL Policy | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

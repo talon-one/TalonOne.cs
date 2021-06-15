@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Ruleset
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +14,5 @@ Name | Type | Description | Notes
 **TemplateId** | **int** | The ID of the campaign template that owns this entity. | [optional] 
 **ActivatedAt** | **DateTime** | Timestamp indicating when this Ruleset was activated. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

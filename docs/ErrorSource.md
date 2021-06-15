@@ -1,6 +1,5 @@
-
 # TalonOne.Model.ErrorSource
-
+The source of the current error, exactly one of `pointer`, `parameter` or `line` will be defined. 
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,7 +9,5 @@ Name | Type | Description | Notes
 **Line** | **string** | Line number in uploaded multipart file that caused this error. &#39;N/A&#39; if unknown. | [optional] 
 **Resource** | **string** | Pointer to the resource that caused this error | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CampaignTemplate
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -27,7 +25,5 @@ Name | Type | Description | Notes
 **UpdatedBy** | **string** | Name of the user who last updated this campaign template if available. | [optional] 
 **ValidApplicationIds** | **List&lt;int&gt;** | The IDs of the applications that are related to this entity. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

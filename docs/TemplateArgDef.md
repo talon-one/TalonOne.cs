@@ -1,6 +1,4 @@
-
 # TalonOne.Model.TemplateArgDef
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,7 +8,5 @@ Name | Type | Description | Notes
 **Title** | **string** | A campaigner friendly name for the argument, this will be shown in the rule editor. | 
 **Ui** | [**Object**](.md) | Arbitrary metadata that may be used to render an input for this argument. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

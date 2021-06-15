@@ -1,6 +1,4 @@
-
 # TalonOne.Model.ApplicationCustomer
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -17,7 +15,5 @@ Name | Type | Description | Notes
 **LastActivity** | **DateTime** | Timestamp of the most recent event received from this customer | 
 **AdvocateIntegrationId** | **string** | The Integration ID of the Customer Profile that referred this Customer in the Application. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

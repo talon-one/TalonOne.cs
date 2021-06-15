@@ -1,6 +1,4 @@
-
 # TalonOne.Model.InventoryCoupon
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -25,7 +23,5 @@ Name | Type | Description | Notes
 **ProfileRedemptionCount** | **int** | The number of times the coupon was redeemed by the profile. | 
 **State** | **string** | Can be either active, used, expired, pending or disabled. active: reserved coupons that are neither pending nor used nor expired, and have a non-exhausted limit counter. used: coupons that are not pending, and have reached their redemption limit or were redeemed by the profile before expiration. expired: all non-pending, non-active, non-used coupons that were not redeemed by the profile. pending: coupons that have a start date in the future. disabled: coupons of non-active campaigns.  | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

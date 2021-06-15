@@ -1,6 +1,4 @@
-
 # TalonOne.Model.UpdateCustomEffect
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,7 +11,5 @@ Name | Type | Description | Notes
 **SubscribedApplicationsIds** | **List&lt;int&gt;** | A list of the IDs of the applications that this effect is enabled for | [optional] 
 **Params** | [**List&lt;TemplateArgDef&gt;**](TemplateArgDef.md) | Array of template argument definitions | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

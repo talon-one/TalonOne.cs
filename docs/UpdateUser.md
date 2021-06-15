@@ -1,6 +1,4 @@
-
 # TalonOne.Model.UpdateUser
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,7 +9,5 @@ Name | Type | Description | Notes
 **Roles** | **List&lt;int&gt;** | Update | [optional] 
 **ApplicationNotificationSubscriptions** | [**Object**](.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

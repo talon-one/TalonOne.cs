@@ -1,6 +1,4 @@
-
 # TalonOne.Model.UpdateCampaign
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -19,7 +17,5 @@ Name | Type | Description | Notes
 **Limits** | [**List&lt;LimitConfig&gt;**](LimitConfig.md) | The set of limits that will operate for this campaign | 
 **CampaignGroups** | **List&lt;int&gt;** | The IDs of the campaign groups that own this entity. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

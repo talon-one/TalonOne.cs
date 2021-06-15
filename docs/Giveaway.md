@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Giveaway
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,7 +13,5 @@ Name | Type | Description | Notes
 **Used** | **bool** | Flag indicating whether this giveaway code was given before. | [optional] 
 **ImportId** | **int** | The ID of the Import which created this giveaway. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

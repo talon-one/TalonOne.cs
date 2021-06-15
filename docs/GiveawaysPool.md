@@ -1,6 +1,4 @@
-
 # TalonOne.Model.GiveawaysPool
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,7 +13,5 @@ Name | Type | Description | Notes
 **CreatedBy** | **int** | ID of the user who created this giveaways pool. | 
 **ModifiedBy** | **int** | ID of the user who last updated this giveaways pool if available. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -14,7 +14,7 @@ endif
 		--rm \
 		-v $(PWD):/tmp/talon-client \
 		-w "/tmp/talon-client/$(BUILD_DIR)" \
-		mono:6 \
+		mcr.microsoft.com/dotnet/sdk:5.0 \
 		nuget pack TalonOne.csproj -Build -Properties Configuration=Release -Version $(VERSION)
 
 publish: clean
@@ -30,7 +30,7 @@ endif
 		--rm \
 		-v $(PWD):/tmp/talon-client \
 		-w "/tmp/talon-client/$(BUILD_DIR)" \
-		mono:6 \
+		mcr.microsoft.com/dotnet/sdk:5.0 \
 		/bin/bash -c "nuget pack TalonOne.csproj -Build -Properties Configuration=Release -Version $(VERSION) && \
 			nuget push TalonOne.$(VERSION).nupkg $(apiKey) -Source https://api.nuget.org/v3/index.json"
 
@@ -39,5 +39,5 @@ testenv:
 		--rm -it \
 		-v $(PWD):/tmp/talon-client \
 		-w "/tmp/talon-client" \
-		mono:6 \
+		mcr.microsoft.com/dotnet/sdk:5.0 \
 		/bin/bash

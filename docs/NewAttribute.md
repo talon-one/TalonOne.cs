@@ -1,6 +1,4 @@
-
 # TalonOne.Model.NewAttribute
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -15,7 +13,5 @@ Name | Type | Description | Notes
 **Editable** | **bool** | Whether or not this attribute can be edited. | 
 **SubscribedApplicationsIds** | **List&lt;int&gt;** | A list of the IDs of the applications that are subscribed to this attribute | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

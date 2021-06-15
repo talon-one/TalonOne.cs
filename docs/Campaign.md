@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Campaign
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -39,7 +37,5 @@ Name | Type | Description | Notes
 **UpdatedBy** | **string** | Name of the user who last updated this campaign if available. | [optional] 
 **TemplateId** | **int** | The ID of the Campaign Template this Campaign was created from. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

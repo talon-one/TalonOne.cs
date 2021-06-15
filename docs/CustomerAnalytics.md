@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CustomerAnalytics
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,7 +11,5 @@ Name | Type | Description | Notes
 **TotalRevenue** | **decimal** | Total Revenue across all closed sessions | 
 **TotalDiscounts** | **decimal** | The sum of discounts that were given across all closed sessions | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

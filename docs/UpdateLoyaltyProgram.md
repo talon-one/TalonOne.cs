@@ -1,6 +1,4 @@
-
 # TalonOne.Model.UpdateLoyaltyProgram
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,7 +11,5 @@ Name | Type | Description | Notes
 **AllowSubledger** | **bool** | Indicates if this program supports subledgers inside the program | [optional] 
 **Tiers** | [**List&lt;NewLoyaltyTier&gt;**](NewLoyaltyTier.md) | The tiers in this loyalty program | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

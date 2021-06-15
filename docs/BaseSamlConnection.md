@@ -1,6 +1,4 @@
-
 # TalonOne.Model.BaseSamlConnection
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,7 +12,5 @@ Name | Type | Description | Notes
 **MetadataURL** | **string** | Metadata URL. | [optional] 
 **AudienceURI** | **string** | The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

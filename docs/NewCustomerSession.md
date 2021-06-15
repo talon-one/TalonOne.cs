@@ -1,6 +1,4 @@
-
 # TalonOne.Model.NewCustomerSession
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,7 +12,5 @@ Name | Type | Description | Notes
 **Total** | **decimal** | The total sum of the cart in one session. | [optional] 
 **Attributes** | [**Object**](.md) | A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

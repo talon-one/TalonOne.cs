@@ -1,6 +1,5 @@
-
 # TalonOne.Model.LoyaltyProgramBalance
-
+The balance in a Loyalty Program for some Customer.
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,7 +10,5 @@ Name | Type | Description | Notes
 **SpentBalance** | **decimal** | Sum of spent points amounts | 
 **TentativeCurrentBalance** | **decimal** | Sum of current active points amounts, including additions and deductions on open sessions | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

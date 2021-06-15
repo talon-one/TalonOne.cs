@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CustomerActivityReport
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -19,7 +17,5 @@ Name | Type | Description | Notes
 **TotalOrdersNoCoupon** | **int** | Number of orders without coupon used in all customer campaigns. | 
 **CampaignName** | **string** | The name of the campaign this customer belongs to. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

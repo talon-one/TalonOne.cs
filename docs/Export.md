@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Export
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +10,5 @@ Name | Type | Description | Notes
 **Entity** | **string** | The name of the entity that was exported. | 
 **Filter** | [**Object**](.md) | Map of keys and values that were used to filter the exported rows | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
