@@ -1,20 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Talon.One API
+
+The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+
+The version of the OpenAPI document: 1.0.0
+
+-->
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <AssemblyName>TalonOne.Test</AssemblyName>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TalonOne.Test</RootNamespace>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>TalonOne.Test</AssemblyName>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsPackable>false</IsPackable>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\TalonOne\TalonOne.csproj" />
+    <ProjectReference Include="..\TalonOne\TalonOne.csproj">
+      <Project>{9488BCE0-5E86-454A-9181-9AB2E7D3F3BF}</Project>
+      <Name>TalonOne</Name>
+    </ProjectReference>
   </ItemGroup>
-
 </Project>
+
