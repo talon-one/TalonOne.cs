@@ -82,17 +82,21 @@ namespace Example
                     { "Authorization", "ApiKey-v1" }
                 }
             };
+
             // Or via the "global" Default configuration:
             //   Configuration.Default.BasePath = "https://mycompany.talon.one";
             //   Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
             //   Configuration.Default.AddApiKeyPrefix("Authorization", "ApiKey-v1");
+
             // ************************************************
             // Integration API example to send a session update
             // ************************************************
+
             // When using the default approach, the next initiation of `IntegrationApi`
             // could be using the empty constructor
             var integrationApi = new IntegrationApi(integrationConfig);
             var customerSessionId = "my_unique_session_integration_id_2";  // string | The custom identifier for this session, must be unique within the account.
+
             // Preparing a NewCustomerSessionV2 object
             NewCustomerSessionV2 customerSession = new NewCustomerSessionV2 {
                 ProfileId = "PROFILE_ID",
@@ -116,6 +120,7 @@ namespace Example
                     )
                 }
             };
+
             // Instantiating an IntegrationRequest object
             IntegrationRequest body = new IntegrationRequest(
                 customerSession,
@@ -126,22 +131,26 @@ namespace Example
                 //     IntegrationRequest.ResponseContentEnum.CustomerProfile
                 // }
             );
+
             try
             {
                 // Create/update a customer session using `UpdateCustomerSessionV2` function
                 IntegrationStateV2 response = integrationApi.UpdateCustomerSessionV2(customerSessionId, body);
                 Debug.WriteLine(response);
+
                 // Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
                 foreach (Effect effect in response.Effects) {
                     switch(effect.EffectType) {
                         case "setDiscount":
                             // Initiating right props instance according to the effect type
                             SetDiscountEffectProps setDiscountEffectProps = (SetDiscountEffectProps) Newtonsoft.Json.JsonConvert.DeserializeObject(effect.Props.ToString(), typeof(SetDiscountEffectProps));
+
                             // Access the specific effect's properties
                             Debug.WriteLine("Set a discount '{0}' of {1:00.000}", setDiscountEffectProps.Name, setDiscountEffectProps.Value);
                             break;
                         // case "acceptCoupon":
                             // AcceptCouponEffectProps acceptCouponEffectProps = (AcceptCouponEffectProps) Newtonsoft.Json.JsonConvert.DeserializeObject(effect.Props.ToString(), typeof(AcceptCouponEffectProps));
+
                             // Work with AcceptCouponEffectProps' properties
                             // ...
                             // break;
@@ -267,7 +276,7 @@ namespace Example
                 // Or again, via the "global" Default configuration:
                 //   Configuration.Default.AddApiKey("Authorization", session.Token);
                 //   Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-                // managementApi = new ManagementApi(managementConfig); // re-instantiate an api instance for the token to take effect
+                //   managementApi = new ManagementApi(managementConfig); // re-instantiate an api instance for the token to take effect
 
                 // Calling `GetApplication` function with the desired id (7)
                 Application app = managementApi.GetApplication(7);
