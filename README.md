@@ -55,6 +55,113 @@ using TalonOne.Model;
 <a name="getting-started"></a>
 ## Getting Started
 
+### Integration API
+
+#### V2
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class Example
+    {
+        public static void main()
+        {
+            // Configure BasePath & API key authorization: api_key_v1
+            var integrationConfig = new Configuration {
+                BasePath = "https://mycompany.talon.one",
+                ApiKey = new Dictionary<string, string> {
+                    { "Authorization", "e18149e88f42205432281c9d3d0e711111302722577ad60dcebc86c43aabfe70" }
+                },
+                ApiKeyPrefix = new Dictionary<string, string> {
+                    { "Authorization", "ApiKey-v1" }
+                }
+            };
+            // Or via the "global" Default configuration:
+            //   Configuration.Default.BasePath = "https://mycompany.talon.one";
+            //   Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            //   Configuration.Default.AddApiKeyPrefix("Authorization", "ApiKey-v1");
+            // ************************************************
+            // Integration API example to send a session update
+            // ************************************************
+            // When using the default approach, the next initiation of `IntegrationApi`
+            // could be using the empty constructor
+            var integrationApi = new IntegrationApi(integrationConfig);
+            var customerSessionId = "my_unique_session_integration_id_2";  // string | The custom identifier for this session, must be unique within the account.
+            // Preparing a NewCustomerSessionV2 object
+            NewCustomerSessionV2 customerSession = new NewCustomerSessionV2 {
+                ProfileId = "PROFILE_ID",
+                CouponCodes = new List<string> {
+                    "Cool-Stuff-2020"
+                },
+                CartItems = new List<CartItem> {
+                    new CartItem(
+                        "Hummus Tahini", // Name
+                        "hum-t", // Sku
+                        1, // Quantity
+                        (decimal)5.5, // Price
+                        "Food" // Category
+                    ),
+                    new CartItem(
+                        "Iced Mint Lemonade", // Name
+                        "ice-mn-lemon", // Sku
+                        1, // Quantity
+                        (decimal)3.5, // Price
+                        "Beverages" // Category
+                    )
+                }
+            };
+            // Instantiating an IntegrationRequest object
+            IntegrationRequest body = new IntegrationRequest(
+                customerSession,
+                // Optional list of requested information to be present on the response.
+                // See src/TalonOne/Model/IntegrationRequest#ResponseContentEnum for full list of supported values
+                // new List<IntegrationRequest.ResponseContentEnum> {
+                //     IntegrationRequest.ResponseContentEnum.CustomerSession,
+                //     IntegrationRequest.ResponseContentEnum.CustomerProfile
+                // }
+            );
+            try
+            {
+                // Create/update a customer session using `UpdateCustomerSessionV2` function
+                IntegrationStateV2 response = integrationApi.UpdateCustomerSessionV2(customerSessionId, body);
+                Debug.WriteLine(response);
+                // Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
+                foreach (Effect effect in response.Effects) {
+                    switch(effect.EffectType) {
+                        case "setDiscount":
+                            // Initiating right props instance according to the effect type
+                            SetDiscountEffectProps setDiscountEffectProps = (SetDiscountEffectProps) Newtonsoft.Json.JsonConvert.DeserializeObject(effect.Props.ToString(), typeof(SetDiscountEffectProps));
+                            // Access the specific effect's properties
+                            Debug.WriteLine("Set a discount '{0}' of {1:00.000}", setDiscountEffectProps.Name, setDiscountEffectProps.Value);
+                            break;
+                        // case "acceptCoupon":
+                            // AcceptCouponEffectProps acceptCouponEffectProps = (AcceptCouponEffectProps) Newtonsoft.Json.JsonConvert.DeserializeObject(effect.Props.ToString(), typeof(AcceptCouponEffectProps));
+                            // Work with AcceptCouponEffectProps' properties
+                            // ...
+                            // break;
+                        default:
+                            Debug.WriteLine("Encounter unknown effect type: {0}", effect.EffectType);
+                            break;
+                    }
+                }
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.UpdateCustomerSessionV2: " + e.Message );
+            }
+        }
+    }
+}
+```
+
+#### V1
+
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -81,8 +188,8 @@ namespace Example
 
             // Or via the "global" Default configuration:
             //   Configuration.Default.BasePath = "https://mycompany.talon.one";
-            //   Configuration.Default.ApiKey.Add("Authorization", "YOUR_API_KEY");
-            //   Configuration.Default.ApiKeyPrefix.Add("Authorization", "ApiKey-v1");
+            //   Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
+            //   Configuration.Default.AddApiKeyPrefix("Authorization", "ApiKey-v1");
 
             // ************************************************
             // Integration API example to send a session update
