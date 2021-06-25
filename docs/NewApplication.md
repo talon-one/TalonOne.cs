@@ -1,6 +1,4 @@
-
 # TalonOne.Model.NewApplication
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -21,7 +19,5 @@ Name | Type | Description | Notes
 **Sandbox** | **bool** | Flag indicating if this is a live or sandbox application | [optional] 
 **Key** | **string** | Hex key for HMAC-signing API calls as coming from this application (16 hex digits) | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

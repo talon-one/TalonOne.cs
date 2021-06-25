@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Import
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +10,5 @@ Name | Type | Description | Notes
 **Entity** | **string** | The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints. | 
 **Amount** | **int** | The number of members that imported. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

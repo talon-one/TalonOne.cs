@@ -1,6 +1,4 @@
-
 # TalonOne.Model.TemplateDef
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -17,7 +15,5 @@ Name | Type | Description | Notes
 **Expose** | **bool** | A flag to control exposure in Rule Builder. | [optional] [default to false]
 **Name** | **string** | The template name used in Talang. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

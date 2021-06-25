@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CampaignCopy
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +10,5 @@ Name | Type | Description | Notes
 **EndTime** | **DateTime** | Timestamp when the campaign will become in-active. | [optional] 
 **Tags** | **List&lt;string&gt;** | A list of tags for the campaign. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,4 @@
-
 # TalonOne.Model.ApplicationSession
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -19,7 +17,5 @@ Name | Type | Description | Notes
 **Total** | **decimal** | The total sum of the session before any discounts applied. | 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this item | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

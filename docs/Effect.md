@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Effect
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,7 +11,5 @@ Name | Type | Description | Notes
 **TriggeredByCoupon** | **int** | The ID of the coupon that was being evaluated when this effect was triggered | [optional] 
 **Props** | [**Object**](.md) |  | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

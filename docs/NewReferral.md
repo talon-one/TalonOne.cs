@@ -1,6 +1,4 @@
-
 # TalonOne.Model.NewReferral
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,7 +11,5 @@ Name | Type | Description | Notes
 **FriendProfileIntegrationId** | **string** | An optional Integration ID of the Friend&#39;s Profile | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this item. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

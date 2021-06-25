@@ -17,9 +17,8 @@ build/
 [Bb]in/
 [Oo]bj/
 
-# NuGet Packages & Symbol Packages
+# NuGet Packages
 *.nupkg
-*.snupkg
 # The packages folder can be ignored because of Package Restore
 **/packages/*
 # except build/, which is used as an MSBuild target.
@@ -28,7 +27,7 @@ build/
 #!**/packages/repositories.config
 
 # MSTest test Results
-[Tt]est[Rr]esult*
+[Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
 *_i.c

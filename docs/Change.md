@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Change
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,7 +11,5 @@ Name | Type | Description | Notes
 **Old** | [**Object**](.md) | Resource before the change occurred. | [optional] 
 **New** | [**Object**](.md) | Resource after the change occurred. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

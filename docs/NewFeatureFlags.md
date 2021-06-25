@@ -1,6 +1,4 @@
-
 # TalonOne.Model.NewFeatureFlags
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,7 +7,5 @@ Name | Type | Description | Notes
 **CouponsWithoutCount** | **bool** | Whether the account queries coupons with or without total result size | [optional] 
 **BetaEffects** | **bool** | Whether the account can test beta effects or not | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

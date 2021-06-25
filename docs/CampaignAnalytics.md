@@ -1,6 +1,4 @@
-
 # TalonOne.Model.CampaignAnalytics
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -31,7 +29,5 @@ Name | Type | Description | Notes
 **DeductedLoyaltyPoints** | **decimal** | Number of deducted loyalty points in the campaign in a specific interval. | 
 **TotalDeductedLoyaltyPoints** | **decimal** | Number of deducted loyalty points in the campaign since it began. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

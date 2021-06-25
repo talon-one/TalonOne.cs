@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Account
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -24,7 +22,5 @@ Name | Type | Description | Notes
 **CampaignsInactiveCount** | **int** | The current number of in-active Campaigns in your account. | 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this campaign | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,4 @@
-
 # TalonOne.Model.SlotDef
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +10,5 @@ Name | Type | Description | Notes
 **Help** | **string** | Extended help text for the slot. | [optional] 
 **Writable** | **bool** | Whether or not this slot can be updated by rule effects. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

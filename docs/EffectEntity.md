@@ -1,6 +1,5 @@
-
 # TalonOne.Model.EffectEntity
-
+Definition of all properties that are present on all effects, independent of their type
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +11,5 @@ Name | Type | Description | Notes
 **EffectType** | **string** | The type of effect that was triggered | 
 **TriggeredByCoupon** | **int** | The ID of the coupon that was being evaluated when this effect was triggered | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

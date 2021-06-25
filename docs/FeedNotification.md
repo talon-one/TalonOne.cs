@@ -1,6 +1,5 @@
-
 # TalonOne.Model.FeedNotification
-
+A feed notification for CAMA users
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,7 +11,5 @@ Name | Type | Description | Notes
 **Type** | **string** | The type of the feed notification | 
 **Body** | **string** | Body of the feed notification | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

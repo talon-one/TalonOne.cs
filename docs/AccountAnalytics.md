@@ -1,6 +1,4 @@
-
 # TalonOne.Model.AccountAnalytics
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -24,7 +22,5 @@ Name | Type | Description | Notes
 **Webhooks** | **int** | Total number of webhooks in the account | 
 **LoyaltyPrograms** | **int** | Total number of loyalty programs in the account | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

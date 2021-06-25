@@ -1,6 +1,4 @@
-
 # TalonOne.Model.LedgerEntry
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +14,5 @@ Name | Type | Description | Notes
 **ExpiryDate** | **DateTime** | Expiry date of the points | 
 **ReferenceId** | **int** | The ID of the balancing ledgerEntry | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

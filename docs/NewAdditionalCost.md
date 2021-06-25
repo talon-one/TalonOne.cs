@@ -1,6 +1,4 @@
-
 # TalonOne.Model.NewAdditionalCost
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -10,7 +8,5 @@ Name | Type | Description | Notes
 **Description** | **string** | A description of this additional cost. | 
 **SubscribedApplicationsIds** | **List&lt;int&gt;** | A list of the IDs of the applications that are subscribed to this additional cost | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Referral
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -19,7 +17,5 @@ Name | Type | Description | Notes
 **UsageCounter** | **int** | The number of times this referral code has been successfully used. | 
 **BatchId** | **string** | The ID of the batch the referrals belong to. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

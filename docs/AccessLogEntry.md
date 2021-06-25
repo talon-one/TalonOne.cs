@@ -1,6 +1,5 @@
-
 # TalonOne.Model.AccessLogEntry
-
+Log of application accesses
 ## Properties
 
 Name | Type | Description | Notes
@@ -13,7 +12,5 @@ Name | Type | Description | Notes
 **RequestPayload** | **string** | payload of request | 
 **ResponsePayload** | **string** | payload of response | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

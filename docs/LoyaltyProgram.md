@@ -1,6 +1,4 @@
-
 # TalonOne.Model.LoyaltyProgram
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -17,7 +15,5 @@ Name | Type | Description | Notes
 **Name** | **string** | The internal name for the Loyalty Program. This is an immutable value. | 
 **Tiers** | [**List&lt;LoyaltyTier&gt;**](LoyaltyTier.md) | The tiers in this loyalty program | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,5 @@
-
 # TalonOne.Model.AddLoyaltyPointsEffectProps
-
+The properties specific to the \"addLoyaltyPoints\" effect. This gets triggered whenever a validated rule contained an \"add loyalty\" effect. These points are automatically stored and managed inside Talon.One.
 ## Properties
 
 Name | Type | Description | Notes
@@ -14,7 +13,5 @@ Name | Type | Description | Notes
 **ExpiryDate** | **DateTime** | Date after which points will expire | [optional] 
 **TransactionUUID** | **string** | The identifier of this addition in the loyalty ledger | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

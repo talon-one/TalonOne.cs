@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Webhook
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -17,7 +15,5 @@ Name | Type | Description | Notes
 **Params** | [**List&lt;TemplateArgDef&gt;**](TemplateArgDef.md) | Array of template argument definitions | 
 **Enabled** | **bool** | Enables or disables webhook from showing in rule builder | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,6 +1,5 @@
-
 # TalonOne.Model.IntegrationStateV2
-
+Contains all entities that might interest Talon.One integrations. This is the response type returned by the V2 PUT customer_session endpoint 
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,7 +17,5 @@ Name | Type | Description | Notes
 **CreatedReferrals** | [**List&lt;Referral&gt;**](Referral.md) |  | 
 **AwardedGiveaways** | [**List&lt;Giveaway&gt;**](Giveaway.md) |  | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

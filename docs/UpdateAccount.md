@@ -1,6 +1,4 @@
-
 # TalonOne.Model.UpdateAccount
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,7 +9,5 @@ Name | Type | Description | Notes
 **State** | **string** | State of the account (active, deactivated) | [optional] 
 **PlanExpires** | **DateTime** | The point in time at which your current plan expires. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

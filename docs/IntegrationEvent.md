@@ -1,6 +1,4 @@
-
 # TalonOne.Model.IntegrationEvent
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,7 +7,5 @@ Name | Type | Description | Notes
 **Type** | **string** | A string representing the event. Must not be a reserved event name. | 
 **Attributes** | [**Object**](.md) | Arbitrary additional JSON data associated with the event. | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

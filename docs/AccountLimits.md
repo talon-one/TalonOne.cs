@@ -1,6 +1,4 @@
-
 # TalonOne.Model.AccountLimits
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -18,7 +16,5 @@ Name | Type | Description | Notes
 **ApiVolume** | **int** | Allowed volume of API requests to the account | 
 **PromotionTypes** | **List&lt;string&gt;** | Array of promotion types that are employed in the account | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

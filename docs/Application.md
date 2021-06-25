@@ -1,6 +1,4 @@
-
 # TalonOne.Model.Application
-
 ## Properties
 
 Name | Type | Description | Notes
@@ -25,7 +23,5 @@ Name | Type | Description | Notes
 **Sandbox** | **bool** | Flag indicating if this is a live or sandbox application | [optional] 
 **LoyaltyPrograms** | [**List&lt;LoyaltyProgram&gt;**](LoyaltyProgram.md) | An array containing all the loyalty programs to which this application is subscribed | 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

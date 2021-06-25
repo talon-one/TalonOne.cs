@@ -1,6 +1,5 @@
-
 # TalonOne.Model.WebhookLogEntry
-
+Log of webhook api calls
 ## Properties
 
 Name | Type | Description | Notes
@@ -16,7 +15,5 @@ Name | Type | Description | Notes
 **RequestTime** | **DateTime** | Timestamp of request | 
 **ResponseTime** | **DateTime** | Timestamp of response | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to README]](../README.md)
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
