@@ -56,11 +56,7 @@ namespace TalonOne.Client
                     string.Format("Error calling {0}: {1}", methodName, response.RawContent),
                     response.RawContent);
             }
-            if (status == 0)
-            {
-                return new ApiException(status,
-                    string.Format("Error calling {0}: {1}", methodName, response.ErrorText), response.ErrorText);
-            }
+            
             return null;
         };
 
@@ -353,8 +349,7 @@ namespace TalonOne.Client
         public static String ToDebugReport()
         {
             String report = "C# SDK (TalonOne) Debug Report:\n";
-            report += "    OS: " + System.Environment.OSVersion + "\n";
-            report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
+            report += "    OS: " + System.Runtime.InteropServices.RuntimeInformation.OSDescription + "\n";
             report += "    Version of the API: 1.0.0\n";
             report += "    SDK Package Version: 4.0.0\n";
 
