@@ -22,7 +22,7 @@ The version of the OpenAPI document: 1.0.0
     <Company>Talon.One</Company>
     <Authors>devs@talon.one</Authors>
     <Description>The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.</Description>
-    <PackageIconFile>https://github.com/talon-one/TalonOne.cs/raw/master/icon.png</PackageIconFile>
+    <PackageIconFile>icon.png</PackageIconFile>
     <Copyright>Copyright ©2020-present Talon.One GmbH, https://www.talon.one</Copyright>
     <PackageTags>sdk, talon, one, swagger, http, client</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
@@ -46,5 +46,6 @@ The version of the OpenAPI document: 1.0.0
   <ItemGroup>
       <None Include="../../LICENSE" Pack="true" PackagePath=""/>
       <None Include="../../README.md" Pack="true" PackagePath=""/>
+      <None Include="../../icon.png" Pack="true" PackagePath=""/>
   </ItemGroup>
 </Project>
