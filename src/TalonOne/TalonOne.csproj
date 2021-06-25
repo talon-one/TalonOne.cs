@@ -18,7 +18,15 @@ The version of the OpenAPI document: 1.0.0
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TalonOne</RootNamespace>
     <AssemblyName>TalonOne</AssemblyName>
-    <Description>A library generated from a OpenAPI doc</Description>
+    <Title>Talon.One C# SDK</Title>
+    <Company>Talon.One</Company>
+    <Authors>devs@talon.one</Authors>
+    <Description>The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.</Description>
+    <PackageIconUrl>https://github.com/talon-one/TalonOne.cs/raw/master/icon.png</PackageIconUrl>
+    <Copyright>Copyright ©2020-present Talon.One GmbH, https://www.talon.one</Copyright>
+    <PackageTags>sdk, talon, one, swagger, http, client</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFramework>netstandard2.0</TargetFramework>
     <FileAlignment>512</FileAlignment>
@@ -26,7 +34,6 @@ The version of the OpenAPI document: 1.0.0
     <RepositoryUrl>https://github.com/talon-one/TalonOne.cs.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/talon-one/TalonOne.cs</PackageProjectUrl>
-    <PackageReleaseNotes>Minor update</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,5 +41,10 @@ The version of the OpenAPI document: 1.0.0
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="RestSharp" Version="106.10.1" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+      <None Include="../../LICENSE" Pack="true" PackagePath=""/>
+      <None Include="../../README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 </Project>
