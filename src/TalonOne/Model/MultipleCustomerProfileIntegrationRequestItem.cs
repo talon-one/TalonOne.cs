@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="MultipleCustomerProfileIntegrationRequestItem" /> class.
         /// </summary>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account. (required).</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2).  (required).</param>
         public MultipleCustomerProfileIntegrationRequestItem(Object attributes = default(Object), string integrationId = default(string))
         {
             // to ensure "integrationId" is required (not null)
@@ -56,9 +56,9 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// The custom identifier for this profile, must be unique within the account.
+        /// The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
-        /// <value>The custom identifier for this profile, must be unique within the account.</value>
+        /// <value>The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). </value>
         [DataMember(Name="integrationId", EmitDefaultValue=false)]
         public string IntegrationId { get; set; }
 

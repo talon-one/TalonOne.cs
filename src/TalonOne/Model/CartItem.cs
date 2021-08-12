@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">Name of item (required).</param>
         /// <param name="sku">Stock keeping unit of item (required).</param>
-        /// <param name="quantity">Quantity of item (required).</param>
+        /// <param name="quantity">Quantity of item. **Important:** If you enabled [cart item flattening](https://help.talon.one/hc/en-us/articles/360016036899-Flattening-Cart-Items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.  (required).</param>
         /// <param name="price">Price of item (required).</param>
         /// <param name="category">Type, group or model of the item.</param>
         /// <param name="weight">Weight of item in grams.</param>
@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// <param name="width">Width of item in mm.</param>
         /// <param name="length">Length of item in mm.</param>
         /// <param name="position">Position of the Cart Item in the Cart (calculated internally).</param>
-        /// <param name="attributes">Arbitrary properties associated with this item.</param>
+        /// <param name="attributes">Arbitrary properties associated with this item. You can use built-in attributes or create your own. See [Attributes](https://docs.talon.one/docs/dev/concepts/attributes). .</param>
         public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), decimal price = default(decimal), string category = default(string), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object))
         {
             // to ensure "name" is required (not null)
@@ -82,9 +82,9 @@ namespace TalonOne.Model
         public string Sku { get; set; }
 
         /// <summary>
-        /// Quantity of item
+        /// Quantity of item. **Important:** If you enabled [cart item flattening](https://help.talon.one/hc/en-us/articles/360016036899-Flattening-Cart-Items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. 
         /// </summary>
-        /// <value>Quantity of item</value>
+        /// <value>Quantity of item. **Important:** If you enabled [cart item flattening](https://help.talon.one/hc/en-us/articles/360016036899-Flattening-Cart-Items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int Quantity { get; set; }
 
@@ -138,9 +138,9 @@ namespace TalonOne.Model
         public decimal Position { get; set; }
 
         /// <summary>
-        /// Arbitrary properties associated with this item
+        /// Arbitrary properties associated with this item. You can use built-in attributes or create your own. See [Attributes](https://docs.talon.one/docs/dev/concepts/attributes). 
         /// </summary>
-        /// <value>Arbitrary properties associated with this item</value>
+        /// <value>Arbitrary properties associated with this item. You can use built-in attributes or create your own. See [Attributes](https://docs.talon.one/docs/dev/concepts/attributes). </value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public Object Attributes { get; set; }
 

@@ -58,6 +58,14 @@ namespace TalonOne.Test
 
 
         /// <summary>
+        /// Test the property 'ApplicationIds'
+        /// </summary>
+        [Fact]
+        public void ApplicationIdsTest()
+        {
+            // TODO unit test for the property 'ApplicationIds'
+        }
+        /// <summary>
         /// Test the property 'Name'
         /// </summary>
         [Fact]
@@ -96,14 +104,6 @@ namespace TalonOne.Test
         public void EnabledTest()
         {
             // TODO unit test for the property 'Enabled'
-        }
-        /// <summary>
-        /// Test the property 'SubscribedApplicationsIds'
-        /// </summary>
-        [Fact]
-        public void SubscribedApplicationsIdsTest()
-        {
-            // TODO unit test for the property 'SubscribedApplicationsIds'
         }
         /// <summary>
         /// Test the property 'Params'

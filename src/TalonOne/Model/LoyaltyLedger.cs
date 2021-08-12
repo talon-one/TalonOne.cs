@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Ledger of Balance in Loyalty Program for a Customer
+    /// Ledger of Balance in Loyalty Program for a Customer.
     /// </summary>
     [DataContract]
     public partial class LoyaltyLedger :  IEquatable<LoyaltyLedger>, IValidatableObject
@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="LoyaltyLedger" /> class.
         /// </summary>
         /// <param name="ledger">ledger (required).</param>
-        /// <param name="subLedgers">A map containing a list of all loyalty subledger balances.</param>
+        /// <param name="subLedgers">A map containing a list of all loyalty subledger balances..</param>
         public LoyaltyLedger(LoyaltySubLedger ledger = default(LoyaltySubLedger), Dictionary<string, LoyaltySubLedger> subLedgers = default(Dictionary<string, LoyaltySubLedger>))
         {
             // to ensure "ledger" is required (not null)
@@ -55,9 +55,9 @@ namespace TalonOne.Model
         public LoyaltySubLedger Ledger { get; set; }
 
         /// <summary>
-        /// A map containing a list of all loyalty subledger balances
+        /// A map containing a list of all loyalty subledger balances.
         /// </summary>
-        /// <value>A map containing a list of all loyalty subledger balances</value>
+        /// <value>A map containing a list of all loyalty subledger balances.</value>
         [DataMember(Name="subLedgers", EmitDefaultValue=false)]
         public Dictionary<string, LoyaltySubLedger> SubLedgers { get; set; }
 

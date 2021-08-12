@@ -32,7 +32,7 @@ namespace TalonOne.Api
         /// Add points in loyalty program for given customer
         /// </summary>
         /// <remarks>
-        /// Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -45,7 +45,7 @@ namespace TalonOne.Api
         /// Add points in loyalty program for given customer
         /// </summary>
         /// <remarks>
-        /// Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -124,7 +124,7 @@ namespace TalonOne.Api
         /// Create campaign
         /// </summary>
         /// <remarks>
-        /// Create a campaign. A campaign is part of an Application and contains a set of promotion rules.
+        /// Create a campaign. A campaign is part of an Application and contains a set of promotion rules. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -136,7 +136,7 @@ namespace TalonOne.Api
         /// Create campaign
         /// </summary>
         /// <remarks>
-        /// Create a campaign. A campaign is part of an Application and contains a set of promotion rules.
+        /// Create a campaign. A campaign is part of an Application and contains a set of promotion rules. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -153,7 +153,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>InlineResponse2004</returns>
         InlineResponse2004 CreateCoupons (int applicationId, int campaignId, NewCoupons body, string silent = default(string));
 
@@ -167,7 +167,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
         ApiResponse<InlineResponse2004> CreateCouponsWithHttpInfo (int applicationId, int campaignId, NewCoupons body, string silent = default(string));
         /// <summary>
@@ -180,7 +180,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>InlineResponse2004</returns>
         InlineResponse2004 CreateCouponsForMultipleRecipients (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string));
 
@@ -194,7 +194,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
         ApiResponse<InlineResponse2004> CreateCouponsForMultipleRecipientsWithHttpInfo (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string));
         /// <summary>
@@ -247,7 +247,7 @@ namespace TalonOne.Api
         /// Create session
         /// </summary>
         /// <remarks>
-        /// Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
+        /// Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -258,7 +258,7 @@ namespace TalonOne.Api
         /// Create session
         /// </summary>
         /// <remarks>
-        /// Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
+        /// Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -409,7 +409,7 @@ namespace TalonOne.Api
         /// Export coupons to CSV file
         /// </summary>
         /// <remarks>
-        /// Download a file containing the coupons that match the given attributes.
+        /// Download a file containing the coupons that match the given properties.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -425,7 +425,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>string</returns>
         string ExportCoupons (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string));
 
@@ -433,7 +433,7 @@ namespace TalonOne.Api
         /// Export coupons to CSV file
         /// </summary>
         /// <remarks>
-        /// Download a file containing the coupons that match the given attributes.
+        /// Download a file containing the coupons that match the given properties.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -449,7 +449,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> ExportCouponsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string));
         /// <summary>
@@ -562,6 +562,41 @@ namespace TalonOne.Api
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> ExportLoyaltyLedgerWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string));
+        /// <summary>
+        /// Export referrals to CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file containing the referrals that match the given parameters.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">If &#x60;true&#x60;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. If &#x60;false&#x60;, only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
+        /// <param name="batchId">Filter results by batches of referrals (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>string</returns>
+        string ExportReferrals (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string batchId = default(string), string dateFormat = default(string));
+
+        /// <summary>
+        /// Export referrals to CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file containing the referrals that match the given parameters.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">If &#x60;true&#x60;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. If &#x60;false&#x60;, only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
+        /// <param name="batchId">Filter results by batches of referrals (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> ExportReferralsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string batchId = default(string), string dateFormat = default(string));
         /// <summary>
         /// Get access logs for Application
         /// </summary>
@@ -1199,7 +1234,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>InlineResponse2002</returns>
         InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
 
@@ -1215,21 +1250,21 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
         ApiResponse<InlineResponse2002> GetCampaignByAttributesWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
         /// <summary>
         /// List campaigns
         /// </summary>
         /// <remarks>
-        /// List all the campaigns of the specified application.
+        /// List the campaigns of the specified application that match your filter criteria. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -1243,14 +1278,14 @@ namespace TalonOne.Api
         /// List campaigns
         /// </summary>
         /// <remarks>
-        /// List all the campaigns of the specified application.
+        /// List the campaigns of the specified application that match your filter criteria. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -1626,7 +1661,7 @@ namespace TalonOne.Api
         /// Get the Loyalty Ledger for this integrationID
         /// </summary>
         /// <remarks>
-        /// Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID">The identifier for the application, must be unique within the account.</param>
@@ -1638,7 +1673,7 @@ namespace TalonOne.Api
         /// Get the Loyalty Ledger for this integrationID
         /// </summary>
         /// <remarks>
-        /// Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID">The identifier for the application, must be unique within the account.</param>
@@ -1694,7 +1729,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
         /// <returns>LoyaltyStatistics</returns>
-        LoyaltyStatistics GetLoyaltyStatistics (string programID);
+        LoyaltyStatistics GetLoyaltyStatistics (int programID);
 
         /// <summary>
         /// Get loyalty program statistics by loyalty program ID
@@ -1705,7 +1740,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
         /// <returns>ApiResponse of LoyaltyStatistics</returns>
-        ApiResponse<LoyaltyStatistics> GetLoyaltyStatisticsWithHttpInfo (string programID);
+        ApiResponse<LoyaltyStatistics> GetLoyaltyStatisticsWithHttpInfo (int programID);
         /// <summary>
         /// List referrals
         /// </summary>
@@ -1993,6 +2028,33 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of InlineResponse20022</returns>
         ApiResponse<InlineResponse20022> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
+        /// Import collection via CSV file
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="collectionId"></param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Import</returns>
+        Import ImportCollection (int applicationId, int campaignId, int collectionId, string upFile = default(string));
+
+        /// <summary>
+        /// Import collection via CSV file
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="collectionId"></param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>ApiResponse of Import</returns>
+        ApiResponse<Import> ImportCollectionWithHttpInfo (int applicationId, int campaignId, int collectionId, string upFile = default(string));
+        /// <summary>
         /// Import coupons via CSV file
         /// </summary>
         /// <remarks>
@@ -2021,7 +2083,7 @@ namespace TalonOne.Api
         /// Import loyalty points via CSV file
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the [loyalty](https://www.talon.one/glossary/loyalty) points that should be created. The file should be sent as multipart data.\&quot; 
+        /// Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: Importing points does **not** overwrite existing points for any customer.  The CSV file can contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile that should receive the loyalty points. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): A reason why these points were awarded.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  &#x60;&#x60;&#x60;csv customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -2033,7 +2095,7 @@ namespace TalonOne.Api
         /// Import loyalty points via CSV file
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the [loyalty](https://www.talon.one/glossary/loyalty) points that should be created. The file should be sent as multipart data.\&quot; 
+        /// Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: Importing points does **not** overwrite existing points for any customer.  The CSV file can contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile that should receive the loyalty points. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): A reason why these points were awarded.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  &#x60;&#x60;&#x60;csv customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -2092,7 +2154,7 @@ namespace TalonOne.Api
         /// Deduct points in loyalty program for given customer
         /// </summary>
         /// <remarks>
-        /// Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -2105,7 +2167,7 @@ namespace TalonOne.Api
         /// Deduct points in loyalty program for given customer
         /// </summary>
         /// <remarks>
-        /// Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -2155,7 +2217,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>InlineResponse2005</returns>
         InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
@@ -2180,7 +2242,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
         ApiResponse<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
@@ -2422,7 +2484,7 @@ namespace TalonOne.Api
         /// Add points in loyalty program for given customer
         /// </summary>
         /// <remarks>
-        /// Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -2435,7 +2497,7 @@ namespace TalonOne.Api
         /// Add points in loyalty program for given customer
         /// </summary>
         /// <remarks>
-        /// Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -2514,7 +2576,7 @@ namespace TalonOne.Api
         /// Create campaign
         /// </summary>
         /// <remarks>
-        /// Create a campaign. A campaign is part of an Application and contains a set of promotion rules.
+        /// Create a campaign. A campaign is part of an Application and contains a set of promotion rules. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -2526,7 +2588,7 @@ namespace TalonOne.Api
         /// Create campaign
         /// </summary>
         /// <remarks>
-        /// Create a campaign. A campaign is part of an Application and contains a set of promotion rules.
+        /// Create a campaign. A campaign is part of an Application and contains a set of promotion rules. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -2543,7 +2605,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of InlineResponse2004</returns>
         System.Threading.Tasks.Task<InlineResponse2004> CreateCouponsAsync (int applicationId, int campaignId, NewCoupons body, string silent = default(string));
 
@@ -2557,7 +2619,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> CreateCouponsAsyncWithHttpInfo (int applicationId, int campaignId, NewCoupons body, string silent = default(string));
         /// <summary>
@@ -2570,7 +2632,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of InlineResponse2004</returns>
         System.Threading.Tasks.Task<InlineResponse2004> CreateCouponsForMultipleRecipientsAsync (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string));
 
@@ -2584,7 +2646,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> CreateCouponsForMultipleRecipientsAsyncWithHttpInfo (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string));
         /// <summary>
@@ -2637,7 +2699,7 @@ namespace TalonOne.Api
         /// Create session
         /// </summary>
         /// <remarks>
-        /// Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
+        /// Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -2648,7 +2710,7 @@ namespace TalonOne.Api
         /// Create session
         /// </summary>
         /// <remarks>
-        /// Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
+        /// Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -2799,7 +2861,7 @@ namespace TalonOne.Api
         /// Export coupons to CSV file
         /// </summary>
         /// <remarks>
-        /// Download a file containing the coupons that match the given attributes.
+        /// Download a file containing the coupons that match the given properties.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -2815,7 +2877,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of string</returns>
         System.Threading.Tasks.Task<string> ExportCouponsAsync (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string));
 
@@ -2823,7 +2885,7 @@ namespace TalonOne.Api
         /// Export coupons to CSV file
         /// </summary>
         /// <remarks>
-        /// Download a file containing the coupons that match the given attributes.
+        /// Download a file containing the coupons that match the given properties.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -2839,7 +2901,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> ExportCouponsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string));
         /// <summary>
@@ -2952,6 +3014,41 @@ namespace TalonOne.Api
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> ExportLoyaltyLedgerAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string programID, string integrationID, string dateFormat = default(string));
+        /// <summary>
+        /// Export referrals to CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file containing the referrals that match the given parameters.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">If &#x60;true&#x60;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. If &#x60;false&#x60;, only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
+        /// <param name="batchId">Filter results by batches of referrals (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> ExportReferralsAsync (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string batchId = default(string), string dateFormat = default(string));
+
+        /// <summary>
+        /// Export referrals to CSV file
+        /// </summary>
+        /// <remarks>
+        /// Download a file containing the referrals that match the given parameters.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">If &#x60;true&#x60;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. If &#x60;false&#x60;, only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
+        /// <param name="batchId">Filter results by batches of referrals (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> ExportReferralsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string batchId = default(string), string dateFormat = default(string));
         /// <summary>
         /// Get access logs for Application
         /// </summary>
@@ -3589,7 +3686,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
         System.Threading.Tasks.Task<InlineResponse2002> GetCampaignByAttributesAsync (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
 
@@ -3605,21 +3702,21 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCampaignByAttributesAsyncWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
         /// <summary>
         /// List campaigns
         /// </summary>
         /// <remarks>
-        /// List all the campaigns of the specified application.
+        /// List the campaigns of the specified application that match your filter criteria. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -3633,14 +3730,14 @@ namespace TalonOne.Api
         /// List campaigns
         /// </summary>
         /// <remarks>
-        /// List all the campaigns of the specified application.
+        /// List the campaigns of the specified application that match your filter criteria. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -4016,7 +4113,7 @@ namespace TalonOne.Api
         /// Get the Loyalty Ledger for this integrationID
         /// </summary>
         /// <remarks>
-        /// Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID">The identifier for the application, must be unique within the account.</param>
@@ -4028,7 +4125,7 @@ namespace TalonOne.Api
         /// Get the Loyalty Ledger for this integrationID
         /// </summary>
         /// <remarks>
-        /// Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID">The identifier for the application, must be unique within the account.</param>
@@ -4084,7 +4181,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
         /// <returns>Task of LoyaltyStatistics</returns>
-        System.Threading.Tasks.Task<LoyaltyStatistics> GetLoyaltyStatisticsAsync (string programID);
+        System.Threading.Tasks.Task<LoyaltyStatistics> GetLoyaltyStatisticsAsync (int programID);
 
         /// <summary>
         /// Get loyalty program statistics by loyalty program ID
@@ -4095,7 +4192,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
         /// <returns>Task of ApiResponse (LoyaltyStatistics)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltyStatistics>> GetLoyaltyStatisticsAsyncWithHttpInfo (string programID);
+        System.Threading.Tasks.Task<ApiResponse<LoyaltyStatistics>> GetLoyaltyStatisticsAsyncWithHttpInfo (int programID);
         /// <summary>
         /// List referrals
         /// </summary>
@@ -4383,6 +4480,33 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
+        /// Import collection via CSV file
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="collectionId"></param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Task of Import</returns>
+        System.Threading.Tasks.Task<Import> ImportCollectionAsync (int applicationId, int campaignId, int collectionId, string upFile = default(string));
+
+        /// <summary>
+        /// Import collection via CSV file
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="collectionId"></param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Task of ApiResponse (Import)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Import>> ImportCollectionAsyncWithHttpInfo (int applicationId, int campaignId, int collectionId, string upFile = default(string));
+        /// <summary>
         /// Import coupons via CSV file
         /// </summary>
         /// <remarks>
@@ -4411,7 +4535,7 @@ namespace TalonOne.Api
         /// Import loyalty points via CSV file
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the [loyalty](https://www.talon.one/glossary/loyalty) points that should be created. The file should be sent as multipart data.\&quot; 
+        /// Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: Importing points does **not** overwrite existing points for any customer.  The CSV file can contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile that should receive the loyalty points. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): A reason why these points were awarded.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  &#x60;&#x60;&#x60;csv customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -4423,7 +4547,7 @@ namespace TalonOne.Api
         /// Import loyalty points via CSV file
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the [loyalty](https://www.talon.one/glossary/loyalty) points that should be created. The file should be sent as multipart data.\&quot; 
+        /// Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: Importing points does **not** overwrite existing points for any customer.  The CSV file can contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile that should receive the loyalty points. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): A reason why these points were awarded.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  &#x60;&#x60;&#x60;csv customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -4482,7 +4606,7 @@ namespace TalonOne.Api
         /// Deduct points in loyalty program for given customer
         /// </summary>
         /// <remarks>
-        /// Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -4495,7 +4619,7 @@ namespace TalonOne.Api
         /// Deduct points in loyalty program for given customer
         /// </summary>
         /// <remarks>
-        /// Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -4545,7 +4669,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of InlineResponse2005</returns>
         System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsync (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
@@ -4570,7 +4694,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
@@ -4920,7 +5044,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Add points in loyalty program for given customer Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Add points in loyalty program for given customer Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -4933,7 +5057,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Add points in loyalty program for given customer Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Add points in loyalty program for given customer Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -4993,7 +5117,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Add points in loyalty program for given customer Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Add points in loyalty program for given customer Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -5007,7 +5131,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Add points in loyalty program for given customer Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Add points in loyalty program for given customer Add points in the specified loyalty program for the given customer.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -5456,7 +5580,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create campaign Create a campaign. A campaign is part of an Application and contains a set of promotion rules.
+        /// Create campaign Create a campaign. A campaign is part of an Application and contains a set of promotion rules. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -5469,7 +5593,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create campaign Create a campaign. A campaign is part of an Application and contains a set of promotion rules.
+        /// Create campaign Create a campaign. A campaign is part of an Application and contains a set of promotion rules. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -5520,7 +5644,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create campaign Create a campaign. A campaign is part of an Application and contains a set of promotion rules.
+        /// Create campaign Create a campaign. A campaign is part of an Application and contains a set of promotion rules. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -5534,7 +5658,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create campaign Create a campaign. A campaign is part of an Application and contains a set of promotion rules.
+        /// Create campaign Create a campaign. A campaign is part of an Application and contains a set of promotion rules. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -5593,7 +5717,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>InlineResponse2004</returns>
         public InlineResponse2004 CreateCoupons (int applicationId, int campaignId, NewCoupons body, string silent = default(string))
         {
@@ -5608,7 +5732,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
         public TalonOne.Client.ApiResponse< InlineResponse2004 > CreateCouponsWithHttpInfo (int applicationId, int campaignId, NewCoupons body, string silent = default(string))
         {
@@ -5666,7 +5790,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of InlineResponse2004</returns>
         public async System.Threading.Tasks.Task<InlineResponse2004> CreateCouponsAsync (int applicationId, int campaignId, NewCoupons body, string silent = default(string))
         {
@@ -5682,7 +5806,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2004>> CreateCouponsAsyncWithHttpInfo (int applicationId, int campaignId, NewCoupons body, string silent = default(string))
         {
@@ -5742,7 +5866,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>InlineResponse2004</returns>
         public InlineResponse2004 CreateCouponsForMultipleRecipients (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string))
         {
@@ -5757,7 +5881,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
         public TalonOne.Client.ApiResponse< InlineResponse2004 > CreateCouponsForMultipleRecipientsWithHttpInfo (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string))
         {
@@ -5815,7 +5939,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of InlineResponse2004</returns>
         public async System.Threading.Tasks.Task<InlineResponse2004> CreateCouponsForMultipleRecipientsAsync (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string))
         {
@@ -5831,7 +5955,7 @@ namespace TalonOne.Api
         /// <param name="applicationId"></param>
         /// <param name="campaignId"></param>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2004>> CreateCouponsForMultipleRecipientsAsyncWithHttpInfo (int applicationId, int campaignId, NewCouponsForMultipleRecipients body, string silent = default(string))
         {
@@ -6147,7 +6271,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create session Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
+        /// Create session Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -6159,7 +6283,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create session Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
+        /// Create session Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -6208,7 +6332,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create session Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
+        /// Create session Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -6221,7 +6345,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create session Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
+        /// Create session Create a session to use the Management API endpoints. Use the value of the &#x60;token&#x60; property provided in the response as bearer token in other API calls.  A token is valid for 3 months. In accordance with best pratices, use your generated token for all your API requests. Do **not** regenerate a token for each request.  This endpoint has a rate limit of 3 to 6 requests per second per account, depending on your setup. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
@@ -7029,7 +7153,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export coupons to CSV file Download a file containing the coupons that match the given attributes.
+        /// Export coupons to CSV file Download a file containing the coupons that match the given properties.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -7045,7 +7169,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>string</returns>
         public string ExportCoupons (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string))
         {
@@ -7054,7 +7178,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export coupons to CSV file Download a file containing the coupons that match the given attributes.
+        /// Export coupons to CSV file Download a file containing the coupons that match the given properties.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -7070,7 +7194,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of string</returns>
         public TalonOne.Client.ApiResponse< string > ExportCouponsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string))
         {
@@ -7163,7 +7287,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export coupons to CSV file Download a file containing the coupons that match the given attributes.
+        /// Export coupons to CSV file Download a file containing the coupons that match the given properties.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -7179,7 +7303,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of string</returns>
         public async System.Threading.Tasks.Task<string> ExportCouponsAsync (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string))
         {
@@ -7189,7 +7313,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export coupons to CSV file Download a file containing the coupons that match the given attributes.
+        /// Export coupons to CSV file Download a file containing the coupons that match the given properties.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
@@ -7205,7 +7329,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<string>> ExportCouponsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string))
         {
@@ -7915,6 +8039,205 @@ namespace TalonOne.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ExportLoyaltyLedger", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Export referrals to CSV file Download a file containing the referrals that match the given parameters.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">If &#x60;true&#x60;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. If &#x60;false&#x60;, only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
+        /// <param name="batchId">Filter results by batches of referrals (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>string</returns>
+        public string ExportReferrals (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string batchId = default(string), string dateFormat = default(string))
+        {
+             TalonOne.Client.ApiResponse<string> localVarResponse = ExportReferralsWithHttpInfo(applicationId, campaignId, createdBefore, createdAfter, valid, usable, batchId, dateFormat);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export referrals to CSV file Download a file containing the referrals that match the given parameters.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">If &#x60;true&#x60;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. If &#x60;false&#x60;, only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
+        /// <param name="batchId">Filter results by batches of referrals (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        public TalonOne.Client.ApiResponse< string > ExportReferralsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string batchId = default(string), string dateFormat = default(string))
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/csv"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            if (campaignId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
+            }
+            if (createdBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
+            }
+            if (createdAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
+            }
+            if (valid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "valid", valid));
+            }
+            if (usable != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "usable", usable));
+            }
+            if (batchId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "batchId", batchId));
+            }
+            if (dateFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
+            }
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< string >("/v1/applications/{applicationId}/export_referrals", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExportReferrals", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Export referrals to CSV file Download a file containing the referrals that match the given parameters.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">If &#x60;true&#x60;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. If &#x60;false&#x60;, only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
+        /// <param name="batchId">Filter results by batches of referrals (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> ExportReferralsAsync (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string batchId = default(string), string dateFormat = default(string))
+        {
+             TalonOne.Client.ApiResponse<string> localVarResponse = await ExportReferralsAsyncWithHttpInfo(applicationId, campaignId, createdBefore, createdAfter, valid, usable, batchId, dateFormat);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export referrals to CSV file Download a file containing the referrals that match the given parameters.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches referrals in which the expiry date is set and in the past. The second matches referrals in which start date is null or in the past and expiry date is null or in the future, the third matches referrals in which start date is set and in the future.  (optional)</param>
+        /// <param name="usable">If &#x60;true&#x60;, only referrals where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. If &#x60;false&#x60;, only referrals where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
+        /// <param name="batchId">Filter results by batches of referrals (optional)</param>
+        /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<string>> ExportReferralsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string batchId = default(string), string dateFormat = default(string))
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/csv"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            if (campaignId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
+            }
+            if (createdBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
+            }
+            if (createdAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
+            }
+            if (valid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "valid", valid));
+            }
+            if (usable != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "usable", usable));
+            }
+            if (batchId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "batchId", batchId));
+            }
+            if (dateFormat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
+            }
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/v1/applications/{applicationId}/export_referrals", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExportReferrals", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -11409,7 +11732,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 GetCampaignByAttributes (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
@@ -11426,7 +11749,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
         public TalonOne.Client.ApiResponse< InlineResponse2002 > GetCampaignByAttributesWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
@@ -11497,7 +11820,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
         public async System.Threading.Tasks.Task<InlineResponse2002> GetCampaignByAttributesAsync (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
@@ -11515,7 +11838,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2002>> GetCampaignByAttributesAsyncWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
@@ -11580,14 +11903,14 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List campaigns List all the campaigns of the specified application.
+        /// List campaigns List the campaigns of the specified application that match your filter criteria. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -11602,14 +11925,14 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List campaigns List all the campaigns of the specified application.
+        /// List campaigns List the campaigns of the specified application that match your filter criteria. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -11696,14 +12019,14 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List campaigns List all the campaigns of the specified application.
+        /// List campaigns List the campaigns of the specified application that match your filter criteria. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -11719,14 +12042,14 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List campaigns List all the campaigns of the specified application.
+        /// List campaigns List the campaigns of the specified application that match your filter criteria. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId"></param>
         /// <param name="pageSize">The number of items to include in this response. When omitted, the maximum value of 1000 will be used. (optional)</param>
         /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. Sorting defaults to ascending order, prefix the field name with &#x60;-&#x60; to sort in descending order. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -13862,7 +14185,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get the Loyalty Ledger for this integrationID Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Get the Loyalty Ledger for this integrationID Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID">The identifier for the application, must be unique within the account.</param>
@@ -13875,7 +14198,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get the Loyalty Ledger for this integrationID Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Get the Loyalty Ledger for this integrationID Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID">The identifier for the application, must be unique within the account.</param>
@@ -13929,7 +14252,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get the Loyalty Ledger for this integrationID Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Get the Loyalty Ledger for this integrationID Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID">The identifier for the application, must be unique within the account.</param>
@@ -13943,7 +14266,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get the Loyalty Ledger for this integrationID Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Get the Loyalty Ledger for this integrationID Get the loyalty ledger for this profile integration ID.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID">The identifier for the application, must be unique within the account.</param>
@@ -14228,7 +14551,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
         /// <returns>LoyaltyStatistics</returns>
-        public LoyaltyStatistics GetLoyaltyStatistics (string programID)
+        public LoyaltyStatistics GetLoyaltyStatistics (int programID)
         {
              TalonOne.Client.ApiResponse<LoyaltyStatistics> localVarResponse = GetLoyaltyStatisticsWithHttpInfo(programID);
              return localVarResponse.Data;
@@ -14240,12 +14563,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
         /// <returns>ApiResponse of LoyaltyStatistics</returns>
-        public TalonOne.Client.ApiResponse< LoyaltyStatistics > GetLoyaltyStatisticsWithHttpInfo (string programID)
+        public TalonOne.Client.ApiResponse< LoyaltyStatistics > GetLoyaltyStatisticsWithHttpInfo (int programID)
         {
-            // verify the required parameter 'programID' is set
-            if (programID == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'programID' when calling ManagementApi->GetLoyaltyStatistics");
-
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
             String[] _contentTypes = new String[] {
@@ -14288,7 +14607,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
         /// <returns>Task of LoyaltyStatistics</returns>
-        public async System.Threading.Tasks.Task<LoyaltyStatistics> GetLoyaltyStatisticsAsync (string programID)
+        public async System.Threading.Tasks.Task<LoyaltyStatistics> GetLoyaltyStatisticsAsync (int programID)
         {
              TalonOne.Client.ApiResponse<LoyaltyStatistics> localVarResponse = await GetLoyaltyStatisticsAsyncWithHttpInfo(programID);
              return localVarResponse.Data;
@@ -14301,12 +14620,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
         /// <returns>Task of ApiResponse (LoyaltyStatistics)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyStatistics>> GetLoyaltyStatisticsAsyncWithHttpInfo (string programID)
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyStatistics>> GetLoyaltyStatisticsAsyncWithHttpInfo (int programID)
         {
-            // verify the required parameter 'programID' is set
-            if (programID == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'programID' when calling ManagementApi->GetLoyaltyStatistics");
-
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -15952,6 +16267,147 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Import collection via CSV file Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="collectionId"></param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Import</returns>
+        public Import ImportCollection (int applicationId, int campaignId, int collectionId, string upFile = default(string))
+        {
+             TalonOne.Client.ApiResponse<Import> localVarResponse = ImportCollectionWithHttpInfo(applicationId, campaignId, collectionId, upFile);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Import collection via CSV file Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="collectionId"></param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>ApiResponse of Import</returns>
+        public TalonOne.Client.ApiResponse< Import > ImportCollectionWithHttpInfo (int applicationId, int campaignId, int collectionId, string upFile = default(string))
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (upFile != null)
+            {
+                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+            }
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< Import >("/v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/import", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ImportCollection", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Import collection via CSV file Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="collectionId"></param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Task of Import</returns>
+        public async System.Threading.Tasks.Task<Import> ImportCollectionAsync (int applicationId, int campaignId, int collectionId, string upFile = default(string))
+        {
+             TalonOne.Client.ApiResponse<Import> localVarResponse = await ImportCollectionAsyncWithHttpInfo(applicationId, campaignId, collectionId, upFile);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Import collection via CSV file Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId"></param>
+        /// <param name="campaignId"></param>
+        /// <param name="collectionId"></param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Task of ApiResponse (Import)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Import>> ImportCollectionAsyncWithHttpInfo (int applicationId, int campaignId, int collectionId, string upFile = default(string))
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (upFile != null)
+            {
+                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+            }
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Import>("/v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/import", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ImportCollection", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Import coupons via CSV file Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file can contain the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;limitval&#x60;: The maximum amount of redemptions of this code. Defaults to &#x60;1&#x60; when not provided. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. Double the double-quotes in the object.   For example, if you created a custom attribute called &#x60;category&#x60;, set it with &#x60;\&quot;{\&quot;\&quot;category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;&#x60;.  You can use thhe timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  &#x60;&#x60;&#x60; \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot; &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#operation/getReservedCustomers). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
@@ -16087,7 +16543,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import loyalty points via CSV file Upload a CSV file containing the [loyalty](https://www.talon.one/glossary/loyalty) points that should be created. The file should be sent as multipart data.\&quot; 
+        /// Import loyalty points via CSV file Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: Importing points does **not** overwrite existing points for any customer.  The CSV file can contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile that should receive the loyalty points. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): A reason why these points were awarded.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  &#x60;&#x60;&#x60;csv customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -16100,7 +16556,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import loyalty points via CSV file Upload a CSV file containing the [loyalty](https://www.talon.one/glossary/loyalty) points that should be created. The file should be sent as multipart data.\&quot; 
+        /// Import loyalty points via CSV file Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: Importing points does **not** overwrite existing points for any customer.  The CSV file can contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile that should receive the loyalty points. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): A reason why these points were awarded.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  &#x60;&#x60;&#x60;csv customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -16150,7 +16606,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import loyalty points via CSV file Upload a CSV file containing the [loyalty](https://www.talon.one/glossary/loyalty) points that should be created. The file should be sent as multipart data.\&quot; 
+        /// Import loyalty points via CSV file Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: Importing points does **not** overwrite existing points for any customer.  The CSV file can contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile that should receive the loyalty points. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): A reason why these points were awarded.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  &#x60;&#x60;&#x60;csv customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -16164,7 +16620,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import loyalty points via CSV file Upload a CSV file containing the [loyalty](https://www.talon.one/glossary/loyalty) points that should be created. The file should be sent as multipart data.\&quot; 
+        /// Import loyalty points via CSV file Upload a CSV file containing the [loyalty](https://www.talon.one/pillar-pages/loyalty) points that should be created. The file should be sent as multipart data.  **Important**: Importing points does **not** overwrite existing points for any customer.  The CSV file can contain the following columns:  - &#x60;customerprofileid&#x60;: The integration ID of the customer profile that should receive the loyalty points. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiry date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): A reason why these points were awarded.  You can use the timezone of your choice. It is converted to UTC internally by Talon.One.  Example:  &#x60;&#x60;&#x60;csv customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -16480,7 +16936,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deduct points in loyalty program for given customer Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Deduct points in loyalty program for given customer Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -16493,7 +16949,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deduct points in loyalty program for given customer Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Deduct points in loyalty program for given customer Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -16553,7 +17009,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deduct points in loyalty program for given customer Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Deduct points in loyalty program for given customer Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -16567,7 +17023,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deduct points in loyalty program for given customer Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the customer profile, you can use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2) or [Update customer profile](/integration-api/#operation/updateCustomerProfileV2) endpoints. 
+        /// Deduct points in loyalty program for given customer Remove points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="programID"></param>
@@ -16771,7 +17227,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>InlineResponse2005</returns>
         public InlineResponse2005 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
@@ -16797,7 +17253,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
         public TalonOne.Client.ApiResponse< InlineResponse2005 > SearchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
@@ -16913,7 +17369,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of InlineResponse2005</returns>
         public async System.Threading.Tasks.Task<InlineResponse2005> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsync (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
@@ -16940,7 +17396,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign. (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Capmaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2005>> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {

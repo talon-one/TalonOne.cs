@@ -43,8 +43,8 @@ namespace TalonOne.Model
         /// <param name="title">Visible name of loyalty program (required).</param>
         /// <param name="name">Internal name of loyalty program (required).</param>
         /// <param name="ledger">ledger (required).</param>
-        /// <param name="subLedgers">A map containing a list of all loyalty subledger balances.</param>
-        public LoyaltyProgramLedgers(int id = default(int), string title = default(string), string name = default(string), LoyaltyProgramBalance ledger = default(LoyaltyProgramBalance), Dictionary<string, LoyaltyProgramBalance> subLedgers = default(Dictionary<string, LoyaltyProgramBalance>))
+        /// <param name="subLedgers">A map containing information about each loyalty subledger.</param>
+        public LoyaltyProgramLedgers(int id = default(int), string title = default(string), string name = default(string), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subLedgers = default(Dictionary<string, LedgerInfo>))
         {
             this.Id = id;
             // to ensure "title" is required (not null)
@@ -81,14 +81,14 @@ namespace TalonOne.Model
         /// Gets or Sets Ledger
         /// </summary>
         [DataMember(Name="ledger", EmitDefaultValue=false)]
-        public LoyaltyProgramBalance Ledger { get; set; }
+        public LedgerInfo Ledger { get; set; }
 
         /// <summary>
-        /// A map containing a list of all loyalty subledger balances
+        /// A map containing information about each loyalty subledger
         /// </summary>
-        /// <value>A map containing a list of all loyalty subledger balances</value>
+        /// <value>A map containing information about each loyalty subledger</value>
         [DataMember(Name="subLedgers", EmitDefaultValue=false)]
-        public Dictionary<string, LoyaltyProgramBalance> SubLedgers { get; set; }
+        public Dictionary<string, LedgerInfo> SubLedgers { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

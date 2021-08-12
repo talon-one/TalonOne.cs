@@ -95,9 +95,9 @@ namespace TalonOne.Model
 
 
         /// <summary>
-        /// Optional list of requested information to be present on the response related to the customer session update.  Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot;, \&quot;awardedGiveaways\&quot; and \&quot;ruleFailureReasons\&quot;.  **Note:** &#x60;ruleFailureReasons&#x60; is always part of the response when the Application type is &#x60;sandbox&#x60;. 
+        /// Optional list of requested information to be present on the response related to the customer session update.  **Note:** &#x60;ruleFailureReasons&#x60; is always part of the response when the Application type is &#x60;sandbox&#x60;. 
         /// </summary>
-        /// <value>Optional list of requested information to be present on the response related to the customer session update.  Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot;, \&quot;awardedGiveaways\&quot; and \&quot;ruleFailureReasons\&quot;.  **Note:** &#x60;ruleFailureReasons&#x60; is always part of the response when the Application type is &#x60;sandbox&#x60;. </value>
+        /// <value>Optional list of requested information to be present on the response related to the customer session update.  **Note:** &#x60;ruleFailureReasons&#x60; is always part of the response when the Application type is &#x60;sandbox&#x60;. </value>
         [DataMember(Name="responseContent", EmitDefaultValue=false)]
         public List<ResponseContentEnum> ResponseContent { get; set; }
         /// <summary>
@@ -109,7 +109,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="IntegrationRequest" /> class.
         /// </summary>
         /// <param name="customerSession">customerSession (required).</param>
-        /// <param name="responseContent">Optional list of requested information to be present on the response related to the customer session update.  Currently supported: \&quot;customerSession\&quot;, \&quot;customerProfile\&quot;, \&quot;coupons\&quot;, \&quot;triggeredCampaigns\&quot;, \&quot;referral\&quot;, \&quot;loyalty\&quot;, \&quot;event\&quot;, \&quot;awardedGiveaways\&quot; and \&quot;ruleFailureReasons\&quot;.  **Note:** &#x60;ruleFailureReasons&#x60; is always part of the response when the Application type is &#x60;sandbox&#x60;. .</param>
+        /// <param name="responseContent">Optional list of requested information to be present on the response related to the customer session update.  **Note:** &#x60;ruleFailureReasons&#x60; is always part of the response when the Application type is &#x60;sandbox&#x60;. .</param>
         public IntegrationRequest(NewCustomerSessionV2 customerSession = default(NewCustomerSessionV2), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             // to ensure "customerSession" is required (not null)

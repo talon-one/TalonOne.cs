@@ -56,6 +56,18 @@ namespace TalonOne.Test
 
         
         /// <summary>
+        /// Test CreateAudienceV2
+        /// </summary>
+        [Fact]
+        public void CreateAudienceV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //NewAudience body = null;
+            //var response = instance.CreateAudienceV2(body);
+            //Assert.IsType<Audience> (response, "response is Audience");
+        }
+        
+        /// <summary>
         /// Test CreateCouponReservation
         /// </summary>
         [Fact]
@@ -91,6 +103,30 @@ namespace TalonOne.Test
             //string silent = null;
             //var response = instance.CreateReferralsForMultipleAdvocates(body, silent);
             //Assert.IsType<InlineResponse201> (response, "response is InlineResponse201");
+        }
+        
+        /// <summary>
+        /// Test DeleteAudienceMembershipsV2
+        /// </summary>
+        [Fact]
+        public void DeleteAudienceMembershipsV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int audienceId = null;
+            //instance.DeleteAudienceMembershipsV2(audienceId);
+            
+        }
+        
+        /// <summary>
+        /// Test DeleteAudienceV2
+        /// </summary>
+        [Fact]
+        public void DeleteAudienceV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int audienceId = null;
+            //instance.DeleteAudienceV2(audienceId);
+            
         }
         
         /// <summary>
@@ -161,17 +197,41 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test UpdateCustomerProfile
+        /// Test UpdateAudienceCustomersAttributes
         /// </summary>
         [Fact]
-        public void UpdateCustomerProfileTest()
+        public void UpdateAudienceCustomersAttributesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string integrationId = null;
-            //NewCustomerProfile body = null;
-            //bool? dry = null;
-            //var response = instance.UpdateCustomerProfile(integrationId, body, dry);
-            //Assert.IsType<IntegrationState> (response, "response is IntegrationState");
+            //int audienceId = null;
+            //Object body = null;
+            //instance.UpdateAudienceCustomersAttributes(audienceId, body);
+            
+        }
+        
+        /// <summary>
+        /// Test UpdateAudienceV2
+        /// </summary>
+        [Fact]
+        public void UpdateAudienceV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int audienceId = null;
+            //UpdateAudience body = null;
+            //var response = instance.UpdateAudienceV2(audienceId, body);
+            //Assert.IsType<Audience> (response, "response is Audience");
+        }
+        
+        /// <summary>
+        /// Test UpdateCustomerProfileAudiences
+        /// </summary>
+        [Fact]
+        public void UpdateCustomerProfileAudiencesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CustomerProfileAudienceRequest body = null;
+            //instance.UpdateCustomerProfileAudiences(body);
+            
         }
         
         /// <summary>
@@ -200,20 +260,6 @@ namespace TalonOne.Test
             //string silent = null;
             //var response = instance.UpdateCustomerProfilesV2(body, silent);
             //Assert.IsType<MultipleCustomerProfileIntegrationResponseV2> (response, "response is MultipleCustomerProfileIntegrationResponseV2");
-        }
-        
-        /// <summary>
-        /// Test UpdateCustomerSession
-        /// </summary>
-        [Fact]
-        public void UpdateCustomerSessionTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string customerSessionId = null;
-            //NewCustomerSession body = null;
-            //bool? dry = null;
-            //var response = instance.UpdateCustomerSession(customerSessionId, body, dry);
-            //Assert.IsType<IntegrationState> (response, "response is IntegrationState");
         }
         
         /// <summary>

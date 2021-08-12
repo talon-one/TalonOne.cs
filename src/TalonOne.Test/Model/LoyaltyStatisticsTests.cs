@@ -58,6 +58,14 @@ namespace TalonOne.Test
 
 
         /// <summary>
+        /// Test the property 'Date'
+        /// </summary>
+        [Fact]
+        public void DateTest()
+        {
+            // TODO unit test for the property 'Date'
+        }
+        /// <summary>
         /// Test the property 'TotalActivePoints'
         /// </summary>
         [Fact]
@@ -88,6 +96,38 @@ namespace TalonOne.Test
         public void TotalExpiredPointsTest()
         {
             // TODO unit test for the property 'TotalExpiredPoints'
+        }
+        /// <summary>
+        /// Test the property 'TotalMembers'
+        /// </summary>
+        [Fact]
+        public void TotalMembersTest()
+        {
+            // TODO unit test for the property 'TotalMembers'
+        }
+        /// <summary>
+        /// Test the property 'NewMembers'
+        /// </summary>
+        [Fact]
+        public void NewMembersTest()
+        {
+            // TODO unit test for the property 'NewMembers'
+        }
+        /// <summary>
+        /// Test the property 'SpentPoints'
+        /// </summary>
+        [Fact]
+        public void SpentPointsTest()
+        {
+            // TODO unit test for the property 'SpentPoints'
+        }
+        /// <summary>
+        /// Test the property 'EarnedPoints'
+        /// </summary>
+        [Fact]
+        public void EarnedPointsTest()
+        {
+            // TODO unit test for the property 'EarnedPoints'
         }
 
     }

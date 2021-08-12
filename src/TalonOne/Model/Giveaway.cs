@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="startDate">Timestamp at which point the giveaway becomes valid..</param>
         /// <param name="endDate">Timestamp at which point the giveaway becomes invalid..</param>
         /// <param name="attributes">Arbitrary properties associated with this giveaway..</param>
-        /// <param name="used">Flag indicating whether this giveaway code was given before..</param>
+        /// <param name="used">Indicates whether this giveaway code was given before..</param>
         /// <param name="importId">The ID of the Import which created this giveaway..</param>
         public Giveaway(int id = default(int), DateTime created = default(DateTime), string code = default(string), int poolId = default(int), DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), Object attributes = default(Object), bool used = default(bool), int importId = default(int))
         {
@@ -112,9 +112,9 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// Flag indicating whether this giveaway code was given before.
+        /// Indicates whether this giveaway code was given before.
         /// </summary>
-        /// <value>Flag indicating whether this giveaway code was given before.</value>
+        /// <value>Indicates whether this giveaway code was given before.</value>
         [DataMember(Name="used", EmitDefaultValue=false)]
         public bool Used { get; set; }
 

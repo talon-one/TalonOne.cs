@@ -65,8 +65,8 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CustomerProfileAudienceRequestItem" /> class.
         /// </summary>
         /// <param name="action">action (required).</param>
-        /// <param name="profileIntegrationId">profileIntegrationId (required).</param>
-        /// <param name="audienceId">audienceId (required).</param>
+        /// <param name="profileIntegrationId">The ID of this audience in the third-party integration. (required).</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required).</param>
         public CustomerProfileAudienceRequestItem(ActionEnum action = default(ActionEnum), string profileIntegrationId = default(string), int audienceId = default(int))
         {
             this.Action = action;
@@ -76,14 +76,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Gets or Sets ProfileIntegrationId
+        /// The ID of this audience in the third-party integration.
         /// </summary>
+        /// <value>The ID of this audience in the third-party integration.</value>
         [DataMember(Name="profileIntegrationId", EmitDefaultValue=false)]
         public string ProfileIntegrationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets AudienceId
+        /// The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).
         /// </summary>
+        /// <value>The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</value>
         [DataMember(Name="audienceId", EmitDefaultValue=false)]
         public int AudienceId { get; set; }
 

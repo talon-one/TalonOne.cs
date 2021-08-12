@@ -4,20 +4,99 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**CreateAudienceV2**](IntegrationApi.md#createaudiencev2) | **POST** /v2/audiences | Create audience
 [**CreateCouponReservation**](IntegrationApi.md#createcouponreservation) | **POST** /v1/coupon_reservations/{couponValue} | Create coupon reservation
 [**CreateReferral**](IntegrationApi.md#createreferral) | **POST** /v1/referrals | Create referral code for an advocate
 [**CreateReferralsForMultipleAdvocates**](IntegrationApi.md#createreferralsformultipleadvocates) | **POST** /v1/referrals_for_multiple_advocates | Create referral codes for multiple advocates
+[**DeleteAudienceMembershipsV2**](IntegrationApi.md#deleteaudiencemembershipsv2) | **DELETE** /v2/audiences/{audienceId}/memberships | Delete audience memberships
+[**DeleteAudienceV2**](IntegrationApi.md#deleteaudiencev2) | **DELETE** /v2/audiences/{audienceId} | Delete audience
 [**DeleteCouponReservation**](IntegrationApi.md#deletecouponreservation) | **DELETE** /v1/coupon_reservations/{couponValue} | Delete coupon reservations
 [**DeleteCustomerData**](IntegrationApi.md#deletecustomerdata) | **DELETE** /v1/customer_data/{integrationId} | Delete the personal data of a customer
-[**GetCustomerInventory**](IntegrationApi.md#getcustomerinventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | List all data associated with a specific customer profile
+[**GetCustomerInventory**](IntegrationApi.md#getcustomerinventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | List data associated with a specific customer profile
 [**GetReservedCustomers**](IntegrationApi.md#getreservedcustomers) | **GET** /v1/coupon_reservations/customerprofiles/{couponValue} | List users that have this coupon reserved
 [**TrackEvent**](IntegrationApi.md#trackevent) | **POST** /v1/events | Track an Event
-[**UpdateCustomerProfile**](IntegrationApi.md#updatecustomerprofile) | **PUT** /v1/customer_profiles/{integrationId} | Update customer profile V1
+[**UpdateAudienceCustomersAttributes**](IntegrationApi.md#updateaudiencecustomersattributes) | **PUT** /v2/audience_customers/{audienceId}/attributes | Update profile attributes for all customers in audience
+[**UpdateAudienceV2**](IntegrationApi.md#updateaudiencev2) | **PUT** /v2/audiences/{audienceId} | Update audience
+[**UpdateCustomerProfileAudiences**](IntegrationApi.md#updatecustomerprofileaudiences) | **POST** /v2/customer_audiences | Update multiple customer profiles&#39; audiences
 [**UpdateCustomerProfileV2**](IntegrationApi.md#updatecustomerprofilev2) | **PUT** /v2/customer_profiles/{integrationId} | Update customer profile
 [**UpdateCustomerProfilesV2**](IntegrationApi.md#updatecustomerprofilesv2) | **PUT** /v2/customer_profiles | Update multiple customer profiles
-[**UpdateCustomerSession**](IntegrationApi.md#updatecustomersession) | **PUT** /v1/customer_sessions/{customerSessionId} | Update customer session V1
 [**UpdateCustomerSessionV2**](IntegrationApi.md#updatecustomersessionv2) | **PUT** /v2/customer_sessions/{customerSessionId} | Update customer session
 
+
+<a name="createaudiencev2"></a>
+# **CreateAudienceV2**
+> Audience CreateAudienceV2 (NewAudience body)
+
+Create audience
+
+Create an Audience. Only use this endpoint to sync existing audiences from other platforms through a 3rd party integration.  Once you create your first audience, new audience-specific rule conditions are enabled in the Rule Builder.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class CreateAudienceV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(config);
+            var body = new NewAudience(); // NewAudience | 
+
+            try
+            {
+                // Create audience
+                Audience result = apiInstance.CreateAudienceV2(body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.CreateAudienceV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**NewAudience**](NewAudience.md)|  | 
+
+### Return type
+
+[**Audience**](Audience.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="createcouponreservation"></a>
 # **CreateCouponReservation**
@@ -25,7 +104,7 @@ Method | HTTP request | Description
 
 Create coupon reservation
 
-Create a coupon reservation for all passed customer profiles on this couponID. 
+Create a coupon reservation for specified customer profiles on the specified coupon.  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  If a coupon gets created for a specific user, it will automatically show up in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  **Important:** This endpoint doesn't create a **strict** reservation. _Any_ customer can use a reserved coupon code and proceed to checkout.  For example, you can use this endpoint and `List customer data` to create a \"coupon wallet\" by reserving coupon codes for a customer, and then displaying their \"coupon wallet\" when they visit your store. 
 
 ### Example
 ```csharp
@@ -202,7 +281,7 @@ namespace Example
 
             var apiInstance = new IntegrationApi(config);
             var body = new NewReferralsForMultipleAdvocates(); // NewReferralsForMultipleAdvocates | 
-            var silent = silent_example;  // string | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional) 
+            var silent = silent_example;  // string | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional)  (default to "yes")
 
             try
             {
@@ -226,7 +305,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**NewReferralsForMultipleAdvocates**](NewReferralsForMultipleAdvocates.md)|  | 
- **silent** | **string**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional] 
+ **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  | [optional] [default to &quot;yes&quot;]
 
 ### Return type
 
@@ -245,6 +324,154 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteaudiencemembershipsv2"></a>
+# **DeleteAudienceMembershipsV2**
+> void DeleteAudienceMembershipsV2 (int audienceId)
+
+Delete audience memberships
+
+Remove all members from this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class DeleteAudienceMembershipsV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(config);
+            var audienceId = 56;  // int | The ID of the audience. You get it via the `id` property when [creating an audience](#operation/createAudienceV2).
+
+            try
+            {
+                // Delete audience memberships
+                apiInstance.DeleteAudienceMembershipsV2(audienceId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.DeleteAudienceMembershipsV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **audienceId** | **int**| The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteaudiencev2"></a>
+# **DeleteAudienceV2**
+> void DeleteAudienceV2 (int audienceId)
+
+Delete audience
+
+Delete an audience created by a third-party integration.  **Warning:** This endpoint also removes any associations recorded between a customer profile and this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class DeleteAudienceV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(config);
+            var audienceId = 56;  // int | The ID of the audience. You get it via the `id` property when [creating an audience](#operation/createAudienceV2).
+
+            try
+            {
+                // Delete audience
+                apiInstance.DeleteAudienceV2(audienceId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.DeleteAudienceV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **audienceId** | **int**| The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
 | **204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -403,9 +630,9 @@ void (empty response body)
 # **GetCustomerInventory**
 > CustomerInventory GetCustomerInventory (string integrationId, bool? profile = null, bool? referrals = null, bool? coupons = null, bool? loyalty = null, bool? giveaways = null)
 
-List all data associated with a specific customer profile
+List data associated with a specific customer profile
 
-Get information regarding entities referencing this customer profile's integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
+Return the customer inventory regarding entities referencing this customer profile's `integrationId`.  Typical entities returned are: customer profile information, referral codes, loyalty points and reserved coupons. Reserved coupons also include redeemed coupons. 
 
 ### Example
 ```csharp
@@ -429,16 +656,16 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
-            var profile = true;  // bool? | optional flag to decide if you would like customer profile information in the response (optional) 
-            var referrals = true;  // bool? | optional flag to decide if you would like referral information in the response (optional) 
-            var coupons = true;  // bool? | optional flag to decide if you would like coupon information in the response (optional) 
-            var loyalty = true;  // bool? | optional flag to decide if you would like loyalty information in the response (optional) 
-            var giveaways = true;  // bool? | optional flag to decide if you would like giveaways information in the response (optional) 
+            var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.  To get the `integrationId` of the profile from a `sessionId`, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). 
+            var profile = true;  // bool? | Set to `true` to include customer profile information in the response. (optional) 
+            var referrals = true;  // bool? | Set to `true` to include referral information in the response. (optional) 
+            var coupons = true;  // bool? | Set to `true` to include coupon information in the response. (optional) 
+            var loyalty = true;  // bool? | Set to `true` to include loyalty information in the response. (optional) 
+            var giveaways = true;  // bool? | Set to `true` to include giveaways information in the response. (optional) 
 
             try
             {
-                // List all data associated with a specific customer profile
+                // List data associated with a specific customer profile
                 CustomerInventory result = apiInstance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty, giveaways);
                 Debug.WriteLine(result);
             }
@@ -457,12 +684,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
- **profile** | **bool?**| optional flag to decide if you would like customer profile information in the response | [optional] 
- **referrals** | **bool?**| optional flag to decide if you would like referral information in the response | [optional] 
- **coupons** | **bool?**| optional flag to decide if you would like coupon information in the response | [optional] 
- **loyalty** | **bool?**| optional flag to decide if you would like loyalty information in the response | [optional] 
- **giveaways** | **bool?**| optional flag to decide if you would like giveaways information in the response | [optional] 
+ **integrationId** | **string**| The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2).  | 
+ **profile** | **bool?**| Set to &#x60;true&#x60; to include customer profile information in the response. | [optional] 
+ **referrals** | **bool?**| Set to &#x60;true&#x60; to include referral information in the response. | [optional] 
+ **coupons** | **bool?**| Set to &#x60;true&#x60; to include coupon information in the response. | [optional] 
+ **loyalty** | **bool?**| Set to &#x60;true&#x60; to include loyalty information in the response. | [optional] 
+ **giveaways** | **bool?**| Set to &#x60;true&#x60; to include giveaways information in the response. | [optional] 
 
 ### Return type
 
@@ -636,13 +863,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="updatecustomerprofile"></a>
-# **UpdateCustomerProfile**
-> IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool? dry = null)
+<a name="updateaudiencecustomersattributes"></a>
+# **UpdateAudienceCustomersAttributes**
+> void UpdateAudienceCustomersAttributes (int audienceId, Object body)
 
-Update customer profile V1
+Update profile attributes for all customers in audience
 
-⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/getting-started/apiv2).  Update (or create) a [Customer Profile](/docs/dev/concepts/entities#customer-profile). This profile information can then be matched and/or updated by campaign [Rules][].  The `integrationId` may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the `integrationId`. It is vital that this ID **not** change over time, so **don't** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+Update the specified profile attributes to the provided value for all customers in the specified audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
 
 ### Example
 ```csharp
@@ -654,7 +881,7 @@ using TalonOne.Model;
 
 namespace Example
 {
-    public class UpdateCustomerProfileExample
+    public class UpdateAudienceCustomersAttributesExample
     {
         public static void Main()
         {
@@ -666,19 +893,17 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var integrationId = integrationId_example;  // string | The custom identifier for this profile, must be unique within the account.
-            var body = new NewCustomerProfile(); // NewCustomerProfile | 
-            var dry = true;  // bool? | Indicates whether to persist the changes. Changes are ignored when `dry=true`. (optional) 
+            var audienceId = 56;  // int | The ID of the audience. You get it via the `id` property when [creating an audience](#operation/createAudienceV2).
+            var body = ;  // Object | 
 
             try
             {
-                // Update customer profile V1
-                IntegrationState result = apiInstance.UpdateCustomerProfile(integrationId, body, dry);
-                Debug.WriteLine(result);
+                // Update profile attributes for all customers in audience
+                apiInstance.UpdateAudienceCustomersAttributes(audienceId, body);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling IntegrationApi.UpdateCustomerProfile: " + e.Message );
+                Debug.Print("Exception when calling IntegrationApi.UpdateAudienceCustomersAttributes: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -691,13 +916,89 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **integrationId** | **string**| The custom identifier for this profile, must be unique within the account. | 
- **body** | [**NewCustomerProfile**](NewCustomerProfile.md)|  | 
- **dry** | **bool?**| Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. | [optional] 
+ **audienceId** | **int**| The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). | 
+ **body** | **Object**|  | 
 
 ### Return type
 
-[**IntegrationState**](IntegrationState.md)
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateaudiencev2"></a>
+# **UpdateAudienceV2**
+> Audience UpdateAudienceV2 (int audienceId, UpdateAudience body)
+
+Update audience
+
+Update an Audience created by a third-party integration.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class UpdateAudienceV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(config);
+            var audienceId = 56;  // int | The ID of the audience. You get it via the `id` property when [creating an audience](#operation/createAudienceV2).
+            var body = new UpdateAudience(); // UpdateAudience | 
+
+            try
+            {
+                // Update audience
+                Audience result = apiInstance.UpdateAudienceV2(audienceId, body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.UpdateAudienceV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **audienceId** | **int**| The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). | 
+ **body** | [**UpdateAudience**](UpdateAudience.md)|  | 
+
+### Return type
+
+[**Audience**](Audience.md)
 
 ### Authorization
 
@@ -712,6 +1013,80 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updatecustomerprofileaudiences"></a>
+# **UpdateCustomerProfileAudiences**
+> void UpdateCustomerProfileAudiences (CustomerProfileAudienceRequest body)
+
+Update multiple customer profiles' audiences
+
+Update one or multiple customer profiles with the specified audiences.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class UpdateCustomerProfileAudiencesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "http://localhost";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(config);
+            var body = new CustomerProfileAudienceRequest(); // CustomerProfileAudienceRequest | 
+
+            try
+            {
+                // Update multiple customer profiles' audiences
+                apiInstance.UpdateCustomerProfileAudiences(body);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.UpdateCustomerProfileAudiences: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CustomerProfileAudienceRequest**](CustomerProfileAudienceRequest.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -827,7 +1202,7 @@ namespace Example
 
             var apiInstance = new IntegrationApi(config);
             var body = new MultipleCustomerProfileIntegrationRequest(); // MultipleCustomerProfileIntegrationRequest | 
-            var silent = silent_example;  // string | If set to `yes`, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional) 
+            var silent = silent_example;  // string | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional)  (default to "yes")
 
             try
             {
@@ -851,90 +1226,11 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**MultipleCustomerProfileIntegrationRequest**](MultipleCustomerProfileIntegrationRequest.md)|  | 
- **silent** | **string**| If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). | [optional] 
+ **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  | [optional] [default to &quot;yes&quot;]
 
 ### Return type
 
 [**MultipleCustomerProfileIntegrationResponseV2**](MultipleCustomerProfileIntegrationResponseV2.md)
-
-### Authorization
-
-[api_key_v1](../README.md#api_key_v1)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="updatecustomersession"></a>
-# **UpdateCustomerSession**
-> IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool? dry = null)
-
-Update customer session V1
-
-⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/docs/dev/getting-started/apiv2#migrating-to-v2).  Update (or create) a [Customer Session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to represent which items are in the customer's cart.  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user's cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID's.  To link a session to a customer profile, set the `profileId` parameter in the request body to a customer profile's `integrationId`. To track an anonymous session use the empty string (`\"\"`) as the `profileId`. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  Updating a customer profile returns a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated. 
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class UpdateCustomerSessionExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "http://localhost";
-            // Configure API key authorization: api_key_v1
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new IntegrationApi(config);
-            var customerSessionId = customerSessionId_example;  // string | The custom identifier for this session, must be unique within the account.
-            var body = new NewCustomerSession(); // NewCustomerSession | 
-            var dry = true;  // bool? | Indicates whether to persist the changes. Changes are ignored when `dry=true`. (optional) 
-
-            try
-            {
-                // Update customer session V1
-                IntegrationState result = apiInstance.UpdateCustomerSession(customerSessionId, body, dry);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling IntegrationApi.UpdateCustomerSession: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **customerSessionId** | **string**| The custom identifier for this session, must be unique within the account. | 
- **body** | [**NewCustomerSession**](NewCustomerSession.md)|  | 
- **dry** | **bool?**| Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. | [optional] 
-
-### Return type
-
-[**IntegrationState**](IntegrationState.md)
 
 ### Authorization
 
@@ -958,7 +1254,7 @@ Name | Type | Description  | Notes
 
 Update customer session
 
-Update (or create) a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer's cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user's cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID's.  **Sessions and customer profiles**  To link a session to a customer profile, set the `profileId` parameter in the request body to a customer profile's `integrationId`. To track an anonymous session use the empty string (`\"\"`) as the `profileId`. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the `responseContent` property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set `runRuleEngine` to `false` to prevent unwanted rule executions. This allows you to improve response times.  If `runRuleEngine` is set to `true`, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session). 
+Update or create a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer's cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user's cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID's.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session).  **Sessions and customer profiles**  To link a session to a customer profile, set the `profileId` parameter in the request body to a customer profile's `integrationId`. To track an anonymous session use the empty string (`\"\"`) as the `profileId`. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the `responseContent` property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set `runRuleEngine` to `false` to prevent unwanted rule executions. This allows you to improve response times.  If `runRuleEngine` is set to `true`, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  For more information, see the [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
 
 ### Example
 ```csharp

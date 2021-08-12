@@ -74,6 +74,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Limit'
         }
         /// <summary>
+        /// Test the property 'Period'
+        /// </summary>
+        [Fact]
+        public void PeriodTest()
+        {
+            // TODO unit test for the property 'Period'
+        }
+        /// <summary>
         /// Test the property 'Entities'
         /// </summary>
         [Fact]

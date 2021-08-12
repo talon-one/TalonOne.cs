@@ -117,14 +117,13 @@ namespace TalonOne.Model
         /// <param name="campaignAttributes">The Campaign Attributes that Campaigns created from this template will have by default..</param>
         /// <param name="couponAttributes">The Campaign Attributes that Coupons created from this template will have by default..</param>
         /// <param name="state">Only Campaign Templates in &#39;available&#39; state may be used to create Campaigns. (required).</param>
-        /// <param name="activeRulesetId">The ID of the Ruleset this Campaign Template will use..</param>
         /// <param name="tags">A list of tags for the campaign template..</param>
         /// <param name="features">A list of features for the campaign template..</param>
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of limits that will operate for this campaign template.</param>
         /// <param name="templateParams">Template parameters are fields which can be used to replace values in a rule..</param>
-        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>))
+        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCampaignTemplate and cannot be null");
@@ -135,7 +134,6 @@ namespace TalonOne.Model
             this.State = state;
             this.CampaignAttributes = campaignAttributes;
             this.CouponAttributes = couponAttributes;
-            this.ActiveRulesetId = activeRulesetId;
             this.Tags = tags;
             this.Features = features;
             this.CouponSettings = couponSettings;
@@ -178,13 +176,6 @@ namespace TalonOne.Model
         /// <value>The Campaign Attributes that Coupons created from this template will have by default.</value>
         [DataMember(Name="couponAttributes", EmitDefaultValue=false)]
         public Object CouponAttributes { get; set; }
-
-        /// <summary>
-        /// The ID of the Ruleset this Campaign Template will use.
-        /// </summary>
-        /// <value>The ID of the Ruleset this Campaign Template will use.</value>
-        [DataMember(Name="activeRulesetId", EmitDefaultValue=false)]
-        public int ActiveRulesetId { get; set; }
 
         /// <summary>
         /// A list of tags for the campaign template.
@@ -233,7 +224,6 @@ namespace TalonOne.Model
             sb.Append("  CampaignAttributes: ").Append(CampaignAttributes).Append("\n");
             sb.Append("  CouponAttributes: ").Append(CouponAttributes).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
-            sb.Append("  ActiveRulesetId: ").Append(ActiveRulesetId).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  CouponSettings: ").Append(CouponSettings).Append("\n");
@@ -304,10 +294,6 @@ namespace TalonOne.Model
                     this.State.Equals(input.State)
                 ) && 
                 (
-                    this.ActiveRulesetId == input.ActiveRulesetId ||
-                    this.ActiveRulesetId.Equals(input.ActiveRulesetId)
-                ) && 
-                (
                     this.Tags == input.Tags ||
                     this.Tags != null &&
                     input.Tags != null &&
@@ -361,7 +347,6 @@ namespace TalonOne.Model
                 if (this.CouponAttributes != null)
                     hashCode = hashCode * 59 + this.CouponAttributes.GetHashCode();
                 hashCode = hashCode * 59 + this.State.GetHashCode();
-                hashCode = hashCode * 59 + this.ActiveRulesetId.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 hashCode = hashCode * 59 + this.Features.GetHashCode();
