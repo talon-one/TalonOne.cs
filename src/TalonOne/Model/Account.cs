@@ -82,7 +82,7 @@ namespace TalonOne.Model
         /// <param name="applicationCount">The current number of Applications in your account. (required).</param>
         /// <param name="userCount">The current number of Campaign Manager Users in your account. (required).</param>
         /// <param name="campaignsActiveCount">The current number of active Campaigns in your account. (required).</param>
-        /// <param name="campaignsInactiveCount">The current number of in-active Campaigns in your account. (required).</param>
+        /// <param name="campaignsInactiveCount">The current number of inactive Campaigns in your account. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         public Account(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string companyName = default(string), string domainName = default(string), StateEnum state = default(StateEnum), string billingEmail = default(string), string planName = default(string), DateTime planExpires = default(DateTime), int applicationLimit = default(int), int userLimit = default(int), int campaignLimit = default(int), int apiLimit = default(int), int applicationCount = default(int), int userCount = default(int), int campaignsActiveCount = default(int), int campaignsInactiveCount = default(int), Object attributes = default(Object))
         {
@@ -214,9 +214,9 @@ namespace TalonOne.Model
         public int CampaignsActiveCount { get; set; }
 
         /// <summary>
-        /// The current number of in-active Campaigns in your account.
+        /// The current number of inactive Campaigns in your account.
         /// </summary>
-        /// <value>The current number of in-active Campaigns in your account.</value>
+        /// <value>The current number of inactive Campaigns in your account.</value>
         [DataMember(Name="campaignsInactiveCount", EmitDefaultValue=false)]
         public int CampaignsInactiveCount { get; set; }
 

@@ -45,28 +45,34 @@ namespace TalonOne.Model
             Coupon = 1,
 
             /// <summary>
+            /// Enum Referral for value: Referral
+            /// </summary>
+            [EnumMember(Value = "Referral")]
+            Referral = 2,
+
+            /// <summary>
             /// Enum Effect for value: Effect
             /// </summary>
             [EnumMember(Value = "Effect")]
-            Effect = 2,
+            Effect = 3,
 
             /// <summary>
             /// Enum CustomerSession for value: CustomerSession
             /// </summary>
             [EnumMember(Value = "CustomerSession")]
-            CustomerSession = 3,
+            CustomerSession = 4,
 
             /// <summary>
             /// Enum LoyaltyLedger for value: LoyaltyLedger
             /// </summary>
             [EnumMember(Value = "LoyaltyLedger")]
-            LoyaltyLedger = 4,
+            LoyaltyLedger = 5,
 
             /// <summary>
             /// Enum LoyaltyLedgerLog for value: LoyaltyLedgerLog
             /// </summary>
             [EnumMember(Value = "LoyaltyLedgerLog")]
-            LoyaltyLedgerLog = 5
+            LoyaltyLedgerLog = 6
 
         }
 

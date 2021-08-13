@@ -106,6 +106,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Templates'
         }
         /// <summary>
+        /// Test the property 'Variables'
+        /// </summary>
+        [Fact]
+        public void VariablesTest()
+        {
+            // TODO unit test for the property 'Variables'
+        }
+        /// <summary>
         /// Test the property 'GiveawaysPools'
         /// </summary>
         [Fact]
@@ -144,14 +152,6 @@ namespace TalonOne.Test
         public void AudiencesTest()
         {
             // TODO unit test for the property 'Audiences'
-        }
-        /// <summary>
-        /// Test the property 'Variables'
-        /// </summary>
-        [Fact]
-        public void VariablesTest()
-        {
-            // TODO unit test for the property 'Variables'
         }
 
     }

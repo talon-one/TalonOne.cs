@@ -40,7 +40,8 @@ namespace TalonOne.Model
         /// <param name="defaultValidity">Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;..</param>
         /// <param name="defaultPending">Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;..</param>
         /// <param name="allowSubledger">Indicates if this program supports subledgers inside the program.</param>
-        public BaseLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool))
+        /// <param name="timezone">A string containing an IANA timezone descriptor..</param>
+        public BaseLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), string timezone = default(string))
         {
             this.Title = title;
             this.Description = description;
@@ -48,6 +49,7 @@ namespace TalonOne.Model
             this.DefaultValidity = defaultValidity;
             this.DefaultPending = defaultPending;
             this.AllowSubledger = allowSubledger;
+            this.Timezone = timezone;
         }
         
         /// <summary>
@@ -93,6 +95,13 @@ namespace TalonOne.Model
         public bool AllowSubledger { get; set; }
 
         /// <summary>
+        /// A string containing an IANA timezone descriptor.
+        /// </summary>
+        /// <value>A string containing an IANA timezone descriptor.</value>
+        [DataMember(Name="timezone", EmitDefaultValue=false)]
+        public string Timezone { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -106,6 +115,7 @@ namespace TalonOne.Model
             sb.Append("  DefaultValidity: ").Append(DefaultValidity).Append("\n");
             sb.Append("  DefaultPending: ").Append(DefaultPending).Append("\n");
             sb.Append("  AllowSubledger: ").Append(AllowSubledger).Append("\n");
+            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,6 +179,11 @@ namespace TalonOne.Model
                 (
                     this.AllowSubledger == input.AllowSubledger ||
                     this.AllowSubledger.Equals(input.AllowSubledger)
+                ) && 
+                (
+                    this.Timezone == input.Timezone ||
+                    (this.Timezone != null &&
+                    this.Timezone.Equals(input.Timezone))
                 );
         }
 
@@ -192,6 +207,8 @@ namespace TalonOne.Model
                 if (this.DefaultPending != null)
                     hashCode = hashCode * 59 + this.DefaultPending.GetHashCode();
                 hashCode = hashCode * 59 + this.AllowSubledger.GetHashCode();
+                if (this.Timezone != null)
+                    hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 return hashCode;
             }
         }
@@ -203,6 +220,12 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Timezone (string) minLength
+            if(this.Timezone != null && this.Timezone.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Timezone, length must be greater than 1.", new [] { "Timezone" });
+            }
+
             yield break;
         }
     }

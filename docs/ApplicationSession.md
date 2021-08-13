@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Profileintegrationid** | **string** | Integration ID of the customer for the session. | [optional] 
 **Coupon** | **string** | Any coupon code entered. | 
 **Referral** | **string** | Any referral code entered. | 
-**State** | **string** | Indicating if the customer session is in progress (\&quot;open\&quot;), \&quot;closed\&quot;, or \&quot;cancelled\&quot;. | 
+**State** | **string** | Indicating if the customer session is in progress (&#x60;open&#x60;), &#x60;closed&#x60;, or &#x60;cancelled&#x60;. For more information about customer sessions, see [Customer sessions](/docs/dev/concepts/entities#customer-session-states) in the docs.  | 
 **CartItems** | [**List&lt;CartItem&gt;**](CartItem.md) | Serialized JSON representation. | 
 **Discounts** | **Dictionary&lt;string, decimal&gt;** | A map of labelled discount values, in the same currency as the session. | 
 **Total** | **decimal** | The total sum of the session before any discounts applied. | 

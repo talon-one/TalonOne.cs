@@ -45,13 +45,13 @@ namespace TalonOne.Model
         /// <param name="slots">The slots defined for this application. (required).</param>
         /// <param name="functions">The functions defined for this application. (required).</param>
         /// <param name="templates">The templates defined for this application. (required).</param>
+        /// <param name="variables">A stringified version of the environment&#39;s Talang variables scope (required).</param>
         /// <param name="giveawaysPools">The giveaways pools that the application is subscribed to..</param>
         /// <param name="loyaltyPrograms">The loyalty programs that the application is subscribed to..</param>
         /// <param name="attributes">The attributes that the application is subscribed to..</param>
         /// <param name="additionalCosts">The additional costs that the application is subscribed to..</param>
         /// <param name="audiences">The audiences contained in the account which the application belongs to..</param>
-        /// <param name="variables">variables (required).</param>
-        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), string variables = default(string))
+        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>))
         {
             this.Id = id;
             this.Created = created;
@@ -114,6 +114,13 @@ namespace TalonOne.Model
         public List<TemplateDef> Templates { get; set; }
 
         /// <summary>
+        /// A stringified version of the environment&#39;s Talang variables scope
+        /// </summary>
+        /// <value>A stringified version of the environment&#39;s Talang variables scope</value>
+        [DataMember(Name="variables", EmitDefaultValue=false)]
+        public string Variables { get; set; }
+
+        /// <summary>
         /// The giveaways pools that the application is subscribed to.
         /// </summary>
         /// <value>The giveaways pools that the application is subscribed to.</value>
@@ -149,12 +156,6 @@ namespace TalonOne.Model
         public List<Audience> Audiences { get; set; }
 
         /// <summary>
-        /// Gets or Sets Variables
-        /// </summary>
-        [DataMember(Name="variables", EmitDefaultValue=false)]
-        public string Variables { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -168,12 +169,12 @@ namespace TalonOne.Model
             sb.Append("  Slots: ").Append(Slots).Append("\n");
             sb.Append("  Functions: ").Append(Functions).Append("\n");
             sb.Append("  Templates: ").Append(Templates).Append("\n");
+            sb.Append("  Variables: ").Append(Variables).Append("\n");
             sb.Append("  GiveawaysPools: ").Append(GiveawaysPools).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  AdditionalCosts: ").Append(AdditionalCosts).Append("\n");
             sb.Append("  Audiences: ").Append(Audiences).Append("\n");
-            sb.Append("  Variables: ").Append(Variables).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -240,6 +241,11 @@ namespace TalonOne.Model
                     this.Templates.SequenceEqual(input.Templates)
                 ) && 
                 (
+                    this.Variables == input.Variables ||
+                    (this.Variables != null &&
+                    this.Variables.Equals(input.Variables))
+                ) && 
+                (
                     this.GiveawaysPools == input.GiveawaysPools ||
                     this.GiveawaysPools != null &&
                     input.GiveawaysPools != null &&
@@ -268,11 +274,6 @@ namespace TalonOne.Model
                     this.Audiences != null &&
                     input.Audiences != null &&
                     this.Audiences.SequenceEqual(input.Audiences)
-                ) && 
-                (
-                    this.Variables == input.Variables ||
-                    (this.Variables != null &&
-                    this.Variables.Equals(input.Variables))
                 );
         }
 
@@ -295,6 +296,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Functions.GetHashCode();
                 if (this.Templates != null)
                     hashCode = hashCode * 59 + this.Templates.GetHashCode();
+                if (this.Variables != null)
+                    hashCode = hashCode * 59 + this.Variables.GetHashCode();
                 if (this.GiveawaysPools != null)
                     hashCode = hashCode * 59 + this.GiveawaysPools.GetHashCode();
                 if (this.LoyaltyPrograms != null)
@@ -305,8 +308,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.AdditionalCosts.GetHashCode();
                 if (this.Audiences != null)
                     hashCode = hashCode * 59 + this.Audiences.GetHashCode();
-                if (this.Variables != null)
-                    hashCode = hashCode * 59 + this.Variables.GetHashCode();
                 return hashCode;
             }
         }

@@ -43,21 +43,23 @@ namespace TalonOne.Model
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="modified">The exact moment this entity was last modified. (required).</param>
+        /// <param name="applicationIds">The IDs of the applications that are related to this entity. (required).</param>
         /// <param name="name">The name of this effect. (required).</param>
         /// <param name="title">The title of this effect. (required).</param>
         /// <param name="payload">The JSON payload of this effect. (required).</param>
         /// <param name="description">The description of this effect..</param>
         /// <param name="enabled">Determines if this effect is active. (required).</param>
-        /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that this effect is enabled for.</param>
         /// <param name="_params">Array of template argument definitions.</param>
         /// <param name="modifiedBy">ID of the user who last updated this effect if available..</param>
         /// <param name="createdBy">ID of the user who created this effect. (required).</param>
-        public CustomEffect(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), DateTime modified = default(DateTime), string name = default(string), string title = default(string), string payload = default(string), string description = default(string), bool enabled = default(bool), List<int> subscribedApplicationsIds = default(List<int>), List<TemplateArgDef> _params = default(List<TemplateArgDef>), int modifiedBy = default(int), int createdBy = default(int))
+        public CustomEffect(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), DateTime modified = default(DateTime), List<int> applicationIds = default(List<int>), string name = default(string), string title = default(string), string payload = default(string), string description = default(string), bool enabled = default(bool), List<TemplateArgDef> _params = default(List<TemplateArgDef>), int modifiedBy = default(int), int createdBy = default(int))
         {
             this.Id = id;
             this.Created = created;
             this.AccountId = accountId;
             this.Modified = modified;
+            // to ensure "applicationIds" is required (not null)
+            this.ApplicationIds = applicationIds ?? throw new ArgumentNullException("applicationIds is a required property for CustomEffect and cannot be null");
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CustomEffect and cannot be null");
             // to ensure "title" is required (not null)
@@ -67,7 +69,6 @@ namespace TalonOne.Model
             this.Enabled = enabled;
             this.CreatedBy = createdBy;
             this.Description = description;
-            this.SubscribedApplicationsIds = subscribedApplicationsIds;
             this.Params = _params;
             this.ModifiedBy = modifiedBy;
         }
@@ -99,6 +100,13 @@ namespace TalonOne.Model
         /// <value>The exact moment this entity was last modified.</value>
         [DataMember(Name="modified", EmitDefaultValue=false)]
         public DateTime Modified { get; set; }
+
+        /// <summary>
+        /// The IDs of the applications that are related to this entity.
+        /// </summary>
+        /// <value>The IDs of the applications that are related to this entity.</value>
+        [DataMember(Name="applicationIds", EmitDefaultValue=false)]
+        public List<int> ApplicationIds { get; set; }
 
         /// <summary>
         /// The name of this effect.
@@ -136,13 +144,6 @@ namespace TalonOne.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// A list of the IDs of the applications that this effect is enabled for
-        /// </summary>
-        /// <value>A list of the IDs of the applications that this effect is enabled for</value>
-        [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
-
-        /// <summary>
         /// Array of template argument definitions
         /// </summary>
         /// <value>Array of template argument definitions</value>
@@ -175,12 +176,12 @@ namespace TalonOne.Model
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("  Modified: ").Append(Modified).Append("\n");
+            sb.Append("  ApplicationIds: ").Append(ApplicationIds).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Payload: ").Append(Payload).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  ModifiedBy: ").Append(ModifiedBy).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
@@ -237,6 +238,12 @@ namespace TalonOne.Model
                     this.Modified.Equals(input.Modified))
                 ) && 
                 (
+                    this.ApplicationIds == input.ApplicationIds ||
+                    this.ApplicationIds != null &&
+                    input.ApplicationIds != null &&
+                    this.ApplicationIds.SequenceEqual(input.ApplicationIds)
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -259,12 +266,6 @@ namespace TalonOne.Model
                 (
                     this.Enabled == input.Enabled ||
                     this.Enabled.Equals(input.Enabled)
-                ) && 
-                (
-                    this.SubscribedApplicationsIds == input.SubscribedApplicationsIds ||
-                    this.SubscribedApplicationsIds != null &&
-                    input.SubscribedApplicationsIds != null &&
-                    this.SubscribedApplicationsIds.SequenceEqual(input.SubscribedApplicationsIds)
                 ) && 
                 (
                     this.Params == input.Params ||
@@ -297,6 +298,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.AccountId.GetHashCode();
                 if (this.Modified != null)
                     hashCode = hashCode * 59 + this.Modified.GetHashCode();
+                if (this.ApplicationIds != null)
+                    hashCode = hashCode * 59 + this.ApplicationIds.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Title != null)
@@ -306,8 +309,6 @@ namespace TalonOne.Model
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 hashCode = hashCode * 59 + this.Enabled.GetHashCode();
-                if (this.SubscribedApplicationsIds != null)
-                    hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 hashCode = hashCode * 59 + this.ModifiedBy.GetHashCode();

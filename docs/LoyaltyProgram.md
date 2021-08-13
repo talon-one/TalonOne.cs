@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **DefaultValidity** | **string** | Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;. | 
 **DefaultPending** | **string** | Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;. | 
 **AllowSubledger** | **bool** | Indicates if this program supports subledgers inside the program | 
+**Timezone** | **string** | A string containing an IANA timezone descriptor. | [optional] 
 **AccountID** | **int** | The ID of the Talon.One account that owns this program. | 
 **Name** | **string** | The internal name for the Loyalty Program. This is an immutable value. | 
 **Tiers** | [**List&lt;LoyaltyTier&gt;**](LoyaltyTier.md) | The tiers in this loyalty program | [optional] 

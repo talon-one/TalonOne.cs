@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **CampaignAttributes** | [**Object**](.md) | The Campaign Attributes that Campaigns created from this template will have by default. | [optional] 
 **CouponAttributes** | [**Object**](.md) | The Campaign Attributes that Coupons created from this template will have by default. | [optional] 
 **State** | **string** | Only Campaign Templates in &#39;available&#39; state may be used to create Campaigns. | 
-**ActiveRulesetId** | **int** | The ID of the Ruleset this Campaign Template will use. | [optional] 
 **Tags** | **List&lt;string&gt;** | A list of tags for the campaign template. | [optional] 
 **Features** | **List&lt;string&gt;** | A list of features for the campaign template. | [optional] 
 **CouponSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 

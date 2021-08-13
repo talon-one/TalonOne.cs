@@ -353,6 +353,25 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test ExportReferrals
+        /// </summary>
+        [Fact]
+        public void ExportReferralsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int applicationId = null;
+            //decimal? campaignId = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
+            //string valid = null;
+            //string usable = null;
+            //string batchId = null;
+            //string dateFormat = null;
+            //var response = instance.ExportReferrals(applicationId, campaignId, createdBefore, createdAfter, valid, usable, batchId, dateFormat);
+            //Assert.IsType<string> (response, "response is string");
+        }
+        
+        /// <summary>
         /// Test GetAccessLogsWithoutTotalCount
         /// </summary>
         [Fact]
@@ -979,7 +998,7 @@ namespace TalonOne.Test
         public void GetLoyaltyStatisticsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string programID = null;
+            //int programID = null;
             //var response = instance.GetLoyaltyStatistics(programID);
             //Assert.IsType<LoyaltyStatistics> (response, "response is LoyaltyStatistics");
         }
@@ -1140,6 +1159,21 @@ namespace TalonOne.Test
             //int? skip = null;
             //var response = instance.GetWebhooks(applicationIds, sort, pageSize, skip);
             //Assert.IsType<InlineResponse20022> (response, "response is InlineResponse20022");
+        }
+        
+        /// <summary>
+        /// Test ImportCollection
+        /// </summary>
+        [Fact]
+        public void ImportCollectionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int applicationId = null;
+            //int campaignId = null;
+            //int collectionId = null;
+            //string upFile = null;
+            //var response = instance.ImportCollection(applicationId, campaignId, collectionId, upFile);
+            //Assert.IsType<Import> (response, "response is Import");
         }
         
         /// <summary>

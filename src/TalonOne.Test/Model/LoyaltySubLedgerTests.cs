@@ -137,6 +137,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ExpiredPoints'
         }
+        /// <summary>
+        /// Test the property 'CurrentTier'
+        /// </summary>
+        [Fact]
+        public void CurrentTierTest()
+        {
+            // TODO unit test for the property 'CurrentTier'
+        }
 
     }
 

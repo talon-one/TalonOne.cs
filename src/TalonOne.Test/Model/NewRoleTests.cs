@@ -82,12 +82,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Acl'
         }
         /// <summary>
-        /// Test the property 'Users'
+        /// Test the property 'Members'
         /// </summary>
         [Fact]
-        public void UsersTest()
+        public void MembersTest()
         {
-            // TODO unit test for the property 'Users'
+            // TODO unit test for the property 'Members'
         }
 
     }

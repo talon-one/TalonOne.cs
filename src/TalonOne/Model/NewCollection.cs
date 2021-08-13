@@ -26,44 +26,41 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// NewFeatureFlags
+    /// NewCollection
     /// </summary>
     [DataContract]
-    public partial class NewFeatureFlags :  IEquatable<NewFeatureFlags>, IValidatableObject
+    public partial class NewCollection :  IEquatable<NewCollection>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="NewFeatureFlags" /> class.
+        /// Initializes a new instance of the <see cref="NewCollection" /> class.
         /// </summary>
-        /// <param name="loyalty">Whether the account has access to the loyalty features or not.</param>
-        /// <param name="couponsWithoutCount">Whether the account queries coupons with or without total result size.</param>
-        /// <param name="betaEffects">Whether the account can test beta effects or not.</param>
-        public NewFeatureFlags(bool loyalty = default(bool), bool couponsWithoutCount = default(bool), bool betaEffects = default(bool))
+        [JsonConstructorAttribute]
+        protected NewCollection() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NewCollection" /> class.
+        /// </summary>
+        /// <param name="name">The name of this collection. (required).</param>
+        /// <param name="description">A short description of the purpose of this collection..</param>
+        public NewCollection(string name = default(string), string description = default(string))
         {
-            this.Loyalty = loyalty;
-            this.CouponsWithoutCount = couponsWithoutCount;
-            this.BetaEffects = betaEffects;
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCollection and cannot be null");
+            this.Description = description;
         }
         
         /// <summary>
-        /// Whether the account has access to the loyalty features or not
+        /// The name of this collection.
         /// </summary>
-        /// <value>Whether the account has access to the loyalty features or not</value>
-        [DataMember(Name="loyalty", EmitDefaultValue=false)]
-        public bool Loyalty { get; set; }
+        /// <value>The name of this collection.</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
-        /// Whether the account queries coupons with or without total result size
+        /// A short description of the purpose of this collection.
         /// </summary>
-        /// <value>Whether the account queries coupons with or without total result size</value>
-        [DataMember(Name="coupons_without_count", EmitDefaultValue=false)]
-        public bool CouponsWithoutCount { get; set; }
-
-        /// <summary>
-        /// Whether the account can test beta effects or not
-        /// </summary>
-        /// <value>Whether the account can test beta effects or not</value>
-        [DataMember(Name="betaEffects", EmitDefaultValue=false)]
-        public bool BetaEffects { get; set; }
+        /// <value>A short description of the purpose of this collection.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,10 +69,9 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class NewFeatureFlags {\n");
-            sb.Append("  Loyalty: ").Append(Loyalty).Append("\n");
-            sb.Append("  CouponsWithoutCount: ").Append(CouponsWithoutCount).Append("\n");
-            sb.Append("  BetaEffects: ").Append(BetaEffects).Append("\n");
+            sb.Append("class NewCollection {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,31 +92,29 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as NewFeatureFlags);
+            return this.Equals(input as NewCollection);
         }
 
         /// <summary>
-        /// Returns true if NewFeatureFlags instances are equal
+        /// Returns true if NewCollection instances are equal
         /// </summary>
-        /// <param name="input">Instance of NewFeatureFlags to be compared</param>
+        /// <param name="input">Instance of NewCollection to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(NewFeatureFlags input)
+        public bool Equals(NewCollection input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Loyalty == input.Loyalty ||
-                    this.Loyalty.Equals(input.Loyalty)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.CouponsWithoutCount == input.CouponsWithoutCount ||
-                    this.CouponsWithoutCount.Equals(input.CouponsWithoutCount)
-                ) && 
-                (
-                    this.BetaEffects == input.BetaEffects ||
-                    this.BetaEffects.Equals(input.BetaEffects)
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 );
         }
 
@@ -133,9 +127,10 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Loyalty.GetHashCode();
-                hashCode = hashCode * 59 + this.CouponsWithoutCount.GetHashCode();
-                hashCode = hashCode * 59 + this.BetaEffects.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 return hashCode;
             }
         }
@@ -147,6 +142,12 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Name (string) minLength
+            if(this.Name != null && this.Name.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+            }
+
             yield break;
         }
     }

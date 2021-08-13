@@ -32,6 +32,45 @@ namespace TalonOne.Model
     public partial class TemplateLimitConfig :  IEquatable<TemplateLimitConfig>, IValidatableObject
     {
         /// <summary>
+        /// The period on which the budget limit recurs
+        /// </summary>
+        /// <value>The period on which the budget limit recurs</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum PeriodEnum
+        {
+            /// <summary>
+            /// Enum Daily for value: daily
+            /// </summary>
+            [EnumMember(Value = "daily")]
+            Daily = 1,
+
+            /// <summary>
+            /// Enum Weekly for value: weekly
+            /// </summary>
+            [EnumMember(Value = "weekly")]
+            Weekly = 2,
+
+            /// <summary>
+            /// Enum Monthly for value: monthly
+            /// </summary>
+            [EnumMember(Value = "monthly")]
+            Monthly = 3,
+
+            /// <summary>
+            /// Enum Yearly for value: yearly
+            /// </summary>
+            [EnumMember(Value = "yearly")]
+            Yearly = 4
+
+        }
+
+        /// <summary>
+        /// The period on which the budget limit recurs
+        /// </summary>
+        /// <value>The period on which the budget limit recurs</value>
+        [DataMember(Name="period", EmitDefaultValue=false)]
+        public PeriodEnum? Period { get; set; }
+        /// <summary>
         /// Defines Entities
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
@@ -80,9 +119,10 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="action">The limitable action to which this limit will be applied (required).</param>
         /// <param name="limit">The value to set for the limit (required).</param>
+        /// <param name="period">The period on which the budget limit recurs.</param>
         /// <param name="entities">The entities that make the address of this limit (required).</param>
         /// <param name="description">The description of this budget configuration (required).</param>
-        public TemplateLimitConfig(string action = default(string), decimal limit = default(decimal), List<EntitiesEnum> entities = default(List<EntitiesEnum>), string description = default(string))
+        public TemplateLimitConfig(string action = default(string), decimal limit = default(decimal), PeriodEnum? period = default(PeriodEnum?), List<EntitiesEnum> entities = default(List<EntitiesEnum>), string description = default(string))
         {
             // to ensure "action" is required (not null)
             this.Action = action ?? throw new ArgumentNullException("action is a required property for TemplateLimitConfig and cannot be null");
@@ -91,6 +131,7 @@ namespace TalonOne.Model
             this.Entities = entities ?? throw new ArgumentNullException("entities is a required property for TemplateLimitConfig and cannot be null");
             // to ensure "description" is required (not null)
             this.Description = description ?? throw new ArgumentNullException("description is a required property for TemplateLimitConfig and cannot be null");
+            this.Period = period;
         }
         
         /// <summary>
@@ -124,6 +165,7 @@ namespace TalonOne.Model
             sb.Append("class TemplateLimitConfig {\n");
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  Limit: ").Append(Limit).Append("\n");
+            sb.Append("  Period: ").Append(Period).Append("\n");
             sb.Append("  Entities: ").Append(Entities).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
@@ -170,6 +212,10 @@ namespace TalonOne.Model
                     this.Limit.Equals(input.Limit)
                 ) && 
                 (
+                    this.Period == input.Period ||
+                    this.Period.Equals(input.Period)
+                ) && 
+                (
                     this.Entities == input.Entities ||
                     this.Entities.SequenceEqual(input.Entities)
                 ) && 
@@ -192,6 +238,7 @@ namespace TalonOne.Model
                 if (this.Action != null)
                     hashCode = hashCode * 59 + this.Action.GetHashCode();
                 hashCode = hashCode * 59 + this.Limit.GetHashCode();
+                hashCode = hashCode * 59 + this.Period.GetHashCode();
                 hashCode = hashCode * 59 + this.Entities.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();

@@ -114,7 +114,7 @@ namespace TalonOne.Model
         /// <param name="name">A user-facing name for this campaign. (required).</param>
         /// <param name="description">A detailed description of the campaign..</param>
         /// <param name="startTime">Timestamp when the campaign will become active..</param>
-        /// <param name="endTime">Timestamp when the campaign will become in-active..</param>
+        /// <param name="endTime">Timestamp when the campaign will become inactive..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         /// <param name="state">A disabled or archived campaign is not evaluated for rules or coupons.  (default to StateEnum.Enabled).</param>
         /// <param name="activeRulesetId">ID of Ruleset this campaign applies on customer session evaluation..</param>
@@ -167,9 +167,9 @@ namespace TalonOne.Model
         public DateTime StartTime { get; set; }
 
         /// <summary>
-        /// Timestamp when the campaign will become in-active.
+        /// Timestamp when the campaign will become inactive.
         /// </summary>
-        /// <value>Timestamp when the campaign will become in-active.</value>
+        /// <value>Timestamp when the campaign will become inactive.</value>
         [DataMember(Name="endTime", EmitDefaultValue=false)]
         public DateTime EndTime { get; set; }
 

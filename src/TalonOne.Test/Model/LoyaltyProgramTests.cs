@@ -122,6 +122,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'AllowSubledger'
         }
         /// <summary>
+        /// Test the property 'Timezone'
+        /// </summary>
+        [Fact]
+        public void TimezoneTest()
+        {
+            // TODO unit test for the property 'Timezone'
+        }
+        /// <summary>
         /// Test the property 'AccountID'
         /// </summary>
         [Fact]

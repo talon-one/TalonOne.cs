@@ -28,10 +28,31 @@ namespace TalonOne.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Create audience
+        /// </summary>
+        /// <remarks>
+        /// Create an Audience. Only use this endpoint to sync existing audiences from other platforms through a 3rd party integration.  Once you create your first audience, new audience-specific rule conditions are enabled in the Rule Builder.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Audience</returns>
+        Audience CreateAudienceV2 (NewAudience body);
+
+        /// <summary>
+        /// Create audience
+        /// </summary>
+        /// <remarks>
+        /// Create an Audience. Only use this endpoint to sync existing audiences from other platforms through a 3rd party integration.  Once you create your first audience, new audience-specific rule conditions are enabled in the Rule Builder.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Audience</returns>
+        ApiResponse<Audience> CreateAudienceV2WithHttpInfo (NewAudience body);
+        /// <summary>
         /// Create coupon reservation
         /// </summary>
         /// <remarks>
-        /// Create a coupon reservation for all passed customer profiles on this couponID. 
+        /// Create a coupon reservation for specified customer profiles on the specified coupon.  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  If a coupon gets created for a specific user, it will automatically show up in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  **Important:** This endpoint doesn&#39;t create a **strict** reservation. _Any_ customer can use a reserved coupon code and proceed to checkout.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a \&quot;coupon wallet\&quot; by reserving coupon codes for a customer, and then displaying their \&quot;coupon wallet\&quot; when they visit your store. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The value of a coupon</param>
@@ -43,7 +64,7 @@ namespace TalonOne.Api
         /// Create coupon reservation
         /// </summary>
         /// <remarks>
-        /// Create a coupon reservation for all passed customer profiles on this couponID. 
+        /// Create a coupon reservation for specified customer profiles on the specified coupon.  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  If a coupon gets created for a specific user, it will automatically show up in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  **Important:** This endpoint doesn&#39;t create a **strict** reservation. _Any_ customer can use a reserved coupon code and proceed to checkout.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a \&quot;coupon wallet\&quot; by reserving coupon codes for a customer, and then displaying their \&quot;coupon wallet\&quot; when they visit your store. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The value of a coupon</param>
@@ -79,7 +100,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>InlineResponse201</returns>
         InlineResponse201 CreateReferralsForMultipleAdvocates (NewReferralsForMultipleAdvocates body, string silent = default(string));
 
@@ -91,9 +112,51 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of InlineResponse201</returns>
         ApiResponse<InlineResponse201> CreateReferralsForMultipleAdvocatesWithHttpInfo (NewReferralsForMultipleAdvocates body, string silent = default(string));
+        /// <summary>
+        /// Delete audience memberships
+        /// </summary>
+        /// <remarks>
+        /// Remove all members from this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns></returns>
+        void DeleteAudienceMembershipsV2 (int audienceId);
+
+        /// <summary>
+        /// Delete audience memberships
+        /// </summary>
+        /// <remarks>
+        /// Remove all members from this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteAudienceMembershipsV2WithHttpInfo (int audienceId);
+        /// <summary>
+        /// Delete audience
+        /// </summary>
+        /// <remarks>
+        /// Delete an audience created by a third-party integration.  **Warning:** This endpoint also removes any associations recorded between a customer profile and this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns></returns>
+        void DeleteAudienceV2 (int audienceId);
+
+        /// <summary>
+        /// Delete audience
+        /// </summary>
+        /// <remarks>
+        /// Delete an audience created by a third-party integration.  **Warning:** This endpoint also removes any associations recorded between a customer profile and this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DeleteAudienceV2WithHttpInfo (int audienceId);
         /// <summary>
         /// Delete coupon reservations
         /// </summary>
@@ -139,34 +202,34 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCustomerDataWithHttpInfo (string integrationId);
         /// <summary>
-        /// List all data associated with a specific customer profile
+        /// List data associated with a specific customer profile
         /// </summary>
         /// <remarks>
-        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
+        /// Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points and reserved coupons. Reserved coupons also include redeemed coupons. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
-        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
-        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
-        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
-        /// <param name="giveaways">optional flag to decide if you would like giveaways information in the response (optional)</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). </param>
+        /// <param name="profile">Set to &#x60;true&#x60; to include customer profile information in the response. (optional)</param>
+        /// <param name="referrals">Set to &#x60;true&#x60; to include referral information in the response. (optional)</param>
+        /// <param name="coupons">Set to &#x60;true&#x60; to include coupon information in the response. (optional)</param>
+        /// <param name="loyalty">Set to &#x60;true&#x60; to include loyalty information in the response. (optional)</param>
+        /// <param name="giveaways">Set to &#x60;true&#x60; to include giveaways information in the response. (optional)</param>
         /// <returns>CustomerInventory</returns>
         CustomerInventory GetCustomerInventory (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?), bool? giveaways = default(bool?));
 
         /// <summary>
-        /// List all data associated with a specific customer profile
+        /// List data associated with a specific customer profile
         /// </summary>
         /// <remarks>
-        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
+        /// Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points and reserved coupons. Reserved coupons also include redeemed coupons. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
-        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
-        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
-        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
-        /// <param name="giveaways">optional flag to decide if you would like giveaways information in the response (optional)</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). </param>
+        /// <param name="profile">Set to &#x60;true&#x60; to include customer profile information in the response. (optional)</param>
+        /// <param name="referrals">Set to &#x60;true&#x60; to include referral information in the response. (optional)</param>
+        /// <param name="coupons">Set to &#x60;true&#x60; to include coupon information in the response. (optional)</param>
+        /// <param name="loyalty">Set to &#x60;true&#x60; to include loyalty information in the response. (optional)</param>
+        /// <param name="giveaways">Set to &#x60;true&#x60; to include giveaways information in the response. (optional)</param>
         /// <returns>ApiResponse of CustomerInventory</returns>
         ApiResponse<CustomerInventory> GetCustomerInventoryWithHttpInfo (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?), bool? giveaways = default(bool?));
         /// <summary>
@@ -214,30 +277,72 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of IntegrationState</returns>
         ApiResponse<IntegrationState> TrackEventWithHttpInfo (NewEvent body, bool? dry = default(bool?));
         /// <summary>
-        /// Update customer profile V1
+        /// Update profile attributes for all customers in audience
         /// </summary>
         /// <remarks>
-        /// ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/getting-started/apiv2).  Update (or create) a [Customer Profile](/docs/dev/concepts/entities#customer-profile). This profile information can then be matched and/or updated by campaign [Rules][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+        /// Update the specified profile attributes to the provided value for all customers in the specified audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
         /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>IntegrationState</returns>
-        IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool? dry = default(bool?));
+        /// <returns></returns>
+        void UpdateAudienceCustomersAttributes (int audienceId, Object body);
 
         /// <summary>
-        /// Update customer profile V1
+        /// Update profile attributes for all customers in audience
         /// </summary>
         /// <remarks>
-        /// ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/getting-started/apiv2).  Update (or create) a [Customer Profile](/docs/dev/concepts/entities#customer-profile). This profile information can then be matched and/or updated by campaign [Rules][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+        /// Update the specified profile attributes to the provided value for all customers in the specified audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
         /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>ApiResponse of IntegrationState</returns>
-        ApiResponse<IntegrationState> UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body, bool? dry = default(bool?));
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateAudienceCustomersAttributesWithHttpInfo (int audienceId, Object body);
+        /// <summary>
+        /// Update audience
+        /// </summary>
+        /// <remarks>
+        /// Update an Audience created by a third-party integration.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <param name="body"></param>
+        /// <returns>Audience</returns>
+        Audience UpdateAudienceV2 (int audienceId, UpdateAudience body);
+
+        /// <summary>
+        /// Update audience
+        /// </summary>
+        /// <remarks>
+        /// Update an Audience created by a third-party integration.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Audience</returns>
+        ApiResponse<Audience> UpdateAudienceV2WithHttpInfo (int audienceId, UpdateAudience body);
+        /// <summary>
+        /// Update multiple customer profiles&#39; audiences
+        /// </summary>
+        /// <remarks>
+        /// Update one or multiple customer profiles with the specified audiences.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        void UpdateCustomerProfileAudiences (CustomerProfileAudienceRequest body);
+
+        /// <summary>
+        /// Update multiple customer profiles&#39; audiences
+        /// </summary>
+        /// <remarks>
+        /// Update one or multiple customer profiles with the specified audiences.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> UpdateCustomerProfileAudiencesWithHttpInfo (CustomerProfileAudienceRequest body);
         /// <summary>
         /// Update customer profile
         /// </summary>
@@ -273,7 +378,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>MultipleCustomerProfileIntegrationResponseV2</returns>
         MultipleCustomerProfileIntegrationResponseV2 UpdateCustomerProfilesV2 (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
 
@@ -285,39 +390,14 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of MultipleCustomerProfileIntegrationResponseV2</returns>
         ApiResponse<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2WithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
-        /// <summary>
-        /// Update customer session V1
-        /// </summary>
-        /// <remarks>
-        /// ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/docs/dev/getting-started/apiv2#migrating-to-v2).  Update (or create) a [Customer Session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to represent which items are in the customer&#39;s cart.  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  Updating a customer profile returns a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated. 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
-        /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>IntegrationState</returns>
-        IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?));
-
-        /// <summary>
-        /// Update customer session V1
-        /// </summary>
-        /// <remarks>
-        /// ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/docs/dev/getting-started/apiv2#migrating-to-v2).  Update (or create) a [Customer Session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to represent which items are in the customer&#39;s cart.  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  Updating a customer profile returns a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated. 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
-        /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>ApiResponse of IntegrationState</returns>
-        ApiResponse<IntegrationState> UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?));
         /// <summary>
         /// Update customer session
         /// </summary>
         /// <remarks>
-        /// Update (or create) a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session). 
+        /// Update or create a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session).  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  For more information, see the [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
@@ -330,7 +410,7 @@ namespace TalonOne.Api
         /// Update customer session
         /// </summary>
         /// <remarks>
-        /// Update (or create) a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session). 
+        /// Update or create a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session).  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  For more information, see the [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
@@ -348,10 +428,31 @@ namespace TalonOne.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// Create audience
+        /// </summary>
+        /// <remarks>
+        /// Create an Audience. Only use this endpoint to sync existing audiences from other platforms through a 3rd party integration.  Once you create your first audience, new audience-specific rule conditions are enabled in the Rule Builder.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of Audience</returns>
+        System.Threading.Tasks.Task<Audience> CreateAudienceV2Async (NewAudience body);
+
+        /// <summary>
+        /// Create audience
+        /// </summary>
+        /// <remarks>
+        /// Create an Audience. Only use this endpoint to sync existing audiences from other platforms through a 3rd party integration.  Once you create your first audience, new audience-specific rule conditions are enabled in the Rule Builder.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse (Audience)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Audience>> CreateAudienceV2AsyncWithHttpInfo (NewAudience body);
+        /// <summary>
         /// Create coupon reservation
         /// </summary>
         /// <remarks>
-        /// Create a coupon reservation for all passed customer profiles on this couponID. 
+        /// Create a coupon reservation for specified customer profiles on the specified coupon.  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  If a coupon gets created for a specific user, it will automatically show up in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  **Important:** This endpoint doesn&#39;t create a **strict** reservation. _Any_ customer can use a reserved coupon code and proceed to checkout.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a \&quot;coupon wallet\&quot; by reserving coupon codes for a customer, and then displaying their \&quot;coupon wallet\&quot; when they visit your store. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The value of a coupon</param>
@@ -363,7 +464,7 @@ namespace TalonOne.Api
         /// Create coupon reservation
         /// </summary>
         /// <remarks>
-        /// Create a coupon reservation for all passed customer profiles on this couponID. 
+        /// Create a coupon reservation for specified customer profiles on the specified coupon.  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  If a coupon gets created for a specific user, it will automatically show up in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  **Important:** This endpoint doesn&#39;t create a **strict** reservation. _Any_ customer can use a reserved coupon code and proceed to checkout.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a \&quot;coupon wallet\&quot; by reserving coupon codes for a customer, and then displaying their \&quot;coupon wallet\&quot; when they visit your store. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The value of a coupon</param>
@@ -399,7 +500,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of InlineResponse201</returns>
         System.Threading.Tasks.Task<InlineResponse201> CreateReferralsForMultipleAdvocatesAsync (NewReferralsForMultipleAdvocates body, string silent = default(string));
 
@@ -411,9 +512,51 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (InlineResponse201)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreateReferralsForMultipleAdvocatesAsyncWithHttpInfo (NewReferralsForMultipleAdvocates body, string silent = default(string));
+        /// <summary>
+        /// Delete audience memberships
+        /// </summary>
+        /// <remarks>
+        /// Remove all members from this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteAudienceMembershipsV2Async (int audienceId);
+
+        /// <summary>
+        /// Delete audience memberships
+        /// </summary>
+        /// <remarks>
+        /// Remove all members from this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAudienceMembershipsV2AsyncWithHttpInfo (int audienceId);
+        /// <summary>
+        /// Delete audience
+        /// </summary>
+        /// <remarks>
+        /// Delete an audience created by a third-party integration.  **Warning:** This endpoint also removes any associations recorded between a customer profile and this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DeleteAudienceV2Async (int audienceId);
+
+        /// <summary>
+        /// Delete audience
+        /// </summary>
+        /// <remarks>
+        /// Delete an audience created by a third-party integration.  **Warning:** This endpoint also removes any associations recorded between a customer profile and this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAudienceV2AsyncWithHttpInfo (int audienceId);
         /// <summary>
         /// Delete coupon reservations
         /// </summary>
@@ -459,34 +602,34 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCustomerDataAsyncWithHttpInfo (string integrationId);
         /// <summary>
-        /// List all data associated with a specific customer profile
+        /// List data associated with a specific customer profile
         /// </summary>
         /// <remarks>
-        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
+        /// Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points and reserved coupons. Reserved coupons also include redeemed coupons. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
-        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
-        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
-        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
-        /// <param name="giveaways">optional flag to decide if you would like giveaways information in the response (optional)</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). </param>
+        /// <param name="profile">Set to &#x60;true&#x60; to include customer profile information in the response. (optional)</param>
+        /// <param name="referrals">Set to &#x60;true&#x60; to include referral information in the response. (optional)</param>
+        /// <param name="coupons">Set to &#x60;true&#x60; to include coupon information in the response. (optional)</param>
+        /// <param name="loyalty">Set to &#x60;true&#x60; to include loyalty information in the response. (optional)</param>
+        /// <param name="giveaways">Set to &#x60;true&#x60; to include giveaways information in the response. (optional)</param>
         /// <returns>Task of CustomerInventory</returns>
         System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?), bool? giveaways = default(bool?));
 
         /// <summary>
-        /// List all data associated with a specific customer profile
+        /// List data associated with a specific customer profile
         /// </summary>
         /// <remarks>
-        /// Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
+        /// Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points and reserved coupons. Reserved coupons also include redeemed coupons. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
-        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
-        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
-        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
-        /// <param name="giveaways">optional flag to decide if you would like giveaways information in the response (optional)</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). </param>
+        /// <param name="profile">Set to &#x60;true&#x60; to include customer profile information in the response. (optional)</param>
+        /// <param name="referrals">Set to &#x60;true&#x60; to include referral information in the response. (optional)</param>
+        /// <param name="coupons">Set to &#x60;true&#x60; to include coupon information in the response. (optional)</param>
+        /// <param name="loyalty">Set to &#x60;true&#x60; to include loyalty information in the response. (optional)</param>
+        /// <param name="giveaways">Set to &#x60;true&#x60; to include giveaways information in the response. (optional)</param>
         /// <returns>Task of ApiResponse (CustomerInventory)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?), bool? giveaways = default(bool?));
         /// <summary>
@@ -534,30 +677,72 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (IntegrationState)</returns>
         System.Threading.Tasks.Task<ApiResponse<IntegrationState>> TrackEventAsyncWithHttpInfo (NewEvent body, bool? dry = default(bool?));
         /// <summary>
-        /// Update customer profile V1
+        /// Update profile attributes for all customers in audience
         /// </summary>
         /// <remarks>
-        /// ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/getting-started/apiv2).  Update (or create) a [Customer Profile](/docs/dev/concepts/entities#customer-profile). This profile information can then be matched and/or updated by campaign [Rules][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+        /// Update the specified profile attributes to the provided value for all customers in the specified audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
         /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>Task of IntegrationState</returns>
-        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body, bool? dry = default(bool?));
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateAudienceCustomersAttributesAsync (int audienceId, Object body);
 
         /// <summary>
-        /// Update customer profile V1
+        /// Update profile attributes for all customers in audience
         /// </summary>
         /// <remarks>
-        /// ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/getting-started/apiv2).  Update (or create) a [Customer Profile](/docs/dev/concepts/entities#customer-profile). This profile information can then be matched and/or updated by campaign [Rules][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+        /// Update the specified profile attributes to the provided value for all customers in the specified audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
         /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body, bool? dry = default(bool?));
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAudienceCustomersAttributesAsyncWithHttpInfo (int audienceId, Object body);
+        /// <summary>
+        /// Update audience
+        /// </summary>
+        /// <remarks>
+        /// Update an Audience created by a third-party integration.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <param name="body"></param>
+        /// <returns>Task of Audience</returns>
+        System.Threading.Tasks.Task<Audience> UpdateAudienceV2Async (int audienceId, UpdateAudience body);
+
+        /// <summary>
+        /// Update audience
+        /// </summary>
+        /// <remarks>
+        /// Update an Audience created by a third-party integration.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse (Audience)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Audience>> UpdateAudienceV2AsyncWithHttpInfo (int audienceId, UpdateAudience body);
+        /// <summary>
+        /// Update multiple customer profiles&#39; audiences
+        /// </summary>
+        /// <remarks>
+        /// Update one or multiple customer profiles with the specified audiences.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task UpdateCustomerProfileAudiencesAsync (CustomerProfileAudienceRequest body);
+
+        /// <summary>
+        /// Update multiple customer profiles&#39; audiences
+        /// </summary>
+        /// <remarks>
+        /// Update one or multiple customer profiles with the specified audiences.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateCustomerProfileAudiencesAsyncWithHttpInfo (CustomerProfileAudienceRequest body);
         /// <summary>
         /// Update customer profile
         /// </summary>
@@ -593,7 +778,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of MultipleCustomerProfileIntegrationResponseV2</returns>
         System.Threading.Tasks.Task<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2Async (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
 
@@ -605,39 +790,14 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (MultipleCustomerProfileIntegrationResponseV2)</returns>
         System.Threading.Tasks.Task<ApiResponse<MultipleCustomerProfileIntegrationResponseV2>> UpdateCustomerProfilesV2AsyncWithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
-        /// <summary>
-        /// Update customer session V1
-        /// </summary>
-        /// <remarks>
-        /// ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/docs/dev/getting-started/apiv2#migrating-to-v2).  Update (or create) a [Customer Session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to represent which items are in the customer&#39;s cart.  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  Updating a customer profile returns a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated. 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
-        /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>Task of IntegrationState</returns>
-        System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?));
-
-        /// <summary>
-        /// Update customer session V1
-        /// </summary>
-        /// <remarks>
-        /// ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/docs/dev/getting-started/apiv2#migrating-to-v2).  Update (or create) a [Customer Session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to represent which items are in the customer&#39;s cart.  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  Updating a customer profile returns a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated. 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
-        /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?));
         /// <summary>
         /// Update customer session
         /// </summary>
         /// <remarks>
-        /// Update (or create) a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session). 
+        /// Update or create a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session).  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  For more information, see the [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
@@ -650,7 +810,7 @@ namespace TalonOne.Api
         /// Update customer session
         /// </summary>
         /// <remarks>
-        /// Update (or create) a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session). 
+        /// Update or create a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session).  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  For more information, see the [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
@@ -779,7 +939,132 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create coupon reservation Create a coupon reservation for all passed customer profiles on this couponID. 
+        /// Create audience Create an Audience. Only use this endpoint to sync existing audiences from other platforms through a 3rd party integration.  Once you create your first audience, new audience-specific rule conditions are enabled in the Rule Builder.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Audience</returns>
+        public Audience CreateAudienceV2 (NewAudience body)
+        {
+             TalonOne.Client.ApiResponse<Audience> localVarResponse = CreateAudienceV2WithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create audience Create an Audience. Only use this endpoint to sync existing audiences from other platforms through a 3rd party integration.  Once you create your first audience, new audience-specific rule conditions are enabled in the Rule Builder.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Audience</returns>
+        public TalonOne.Client.ApiResponse< Audience > CreateAudienceV2WithHttpInfo (NewAudience body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->CreateAudienceV2");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = body;
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< Audience >("/v2/audiences", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateAudienceV2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create audience Create an Audience. Only use this endpoint to sync existing audiences from other platforms through a 3rd party integration.  Once you create your first audience, new audience-specific rule conditions are enabled in the Rule Builder.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of Audience</returns>
+        public async System.Threading.Tasks.Task<Audience> CreateAudienceV2Async (NewAudience body)
+        {
+             TalonOne.Client.ApiResponse<Audience> localVarResponse = await CreateAudienceV2AsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create audience Create an Audience. Only use this endpoint to sync existing audiences from other platforms through a 3rd party integration.  Once you create your first audience, new audience-specific rule conditions are enabled in the Rule Builder.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse (Audience)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Audience>> CreateAudienceV2AsyncWithHttpInfo (NewAudience body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->CreateAudienceV2");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.Data = body;
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Audience>("/v2/audiences", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateAudienceV2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create coupon reservation Create a coupon reservation for specified customer profiles on the specified coupon.  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  If a coupon gets created for a specific user, it will automatically show up in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  **Important:** This endpoint doesn&#39;t create a **strict** reservation. _Any_ customer can use a reserved coupon code and proceed to checkout.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a \&quot;coupon wallet\&quot; by reserving coupon codes for a customer, and then displaying their \&quot;coupon wallet\&quot; when they visit your store. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The value of a coupon</param>
@@ -792,7 +1077,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create coupon reservation Create a coupon reservation for all passed customer profiles on this couponID. 
+        /// Create coupon reservation Create a coupon reservation for specified customer profiles on the specified coupon.  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  If a coupon gets created for a specific user, it will automatically show up in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  **Important:** This endpoint doesn&#39;t create a **strict** reservation. _Any_ customer can use a reserved coupon code and proceed to checkout.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a \&quot;coupon wallet\&quot; by reserving coupon codes for a customer, and then displaying their \&quot;coupon wallet\&quot; when they visit your store. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The value of a coupon</param>
@@ -847,7 +1132,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create coupon reservation Create a coupon reservation for all passed customer profiles on this couponID. 
+        /// Create coupon reservation Create a coupon reservation for specified customer profiles on the specified coupon.  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  If a coupon gets created for a specific user, it will automatically show up in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  **Important:** This endpoint doesn&#39;t create a **strict** reservation. _Any_ customer can use a reserved coupon code and proceed to checkout.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a \&quot;coupon wallet\&quot; by reserving coupon codes for a customer, and then displaying their \&quot;coupon wallet\&quot; when they visit your store. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The value of a coupon</param>
@@ -861,7 +1146,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create coupon reservation Create a coupon reservation for all passed customer profiles on this couponID. 
+        /// Create coupon reservation Create a coupon reservation for specified customer profiles on the specified coupon.  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  If a coupon gets created for a specific user, it will automatically show up in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data endpoint](/integration-api/#operation/getCustomerInventory).  **Important:** This endpoint doesn&#39;t create a **strict** reservation. _Any_ customer can use a reserved coupon code and proceed to checkout.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a \&quot;coupon wallet\&quot; by reserving coupon codes for a customer, and then displaying their \&quot;coupon wallet\&quot; when they visit your store. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The value of a coupon</param>
@@ -1047,7 +1332,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>InlineResponse201</returns>
         public InlineResponse201 CreateReferralsForMultipleAdvocates (NewReferralsForMultipleAdvocates body, string silent = default(string))
         {
@@ -1060,7 +1345,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of InlineResponse201</returns>
         public TalonOne.Client.ApiResponse< InlineResponse201 > CreateReferralsForMultipleAdvocatesWithHttpInfo (NewReferralsForMultipleAdvocates body, string silent = default(string))
         {
@@ -1114,7 +1399,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of InlineResponse201</returns>
         public async System.Threading.Tasks.Task<InlineResponse201> CreateReferralsForMultipleAdvocatesAsync (NewReferralsForMultipleAdvocates body, string silent = default(string))
         {
@@ -1128,7 +1413,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (InlineResponse201)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse201>> CreateReferralsForMultipleAdvocatesAsyncWithHttpInfo (NewReferralsForMultipleAdvocates body, string silent = default(string))
         {
@@ -1173,6 +1458,228 @@ namespace TalonOne.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateReferralsForMultipleAdvocates", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete audience memberships Remove all members from this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns></returns>
+        public void DeleteAudienceMembershipsV2 (int audienceId)
+        {
+             DeleteAudienceMembershipsV2WithHttpInfo(audienceId);
+        }
+
+        /// <summary>
+        /// Delete audience memberships Remove all members from this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public TalonOne.Client.ApiResponse<Object> DeleteAudienceMembershipsV2WithHttpInfo (int audienceId)
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/v2/audiences/{audienceId}/memberships", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAudienceMembershipsV2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete audience memberships Remove all members from this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteAudienceMembershipsV2Async (int audienceId)
+        {
+             await DeleteAudienceMembershipsV2AsyncWithHttpInfo(audienceId);
+
+        }
+
+        /// <summary>
+        /// Delete audience memberships Remove all members from this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> DeleteAudienceMembershipsV2AsyncWithHttpInfo (int audienceId)
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v2/audiences/{audienceId}/memberships", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAudienceMembershipsV2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete audience Delete an audience created by a third-party integration.  **Warning:** This endpoint also removes any associations recorded between a customer profile and this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns></returns>
+        public void DeleteAudienceV2 (int audienceId)
+        {
+             DeleteAudienceV2WithHttpInfo(audienceId);
+        }
+
+        /// <summary>
+        /// Delete audience Delete an audience created by a third-party integration.  **Warning:** This endpoint also removes any associations recorded between a customer profile and this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public TalonOne.Client.ApiResponse<Object> DeleteAudienceV2WithHttpInfo (int audienceId)
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/v2/audiences/{audienceId}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAudienceV2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete audience Delete an audience created by a third-party integration.  **Warning:** This endpoint also removes any associations recorded between a customer profile and this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DeleteAudienceV2Async (int audienceId)
+        {
+             await DeleteAudienceV2AsyncWithHttpInfo(audienceId);
+
+        }
+
+        /// <summary>
+        /// Delete audience Delete an audience created by a third-party integration.  **Warning:** This endpoint also removes any associations recorded between a customer profile and this audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> DeleteAudienceV2AsyncWithHttpInfo (int audienceId)
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
+
+            // authentication (manager_auth) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v2/audiences/{audienceId}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteAudienceV2", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1434,15 +1941,15 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List all data associated with a specific customer profile Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
+        /// List data associated with a specific customer profile Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points and reserved coupons. Reserved coupons also include redeemed coupons. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
-        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
-        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
-        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
-        /// <param name="giveaways">optional flag to decide if you would like giveaways information in the response (optional)</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). </param>
+        /// <param name="profile">Set to &#x60;true&#x60; to include customer profile information in the response. (optional)</param>
+        /// <param name="referrals">Set to &#x60;true&#x60; to include referral information in the response. (optional)</param>
+        /// <param name="coupons">Set to &#x60;true&#x60; to include coupon information in the response. (optional)</param>
+        /// <param name="loyalty">Set to &#x60;true&#x60; to include loyalty information in the response. (optional)</param>
+        /// <param name="giveaways">Set to &#x60;true&#x60; to include giveaways information in the response. (optional)</param>
         /// <returns>CustomerInventory</returns>
         public CustomerInventory GetCustomerInventory (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?), bool? giveaways = default(bool?))
         {
@@ -1451,15 +1958,15 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List all data associated with a specific customer profile Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
+        /// List data associated with a specific customer profile Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points and reserved coupons. Reserved coupons also include redeemed coupons. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
-        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
-        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
-        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
-        /// <param name="giveaways">optional flag to decide if you would like giveaways information in the response (optional)</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). </param>
+        /// <param name="profile">Set to &#x60;true&#x60; to include customer profile information in the response. (optional)</param>
+        /// <param name="referrals">Set to &#x60;true&#x60; to include referral information in the response. (optional)</param>
+        /// <param name="coupons">Set to &#x60;true&#x60; to include coupon information in the response. (optional)</param>
+        /// <param name="loyalty">Set to &#x60;true&#x60; to include loyalty information in the response. (optional)</param>
+        /// <param name="giveaways">Set to &#x60;true&#x60; to include giveaways information in the response. (optional)</param>
         /// <returns>ApiResponse of CustomerInventory</returns>
         public TalonOne.Client.ApiResponse< CustomerInventory > GetCustomerInventoryWithHttpInfo (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?), bool? giveaways = default(bool?))
         {
@@ -1524,15 +2031,15 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List all data associated with a specific customer profile Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
+        /// List data associated with a specific customer profile Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points and reserved coupons. Reserved coupons also include redeemed coupons. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
-        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
-        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
-        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
-        /// <param name="giveaways">optional flag to decide if you would like giveaways information in the response (optional)</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). </param>
+        /// <param name="profile">Set to &#x60;true&#x60; to include customer profile information in the response. (optional)</param>
+        /// <param name="referrals">Set to &#x60;true&#x60; to include referral information in the response. (optional)</param>
+        /// <param name="coupons">Set to &#x60;true&#x60; to include coupon information in the response. (optional)</param>
+        /// <param name="loyalty">Set to &#x60;true&#x60; to include loyalty information in the response. (optional)</param>
+        /// <param name="giveaways">Set to &#x60;true&#x60; to include giveaways information in the response. (optional)</param>
         /// <returns>Task of CustomerInventory</returns>
         public async System.Threading.Tasks.Task<CustomerInventory> GetCustomerInventoryAsync (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?), bool? giveaways = default(bool?))
         {
@@ -1542,15 +2049,15 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List all data associated with a specific customer profile Get information regarding entities referencing this customer profile&#39;s integrationId. Currently we support customer profile information, referral codes and reserved coupons. In the future, this will be expanded with loyalty points.
+        /// List data associated with a specific customer profile Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points and reserved coupons. Reserved coupons also include redeemed coupons. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
-        /// <param name="profile">optional flag to decide if you would like customer profile information in the response (optional)</param>
-        /// <param name="referrals">optional flag to decide if you would like referral information in the response (optional)</param>
-        /// <param name="coupons">optional flag to decide if you would like coupon information in the response (optional)</param>
-        /// <param name="loyalty">optional flag to decide if you would like loyalty information in the response (optional)</param>
-        /// <param name="giveaways">optional flag to decide if you would like giveaways information in the response (optional)</param>
+        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](/integration-api/#operation/updateCustomerSessionV2). </param>
+        /// <param name="profile">Set to &#x60;true&#x60; to include customer profile information in the response. (optional)</param>
+        /// <param name="referrals">Set to &#x60;true&#x60; to include referral information in the response. (optional)</param>
+        /// <param name="coupons">Set to &#x60;true&#x60; to include coupon information in the response. (optional)</param>
+        /// <param name="loyalty">Set to &#x60;true&#x60; to include loyalty information in the response. (optional)</param>
+        /// <param name="giveaways">Set to &#x60;true&#x60; to include giveaways information in the response. (optional)</param>
         /// <returns>Task of ApiResponse (CustomerInventory)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<CustomerInventory>> GetCustomerInventoryAsyncWithHttpInfo (string integrationId, bool? profile = default(bool?), bool? referrals = default(bool?), bool? coupons = default(bool?), bool? loyalty = default(bool?), bool? giveaways = default(bool?))
         {
@@ -1877,36 +2384,157 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer profile V1 ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/getting-started/apiv2).  Update (or create) a [Customer Profile](/docs/dev/concepts/entities#customer-profile). This profile information can then be matched and/or updated by campaign [Rules][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+        /// Update profile attributes for all customers in audience Update the specified profile attributes to the provided value for all customers in the specified audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
         /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>IntegrationState</returns>
-        public IntegrationState UpdateCustomerProfile (string integrationId, NewCustomerProfile body, bool? dry = default(bool?))
+        /// <returns></returns>
+        public void UpdateAudienceCustomersAttributes (int audienceId, Object body)
         {
-             TalonOne.Client.ApiResponse<IntegrationState> localVarResponse = UpdateCustomerProfileWithHttpInfo(integrationId, body, dry);
+             UpdateAudienceCustomersAttributesWithHttpInfo(audienceId, body);
+        }
+
+        /// <summary>
+        /// Update profile attributes for all customers in audience Update the specified profile attributes to the provided value for all customers in the specified audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public TalonOne.Client.ApiResponse<Object> UpdateAudienceCustomersAttributesWithHttpInfo (int audienceId, Object body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateAudienceCustomersAttributes");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<Object>("/v2/audience_customers/{audienceId}/attributes", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateAudienceCustomersAttributes", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update profile attributes for all customers in audience Update the specified profile attributes to the provided value for all customers in the specified audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <param name="body"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateAudienceCustomersAttributesAsync (int audienceId, Object body)
+        {
+             await UpdateAudienceCustomersAttributesAsyncWithHttpInfo(audienceId, body);
+
+        }
+
+        /// <summary>
+        /// Update profile attributes for all customers in audience Update the specified profile attributes to the provided value for all customers in the specified audience.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> UpdateAudienceCustomersAttributesAsyncWithHttpInfo (int audienceId, Object body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateAudienceCustomersAttributes");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/v2/audience_customers/{audienceId}/attributes", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateAudienceCustomersAttributes", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update audience Update an Audience created by a third-party integration.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
+        /// <param name="body"></param>
+        /// <returns>Audience</returns>
+        public Audience UpdateAudienceV2 (int audienceId, UpdateAudience body)
+        {
+             TalonOne.Client.ApiResponse<Audience> localVarResponse = UpdateAudienceV2WithHttpInfo(audienceId, body);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update customer profile V1 ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/getting-started/apiv2).  Update (or create) a [Customer Profile](/docs/dev/concepts/entities#customer-profile). This profile information can then be matched and/or updated by campaign [Rules][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+        /// Update audience Update an Audience created by a third-party integration.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
         /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>ApiResponse of IntegrationState</returns>
-        public TalonOne.Client.ApiResponse< IntegrationState > UpdateCustomerProfileWithHttpInfo (string integrationId, NewCustomerProfile body, bool? dry = default(bool?))
+        /// <returns>ApiResponse of Audience</returns>
+        public TalonOne.Client.ApiResponse< Audience > UpdateAudienceV2WithHttpInfo (int audienceId, UpdateAudience body)
         {
-            // verify the required parameter 'integrationId' is set
-            if (integrationId == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->UpdateCustomerProfile");
-
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfile");
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateAudienceV2");
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -1925,11 +2553,7 @@ namespace TalonOne.Api
             var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
-            if (dry != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dry", dry));
-            }
+            localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
             localVarRequestOptions.Data = body;
 
             // authentication (api_key_v1) required
@@ -1939,11 +2563,11 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put< IntegrationState >("/v1/customer_profiles/{integrationId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put< Audience >("/v2/audiences/{audienceId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateCustomerProfile", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateAudienceV2", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1951,37 +2575,31 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer profile V1 ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/getting-started/apiv2).  Update (or create) a [Customer Profile](/docs/dev/concepts/entities#customer-profile). This profile information can then be matched and/or updated by campaign [Rules][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+        /// Update audience Update an Audience created by a third-party integration.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
         /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>Task of IntegrationState</returns>
-        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerProfileAsync (string integrationId, NewCustomerProfile body, bool? dry = default(bool?))
+        /// <returns>Task of Audience</returns>
+        public async System.Threading.Tasks.Task<Audience> UpdateAudienceV2Async (int audienceId, UpdateAudience body)
         {
-             TalonOne.Client.ApiResponse<IntegrationState> localVarResponse = await UpdateCustomerProfileAsyncWithHttpInfo(integrationId, body, dry);
+             TalonOne.Client.ApiResponse<Audience> localVarResponse = await UpdateAudienceV2AsyncWithHttpInfo(audienceId, body);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Update customer profile V1 ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/getting-started/apiv2).  Update (or create) a [Customer Profile](/docs/dev/concepts/entities#customer-profile). This profile information can then be matched and/or updated by campaign [Rules][].  The &#x60;integrationId&#x60; may be any identifier that will remain stable for the customer. For example, you might use a database ID, an email, or a phone number as the &#x60;integrationId&#x60;. It is vital that this ID **not** change over time, so **don&#39;t** use any identifier that the customer can update themselves. E.g. if your application allows a customer to update their e-mail address, you should instead use a database ID.  Updating a customer profile will return a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  [Customer Profile]: /Getting-Started/entities#customer-profile [Rules]: /Getting-Started/entities#campaigns-rulesets-and-coupons 
+        /// Update audience Update an Audience created by a third-party integration.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="integrationId">The custom identifier for this profile, must be unique within the account.</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</param>
         /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<IntegrationState>> UpdateCustomerProfileAsyncWithHttpInfo (string integrationId, NewCustomerProfile body, bool? dry = default(bool?))
+        /// <returns>Task of ApiResponse (Audience)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Audience>> UpdateAudienceV2AsyncWithHttpInfo (int audienceId, UpdateAudience body)
         {
-            // verify the required parameter 'integrationId' is set
-            if (integrationId == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->UpdateCustomerProfile");
-
             // verify the required parameter 'body' is set
             if (body == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfile");
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateAudienceV2");
 
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -2001,11 +2619,7 @@ namespace TalonOne.Api
             foreach (var _accept in _accepts)
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
-            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
-            if (dry != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dry", dry));
-            }
+            localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
             localVarRequestOptions.Data = body;
 
             // authentication (api_key_v1) required
@@ -2016,11 +2630,132 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PutAsync<IntegrationState>("/v1/customer_profiles/{integrationId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Audience>("/v2/audiences/{audienceId}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("UpdateCustomerProfile", localVarResponse);
+                Exception _exception = this.ExceptionFactory("UpdateAudienceV2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update multiple customer profiles&#39; audiences Update one or multiple customer profiles with the specified audiences.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns></returns>
+        public void UpdateCustomerProfileAudiences (CustomerProfileAudienceRequest body)
+        {
+             UpdateCustomerProfileAudiencesWithHttpInfo(body);
+        }
+
+        /// <summary>
+        /// Update multiple customer profiles&#39; audiences Update one or multiple customer profiles with the specified audiences.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public TalonOne.Client.ApiResponse<Object> UpdateCustomerProfileAudiencesWithHttpInfo (CustomerProfileAudienceRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfileAudiences");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = body;
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/v2/customer_audiences", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateCustomerProfileAudiences", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update multiple customer profiles&#39; audiences Update one or multiple customer profiles with the specified audiences.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task UpdateCustomerProfileAudiencesAsync (CustomerProfileAudienceRequest body)
+        {
+             await UpdateCustomerProfileAudiencesAsyncWithHttpInfo(body);
+
+        }
+
+        /// <summary>
+        /// Update multiple customer profiles&#39; audiences Update one or multiple customer profiles with the specified audiences.  **Important:** The authentication requires an mParticle API key instead of a Talon.One API key. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> UpdateCustomerProfileAudiencesAsyncWithHttpInfo (CustomerProfileAudienceRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerProfileAudiences");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.Data = body;
+
+            // authentication (api_key_v1) required
+            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v2/customer_audiences", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateCustomerProfileAudiences", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -2195,7 +2930,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>MultipleCustomerProfileIntegrationResponseV2</returns>
         public MultipleCustomerProfileIntegrationResponseV2 UpdateCustomerProfilesV2 (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
         {
@@ -2208,7 +2943,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of MultipleCustomerProfileIntegrationResponseV2</returns>
         public TalonOne.Client.ApiResponse< MultipleCustomerProfileIntegrationResponseV2 > UpdateCustomerProfilesV2WithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
         {
@@ -2262,7 +2997,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of MultipleCustomerProfileIntegrationResponseV2</returns>
         public async System.Threading.Tasks.Task<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2Async (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
         {
@@ -2276,7 +3011,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body"></param>
-        /// <param name="silent">If set to &#x60;yes&#x60;, response will be an empty 204, otherwise a list of integration states will be generated (up to 1000). (optional)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains essential data such as the updated customer profiles and session-related information.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (MultipleCustomerProfileIntegrationResponseV2)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<MultipleCustomerProfileIntegrationResponseV2>> UpdateCustomerProfilesV2AsyncWithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
         {
@@ -2328,158 +3063,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer session V1 ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/docs/dev/getting-started/apiv2#migrating-to-v2).  Update (or create) a [Customer Session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to represent which items are in the customer&#39;s cart.  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  Updating a customer profile returns a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
-        /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>IntegrationState</returns>
-        public IntegrationState UpdateCustomerSession (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?))
-        {
-             TalonOne.Client.ApiResponse<IntegrationState> localVarResponse = UpdateCustomerSessionWithHttpInfo(customerSessionId, body, dry);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update customer session V1 ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/docs/dev/getting-started/apiv2#migrating-to-v2).  Update (or create) a [Customer Session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to represent which items are in the customer&#39;s cart.  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  Updating a customer profile returns a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
-        /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>ApiResponse of IntegrationState</returns>
-        public TalonOne.Client.ApiResponse< IntegrationState > UpdateCustomerSessionWithHttpInfo (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?))
-        {
-            // verify the required parameter 'customerSessionId' is set
-            if (customerSessionId == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'customerSessionId' when calling IntegrationApi->UpdateCustomerSession");
-
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerSession");
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("customerSessionId", TalonOne.Client.ClientUtils.ParameterToString(customerSessionId)); // path parameter
-            if (dry != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dry", dry));
-            }
-            localVarRequestOptions.Data = body;
-
-            // authentication (api_key_v1) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Put< IntegrationState >("/v1/customer_sessions/{customerSessionId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateCustomerSession", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update customer session V1 ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/docs/dev/getting-started/apiv2#migrating-to-v2).  Update (or create) a [Customer Session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to represent which items are in the customer&#39;s cart.  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  Updating a customer profile returns a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
-        /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>Task of IntegrationState</returns>
-        public async System.Threading.Tasks.Task<IntegrationState> UpdateCustomerSessionAsync (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?))
-        {
-             TalonOne.Client.ApiResponse<IntegrationState> localVarResponse = await UpdateCustomerSessionAsyncWithHttpInfo(customerSessionId, body, dry);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Update customer session V1 ⚠️ Deprecation Notice: Support for requests to this endpoint will end on 15.07.2021. We will not remove the endpoint, and it will still be accessible for you to use. For new features support, migrate to [API V2.0](/docs/dev/docs/dev/getting-started/apiv2#migrating-to-v2).  Update (or create) a [Customer Session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to represent which items are in the customer&#39;s cart.  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  Updating a customer profile returns a response with the full integration state. This includes the current state of the customer profile, the customer session, the event that was recorded, and an array of effects that took place.  The currency for the session and the cart items in the session is the same as that of the application with which the session is associated. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
-        /// <param name="body"></param>
-        /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;. (optional)</param>
-        /// <returns>Task of ApiResponse (IntegrationState)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<IntegrationState>> UpdateCustomerSessionAsyncWithHttpInfo (string customerSessionId, NewCustomerSession body, bool? dry = default(bool?))
-        {
-            // verify the required parameter 'customerSessionId' is set
-            if (customerSessionId == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'customerSessionId' when calling IntegrationApi->UpdateCustomerSession");
-
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling IntegrationApi->UpdateCustomerSession");
-
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-                "application/json"
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            localVarRequestOptions.PathParameters.Add("customerSessionId", TalonOne.Client.ClientUtils.ParameterToString(customerSessionId)); // path parameter
-            if (dry != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dry", dry));
-            }
-            localVarRequestOptions.Data = body;
-
-            // authentication (api_key_v1) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PutAsync<IntegrationState>("/v1/customer_sessions/{customerSessionId}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("UpdateCustomerSession", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Update customer session Update (or create) a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session). 
+        /// Update customer session Update or create a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session).  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  For more information, see the [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
@@ -2493,7 +3077,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer session Update (or create) a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session). 
+        /// Update customer session Update or create a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session).  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  For more information, see the [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
@@ -2553,7 +3137,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer session Update (or create) a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session). 
+        /// Update customer session Update or create a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session).  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  For more information, see the [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>
@@ -2568,7 +3152,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer session Update (or create) a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session). 
+        /// Update customer session Update or create a [customer session](/docs/dev/concepts/entities#customer-session). For example, use this endpoint to share the content of a customer&#39;s cart with Talon.One and to check which promotion rules apply.  **Note:** The currency for the session and the cart items in the session is the same as the Application that owns this session.  **Session management**  The Talon.One platform supports multiple simultaneous sessions for the same profile. If you have multiple ways of accessing the same Application you can either:  - Track multiple independent sessions or, - Use the same session across all of them.  You should share sessions when application access points share other state, such as the user&#39;s cart. If two points of access to the application have independent states, for example a user can have different items in their cart across the two) they should use independent customer session ID&#39;s.  See more information and tips about session management in [Entities](/docs/dev/concepts/entities#customer-session).  **Sessions and customer profiles**  To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. To track an anonymous session use the empty string (&#x60;\&quot;\&quot;&#x60;) as the &#x60;profileId&#x60;. **Note:** You do **not** have to create a customer profile first. If the specified profile does not exist, an empty profile is created automatically.  **Performance tips**  Updating a customer session returns a response with the requested integration state.  You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get the customer profile details directly without extra requests.  You can also set &#x60;runRuleEngine&#x60; to &#x60;false&#x60; to prevent unwanted rule executions. This allows you to improve response times.  If &#x60;runRuleEngine&#x60; is set to &#x60;true&#x60;, the response also includes:  - The effects generated by the triggered campaigns. - The created coupons and referral objects.  For more information, see the [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The custom identifier for this session, must be unique within the account.</param>

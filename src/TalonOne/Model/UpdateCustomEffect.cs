@@ -39,15 +39,17 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateCustomEffect" /> class.
         /// </summary>
+        /// <param name="applicationIds">The IDs of the applications that are related to this entity. (required).</param>
         /// <param name="name">The name of this effect. (required).</param>
         /// <param name="title">The title of this effect. (required).</param>
         /// <param name="payload">The JSON payload of this effect. (required).</param>
         /// <param name="description">The description of this effect..</param>
         /// <param name="enabled">Determines if this effect is active. (required).</param>
-        /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that this effect is enabled for.</param>
         /// <param name="_params">Array of template argument definitions.</param>
-        public UpdateCustomEffect(string name = default(string), string title = default(string), string payload = default(string), string description = default(string), bool enabled = default(bool), List<int> subscribedApplicationsIds = default(List<int>), List<TemplateArgDef> _params = default(List<TemplateArgDef>))
+        public UpdateCustomEffect(List<int> applicationIds = default(List<int>), string name = default(string), string title = default(string), string payload = default(string), string description = default(string), bool enabled = default(bool), List<TemplateArgDef> _params = default(List<TemplateArgDef>))
         {
+            // to ensure "applicationIds" is required (not null)
+            this.ApplicationIds = applicationIds ?? throw new ArgumentNullException("applicationIds is a required property for UpdateCustomEffect and cannot be null");
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateCustomEffect and cannot be null");
             // to ensure "title" is required (not null)
@@ -56,10 +58,16 @@ namespace TalonOne.Model
             this.Payload = payload ?? throw new ArgumentNullException("payload is a required property for UpdateCustomEffect and cannot be null");
             this.Enabled = enabled;
             this.Description = description;
-            this.SubscribedApplicationsIds = subscribedApplicationsIds;
             this.Params = _params;
         }
         
+        /// <summary>
+        /// The IDs of the applications that are related to this entity.
+        /// </summary>
+        /// <value>The IDs of the applications that are related to this entity.</value>
+        [DataMember(Name="applicationIds", EmitDefaultValue=false)]
+        public List<int> ApplicationIds { get; set; }
+
         /// <summary>
         /// The name of this effect.
         /// </summary>
@@ -96,13 +104,6 @@ namespace TalonOne.Model
         public bool Enabled { get; set; }
 
         /// <summary>
-        /// A list of the IDs of the applications that this effect is enabled for
-        /// </summary>
-        /// <value>A list of the IDs of the applications that this effect is enabled for</value>
-        [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
-
-        /// <summary>
         /// Array of template argument definitions
         /// </summary>
         /// <value>Array of template argument definitions</value>
@@ -117,12 +118,12 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UpdateCustomEffect {\n");
+            sb.Append("  ApplicationIds: ").Append(ApplicationIds).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Payload: ").Append(Payload).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
-            sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -159,6 +160,12 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.ApplicationIds == input.ApplicationIds ||
+                    this.ApplicationIds != null &&
+                    input.ApplicationIds != null &&
+                    this.ApplicationIds.SequenceEqual(input.ApplicationIds)
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -183,12 +190,6 @@ namespace TalonOne.Model
                     this.Enabled.Equals(input.Enabled)
                 ) && 
                 (
-                    this.SubscribedApplicationsIds == input.SubscribedApplicationsIds ||
-                    this.SubscribedApplicationsIds != null &&
-                    input.SubscribedApplicationsIds != null &&
-                    this.SubscribedApplicationsIds.SequenceEqual(input.SubscribedApplicationsIds)
-                ) && 
-                (
                     this.Params == input.Params ||
                     this.Params != null &&
                     input.Params != null &&
@@ -205,6 +206,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.ApplicationIds != null)
+                    hashCode = hashCode * 59 + this.ApplicationIds.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Title != null)
@@ -214,8 +217,6 @@ namespace TalonOne.Model
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 hashCode = hashCode * 59 + this.Enabled.GetHashCode();
-                if (this.SubscribedApplicationsIds != null)
-                    hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 return hashCode;

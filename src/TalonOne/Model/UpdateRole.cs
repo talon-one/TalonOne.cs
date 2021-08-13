@@ -37,13 +37,13 @@ namespace TalonOne.Model
         /// <param name="name">Name of the role.</param>
         /// <param name="description">Description of the role.</param>
         /// <param name="acl">Role Policy this should be a stringified blob of json.</param>
-        /// <param name="users">An array of user identifiers.</param>
-        public UpdateRole(string name = default(string), string description = default(string), string acl = default(string), List<int> users = default(List<int>))
+        /// <param name="members">An array of user identifiers.</param>
+        public UpdateRole(string name = default(string), string description = default(string), string acl = default(string), List<int> members = default(List<int>))
         {
             this.Name = name;
             this.Description = description;
             this.Acl = acl;
-            this.Users = users;
+            this.Members = members;
         }
         
         /// <summary>
@@ -71,8 +71,8 @@ namespace TalonOne.Model
         /// An array of user identifiers
         /// </summary>
         /// <value>An array of user identifiers</value>
-        [DataMember(Name="users", EmitDefaultValue=false)]
-        public List<int> Users { get; set; }
+        [DataMember(Name="members", EmitDefaultValue=false)]
+        public List<int> Members { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,7 +85,7 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Acl: ").Append(Acl).Append("\n");
-            sb.Append("  Users: ").Append(Users).Append("\n");
+            sb.Append("  Members: ").Append(Members).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,10 +136,10 @@ namespace TalonOne.Model
                     this.Acl.Equals(input.Acl))
                 ) && 
                 (
-                    this.Users == input.Users ||
-                    this.Users != null &&
-                    input.Users != null &&
-                    this.Users.SequenceEqual(input.Users)
+                    this.Members == input.Members ||
+                    this.Members != null &&
+                    input.Members != null &&
+                    this.Members.SequenceEqual(input.Members)
                 );
         }
 
@@ -158,8 +158,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Acl != null)
                     hashCode = hashCode * 59 + this.Acl.GetHashCode();
-                if (this.Users != null)
-                    hashCode = hashCode * 59 + this.Users.GetHashCode();
+                if (this.Members != null)
+                    hashCode = hashCode * 59 + this.Members.GetHashCode();
                 return hashCode;
             }
         }

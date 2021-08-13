@@ -106,14 +106,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'State'
         }
         /// <summary>
-        /// Test the property 'ActiveRulesetId'
-        /// </summary>
-        [Fact]
-        public void ActiveRulesetIdTest()
-        {
-            // TODO unit test for the property 'ActiveRulesetId'
-        }
-        /// <summary>
         /// Test the property 'Tags'
         /// </summary>
         [Fact]
