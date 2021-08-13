@@ -467,6 +467,7 @@ namespace TalonOne.Client
             }
 
             client.AddHandler(() => new XmlDeserializer(), "application/xml", "text/xml", "*+xml", "*");
+            client.AddHandler(() => new CustomJsonCodec(configuration), "text/plain", "text/csv", "application/csv");
 
             client.Timeout = configuration.Timeout;
 
