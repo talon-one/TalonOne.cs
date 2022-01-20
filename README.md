@@ -87,11 +87,6 @@ namespace Example
                 }
             };
 
-            // Or via the "global" Default configuration:
-            //   Configuration.Default.BasePath = "https://mycompany.talon.one";
-            //   Configuration.Default.AddApiKey("Authorization", "YOUR_API_KEY");
-            //   Configuration.Default.AddApiKeyPrefix("Authorization", "ApiKey-v1");
-
             // ************************************************
             // Integration API example to send a session update
             // ************************************************
@@ -193,9 +188,6 @@ namespace Example
                 BasePath = "https://mycompany.talon.one"
             };
 
-            // Or via the "global" Default configuration:
-            //   Configuration.Default.BasePath = "https://mycompany.talon.one";
-
             // ****************************************************
             // Management API example to load application with id 7
             // ****************************************************
@@ -214,11 +206,6 @@ namespace Example
                 managementConfig.AddApiKey("Authorization", session.Token);
                 managementConfig.AddApiKeyPrefix("Authorization", "Bearer");
                 managementApi = new ManagementApi(managementConfig); // re-instantiate an api instance for the token to take effect
-
-                // Or again, via the "global" Default configuration:
-                //   Configuration.Default.AddApiKey("Authorization", session.Token);
-                //   Configuration.Default.AddApiKeyPrefix("Authorization", "Bearer");
-                //   managementApi = new ManagementApi(managementConfig); // re-instantiate an api instance for the token to take effect
 
                 // Calling `GetApplication` function with the desired id (7)
                 Application app = managementApi.GetApplication(7);
