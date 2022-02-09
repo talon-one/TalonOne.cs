@@ -10,11 +10,7 @@
 
 
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Net.Mime;
+using System.IO;
 using TalonOne.Client;
 using TalonOne.Model;
 using Attribute = TalonOne.Model.Attribute;
@@ -16312,9 +16308,12 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
-            if (upFile != null)
+            
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16325,6 +16324,12 @@ namespace TalonOne.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post< Import >("/v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/import", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {
@@ -16383,9 +16388,12 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
-            if (upFile != null)
+            
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16397,6 +16405,12 @@ namespace TalonOne.Api
             // make the HTTP request
 
             var localVarResponse = await this.AsynchronousClient.PostAsync<Import>("/v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId}/import", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {
@@ -16450,9 +16464,12 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
-            if (upFile != null)
+
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16463,6 +16480,12 @@ namespace TalonOne.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post< Import >("/v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {
@@ -16518,9 +16541,12 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
-            if (upFile != null)
+            
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16532,6 +16558,12 @@ namespace TalonOne.Api
             // make the HTTP request
 
             var localVarResponse = await this.AsynchronousClient.PostAsync<Import>("/v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {
@@ -16582,9 +16614,12 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("programID", TalonOne.Client.ClientUtils.ParameterToString(programID)); // path parameter
-            if (upFile != null)
+            
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16595,6 +16630,12 @@ namespace TalonOne.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post< Import >("/v1/loyalty_programs/{programID}/import_points", localVarRequestOptions, this.Configuration);
+
+            if(upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {
@@ -16647,9 +16688,12 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
             localVarRequestOptions.PathParameters.Add("programID", TalonOne.Client.ClientUtils.ParameterToString(programID)); // path parameter
-            if (upFile != null)
+            
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16661,6 +16705,12 @@ namespace TalonOne.Api
             // make the HTTP request
 
             var localVarResponse = await this.AsynchronousClient.PostAsync<Import>("/v1/loyalty_programs/{programID}/import_points", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {
@@ -16711,9 +16761,12 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("poolId", TalonOne.Client.ClientUtils.ParameterToString(poolId)); // path parameter
-            if (upFile != null)
+            
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16724,6 +16777,12 @@ namespace TalonOne.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post< Import >("/v1/giveaways/pools/{poolId}/import", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {
@@ -16776,9 +16835,12 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
             localVarRequestOptions.PathParameters.Add("poolId", TalonOne.Client.ClientUtils.ParameterToString(poolId)); // path parameter
-            if (upFile != null)
+            
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16790,6 +16852,12 @@ namespace TalonOne.Api
             // make the HTTP request
 
             var localVarResponse = await this.AsynchronousClient.PostAsync<Import>("/v1/giveaways/pools/{poolId}/import", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {
@@ -16843,9 +16911,12 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
-            if (upFile != null)
+            
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16856,6 +16927,12 @@ namespace TalonOne.Api
 
             // make the HTTP request
             var localVarResponse = this.Client.Post< Import >("/v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {
@@ -16911,9 +16988,12 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
-            if (upFile != null)
+            
+            MemoryStream upFileStream = null;
+            if (!String.IsNullOrEmpty(upFile))
             {
-                localVarRequestOptions.FormParameters.Add("upFile", TalonOne.Client.ClientUtils.ParameterToString(upFile)); // form parameter
+                upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
             // authentication (manager_auth) required
@@ -16925,6 +17005,12 @@ namespace TalonOne.Api
             // make the HTTP request
 
             var localVarResponse = await this.AsynchronousClient.PostAsync<Import>("/v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
 
             if (this.ExceptionFactory != null)
             {

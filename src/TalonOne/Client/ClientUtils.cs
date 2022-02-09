@@ -92,6 +92,16 @@ namespace TalonOne.Client
         }
 
         /// <summary>
+        /// Converts upFile contents from string to Memory Stream
+        /// </summary>
+        /// <param name="upFile">The file with the information about the data that should be imported.</param>
+        /// <returns>The file in a Memory Stream.</returns>
+        public static MemoryStream ParameterToStream(string upFile)
+        {
+            return new MemoryStream(Encoding.ASCII.GetBytes(File.ReadAllText(upFile)));
+        }
+
+        /// <summary>
         /// URL encode a string
         /// Credit/Ref: https://github.com/restsharp/RestSharp/blob/master/RestSharp/Extensions/StringExtensions.cs#L50
         /// </summary>
