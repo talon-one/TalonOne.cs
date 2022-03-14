@@ -13,7 +13,7 @@ The version of the OpenAPI document: 1.0.0
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TalonOne.Test</RootNamespace>
     <AssemblyName>TalonOne.Test</AssemblyName>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
