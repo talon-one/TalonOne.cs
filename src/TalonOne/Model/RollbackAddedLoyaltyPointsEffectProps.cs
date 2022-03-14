@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -44,7 +44,9 @@ namespace TalonOne.Model
         /// <param name="value">The amount of points that were rolled back (required).</param>
         /// <param name="recipientIntegrationId">The user for whom these points were originally added (required).</param>
         /// <param name="transactionUUID">The identifier of &#39;deduction&#39; entry added to the ledger as the &#x60;addLoyaltyPoints&#x60; effect is rolled back. (required).</param>
-        public RollbackAddedLoyaltyPointsEffectProps(int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), string transactionUUID = default(string))
+        /// <param name="cartItemPosition">The index of the item in the cart items for which the loyalty points were rolled back..</param>
+        /// <param name="cartItemSubPosition">The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with &#x60;quantity&#x60; &gt; 1. .</param>
+        public RollbackAddedLoyaltyPointsEffectProps(int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal))
         {
             this.ProgramId = programId;
             // to ensure "subLedgerId" is required (not null)
@@ -54,6 +56,8 @@ namespace TalonOne.Model
             this.RecipientIntegrationId = recipientIntegrationId ?? throw new ArgumentNullException("recipientIntegrationId is a required property for RollbackAddedLoyaltyPointsEffectProps and cannot be null");
             // to ensure "transactionUUID" is required (not null)
             this.TransactionUUID = transactionUUID ?? throw new ArgumentNullException("transactionUUID is a required property for RollbackAddedLoyaltyPointsEffectProps and cannot be null");
+            this.CartItemPosition = cartItemPosition;
+            this.CartItemSubPosition = cartItemSubPosition;
         }
         
         /// <summary>
@@ -92,6 +96,20 @@ namespace TalonOne.Model
         public string TransactionUUID { get; set; }
 
         /// <summary>
+        /// The index of the item in the cart items for which the loyalty points were rolled back.
+        /// </summary>
+        /// <value>The index of the item in the cart items for which the loyalty points were rolled back.</value>
+        [DataMember(Name="cartItemPosition", EmitDefaultValue=false)]
+        public decimal CartItemPosition { get; set; }
+
+        /// <summary>
+        /// The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with &#x60;quantity&#x60; &gt; 1. 
+        /// </summary>
+        /// <value>The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with &#x60;quantity&#x60; &gt; 1. </value>
+        [DataMember(Name="cartItemSubPosition", EmitDefaultValue=false)]
+        public decimal CartItemSubPosition { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +122,8 @@ namespace TalonOne.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  RecipientIntegrationId: ").Append(RecipientIntegrationId).Append("\n");
             sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
+            sb.Append("  CartItemPosition: ").Append(CartItemPosition).Append("\n");
+            sb.Append("  CartItemSubPosition: ").Append(CartItemSubPosition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,6 +180,14 @@ namespace TalonOne.Model
                     this.TransactionUUID == input.TransactionUUID ||
                     (this.TransactionUUID != null &&
                     this.TransactionUUID.Equals(input.TransactionUUID))
+                ) && 
+                (
+                    this.CartItemPosition == input.CartItemPosition ||
+                    this.CartItemPosition.Equals(input.CartItemPosition)
+                ) && 
+                (
+                    this.CartItemSubPosition == input.CartItemSubPosition ||
+                    this.CartItemSubPosition.Equals(input.CartItemSubPosition)
                 );
         }
 
@@ -180,6 +208,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.RecipientIntegrationId.GetHashCode();
                 if (this.TransactionUUID != null)
                     hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
+                hashCode = hashCode * 59 + this.CartItemPosition.GetHashCode();
+                hashCode = hashCode * 59 + this.CartItemSubPosition.GetHashCode();
                 return hashCode;
             }
         }

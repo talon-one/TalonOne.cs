@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class CreateApplicationAPIKey :  IEquatable<CreateApplicationAPIKey>, IValidatableObject
     {
         /// <summary>
-        /// Platform the API key is valid for.
+        /// The third-party platform the API key is valid for. Use &#x60;none&#x60; for a generic API key to be used from your own intergration layer. 
         /// </summary>
-        /// <value>Platform the API key is valid for.</value>
+        /// <value>The third-party platform the API key is valid for. Use &#x60;none&#x60; for a generic API key to be used from your own intergration layer. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PlatformEnum
         {
@@ -66,14 +66,26 @@ namespace TalonOne.Model
             /// Enum Selligent for value: selligent
             /// </summary>
             [EnumMember(Value = "selligent")]
-            Selligent = 5
+            Selligent = 5,
+
+            /// <summary>
+            /// Enum Iterable for value: iterable
+            /// </summary>
+            [EnumMember(Value = "iterable")]
+            Iterable = 6,
+
+            /// <summary>
+            /// Enum Customerengagement for value: customer_engagement
+            /// </summary>
+            [EnumMember(Value = "customer_engagement")]
+            Customerengagement = 7
 
         }
 
         /// <summary>
-        /// Platform the API key is valid for.
+        /// The third-party platform the API key is valid for. Use &#x60;none&#x60; for a generic API key to be used from your own intergration layer. 
         /// </summary>
-        /// <value>Platform the API key is valid for.</value>
+        /// <value>The third-party platform the API key is valid for. Use &#x60;none&#x60; for a generic API key to be used from your own intergration layer. </value>
         [DataMember(Name="platform", EmitDefaultValue=false)]
         public PlatformEnum? Platform { get; set; }
         /// <summary>
@@ -86,7 +98,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="title">Title for API Key (required).</param>
         /// <param name="expires">The date the API key expired (required).</param>
-        /// <param name="platform">Platform the API key is valid for..</param>
+        /// <param name="platform">The third-party platform the API key is valid for. Use &#x60;none&#x60; for a generic API key to be used from your own intergration layer. .</param>
         public CreateApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime), PlatformEnum? platform = default(PlatformEnum?))
         {
             // to ensure "title" is required (not null)

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -34,33 +34,27 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateCollection" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UpdateCollection() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateCollection" /> class.
-        /// </summary>
-        /// <param name="name">The name of this collection. (required).</param>
         /// <param name="description">A short description of the purpose of this collection..</param>
-        public UpdateCollection(string name = default(string), string description = default(string))
+        /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications where this collection is enabled..</param>
+        public UpdateCollection(string description = default(string), List<int> subscribedApplicationsIds = default(List<int>))
         {
-            // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateCollection and cannot be null");
             this.Description = description;
+            this.SubscribedApplicationsIds = subscribedApplicationsIds;
         }
         
-        /// <summary>
-        /// The name of this collection.
-        /// </summary>
-        /// <value>The name of this collection.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
-
         /// <summary>
         /// A short description of the purpose of this collection.
         /// </summary>
         /// <value>A short description of the purpose of this collection.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// A list of the IDs of the Applications where this collection is enabled.
+        /// </summary>
+        /// <value>A list of the IDs of the Applications where this collection is enabled.</value>
+        [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
+        public List<int> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,8 +64,8 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UpdateCollection {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,14 +101,15 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.SubscribedApplicationsIds == input.SubscribedApplicationsIds ||
+                    this.SubscribedApplicationsIds != null &&
+                    input.SubscribedApplicationsIds != null &&
+                    this.SubscribedApplicationsIds.SequenceEqual(input.SubscribedApplicationsIds)
                 );
         }
 
@@ -127,10 +122,10 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.SubscribedApplicationsIds != null)
+                    hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();
                 return hashCode;
             }
         }
@@ -142,12 +137,6 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
-
             yield break;
         }
     }

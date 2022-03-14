@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -51,10 +51,16 @@ namespace TalonOne.Model
             Closed = 2,
 
             /// <summary>
+            /// Enum Partiallyreturned for value: partially_returned
+            /// </summary>
+            [EnumMember(Value = "partially_returned")]
+            Partiallyreturned = 3,
+
+            /// <summary>
             /// Enum Cancelled for value: cancelled
             /// </summary>
             [EnumMember(Value = "cancelled")]
-            Cancelled = 3
+            Cancelled = 4
 
         }
 
@@ -67,19 +73,21 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewCustomerSessionV2" /> class.
         /// </summary>
-        /// <param name="profileId">ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID..</param>
+        /// <param name="profileId">ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId. .</param>
         /// <param name="couponCodes">Any coupon codes entered..</param>
         /// <param name="referralCode">Any referral code entered..</param>
+        /// <param name="loyaltyCards">Any loyalty cards used..</param>
         /// <param name="state">Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;, after which valid transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60;  For more information, see [Entites](/docs/dev/concepts/entities#customer-session).  (default to StateEnum.Open).</param>
-        /// <param name="cartItems">All items the customer will be purchasing in this session.</param>
-        /// <param name="additionalCosts">Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees..</param>
+        /// <param name="cartItems">The items to add to this sessions. - If cart item flattening is disabled: **Do not exceed 1000 items** (regardless of their &#x60;quantity&#x60;) per request. - If cart item flattening is enabled: **Do not exceed 1000 items** and ensure the sum of all cart item&#39;s &#x60;quantity&#x60; **does not exceed 10.000** per request. .</param>
+        /// <param name="additionalCosts">Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees. [Create them in the Campaign Manager](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs/#creating-additional-costs) before setting them with this property. .</param>
         /// <param name="identifiers">Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. .</param>
-        /// <param name="attributes">A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings. .</param>
-        public NewCustomerSessionV2(string profileId = default(string), List<string> couponCodes = default(List<string>), string referralCode = default(string), StateEnum? state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object))
+        /// <param name="attributes">A key-value map of the sessions attributes. If you use custom attributes, they must be created in the Campaign Manager before you set them with this property. For more information, see [Attributes](https://docs.talon.one/docs/dev/concepts/attributes). .</param>
+        public NewCustomerSessionV2(string profileId = default(string), List<string> couponCodes = default(List<string>), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), StateEnum? state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object))
         {
             this.ProfileId = profileId;
             this.CouponCodes = couponCodes;
             this.ReferralCode = referralCode;
+            this.LoyaltyCards = loyaltyCards;
             this.State = state;
             this.CartItems = cartItems;
             this.AdditionalCosts = additionalCosts;
@@ -88,9 +96,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.
+        /// ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId. 
         /// </summary>
-        /// <value>ID of the customers profile as used within this Talon.One account. May be omitted or set to the empty string if the customer does not yet have a known profile ID.</value>
+        /// <value>ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId. </value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
         public string ProfileId { get; set; }
 
@@ -109,16 +117,23 @@ namespace TalonOne.Model
         public string ReferralCode { get; set; }
 
         /// <summary>
-        /// All items the customer will be purchasing in this session
+        /// Any loyalty cards used.
         /// </summary>
-        /// <value>All items the customer will be purchasing in this session</value>
+        /// <value>Any loyalty cards used.</value>
+        [DataMember(Name="loyaltyCards", EmitDefaultValue=false)]
+        public List<string> LoyaltyCards { get; set; }
+
+        /// <summary>
+        /// The items to add to this sessions. - If cart item flattening is disabled: **Do not exceed 1000 items** (regardless of their &#x60;quantity&#x60;) per request. - If cart item flattening is enabled: **Do not exceed 1000 items** and ensure the sum of all cart item&#39;s &#x60;quantity&#x60; **does not exceed 10.000** per request. 
+        /// </summary>
+        /// <value>The items to add to this sessions. - If cart item flattening is disabled: **Do not exceed 1000 items** (regardless of their &#x60;quantity&#x60;) per request. - If cart item flattening is enabled: **Do not exceed 1000 items** and ensure the sum of all cart item&#39;s &#x60;quantity&#x60; **does not exceed 10.000** per request. </value>
         [DataMember(Name="cartItems", EmitDefaultValue=false)]
         public List<CartItem> CartItems { get; set; }
 
         /// <summary>
-        /// Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.
+        /// Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees. [Create them in the Campaign Manager](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs/#creating-additional-costs) before setting them with this property. 
         /// </summary>
-        /// <value>Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees.</value>
+        /// <value>Any costs associated with the session that can not be explicitly attributed to cart items. Examples include shipping costs and service fees. [Create them in the Campaign Manager](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs/#creating-additional-costs) before setting them with this property. </value>
         [DataMember(Name="additionalCosts", EmitDefaultValue=false)]
         public Dictionary<string, AdditionalCost> AdditionalCosts { get; set; }
 
@@ -130,9 +145,9 @@ namespace TalonOne.Model
         public List<string> Identifiers { get; set; }
 
         /// <summary>
-        /// A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings. 
+        /// A key-value map of the sessions attributes. If you use custom attributes, they must be created in the Campaign Manager before you set them with this property. For more information, see [Attributes](https://docs.talon.one/docs/dev/concepts/attributes). 
         /// </summary>
-        /// <value>A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings. </value>
+        /// <value>A key-value map of the sessions attributes. If you use custom attributes, they must be created in the Campaign Manager before you set them with this property. For more information, see [Attributes](https://docs.talon.one/docs/dev/concepts/attributes). </value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public Object Attributes { get; set; }
 
@@ -147,6 +162,7 @@ namespace TalonOne.Model
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
             sb.Append("  CouponCodes: ").Append(CouponCodes).Append("\n");
             sb.Append("  ReferralCode: ").Append(ReferralCode).Append("\n");
+            sb.Append("  LoyaltyCards: ").Append(LoyaltyCards).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  CartItems: ").Append(CartItems).Append("\n");
             sb.Append("  AdditionalCosts: ").Append(AdditionalCosts).Append("\n");
@@ -203,6 +219,12 @@ namespace TalonOne.Model
                     this.ReferralCode.Equals(input.ReferralCode))
                 ) && 
                 (
+                    this.LoyaltyCards == input.LoyaltyCards ||
+                    this.LoyaltyCards != null &&
+                    input.LoyaltyCards != null &&
+                    this.LoyaltyCards.SequenceEqual(input.LoyaltyCards)
+                ) && 
+                (
                     this.State == input.State ||
                     this.State.Equals(input.State)
                 ) && 
@@ -246,6 +268,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CouponCodes.GetHashCode();
                 if (this.ReferralCode != null)
                     hashCode = hashCode * 59 + this.ReferralCode.GetHashCode();
+                if (this.LoyaltyCards != null)
+                    hashCode = hashCode * 59 + this.LoyaltyCards.GetHashCode();
                 hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.CartItems != null)
                     hashCode = hashCode * 59 + this.CartItems.GetHashCode();

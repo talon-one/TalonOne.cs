@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -43,8 +43,8 @@ namespace TalonOne.Model
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="userId">The ID of the account that owns this entity. (required).</param>
-        /// <param name="entity">The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints. (required).</param>
-        /// <param name="amount">The number of members that imported. (required).</param>
+        /// <param name="entity">The name of the entity that was imported.  (required).</param>
+        /// <param name="amount">The number of values that were imported. (required).</param>
         public Import(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), string entity = default(string), int amount = default(int))
         {
             this.Id = id;
@@ -85,16 +85,16 @@ namespace TalonOne.Model
         public int UserId { get; set; }
 
         /// <summary>
-        /// The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints.
+        /// The name of the entity that was imported. 
         /// </summary>
-        /// <value>The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints.</value>
+        /// <value>The name of the entity that was imported. </value>
         [DataMember(Name="entity", EmitDefaultValue=false)]
         public string Entity { get; set; }
 
         /// <summary>
-        /// The number of members that imported.
+        /// The number of values that were imported.
         /// </summary>
-        /// <value>The number of members that imported.</value>
+        /// <value>The number of values that were imported.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
         public int Amount { get; set; }
 

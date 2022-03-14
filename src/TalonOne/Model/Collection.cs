@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -42,28 +42,30 @@ namespace TalonOne.Model
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
-        /// <param name="campaignId">The ID of the campaign that owns this entity. (required).</param>
         /// <param name="modified">The exact moment this entity was last modified. (required).</param>
-        /// <param name="name">The name of this collection. (required).</param>
         /// <param name="description">A short description of the purpose of this collection..</param>
-        /// <param name="payload">Payload contains limited amount of collection items.</param>
+        /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications where this collection is enabled..</param>
+        /// <param name="name">The name of this collection. (required).</param>
+        /// <param name="payload">The content of the collection. If this property&#39;s value is &#x60;null&#x60;, the collection&#39;s content is too large to be returned in this property.  Instead, use the [export collection endpoint](https://docs.talon.one/management-api/#operation/exportCollectionItems) to get the content of the collection. .</param>
         /// <param name="modifiedBy">ID of the user who last updated this effect if available..</param>
         /// <param name="createdBy">ID of the user who created this effect. (required).</param>
-        public Collection(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int applicationId = default(int), int campaignId = default(int), DateTime modified = default(DateTime), string name = default(string), string description = default(string), List<string> payload = default(List<string>), int modifiedBy = default(int), int createdBy = default(int))
+        /// <param name="applicationId">The ID of the application that owns this entity..</param>
+        /// <param name="campaignId">The ID of the campaign that owns this entity..</param>
+        public Collection(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), DateTime modified = default(DateTime), string description = default(string), List<int> subscribedApplicationsIds = default(List<int>), string name = default(string), List<string> payload = default(List<string>), int modifiedBy = default(int), int createdBy = default(int), int applicationId = default(int), int campaignId = default(int))
         {
             this.Id = id;
             this.Created = created;
             this.AccountId = accountId;
-            this.ApplicationId = applicationId;
-            this.CampaignId = campaignId;
             this.Modified = modified;
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Collection and cannot be null");
             this.CreatedBy = createdBy;
             this.Description = description;
+            this.SubscribedApplicationsIds = subscribedApplicationsIds;
             this.Payload = payload;
             this.ModifiedBy = modifiedBy;
+            this.ApplicationId = applicationId;
+            this.CampaignId = campaignId;
         }
         
         /// <summary>
@@ -88,32 +90,11 @@ namespace TalonOne.Model
         public int AccountId { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
-        /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
-        [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
-
-        /// <summary>
-        /// The ID of the campaign that owns this entity.
-        /// </summary>
-        /// <value>The ID of the campaign that owns this entity.</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
-
-        /// <summary>
         /// The exact moment this entity was last modified.
         /// </summary>
         /// <value>The exact moment this entity was last modified.</value>
         [DataMember(Name="modified", EmitDefaultValue=false)]
         public DateTime Modified { get; set; }
-
-        /// <summary>
-        /// The name of this collection.
-        /// </summary>
-        /// <value>The name of this collection.</value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
 
         /// <summary>
         /// A short description of the purpose of this collection.
@@ -123,9 +104,23 @@ namespace TalonOne.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Payload contains limited amount of collection items
+        /// A list of the IDs of the Applications where this collection is enabled.
         /// </summary>
-        /// <value>Payload contains limited amount of collection items</value>
+        /// <value>A list of the IDs of the Applications where this collection is enabled.</value>
+        [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
+        public List<int> SubscribedApplicationsIds { get; set; }
+
+        /// <summary>
+        /// The name of this collection.
+        /// </summary>
+        /// <value>The name of this collection.</value>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// The content of the collection. If this property&#39;s value is &#x60;null&#x60;, the collection&#39;s content is too large to be returned in this property.  Instead, use the [export collection endpoint](https://docs.talon.one/management-api/#operation/exportCollectionItems) to get the content of the collection. 
+        /// </summary>
+        /// <value>The content of the collection. If this property&#39;s value is &#x60;null&#x60;, the collection&#39;s content is too large to be returned in this property.  Instead, use the [export collection endpoint](https://docs.talon.one/management-api/#operation/exportCollectionItems) to get the content of the collection. </value>
         [DataMember(Name="payload", EmitDefaultValue=false)]
         public List<string> Payload { get; set; }
 
@@ -144,6 +139,20 @@ namespace TalonOne.Model
         public int CreatedBy { get; set; }
 
         /// <summary>
+        /// The ID of the application that owns this entity.
+        /// </summary>
+        /// <value>The ID of the application that owns this entity.</value>
+        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        public int ApplicationId { get; set; }
+
+        /// <summary>
+        /// The ID of the campaign that owns this entity.
+        /// </summary>
+        /// <value>The ID of the campaign that owns this entity.</value>
+        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        public int CampaignId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -154,14 +163,15 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
-            sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
-            sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("  Modified: ").Append(Modified).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Payload: ").Append(Payload).Append("\n");
             sb.Append("  ModifiedBy: ").Append(ModifiedBy).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
+            sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
+            sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -210,27 +220,25 @@ namespace TalonOne.Model
                     this.AccountId.Equals(input.AccountId)
                 ) && 
                 (
-                    this.ApplicationId == input.ApplicationId ||
-                    this.ApplicationId.Equals(input.ApplicationId)
-                ) && 
-                (
-                    this.CampaignId == input.CampaignId ||
-                    this.CampaignId.Equals(input.CampaignId)
-                ) && 
-                (
                     this.Modified == input.Modified ||
                     (this.Modified != null &&
                     this.Modified.Equals(input.Modified))
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.SubscribedApplicationsIds == input.SubscribedApplicationsIds ||
+                    this.SubscribedApplicationsIds != null &&
+                    input.SubscribedApplicationsIds != null &&
+                    this.SubscribedApplicationsIds.SequenceEqual(input.SubscribedApplicationsIds)
+                ) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.Payload == input.Payload ||
@@ -245,6 +253,14 @@ namespace TalonOne.Model
                 (
                     this.CreatedBy == input.CreatedBy ||
                     this.CreatedBy.Equals(input.CreatedBy)
+                ) && 
+                (
+                    this.ApplicationId == input.ApplicationId ||
+                    this.ApplicationId.Equals(input.ApplicationId)
+                ) && 
+                (
+                    this.CampaignId == input.CampaignId ||
+                    this.CampaignId.Equals(input.CampaignId)
                 );
         }
 
@@ -261,18 +277,20 @@ namespace TalonOne.Model
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.AccountId.GetHashCode();
-                hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
-                hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 if (this.Modified != null)
                     hashCode = hashCode * 59 + this.Modified.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.SubscribedApplicationsIds != null)
+                    hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Payload != null)
                     hashCode = hashCode * 59 + this.Payload.GetHashCode();
                 hashCode = hashCode * 59 + this.ModifiedBy.GetHashCode();
                 hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
+                hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
+                hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 return hashCode;
             }
         }

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -37,9 +37,9 @@ namespace TalonOne.Model
         /// <param name="profile">profile.</param>
         /// <param name="loyalty">loyalty.</param>
         /// <param name="referrals">referrals.</param>
-        /// <param name="coupons">coupons.</param>
+        /// <param name="coupons">The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon&#39;s &#x60;reservation&#x60; property. .</param>
         /// <param name="giveaways">giveaways.</param>
-        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<Referral> referrals = default(List<Referral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>))
+        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<InventoryReferral> referrals = default(List<InventoryReferral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>))
         {
             this.Profile = profile;
             this.Loyalty = loyalty;
@@ -64,11 +64,12 @@ namespace TalonOne.Model
         /// Gets or Sets Referrals
         /// </summary>
         [DataMember(Name="referrals", EmitDefaultValue=false)]
-        public List<Referral> Referrals { get; set; }
+        public List<InventoryReferral> Referrals { get; set; }
 
         /// <summary>
-        /// Gets or Sets Coupons
+        /// The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon&#39;s &#x60;reservation&#x60; property. 
         /// </summary>
+        /// <value>The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon&#39;s &#x60;reservation&#x60; property. </value>
         [DataMember(Name="coupons", EmitDefaultValue=false)]
         public List<InventoryCoupon> Coupons { get; set; }
 

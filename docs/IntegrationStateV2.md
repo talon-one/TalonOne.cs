@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CustomerProfile** | [**CustomerProfile**](CustomerProfile.md) |  | [optional] 
 **Event** | [**Event**](Event.md) |  | [optional] 
 **Loyalty** | [**Loyalty**](Loyalty.md) |  | [optional] 
-**Referral** | [**Referral**](Referral.md) |  | [optional] 
+**Referral** | [**InventoryReferral**](InventoryReferral.md) |  | [optional] 
 **Coupons** | [**List&lt;Coupon&gt;**](Coupon.md) |  | [optional] 
 **TriggeredCampaigns** | [**List&lt;Campaign&gt;**](Campaign.md) |  | [optional] 
 **Effects** | [**List&lt;Effect&gt;**](Effect.md) |  | 
@@ -16,6 +16,8 @@ Name | Type | Description | Notes
 **CreatedCoupons** | [**List&lt;Coupon&gt;**](Coupon.md) |  | 
 **CreatedReferrals** | [**List&lt;Referral&gt;**](Referral.md) |  | 
 **AwardedGiveaways** | [**List&lt;Giveaway&gt;**](Giveaway.md) |  | [optional] 
+**Return** | [**Return**](Return.md) |  | [optional] 
+**PreviousReturns** | [**List&lt;Return&gt;**](Return.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;setDiscountPerItem\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that should be applied on a specific item.
+    /// The properties specific to the &#x60;setDiscountPerItem&#x60; effect, triggered whenever a validated rule contained a \&quot;set per item discount\&quot; effect. This is a discount that should be applied on a specific item. 
     /// </summary>
     [DataContract]
     public partial class SetDiscountPerItemEffectProps :  IEquatable<SetDiscountPerItemEffectProps>, IValidatableObject
@@ -39,46 +39,73 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetDiscountPerItemEffectProps" /> class.
         /// </summary>
-        /// <param name="name">The name/description of this discount (required).</param>
-        /// <param name="value">The total monetary value of the discount (required).</param>
-        /// <param name="position">The index of the item in the cart items list on which this discount should be applied (required).</param>
-        /// <param name="subPosition">The sub-index of the item in an item stack on which this discount should be applied.</param>
-        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal))
+        /// <param name="name">The name of the discount. Contains a hashtag character indicating the index of the position of the item the discount applies to. It is identical to the value of the &#x60;position&#x60; property.  (required).</param>
+        /// <param name="value">The total monetary value of the discount. (required).</param>
+        /// <param name="position">The index of the item in the cart items list on which this discount should be applied. (required).</param>
+        /// <param name="subPosition">Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. .</param>
+        /// <param name="desiredValue">The original value of the discount.</param>
+        /// <param name="totalDiscount">The total discount given if this effect is a result of a prorated discount.</param>
+        /// <param name="desiredTotalDiscount">The original total discount to give if this effect is a result of a prorated discount.</param>
+        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), decimal desiredValue = default(decimal), decimal totalDiscount = default(decimal), decimal desiredTotalDiscount = default(decimal))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SetDiscountPerItemEffectProps and cannot be null");
             this.Value = value;
             this.Position = position;
             this.SubPosition = subPosition;
+            this.DesiredValue = desiredValue;
+            this.TotalDiscount = totalDiscount;
+            this.DesiredTotalDiscount = desiredTotalDiscount;
         }
         
         /// <summary>
-        /// The name/description of this discount
+        /// The name of the discount. Contains a hashtag character indicating the index of the position of the item the discount applies to. It is identical to the value of the &#x60;position&#x60; property. 
         /// </summary>
-        /// <value>The name/description of this discount</value>
+        /// <value>The name of the discount. Contains a hashtag character indicating the index of the position of the item the discount applies to. It is identical to the value of the &#x60;position&#x60; property. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The total monetary value of the discount
+        /// The total monetary value of the discount.
         /// </summary>
-        /// <value>The total monetary value of the discount</value>
+        /// <value>The total monetary value of the discount.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public decimal Value { get; set; }
 
         /// <summary>
-        /// The index of the item in the cart items list on which this discount should be applied
+        /// The index of the item in the cart items list on which this discount should be applied.
         /// </summary>
-        /// <value>The index of the item in the cart items list on which this discount should be applied</value>
+        /// <value>The index of the item in the cart items list on which this discount should be applied.</value>
         [DataMember(Name="position", EmitDefaultValue=false)]
         public decimal Position { get; set; }
 
         /// <summary>
-        /// The sub-index of the item in an item stack on which this discount should be applied
+        /// Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. 
         /// </summary>
-        /// <value>The sub-index of the item in an item stack on which this discount should be applied</value>
+        /// <value>Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. </value>
         [DataMember(Name="subPosition", EmitDefaultValue=false)]
         public decimal SubPosition { get; set; }
+
+        /// <summary>
+        /// The original value of the discount
+        /// </summary>
+        /// <value>The original value of the discount</value>
+        [DataMember(Name="desiredValue", EmitDefaultValue=false)]
+        public decimal DesiredValue { get; set; }
+
+        /// <summary>
+        /// The total discount given if this effect is a result of a prorated discount
+        /// </summary>
+        /// <value>The total discount given if this effect is a result of a prorated discount</value>
+        [DataMember(Name="totalDiscount", EmitDefaultValue=false)]
+        public decimal TotalDiscount { get; set; }
+
+        /// <summary>
+        /// The original total discount to give if this effect is a result of a prorated discount
+        /// </summary>
+        /// <value>The original total discount to give if this effect is a result of a prorated discount</value>
+        [DataMember(Name="desiredTotalDiscount", EmitDefaultValue=false)]
+        public decimal DesiredTotalDiscount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,6 +119,9 @@ namespace TalonOne.Model
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
             sb.Append("  SubPosition: ").Append(SubPosition).Append("\n");
+            sb.Append("  DesiredValue: ").Append(DesiredValue).Append("\n");
+            sb.Append("  TotalDiscount: ").Append(TotalDiscount).Append("\n");
+            sb.Append("  DesiredTotalDiscount: ").Append(DesiredTotalDiscount).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +172,18 @@ namespace TalonOne.Model
                 (
                     this.SubPosition == input.SubPosition ||
                     this.SubPosition.Equals(input.SubPosition)
+                ) && 
+                (
+                    this.DesiredValue == input.DesiredValue ||
+                    this.DesiredValue.Equals(input.DesiredValue)
+                ) && 
+                (
+                    this.TotalDiscount == input.TotalDiscount ||
+                    this.TotalDiscount.Equals(input.TotalDiscount)
+                ) && 
+                (
+                    this.DesiredTotalDiscount == input.DesiredTotalDiscount ||
+                    this.DesiredTotalDiscount.Equals(input.DesiredTotalDiscount)
                 );
         }
 
@@ -159,6 +201,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Value.GetHashCode();
                 hashCode = hashCode * 59 + this.Position.GetHashCode();
                 hashCode = hashCode * 59 + this.SubPosition.GetHashCode();
+                hashCode = hashCode * 59 + this.DesiredValue.GetHashCode();
+                hashCode = hashCode * 59 + this.TotalDiscount.GetHashCode();
+                hashCode = hashCode * 59 + this.DesiredTotalDiscount.GetHashCode();
                 return hashCode;
             }
         }

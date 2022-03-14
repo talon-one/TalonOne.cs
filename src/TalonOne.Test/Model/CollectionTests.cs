@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -82,22 +82,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'AccountId'
         }
         /// <summary>
-        /// Test the property 'ApplicationId'
-        /// </summary>
-        [Fact]
-        public void ApplicationIdTest()
-        {
-            // TODO unit test for the property 'ApplicationId'
-        }
-        /// <summary>
-        /// Test the property 'CampaignId'
-        /// </summary>
-        [Fact]
-        public void CampaignIdTest()
-        {
-            // TODO unit test for the property 'CampaignId'
-        }
-        /// <summary>
         /// Test the property 'Modified'
         /// </summary>
         [Fact]
@@ -106,20 +90,28 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Modified'
         }
         /// <summary>
-        /// Test the property 'Name'
-        /// </summary>
-        [Fact]
-        public void NameTest()
-        {
-            // TODO unit test for the property 'Name'
-        }
-        /// <summary>
         /// Test the property 'Description'
         /// </summary>
         [Fact]
         public void DescriptionTest()
         {
             // TODO unit test for the property 'Description'
+        }
+        /// <summary>
+        /// Test the property 'SubscribedApplicationsIds'
+        /// </summary>
+        [Fact]
+        public void SubscribedApplicationsIdsTest()
+        {
+            // TODO unit test for the property 'SubscribedApplicationsIds'
+        }
+        /// <summary>
+        /// Test the property 'Name'
+        /// </summary>
+        [Fact]
+        public void NameTest()
+        {
+            // TODO unit test for the property 'Name'
         }
         /// <summary>
         /// Test the property 'Payload'
@@ -144,6 +136,22 @@ namespace TalonOne.Test
         public void CreatedByTest()
         {
             // TODO unit test for the property 'CreatedBy'
+        }
+        /// <summary>
+        /// Test the property 'ApplicationId'
+        /// </summary>
+        [Fact]
+        public void ApplicationIdTest()
+        {
+            // TODO unit test for the property 'ApplicationId'
+        }
+        /// <summary>
+        /// Test the property 'CampaignId'
+        /// </summary>
+        [Fact]
+        public void CampaignIdTest()
+        {
+            // TODO unit test for the property 'CampaignId'
         }
 
     }

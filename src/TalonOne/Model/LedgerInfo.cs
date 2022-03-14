@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -39,14 +39,15 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LedgerInfo" /> class.
         /// </summary>
-        /// <param name="currentBalance">Sum of current active points amounts (required).</param>
-        /// <param name="pendingBalance">Sum of pending points amounts (required).</param>
-        /// <param name="expiredBalance">Sum of expired points amounts (required).</param>
-        /// <param name="spentBalance">Sum of spent points amounts (required).</param>
-        /// <param name="tentativeCurrentBalance">Sum of current active points amounts, including additions and deductions on open sessions (required).</param>
+        /// <param name="currentBalance">Sum of currently active points (required).</param>
+        /// <param name="pendingBalance">Sum of pending points (required).</param>
+        /// <param name="expiredBalance">Sum of expired points (required).</param>
+        /// <param name="spentBalance">Sum of spent points (required).</param>
+        /// <param name="tentativeCurrentBalance">Sum of currently active points, including points added and deducted in open sessions (required).</param>
         /// <param name="currentTier">currentTier.</param>
         /// <param name="pointsToNextTier">Points required to move up a tier..</param>
-        public LedgerInfo(decimal currentBalance = default(decimal), decimal pendingBalance = default(decimal), decimal expiredBalance = default(decimal), decimal spentBalance = default(decimal), decimal tentativeCurrentBalance = default(decimal), Tier currentTier = default(Tier), decimal pointsToNextTier = default(decimal))
+        /// <param name="projection">projection.</param>
+        public LedgerInfo(decimal currentBalance = default(decimal), decimal pendingBalance = default(decimal), decimal expiredBalance = default(decimal), decimal spentBalance = default(decimal), decimal tentativeCurrentBalance = default(decimal), Tier currentTier = default(Tier), decimal pointsToNextTier = default(decimal), LoyaltyProjection projection = default(LoyaltyProjection))
         {
             this.CurrentBalance = currentBalance;
             this.PendingBalance = pendingBalance;
@@ -55,40 +56,41 @@ namespace TalonOne.Model
             this.TentativeCurrentBalance = tentativeCurrentBalance;
             this.CurrentTier = currentTier;
             this.PointsToNextTier = pointsToNextTier;
+            this.Projection = projection;
         }
         
         /// <summary>
-        /// Sum of current active points amounts
+        /// Sum of currently active points
         /// </summary>
-        /// <value>Sum of current active points amounts</value>
+        /// <value>Sum of currently active points</value>
         [DataMember(Name="currentBalance", EmitDefaultValue=false)]
         public decimal CurrentBalance { get; set; }
 
         /// <summary>
-        /// Sum of pending points amounts
+        /// Sum of pending points
         /// </summary>
-        /// <value>Sum of pending points amounts</value>
+        /// <value>Sum of pending points</value>
         [DataMember(Name="pendingBalance", EmitDefaultValue=false)]
         public decimal PendingBalance { get; set; }
 
         /// <summary>
-        /// Sum of expired points amounts
+        /// Sum of expired points
         /// </summary>
-        /// <value>Sum of expired points amounts</value>
+        /// <value>Sum of expired points</value>
         [DataMember(Name="expiredBalance", EmitDefaultValue=false)]
         public decimal ExpiredBalance { get; set; }
 
         /// <summary>
-        /// Sum of spent points amounts
+        /// Sum of spent points
         /// </summary>
-        /// <value>Sum of spent points amounts</value>
+        /// <value>Sum of spent points</value>
         [DataMember(Name="spentBalance", EmitDefaultValue=false)]
         public decimal SpentBalance { get; set; }
 
         /// <summary>
-        /// Sum of current active points amounts, including additions and deductions on open sessions
+        /// Sum of currently active points, including points added and deducted in open sessions
         /// </summary>
-        /// <value>Sum of current active points amounts, including additions and deductions on open sessions</value>
+        /// <value>Sum of currently active points, including points added and deducted in open sessions</value>
         [DataMember(Name="tentativeCurrentBalance", EmitDefaultValue=false)]
         public decimal TentativeCurrentBalance { get; set; }
 
@@ -106,6 +108,12 @@ namespace TalonOne.Model
         public decimal PointsToNextTier { get; set; }
 
         /// <summary>
+        /// Gets or Sets Projection
+        /// </summary>
+        [DataMember(Name="projection", EmitDefaultValue=false)]
+        public LoyaltyProjection Projection { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -120,6 +128,7 @@ namespace TalonOne.Model
             sb.Append("  TentativeCurrentBalance: ").Append(TentativeCurrentBalance).Append("\n");
             sb.Append("  CurrentTier: ").Append(CurrentTier).Append("\n");
             sb.Append("  PointsToNextTier: ").Append(PointsToNextTier).Append("\n");
+            sb.Append("  Projection: ").Append(Projection).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -182,6 +191,11 @@ namespace TalonOne.Model
                 (
                     this.PointsToNextTier == input.PointsToNextTier ||
                     this.PointsToNextTier.Equals(input.PointsToNextTier)
+                ) && 
+                (
+                    this.Projection == input.Projection ||
+                    (this.Projection != null &&
+                    this.Projection.Equals(input.Projection))
                 );
         }
 
@@ -202,6 +216,8 @@ namespace TalonOne.Model
                 if (this.CurrentTier != null)
                     hashCode = hashCode * 59 + this.CurrentTier.GetHashCode();
                 hashCode = hashCode * 59 + this.PointsToNextTier.GetHashCode();
+                if (this.Projection != null)
+                    hashCode = hashCode * 59 + this.Projection.GetHashCode();
                 return hashCode;
             }
         }

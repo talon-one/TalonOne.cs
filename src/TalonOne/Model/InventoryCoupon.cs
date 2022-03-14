@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -42,23 +42,24 @@ namespace TalonOne.Model
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
         /// <param name="campaignId">The ID of the campaign that owns this entity. (required).</param>
-        /// <param name="value">The actual coupon code. (required).</param>
+        /// <param name="value">The coupon code. (required).</param>
         /// <param name="usageLimit">The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply.  (required).</param>
         /// <param name="discountLimit">The amount of discounts that can be given with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
         /// <param name="expiryDate">Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
+        /// <param name="limits">Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. .</param>
         /// <param name="usageCounter">The number of times this coupon has been successfully used. (required).</param>
         /// <param name="discountCounter">The amount of discounts given on rules redeeming this coupon. Only usable if a coupon discount budget was set for this coupon..</param>
         /// <param name="discountRemainder">The remaining discount this coupon can give..</param>
-        /// <param name="attributes">Arbitrary properties associated with this item.</param>
+        /// <param name="attributes">Custom attributes associated with this coupon..</param>
         /// <param name="referralId">The integration ID of the referring customer (if any) for whom this coupon was created as an effect..</param>
         /// <param name="recipientIntegrationId">The Integration ID of the customer that is allowed to redeem this coupon..</param>
         /// <param name="importId">The ID of the Import which created this coupon..</param>
-        /// <param name="reservation">This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favorite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified..</param>
+        /// <param name="reservation">Defines the type of reservation: - &#x60;true&#x60;: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation endpoint](/integration-api/#operation/createCouponReservation). - &#x60;false&#x60;: The reservation is a hard reservation. Only the associated customer (&#x60;recipientIntegrationId&#x60;) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given &#x60;recipientIntegrationId&#x60;, the [Create coupons endpoint](/management-api/#operation/createCoupons) or [Create coupons for multiple recipients endpoint](/management-api/#operation/createCouponsForMultipleRecipients).  (default to true).</param>
         /// <param name="batchId">The id of the batch the coupon belongs to..</param>
         /// <param name="profileRedemptionCount">The number of times the coupon was redeemed by the profile. (required).</param>
-        /// <param name="state">Can be either active, used, expired, pending or disabled. active: reserved coupons that are neither pending nor used nor expired, and have a non-exhausted limit counter. used: coupons that are not pending, and have reached their redemption limit or were redeemed by the profile before expiration. expired: all non-pending, non-active, non-used coupons that were not redeemed by the profile. pending: coupons that have a start date in the future. disabled: coupons of non-active campaigns.  (required).</param>
-        public InventoryCoupon(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), string value = default(string), int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageCounter = default(int), decimal discountCounter = default(decimal), decimal discountRemainder = default(decimal), Object attributes = default(Object), int referralId = default(int), string recipientIntegrationId = default(string), int importId = default(int), bool reservation = default(bool), string batchId = default(string), int profileRedemptionCount = default(int), string state = default(string))
+        /// <param name="state">Can be:  - &#x60;active&#x60;: The coupon can be used. It is a reserved coupon that is neither pending, used nor expired, and has a non-exhausted limit counter. - &#x60;used&#x60;: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - &#x60;expired&#x60;: The coupon was never redeemed and it is now expired. It is non-pending, non-active and non-used by the profile. - &#x60;pending&#x60;: The coupon will be usable in the future. - &#x60;disabled&#x60;: The coupon is part of a non-active campaign.  (required).</param>
+        public InventoryCoupon(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), string value = default(string), int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), int usageCounter = default(int), decimal discountCounter = default(decimal), decimal discountRemainder = default(decimal), Object attributes = default(Object), int referralId = default(int), string recipientIntegrationId = default(string), int importId = default(int), bool reservation = true, string batchId = default(string), int profileRedemptionCount = default(int), string state = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -73,6 +74,7 @@ namespace TalonOne.Model
             this.DiscountLimit = discountLimit;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
+            this.Limits = limits;
             this.DiscountCounter = discountCounter;
             this.DiscountRemainder = discountRemainder;
             this.Attributes = attributes;
@@ -105,9 +107,9 @@ namespace TalonOne.Model
         public int CampaignId { get; set; }
 
         /// <summary>
-        /// The actual coupon code.
+        /// The coupon code.
         /// </summary>
-        /// <value>The actual coupon code.</value>
+        /// <value>The coupon code.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
 
@@ -140,6 +142,13 @@ namespace TalonOne.Model
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
+        /// Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. 
+        /// </summary>
+        /// <value>Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. </value>
+        [DataMember(Name="limits", EmitDefaultValue=false)]
+        public List<LimitConfig> Limits { get; set; }
+
+        /// <summary>
         /// The number of times this coupon has been successfully used.
         /// </summary>
         /// <value>The number of times this coupon has been successfully used.</value>
@@ -161,9 +170,9 @@ namespace TalonOne.Model
         public decimal DiscountRemainder { get; set; }
 
         /// <summary>
-        /// Arbitrary properties associated with this item
+        /// Custom attributes associated with this coupon.
         /// </summary>
-        /// <value>Arbitrary properties associated with this item</value>
+        /// <value>Custom attributes associated with this coupon.</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public Object Attributes { get; set; }
 
@@ -189,9 +198,9 @@ namespace TalonOne.Model
         public int ImportId { get; set; }
 
         /// <summary>
-        /// This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favorite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified.
+        /// Defines the type of reservation: - &#x60;true&#x60;: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation endpoint](/integration-api/#operation/createCouponReservation). - &#x60;false&#x60;: The reservation is a hard reservation. Only the associated customer (&#x60;recipientIntegrationId&#x60;) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given &#x60;recipientIntegrationId&#x60;, the [Create coupons endpoint](/management-api/#operation/createCoupons) or [Create coupons for multiple recipients endpoint](/management-api/#operation/createCouponsForMultipleRecipients). 
         /// </summary>
-        /// <value>This value controls what reservations mean to a coupon. If set to true the coupon reservation is used to mark it as a favorite, if set to false the coupon reservation is used as a requirement of usage. This value defaults to true if not specified.</value>
+        /// <value>Defines the type of reservation: - &#x60;true&#x60;: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation endpoint](/integration-api/#operation/createCouponReservation). - &#x60;false&#x60;: The reservation is a hard reservation. Only the associated customer (&#x60;recipientIntegrationId&#x60;) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given &#x60;recipientIntegrationId&#x60;, the [Create coupons endpoint](/management-api/#operation/createCoupons) or [Create coupons for multiple recipients endpoint](/management-api/#operation/createCouponsForMultipleRecipients). </value>
         [DataMember(Name="reservation", EmitDefaultValue=false)]
         public bool Reservation { get; set; }
 
@@ -210,9 +219,9 @@ namespace TalonOne.Model
         public int ProfileRedemptionCount { get; set; }
 
         /// <summary>
-        /// Can be either active, used, expired, pending or disabled. active: reserved coupons that are neither pending nor used nor expired, and have a non-exhausted limit counter. used: coupons that are not pending, and have reached their redemption limit or were redeemed by the profile before expiration. expired: all non-pending, non-active, non-used coupons that were not redeemed by the profile. pending: coupons that have a start date in the future. disabled: coupons of non-active campaigns. 
+        /// Can be:  - &#x60;active&#x60;: The coupon can be used. It is a reserved coupon that is neither pending, used nor expired, and has a non-exhausted limit counter. - &#x60;used&#x60;: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - &#x60;expired&#x60;: The coupon was never redeemed and it is now expired. It is non-pending, non-active and non-used by the profile. - &#x60;pending&#x60;: The coupon will be usable in the future. - &#x60;disabled&#x60;: The coupon is part of a non-active campaign. 
         /// </summary>
-        /// <value>Can be either active, used, expired, pending or disabled. active: reserved coupons that are neither pending nor used nor expired, and have a non-exhausted limit counter. used: coupons that are not pending, and have reached their redemption limit or were redeemed by the profile before expiration. expired: all non-pending, non-active, non-used coupons that were not redeemed by the profile. pending: coupons that have a start date in the future. disabled: coupons of non-active campaigns. </value>
+        /// <value>Can be:  - &#x60;active&#x60;: The coupon can be used. It is a reserved coupon that is neither pending, used nor expired, and has a non-exhausted limit counter. - &#x60;used&#x60;: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - &#x60;expired&#x60;: The coupon was never redeemed and it is now expired. It is non-pending, non-active and non-used by the profile. - &#x60;pending&#x60;: The coupon will be usable in the future. - &#x60;disabled&#x60;: The coupon is part of a non-active campaign. </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; set; }
 
@@ -232,6 +241,7 @@ namespace TalonOne.Model
             sb.Append("  DiscountLimit: ").Append(DiscountLimit).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  UsageCounter: ").Append(UsageCounter).Append("\n");
             sb.Append("  DiscountCounter: ").Append(DiscountCounter).Append("\n");
             sb.Append("  DiscountRemainder: ").Append(DiscountRemainder).Append("\n");
@@ -314,6 +324,12 @@ namespace TalonOne.Model
                     this.ExpiryDate.Equals(input.ExpiryDate))
                 ) && 
                 (
+                    this.Limits == input.Limits ||
+                    this.Limits != null &&
+                    input.Limits != null &&
+                    this.Limits.SequenceEqual(input.Limits)
+                ) && 
+                (
                     this.UsageCounter == input.UsageCounter ||
                     this.UsageCounter.Equals(input.UsageCounter)
                 ) && 
@@ -384,6 +400,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                if (this.Limits != null)
+                    hashCode = hashCode * 59 + this.Limits.GetHashCode();
                 hashCode = hashCode * 59 + this.UsageCounter.GetHashCode();
                 hashCode = hashCode * 59 + this.DiscountCounter.GetHashCode();
                 hashCode = hashCode * 59 + this.DiscountRemainder.GetHashCode();

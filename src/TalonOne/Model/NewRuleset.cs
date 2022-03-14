@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -41,8 +41,8 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="rules">Set of rules to apply. (required).</param>
         /// <param name="bindings">An array that provides objects with variable names (name) and talang expressions to whose result they are bound (expression) during rule evaluation. The order of the evaluation is decided by the position in the array. (required).</param>
-        /// <param name="rbVersion">A string indicating which version of the rulebuilder was used to create this ruleset..</param>
-        /// <param name="activate">A boolean indicating whether this newly created ruleset should also be activated for the campaign that owns it.</param>
+        /// <param name="rbVersion">The version of the rulebuilder used to create this ruleset..</param>
+        /// <param name="activate">Indicates whether this created ruleset should be activated for the campaign that owns it..</param>
         public NewRuleset(List<Rule> rules = default(List<Rule>), List<Binding> bindings = default(List<Binding>), string rbVersion = default(string), bool activate = default(bool))
         {
             // to ensure "rules" is required (not null)
@@ -68,16 +68,16 @@ namespace TalonOne.Model
         public List<Binding> Bindings { get; set; }
 
         /// <summary>
-        /// A string indicating which version of the rulebuilder was used to create this ruleset.
+        /// The version of the rulebuilder used to create this ruleset.
         /// </summary>
-        /// <value>A string indicating which version of the rulebuilder was used to create this ruleset.</value>
+        /// <value>The version of the rulebuilder used to create this ruleset.</value>
         [DataMember(Name="rbVersion", EmitDefaultValue=false)]
         public string RbVersion { get; set; }
 
         /// <summary>
-        /// A boolean indicating whether this newly created ruleset should also be activated for the campaign that owns it
+        /// Indicates whether this created ruleset should be activated for the campaign that owns it.
         /// </summary>
-        /// <value>A boolean indicating whether this newly created ruleset should also be activated for the campaign that owns it</value>
+        /// <value>Indicates whether this created ruleset should be activated for the campaign that owns it.</value>
         [DataMember(Name="activate", EmitDefaultValue=false)]
         public bool Activate { get; set; }
 

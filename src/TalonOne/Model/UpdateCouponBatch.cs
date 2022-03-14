@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -34,26 +34,20 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateCouponBatch" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UpdateCouponBatch() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UpdateCouponBatch" /> class.
-        /// </summary>
         /// <param name="usageLimit">The number of times a coupon code can be redeemed. This can be set to 0 for no limit, but any campaign usage limits will still apply. .</param>
         /// <param name="discountLimit">The amount of discounts that can be given with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
         /// <param name="expiryDate">Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
-        /// <param name="batchID">The id of the batch the coupon belongs to. (required).</param>
+        /// <param name="batchID">The id of the batch the coupon belongs to..</param>
         public UpdateCouponBatch(int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), Object attributes = default(Object), string batchID = default(string))
         {
-            // to ensure "batchID" is required (not null)
-            this.BatchID = batchID ?? throw new ArgumentNullException("batchID is a required property for UpdateCouponBatch and cannot be null");
             this.UsageLimit = usageLimit;
             this.DiscountLimit = discountLimit;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
             this.Attributes = attributes;
+            this.BatchID = batchID;
         }
         
         /// <summary>

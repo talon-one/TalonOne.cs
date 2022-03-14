@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -190,9 +190,11 @@ namespace TalonOne.Model
         /// <param name="type">The data type of the attribute, a &#x60;time&#x60; attribute must be sent as a string that conforms to the [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp format. (required).</param>
         /// <param name="description">A description of this attribute. (required).</param>
         /// <param name="suggestions">A list of suggestions for the attribute. (required).</param>
+        /// <param name="hasAllowedList">Whether or not this attribute has an allowed list of values associated with it. (default to false).</param>
+        /// <param name="restrictedBySuggestions">Whether or not this attribute&#39;s value is restricted by suggestions (&#x60;suggestions&#x60; property) or by an allowed list of value (&#x60;hasAllowedList&#x60; property).  (default to false).</param>
         /// <param name="editable">Whether or not this attribute can be edited. (required).</param>
         /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that are subscribed to this attribute.</param>
-        public NewAttribute(EntityEnum entity = default(EntityEnum), string eventType = default(string), string name = default(string), string title = default(string), TypeEnum type = default(TypeEnum), string description = default(string), List<string> suggestions = default(List<string>), bool editable = default(bool), List<int> subscribedApplicationsIds = default(List<int>))
+        public NewAttribute(EntityEnum entity = default(EntityEnum), string eventType = default(string), string name = default(string), string title = default(string), TypeEnum type = default(TypeEnum), string description = default(string), List<string> suggestions = default(List<string>), bool hasAllowedList = false, bool restrictedBySuggestions = false, bool editable = default(bool), List<int> subscribedApplicationsIds = default(List<int>))
         {
             this.Entity = entity;
             // to ensure "name" is required (not null)
@@ -206,6 +208,8 @@ namespace TalonOne.Model
             this.Suggestions = suggestions ?? throw new ArgumentNullException("suggestions is a required property for NewAttribute and cannot be null");
             this.Editable = editable;
             this.EventType = eventType;
+            this.HasAllowedList = hasAllowedList;
+            this.RestrictedBySuggestions = restrictedBySuggestions;
             this.SubscribedApplicationsIds = subscribedApplicationsIds;
         }
         
@@ -244,6 +248,20 @@ namespace TalonOne.Model
         public List<string> Suggestions { get; set; }
 
         /// <summary>
+        /// Whether or not this attribute has an allowed list of values associated with it.
+        /// </summary>
+        /// <value>Whether or not this attribute has an allowed list of values associated with it.</value>
+        [DataMember(Name="hasAllowedList", EmitDefaultValue=false)]
+        public bool HasAllowedList { get; set; }
+
+        /// <summary>
+        /// Whether or not this attribute&#39;s value is restricted by suggestions (&#x60;suggestions&#x60; property) or by an allowed list of value (&#x60;hasAllowedList&#x60; property). 
+        /// </summary>
+        /// <value>Whether or not this attribute&#39;s value is restricted by suggestions (&#x60;suggestions&#x60; property) or by an allowed list of value (&#x60;hasAllowedList&#x60; property). </value>
+        [DataMember(Name="restrictedBySuggestions", EmitDefaultValue=false)]
+        public bool RestrictedBySuggestions { get; set; }
+
+        /// <summary>
         /// Whether or not this attribute can be edited.
         /// </summary>
         /// <value>Whether or not this attribute can be edited.</value>
@@ -272,6 +290,8 @@ namespace TalonOne.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Suggestions: ").Append(Suggestions).Append("\n");
+            sb.Append("  HasAllowedList: ").Append(HasAllowedList).Append("\n");
+            sb.Append("  RestrictedBySuggestions: ").Append(RestrictedBySuggestions).Append("\n");
             sb.Append("  Editable: ").Append(Editable).Append("\n");
             sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
             sb.Append("}\n");
@@ -343,6 +363,14 @@ namespace TalonOne.Model
                     this.Suggestions.SequenceEqual(input.Suggestions)
                 ) && 
                 (
+                    this.HasAllowedList == input.HasAllowedList ||
+                    this.HasAllowedList.Equals(input.HasAllowedList)
+                ) && 
+                (
+                    this.RestrictedBySuggestions == input.RestrictedBySuggestions ||
+                    this.RestrictedBySuggestions.Equals(input.RestrictedBySuggestions)
+                ) && 
+                (
                     this.Editable == input.Editable ||
                     this.Editable.Equals(input.Editable)
                 ) && 
@@ -375,6 +403,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.Suggestions != null)
                     hashCode = hashCode * 59 + this.Suggestions.GetHashCode();
+                hashCode = hashCode * 59 + this.HasAllowedList.GetHashCode();
+                hashCode = hashCode * 59 + this.RestrictedBySuggestions.GetHashCode();
                 hashCode = hashCode * 59 + this.Editable.GetHashCode();
                 if (this.SubscribedApplicationsIds != null)
                     hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();

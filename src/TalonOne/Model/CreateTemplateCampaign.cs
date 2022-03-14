@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -42,10 +42,11 @@ namespace TalonOne.Model
         /// <param name="name">A user-facing name for this campaign. (required).</param>
         /// <param name="description">A detailed description of the campaign..</param>
         /// <param name="templateId">The ID of the Campaign Template which will be used in order to create the Campaign. (required).</param>
-        /// <param name="campaignAttributesOverrides">Custom Campaign Attributes. If the the Campaign Template defines the same values, they will be overridden..</param>
+        /// <param name="campaignAttributesOverrides">Custom Campaign Attributes. If the Campaign Template defines the same values, they will be overridden..</param>
         /// <param name="templateParamValues">Actual values to replace the template placeholder values in the Ruleset bindings. Values for all Template Parameters must be provided..</param>
         /// <param name="limitOverrides">Limits for this Campaign. If the Campaign Template or Application define default values for the same limits, they will be overridden..</param>
-        public CreateTemplateCampaign(string name = default(string), string description = default(string), int templateId = default(int), Object campaignAttributesOverrides = default(Object), List<Binding> templateParamValues = default(List<Binding>), List<LimitConfig> limitOverrides = default(List<LimitConfig>))
+        /// <param name="tags">A list of tags for the campaign. If the campaign template has tags, they will be overridden by this list..</param>
+        public CreateTemplateCampaign(string name = default(string), string description = default(string), int templateId = default(int), Object campaignAttributesOverrides = default(Object), List<Binding> templateParamValues = default(List<Binding>), List<LimitConfig> limitOverrides = default(List<LimitConfig>), List<string> tags = default(List<string>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CreateTemplateCampaign and cannot be null");
@@ -54,6 +55,7 @@ namespace TalonOne.Model
             this.CampaignAttributesOverrides = campaignAttributesOverrides;
             this.TemplateParamValues = templateParamValues;
             this.LimitOverrides = limitOverrides;
+            this.Tags = tags;
         }
         
         /// <summary>
@@ -78,9 +80,9 @@ namespace TalonOne.Model
         public int TemplateId { get; set; }
 
         /// <summary>
-        /// Custom Campaign Attributes. If the the Campaign Template defines the same values, they will be overridden.
+        /// Custom Campaign Attributes. If the Campaign Template defines the same values, they will be overridden.
         /// </summary>
-        /// <value>Custom Campaign Attributes. If the the Campaign Template defines the same values, they will be overridden.</value>
+        /// <value>Custom Campaign Attributes. If the Campaign Template defines the same values, they will be overridden.</value>
         [DataMember(Name="campaignAttributesOverrides", EmitDefaultValue=false)]
         public Object CampaignAttributesOverrides { get; set; }
 
@@ -99,6 +101,13 @@ namespace TalonOne.Model
         public List<LimitConfig> LimitOverrides { get; set; }
 
         /// <summary>
+        /// A list of tags for the campaign. If the campaign template has tags, they will be overridden by this list.
+        /// </summary>
+        /// <value>A list of tags for the campaign. If the campaign template has tags, they will be overridden by this list.</value>
+        [DataMember(Name="tags", EmitDefaultValue=false)]
+        public List<string> Tags { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,6 +121,7 @@ namespace TalonOne.Model
             sb.Append("  CampaignAttributesOverrides: ").Append(CampaignAttributesOverrides).Append("\n");
             sb.Append("  TemplateParamValues: ").Append(TemplateParamValues).Append("\n");
             sb.Append("  LimitOverrides: ").Append(LimitOverrides).Append("\n");
+            sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -176,6 +186,12 @@ namespace TalonOne.Model
                     this.LimitOverrides != null &&
                     input.LimitOverrides != null &&
                     this.LimitOverrides.SequenceEqual(input.LimitOverrides)
+                ) && 
+                (
+                    this.Tags == input.Tags ||
+                    this.Tags != null &&
+                    input.Tags != null &&
+                    this.Tags.SequenceEqual(input.Tags)
                 );
         }
 
@@ -199,6 +215,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.TemplateParamValues.GetHashCode();
                 if (this.LimitOverrides != null)
                     hashCode = hashCode * 59 + this.LimitOverrides.GetHashCode();
+                if (this.Tags != null)
+                    hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 return hashCode;
             }
         }

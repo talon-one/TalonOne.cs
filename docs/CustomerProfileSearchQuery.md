@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributes** | [**Object**](.md) | Properties to match against a customer profile. All provided attributes will be exactly matched against profile attributes | [optional] 
+**Attributes** | [**Object**](.md) | Properties to match against a customer profile. All provided attributes will be exactly matched against profile attributes. | [optional] 
 **IntegrationIDs** | **List&lt;string&gt;** |  | [optional] 
 **ProfileIDs** | **List&lt;int&gt;** |  | [optional] 
 

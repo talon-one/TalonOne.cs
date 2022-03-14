@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -39,15 +39,23 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20020" /> class.
         /// </summary>
+        /// <param name="hasMore">hasMore (required).</param>
         /// <param name="totalResultSize">totalResultSize (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20020(int totalResultSize = default(int), List<Attribute> data = default(List<Attribute>))
+        public InlineResponse20020(bool hasMore = default(bool), int totalResultSize = default(int), List<ApplicationReferee> data = default(List<ApplicationReferee>))
         {
+            this.HasMore = hasMore;
             this.TotalResultSize = totalResultSize;
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20020 and cannot be null");
         }
         
+        /// <summary>
+        /// Gets or Sets HasMore
+        /// </summary>
+        [DataMember(Name="hasMore", EmitDefaultValue=false)]
+        public bool HasMore { get; set; }
+
         /// <summary>
         /// Gets or Sets TotalResultSize
         /// </summary>
@@ -58,7 +66,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<Attribute> Data { get; set; }
+        public List<ApplicationReferee> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,6 +76,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20020 {\n");
+            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
             sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
@@ -105,6 +114,10 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.HasMore == input.HasMore ||
+                    this.HasMore.Equals(input.HasMore)
+                ) && 
+                (
                     this.TotalResultSize == input.TotalResultSize ||
                     this.TotalResultSize.Equals(input.TotalResultSize)
                 ) && 
@@ -125,6 +138,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.HasMore.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
