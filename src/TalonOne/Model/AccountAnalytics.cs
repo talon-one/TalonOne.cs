@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -56,8 +56,9 @@ namespace TalonOne.Model
         /// <param name="roles">Total number of roles in the account (required).</param>
         /// <param name="customAttributes">Total number of custom attributes in the account (required).</param>
         /// <param name="webhooks">Total number of webhooks in the account (required).</param>
-        /// <param name="loyaltyPrograms">Total number of loyalty programs in the account (required).</param>
-        public AccountAnalytics(int applications = default(int), int liveApplications = default(int), int sandboxApplications = default(int), int campaigns = default(int), int activeCampaigns = default(int), int liveActiveCampaigns = default(int), int coupons = default(int), int activeCoupons = default(int), int expiredCoupons = default(int), int referralCodes = default(int), int activeReferralCodes = default(int), int expiredReferralCodes = default(int), int activeRules = default(int), int users = default(int), int roles = default(int), int customAttributes = default(int), int webhooks = default(int), int loyaltyPrograms = default(int))
+        /// <param name="loyaltyPrograms">Total number of all loyalty programs in the account (required).</param>
+        /// <param name="liveLoyaltyPrograms">Total number of live loyalty programs in the account (required).</param>
+        public AccountAnalytics(int applications = default(int), int liveApplications = default(int), int sandboxApplications = default(int), int campaigns = default(int), int activeCampaigns = default(int), int liveActiveCampaigns = default(int), int coupons = default(int), int activeCoupons = default(int), int expiredCoupons = default(int), int referralCodes = default(int), int activeReferralCodes = default(int), int expiredReferralCodes = default(int), int activeRules = default(int), int users = default(int), int roles = default(int), int customAttributes = default(int), int webhooks = default(int), int loyaltyPrograms = default(int), int liveLoyaltyPrograms = default(int))
         {
             this.Applications = applications;
             this.LiveApplications = liveApplications;
@@ -77,6 +78,7 @@ namespace TalonOne.Model
             this.CustomAttributes = customAttributes;
             this.Webhooks = webhooks;
             this.LoyaltyPrograms = loyaltyPrograms;
+            this.LiveLoyaltyPrograms = liveLoyaltyPrograms;
         }
         
         /// <summary>
@@ -199,11 +201,18 @@ namespace TalonOne.Model
         public int Webhooks { get; set; }
 
         /// <summary>
-        /// Total number of loyalty programs in the account
+        /// Total number of all loyalty programs in the account
         /// </summary>
-        /// <value>Total number of loyalty programs in the account</value>
+        /// <value>Total number of all loyalty programs in the account</value>
         [DataMember(Name="loyaltyPrograms", EmitDefaultValue=false)]
         public int LoyaltyPrograms { get; set; }
+
+        /// <summary>
+        /// Total number of live loyalty programs in the account
+        /// </summary>
+        /// <value>Total number of live loyalty programs in the account</value>
+        [DataMember(Name="liveLoyaltyPrograms", EmitDefaultValue=false)]
+        public int LiveLoyaltyPrograms { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -231,6 +240,7 @@ namespace TalonOne.Model
             sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
             sb.Append("  Webhooks: ").Append(Webhooks).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
+            sb.Append("  LiveLoyaltyPrograms: ").Append(LiveLoyaltyPrograms).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -336,6 +346,10 @@ namespace TalonOne.Model
                 (
                     this.LoyaltyPrograms == input.LoyaltyPrograms ||
                     this.LoyaltyPrograms.Equals(input.LoyaltyPrograms)
+                ) && 
+                (
+                    this.LiveLoyaltyPrograms == input.LiveLoyaltyPrograms ||
+                    this.LiveLoyaltyPrograms.Equals(input.LiveLoyaltyPrograms)
                 );
         }
 
@@ -366,6 +380,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.CustomAttributes.GetHashCode();
                 hashCode = hashCode * 59 + this.Webhooks.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyPrograms.GetHashCode();
+                hashCode = hashCode * 59 + this.LiveLoyaltyPrograms.GetHashCode();
                 return hashCode;
             }
         }

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -51,7 +51,9 @@ namespace TalonOne.Model
         /// <param name="createdCoupons">createdCoupons (required).</param>
         /// <param name="createdReferrals">createdReferrals (required).</param>
         /// <param name="awardedGiveaways">awardedGiveaways.</param>
-        public IntegrationStateV2(CustomerSessionV2 customerSession = default(CustomerSessionV2), CustomerProfile customerProfile = default(CustomerProfile), Event _event = default(Event), Loyalty loyalty = default(Loyalty), Referral referral = default(Referral), List<Coupon> coupons = default(List<Coupon>), List<Campaign> triggeredCampaigns = default(List<Campaign>), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>), List<Coupon> createdCoupons = default(List<Coupon>), List<Referral> createdReferrals = default(List<Referral>), List<Giveaway> awardedGiveaways = default(List<Giveaway>))
+        /// <param name="_return">_return.</param>
+        /// <param name="previousReturns">previousReturns.</param>
+        public IntegrationStateV2(CustomerSessionV2 customerSession = default(CustomerSessionV2), CustomerProfile customerProfile = default(CustomerProfile), Event _event = default(Event), Loyalty loyalty = default(Loyalty), InventoryReferral referral = default(InventoryReferral), List<Coupon> coupons = default(List<Coupon>), List<Campaign> triggeredCampaigns = default(List<Campaign>), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>), List<Coupon> createdCoupons = default(List<Coupon>), List<Referral> createdReferrals = default(List<Referral>), List<Giveaway> awardedGiveaways = default(List<Giveaway>), Return _return = default(Return), List<Return> previousReturns = default(List<Return>))
         {
             // to ensure "effects" is required (not null)
             this.Effects = effects ?? throw new ArgumentNullException("effects is a required property for IntegrationStateV2 and cannot be null");
@@ -68,6 +70,8 @@ namespace TalonOne.Model
             this.TriggeredCampaigns = triggeredCampaigns;
             this.RuleFailureReasons = ruleFailureReasons;
             this.AwardedGiveaways = awardedGiveaways;
+            this.Return = _return;
+            this.PreviousReturns = previousReturns;
         }
         
         /// <summary>
@@ -98,7 +102,7 @@ namespace TalonOne.Model
         /// Gets or Sets Referral
         /// </summary>
         [DataMember(Name="referral", EmitDefaultValue=false)]
-        public Referral Referral { get; set; }
+        public InventoryReferral Referral { get; set; }
 
         /// <summary>
         /// Gets or Sets Coupons
@@ -143,6 +147,18 @@ namespace TalonOne.Model
         public List<Giveaway> AwardedGiveaways { get; set; }
 
         /// <summary>
+        /// Gets or Sets Return
+        /// </summary>
+        [DataMember(Name="return", EmitDefaultValue=false)]
+        public Return Return { get; set; }
+
+        /// <summary>
+        /// Gets or Sets PreviousReturns
+        /// </summary>
+        [DataMember(Name="previousReturns", EmitDefaultValue=false)]
+        public List<Return> PreviousReturns { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -162,6 +178,8 @@ namespace TalonOne.Model
             sb.Append("  CreatedCoupons: ").Append(CreatedCoupons).Append("\n");
             sb.Append("  CreatedReferrals: ").Append(CreatedReferrals).Append("\n");
             sb.Append("  AwardedGiveaways: ").Append(AwardedGiveaways).Append("\n");
+            sb.Append("  Return: ").Append(Return).Append("\n");
+            sb.Append("  PreviousReturns: ").Append(PreviousReturns).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -262,6 +280,17 @@ namespace TalonOne.Model
                     this.AwardedGiveaways != null &&
                     input.AwardedGiveaways != null &&
                     this.AwardedGiveaways.SequenceEqual(input.AwardedGiveaways)
+                ) && 
+                (
+                    this.Return == input.Return ||
+                    (this.Return != null &&
+                    this.Return.Equals(input.Return))
+                ) && 
+                (
+                    this.PreviousReturns == input.PreviousReturns ||
+                    this.PreviousReturns != null &&
+                    input.PreviousReturns != null &&
+                    this.PreviousReturns.SequenceEqual(input.PreviousReturns)
                 );
         }
 
@@ -298,6 +327,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CreatedReferrals.GetHashCode();
                 if (this.AwardedGiveaways != null)
                     hashCode = hashCode * 59 + this.AwardedGiveaways.GetHashCode();
+                if (this.Return != null)
+                    hashCode = hashCode * 59 + this.Return.GetHashCode();
+                if (this.PreviousReturns != null)
+                    hashCode = hashCode * 59 + this.PreviousReturns.GetHashCode();
                 return hashCode;
             }
         }

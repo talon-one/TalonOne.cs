@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -40,15 +40,17 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="Binding" /> class.
         /// </summary>
         /// <param name="name">A descriptive name for the value to be bound. (required).</param>
-        /// <param name="type">The kind of binding. Possible values are cartItemFilter, subledgerBalance..</param>
+        /// <param name="type">The kind of binding. Possible values are: - &#x60;cartItemFilter&#x60; - &#x60;subledgerBalance&#x60; - &#x60;templateParameter&#x60; .</param>
         /// <param name="expression">A Talang expression that will be evaluated and its result attached to the name of the binding. (required).</param>
-        public Binding(string name = default(string), string type = default(string), List<Object> expression = default(List<Object>))
+        /// <param name="valueType">Can be one of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; .</param>
+        public Binding(string name = default(string), string type = default(string), List<Object> expression = default(List<Object>), string valueType = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Binding and cannot be null");
             // to ensure "expression" is required (not null)
             this.Expression = expression ?? throw new ArgumentNullException("expression is a required property for Binding and cannot be null");
             this.Type = type;
+            this.ValueType = valueType;
         }
         
         /// <summary>
@@ -59,9 +61,9 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The kind of binding. Possible values are cartItemFilter, subledgerBalance.
+        /// The kind of binding. Possible values are: - &#x60;cartItemFilter&#x60; - &#x60;subledgerBalance&#x60; - &#x60;templateParameter&#x60; 
         /// </summary>
-        /// <value>The kind of binding. Possible values are cartItemFilter, subledgerBalance.</value>
+        /// <value>The kind of binding. Possible values are: - &#x60;cartItemFilter&#x60; - &#x60;subledgerBalance&#x60; - &#x60;templateParameter&#x60; </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -71,6 +73,13 @@ namespace TalonOne.Model
         /// <value>A Talang expression that will be evaluated and its result attached to the name of the binding.</value>
         [DataMember(Name="expression", EmitDefaultValue=false)]
         public List<Object> Expression { get; set; }
+
+        /// <summary>
+        /// Can be one of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; 
+        /// </summary>
+        /// <value>Can be one of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; </value>
+        [DataMember(Name="valueType", EmitDefaultValue=false)]
+        public string ValueType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,6 +92,7 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Expression: ").Append(Expression).Append("\n");
+            sb.Append("  ValueType: ").Append(ValueType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -132,6 +142,11 @@ namespace TalonOne.Model
                     this.Expression != null &&
                     input.Expression != null &&
                     this.Expression.SequenceEqual(input.Expression)
+                ) && 
+                (
+                    this.ValueType == input.ValueType ||
+                    (this.ValueType != null &&
+                    this.ValueType.Equals(input.ValueType))
                 );
         }
 
@@ -150,6 +165,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Expression != null)
                     hashCode = hashCode * 59 + this.Expression.GetHashCode();
+                if (this.ValueType != null)
+                    hashCode = hashCode * 59 + this.ValueType.GetHashCode();
                 return hashCode;
             }
         }

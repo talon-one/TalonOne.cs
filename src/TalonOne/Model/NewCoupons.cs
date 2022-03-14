@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -43,19 +43,21 @@ namespace TalonOne.Model
         /// <param name="discountLimit">The amount of discounts that can be given with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
         /// <param name="expiryDate">Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
+        /// <param name="limits">Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. .</param>
         /// <param name="numberOfCoupons">The number of new coupon codes to generate for the campaign. Must be at least 1. (required).</param>
         /// <param name="uniquePrefix">A unique prefix to prepend to all generated coupons..</param>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
         /// <param name="recipientIntegrationId">The integration ID for this coupon&#39;s beneficiary&#39;s profile.</param>
-        /// <param name="validCharacters">Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp)..</param>
-        /// <param name="couponPattern">The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. .</param>
-        public NewCoupons(int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int numberOfCoupons = default(int), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string), List<string> validCharacters = default(List<string>), string couponPattern = default(string))
+        /// <param name="validCharacters">List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. .</param>
+        /// <param name="couponPattern">The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set.  If you use a &#x60;uniquePrefix&#x60;, include it in the pattern. .</param>
+        public NewCoupons(int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), int numberOfCoupons = default(int), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string), List<string> validCharacters = default(List<string>), string couponPattern = default(string))
         {
             this.UsageLimit = usageLimit;
             this.NumberOfCoupons = numberOfCoupons;
             this.DiscountLimit = discountLimit;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
+            this.Limits = limits;
             this.UniquePrefix = uniquePrefix;
             this.Attributes = attributes;
             this.RecipientIntegrationId = recipientIntegrationId;
@@ -92,6 +94,13 @@ namespace TalonOne.Model
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
+        /// Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. 
+        /// </summary>
+        /// <value>Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. </value>
+        [DataMember(Name="limits", EmitDefaultValue=false)]
+        public List<LimitConfig> Limits { get; set; }
+
+        /// <summary>
         /// The number of new coupon codes to generate for the campaign. Must be at least 1.
         /// </summary>
         /// <value>The number of new coupon codes to generate for the campaign. Must be at least 1.</value>
@@ -120,16 +129,16 @@ namespace TalonOne.Model
         public string RecipientIntegrationId { get; set; }
 
         /// <summary>
-        /// Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
+        /// List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. 
         /// </summary>
-        /// <value>Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).</value>
+        /// <value>List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. </value>
         [DataMember(Name="validCharacters", EmitDefaultValue=false)]
         public List<string> ValidCharacters { get; set; }
 
         /// <summary>
-        /// The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. 
+        /// The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set.  If you use a &#x60;uniquePrefix&#x60;, include it in the pattern. 
         /// </summary>
-        /// <value>The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. </value>
+        /// <value>The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set.  If you use a &#x60;uniquePrefix&#x60;, include it in the pattern. </value>
         [DataMember(Name="couponPattern", EmitDefaultValue=false)]
         public string CouponPattern { get; set; }
 
@@ -145,6 +154,7 @@ namespace TalonOne.Model
             sb.Append("  DiscountLimit: ").Append(DiscountLimit).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  NumberOfCoupons: ").Append(NumberOfCoupons).Append("\n");
             sb.Append("  UniquePrefix: ").Append(UniquePrefix).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
@@ -204,6 +214,12 @@ namespace TalonOne.Model
                     this.ExpiryDate.Equals(input.ExpiryDate))
                 ) && 
                 (
+                    this.Limits == input.Limits ||
+                    this.Limits != null &&
+                    input.Limits != null &&
+                    this.Limits.SequenceEqual(input.Limits)
+                ) && 
+                (
                     this.NumberOfCoupons == input.NumberOfCoupons ||
                     this.NumberOfCoupons.Equals(input.NumberOfCoupons)
                 ) && 
@@ -250,6 +266,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                if (this.Limits != null)
+                    hashCode = hashCode * 59 + this.Limits.GetHashCode();
                 hashCode = hashCode * 59 + this.NumberOfCoupons.GetHashCode();
                 if (this.UniquePrefix != null)
                     hashCode = hashCode * 59 + this.UniquePrefix.GetHashCode();

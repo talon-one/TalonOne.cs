@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -32,6 +32,51 @@ namespace TalonOne.Model
     public partial class CampaignTemplateParams :  IEquatable<CampaignTemplateParams>, IValidatableObject
     {
         /// <summary>
+        /// Defines the type of parameter value.
+        /// </summary>
+        /// <value>Defines the type of parameter value.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum String for value: string
+            /// </summary>
+            [EnumMember(Value = "string")]
+            String = 1,
+
+            /// <summary>
+            /// Enum Number for value: number
+            /// </summary>
+            [EnumMember(Value = "number")]
+            Number = 2,
+
+            /// <summary>
+            /// Enum Boolean for value: boolean
+            /// </summary>
+            [EnumMember(Value = "boolean")]
+            Boolean = 3,
+
+            /// <summary>
+            /// Enum Percent for value: percent
+            /// </summary>
+            [EnumMember(Value = "percent")]
+            Percent = 4,
+
+            /// <summary>
+            /// Enum Liststring for value: (list string)
+            /// </summary>
+            [EnumMember(Value = "(list string)")]
+            Liststring = 5
+
+        }
+
+        /// <summary>
+        /// Defines the type of parameter value.
+        /// </summary>
+        /// <value>Defines the type of parameter value.</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CampaignTemplateParams" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,14 +85,13 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CampaignTemplateParams" /> class.
         /// </summary>
         /// <param name="name">Name of the campaign template parameter. (required).</param>
-        /// <param name="type">Can be one of the following three [&#39;string&#39;,&#39;number&#39;,&#39;boolean&#39;] (required).</param>
+        /// <param name="type">Defines the type of parameter value. (required).</param>
         /// <param name="description">Explains the meaning of this template parameter and the placeholder value that will define it. It is used on campaign creation from this template. (required).</param>
-        public CampaignTemplateParams(string name = default(string), string type = default(string), string description = default(string))
+        public CampaignTemplateParams(string name = default(string), TypeEnum type = default(TypeEnum), string description = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CampaignTemplateParams and cannot be null");
-            // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for CampaignTemplateParams and cannot be null");
+            this.Type = type;
             // to ensure "description" is required (not null)
             this.Description = description ?? throw new ArgumentNullException("description is a required property for CampaignTemplateParams and cannot be null");
         }
@@ -58,13 +102,6 @@ namespace TalonOne.Model
         /// <value>Name of the campaign template parameter.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
-
-        /// <summary>
-        /// Can be one of the following three [&#39;string&#39;,&#39;number&#39;,&#39;boolean&#39;]
-        /// </summary>
-        /// <value>Can be one of the following three [&#39;string&#39;,&#39;number&#39;,&#39;boolean&#39;]</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Explains the meaning of this template parameter and the placeholder value that will define it. It is used on campaign creation from this template.
@@ -125,8 +162,7 @@ namespace TalonOne.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -146,8 +182,7 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 return hashCode;

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class Audience :  IEquatable<Audience>, IValidatableObject
     {
         /// <summary>
-        /// Integration that this audience was created in.
+        /// Integration that this audience was created in. Can be used for mParticle and Segment audiences.
         /// </summary>
-        /// <value>Integration that this audience was created in.</value>
+        /// <value>Integration that this audience was created in. Can be used for mParticle and Segment audiences.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum IntegrationEnum
         {
@@ -42,16 +42,22 @@ namespace TalonOne.Model
             /// Enum Mparticle for value: mparticle
             /// </summary>
             [EnumMember(Value = "mparticle")]
-            Mparticle = 1
+            Mparticle = 1,
+
+            /// <summary>
+            /// Enum Segment for value: segment
+            /// </summary>
+            [EnumMember(Value = "segment")]
+            Segment = 2
 
         }
 
         /// <summary>
-        /// Integration that this audience was created in.
+        /// Integration that this audience was created in. Can be used for mParticle and Segment audiences.
         /// </summary>
-        /// <value>Integration that this audience was created in.</value>
+        /// <value>Integration that this audience was created in. Can be used for mParticle and Segment audiences.</value>
         [DataMember(Name="integration", EmitDefaultValue=false)]
-        public IntegrationEnum Integration { get; set; }
+        public IntegrationEnum? Integration { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Audience" /> class.
         /// </summary>
@@ -63,10 +69,10 @@ namespace TalonOne.Model
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
-        /// <param name="name">The human-friendly display name for this Audience. (required).</param>
-        /// <param name="integration">Integration that this audience was created in. (required).</param>
-        /// <param name="integrationId">The ID of this Audience in the third-party integration (required).</param>
-        public Audience(int accountId = default(int), int id = default(int), DateTime created = default(DateTime), string name = default(string), IntegrationEnum integration = default(IntegrationEnum), string integrationId = default(string))
+        /// <param name="name">The human-friendly display name for this audience. (required).</param>
+        /// <param name="integration">Integration that this audience was created in. Can be used for mParticle and Segment audiences..</param>
+        /// <param name="integrationId">The ID of this audience in the third-party integration..</param>
+        public Audience(int accountId = default(int), int id = default(int), DateTime created = default(DateTime), string name = default(string), IntegrationEnum? integration = default(IntegrationEnum?), string integrationId = default(string))
         {
             this.AccountId = accountId;
             this.Id = id;
@@ -74,8 +80,7 @@ namespace TalonOne.Model
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Audience and cannot be null");
             this.Integration = integration;
-            // to ensure "integrationId" is required (not null)
-            this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for Audience and cannot be null");
+            this.IntegrationId = integrationId;
         }
         
         /// <summary>
@@ -100,16 +105,16 @@ namespace TalonOne.Model
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// The human-friendly display name for this Audience.
+        /// The human-friendly display name for this audience.
         /// </summary>
-        /// <value>The human-friendly display name for this Audience.</value>
+        /// <value>The human-friendly display name for this audience.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The ID of this Audience in the third-party integration
+        /// The ID of this audience in the third-party integration.
         /// </summary>
-        /// <value>The ID of this Audience in the third-party integration</value>
+        /// <value>The ID of this audience in the third-party integration.</value>
         [DataMember(Name="integrationId", EmitDefaultValue=false)]
         public string IntegrationId { get; set; }
 

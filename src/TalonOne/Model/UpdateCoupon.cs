@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -38,14 +38,16 @@ namespace TalonOne.Model
         /// <param name="discountLimit">The amount of discounts that can be given with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
         /// <param name="expiryDate">Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
+        /// <param name="limits">Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. .</param>
         /// <param name="recipientIntegrationId">The integration ID for this coupon&#39;s beneficiary&#39;s profile.</param>
         /// <param name="attributes">Arbitrary properties associated with this item.</param>
-        public UpdateCoupon(int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string recipientIntegrationId = default(string), Object attributes = default(Object))
+        public UpdateCoupon(int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), string recipientIntegrationId = default(string), Object attributes = default(Object))
         {
             this.UsageLimit = usageLimit;
             this.DiscountLimit = discountLimit;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
+            this.Limits = limits;
             this.RecipientIntegrationId = recipientIntegrationId;
             this.Attributes = attributes;
         }
@@ -79,6 +81,13 @@ namespace TalonOne.Model
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
+        /// Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. 
+        /// </summary>
+        /// <value>Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. </value>
+        [DataMember(Name="limits", EmitDefaultValue=false)]
+        public List<LimitConfig> Limits { get; set; }
+
+        /// <summary>
         /// The integration ID for this coupon&#39;s beneficiary&#39;s profile
         /// </summary>
         /// <value>The integration ID for this coupon&#39;s beneficiary&#39;s profile</value>
@@ -104,6 +113,7 @@ namespace TalonOne.Model
             sb.Append("  DiscountLimit: ").Append(DiscountLimit).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  RecipientIntegrationId: ").Append(RecipientIntegrationId).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("}\n");
@@ -159,6 +169,12 @@ namespace TalonOne.Model
                     this.ExpiryDate.Equals(input.ExpiryDate))
                 ) && 
                 (
+                    this.Limits == input.Limits ||
+                    this.Limits != null &&
+                    input.Limits != null &&
+                    this.Limits.SequenceEqual(input.Limits)
+                ) && 
+                (
                     this.RecipientIntegrationId == input.RecipientIntegrationId ||
                     (this.RecipientIntegrationId != null &&
                     this.RecipientIntegrationId.Equals(input.RecipientIntegrationId))
@@ -185,6 +201,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                if (this.Limits != null)
+                    hashCode = hashCode * 59 + this.Limits.GetHashCode();
                 if (this.RecipientIntegrationId != null)
                     hashCode = hashCode * 59 + this.RecipientIntegrationId.GetHashCode();
                 if (this.Attributes != null)

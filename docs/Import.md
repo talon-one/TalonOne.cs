@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Created** | **DateTime** | The exact moment this entity was created. | 
 **AccountId** | **int** | The ID of the account that owns this entity. | 
 **UserId** | **int** | The ID of the account that owns this entity. | 
-**Entity** | **string** | The name of the entity that was imported. Possible values are Coupons and LoyaltyPoints. | 
-**Amount** | **int** | The number of members that imported. | 
+**Entity** | **string** | The name of the entity that was imported.  | 
+**Amount** | **int** | The number of values that were imported. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -98,9 +98,9 @@ namespace TalonOne.Model
 
 
         /// <summary>
-        /// A list of features for the campaign.
+        /// The features enabled in this campaign.
         /// </summary>
-        /// <value>A list of features for the campaign.</value>
+        /// <value>The features enabled in this campaign.</value>
         [DataMember(Name="features", EmitDefaultValue=false)]
         public List<FeaturesEnum> Features { get; set; }
         /// <summary>
@@ -121,13 +121,13 @@ namespace TalonOne.Model
         /// <param name="endTime">Timestamp the campaign will become inactive..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign.</param>
         /// <param name="state">A disabled or archived campaign is not evaluated for rules or coupons.  (required) (default to StateEnum.Enabled).</param>
-        /// <param name="activeRulesetId">ID of Ruleset this campaign applies on customer session evaluation..</param>
+        /// <param name="activeRulesetId">[ID of Ruleset](https://docs.talon.one/management-api/#operation/getRulesets) this campaign applies on customer session evaluation. .</param>
         /// <param name="tags">A list of tags for the campaign. (required).</param>
-        /// <param name="features">A list of features for the campaign. (required).</param>
+        /// <param name="features">The features enabled in this campaign. (required).</param>
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="referralSettings">referralSettings.</param>
-        /// <param name="limits">The set of limits that will operate for this campaign (required).</param>
-        /// <param name="campaignGroups">The IDs of the campaign groups that own this entity..</param>
+        /// <param name="limits">The set of [budget limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/) for this campaign.  (required).</param>
+        /// <param name="campaignGroups">The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups/) this campaign belongs to. .</param>
         /// <param name="couponRedemptionCount">Number of coupons redeemed in the campaign..</param>
         /// <param name="referralRedemptionCount">Number of referral codes redeemed in the campaign..</param>
         /// <param name="discountCount">Total amount of discounts redeemed in the campaign..</param>
@@ -250,9 +250,9 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// ID of Ruleset this campaign applies on customer session evaluation.
+        /// [ID of Ruleset](https://docs.talon.one/management-api/#operation/getRulesets) this campaign applies on customer session evaluation. 
         /// </summary>
-        /// <value>ID of Ruleset this campaign applies on customer session evaluation.</value>
+        /// <value>[ID of Ruleset](https://docs.talon.one/management-api/#operation/getRulesets) this campaign applies on customer session evaluation. </value>
         [DataMember(Name="activeRulesetId", EmitDefaultValue=false)]
         public int ActiveRulesetId { get; set; }
 
@@ -276,16 +276,16 @@ namespace TalonOne.Model
         public CodeGeneratorSettings ReferralSettings { get; set; }
 
         /// <summary>
-        /// The set of limits that will operate for this campaign
+        /// The set of [budget limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/) for this campaign. 
         /// </summary>
-        /// <value>The set of limits that will operate for this campaign</value>
+        /// <value>The set of [budget limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/) for this campaign. </value>
         [DataMember(Name="limits", EmitDefaultValue=false)]
         public List<LimitConfig> Limits { get; set; }
 
         /// <summary>
-        /// The IDs of the campaign groups that own this entity.
+        /// The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups/) this campaign belongs to. 
         /// </summary>
-        /// <value>The IDs of the campaign groups that own this entity.</value>
+        /// <value>The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups/) this campaign belongs to. </value>
         [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
         public List<int> CampaignGroups { get; set; }
 

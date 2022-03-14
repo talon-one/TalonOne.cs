@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -40,9 +40,9 @@ namespace TalonOne.Model
         /// <param name="defaultValidity">Indicates the default duration after which new loyalty points should expire. The format is a number, followed by one letter indicating the unit; like &#39;1h&#39; or &#39;40m&#39;..</param>
         /// <param name="defaultPending">Indicates the default duration for the pending time, after which points will be valid. The format is a number followed by a duration unit, like &#39;1h&#39; or &#39;40m&#39;..</param>
         /// <param name="allowSubledger">Indicates if this program supports subledgers inside the program.</param>
-        /// <param name="timezone">A string containing an IANA timezone descriptor..</param>
+        /// <param name="usersPerCardLimit">The max amount of user profiles with whom a card can be shared. This can be set to 0 for no limit. This property is only used when &#x60;cardBased&#x60; is &#x60;true&#x60;. .</param>
         /// <param name="tiers">The tiers in this loyalty program.</param>
-        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), string timezone = default(string), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
+        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
         {
             this.Title = title;
             this.Description = description;
@@ -50,7 +50,7 @@ namespace TalonOne.Model
             this.DefaultValidity = defaultValidity;
             this.DefaultPending = defaultPending;
             this.AllowSubledger = allowSubledger;
-            this.Timezone = timezone;
+            this.UsersPerCardLimit = usersPerCardLimit;
             this.Tiers = tiers;
         }
         
@@ -97,11 +97,11 @@ namespace TalonOne.Model
         public bool AllowSubledger { get; set; }
 
         /// <summary>
-        /// A string containing an IANA timezone descriptor.
+        /// The max amount of user profiles with whom a card can be shared. This can be set to 0 for no limit. This property is only used when &#x60;cardBased&#x60; is &#x60;true&#x60;. 
         /// </summary>
-        /// <value>A string containing an IANA timezone descriptor.</value>
-        [DataMember(Name="timezone", EmitDefaultValue=false)]
-        public string Timezone { get; set; }
+        /// <value>The max amount of user profiles with whom a card can be shared. This can be set to 0 for no limit. This property is only used when &#x60;cardBased&#x60; is &#x60;true&#x60;. </value>
+        [DataMember(Name="usersPerCardLimit", EmitDefaultValue=false)]
+        public int UsersPerCardLimit { get; set; }
 
         /// <summary>
         /// The tiers in this loyalty program
@@ -124,7 +124,7 @@ namespace TalonOne.Model
             sb.Append("  DefaultValidity: ").Append(DefaultValidity).Append("\n");
             sb.Append("  DefaultPending: ").Append(DefaultPending).Append("\n");
             sb.Append("  AllowSubledger: ").Append(AllowSubledger).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            sb.Append("  UsersPerCardLimit: ").Append(UsersPerCardLimit).Append("\n");
             sb.Append("  Tiers: ").Append(Tiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -191,9 +191,8 @@ namespace TalonOne.Model
                     this.AllowSubledger.Equals(input.AllowSubledger)
                 ) && 
                 (
-                    this.Timezone == input.Timezone ||
-                    (this.Timezone != null &&
-                    this.Timezone.Equals(input.Timezone))
+                    this.UsersPerCardLimit == input.UsersPerCardLimit ||
+                    this.UsersPerCardLimit.Equals(input.UsersPerCardLimit)
                 ) && 
                 (
                     this.Tiers == input.Tiers ||
@@ -223,8 +222,7 @@ namespace TalonOne.Model
                 if (this.DefaultPending != null)
                     hashCode = hashCode * 59 + this.DefaultPending.GetHashCode();
                 hashCode = hashCode * 59 + this.AllowSubledger.GetHashCode();
-                if (this.Timezone != null)
-                    hashCode = hashCode * 59 + this.Timezone.GetHashCode();
+                hashCode = hashCode * 59 + this.UsersPerCardLimit.GetHashCode();
                 if (this.Tiers != null)
                     hashCode = hashCode * 59 + this.Tiers.GetHashCode();
                 return hashCode;
@@ -238,10 +236,10 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Timezone (string) minLength
-            if(this.Timezone != null && this.Timezone.Length < 1)
+            // UsersPerCardLimit (int) minimum
+            if(this.UsersPerCardLimit < (int)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Timezone, length must be greater than 1.", new [] { "Timezone" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsersPerCardLimit, must be a value greater than or equal to 0.", new [] { "UsersPerCardLimit" });
             }
 
             yield break;

@@ -20,7 +20,8 @@ Name | Type | Description | Notes
 **Roles** | **int** | Total number of roles in the account | 
 **CustomAttributes** | **int** | Total number of custom attributes in the account | 
 **Webhooks** | **int** | Total number of webhooks in the account | 
-**LoyaltyPrograms** | **int** | Total number of loyalty programs in the account | 
+**LoyaltyPrograms** | **int** | Total number of all loyalty programs in the account | 
+**LiveLoyaltyPrograms** | **int** | Total number of live loyalty programs in the account | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

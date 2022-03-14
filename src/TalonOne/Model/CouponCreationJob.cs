@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -52,14 +52,15 @@ namespace TalonOne.Model
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="attributes">Arbitrary properties associated with coupons (required).</param>
         /// <param name="batchId">The batch ID coupons created by this job will bear (required).</param>
-        /// <param name="status">The current status of this request. The value should be either &#39;pending&#39;, &#39;completed&#39; or &#39;failed&#39; (required).</param>
+        /// <param name="status">The current status of this request. The value should be either &#39;pending&#39;, &#39;completed&#39;, &#39;failed&#39; or &#39;coupon pattern full&#39; (required).</param>
         /// <param name="createdAmount">The number of coupon codes that were already created for this request (required).</param>
         /// <param name="failCount">The number of times this job failed (required).</param>
         /// <param name="errors">An array of individual problems encountered during the request. (required).</param>
         /// <param name="createdBy">ID of the user who created this effect. (required).</param>
         /// <param name="communicated">Whether or not the user that created this job was notified of its final state (required).</param>
-        /// <param name="batchExecutionCount">The number of times an attempt to create a batch of coupons was made during the processing of the job (required).</param>
-        public CouponCreationJob(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), int applicationId = default(int), int accountId = default(int), int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int numberOfCoupons = default(int), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), Object attributes = default(Object), string batchId = default(string), string status = default(string), int createdAmount = default(int), int failCount = default(int), List<string> errors = default(List<string>), int createdBy = default(int), bool communicated = default(bool), int batchExecutionCount = default(int))
+        /// <param name="chunkExecutionCount">The number of times an attempt to create a chunk of coupons was made during the processing of the job (required).</param>
+        /// <param name="chunkSize">The number of coupons that will be created in a single transactions. Coupons will be created in chunks until arriving at the requested amount..</param>
+        public CouponCreationJob(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), int applicationId = default(int), int accountId = default(int), int usageLimit = default(int), decimal discountLimit = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int numberOfCoupons = default(int), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), Object attributes = default(Object), string batchId = default(string), string status = default(string), int createdAmount = default(int), int failCount = default(int), List<string> errors = default(List<string>), int createdBy = default(int), bool communicated = default(bool), int chunkExecutionCount = default(int), int chunkSize = default(int))
         {
             this.Id = id;
             this.Created = created;
@@ -80,11 +81,12 @@ namespace TalonOne.Model
             this.Errors = errors ?? throw new ArgumentNullException("errors is a required property for CouponCreationJob and cannot be null");
             this.CreatedBy = createdBy;
             this.Communicated = communicated;
-            this.BatchExecutionCount = batchExecutionCount;
+            this.ChunkExecutionCount = chunkExecutionCount;
             this.DiscountLimit = discountLimit;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
             this.CouponSettings = couponSettings;
+            this.ChunkSize = chunkSize;
         }
         
         /// <summary>
@@ -178,9 +180,9 @@ namespace TalonOne.Model
         public string BatchId { get; set; }
 
         /// <summary>
-        /// The current status of this request. The value should be either &#39;pending&#39;, &#39;completed&#39; or &#39;failed&#39;
+        /// The current status of this request. The value should be either &#39;pending&#39;, &#39;completed&#39;, &#39;failed&#39; or &#39;coupon pattern full&#39;
         /// </summary>
-        /// <value>The current status of this request. The value should be either &#39;pending&#39;, &#39;completed&#39; or &#39;failed&#39;</value>
+        /// <value>The current status of this request. The value should be either &#39;pending&#39;, &#39;completed&#39;, &#39;failed&#39; or &#39;coupon pattern full&#39;</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 
@@ -220,11 +222,18 @@ namespace TalonOne.Model
         public bool Communicated { get; set; }
 
         /// <summary>
-        /// The number of times an attempt to create a batch of coupons was made during the processing of the job
+        /// The number of times an attempt to create a chunk of coupons was made during the processing of the job
         /// </summary>
-        /// <value>The number of times an attempt to create a batch of coupons was made during the processing of the job</value>
-        [DataMember(Name="batchExecutionCount", EmitDefaultValue=false)]
-        public int BatchExecutionCount { get; set; }
+        /// <value>The number of times an attempt to create a chunk of coupons was made during the processing of the job</value>
+        [DataMember(Name="chunkExecutionCount", EmitDefaultValue=false)]
+        public int ChunkExecutionCount { get; set; }
+
+        /// <summary>
+        /// The number of coupons that will be created in a single transactions. Coupons will be created in chunks until arriving at the requested amount.
+        /// </summary>
+        /// <value>The number of coupons that will be created in a single transactions. Coupons will be created in chunks until arriving at the requested amount.</value>
+        [DataMember(Name="chunkSize", EmitDefaultValue=false)]
+        public int ChunkSize { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -253,7 +262,8 @@ namespace TalonOne.Model
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  Communicated: ").Append(Communicated).Append("\n");
-            sb.Append("  BatchExecutionCount: ").Append(BatchExecutionCount).Append("\n");
+            sb.Append("  ChunkExecutionCount: ").Append(ChunkExecutionCount).Append("\n");
+            sb.Append("  ChunkSize: ").Append(ChunkSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -374,8 +384,12 @@ namespace TalonOne.Model
                     this.Communicated.Equals(input.Communicated)
                 ) && 
                 (
-                    this.BatchExecutionCount == input.BatchExecutionCount ||
-                    this.BatchExecutionCount.Equals(input.BatchExecutionCount)
+                    this.ChunkExecutionCount == input.ChunkExecutionCount ||
+                    this.ChunkExecutionCount.Equals(input.ChunkExecutionCount)
+                ) && 
+                (
+                    this.ChunkSize == input.ChunkSize ||
+                    this.ChunkSize.Equals(input.ChunkSize)
                 );
         }
 
@@ -415,7 +429,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
                 hashCode = hashCode * 59 + this.Communicated.GetHashCode();
-                hashCode = hashCode * 59 + this.BatchExecutionCount.GetHashCode();
+                hashCode = hashCode * 59 + this.ChunkExecutionCount.GetHashCode();
+                hashCode = hashCode * 59 + this.ChunkSize.GetHashCode();
                 return hashCode;
             }
         }
@@ -449,6 +464,12 @@ namespace TalonOne.Model
             if(this.DiscountLimit < (decimal)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value greater than or equal to 0.", new [] { "DiscountLimit" });
+            }
+
+            // NumberOfCoupons (int) maximum
+            if(this.NumberOfCoupons > (int)5000000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfCoupons, must be a value less than or equal to 5000000.", new [] { "NumberOfCoupons" });
             }
 
             yield break;

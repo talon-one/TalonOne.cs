@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **FriendProfileIntegrationId** | **string** | An optional Integration ID of the Friend&#39;s Profile | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this item. | [optional] 
 **ImportId** | **int** | The ID of the Import which created this referral. | [optional] 
-**Code** | **string** | The actual referral code. | 
+**Code** | **string** | The referral code. | 
 **UsageCounter** | **int** | The number of times this referral code has been successfully used. | 
 **BatchId** | **string** | The ID of the batch the referrals belong to. | [optional] 
 

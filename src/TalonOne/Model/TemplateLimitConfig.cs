@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class TemplateLimitConfig :  IEquatable<TemplateLimitConfig>, IValidatableObject
     {
         /// <summary>
-        /// The period on which the budget limit recurs
+        /// The period on which the budget limit recurs.
         /// </summary>
-        /// <value>The period on which the budget limit recurs</value>
+        /// <value>The period on which the budget limit recurs.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PeriodEnum
         {
@@ -65,9 +65,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// The period on which the budget limit recurs
+        /// The period on which the budget limit recurs.
         /// </summary>
-        /// <value>The period on which the budget limit recurs</value>
+        /// <value>The period on which the budget limit recurs.</value>
         [DataMember(Name="period", EmitDefaultValue=false)]
         public PeriodEnum? Period { get; set; }
         /// <summary>
@@ -104,9 +104,9 @@ namespace TalonOne.Model
 
 
         /// <summary>
-        /// The entities that make the address of this limit
+        /// The entity that this limit applies to.
         /// </summary>
-        /// <value>The entities that make the address of this limit</value>
+        /// <value>The entity that this limit applies to.</value>
         [DataMember(Name="entities", EmitDefaultValue=false)]
         public List<EntitiesEnum> Entities { get; set; }
         /// <summary>
@@ -117,43 +117,33 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateLimitConfig" /> class.
         /// </summary>
-        /// <param name="action">The limitable action to which this limit will be applied (required).</param>
-        /// <param name="limit">The value to set for the limit (required).</param>
-        /// <param name="period">The period on which the budget limit recurs.</param>
-        /// <param name="entities">The entities that make the address of this limit (required).</param>
-        /// <param name="description">The description of this budget configuration (required).</param>
-        public TemplateLimitConfig(string action = default(string), decimal limit = default(decimal), PeriodEnum? period = default(PeriodEnum?), List<EntitiesEnum> entities = default(List<EntitiesEnum>), string description = default(string))
+        /// <param name="action">The limitable action to which this limit applies. For example: - &#x60;setDiscount&#x60; - &#x60;setDiscountEffect&#x60; - &#x60;redeemCoupon&#x60; - &#x60;createCoupon&#x60;  (required).</param>
+        /// <param name="limit">The value to set for the limit. (required).</param>
+        /// <param name="period">The period on which the budget limit recurs..</param>
+        /// <param name="entities">The entity that this limit applies to. (required).</param>
+        public TemplateLimitConfig(string action = default(string), decimal limit = default(decimal), PeriodEnum? period = default(PeriodEnum?), List<EntitiesEnum> entities = default(List<EntitiesEnum>))
         {
             // to ensure "action" is required (not null)
             this.Action = action ?? throw new ArgumentNullException("action is a required property for TemplateLimitConfig and cannot be null");
             this.Limit = limit;
             // to ensure "entities" is required (not null)
             this.Entities = entities ?? throw new ArgumentNullException("entities is a required property for TemplateLimitConfig and cannot be null");
-            // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for TemplateLimitConfig and cannot be null");
             this.Period = period;
         }
         
         /// <summary>
-        /// The limitable action to which this limit will be applied
+        /// The limitable action to which this limit applies. For example: - &#x60;setDiscount&#x60; - &#x60;setDiscountEffect&#x60; - &#x60;redeemCoupon&#x60; - &#x60;createCoupon&#x60; 
         /// </summary>
-        /// <value>The limitable action to which this limit will be applied</value>
+        /// <value>The limitable action to which this limit applies. For example: - &#x60;setDiscount&#x60; - &#x60;setDiscountEffect&#x60; - &#x60;redeemCoupon&#x60; - &#x60;createCoupon&#x60; </value>
         [DataMember(Name="action", EmitDefaultValue=false)]
         public string Action { get; set; }
 
         /// <summary>
-        /// The value to set for the limit
+        /// The value to set for the limit.
         /// </summary>
-        /// <value>The value to set for the limit</value>
+        /// <value>The value to set for the limit.</value>
         [DataMember(Name="limit", EmitDefaultValue=false)]
         public decimal Limit { get; set; }
-
-        /// <summary>
-        /// The description of this budget configuration
-        /// </summary>
-        /// <value>The description of this budget configuration</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -167,7 +157,6 @@ namespace TalonOne.Model
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  Period: ").Append(Period).Append("\n");
             sb.Append("  Entities: ").Append(Entities).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -218,11 +207,6 @@ namespace TalonOne.Model
                 (
                     this.Entities == input.Entities ||
                     this.Entities.SequenceEqual(input.Entities)
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
                 );
         }
 
@@ -240,8 +224,6 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Limit.GetHashCode();
                 hashCode = hashCode * 59 + this.Period.GetHashCode();
                 hashCode = hashCode * 59 + this.Entities.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 return hashCode;
             }
         }

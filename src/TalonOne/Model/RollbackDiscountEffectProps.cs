@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;rollbackDiscount\&quot; effect. This gets triggered whenever previously closed session is now cancelled and a setDiscount effect was cancelled on our internal discount limit counters.
+    /// The properties specific to the \&quot;rollbackDiscount\&quot; effect. This gets triggered whenever previously closed session is now cancelled or partially returned and a setDiscount effect was cancelled on our internal discount limit counters.
     /// </summary>
     [DataContract]
     public partial class RollbackDiscountEffectProps :  IEquatable<RollbackDiscountEffectProps>, IValidatableObject
@@ -40,12 +40,16 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="RollbackDiscountEffectProps" /> class.
         /// </summary>
         /// <param name="name">The name of the \&quot;setDiscount\&quot; effect that was rolled back (required).</param>
-        /// <param name="value">The value of the discount that was rolled back (required).</param>
-        public RollbackDiscountEffectProps(string name = default(string), decimal value = default(decimal))
+        /// <param name="value">The value of the discount that was rolled back. (required).</param>
+        /// <param name="cartItemPosition">The index of the item in the cart items for which the discount was rolled back..</param>
+        /// <param name="cartItemSubPosition">The index of the item unit in its line item. It is only used for cart items with &#x60;quantity&#x60; &gt; 1 and is only returned when cart item flattening is enabled. .</param>
+        public RollbackDiscountEffectProps(string name = default(string), decimal value = default(decimal), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for RollbackDiscountEffectProps and cannot be null");
             this.Value = value;
+            this.CartItemPosition = cartItemPosition;
+            this.CartItemSubPosition = cartItemSubPosition;
         }
         
         /// <summary>
@@ -56,11 +60,25 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The value of the discount that was rolled back
+        /// The value of the discount that was rolled back.
         /// </summary>
-        /// <value>The value of the discount that was rolled back</value>
+        /// <value>The value of the discount that was rolled back.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public decimal Value { get; set; }
+
+        /// <summary>
+        /// The index of the item in the cart items for which the discount was rolled back.
+        /// </summary>
+        /// <value>The index of the item in the cart items for which the discount was rolled back.</value>
+        [DataMember(Name="cartItemPosition", EmitDefaultValue=false)]
+        public decimal CartItemPosition { get; set; }
+
+        /// <summary>
+        /// The index of the item unit in its line item. It is only used for cart items with &#x60;quantity&#x60; &gt; 1 and is only returned when cart item flattening is enabled. 
+        /// </summary>
+        /// <value>The index of the item unit in its line item. It is only used for cart items with &#x60;quantity&#x60; &gt; 1 and is only returned when cart item flattening is enabled. </value>
+        [DataMember(Name="cartItemSubPosition", EmitDefaultValue=false)]
+        public decimal CartItemSubPosition { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +90,8 @@ namespace TalonOne.Model
             sb.Append("class RollbackDiscountEffectProps {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  CartItemPosition: ").Append(CartItemPosition).Append("\n");
+            sb.Append("  CartItemSubPosition: ").Append(CartItemSubPosition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,6 +134,14 @@ namespace TalonOne.Model
                 (
                     this.Value == input.Value ||
                     this.Value.Equals(input.Value)
+                ) && 
+                (
+                    this.CartItemPosition == input.CartItemPosition ||
+                    this.CartItemPosition.Equals(input.CartItemPosition)
+                ) && 
+                (
+                    this.CartItemSubPosition == input.CartItemSubPosition ||
+                    this.CartItemSubPosition.Equals(input.CartItemSubPosition)
                 );
         }
 
@@ -129,6 +157,8 @@ namespace TalonOne.Model
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 hashCode = hashCode * 59 + this.Value.GetHashCode();
+                hashCode = hashCode * 59 + this.CartItemPosition.GetHashCode();
+                hashCode = hashCode * 59 + this.CartItemSubPosition.GetHashCode();
                 return hashCode;
             }
         }

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;addLoyaltyPoints\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;add loyalty\&quot; effect. These points are automatically stored and managed inside Talon.One.
+    /// The properties specific to the \&quot;addLoyaltyPoints\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;add loyalty\&quot; effect. These points are automatically stored and managed inside Talon.One. 
     /// </summary>
     [DataContract]
     public partial class AddLoyaltyPointsEffectProps :  IEquatable<AddLoyaltyPointsEffectProps>, IValidatableObject
@@ -39,15 +39,17 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AddLoyaltyPointsEffectProps" /> class.
         /// </summary>
-        /// <param name="name">The name/description of this loyalty point addition (required).</param>
-        /// <param name="programId">The ID of the loyalty program where these points were added (required).</param>
-        /// <param name="subLedgerId">The ID of the subledger within the loyalty program where these points were added (required).</param>
-        /// <param name="value">The amount of points that were added (required).</param>
-        /// <param name="recipientIntegrationId">The user for whom these points were added (required).</param>
-        /// <param name="startDate">Date after which points will be valid.</param>
-        /// <param name="expiryDate">Date after which points will expire.</param>
-        /// <param name="transactionUUID">The identifier of this addition in the loyalty ledger (required).</param>
-        public AddLoyaltyPointsEffectProps(string name = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string))
+        /// <param name="name">The name/description of this loyalty point addition. (required).</param>
+        /// <param name="programId">The ID of the loyalty program where these points were added. (required).</param>
+        /// <param name="subLedgerId">The ID of the subledger within the loyalty program where these points were added. (required).</param>
+        /// <param name="value">The amount of points that were added. (required).</param>
+        /// <param name="recipientIntegrationId">The user for whom these points were added. (required).</param>
+        /// <param name="startDate">Date after which points will be valid..</param>
+        /// <param name="expiryDate">Date after which points will expire..</param>
+        /// <param name="transactionUUID">The identifier of this addition in the loyalty ledger. (required).</param>
+        /// <param name="cartItemPosition">The index of the item in the cart items list on which the loyal points addition should be applied..</param>
+        /// <param name="cartItemSubPosition">The sub position is triggered when application flattening is enabled. It indicates to which item the loyalty points addition applies, for cart items with &#x60;quantity&#x60; &gt; 1. .</param>
+        public AddLoyaltyPointsEffectProps(string name = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for AddLoyaltyPointsEffectProps and cannot be null");
@@ -61,63 +63,79 @@ namespace TalonOne.Model
             this.TransactionUUID = transactionUUID ?? throw new ArgumentNullException("transactionUUID is a required property for AddLoyaltyPointsEffectProps and cannot be null");
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
+            this.CartItemPosition = cartItemPosition;
+            this.CartItemSubPosition = cartItemSubPosition;
         }
         
         /// <summary>
-        /// The name/description of this loyalty point addition
+        /// The name/description of this loyalty point addition.
         /// </summary>
-        /// <value>The name/description of this loyalty point addition</value>
+        /// <value>The name/description of this loyalty point addition.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The ID of the loyalty program where these points were added
+        /// The ID of the loyalty program where these points were added.
         /// </summary>
-        /// <value>The ID of the loyalty program where these points were added</value>
+        /// <value>The ID of the loyalty program where these points were added.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
         public int ProgramId { get; set; }
 
         /// <summary>
-        /// The ID of the subledger within the loyalty program where these points were added
+        /// The ID of the subledger within the loyalty program where these points were added.
         /// </summary>
-        /// <value>The ID of the subledger within the loyalty program where these points were added</value>
+        /// <value>The ID of the subledger within the loyalty program where these points were added.</value>
         [DataMember(Name="subLedgerId", EmitDefaultValue=false)]
         public string SubLedgerId { get; set; }
 
         /// <summary>
-        /// The amount of points that were added
+        /// The amount of points that were added.
         /// </summary>
-        /// <value>The amount of points that were added</value>
+        /// <value>The amount of points that were added.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public decimal Value { get; set; }
 
         /// <summary>
-        /// The user for whom these points were added
+        /// The user for whom these points were added.
         /// </summary>
-        /// <value>The user for whom these points were added</value>
+        /// <value>The user for whom these points were added.</value>
         [DataMember(Name="recipientIntegrationId", EmitDefaultValue=false)]
         public string RecipientIntegrationId { get; set; }
 
         /// <summary>
-        /// Date after which points will be valid
+        /// Date after which points will be valid.
         /// </summary>
-        /// <value>Date after which points will be valid</value>
+        /// <value>Date after which points will be valid.</value>
         [DataMember(Name="startDate", EmitDefaultValue=false)]
         public DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Date after which points will expire
+        /// Date after which points will expire.
         /// </summary>
-        /// <value>Date after which points will expire</value>
+        /// <value>Date after which points will expire.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
-        /// The identifier of this addition in the loyalty ledger
+        /// The identifier of this addition in the loyalty ledger.
         /// </summary>
-        /// <value>The identifier of this addition in the loyalty ledger</value>
+        /// <value>The identifier of this addition in the loyalty ledger.</value>
         [DataMember(Name="transactionUUID", EmitDefaultValue=false)]
         public string TransactionUUID { get; set; }
+
+        /// <summary>
+        /// The index of the item in the cart items list on which the loyal points addition should be applied.
+        /// </summary>
+        /// <value>The index of the item in the cart items list on which the loyal points addition should be applied.</value>
+        [DataMember(Name="cartItemPosition", EmitDefaultValue=false)]
+        public decimal CartItemPosition { get; set; }
+
+        /// <summary>
+        /// The sub position is triggered when application flattening is enabled. It indicates to which item the loyalty points addition applies, for cart items with &#x60;quantity&#x60; &gt; 1. 
+        /// </summary>
+        /// <value>The sub position is triggered when application flattening is enabled. It indicates to which item the loyalty points addition applies, for cart items with &#x60;quantity&#x60; &gt; 1. </value>
+        [DataMember(Name="cartItemSubPosition", EmitDefaultValue=false)]
+        public decimal CartItemSubPosition { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,6 +153,8 @@ namespace TalonOne.Model
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
+            sb.Append("  CartItemPosition: ").Append(CartItemPosition).Append("\n");
+            sb.Append("  CartItemSubPosition: ").Append(CartItemSubPosition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -206,6 +226,14 @@ namespace TalonOne.Model
                     this.TransactionUUID == input.TransactionUUID ||
                     (this.TransactionUUID != null &&
                     this.TransactionUUID.Equals(input.TransactionUUID))
+                ) && 
+                (
+                    this.CartItemPosition == input.CartItemPosition ||
+                    this.CartItemPosition.Equals(input.CartItemPosition)
+                ) && 
+                (
+                    this.CartItemSubPosition == input.CartItemSubPosition ||
+                    this.CartItemSubPosition.Equals(input.CartItemSubPosition)
                 );
         }
 
@@ -232,6 +260,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
                 if (this.TransactionUUID != null)
                     hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
+                hashCode = hashCode * 59 + this.CartItemPosition.GetHashCode();
+                hashCode = hashCode * 59 + this.CartItemSubPosition.GetHashCode();
                 return hashCode;
             }
         }

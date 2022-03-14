@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **StartDate** | **DateTime** | Timestamp at which point the coupon becomes valid. | [optional] 
 **ExpiryDate** | **DateTime** | Expiry date of the coupon. Coupon never expires if this is omitted, zero, or negative. | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this item | [optional] 
-**BatchID** | **string** | The id of the batch the coupon belongs to. | 
+**BatchID** | **string** | The id of the batch the coupon belongs to. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

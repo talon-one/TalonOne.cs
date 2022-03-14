@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -32,60 +32,6 @@ namespace TalonOne.Model
     public partial class NewEventType :  IEquatable<NewEventType>, IValidatableObject
     {
         /// <summary>
-        /// This defines how the request payload will be parsed before your handler code is run.
-        /// </summary>
-        /// <value>This defines how the request payload will be parsed before your handler code is run.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MimeTypeEnum
-        {
-            /// <summary>
-            /// Enum ApplicationJson for value: application/json
-            /// </summary>
-            [EnumMember(Value = "application/json")]
-            ApplicationJson = 1,
-
-            /// <summary>
-            /// Enum ApplicationXWwwFormUrlencoded for value: application/x-www-form-urlencoded
-            /// </summary>
-            [EnumMember(Value = "application/x-www-form-urlencoded")]
-            ApplicationXWwwFormUrlencoded = 2,
-
-            /// <summary>
-            /// Enum None for value: none
-            /// </summary>
-            [EnumMember(Value = "none")]
-            None = 3
-
-        }
-
-        /// <summary>
-        /// This defines how the request payload will be parsed before your handler code is run.
-        /// </summary>
-        /// <value>This defines how the request payload will be parsed before your handler code is run.</value>
-        [DataMember(Name="mimeType", EmitDefaultValue=false)]
-        public MimeTypeEnum MimeType { get; set; }
-        /// <summary>
-        /// The language of the handler code. Currently only &#x60;\&quot;talang\&quot;&#x60; is supported.
-        /// </summary>
-        /// <value>The language of the handler code. Currently only &#x60;\&quot;talang\&quot;&#x60; is supported.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum HandlerLanguageEnum
-        {
-            /// <summary>
-            /// Enum Talang for value: talang
-            /// </summary>
-            [EnumMember(Value = "talang")]
-            Talang = 1
-
-        }
-
-        /// <summary>
-        /// The language of the handler code. Currently only &#x60;\&quot;talang\&quot;&#x60; is supported.
-        /// </summary>
-        /// <value>The language of the handler code. Currently only &#x60;\&quot;talang\&quot;&#x60; is supported.</value>
-        [DataMember(Name="handlerLanguage", EmitDefaultValue=false)]
-        public HandlerLanguageEnum? HandlerLanguage { get; set; }
-        /// <summary>
         /// Initializes a new instance of the <see cref="NewEventType" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -93,42 +39,18 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewEventType" /> class.
         /// </summary>
-        /// <param name="applicationIds">The IDs of the applications that are related to this entity. (required).</param>
         /// <param name="title">The human-friendly display name for this event type. Use a short, past-tense, description of the event. (required).</param>
         /// <param name="name">The machine-friendly canonical name for this event type. This will be used in URLs, and cannot be changed after an event type has been created. (required).</param>
-        /// <param name="description">An explanation of when the event type is triggered. Write this with a campaign manager in mind. For example:  &gt; The \&quot;Payment Accepted\&quot; event is triggered after successful processing of a payment by our payment gateway.  (required).</param>
-        /// <param name="mimeType">This defines how the request payload will be parsed before your handler code is run. (required).</param>
-        /// <param name="examplePayload">It is often helpful to include an example payload with the event type definition for documentation purposes..</param>
-        /// <param name="schema">It is strongly recommended to define a JSON schema that will be used to perform structural validation of request payloads after parsing. .</param>
-        /// <param name="handlerLanguage">The language of the handler code. Currently only &#x60;\&quot;talang\&quot;&#x60; is supported..</param>
-        /// <param name="handler">Code that will be run after successful parsing &amp; validation of the payload for this event. This code _may_ choose to evaluate campaign rules.  (required).</param>
-        /// <param name="version">The version of this event type. When updating an existing event type this must be **exactly** &#x60;currentVersion + 1&#x60;.  (required).</param>
-        public NewEventType(List<int> applicationIds = default(List<int>), string title = default(string), string name = default(string), string description = default(string), MimeTypeEnum mimeType = default(MimeTypeEnum), string examplePayload = default(string), Object schema = default(Object), HandlerLanguageEnum? handlerLanguage = default(HandlerLanguageEnum?), string handler = default(string), int version = default(int))
+        /// <param name="description">An explanation of when the event type is triggered. Write this with a campaign manager in mind. For example:  &gt; The \&quot;Payment Accepted\&quot; event is triggered after successful processing of a payment by our payment gateway. .</param>
+        public NewEventType(string title = default(string), string name = default(string), string description = default(string))
         {
-            // to ensure "applicationIds" is required (not null)
-            this.ApplicationIds = applicationIds ?? throw new ArgumentNullException("applicationIds is a required property for NewEventType and cannot be null");
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for NewEventType and cannot be null");
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewEventType and cannot be null");
-            // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for NewEventType and cannot be null");
-            this.MimeType = mimeType;
-            // to ensure "handler" is required (not null)
-            this.Handler = handler ?? throw new ArgumentNullException("handler is a required property for NewEventType and cannot be null");
-            this.Version = version;
-            this.ExamplePayload = examplePayload;
-            this.Schema = schema;
-            this.HandlerLanguage = handlerLanguage;
+            this.Description = description;
         }
         
-        /// <summary>
-        /// The IDs of the applications that are related to this entity.
-        /// </summary>
-        /// <value>The IDs of the applications that are related to this entity.</value>
-        [DataMember(Name="applicationIds", EmitDefaultValue=false)]
-        public List<int> ApplicationIds { get; set; }
-
         /// <summary>
         /// The human-friendly display name for this event type. Use a short, past-tense, description of the event.
         /// </summary>
@@ -151,34 +73,6 @@ namespace TalonOne.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// It is often helpful to include an example payload with the event type definition for documentation purposes.
-        /// </summary>
-        /// <value>It is often helpful to include an example payload with the event type definition for documentation purposes.</value>
-        [DataMember(Name="examplePayload", EmitDefaultValue=false)]
-        public string ExamplePayload { get; set; }
-
-        /// <summary>
-        /// It is strongly recommended to define a JSON schema that will be used to perform structural validation of request payloads after parsing. 
-        /// </summary>
-        /// <value>It is strongly recommended to define a JSON schema that will be used to perform structural validation of request payloads after parsing. </value>
-        [DataMember(Name="schema", EmitDefaultValue=false)]
-        public Object Schema { get; set; }
-
-        /// <summary>
-        /// Code that will be run after successful parsing &amp; validation of the payload for this event. This code _may_ choose to evaluate campaign rules. 
-        /// </summary>
-        /// <value>Code that will be run after successful parsing &amp; validation of the payload for this event. This code _may_ choose to evaluate campaign rules. </value>
-        [DataMember(Name="handler", EmitDefaultValue=false)]
-        public string Handler { get; set; }
-
-        /// <summary>
-        /// The version of this event type. When updating an existing event type this must be **exactly** &#x60;currentVersion + 1&#x60;. 
-        /// </summary>
-        /// <value>The version of this event type. When updating an existing event type this must be **exactly** &#x60;currentVersion + 1&#x60;. </value>
-        [DataMember(Name="version", EmitDefaultValue=false)]
-        public int Version { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -186,16 +80,9 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class NewEventType {\n");
-            sb.Append("  ApplicationIds: ").Append(ApplicationIds).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  MimeType: ").Append(MimeType).Append("\n");
-            sb.Append("  ExamplePayload: ").Append(ExamplePayload).Append("\n");
-            sb.Append("  Schema: ").Append(Schema).Append("\n");
-            sb.Append("  HandlerLanguage: ").Append(HandlerLanguage).Append("\n");
-            sb.Append("  Handler: ").Append(Handler).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -231,12 +118,6 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.ApplicationIds == input.ApplicationIds ||
-                    this.ApplicationIds != null &&
-                    input.ApplicationIds != null &&
-                    this.ApplicationIds.SequenceEqual(input.ApplicationIds)
-                ) && 
-                (
                     this.Title == input.Title ||
                     (this.Title != null &&
                     this.Title.Equals(input.Title))
@@ -250,33 +131,6 @@ namespace TalonOne.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.MimeType == input.MimeType ||
-                    this.MimeType.Equals(input.MimeType)
-                ) && 
-                (
-                    this.ExamplePayload == input.ExamplePayload ||
-                    (this.ExamplePayload != null &&
-                    this.ExamplePayload.Equals(input.ExamplePayload))
-                ) && 
-                (
-                    this.Schema == input.Schema ||
-                    (this.Schema != null &&
-                    this.Schema.Equals(input.Schema))
-                ) && 
-                (
-                    this.HandlerLanguage == input.HandlerLanguage ||
-                    this.HandlerLanguage.Equals(input.HandlerLanguage)
-                ) && 
-                (
-                    this.Handler == input.Handler ||
-                    (this.Handler != null &&
-                    this.Handler.Equals(input.Handler))
-                ) && 
-                (
-                    this.Version == input.Version ||
-                    this.Version.Equals(input.Version)
                 );
         }
 
@@ -289,23 +143,12 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ApplicationIds != null)
-                    hashCode = hashCode * 59 + this.ApplicationIds.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.MimeType.GetHashCode();
-                if (this.ExamplePayload != null)
-                    hashCode = hashCode * 59 + this.ExamplePayload.GetHashCode();
-                if (this.Schema != null)
-                    hashCode = hashCode * 59 + this.Schema.GetHashCode();
-                hashCode = hashCode * 59 + this.HandlerLanguage.GetHashCode();
-                if (this.Handler != null)
-                    hashCode = hashCode * 59 + this.Handler.GetHashCode();
-                hashCode = hashCode * 59 + this.Version.GetHashCode();
                 return hashCode;
             }
         }

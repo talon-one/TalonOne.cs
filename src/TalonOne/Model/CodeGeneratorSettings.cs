@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -39,8 +39,8 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CodeGeneratorSettings" /> class.
         /// </summary>
-        /// <param name="validCharacters">Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp). (required).</param>
-        /// <param name="couponPattern">The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set.  (required).</param>
+        /// <param name="validCharacters">List of characters used to generate the random parts of a code. Defaults to a list equivalent to the &#x60;[A-Z, 0-9]&#x60; regexp.  (required).</param>
+        /// <param name="couponPattern">The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set.  (required).</param>
         public CodeGeneratorSettings(List<string> validCharacters = default(List<string>), string couponPattern = default(string))
         {
             // to ensure "validCharacters" is required (not null)
@@ -50,16 +50,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).
+        /// List of characters used to generate the random parts of a code. Defaults to a list equivalent to the &#x60;[A-Z, 0-9]&#x60; regexp. 
         /// </summary>
-        /// <value>Set of characters to be used when generating random part of code. Defaults to [A-Z, 0-9] (in terms of RegExp).</value>
+        /// <value>List of characters used to generate the random parts of a code. Defaults to a list equivalent to the &#x60;[A-Z, 0-9]&#x60; regexp. </value>
         [DataMember(Name="validCharacters", EmitDefaultValue=false)]
         public List<string> ValidCharacters { get; set; }
 
         /// <summary>
-        /// The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. 
+        /// The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set. 
         /// </summary>
-        /// <value>The pattern that will be used to generate coupon codes. The character &#x60;#&#x60; acts as a placeholder and will be replaced by a random character from the &#x60;validCharacters&#x60; set. </value>
+        /// <value>The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set. </value>
         [DataMember(Name="couponPattern", EmitDefaultValue=false)]
         public string CouponPattern { get; set; }
 

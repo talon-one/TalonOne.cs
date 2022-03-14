@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -41,7 +41,9 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">Name of item (required).</param>
         /// <param name="sku">Stock keeping unit of item (required).</param>
-        /// <param name="quantity">Quantity of item. **Important:** If you enabled [cart item flattening](https://help.talon.one/hc/en-us/articles/360016036899-Flattening-Cart-Items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.  (required).</param>
+        /// <param name="quantity">Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.  (required).</param>
+        /// <param name="returnedQuantity">Number of returned items, calculated internally based on returns of this item..</param>
+        /// <param name="remainingQuantity">Remaining quantity of the item, calculated internally based on returns of this item..</param>
         /// <param name="price">Price of item (required).</param>
         /// <param name="category">Type, group or model of the item.</param>
         /// <param name="weight">Weight of item in grams.</param>
@@ -50,7 +52,7 @@ namespace TalonOne.Model
         /// <param name="length">Length of item in mm.</param>
         /// <param name="position">Position of the Cart Item in the Cart (calculated internally).</param>
         /// <param name="attributes">Arbitrary properties associated with this item. You can use built-in attributes or create your own. See [Attributes](https://docs.talon.one/docs/dev/concepts/attributes). .</param>
-        public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), decimal price = default(decimal), string category = default(string), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object))
+        public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), int returnedQuantity = default(int), int remainingQuantity = default(int), decimal price = default(decimal), string category = default(string), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CartItem and cannot be null");
@@ -58,6 +60,8 @@ namespace TalonOne.Model
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for CartItem and cannot be null");
             this.Quantity = quantity;
             this.Price = price;
+            this.ReturnedQuantity = returnedQuantity;
+            this.RemainingQuantity = remainingQuantity;
             this.Category = category;
             this.Weight = weight;
             this.Height = height;
@@ -82,11 +86,25 @@ namespace TalonOne.Model
         public string Sku { get; set; }
 
         /// <summary>
-        /// Quantity of item. **Important:** If you enabled [cart item flattening](https://help.talon.one/hc/en-us/articles/360016036899-Flattening-Cart-Items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. 
+        /// Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. 
         /// </summary>
-        /// <value>Quantity of item. **Important:** If you enabled [cart item flattening](https://help.talon.one/hc/en-us/articles/360016036899-Flattening-Cart-Items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. </value>
+        /// <value>Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#flattened-cart-items), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int Quantity { get; set; }
+
+        /// <summary>
+        /// Number of returned items, calculated internally based on returns of this item.
+        /// </summary>
+        /// <value>Number of returned items, calculated internally based on returns of this item.</value>
+        [DataMember(Name="returnedQuantity", EmitDefaultValue=false)]
+        public int ReturnedQuantity { get; set; }
+
+        /// <summary>
+        /// Remaining quantity of the item, calculated internally based on returns of this item.
+        /// </summary>
+        /// <value>Remaining quantity of the item, calculated internally based on returns of this item.</value>
+        [DataMember(Name="remainingQuantity", EmitDefaultValue=false)]
+        public int RemainingQuantity { get; set; }
 
         /// <summary>
         /// Price of item
@@ -155,6 +173,8 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  ReturnedQuantity: ").Append(ReturnedQuantity).Append("\n");
+            sb.Append("  RemainingQuantity: ").Append(RemainingQuantity).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
@@ -212,6 +232,14 @@ namespace TalonOne.Model
                     this.Quantity.Equals(input.Quantity)
                 ) && 
                 (
+                    this.ReturnedQuantity == input.ReturnedQuantity ||
+                    this.ReturnedQuantity.Equals(input.ReturnedQuantity)
+                ) && 
+                (
+                    this.RemainingQuantity == input.RemainingQuantity ||
+                    this.RemainingQuantity.Equals(input.RemainingQuantity)
+                ) && 
+                (
                     this.Price == input.Price ||
                     this.Price.Equals(input.Price)
                 ) && 
@@ -261,6 +289,8 @@ namespace TalonOne.Model
                 if (this.Sku != null)
                     hashCode = hashCode * 59 + this.Sku.GetHashCode();
                 hashCode = hashCode * 59 + this.Quantity.GetHashCode();
+                hashCode = hashCode * 59 + this.ReturnedQuantity.GetHashCode();
+                hashCode = hashCode * 59 + this.RemainingQuantity.GetHashCode();
                 hashCode = hashCode * 59 + this.Price.GetHashCode();
                 if (this.Category != null)
                     hashCode = hashCode * 59 + this.Category.GetHashCode();

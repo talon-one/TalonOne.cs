@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -42,12 +42,14 @@ namespace TalonOne.Model
         /// <param name="name">The name/description of this discount (required).</param>
         /// <param name="value">The total monetary value of the discount (required).</param>
         /// <param name="scope">The scope which the discount was applied on, can be one of (cartItems,additionalCosts,sessionTotal).</param>
-        public SetDiscountEffectProps(string name = default(string), decimal value = default(decimal), string scope = default(string))
+        /// <param name="desiredValue">The original value of the discount.</param>
+        public SetDiscountEffectProps(string name = default(string), decimal value = default(decimal), string scope = default(string), decimal desiredValue = default(decimal))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SetDiscountEffectProps and cannot be null");
             this.Value = value;
             this.Scope = scope;
+            this.DesiredValue = desiredValue;
         }
         
         /// <summary>
@@ -72,6 +74,13 @@ namespace TalonOne.Model
         public string Scope { get; set; }
 
         /// <summary>
+        /// The original value of the discount
+        /// </summary>
+        /// <value>The original value of the discount</value>
+        [DataMember(Name="desiredValue", EmitDefaultValue=false)]
+        public decimal DesiredValue { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +91,7 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
+            sb.Append("  DesiredValue: ").Append(DesiredValue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,6 +139,10 @@ namespace TalonOne.Model
                     this.Scope == input.Scope ||
                     (this.Scope != null &&
                     this.Scope.Equals(input.Scope))
+                ) && 
+                (
+                    this.DesiredValue == input.DesiredValue ||
+                    this.DesiredValue.Equals(input.DesiredValue)
                 );
         }
 
@@ -146,6 +160,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.Scope != null)
                     hashCode = hashCode * 59 + this.Scope.GetHashCode();
+                hashCode = hashCode * 59 + this.DesiredValue.GetHashCode();
                 return hashCode;
             }
         }

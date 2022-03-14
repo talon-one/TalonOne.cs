@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * The Talon.One API is used to manage applications and campaigns, as well as to integrate with your application. The operations in the _Integration API_ section are used to integrate with our platform, while the other operations are used to manage applications and campaigns.  ### Where is the API?  The API is available at the same hostname as these docs. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerProfile][] operation is `https://mycompany.talon.one/v1/customer_profiles/id`  [updateCustomerProfile]: #operation- -v1-customer_profiles- -integrationId- -put 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you are reading this page at `https://mycompany.talon.one/docs/api/`, the URL for the [updateCustomerSession](https://docs.talon.one/integration-api/#operation/updateCustomerSessionV2) endpoint is `https://mycompany.talon.one/v2/customer_sessions/{Id}` 
  *
  * The version of the OpenAPI document: 1.0.0
  * 
@@ -51,7 +51,8 @@ namespace TalonOne.Model
         /// <param name="attributes">The attributes that the application is subscribed to..</param>
         /// <param name="additionalCosts">The additional costs that the application is subscribed to..</param>
         /// <param name="audiences">The audiences contained in the account which the application belongs to..</param>
-        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>))
+        /// <param name="collections">The account-level collections that the application is subscribed to..</param>
+        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), List<Collection> collections = default(List<Collection>))
         {
             this.Id = id;
             this.Created = created;
@@ -69,6 +70,7 @@ namespace TalonOne.Model
             this.Attributes = attributes;
             this.AdditionalCosts = additionalCosts;
             this.Audiences = audiences;
+            this.Collections = collections;
         }
         
         /// <summary>
@@ -156,6 +158,13 @@ namespace TalonOne.Model
         public List<Audience> Audiences { get; set; }
 
         /// <summary>
+        /// The account-level collections that the application is subscribed to.
+        /// </summary>
+        /// <value>The account-level collections that the application is subscribed to.</value>
+        [DataMember(Name="collections", EmitDefaultValue=false)]
+        public List<Collection> Collections { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -175,6 +184,7 @@ namespace TalonOne.Model
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  AdditionalCosts: ").Append(AdditionalCosts).Append("\n");
             sb.Append("  Audiences: ").Append(Audiences).Append("\n");
+            sb.Append("  Collections: ").Append(Collections).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -274,6 +284,12 @@ namespace TalonOne.Model
                     this.Audiences != null &&
                     input.Audiences != null &&
                     this.Audiences.SequenceEqual(input.Audiences)
+                ) && 
+                (
+                    this.Collections == input.Collections ||
+                    this.Collections != null &&
+                    input.Collections != null &&
+                    this.Collections.SequenceEqual(input.Collections)
                 );
         }
 
@@ -308,6 +324,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.AdditionalCosts.GetHashCode();
                 if (this.Audiences != null)
                     hashCode = hashCode * 59 + this.Audiences.GetHashCode();
+                if (this.Collections != null)
+                    hashCode = hashCode * 59 + this.Collections.GetHashCode();
                 return hashCode;
             }
         }
