@@ -104,25 +104,25 @@ namespace Example
                 },
                 CartItems = new List<CartItem> {
                     new CartItem(
-                        "Hummus Tahini", // Name
-                        "hum-t", // Sku
-                        1, // Quantity
-                        (decimal)5.5, // Price
-                        "Food" // Category
+                        name: "Hummus Tahini",
+                        sku: "hum-t",
+                        quantity: 1,
+                        price: (decimal)5.5,
+                        category: "Food"
                     ),
                     new CartItem(
-                        "Iced Mint Lemonade", // Name
-                        "ice-mn-lemon", // Sku
-                        1, // Quantity
-                        (decimal)3.5, // Price
-                        "Beverages" // Category
+                        name: "Iced Mint Lemonade",
+                        sku: "ice-mn-lemon",
+                        quantity: 1,
+                        price: (decimal)3.5,
+                        category: "Beverages"
                     )
                 }
             };
 
             // Instantiating an IntegrationRequest object
             IntegrationRequest body = new IntegrationRequest(
-                customerSession,
+                customerSession
                 // Optional list of requested information to be present on the response.
                 // See src/TalonOne/Model/IntegrationRequest#ResponseContentEnum for full list of supported values
                 // new List<IntegrationRequest.ResponseContentEnum> {
