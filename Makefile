@@ -14,7 +14,7 @@ endif
 		--rm \
 		-v $(PWD):/tmp/talon-client \
 		-w "/tmp/talon-client/$(BUILD_DIR)" \
-		mcr.microsoft.com/dotnet/sdk:3.1-focal-arm64v8 \
+		mcr.microsoft.com/dotnet/sdk:3.1-focal \
 			dotnet pack TalonOne.csproj \
 				-p:PackageVersion=$(VERSION) \
 				--output . \
@@ -34,7 +34,7 @@ endif
 		--rm \
 		-v $(PWD):/tmp/talon-client \
 		-w "/tmp/talon-client/$(BUILD_DIR)" \
-		mcr.microsoft.com/dotnet/sdk:3.1-focal-arm64v8 \
+		mcr.microsoft.com/dotnet/sdk:3.1-focal \
 			dotnet nuget push TalonOne.$(VERSION).nupkg \
 				--api-key $(apiKey) \
 				--source https://api.nuget.org/v3/index.json
@@ -44,5 +44,5 @@ testenv:
 		--rm -it \
 		-v $(PWD):/tmp/talon-client \
 		-w /tmp/talon-client \
-		mcr.microsoft.com/dotnet/sdk:3.1-focal-arm64v8 \
+		mcr.microsoft.com/dotnet/sdk:3.1-focal \
 		/bin/bash
