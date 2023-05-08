@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Unique ID for this entity. | 
-**Created** | **DateTime** | The exact moment this entity was created. | 
+**Id** | **int** | Internal ID of this entity. | 
+**Created** | **DateTime** | The time this entity was created. | 
 **ApplicationId** | **int** | The ID of the application that owns this entity. | 
 **Title** | **string** | Campaigner-friendly name for the template that will be shown in the rule editor. | 
 **Description** | **string** | A short description of the template that will be shown in the rule editor. | 

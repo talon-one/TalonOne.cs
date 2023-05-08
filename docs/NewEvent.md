@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProfileId** | **string** | ID of the customers profile as used within this Talon.One account.  **Note:** If the customer does not yet have a known profileId, we recommend you use a guest profileId.  | [optional] 
+**ProfileId** | **string** | ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;.  | [optional] 
 **Type** | **string** | A string representing the event. Must not be a reserved event name. | 
 **Attributes** | [**Object**](.md) | Arbitrary additional JSON data associated with the event. | 
 **SessionId** | **string** | The ID of the session that this event occurred in. | 

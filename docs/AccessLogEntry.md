@@ -1,12 +1,12 @@
 # TalonOne.Model.AccessLogEntry
-Log of application accesses
+Log of application accesses.
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Uuid** | **string** | UUID reference of request | 
-**Status** | **int** | HTTP status code of response | 
-**Method** | **string** | HTTP method of request | 
+**Uuid** | **string** | UUID reference of request. | 
+**Status** | **int** | HTTP status code of response. | 
+**Method** | **string** | HTTP method of request. | 
 **RequestUri** | **string** | target URI of request | 
 **Time** | **DateTime** | timestamp of request | 
 **RequestPayload** | **string** | payload of request | 

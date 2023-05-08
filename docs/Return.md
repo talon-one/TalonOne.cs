@@ -3,11 +3,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Unique ID for this entity. | 
-**Created** | **DateTime** | The exact moment this entity was created. | 
+**Id** | **int** | Internal ID of this entity. | 
+**Created** | **DateTime** | The time this entity was created. | 
 **ApplicationId** | **int** | The ID of the application that owns this entity. | 
 **AccountId** | **int** | The ID of the account that owns this entity. | 
-**ReturnedCartItems** | [**List&lt;ReturnedCartItem&gt;**](ReturnedCartItem.md) | List of cart items to be returned | 
+**ReturnedCartItems** | [**List&lt;ReturnedCartItem&gt;**](ReturnedCartItem.md) | List of cart items to be returned. | 
 **EventId** | **int** | The event ID of that was generated for this return. | 
 **SessionId** | **int** | The internal ID of the session this return was requested on. | 
 **SessionIntegrationId** | **string** | The integration ID of the session this return was requested on. | 
