@@ -386,17 +386,35 @@ namespace TalonOne.Client
 
             client.ClearHandlers();
             var existingDeserializer = req.JsonSerializer as IDeserializer;
+            Func<IDeserializer> customJsonCodecDeserializerFactory = () => new CustomJsonCodec(configuration);
+            Func<IDeserializer> xmlDeserializerFactory = () => new XmlDeserializer();
+
             if (existingDeserializer != null)
             {
-                client.AddHandler(() => existingDeserializer, "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                Func<IDeserializer> existingDeserializerFactory = () => existingDeserializer;
+                client.AddHandler("application/json", existingDeserializerFactory);
+                client.AddHandler("text/json", existingDeserializerFactory);
+                client.AddHandler("text/x-json", existingDeserializerFactory);
+                client.AddHandler("text/javascript", existingDeserializerFactory);
+                client.AddHandler("*+json", existingDeserializerFactory);
             }
             else
             {
-                client.AddHandler(() => new CustomJsonCodec(configuration), "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                client.AddHandler("application/json", customJsonCodecDeserializerFactory);
+                client.AddHandler("text/json", customJsonCodecDeserializerFactory);
+                client.AddHandler("text/x-json", customJsonCodecDeserializerFactory);
+                client.AddHandler("text/javascript", customJsonCodecDeserializerFactory);
+                client.AddHandler("*+json", customJsonCodecDeserializerFactory);
             }
 
-            client.AddHandler(() => new XmlDeserializer(), "application/xml", "text/xml", "*+xml", "*");
-            client.AddHandler(() => new CustomJsonCodec(configuration), "text/plain", "text/csv", "application/csv");
+            client.AddHandler("application/xml", xmlDeserializerFactory);
+            client.AddHandler("text/xml", xmlDeserializerFactory);
+            client.AddHandler("*+xml", xmlDeserializerFactory);
+            client.AddHandler("*", xmlDeserializerFactory);
+
+            client.AddHandler("text/plain", customJsonCodecDeserializerFactory);
+            client.AddHandler("text/csv", customJsonCodecDeserializerFactory);
+            client.AddHandler("application/csv", customJsonCodecDeserializerFactory);
 
             client.Timeout = configuration.Timeout;
 
@@ -457,17 +475,35 @@ namespace TalonOne.Client
 
             client.ClearHandlers();
             var existingDeserializer = req.JsonSerializer as IDeserializer;
+            Func<IDeserializer> customJsonCodecDeserializerFactory = () => new CustomJsonCodec(configuration);
+            Func<IDeserializer> xmlDeserializerFactory = () => new XmlDeserializer();
+
             if (existingDeserializer != null)
             {
-                client.AddHandler(() => existingDeserializer, "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                Func<IDeserializer> existingDeserializerFactory = () => existingDeserializer;
+                client.AddHandler("application/json", existingDeserializerFactory);
+                client.AddHandler("text/json", existingDeserializerFactory);
+                client.AddHandler("text/x-json", existingDeserializerFactory);
+                client.AddHandler("text/javascript", existingDeserializerFactory);
+                client.AddHandler("*+json", existingDeserializerFactory);
             }
             else
             {
-                client.AddHandler(() => new CustomJsonCodec(configuration), "application/json", "text/json", "text/x-json", "text/javascript", "*+json");
+                client.AddHandler("application/json", customJsonCodecDeserializerFactory);
+                client.AddHandler("text/json", customJsonCodecDeserializerFactory);
+                client.AddHandler("text/x-json", customJsonCodecDeserializerFactory);
+                client.AddHandler("text/javascript", customJsonCodecDeserializerFactory);
+                client.AddHandler("*+json", customJsonCodecDeserializerFactory);
             }
 
-            client.AddHandler(() => new XmlDeserializer(), "application/xml", "text/xml", "*+xml", "*");
-            client.AddHandler(() => new CustomJsonCodec(configuration), "text/plain", "text/csv", "application/csv");
+            client.AddHandler("application/xml", xmlDeserializerFactory);
+            client.AddHandler("text/xml", xmlDeserializerFactory);
+            client.AddHandler("*+xml", xmlDeserializerFactory);
+            client.AddHandler("*", xmlDeserializerFactory);
+
+            client.AddHandler("text/plain", customJsonCodecDeserializerFactory);
+            client.AddHandler("text/csv", customJsonCodecDeserializerFactory);
+            client.AddHandler("application/csv", customJsonCodecDeserializerFactory);
 
             client.Timeout = configuration.Timeout;
 
