@@ -1,0 +1,9 @@
+# TalonOne.Model.AudienceIntegrationID
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**IntegrationId** | **string** | The ID of this audience in the third-party integration. | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

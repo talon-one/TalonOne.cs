@@ -5,7 +5,7 @@ The body of a V2 integration API request (customer session update). Next to the 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CustomerSession** | [**NewCustomerSessionV2**](NewCustomerSessionV2.md) |  | 
-**ResponseContent** | **List&lt;string&gt;** | Optional list of requested information to be present on the response related to the customer session update.  **Note:** &#x60;ruleFailureReasons&#x60; is always part of the response when the Application type is &#x60;sandbox&#x60;.  | [optional] 
+**ResponseContent** | **List&lt;string&gt;** | Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

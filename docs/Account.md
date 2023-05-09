@@ -3,12 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Unique ID for this entity. | 
-**Created** | **DateTime** | The exact moment this entity was created. | 
-**Modified** | **DateTime** | The exact moment this entity was last modified. | 
+**Id** | **int** | Internal ID of this entity. | 
+**Created** | **DateTime** | The time this entity was created. | 
+**Modified** | **DateTime** | The time this entity was last modified. | 
 **CompanyName** | **string** |  | 
-**DomainName** | **string** | Subdomain Name for yourcompany.talon.one | 
-**State** | **string** | State of the account (active, deactivated) | 
+**DomainName** | **string** | Subdomain Name for yourcompany.talon.one. | 
+**State** | **string** | State of the account (active, deactivated). | 
 **BillingEmail** | **string** | The billing email address associated with your company account. | 
 **PlanName** | **string** | The name of your booked plan. | [optional] 
 **PlanExpires** | **DateTime** | The point in time at which your current plan expires. | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **UserCount** | **int** | The current number of Campaign Manager Users in your account. | 
 **CampaignsActiveCount** | **int** | The current number of active Campaigns in your account. | 
 **CampaignsInactiveCount** | **int** | The current number of inactive Campaigns in your account. | 
-**Attributes** | [**Object**](.md) | Arbitrary properties associated with this campaign | [optional] 
+**Attributes** | [**Object**](.md) | Arbitrary properties associated with this campaign. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

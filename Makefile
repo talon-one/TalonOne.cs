@@ -1,5 +1,8 @@
-BUILD_DIR=src/TalonOne
-VERSION=$(shell grep -om1 -E '^\[assembly: AssemblyVersion\("[0-9\.]+"\)\]$$' $(PWD)/$(BUILD_DIR)/Properties/AssemblyInfo.cs | sed 's/\[assembly: AssemblyVersion("\(.*\)")\]/\1/')
+BUILD_DIR:=src/TalonOne
+VERSION:=$(shell grep -om1 -E '^\[assembly: AssemblyVersion\("[0-9\.]+"\)\]$$' $(PWD)/$(BUILD_DIR)/Properties/AssemblyInfo.cs | sed 's/\[assembly: AssemblyVersion("\(.*\)")\]/\1/')
+DOCKER_TAG_ARCH:=$(shell [[ $(shell uname -m) == "arm64" ]] && echo "3.1-focal-arm64v8" || echo "sdk:3.1-focal")
+
+default: testenv
 
 clean:
 	rm -rf $(PWD)/$(BUILD_DIR)/TalonOne.$(VERSION)*.nupkg && \
@@ -14,7 +17,7 @@ endif
 		--rm \
 		-v $(PWD):/tmp/talon-client \
 		-w "/tmp/talon-client/$(BUILD_DIR)" \
-		mcr.microsoft.com/dotnet/sdk:3.1-focal \
+		mcr.microsoft.com/dotnet/sdk:$(DOCKER_TAG_ARCH) \
 			dotnet pack TalonOne.csproj \
 				-p:PackageVersion=$(VERSION) \
 				--output . \
@@ -34,15 +37,16 @@ endif
 		--rm \
 		-v $(PWD):/tmp/talon-client \
 		-w "/tmp/talon-client/$(BUILD_DIR)" \
-		mcr.microsoft.com/dotnet/sdk:3.1-focal \
+		mcr.microsoft.com/dotnet/sdk:$(DOCKER_TAG_ARCH) \
 			dotnet nuget push TalonOne.$(VERSION).nupkg \
 				--api-key $(apiKey) \
 				--source https://api.nuget.org/v3/index.json
 
+.PHONY: testenv
 testenv:
 	docker run \
 		--rm -it \
 		-v $(PWD):/tmp/talon-client \
 		-w /tmp/talon-client \
-		mcr.microsoft.com/dotnet/sdk:3.1-focal \
+		mcr.microsoft.com/dotnet/sdk:$(DOCKER_TAG_ARCH) \
 		/bin/bash

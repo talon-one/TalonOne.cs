@@ -4,7 +4,7 @@ The properties specific to the \"rollbackCoupon\" effect. This gets triggered wh
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Value** | **string** | The coupon code whose usage has been rolled back | 
+**Value** | **string** | The coupon code whose usage has been rolled back. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
