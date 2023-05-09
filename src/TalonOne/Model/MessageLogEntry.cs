@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class MessageLogEntry :  IEquatable<MessageLogEntry>, IValidatableObject
     {
         /// <summary>
-        /// The entity type the log is related to. 
+        /// The entity type the notification is related to. 
         /// </summary>
-        /// <value>The entity type the log is related to. </value>
+        /// <value>The entity type the notification is related to. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EntityTypeEnum
         {
@@ -48,20 +48,14 @@ namespace TalonOne.Model
             /// Enum Loyaltyprogram for value: loyalty_program
             /// </summary>
             [EnumMember(Value = "loyalty_program")]
-            Loyaltyprogram = 2,
-
-            /// <summary>
-            /// Enum Webhook for value: webhook
-            /// </summary>
-            [EnumMember(Value = "webhook")]
-            Webhook = 3
+            Loyaltyprogram = 2
 
         }
 
         /// <summary>
-        /// The entity type the log is related to. 
+        /// The entity type the notification is related to. 
         /// </summary>
-        /// <value>The entity type the log is related to. </value>
+        /// <value>The entity type the notification is related to. </value>
         [DataMember(Name="entityType", EmitDefaultValue=false)]
         public EntityTypeEnum? EntityType { get; set; }
         /// <summary>
@@ -80,11 +74,10 @@ namespace TalonOne.Model
         /// <param name="request">request.</param>
         /// <param name="response">response.</param>
         /// <param name="createdAt">Timestamp when the log entry was created. (required).</param>
-        /// <param name="entityType">The entity type the log is related to. .</param>
-        /// <param name="url">The target URL of the request..</param>
+        /// <param name="entityType">The entity type the notification is related to. .</param>
         /// <param name="applicationId">Identifier of the Application..</param>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program..</param>
-        public MessageLogEntry(string id = default(string), string service = default(string), string changeType = default(string), int notificationId = default(int), string notificationName = default(string), MessageLogRequest request = default(MessageLogRequest), MessageLogResponse response = default(MessageLogResponse), DateTime createdAt = default(DateTime), EntityTypeEnum? entityType = default(EntityTypeEnum?), string url = default(string), int applicationId = default(int), int loyaltyProgramId = default(int))
+        public MessageLogEntry(string id = default(string), string service = default(string), string changeType = default(string), int notificationId = default(int), string notificationName = default(string), MessageLogRequest request = default(MessageLogRequest), MessageLogResponse response = default(MessageLogResponse), DateTime createdAt = default(DateTime), EntityTypeEnum? entityType = default(EntityTypeEnum?), int applicationId = default(int), int loyaltyProgramId = default(int))
         {
             // to ensure "id" is required (not null)
             this.Id = id ?? throw new ArgumentNullException("id is a required property for MessageLogEntry and cannot be null");
@@ -97,7 +90,6 @@ namespace TalonOne.Model
             this.Request = request;
             this.Response = response;
             this.EntityType = entityType;
-            this.Url = url;
             this.ApplicationId = applicationId;
             this.LoyaltyProgramId = loyaltyProgramId;
         }
@@ -157,13 +149,6 @@ namespace TalonOne.Model
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
-        /// The target URL of the request.
-        /// </summary>
-        /// <value>The target URL of the request.</value>
-        [DataMember(Name="url", EmitDefaultValue=false)]
-        public string Url { get; set; }
-
-        /// <summary>
         /// Identifier of the Application.
         /// </summary>
         /// <value>Identifier of the Application.</value>
@@ -194,7 +179,6 @@ namespace TalonOne.Model
             sb.Append("  Response: ").Append(Response).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
-            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  LoyaltyProgramId: ").Append(LoyaltyProgramId).Append("\n");
             sb.Append("}\n");
@@ -275,11 +259,6 @@ namespace TalonOne.Model
                     this.EntityType.Equals(input.EntityType)
                 ) && 
                 (
-                    this.Url == input.Url ||
-                    (this.Url != null &&
-                    this.Url.Equals(input.Url))
-                ) && 
-                (
                     this.ApplicationId == input.ApplicationId ||
                     this.ApplicationId.Equals(input.ApplicationId)
                 ) && 
@@ -314,8 +293,6 @@ namespace TalonOne.Model
                 if (this.CreatedAt != null)
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 hashCode = hashCode * 59 + this.EntityType.GetHashCode();
-                if (this.Url != null)
-                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyProgramId.GetHashCode();
                 return hashCode;

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **Limits** | [**List&lt;LimitConfig&gt;**](LimitConfig.md) | Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured.  | [optional] 
 **RecipientIntegrationId** | **string** | The integration ID for this coupon&#39;s beneficiary&#39;s profile. | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this item. | [optional] 
-**IsReservationMandatory** | **bool** | Whether the reservation effect actually created a new reservation. | [optional] [default to false]
+**IsReservationMandatory** | **bool** | An indication of whether the code can be redeemed only if it has been reserved first. | [optional] [default to false]
 **ImplicitlyReserved** | **bool** | An indication of whether the coupon is implicitly reserved for all customers. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

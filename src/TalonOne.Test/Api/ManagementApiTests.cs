@@ -56,6 +56,18 @@ namespace TalonOne.Test
 
         
         /// <summary>
+        /// Test ActivateUserByEmail
+        /// </summary>
+        [Fact]
+        public void ActivateUserByEmailTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //ActivateUserRequest body = null;
+            //instance.ActivateUserByEmail(body);
+            
+        }
+        
+        /// <summary>
         /// Test AddLoyaltyCardPoints
         /// </summary>
         [Fact]
@@ -818,17 +830,6 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test GetAllRoles
-        /// </summary>
-        [Fact]
-        public void GetAllRolesTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GetAllRoles();
-            //Assert.IsType<InlineResponse20044> (response, "response is InlineResponse20044");
-        }
-        
-        /// <summary>
         /// Test GetApplication
         /// </summary>
         [Fact]
@@ -1545,15 +1546,15 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test GetRole
+        /// Test GetRoleV2
         /// </summary>
         [Fact]
-        public void GetRoleTest()
+        public void GetRoleV2Test()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int roleId = null;
-            //var response = instance.GetRole(roleId);
-            //Assert.IsType<Role> (response, "response is Role");
+            //var response = instance.GetRoleV2(roleId);
+            //Assert.IsType<RoleV2> (response, "response is RoleV2");
         }
         
         /// <summary>
@@ -1833,6 +1834,18 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test InviteUserExternal
+        /// </summary>
+        [Fact]
+        public void InviteUserExternalTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //NewExternalInvitation body = null;
+            //instance.InviteUserExternal(body);
+            
+        }
+        
+        /// <summary>
         /// Test ListAccountCollections
         /// </summary>
         [Fact]
@@ -1862,6 +1875,17 @@ namespace TalonOne.Test
             //string title = null;
             //var response = instance.ListAchievements(applicationId, campaignId, pageSize, skip, title);
             //Assert.IsType<InlineResponse20046> (response, "response is InlineResponse20046");
+        }
+        
+        /// <summary>
+        /// Test ListAllRolesV2
+        /// </summary>
+        [Fact]
+        public void ListAllRolesV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.ListAllRolesV2();
+            //Assert.IsType<InlineResponse20044> (response, "response is InlineResponse20044");
         }
         
         /// <summary>

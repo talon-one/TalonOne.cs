@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **RecipientIntegrationId** | **string** | The integration ID for this coupon&#39;s beneficiary&#39;s profile. | [optional] 
 **ValidCharacters** | **List&lt;string&gt;** | List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression.  | [optional] 
 **CouponPattern** | **string** | The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set.  | [optional] 
-**IsReservationMandatory** | **bool** | Whether the reservation effect actually created a new reservation. | [optional] [default to false]
+**IsReservationMandatory** | **bool** | An indication of whether the code can be redeemed only if it has been reserved first. | [optional] [default to false]
 **ImplicitlyReserved** | **bool** | An indication of whether the coupon is implicitly reserved for all customers. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

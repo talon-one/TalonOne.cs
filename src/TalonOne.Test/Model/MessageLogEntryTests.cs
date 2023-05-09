@@ -130,14 +130,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'EntityType'
         }
         /// <summary>
-        /// Test the property 'Url'
-        /// </summary>
-        [Fact]
-        public void UrlTest()
-        {
-            // TODO unit test for the property 'Url'
-        }
-        /// <summary>
         /// Test the property 'ApplicationId'
         /// </summary>
         [Fact]

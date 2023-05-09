@@ -250,6 +250,7 @@ Class | Method | HTTP request | Description
 *IntegrationApi* | [**UpdateCustomerProfileV2**](docs/IntegrationApi.md#updatecustomerprofilev2) | **PUT** /v2/customer_profiles/{integrationId} | Update customer profile
 *IntegrationApi* | [**UpdateCustomerProfilesV2**](docs/IntegrationApi.md#updatecustomerprofilesv2) | **PUT** /v2/customer_profiles | Update multiple customer profiles
 *IntegrationApi* | [**UpdateCustomerSessionV2**](docs/IntegrationApi.md#updatecustomersessionv2) | **PUT** /v2/customer_sessions/{customerSessionId} | Update customer session
+*ManagementApi* | [**ActivateUserByEmail**](docs/ManagementApi.md#activateuserbyemail) | **POST** /v1/users/activate | Activate user by email address
 *ManagementApi* | [**AddLoyaltyCardPoints**](docs/ManagementApi.md#addloyaltycardpoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/add_points | Add points to card
 *ManagementApi* | [**AddLoyaltyPoints**](docs/ManagementApi.md#addloyaltypoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/add_points | Add points to customer profile
 *ManagementApi* | [**CopyCampaignToApplications**](docs/ManagementApi.md#copycampaigntoapplications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into the specified Application
@@ -304,7 +305,6 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**GetAdditionalCost**](docs/ManagementApi.md#getadditionalcost) | **GET** /v1/additional_costs/{additionalCostId} | Get additional cost
 *ManagementApi* | [**GetAdditionalCosts**](docs/ManagementApi.md#getadditionalcosts) | **GET** /v1/additional_costs | List additional costs
 *ManagementApi* | [**GetAllAccessLogs**](docs/ManagementApi.md#getallaccesslogs) | **GET** /v1/access_logs | List access logs
-*ManagementApi* | [**GetAllRoles**](docs/ManagementApi.md#getallroles) | **GET** /v1/roles | List roles
 *ManagementApi* | [**GetApplication**](docs/ManagementApi.md#getapplication) | **GET** /v1/applications/{applicationId} | Get Application
 *ManagementApi* | [**GetApplicationApiHealth**](docs/ManagementApi.md#getapplicationapihealth) | **GET** /v1/applications/{applicationId}/health_report | Get Application health
 *ManagementApi* | [**GetApplicationCustomer**](docs/ManagementApi.md#getapplicationcustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get application's customer
@@ -350,7 +350,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**GetLoyaltyPrograms**](docs/ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List loyalty programs
 *ManagementApi* | [**GetLoyaltyStatistics**](docs/ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
 *ManagementApi* | [**GetReferralsWithoutTotalCount**](docs/ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
-*ManagementApi* | [**GetRole**](docs/ManagementApi.md#getrole) | **GET** /v1/roles/{roleId} | Get role
+*ManagementApi* | [**GetRoleV2**](docs/ManagementApi.md#getrolev2) | **GET** /v2/roles/{roleId} | Get role
 *ManagementApi* | [**GetRuleset**](docs/ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
 *ManagementApi* | [**GetRulesets**](docs/ManagementApi.md#getrulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List campaign rulesets
 *ManagementApi* | [**GetStore**](docs/ManagementApi.md#getstore) | **GET** /v1/applications/{applicationId}/stores/{storeId} | Get store
@@ -370,8 +370,10 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**ImportLoyaltyPoints**](docs/ManagementApi.md#importloyaltypoints) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_points | Import loyalty points
 *ManagementApi* | [**ImportPoolGiveaways**](docs/ManagementApi.md#importpoolgiveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaway codes into a giveaway pool
 *ManagementApi* | [**ImportReferrals**](docs/ManagementApi.md#importreferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals
+*ManagementApi* | [**InviteUserExternal**](docs/ManagementApi.md#inviteuserexternal) | **POST** /v1/users/invite | Invite user from identity provider
 *ManagementApi* | [**ListAccountCollections**](docs/ManagementApi.md#listaccountcollections) | **GET** /v1/collections | List collections in account
 *ManagementApi* | [**ListAchievements**](docs/ManagementApi.md#listachievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | List achievements
+*ManagementApi* | [**ListAllRolesV2**](docs/ManagementApi.md#listallrolesv2) | **GET** /v2/roles | List roles
 *ManagementApi* | [**ListCatalogItems**](docs/ManagementApi.md#listcatalogitems) | **GET** /v1/catalogs/{catalogId}/items | List items in a catalog
 *ManagementApi* | [**ListCollections**](docs/ManagementApi.md#listcollections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections in campaign
 *ManagementApi* | [**ListCollectionsInApplication**](docs/ManagementApi.md#listcollectionsinapplication) | **GET** /v1/applications/{applicationId}/collections | List collections in Application
@@ -421,6 +423,7 @@ Class | Method | HTTP request | Description
  - [Model.Achievement](docs/Achievement.md)
  - [Model.AchievementAdditionalProperties](docs/AchievementAdditionalProperties.md)
  - [Model.AchievementProgress](docs/AchievementProgress.md)
+ - [Model.ActivateUserRequest](docs/ActivateUserRequest.md)
  - [Model.AddFreeItemEffectProps](docs/AddFreeItemEffectProps.md)
  - [Model.AddItemCatalogAction](docs/AddItemCatalogAction.md)
  - [Model.AddLoyaltyPoints](docs/AddLoyaltyPoints.md)
@@ -660,6 +663,7 @@ Class | Method | HTTP request | Description
  - [Model.LoyaltyBalance](docs/LoyaltyBalance.md)
  - [Model.LoyaltyBalances](docs/LoyaltyBalances.md)
  - [Model.LoyaltyCard](docs/LoyaltyCard.md)
+ - [Model.LoyaltyCardBalances](docs/LoyaltyCardBalances.md)
  - [Model.LoyaltyCardProfileRegistration](docs/LoyaltyCardProfileRegistration.md)
  - [Model.LoyaltyCardRegistration](docs/LoyaltyCardRegistration.md)
  - [Model.LoyaltyDashboardData](docs/LoyaltyDashboardData.md)
@@ -718,6 +722,7 @@ Class | Method | HTTP request | Description
  - [Model.NewCustomerSessionV2](docs/NewCustomerSessionV2.md)
  - [Model.NewEvent](docs/NewEvent.md)
  - [Model.NewEventType](docs/NewEventType.md)
+ - [Model.NewExternalInvitation](docs/NewExternalInvitation.md)
  - [Model.NewGiveawaysPool](docs/NewGiveawaysPool.md)
  - [Model.NewInternalAudience](docs/NewInternalAudience.md)
  - [Model.NewInvitation](docs/NewInvitation.md)

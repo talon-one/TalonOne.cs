@@ -57,9 +57,9 @@ namespace TalonOne.Model
         /// <param name="referralId">The integration ID of the referring customer (if any) for whom this coupon was created as an effect..</param>
         /// <param name="recipientIntegrationId">The Integration ID of the customer that is allowed to redeem this coupon..</param>
         /// <param name="importId">The ID of the Import which created this coupon..</param>
-        /// <param name="reservation">Defines the type of reservation: - &#x60;true&#x60;: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation](https://docs.talon.one/integration-api#operation/createCouponReservation) endpoint. - &#x60;false&#x60;: The reservation is a hard reservation. Only the associated customer (&#x60;recipientIntegrationId&#x60;) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given &#x60;recipientIntegrationId&#x60;, the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoint.  (default to true).</param>
+        /// <param name="reservation">Defines the reservation type: - &#x60;true&#x60;: The coupon can be reserved for multiple customers. - &#x60;false&#x60;: The coupon can be reserved only for one customer. It is a personal code.  (default to true).</param>
         /// <param name="batchId">The id of the batch the coupon belongs to..</param>
-        /// <param name="isReservationMandatory">Whether the reservation effect actually created a new reservation. (default to false).</param>
+        /// <param name="isReservationMandatory">An indication of whether the code can be redeemed only if it has been reserved first. (default to false).</param>
         /// <param name="implicitlyReserved">An indication of whether the coupon is implicitly reserved for all customers..</param>
         public Coupon(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), string value = default(string), int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), int usageCounter = default(int), decimal discountCounter = default(decimal), decimal discountRemainder = default(decimal), decimal reservationCounter = default(decimal), Object attributes = default(Object), int referralId = default(int), string recipientIntegrationId = default(string), int importId = default(int), bool reservation = true, string batchId = default(string), bool isReservationMandatory = false, bool implicitlyReserved = default(bool))
         {
@@ -215,9 +215,9 @@ namespace TalonOne.Model
         public int ImportId { get; set; }
 
         /// <summary>
-        /// Defines the type of reservation: - &#x60;true&#x60;: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation](https://docs.talon.one/integration-api#operation/createCouponReservation) endpoint. - &#x60;false&#x60;: The reservation is a hard reservation. Only the associated customer (&#x60;recipientIntegrationId&#x60;) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given &#x60;recipientIntegrationId&#x60;, the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoint. 
+        /// Defines the reservation type: - &#x60;true&#x60;: The coupon can be reserved for multiple customers. - &#x60;false&#x60;: The coupon can be reserved only for one customer. It is a personal code. 
         /// </summary>
-        /// <value>Defines the type of reservation: - &#x60;true&#x60;: The reservation is a soft reservation. Any customer can use the coupon. This is done via the [Create coupon reservation](https://docs.talon.one/integration-api#operation/createCouponReservation) endpoint. - &#x60;false&#x60;: The reservation is a hard reservation. Only the associated customer (&#x60;recipientIntegrationId&#x60;) can use the coupon. This is done via the Campaign Manager when you create a coupon for a given &#x60;recipientIntegrationId&#x60;, the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoint. </value>
+        /// <value>Defines the reservation type: - &#x60;true&#x60;: The coupon can be reserved for multiple customers. - &#x60;false&#x60;: The coupon can be reserved only for one customer. It is a personal code. </value>
         [DataMember(Name="reservation", EmitDefaultValue=false)]
         public bool Reservation { get; set; }
 
@@ -229,9 +229,9 @@ namespace TalonOne.Model
         public string BatchId { get; set; }
 
         /// <summary>
-        /// Whether the reservation effect actually created a new reservation.
+        /// An indication of whether the code can be redeemed only if it has been reserved first.
         /// </summary>
-        /// <value>Whether the reservation effect actually created a new reservation.</value>
+        /// <value>An indication of whether the code can be redeemed only if it has been reserved first.</value>
         [DataMember(Name="isReservationMandatory", EmitDefaultValue=false)]
         public bool IsReservationMandatory { get; set; }
 

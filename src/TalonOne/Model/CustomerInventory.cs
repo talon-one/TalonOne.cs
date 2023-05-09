@@ -37,7 +37,7 @@ namespace TalonOne.Model
         /// <param name="profile">profile.</param>
         /// <param name="loyalty">loyalty.</param>
         /// <param name="referrals">referrals.</param>
-        /// <param name="coupons">The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon&#39;s &#x60;reservation&#x60; property. .</param>
+        /// <param name="coupons">The coupons reserved by this profile. This array includes hard and soft reservations. .</param>
         /// <param name="giveaways">giveaways.</param>
         /// <param name="achievements">achievements.</param>
         public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<InventoryReferral> referrals = default(List<InventoryReferral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>), List<AchievementProgress> achievements = default(List<AchievementProgress>))
@@ -69,9 +69,9 @@ namespace TalonOne.Model
         public List<InventoryReferral> Referrals { get; set; }
 
         /// <summary>
-        /// The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon&#39;s &#x60;reservation&#x60; property. 
+        /// The coupons reserved by this profile. This array includes hard and soft reservations. 
         /// </summary>
-        /// <value>The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon&#39;s &#x60;reservation&#x60; property. </value>
+        /// <value>The coupons reserved by this profile. This array includes hard and soft reservations. </value>
         [DataMember(Name="coupons", EmitDefaultValue=false)]
         public List<InventoryCoupon> Coupons { get; set; }
 

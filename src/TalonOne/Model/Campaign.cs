@@ -171,7 +171,19 @@ namespace TalonOne.Model
             /// Enum Draft for value: draft
             /// </summary>
             [EnumMember(Value = "draft")]
-            Draft = 4
+            Draft = 4,
+
+            /// <summary>
+            /// Enum Disabled for value: disabled
+            /// </summary>
+            [EnumMember(Value = "disabled")]
+            Disabled = 5,
+
+            /// <summary>
+            /// Enum Archived for value: archived
+            /// </summary>
+            [EnumMember(Value = "archived")]
+            Archived = 6
 
         }
 

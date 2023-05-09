@@ -26,41 +26,32 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// LoyaltyCardProfileRegistration
+    /// ActivateUserRequest
     /// </summary>
     [DataContract]
-    public partial class LoyaltyCardProfileRegistration :  IEquatable<LoyaltyCardProfileRegistration>, IValidatableObject
+    public partial class ActivateUserRequest :  IEquatable<ActivateUserRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoyaltyCardProfileRegistration" /> class.
+        /// Initializes a new instance of the <see cref="ActivateUserRequest" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LoyaltyCardProfileRegistration() { }
+        protected ActivateUserRequest() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoyaltyCardProfileRegistration" /> class.
+        /// Initializes a new instance of the <see cref="ActivateUserRequest" /> class.
         /// </summary>
-        /// <param name="integrationId">Integration ID of the customer profile linked to the card. (required).</param>
-        /// <param name="timestamp">Timestamp the customer profile was linked to the card. (required).</param>
-        public LoyaltyCardProfileRegistration(string integrationId = default(string), DateTime timestamp = default(DateTime))
+        /// <param name="email">The email address associated with the user profile. (required).</param>
+        public ActivateUserRequest(string email = default(string))
         {
-            // to ensure "integrationId" is required (not null)
-            this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for LoyaltyCardProfileRegistration and cannot be null");
-            this.Timestamp = timestamp;
+            // to ensure "email" is required (not null)
+            this.Email = email ?? throw new ArgumentNullException("email is a required property for ActivateUserRequest and cannot be null");
         }
         
         /// <summary>
-        /// Integration ID of the customer profile linked to the card.
+        /// The email address associated with the user profile.
         /// </summary>
-        /// <value>Integration ID of the customer profile linked to the card.</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
-        public string IntegrationId { get; set; }
-
-        /// <summary>
-        /// Timestamp the customer profile was linked to the card.
-        /// </summary>
-        /// <value>Timestamp the customer profile was linked to the card.</value>
-        [DataMember(Name="timestamp", EmitDefaultValue=false)]
-        public DateTime Timestamp { get; set; }
+        /// <value>The email address associated with the user profile.</value>
+        [DataMember(Name="email", EmitDefaultValue=false)]
+        public string Email { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +60,8 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LoyaltyCardProfileRegistration {\n");
-            sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
-            sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
+            sb.Append("class ActivateUserRequest {\n");
+            sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +82,24 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LoyaltyCardProfileRegistration);
+            return this.Equals(input as ActivateUserRequest);
         }
 
         /// <summary>
-        /// Returns true if LoyaltyCardProfileRegistration instances are equal
+        /// Returns true if ActivateUserRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of LoyaltyCardProfileRegistration to be compared</param>
+        /// <param name="input">Instance of ActivateUserRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LoyaltyCardProfileRegistration input)
+        public bool Equals(ActivateUserRequest input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.IntegrationId == input.IntegrationId ||
-                    (this.IntegrationId != null &&
-                    this.IntegrationId.Equals(input.IntegrationId))
-                ) && 
-                (
-                    this.Timestamp == input.Timestamp ||
-                    (this.Timestamp != null &&
-                    this.Timestamp.Equals(input.Timestamp))
+                    this.Email == input.Email ||
+                    (this.Email != null &&
+                    this.Email.Equals(input.Email))
                 );
         }
 
@@ -127,10 +112,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IntegrationId != null)
-                    hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
-                if (this.Timestamp != null)
-                    hashCode = hashCode * 59 + this.Timestamp.GetHashCode();
+                if (this.Email != null)
+                    hashCode = hashCode * 59 + this.Email.GetHashCode();
                 return hashCode;
             }
         }
@@ -142,12 +125,6 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // IntegrationId (string) maxLength
-            if(this.IntegrationId != null && this.IntegrationId.Length > 1000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationId, length must be less than 1000.", new [] { "IntegrationId" });
-            }
-
             yield break;
         }
     }

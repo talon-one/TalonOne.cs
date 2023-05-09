@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="limits">Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. .</param>
         /// <param name="recipientIntegrationId">The integration ID for this coupon&#39;s beneficiary&#39;s profile..</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
-        /// <param name="isReservationMandatory">Whether the reservation effect actually created a new reservation. (default to false).</param>
+        /// <param name="isReservationMandatory">An indication of whether the code can be redeemed only if it has been reserved first. (default to false).</param>
         /// <param name="implicitlyReserved">An indication of whether the coupon is implicitly reserved for all customers..</param>
         public UpdateCoupon(int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), string recipientIntegrationId = default(string), Object attributes = default(Object), bool isReservationMandatory = false, bool implicitlyReserved = default(bool))
         {
@@ -115,9 +115,9 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// Whether the reservation effect actually created a new reservation.
+        /// An indication of whether the code can be redeemed only if it has been reserved first.
         /// </summary>
-        /// <value>Whether the reservation effect actually created a new reservation.</value>
+        /// <value>An indication of whether the code can be redeemed only if it has been reserved first.</value>
         [DataMember(Name="isReservationMandatory", EmitDefaultValue=false)]
         public bool IsReservationMandatory { get; set; }
 

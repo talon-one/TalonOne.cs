@@ -26,41 +26,43 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// LoyaltyCardProfileRegistration
+    /// LoyaltyCardBalances
     /// </summary>
     [DataContract]
-    public partial class LoyaltyCardProfileRegistration :  IEquatable<LoyaltyCardProfileRegistration>, IValidatableObject
+    public partial class LoyaltyCardBalances :  IEquatable<LoyaltyCardBalances>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoyaltyCardProfileRegistration" /> class.
+        /// Initializes a new instance of the <see cref="LoyaltyCardBalances" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected LoyaltyCardProfileRegistration() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="LoyaltyCardProfileRegistration" /> class.
-        /// </summary>
-        /// <param name="integrationId">Integration ID of the customer profile linked to the card. (required).</param>
-        /// <param name="timestamp">Timestamp the customer profile was linked to the card. (required).</param>
-        public LoyaltyCardProfileRegistration(string integrationId = default(string), DateTime timestamp = default(DateTime))
+        /// <param name="balance">balance.</param>
+        /// <param name="subledgerBalances">Map of the loyalty balances of the subledgers of a ledger..</param>
+        /// <param name="profiles">Customer profiles linked to the loyalty card..</param>
+        public LoyaltyCardBalances(LoyaltyBalance balance = default(LoyaltyBalance), Dictionary<string, LoyaltyBalance> subledgerBalances = default(Dictionary<string, LoyaltyBalance>), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>))
         {
-            // to ensure "integrationId" is required (not null)
-            this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for LoyaltyCardProfileRegistration and cannot be null");
-            this.Timestamp = timestamp;
+            this.Balance = balance;
+            this.SubledgerBalances = subledgerBalances;
+            this.Profiles = profiles;
         }
         
         /// <summary>
-        /// Integration ID of the customer profile linked to the card.
+        /// Gets or Sets Balance
         /// </summary>
-        /// <value>Integration ID of the customer profile linked to the card.</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
-        public string IntegrationId { get; set; }
+        [DataMember(Name="balance", EmitDefaultValue=false)]
+        public LoyaltyBalance Balance { get; set; }
 
         /// <summary>
-        /// Timestamp the customer profile was linked to the card.
+        /// Map of the loyalty balances of the subledgers of a ledger.
         /// </summary>
-        /// <value>Timestamp the customer profile was linked to the card.</value>
-        [DataMember(Name="timestamp", EmitDefaultValue=false)]
-        public DateTime Timestamp { get; set; }
+        /// <value>Map of the loyalty balances of the subledgers of a ledger.</value>
+        [DataMember(Name="subledgerBalances", EmitDefaultValue=false)]
+        public Dictionary<string, LoyaltyBalance> SubledgerBalances { get; set; }
+
+        /// <summary>
+        /// Customer profiles linked to the loyalty card.
+        /// </summary>
+        /// <value>Customer profiles linked to the loyalty card.</value>
+        [DataMember(Name="profiles", EmitDefaultValue=false)]
+        public List<LoyaltyCardProfileRegistration> Profiles { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,9 +71,10 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LoyaltyCardProfileRegistration {\n");
-            sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
-            sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
+            sb.Append("class LoyaltyCardBalances {\n");
+            sb.Append("  Balance: ").Append(Balance).Append("\n");
+            sb.Append("  SubledgerBalances: ").Append(SubledgerBalances).Append("\n");
+            sb.Append("  Profiles: ").Append(Profiles).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -92,29 +95,36 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LoyaltyCardProfileRegistration);
+            return this.Equals(input as LoyaltyCardBalances);
         }
 
         /// <summary>
-        /// Returns true if LoyaltyCardProfileRegistration instances are equal
+        /// Returns true if LoyaltyCardBalances instances are equal
         /// </summary>
-        /// <param name="input">Instance of LoyaltyCardProfileRegistration to be compared</param>
+        /// <param name="input">Instance of LoyaltyCardBalances to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LoyaltyCardProfileRegistration input)
+        public bool Equals(LoyaltyCardBalances input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.IntegrationId == input.IntegrationId ||
-                    (this.IntegrationId != null &&
-                    this.IntegrationId.Equals(input.IntegrationId))
+                    this.Balance == input.Balance ||
+                    (this.Balance != null &&
+                    this.Balance.Equals(input.Balance))
                 ) && 
                 (
-                    this.Timestamp == input.Timestamp ||
-                    (this.Timestamp != null &&
-                    this.Timestamp.Equals(input.Timestamp))
+                    this.SubledgerBalances == input.SubledgerBalances ||
+                    this.SubledgerBalances != null &&
+                    input.SubledgerBalances != null &&
+                    this.SubledgerBalances.SequenceEqual(input.SubledgerBalances)
+                ) && 
+                (
+                    this.Profiles == input.Profiles ||
+                    this.Profiles != null &&
+                    input.Profiles != null &&
+                    this.Profiles.SequenceEqual(input.Profiles)
                 );
         }
 
@@ -127,10 +137,12 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.IntegrationId != null)
-                    hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
-                if (this.Timestamp != null)
-                    hashCode = hashCode * 59 + this.Timestamp.GetHashCode();
+                if (this.Balance != null)
+                    hashCode = hashCode * 59 + this.Balance.GetHashCode();
+                if (this.SubledgerBalances != null)
+                    hashCode = hashCode * 59 + this.SubledgerBalances.GetHashCode();
+                if (this.Profiles != null)
+                    hashCode = hashCode * 59 + this.Profiles.GetHashCode();
                 return hashCode;
             }
         }
@@ -142,12 +154,6 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // IntegrationId (string) maxLength
-            if(this.IntegrationId != null && this.IntegrationId.Length > 1000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationId, length must be less than 1000.", new [] { "IntegrationId" });
-            }
-
             yield break;
         }
     }

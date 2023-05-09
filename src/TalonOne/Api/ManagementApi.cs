@@ -30,6 +30,27 @@ namespace TalonOne.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Activate user by email address
+        /// </summary>
+        /// <remarks>
+        /// Activate a deactivated user by their email address. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns></returns>
+        void ActivateUserByEmail (ActivateUserRequest body);
+
+        /// <summary>
+        /// Activate user by email address
+        /// </summary>
+        /// <remarks>
+        /// Activate a deactivated user by their email address. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ActivateUserByEmailWithHttpInfo (ActivateUserRequest body);
+        /// <summary>
         /// Add points to card
         /// </summary>
         /// <remarks>
@@ -868,7 +889,7 @@ namespace TalonOne.Api
         /// Export coupons
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon is reserved. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
+        /// Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -893,7 +914,7 @@ namespace TalonOne.Api
         /// Export coupons
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon is reserved. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
+        /// Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -1391,25 +1412,6 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20020</returns>
         ApiResponse<InlineResponse20020> GetAllAccessLogsWithHttpInfo (DateTime? rangeStart = default(DateTime?), DateTime? rangeEnd = default(DateTime?), string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
-        /// <summary>
-        /// List roles
-        /// </summary>
-        /// <remarks>
-        /// List all roles.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse20044</returns>
-        InlineResponse20044 GetAllRoles ();
-
-        /// <summary>
-        /// List roles
-        /// </summary>
-        /// <remarks>
-        /// List all roles.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse20044</returns>
-        ApiResponse<InlineResponse20044> GetAllRolesWithHttpInfo ();
         /// <summary>
         /// Get Application
         /// </summary>
@@ -2711,23 +2713,23 @@ namespace TalonOne.Api
         /// Get role
         /// </summary>
         /// <remarks>
-        /// Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get the details of a specific role. To see all the roles, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. </param>
-        /// <returns>Role</returns>
-        Role GetRole (int roleId);
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
+        /// <returns>RoleV2</returns>
+        RoleV2 GetRoleV2 (int roleId);
 
         /// <summary>
         /// Get role
         /// </summary>
         /// <remarks>
-        /// Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get the details of a specific role. To see all the roles, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. </param>
-        /// <returns>ApiResponse of Role</returns>
-        ApiResponse<Role> GetRoleWithHttpInfo (int roleId);
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
+        /// <returns>ApiResponse of RoleV2</returns>
+        ApiResponse<RoleV2> GetRoleV2WithHttpInfo (int roleId);
         /// <summary>
         /// Get ruleset
         /// </summary>
@@ -3083,7 +3085,7 @@ namespace TalonOne.Api
         /// Import coupons
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+        /// Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -3097,7 +3099,7 @@ namespace TalonOne.Api
         /// Import coupons
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+        /// Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -3224,6 +3226,27 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of Import</returns>
         ApiResponse<Import> ImportReferralsWithHttpInfo (int applicationId, int campaignId, string upFile = default(string));
         /// <summary>
+        /// Invite user from identity provider
+        /// </summary>
+        /// <remarks>
+        /// Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns></returns>
+        void InviteUserExternal (NewExternalInvitation body);
+
+        /// <summary>
+        /// Invite user from identity provider
+        /// </summary>
+        /// <remarks>
+        /// Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> InviteUserExternalWithHttpInfo (NewExternalInvitation body);
+        /// <summary>
         /// List collections in account
         /// </summary>
         /// <remarks>
@@ -3281,6 +3304,25 @@ namespace TalonOne.Api
         /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20046</returns>
         ApiResponse<InlineResponse20046> ListAchievementsWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string title = default(string));
+        /// <summary>
+        /// List roles
+        /// </summary>
+        /// <remarks>
+        /// List all roles.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse20044</returns>
+        InlineResponse20044 ListAllRolesV2 ();
+
+        /// <summary>
+        /// List roles
+        /// </summary>
+        /// <remarks>
+        /// List all roles.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse20044</returns>
+        ApiResponse<InlineResponse20044> ListAllRolesV2WithHttpInfo ();
         /// <summary>
         /// List items in a catalog
         /// </summary>
@@ -3933,7 +3975,7 @@ namespace TalonOne.Api
         /// Update a specific role.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The ID of role. </param>
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>RoleV2</returns>
         RoleV2 UpdateRoleV2 (int roleId, RoleV2Base body);
@@ -3945,7 +3987,7 @@ namespace TalonOne.Api
         /// Update a specific role.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The ID of role. </param>
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of RoleV2</returns>
         ApiResponse<RoleV2> UpdateRoleV2WithHttpInfo (int roleId, RoleV2Base body);
@@ -4006,6 +4048,27 @@ namespace TalonOne.Api
     public interface IManagementApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
+        /// <summary>
+        /// Activate user by email address
+        /// </summary>
+        /// <remarks>
+        /// Activate a deactivated user by their email address. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ActivateUserByEmailAsync (ActivateUserRequest body);
+
+        /// <summary>
+        /// Activate user by email address
+        /// </summary>
+        /// <remarks>
+        /// Activate a deactivated user by their email address. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ActivateUserByEmailAsyncWithHttpInfo (ActivateUserRequest body);
         /// <summary>
         /// Add points to card
         /// </summary>
@@ -4845,7 +4908,7 @@ namespace TalonOne.Api
         /// Export coupons
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon is reserved. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
+        /// Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -4870,7 +4933,7 @@ namespace TalonOne.Api
         /// Export coupons
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon is reserved. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
+        /// Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -5368,25 +5431,6 @@ namespace TalonOne.Api
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20020)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20020>> GetAllAccessLogsAsyncWithHttpInfo (DateTime? rangeStart = default(DateTime?), DateTime? rangeEnd = default(DateTime?), string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
-        /// <summary>
-        /// List roles
-        /// </summary>
-        /// <remarks>
-        /// List all roles.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse20044</returns>
-        System.Threading.Tasks.Task<InlineResponse20044> GetAllRolesAsync ();
-
-        /// <summary>
-        /// List roles
-        /// </summary>
-        /// <remarks>
-        /// List all roles.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse20044)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20044>> GetAllRolesAsyncWithHttpInfo ();
         /// <summary>
         /// Get Application
         /// </summary>
@@ -6688,23 +6732,23 @@ namespace TalonOne.Api
         /// Get role
         /// </summary>
         /// <remarks>
-        /// Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get the details of a specific role. To see all the roles, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. </param>
-        /// <returns>Task of Role</returns>
-        System.Threading.Tasks.Task<Role> GetRoleAsync (int roleId);
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
+        /// <returns>Task of RoleV2</returns>
+        System.Threading.Tasks.Task<RoleV2> GetRoleV2Async (int roleId);
 
         /// <summary>
         /// Get role
         /// </summary>
         /// <remarks>
-        /// Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get the details of a specific role. To see all the roles, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. </param>
-        /// <returns>Task of ApiResponse (Role)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Role>> GetRoleAsyncWithHttpInfo (int roleId);
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
+        /// <returns>Task of ApiResponse (RoleV2)</returns>
+        System.Threading.Tasks.Task<ApiResponse<RoleV2>> GetRoleV2AsyncWithHttpInfo (int roleId);
         /// <summary>
         /// Get ruleset
         /// </summary>
@@ -7060,7 +7104,7 @@ namespace TalonOne.Api
         /// Import coupons
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+        /// Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -7074,7 +7118,7 @@ namespace TalonOne.Api
         /// Import coupons
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+        /// Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -7201,6 +7245,27 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (Import)</returns>
         System.Threading.Tasks.Task<ApiResponse<Import>> ImportReferralsAsyncWithHttpInfo (int applicationId, int campaignId, string upFile = default(string));
         /// <summary>
+        /// Invite user from identity provider
+        /// </summary>
+        /// <remarks>
+        /// Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task InviteUserExternalAsync (NewExternalInvitation body);
+
+        /// <summary>
+        /// Invite user from identity provider
+        /// </summary>
+        /// <remarks>
+        /// Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> InviteUserExternalAsyncWithHttpInfo (NewExternalInvitation body);
+        /// <summary>
         /// List collections in account
         /// </summary>
         /// <remarks>
@@ -7258,6 +7323,25 @@ namespace TalonOne.Api
         /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20046)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20046>> ListAchievementsAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string title = default(string));
+        /// <summary>
+        /// List roles
+        /// </summary>
+        /// <remarks>
+        /// List all roles.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse20044</returns>
+        System.Threading.Tasks.Task<InlineResponse20044> ListAllRolesV2Async ();
+
+        /// <summary>
+        /// List roles
+        /// </summary>
+        /// <remarks>
+        /// List all roles.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse20044)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20044>> ListAllRolesV2AsyncWithHttpInfo ();
         /// <summary>
         /// List items in a catalog
         /// </summary>
@@ -7910,7 +7994,7 @@ namespace TalonOne.Api
         /// Update a specific role.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The ID of role. </param>
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of RoleV2</returns>
         System.Threading.Tasks.Task<RoleV2> UpdateRoleV2Async (int roleId, RoleV2Base body);
@@ -7922,7 +8006,7 @@ namespace TalonOne.Api
         /// Update a specific role.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The ID of role. </param>
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (RoleV2)</returns>
         System.Threading.Tasks.Task<ApiResponse<RoleV2>> UpdateRoleV2AsyncWithHttpInfo (int roleId, RoleV2Base body);
@@ -8092,6 +8176,159 @@ namespace TalonOne.Api
                 return _exceptionFactory;
             }
             set { _exceptionFactory = value; }
+        }
+
+        /// <summary>
+        /// Activate user by email address Activate a deactivated user by their email address. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns></returns>
+        public void ActivateUserByEmail (ActivateUserRequest body)
+        {
+             ActivateUserByEmailWithHttpInfo(body);
+        }
+
+        /// <summary>
+        /// Activate user by email address Activate a deactivated user by their email address. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public TalonOne.Client.ApiResponse<Object> ActivateUserByEmailWithHttpInfo (ActivateUserRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->ActivateUserByEmail");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/v1/users/activate", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ActivateUserByEmail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Activate user by email address Activate a deactivated user by their email address. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ActivateUserByEmailAsync (ActivateUserRequest body)
+        {
+             await ActivateUserByEmailAsyncWithHttpInfo(body);
+
+        }
+
+        /// <summary>
+        /// Activate user by email address Activate a deactivated user by their email address. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> ActivateUserByEmailAsyncWithHttpInfo (ActivateUserRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->ActivateUserByEmail");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/users/activate", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ActivateUserByEmail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -13846,7 +14083,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export coupons Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon is reserved. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
+        /// Export coupons Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -13872,7 +14109,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export coupons Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon is reserved. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
+        /// Export coupons Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -14002,7 +14239,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export coupons Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon is reserved. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
+        /// Export coupons Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -14029,7 +14266,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export coupons Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon is reserved. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
+        /// Export coupons Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - &#x60;accountid&#x60;: The ID of your deployment. - &#x60;applicationid&#x60;: The ID of the Application this coupon is related to. - &#x60;attributes&#x60;: A json object describing _custom_ referral attribute names and their values. - &#x60;batchid&#x60;: The ID of the batch this coupon is part of. - &#x60;campaignid&#x60;: The ID of the campaign this coupon is related to. - &#x60;counter&#x60;: The number of times this coupon has been redeemed. - &#x60;created&#x60;: The creation date of the coupon code. - &#x60;deleted&#x60;: Whether the coupon code is deleted. - &#x60;deleted_changelogid&#x60;: The ID of the delete event in the logs. - &#x60;discount_counter&#x60;: The amount of discount given by this coupon. - &#x60;discount_limitval&#x60;: The maximum discount amount that can be given be this coupon. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;id&#x60;: The internal ID of the coupon code. - &#x60;importid&#x60;: The ID of the import job that created this coupon. - &#x60;is_reservation_mandatory&#x60;: Whether this coupon requires a reservation to be redeemed. - &#x60;limits&#x60;: The limits set on this coupon. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;referralid&#x60;: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - &#x60;reservation&#x60;: Whether the coupon can be reserved for multiple customers. - &#x60;reservation_counter&#x60;: How many times this coupon has been reserved. - &#x60;reservation_limitval&#x60;: The maximum of number of reservations this coupon can have. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;value&#x60;: The coupon code. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -17400,147 +17637,6 @@ namespace TalonOne.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetAllAccessLogs", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List roles List all roles.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse20044</returns>
-        public InlineResponse20044 GetAllRoles ()
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20044> localVarResponse = GetAllRolesWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List roles List all roles.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse20044</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20044 > GetAllRolesWithHttpInfo ()
-        {
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20044 >("/v1/roles", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetAllRoles", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List roles List all roles.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse20044</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20044> GetAllRolesAsync ()
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20044> localVarResponse = await GetAllRolesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List roles List all roles.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse20044)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20044>> GetAllRolesAsyncWithHttpInfo ()
-        {
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20044>("/v1/roles", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetAllRoles", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -26283,24 +26379,24 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get role Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get role Get the details of a specific role. To see all the roles, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. </param>
-        /// <returns>Role</returns>
-        public Role GetRole (int roleId)
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
+        /// <returns>RoleV2</returns>
+        public RoleV2 GetRoleV2 (int roleId)
         {
-             TalonOne.Client.ApiResponse<Role> localVarResponse = GetRoleWithHttpInfo(roleId);
+             TalonOne.Client.ApiResponse<RoleV2> localVarResponse = GetRoleV2WithHttpInfo(roleId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get role Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get role Get the details of a specific role. To see all the roles, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. </param>
-        /// <returns>ApiResponse of Role</returns>
-        public TalonOne.Client.ApiResponse< Role > GetRoleWithHttpInfo (int roleId)
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
+        /// <returns>ApiResponse of RoleV2</returns>
+        public TalonOne.Client.ApiResponse< RoleV2 > GetRoleV2WithHttpInfo (int roleId)
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -26342,12 +26438,12 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< Role >("/v1/roles/{roleId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< RoleV2 >("/v2/roles/{roleId}", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRole", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetRoleV2", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -26355,25 +26451,25 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get role Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get role Get the details of a specific role. To see all the roles, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. </param>
-        /// <returns>Task of Role</returns>
-        public async System.Threading.Tasks.Task<Role> GetRoleAsync (int roleId)
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
+        /// <returns>Task of RoleV2</returns>
+        public async System.Threading.Tasks.Task<RoleV2> GetRoleV2Async (int roleId)
         {
-             TalonOne.Client.ApiResponse<Role> localVarResponse = await GetRoleAsyncWithHttpInfo(roleId);
+             TalonOne.Client.ApiResponse<RoleV2> localVarResponse = await GetRoleV2AsyncWithHttpInfo(roleId);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get role Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get role Get the details of a specific role. To see all the roles, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. </param>
-        /// <returns>Task of ApiResponse (Role)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Role>> GetRoleAsyncWithHttpInfo (int roleId)
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
+        /// <returns>Task of ApiResponse (RoleV2)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<RoleV2>> GetRoleV2AsyncWithHttpInfo (int roleId)
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -26417,12 +26513,12 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Role>("/v1/roles/{roleId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<RoleV2>("/v2/roles/{roleId}", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRole", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetRoleV2", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -28861,7 +28957,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import coupons Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+        /// Import coupons Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -28876,7 +28972,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import coupons Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+        /// Import coupons Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -28955,7 +29051,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import coupons Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+        /// Import coupons Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -28971,7 +29067,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import coupons Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+        /// Import coupons Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - &#x60;value&#x60; (required): The coupon code. - &#x60;expirydate&#x60;: The end date in RFC3339 of the code redemption period. - &#x60;startdate&#x60;: The start date in RFC3339 of the code redemption period. - &#x60;recipientintegrationid&#x60;: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - &#x60;limitval&#x60;: The maximum number of redemptions of this code. For unlimited redemptions, use &#x60;0&#x60;. Defaults to &#x60;1&#x60; when not provided. - &#x60;discountlimit&#x60;: The total discount value that the code can give. This is typically used to represent a gift card value. - &#x60;attributes&#x60;: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called &#x60;category&#x60; associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: &#x60;\&quot;{\&quot;category\&quot;: \&quot;10_off\&quot;}\&quot;&#x60;.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  &#x60;&#x60;&#x60;text \&quot;value\&quot;,\&quot;expirydate\&quot;,\&quot;startdate\&quot;,\&quot;recipientintegrationid\&quot;,\&quot;limitval\&quot;,\&quot;attributes\&quot;,\&quot;discountlimit\&quot; COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\&quot;{\&quot;\&quot;Category\&quot;\&quot;: \&quot;\&quot;10_off\&quot;\&quot;}\&quot;,2.4 &#x60;&#x60;&#x60;  Once imported, you can find the &#x60;batchId&#x60; in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -29923,6 +30019,159 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Invite user from identity provider Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns></returns>
+        public void InviteUserExternal (NewExternalInvitation body)
+        {
+             InviteUserExternalWithHttpInfo(body);
+        }
+
+        /// <summary>
+        /// Invite user from identity provider Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public TalonOne.Client.ApiResponse<Object> InviteUserExternalWithHttpInfo (NewExternalInvitation body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->InviteUserExternal");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/v1/users/invite", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("InviteUserExternal", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Invite user from identity provider Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task InviteUserExternalAsync (NewExternalInvitation body)
+        {
+             await InviteUserExternalAsyncWithHttpInfo(body);
+
+        }
+
+        /// <summary>
+        /// Invite user from identity provider Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> InviteUserExternalAsyncWithHttpInfo (NewExternalInvitation body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->InviteUserExternal");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/users/invite", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("InviteUserExternal", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List collections in account List account-level collections in the account.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
@@ -30306,6 +30555,147 @@ namespace TalonOne.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListAchievements", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List roles List all roles.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse20044</returns>
+        public InlineResponse20044 ListAllRolesV2 ()
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20044> localVarResponse = ListAllRolesV2WithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List roles List all roles.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse20044</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20044 > ListAllRolesV2WithHttpInfo ()
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< InlineResponse20044 >("/v2/roles", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAllRolesV2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List roles List all roles.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse20044</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20044> ListAllRolesV2Async ()
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20044> localVarResponse = await ListAllRolesV2AsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List roles List all roles.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse20044)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20044>> ListAllRolesV2AsyncWithHttpInfo ()
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20044>("/v2/roles", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAllRolesV2", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -34697,7 +35087,7 @@ namespace TalonOne.Api
         /// Update role Update a specific role.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The ID of role. </param>
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>RoleV2</returns>
         public RoleV2 UpdateRoleV2 (int roleId, RoleV2Base body)
@@ -34710,7 +35100,7 @@ namespace TalonOne.Api
         /// Update role Update a specific role.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The ID of role. </param>
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of RoleV2</returns>
         public TalonOne.Client.ApiResponse< RoleV2 > UpdateRoleV2WithHttpInfo (int roleId, RoleV2Base body)
@@ -34777,7 +35167,7 @@ namespace TalonOne.Api
         /// Update role Update a specific role.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The ID of role. </param>
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of RoleV2</returns>
         public async System.Threading.Tasks.Task<RoleV2> UpdateRoleV2Async (int roleId, RoleV2Base body)
@@ -34791,7 +35181,7 @@ namespace TalonOne.Api
         /// Update role Update a specific role.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The ID of role. </param>
+        /// <param name="roleId">The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (RoleV2)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<RoleV2>> UpdateRoleV2AsyncWithHttpInfo (int roleId, RoleV2Base body)

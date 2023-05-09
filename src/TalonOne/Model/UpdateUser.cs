@@ -65,7 +65,7 @@ namespace TalonOne.Model
         /// <param name="state">The state of the user.   - &#x60;deactivated&#x60;: The user has been deactivated.   - &#x60;active&#x60;: The user is active.  **Note**: Only &#x60;admin&#x60; users can update the state of another user. .</param>
         /// <param name="isAdmin">Indicates whether the user is an &#x60;admin&#x60;..</param>
         /// <param name="policy">Indicates the access level of the user..</param>
-        /// <param name="roles">A list of the IDs of the roles assigned to the user.  **Note**: Use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint to find the ID of a role. .</param>
+        /// <param name="roles">A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. .</param>
         /// <param name="applicationNotificationSubscriptions">Application notifications that the user is subscribed to..</param>
         public UpdateUser(string name = default(string), StateEnum? state = default(StateEnum?), bool isAdmin = default(bool), string policy = default(string), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object))
         {
@@ -99,9 +99,9 @@ namespace TalonOne.Model
         public string Policy { get; set; }
 
         /// <summary>
-        /// A list of the IDs of the roles assigned to the user.  **Note**: Use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint to find the ID of a role. 
+        /// A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </summary>
-        /// <value>A list of the IDs of the roles assigned to the user.  **Note**: Use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint to find the ID of a role. </value>
+        /// <value>A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
         public List<int> Roles { get; set; }
 

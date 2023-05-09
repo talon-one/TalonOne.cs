@@ -51,7 +51,7 @@ namespace TalonOne.Model
         /// The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property.
         /// </summary>
         /// <value>The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property.</value>
-        [DataMember(Name="position", EmitDefaultValue=true)]
+        [DataMember(Name="position", EmitDefaultValue=false)]
         public int Position { get; set; }
 
         /// <summary>

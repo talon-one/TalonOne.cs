@@ -4,6 +4,7 @@ All URIs are relative to *https://yourbaseurl.talon.one*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**ActivateUserByEmail**](ManagementApi.md#activateuserbyemail) | **POST** /v1/users/activate | Activate user by email address
 [**AddLoyaltyCardPoints**](ManagementApi.md#addloyaltycardpoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/add_points | Add points to card
 [**AddLoyaltyPoints**](ManagementApi.md#addloyaltypoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/add_points | Add points to customer profile
 [**CopyCampaignToApplications**](ManagementApi.md#copycampaigntoapplications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into the specified Application
@@ -58,7 +59,6 @@ Method | HTTP request | Description
 [**GetAdditionalCost**](ManagementApi.md#getadditionalcost) | **GET** /v1/additional_costs/{additionalCostId} | Get additional cost
 [**GetAdditionalCosts**](ManagementApi.md#getadditionalcosts) | **GET** /v1/additional_costs | List additional costs
 [**GetAllAccessLogs**](ManagementApi.md#getallaccesslogs) | **GET** /v1/access_logs | List access logs
-[**GetAllRoles**](ManagementApi.md#getallroles) | **GET** /v1/roles | List roles
 [**GetApplication**](ManagementApi.md#getapplication) | **GET** /v1/applications/{applicationId} | Get Application
 [**GetApplicationApiHealth**](ManagementApi.md#getapplicationapihealth) | **GET** /v1/applications/{applicationId}/health_report | Get Application health
 [**GetApplicationCustomer**](ManagementApi.md#getapplicationcustomer) | **GET** /v1/applications/{applicationId}/customers/{customerId} | Get application&#39;s customer
@@ -104,7 +104,7 @@ Method | HTTP request | Description
 [**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List loyalty programs
 [**GetLoyaltyStatistics**](ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
 [**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
-[**GetRole**](ManagementApi.md#getrole) | **GET** /v1/roles/{roleId} | Get role
+[**GetRoleV2**](ManagementApi.md#getrolev2) | **GET** /v2/roles/{roleId} | Get role
 [**GetRuleset**](ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
 [**GetRulesets**](ManagementApi.md#getrulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List campaign rulesets
 [**GetStore**](ManagementApi.md#getstore) | **GET** /v1/applications/{applicationId}/stores/{storeId} | Get store
@@ -124,8 +124,10 @@ Method | HTTP request | Description
 [**ImportLoyaltyPoints**](ManagementApi.md#importloyaltypoints) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_points | Import loyalty points
 [**ImportPoolGiveaways**](ManagementApi.md#importpoolgiveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaway codes into a giveaway pool
 [**ImportReferrals**](ManagementApi.md#importreferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals
+[**InviteUserExternal**](ManagementApi.md#inviteuserexternal) | **POST** /v1/users/invite | Invite user from identity provider
 [**ListAccountCollections**](ManagementApi.md#listaccountcollections) | **GET** /v1/collections | List collections in account
 [**ListAchievements**](ManagementApi.md#listachievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | List achievements
+[**ListAllRolesV2**](ManagementApi.md#listallrolesv2) | **GET** /v2/roles | List roles
 [**ListCatalogItems**](ManagementApi.md#listcatalogitems) | **GET** /v1/catalogs/{catalogId}/items | List items in a catalog
 [**ListCollections**](ManagementApi.md#listcollections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections in campaign
 [**ListCollectionsInApplication**](ManagementApi.md#listcollectionsinapplication) | **GET** /v1/applications/{applicationId}/collections | List collections in Application
@@ -153,6 +155,84 @@ Method | HTTP request | Description
 [**UpdateStore**](ManagementApi.md#updatestore) | **PUT** /v1/applications/{applicationId}/stores/{storeId} | Update store
 [**UpdateUser**](ManagementApi.md#updateuser) | **PUT** /v1/users/{userId} | Update user
 
+
+<a name="activateuserbyemail"></a>
+# **ActivateUserByEmail**
+> void ActivateUserByEmail (ActivateUserRequest body)
+
+Activate user by email address
+
+Activate a deactivated user by their email address. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ActivateUserByEmailExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var body = new ActivateUserRequest(); // ActivateUserRequest | body
+
+            try
+            {
+                // Activate user by email address
+                apiInstance.ActivateUserByEmail(body);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ActivateUserByEmail: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ActivateUserRequest**](ActivateUserRequest.md)| body | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="addloyaltycardpoints"></a>
 # **AddLoyaltyCardPoints**
@@ -3043,7 +3123,7 @@ Name | Type | Description  | Notes
 
 Export coupons
 
-Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the customer considered as recipient of the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon is reserved. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code. 
+Download a CSV file containing the coupons that match the given properties.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file can contain the following columns:  - `accountid`: The ID of your deployment. - `applicationid`: The ID of the Application this coupon is related to. - `attributes`: A json object describing _custom_ referral attribute names and their values. - `batchid`: The ID of the batch this coupon is part of. - `campaignid`: The ID of the campaign this coupon is related to. - `counter`: The number of times this coupon has been redeemed. - `created`: The creation date of the coupon code. - `deleted`: Whether the coupon code is deleted. - `deleted_changelogid`: The ID of the delete event in the logs. - `discount_counter`: The amount of discount given by this coupon. - `discount_limitval`: The maximum discount amount that can be given be this coupon. - `expirydate`: The end date in RFC3339 of the code redemption period. - `id`: The internal ID of the coupon code. - `importid`: The ID of the import job that created this coupon. - `is_reservation_mandatory`: Whether this coupon requires a reservation to be redeemed. - `limits`: The limits set on this coupon. - `limitval`: The maximum number of redemptions of this code. - `recipientintegrationid`: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - `referralid`: The ID of the referral code that triggered the creation of this coupon (create coupon effect). - `reservation`: Whether the coupon can be reserved for multiple customers. - `reservation_counter`: How many times this coupon has been reserved. - `reservation_limitval`: The maximum of number of reservations this coupon can have. - `startdate`: The start date in RFC3339 of the code redemption period. - `value`: The coupon code. 
 
 ### Example
 ```csharp
@@ -4661,81 +4741,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InlineResponse20020**](InlineResponse20020.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="getallroles"></a>
-# **GetAllRoles**
-> InlineResponse20044 GetAllRoles ()
-
-List roles
-
-List all roles.
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class GetAllRolesExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://yourbaseurl.talon.one";
-            // Configure API key authorization: management_key
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure API key authorization: manager_auth
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(config);
-
-            try
-            {
-                // List roles
-                InlineResponse20044 result = apiInstance.GetAllRoles();
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling ManagementApi.GetAllRoles: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -8674,13 +8679,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a name="getrole"></a>
-# **GetRole**
-> Role GetRole (int roleId)
+<a name="getrolev2"></a>
+# **GetRoleV2**
+> RoleV2 GetRoleV2 (int roleId)
 
 Get role
 
-Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
+Get the details of a specific role. To see all the roles, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
 
 ### Example
 ```csharp
@@ -8692,7 +8697,7 @@ using TalonOne.Model;
 
 namespace Example
 {
-    public class GetRoleExample
+    public class GetRoleV2Example
     {
         public static void Main()
         {
@@ -8708,17 +8713,17 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(config);
-            var roleId = 56;  // int | ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint. 
+            var roleId = 56;  // int | The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
 
             try
             {
                 // Get role
-                Role result = apiInstance.GetRole(roleId);
+                RoleV2 result = apiInstance.GetRoleV2(roleId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ManagementApi.GetRole: " + e.Message );
+                Debug.Print("Exception when calling ManagementApi.GetRoleV2: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -8731,11 +8736,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleId** | **int**| ID of role.  **Note**: To find the ID of a role, use the [List roles](https://docs.talon.one/management-api#tag/Roles/operation/getAllRoles) endpoint.  | 
+ **roleId** | **int**| The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint.  | 
 
 ### Return type
 
-[**Role**](Role.md)
+[**RoleV2**](RoleV2.md)
 
 ### Authorization
 
@@ -9874,7 +9879,7 @@ Name | Type | Description  | Notes
 
 Import coupons
 
-Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the customer who receives the coupon.   Only the customer with this integration ID can redeem the corresponding coupon code.   Learn about [coupon reservation](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code). - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
+Upload a CSV file containing the coupons that should be created. The file should be sent as multipart data.  The CSV file contains the following columns:  - `value` (required): The coupon code. - `expirydate`: The end date in RFC3339 of the code redemption period. - `startdate`: The start date in RFC3339 of the code redemption period. - `recipientintegrationid`: The integration ID of the recipient of the coupon.   Only the customer with this integration ID can redeem this code. Available only for personal codes. - `limitval`: The maximum number of redemptions of this code. For unlimited redemptions, use `0`. Defaults to `1` when not provided. - `discountlimit`: The total discount value that the code can give. This is typically used to represent a gift card value. - `attributes`: A JSON object describing _custom_ coupon attribute names and their values, enclosed with double quotation marks.    For example, if you created a [custom attribute](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes)   called `category` associated with the coupon entity, the object in the CSV file, when opened in a text editor, must be: `\"{\"category\": \"10_off\"}\"`.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:**  ```text \"value\",\"expirydate\",\"startdate\",\"recipientintegrationid\",\"limitval\",\"attributes\",\"discountlimit\" COUP1,2018-07-01T04:00:00Z,2018-05-01T04:00:00Z,cust123,1,\"{\"\"Category\"\": \"\"10_off\"\"}\",2.4 ```  Once imported, you can find the `batchId` in the Campaign Manager or by using [List coupons](#tag/Coupons/operation/getCouponsWithoutTotalCount). 
 
 ### Example
 ```csharp
@@ -10365,6 +10370,84 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="inviteuserexternal"></a>
+# **InviteUserExternal**
+> void InviteUserExternal (NewExternalInvitation body)
+
+Invite user from identity provider
+
+Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class InviteUserExternalExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var body = new NewExternalInvitation(); // NewExternalInvitation | body
+
+            try
+            {
+                // Invite user from identity provider
+                apiInstance.InviteUserExternal(body);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.InviteUserExternal: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**NewExternalInvitation**](NewExternalInvitation.md)| body | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Invitation email sent |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listaccountcollections"></a>
 # **ListAccountCollections**
 > InlineResponse20017 ListAccountCollections (int? pageSize = null, int? skip = null, string sort = null, bool? withTotalResultSize = null, string name = null)
@@ -10525,6 +10608,81 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**InlineResponse20046**](InlineResponse20046.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listallrolesv2"></a>
+# **ListAllRolesV2**
+> InlineResponse20044 ListAllRolesV2 ()
+
+List roles
+
+List all roles.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ListAllRolesV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+
+            try
+            {
+                // List roles
+                InlineResponse20044 result = apiInstance.ListAllRolesV2();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ListAllRolesV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -12578,7 +12736,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(config);
-            var roleId = 56;  // int | The ID of role. 
+            var roleId = 56;  // int | The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
             var body = ;  // RoleV2Base | body
 
             try
@@ -12602,7 +12760,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **roleId** | **int**| The ID of role.  | 
+ **roleId** | **int**| The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint.  | 
  **body** | **RoleV2Base**| body | 
 
 ### Return type

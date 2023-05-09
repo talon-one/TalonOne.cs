@@ -194,7 +194,7 @@ namespace TalonOne.Test
             //int loyaltyProgramId = null;
             //string integrationId = null;
             //DateTime? endDate = null;
-            //List<string> subledgerId = null;
+            //string subledgerId = null;
             //var response = instance.GetLoyaltyBalances(loyaltyProgramId, integrationId, endDate, subledgerId);
             //Assert.IsType<LoyaltyBalances> (response, "response is LoyaltyBalances");
         }
@@ -211,7 +211,7 @@ namespace TalonOne.Test
             //DateTime? endDate = null;
             //List<string> subledgerId = null;
             //var response = instance.GetLoyaltyCardBalances(loyaltyProgramId, loyaltyCardId, endDate, subledgerId);
-            //Assert.IsType<LoyaltyBalances> (response, "response is LoyaltyBalances");
+            //Assert.IsType<LoyaltyCardBalances> (response, "response is LoyaltyCardBalances");
         }
         
         /// <summary>
@@ -224,7 +224,7 @@ namespace TalonOne.Test
             //int loyaltyProgramId = null;
             //string loyaltyCardId = null;
             //string status = null;
-            //string subledgerId = null;
+            //List<string> subledgerId = null;
             //int? pageSize = null;
             //int? skip = null;
             //var response = instance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
@@ -240,7 +240,7 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int loyaltyProgramId = null;
             //string loyaltyCardId = null;
-            //string subledgerId = null;
+            //List<string> subledgerId = null;
             //string loyaltyTransactionType = null;
             //DateTime? startDate = null;
             //DateTime? endDate = null;

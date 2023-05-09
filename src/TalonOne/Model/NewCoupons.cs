@@ -51,7 +51,7 @@ namespace TalonOne.Model
         /// <param name="recipientIntegrationId">The integration ID for this coupon&#39;s beneficiary&#39;s profile..</param>
         /// <param name="validCharacters">List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. .</param>
         /// <param name="couponPattern">The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set. .</param>
-        /// <param name="isReservationMandatory">Whether the reservation effect actually created a new reservation. (default to false).</param>
+        /// <param name="isReservationMandatory">An indication of whether the code can be redeemed only if it has been reserved first. (default to false).</param>
         /// <param name="implicitlyReserved">An indication of whether the coupon is implicitly reserved for all customers..</param>
         public NewCoupons(int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), int numberOfCoupons = default(int), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string), List<string> validCharacters = default(List<string>), string couponPattern = default(string), bool isReservationMandatory = false, bool implicitlyReserved = default(bool))
         {
@@ -156,9 +156,9 @@ namespace TalonOne.Model
         public string CouponPattern { get; set; }
 
         /// <summary>
-        /// Whether the reservation effect actually created a new reservation.
+        /// An indication of whether the code can be redeemed only if it has been reserved first.
         /// </summary>
-        /// <value>Whether the reservation effect actually created a new reservation.</value>
+        /// <value>An indication of whether the code can be redeemed only if it has been reserved first.</value>
         [DataMember(Name="isReservationMandatory", EmitDefaultValue=false)]
         public bool IsReservationMandatory { get; set; }
 

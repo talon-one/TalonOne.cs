@@ -65,7 +65,7 @@ namespace TalonOne.Model
         /// Price of the item.
         /// </summary>
         /// <value>Price of the item.</value>
-        [DataMember(Name="price", EmitDefaultValue=true)]
+        [DataMember(Name="price", EmitDefaultValue=false)]
         public decimal Price { get; set; }
 
         /// <summary>

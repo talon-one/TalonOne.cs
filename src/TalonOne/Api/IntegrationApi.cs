@@ -54,7 +54,7 @@ namespace TalonOne.Api
         /// Create coupon reservation
         /// </summary>
         /// <remarks>
-        /// Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the &#x60;recipientsIntegrationId&#x60; property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. &lt;/div&gt;  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+        /// Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -66,7 +66,7 @@ namespace TalonOne.Api
         /// Create coupon reservation
         /// </summary>
         /// <remarks>
-        /// Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the &#x60;recipientsIntegrationId&#x60; property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. &lt;/div&gt;  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+        /// Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -261,29 +261,29 @@ namespace TalonOne.Api
         /// Get customer&#39;s loyalty points
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+        /// Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>LoyaltyBalances</returns>
-        LoyaltyBalances GetLoyaltyBalances (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        LoyaltyBalances GetLoyaltyBalances (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string));
 
         /// <summary>
         /// Get customer&#39;s loyalty points
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+        /// Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>ApiResponse of LoyaltyBalances</returns>
-        ApiResponse<LoyaltyBalances> GetLoyaltyBalancesWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        ApiResponse<LoyaltyBalances> GetLoyaltyBalancesWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string));
         /// <summary>
         /// Get card&#39;s point balances
         /// </summary>
@@ -295,8 +295,8 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <returns>LoyaltyBalances</returns>
-        LoyaltyBalances GetLoyaltyCardBalances (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        /// <returns>LoyaltyCardBalances</returns>
+        LoyaltyCardBalances GetLoyaltyCardBalances (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
 
         /// <summary>
         /// Get card&#39;s point balances
@@ -309,8 +309,8 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <returns>ApiResponse of LoyaltyBalances</returns>
-        ApiResponse<LoyaltyBalances> GetLoyaltyCardBalancesWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        /// <returns>ApiResponse of LoyaltyCardBalances</returns>
+        ApiResponse<LoyaltyCardBalances> GetLoyaltyCardBalancesWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
         /// <summary>
         /// List card&#39;s unused loyalty points
         /// </summary>
@@ -321,11 +321,11 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse2003 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List card&#39;s unused loyalty points
@@ -337,11 +337,11 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse2003> GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List card&#39;s transactions
         /// </summary>
@@ -351,14 +351,14 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse2001 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List card&#39;s transactions
@@ -369,14 +369,14 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse2001> GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List customer&#39;s unused loyalty points
         /// </summary>
@@ -447,7 +447,7 @@ namespace TalonOne.Api
         /// List customers that have this coupon reserved
         /// </summary>
         /// <remarks>
-        /// Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given &#x60;recipientIntegrationId&#x60; or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints. 
+        /// Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -458,7 +458,7 @@ namespace TalonOne.Api
         /// List customers that have this coupon reserved
         /// </summary>
         /// <remarks>
-        /// Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given &#x60;recipientIntegrationId&#x60; or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints. 
+        /// Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -761,7 +761,7 @@ namespace TalonOne.Api
         /// Create coupon reservation
         /// </summary>
         /// <remarks>
-        /// Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the &#x60;recipientsIntegrationId&#x60; property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. &lt;/div&gt;  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+        /// Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -773,7 +773,7 @@ namespace TalonOne.Api
         /// Create coupon reservation
         /// </summary>
         /// <remarks>
-        /// Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the &#x60;recipientsIntegrationId&#x60; property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. &lt;/div&gt;  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+        /// Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -968,29 +968,29 @@ namespace TalonOne.Api
         /// Get customer&#39;s loyalty points
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+        /// Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>Task of LoyaltyBalances</returns>
-        System.Threading.Tasks.Task<LoyaltyBalances> GetLoyaltyBalancesAsync (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        System.Threading.Tasks.Task<LoyaltyBalances> GetLoyaltyBalancesAsync (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string));
 
         /// <summary>
         /// Get customer&#39;s loyalty points
         /// </summary>
         /// <remarks>
-        /// Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+        /// Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>Task of ApiResponse (LoyaltyBalances)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltyBalances>> GetLoyaltyBalancesAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltyBalances>> GetLoyaltyBalancesAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string));
         /// <summary>
         /// Get card&#39;s point balances
         /// </summary>
@@ -1002,8 +1002,8 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <returns>Task of LoyaltyBalances</returns>
-        System.Threading.Tasks.Task<LoyaltyBalances> GetLoyaltyCardBalancesAsync (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        /// <returns>Task of LoyaltyCardBalances</returns>
+        System.Threading.Tasks.Task<LoyaltyCardBalances> GetLoyaltyCardBalancesAsync (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
 
         /// <summary>
         /// Get card&#39;s point balances
@@ -1016,8 +1016,8 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <returns>Task of ApiResponse (LoyaltyBalances)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltyBalances>> GetLoyaltyCardBalancesAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        /// <returns>Task of ApiResponse (LoyaltyCardBalances)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LoyaltyCardBalances>> GetLoyaltyCardBalancesAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
         /// <summary>
         /// List card&#39;s unused loyalty points
         /// </summary>
@@ -1028,11 +1028,11 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List card&#39;s unused loyalty points
@@ -1044,11 +1044,11 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List card&#39;s transactions
         /// </summary>
@@ -1058,14 +1058,14 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse2001> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List card&#39;s transactions
@@ -1076,14 +1076,14 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List customer&#39;s unused loyalty points
         /// </summary>
@@ -1154,7 +1154,7 @@ namespace TalonOne.Api
         /// List customers that have this coupon reserved
         /// </summary>
         /// <remarks>
-        /// Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given &#x60;recipientIntegrationId&#x60; or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints. 
+        /// Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -1165,7 +1165,7 @@ namespace TalonOne.Api
         /// List customers that have this coupon reserved
         /// </summary>
         /// <remarks>
-        /// Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given &#x60;recipientIntegrationId&#x60; or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints. 
+        /// Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -1692,7 +1692,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create coupon reservation Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the &#x60;recipientsIntegrationId&#x60; property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. &lt;/div&gt;  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+        /// Create coupon reservation Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -1705,7 +1705,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create coupon reservation Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the &#x60;recipientsIntegrationId&#x60; property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. &lt;/div&gt;  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+        /// Create coupon reservation Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -1766,7 +1766,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create coupon reservation Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the &#x60;recipientsIntegrationId&#x60; property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. &lt;/div&gt;  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+        /// Create coupon reservation Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -1780,7 +1780,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create coupon reservation Create a coupon reservation for specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  Reserving a coupon allows you to associate a coupon code to a given customer(s). You can then list the reserved coupons of a given customer with the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  If a coupon gets created for a specific user, it will automatically appear in their coupons.  When a user redeems a coupon, a reservation is automatically created after the redemption and the used coupon will be returned in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  For example, you can use this endpoint and &#x60;List customer data&#x60; to create a _coupon wallet_ by reserving coupon codes for a customer, and then displaying their coupon wallet when they visit your store.  If the **Coupon visibility** checkbox was selected when [creating a universal code](https://docs.talon.one/docs/product/campaigns/coupons/creating-coupons#generating-a-universal-code), the coupon code is implicitly reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    This endpoint creates a **soft** reservation. _Any_ customer   can use a reserved coupon code and proceed to checkout.    To create a hard reservation, you can:   - use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) endpoint or,   - use the [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients)     endpoint setting the &#x60;recipientsIntegrationId&#x60; property or,   - create a coupon code with the **Reservation mandatory** option then use the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).    This endpoint overrides the reservation limit set for the coupon code during coupon creation. &lt;/div&gt;  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
+        /// Create coupon reservation Create a coupon reservation for the specified customer profiles on the specified coupon. You can also create a reservation via the Campaign Manager using the [Create coupon code reservation effect](https://docs.talon.one/docs/product/rules/effects/using-effects#reserving-a-coupon-code).  - If the **Reservation mandatory** option was selected when creating the specified coupon, the endpoint creates a **hard** reservation, meaning only users who have this coupon code reserved can redeem it. Otherwise, the endpoint creates a **soft** reservation, meaning the coupon will be associated with the specified customer profiles (they show up when using the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint), but any user can redeem it. This can be useful, for example, to display a _coupon wallet_ for customers when they visit your store.  - If the **Coupon visibility** option was selected when creating the specified coupon, the coupon code is implicitly soft-reserved for all customers, and the code will be returned for all customer profiles in the [List customer data](https://docs.talon.one/integration-api#operation/getCustomerInventory) endpoint.  To delete a reservation, use the [Delete reservation](https://docs.talon.one/integration-api#tag/Coupons/operation/deleteCouponReservation) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -3003,30 +3003,30 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get customer&#39;s loyalty points Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+        /// Get customer&#39;s loyalty points Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>LoyaltyBalances</returns>
-        public LoyaltyBalances GetLoyaltyBalances (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        public LoyaltyBalances GetLoyaltyBalances (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string))
         {
              TalonOne.Client.ApiResponse<LoyaltyBalances> localVarResponse = GetLoyaltyBalancesWithHttpInfo(loyaltyProgramId, integrationId, endDate, subledgerId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get customer&#39;s loyalty points Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+        /// Get customer&#39;s loyalty points Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>ApiResponse of LoyaltyBalances</returns>
-        public TalonOne.Client.ApiResponse< LoyaltyBalances > GetLoyaltyBalancesWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        public TalonOne.Client.ApiResponse< LoyaltyBalances > GetLoyaltyBalancesWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -3056,7 +3056,7 @@ namespace TalonOne.Api
             }
             if (subledgerId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "subledgerId", subledgerId));
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
             }
 
             // authentication (api_key_v1) required
@@ -3084,15 +3084,15 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get customer&#39;s loyalty points Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+        /// Get customer&#39;s loyalty points Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>Task of LoyaltyBalances</returns>
-        public async System.Threading.Tasks.Task<LoyaltyBalances> GetLoyaltyBalancesAsync (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        public async System.Threading.Tasks.Task<LoyaltyBalances> GetLoyaltyBalancesAsync (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string))
         {
              TalonOne.Client.ApiResponse<LoyaltyBalances> localVarResponse = await GetLoyaltyBalancesAsyncWithHttpInfo(loyaltyProgramId, integrationId, endDate, subledgerId);
              return localVarResponse.Data;
@@ -3100,15 +3100,15 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get customer&#39;s loyalty points Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.   **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+        /// Get customer&#39;s loyalty points Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program. You can filter balances by date and subledger ID.  **Note**: If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see: - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards) - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>Task of ApiResponse (LoyaltyBalances)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyBalances>> GetLoyaltyBalancesAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyBalances>> GetLoyaltyBalancesAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -3139,7 +3139,7 @@ namespace TalonOne.Api
             }
             if (subledgerId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "subledgerId", subledgerId));
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
             }
 
             // authentication (api_key_v1) required
@@ -3175,10 +3175,10 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <returns>LoyaltyBalances</returns>
-        public LoyaltyBalances GetLoyaltyCardBalances (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        /// <returns>LoyaltyCardBalances</returns>
+        public LoyaltyCardBalances GetLoyaltyCardBalances (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
         {
-             TalonOne.Client.ApiResponse<LoyaltyBalances> localVarResponse = GetLoyaltyCardBalancesWithHttpInfo(loyaltyProgramId, loyaltyCardId, endDate, subledgerId);
+             TalonOne.Client.ApiResponse<LoyaltyCardBalances> localVarResponse = GetLoyaltyCardBalancesWithHttpInfo(loyaltyProgramId, loyaltyCardId, endDate, subledgerId);
              return localVarResponse.Data;
         }
 
@@ -3190,8 +3190,8 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <returns>ApiResponse of LoyaltyBalances</returns>
-        public TalonOne.Client.ApiResponse< LoyaltyBalances > GetLoyaltyCardBalancesWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        /// <returns>ApiResponse of LoyaltyCardBalances</returns>
+        public TalonOne.Client.ApiResponse< LoyaltyCardBalances > GetLoyaltyCardBalancesWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -3236,7 +3236,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< LoyaltyBalances >("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/balances", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< LoyaltyCardBalances >("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/balances", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -3256,10 +3256,10 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <returns>Task of LoyaltyBalances</returns>
-        public async System.Threading.Tasks.Task<LoyaltyBalances> GetLoyaltyCardBalancesAsync (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        /// <returns>Task of LoyaltyCardBalances</returns>
+        public async System.Threading.Tasks.Task<LoyaltyCardBalances> GetLoyaltyCardBalancesAsync (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
         {
-             TalonOne.Client.ApiResponse<LoyaltyBalances> localVarResponse = await GetLoyaltyCardBalancesAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, endDate, subledgerId);
+             TalonOne.Client.ApiResponse<LoyaltyCardBalances> localVarResponse = await GetLoyaltyCardBalancesAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, endDate, subledgerId);
              return localVarResponse.Data;
 
         }
@@ -3272,8 +3272,8 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <returns>Task of ApiResponse (LoyaltyBalances)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyBalances>> GetLoyaltyCardBalancesAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        /// <returns>Task of ApiResponse (LoyaltyCardBalances)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyCardBalances>> GetLoyaltyCardBalancesAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -3320,7 +3320,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<LoyaltyBalances>("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/balances", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<LoyaltyCardBalances>("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/balances", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -3339,11 +3339,11 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse2003 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2003> localVarResponse = GetLoyaltyCardPointsWithHttpInfo(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
              return localVarResponse.Data;
@@ -3356,11 +3356,11 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2003 > GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2003 > GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -3390,7 +3390,7 @@ namespace TalonOne.Api
             }
             if (subledgerId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "subledgerId", subledgerId));
             }
             if (pageSize != null)
             {
@@ -3432,11 +3432,11 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2003> localVarResponse = await GetLoyaltyCardPointsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
              return localVarResponse.Data;
@@ -3450,11 +3450,11 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2003>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2003>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -3485,7 +3485,7 @@ namespace TalonOne.Api
             }
             if (subledgerId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "subledgerId", subledgerId));
             }
             if (pageSize != null)
             {
@@ -3527,14 +3527,14 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse2001 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2001> localVarResponse = GetLoyaltyCardTransactionsWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
@@ -3546,14 +3546,14 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2001 > GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2001 > GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -3579,7 +3579,7 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             if (subledgerId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "subledgerId", subledgerId));
             }
             if (loyaltyTransactionType != null)
             {
@@ -3632,14 +3632,14 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse2001> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetLoyaltyCardTransactionsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
@@ -3652,14 +3652,14 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2001>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2001>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -3686,7 +3686,7 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             if (subledgerId != null)
             {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "subledgerId", subledgerId));
             }
             if (loyaltyTransactionType != null)
             {
@@ -4137,7 +4137,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List customers that have this coupon reserved Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given &#x60;recipientIntegrationId&#x60; or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints. 
+        /// List customers that have this coupon reserved Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -4149,7 +4149,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List customers that have this coupon reserved Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given &#x60;recipientIntegrationId&#x60; or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints. 
+        /// List customers that have this coupon reserved Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -4203,7 +4203,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List customers that have this coupon reserved Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given &#x60;recipientIntegrationId&#x60; or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints. 
+        /// List customers that have this coupon reserved Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
@@ -4216,7 +4216,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List customers that have this coupon reserved Return all customers that have this coupon marked as reserved.  Coupons are reserved in the following ways: - To create a soft reservation (any customer can use the coupon), use the [Create coupon reservation](#operation/createCouponReservation) endpoint. - To create a hard reservation (only the given customer can use the coupon), create a coupon in the Campaign Manager for a given &#x60;recipientIntegrationId&#x60; or use the [Create coupons](https://docs.talon.one/management-api#operation/createCoupons) or [Create coupons for multiple recipients](https://docs.talon.one/management-api#operation/createCouponsForMultipleRecipients) endpoints. 
+        /// List customers that have this coupon reserved Return all customers that have this coupon marked as reserved. This includes hard and soft reservations. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="couponValue">The code of the coupon.</param>
