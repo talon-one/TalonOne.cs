@@ -34,6 +34,7 @@ Contact: devs@talon.one
     <RepositoryUrl>https://github.com/talon-one/TalonOne.cs.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/talon-one/TalonOne.cs</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
