@@ -101,7 +101,7 @@ namespace TalonOne.Client
             MemoryStream contentsStream = null;
             if (!String.IsNullOrEmpty(contents))
             {
-                contentsStream = new MemoryStream(Encoding.ASCII.GetBytes(contents));
+                contentsStream = new MemoryStream(Encoding.UTF8.GetBytes(contents));
             }
 
             return contentsStream;
