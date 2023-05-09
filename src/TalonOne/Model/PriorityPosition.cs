@@ -84,7 +84,7 @@ namespace TalonOne.Model
         /// The position of the campaign in the priority order starting from 1.
         /// </summary>
         /// <value>The position of the campaign in the priority order starting from 1.</value>
-        [DataMember(Name="position", EmitDefaultValue=false)]
+        [DataMember(Name="position", EmitDefaultValue=true)]
         public int Position { get; set; }
 
         /// <summary>

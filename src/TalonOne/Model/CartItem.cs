@@ -113,7 +113,7 @@ namespace TalonOne.Model
         /// Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs). If it is part of a catalog, setting a price here overrides the price from the catalog. 
         /// </summary>
         /// <value>Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs). If it is part of a catalog, setting a price here overrides the price from the catalog. </value>
-        [DataMember(Name="price", EmitDefaultValue=false)]
+        [DataMember(Name="price", EmitDefaultValue=true)]
         public decimal Price { get; set; }
 
         /// <summary>
@@ -155,7 +155,7 @@ namespace TalonOne.Model
         /// Position of the Cart Item in the Cart (calculated internally).
         /// </summary>
         /// <value>Position of the Cart Item in the Cart (calculated internally).</value>
-        [DataMember(Name="position", EmitDefaultValue=false)]
+        [DataMember(Name="position", EmitDefaultValue=true)]
         public decimal Position { get; set; }
 
         /// <summary>
