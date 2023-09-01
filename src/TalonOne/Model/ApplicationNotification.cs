@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationNotification" /> class.
         /// </summary>
-        /// <param name="_event">Event type. It can be one of the following: [&#39;campaign_priorities_changed&#39;]  (required).</param>
+        /// <param name="_event">Event type. It can be one of the following: [&#39;campaign_evaluation_tree_changed&#39;]  (required).</param>
         public ApplicationNotification(string _event = default(string))
         {
             // to ensure "_event" is required (not null)
@@ -47,9 +47,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Event type. It can be one of the following: [&#39;campaign_priorities_changed&#39;] 
+        /// Event type. It can be one of the following: [&#39;campaign_evaluation_tree_changed&#39;] 
         /// </summary>
-        /// <value>Event type. It can be one of the following: [&#39;campaign_priorities_changed&#39;] </value>
+        /// <value>Event type. It can be one of the following: [&#39;campaign_evaluation_tree_changed&#39;] </value>
         [DataMember(Name="event", EmitDefaultValue=false)]
         public string Event { get; set; }
 

@@ -74,12 +74,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Ruleset'
         }
         /// <summary>
-        /// Test the property 'Priority'
+        /// Test the property 'EvaluationPosition'
         /// </summary>
         [Fact]
-        public void PriorityTest()
+        public void EvaluationPositionTest()
         {
-            // TODO unit test for the property 'Priority'
+            // TODO unit test for the property 'EvaluationPosition'
         }
 
     }

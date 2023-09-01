@@ -58,28 +58,20 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'Id'
-        /// </summary>
-        [Fact]
-        public void IdTest()
-        {
-            // TODO unit test for the property 'Id'
-        }
-        /// <summary>
-        /// Test the property 'Created'
-        /// </summary>
-        [Fact]
-        public void CreatedTest()
-        {
-            // TODO unit test for the property 'Created'
-        }
-        /// <summary>
         /// Test the property 'ApplicationId'
         /// </summary>
         [Fact]
         public void ApplicationIdTest()
         {
             // TODO unit test for the property 'ApplicationId'
+        }
+        /// <summary>
+        /// Test the property 'Id'
+        /// </summary>
+        [Fact]
+        public void IdTest()
+        {
+            // TODO unit test for the property 'Id'
         }
         /// <summary>
         /// Test the property 'Version'

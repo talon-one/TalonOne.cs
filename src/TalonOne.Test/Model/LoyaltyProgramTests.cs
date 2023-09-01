@@ -138,6 +138,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Sandbox'
         }
         /// <summary>
+        /// Test the property 'TiersExpireIn'
+        /// </summary>
+        [Fact]
+        public void TiersExpireInTest()
+        {
+            // TODO unit test for the property 'TiersExpireIn'
+        }
+        /// <summary>
+        /// Test the property 'TiersDowngradePolicy'
+        /// </summary>
+        [Fact]
+        public void TiersDowngradePolicyTest()
+        {
+            // TODO unit test for the property 'TiersDowngradePolicy'
+        }
+        /// <summary>
         /// Test the property 'AccountID'
         /// </summary>
         [Fact]
@@ -176,6 +192,22 @@ namespace TalonOne.Test
         public void CardBasedTest()
         {
             // TODO unit test for the property 'CardBased'
+        }
+        /// <summary>
+        /// Test the property 'CanUpdateTiers'
+        /// </summary>
+        [Fact]
+        public void CanUpdateTiersTest()
+        {
+            // TODO unit test for the property 'CanUpdateTiers'
+        }
+        /// <summary>
+        /// Test the property 'CanUpgradeToAdvancedTiers'
+        /// </summary>
+        [Fact]
+        public void CanUpgradeToAdvancedTiersTest()
+        {
+            // TODO unit test for the property 'CanUpgradeToAdvancedTiers'
         }
 
     }

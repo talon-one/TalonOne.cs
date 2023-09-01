@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **AdditionalCostId** | **int** | The ID of the additional cost. | 
 **Value** | **decimal** | The total monetary value of the discount. | 
 **Position** | **decimal** | The index of the item in the cart item list containing the additional cost to be discounted. | 
-**SubPosition** | **decimal** | Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1.  | [optional] 
+**SubPosition** | **decimal** | Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1.  | [optional] 
 **AdditionalCost** | **string** | The name of the additional cost. | 
 **DesiredValue** | **decimal** | Only with [partial discounts enabled](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#partial-discounts). Represents the monetary value of the discount to be applied to additional discount without considering budget limitations.  | [optional] 
 

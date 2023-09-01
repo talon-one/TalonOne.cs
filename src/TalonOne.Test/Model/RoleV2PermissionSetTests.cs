@@ -66,12 +66,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Name'
         }
         /// <summary>
-        /// Test the property 'OperationIds'
+        /// Test the property 'LogicalOperations'
         /// </summary>
         [Fact]
-        public void OperationIdsTest()
+        public void LogicalOperationsTest()
         {
-            // TODO unit test for the property 'OperationIds'
+            // TODO unit test for the property 'LogicalOperations'
         }
 
     }

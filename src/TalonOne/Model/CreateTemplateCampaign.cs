@@ -45,9 +45,10 @@ namespace TalonOne.Model
         /// <param name="campaignAttributesOverrides">Custom Campaign Attributes. If the Campaign Template defines the same values, they will be overridden..</param>
         /// <param name="templateParamValues">Actual values to replace the template placeholder values in the Ruleset bindings. Values for all Template Parameters must be provided..</param>
         /// <param name="limitOverrides">Limits for this Campaign. If the Campaign Template or Application define default values for the same limits, they will be overridden..</param>
-        /// <param name="campaignGroups">The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to. .</param>
+        /// <param name="campaignGroups">The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. .</param>
         /// <param name="tags">A list of tags for the campaign. If the campaign template has tags, they will be overridden by this list..</param>
-        public CreateTemplateCampaign(string name = default(string), string description = default(string), int templateId = default(int), Object campaignAttributesOverrides = default(Object), List<Binding> templateParamValues = default(List<Binding>), List<LimitConfig> limitOverrides = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), List<string> tags = default(List<string>))
+        /// <param name="evaluationGroupId">The ID of the campaign evaluation group the campaign belongs to..</param>
+        public CreateTemplateCampaign(string name = default(string), string description = default(string), int templateId = default(int), Object campaignAttributesOverrides = default(Object), List<Binding> templateParamValues = default(List<Binding>), List<LimitConfig> limitOverrides = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), List<string> tags = default(List<string>), int evaluationGroupId = default(int))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CreateTemplateCampaign and cannot be null");
@@ -58,6 +59,7 @@ namespace TalonOne.Model
             this.LimitOverrides = limitOverrides;
             this.CampaignGroups = campaignGroups;
             this.Tags = tags;
+            this.EvaluationGroupId = evaluationGroupId;
         }
         
         /// <summary>
@@ -103,9 +105,9 @@ namespace TalonOne.Model
         public List<LimitConfig> LimitOverrides { get; set; }
 
         /// <summary>
-        /// The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to. 
+        /// The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. 
         /// </summary>
-        /// <value>The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to. </value>
+        /// <value>The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. </value>
         [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
         public List<int> CampaignGroups { get; set; }
 
@@ -115,6 +117,13 @@ namespace TalonOne.Model
         /// <value>A list of tags for the campaign. If the campaign template has tags, they will be overridden by this list.</value>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// The ID of the campaign evaluation group the campaign belongs to.
+        /// </summary>
+        /// <value>The ID of the campaign evaluation group the campaign belongs to.</value>
+        [DataMember(Name="evaluationGroupId", EmitDefaultValue=false)]
+        public int EvaluationGroupId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -132,6 +141,7 @@ namespace TalonOne.Model
             sb.Append("  LimitOverrides: ").Append(LimitOverrides).Append("\n");
             sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  EvaluationGroupId: ").Append(EvaluationGroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,6 +218,10 @@ namespace TalonOne.Model
                     this.Tags != null &&
                     input.Tags != null &&
                     this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.EvaluationGroupId == input.EvaluationGroupId ||
+                    this.EvaluationGroupId.Equals(input.EvaluationGroupId)
                 );
         }
 
@@ -235,6 +249,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CampaignGroups.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                hashCode = hashCode * 59 + this.EvaluationGroupId.GetHashCode();
                 return hashCode;
             }
         }

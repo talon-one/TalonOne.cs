@@ -120,7 +120,7 @@ namespace TalonOne.Model
         /// <param name="name">A user-facing name for this campaign. (required).</param>
         /// <param name="description">A detailed description of the campaign..</param>
         /// <param name="startTime">Timestamp when the campaign will become active..</param>
-        /// <param name="endTime">Timestamp the campaign will become inactive..</param>
+        /// <param name="endTime">Timestamp when the campaign will become inactive..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign..</param>
         /// <param name="state">A disabled or archived campaign is not evaluated for rules or coupons.  (required) (default to StateEnum.Enabled).</param>
         /// <param name="activeRulesetId">[ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. .</param>
@@ -130,7 +130,8 @@ namespace TalonOne.Model
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of [budget limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets) for this campaign.  (required).</param>
         /// <param name="campaignGroups">The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to. .</param>
-        public NewCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>))
+        /// <param name="evaluationGroupId">The ID of the campaign evaluation group the campaign belongs to..</param>
+        public NewCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), int evaluationGroupId = default(int))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCampaign and cannot be null");
@@ -149,6 +150,7 @@ namespace TalonOne.Model
             this.CouponSettings = couponSettings;
             this.ReferralSettings = referralSettings;
             this.CampaignGroups = campaignGroups;
+            this.EvaluationGroupId = evaluationGroupId;
         }
         
         /// <summary>
@@ -173,9 +175,9 @@ namespace TalonOne.Model
         public DateTime StartTime { get; set; }
 
         /// <summary>
-        /// Timestamp the campaign will become inactive.
+        /// Timestamp when the campaign will become inactive.
         /// </summary>
-        /// <value>Timestamp the campaign will become inactive.</value>
+        /// <value>Timestamp when the campaign will become inactive.</value>
         [DataMember(Name="endTime", EmitDefaultValue=false)]
         public DateTime EndTime { get; set; }
 
@@ -227,6 +229,13 @@ namespace TalonOne.Model
         public List<int> CampaignGroups { get; set; }
 
         /// <summary>
+        /// The ID of the campaign evaluation group the campaign belongs to.
+        /// </summary>
+        /// <value>The ID of the campaign evaluation group the campaign belongs to.</value>
+        [DataMember(Name="evaluationGroupId", EmitDefaultValue=false)]
+        public int EvaluationGroupId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -247,6 +256,7 @@ namespace TalonOne.Model
             sb.Append("  ReferralSettings: ").Append(ReferralSettings).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
+            sb.Append("  EvaluationGroupId: ").Append(EvaluationGroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -345,6 +355,10 @@ namespace TalonOne.Model
                     this.CampaignGroups != null &&
                     input.CampaignGroups != null &&
                     this.CampaignGroups.SequenceEqual(input.CampaignGroups)
+                ) && 
+                (
+                    this.EvaluationGroupId == input.EvaluationGroupId ||
+                    this.EvaluationGroupId.Equals(input.EvaluationGroupId)
                 );
         }
 
@@ -380,6 +394,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
                 if (this.CampaignGroups != null)
                     hashCode = hashCode * 59 + this.CampaignGroups.GetHashCode();
+                hashCode = hashCode * 59 + this.EvaluationGroupId.GetHashCode();
                 return hashCode;
             }
         }

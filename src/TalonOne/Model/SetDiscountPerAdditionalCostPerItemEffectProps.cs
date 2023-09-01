@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="additionalCostId">The ID of the additional cost. (required).</param>
         /// <param name="value">The total monetary value of the discount. (required).</param>
         /// <param name="position">The index of the item in the cart item list containing the additional cost to be discounted. (required).</param>
-        /// <param name="subPosition">Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. .</param>
+        /// <param name="subPosition">Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. .</param>
         /// <param name="additionalCost">The name of the additional cost. (required).</param>
         /// <param name="desiredValue">Only with [partial discounts enabled](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#partial-discounts). Represents the monetary value of the discount to be applied to additional discount without considering budget limitations. .</param>
         public SetDiscountPerAdditionalCostPerItemEffectProps(string name = default(string), int additionalCostId = default(int), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), string additionalCost = default(string), decimal desiredValue = default(decimal))
@@ -84,13 +84,13 @@ namespace TalonOne.Model
         /// The index of the item in the cart item list containing the additional cost to be discounted.
         /// </summary>
         /// <value>The index of the item in the cart item list containing the additional cost to be discounted.</value>
-        [DataMember(Name="position", EmitDefaultValue=true)]
+        [DataMember(Name="position", EmitDefaultValue=false)]
         public decimal Position { get; set; }
 
         /// <summary>
-        /// Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. 
+        /// Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. 
         /// </summary>
-        /// <value>Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. </value>
+        /// <value>Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. </value>
         [DataMember(Name="subPosition", EmitDefaultValue=false)]
         public decimal SubPosition { get; set; }
 

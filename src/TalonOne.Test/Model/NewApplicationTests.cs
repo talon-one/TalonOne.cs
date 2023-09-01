@@ -114,22 +114,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Limits'
         }
         /// <summary>
-        /// Test the property 'CampaignPriority'
-        /// </summary>
-        [Fact]
-        public void CampaignPriorityTest()
-        {
-            // TODO unit test for the property 'CampaignPriority'
-        }
-        /// <summary>
-        /// Test the property 'ExclusiveCampaignsStrategy'
-        /// </summary>
-        [Fact]
-        public void ExclusiveCampaignsStrategyTest()
-        {
-            // TODO unit test for the property 'ExclusiveCampaignsStrategy'
-        }
-        /// <summary>
         /// Test the property 'DefaultDiscountScope'
         /// </summary>
         [Fact]

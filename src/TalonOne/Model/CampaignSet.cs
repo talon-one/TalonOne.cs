@@ -39,17 +39,15 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignSet" /> class.
         /// </summary>
-        /// <param name="id">Internal ID of this entity. (required).</param>
-        /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="version">Version of the campaign set. (required).</param>
         /// <param name="set">set (required).</param>
         /// <param name="updatedBy">Name of the user who last updated this campaign set, if available..</param>
-        public CampaignSet(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int version = default(int), CampaignSetBranchNode set = default(CampaignSetBranchNode), string updatedBy = default(string))
+        public CampaignSet(int applicationId = default(int), int id = default(int), int version = default(int), CampaignSetBranchNode set = default(CampaignSetBranchNode), string updatedBy = default(string))
         {
-            this.Id = id;
-            this.Created = created;
             this.ApplicationId = applicationId;
+            this.Id = id;
             this.Version = version;
             // to ensure "set" is required (not null)
             this.Set = set ?? throw new ArgumentNullException("set is a required property for CampaignSet and cannot be null");
@@ -57,25 +55,18 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Internal ID of this entity.
-        /// </summary>
-        /// <value>Internal ID of this entity.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
-
-        /// <summary>
-        /// The time this entity was created.
-        /// </summary>
-        /// <value>The time this entity was created.</value>
-        [DataMember(Name="created", EmitDefaultValue=false)]
-        public DateTime Created { get; set; }
-
-        /// <summary>
         /// The ID of the application that owns this entity.
         /// </summary>
         /// <value>The ID of the application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
+
+        /// <summary>
+        /// Internal ID of this entity.
+        /// </summary>
+        /// <value>Internal ID of this entity.</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public int Id { get; set; }
 
         /// <summary>
         /// Version of the campaign set.
@@ -105,9 +96,8 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CampaignSet {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("  Set: ").Append(Set).Append("\n");
             sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
@@ -146,17 +136,12 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Id == input.Id ||
-                    this.Id.Equals(input.Id)
-                ) && 
-                (
-                    this.Created == input.Created ||
-                    (this.Created != null &&
-                    this.Created.Equals(input.Created))
-                ) && 
-                (
                     this.ApplicationId == input.ApplicationId ||
                     this.ApplicationId.Equals(input.ApplicationId)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    this.Id.Equals(input.Id)
                 ) && 
                 (
                     this.Version == input.Version ||
@@ -183,10 +168,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Created != null)
-                    hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
+                hashCode = hashCode * 59 + this.Id.GetHashCode();
                 hashCode = hashCode * 59 + this.Version.GetHashCode();
                 if (this.Set != null)
                     hashCode = hashCode * 59 + this.Set.GetHashCode();

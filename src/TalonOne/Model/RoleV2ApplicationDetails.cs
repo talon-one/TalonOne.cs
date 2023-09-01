@@ -34,9 +34,9 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleV2ApplicationDetails" /> class.
         /// </summary>
-        /// <param name="application">Name of the Application-level permission set..</param>
-        /// <param name="campaign">Name of the campaign-level permission set..</param>
-        /// <param name="draftCampaign">Name of the draft campaign-level permission set..</param>
+        /// <param name="application">Name of the Application-related permission set for the given Application..</param>
+        /// <param name="campaign">Name of the campaign-related permission set for the given Application..</param>
+        /// <param name="draftCampaign">Name of the draft campaign-related permission set for the given Application..</param>
         public RoleV2ApplicationDetails(string application = default(string), string campaign = default(string), string draftCampaign = default(string))
         {
             this.Application = application;
@@ -45,23 +45,23 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Name of the Application-level permission set.
+        /// Name of the Application-related permission set for the given Application.
         /// </summary>
-        /// <value>Name of the Application-level permission set.</value>
+        /// <value>Name of the Application-related permission set for the given Application.</value>
         [DataMember(Name="application", EmitDefaultValue=false)]
         public string Application { get; set; }
 
         /// <summary>
-        /// Name of the campaign-level permission set.
+        /// Name of the campaign-related permission set for the given Application.
         /// </summary>
-        /// <value>Name of the campaign-level permission set.</value>
+        /// <value>Name of the campaign-related permission set for the given Application.</value>
         [DataMember(Name="campaign", EmitDefaultValue=false)]
         public string Campaign { get; set; }
 
         /// <summary>
-        /// Name of the draft campaign-level permission set.
+        /// Name of the draft campaign-related permission set for the given Application.
         /// </summary>
-        /// <value>Name of the draft campaign-level permission set.</value>
+        /// <value>Name of the draft campaign-related permission set for the given Application.</value>
         [DataMember(Name="draftCampaign", EmitDefaultValue=false)]
         public string DraftCampaign { get; set; }
 

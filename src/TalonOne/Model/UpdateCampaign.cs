@@ -123,13 +123,13 @@ namespace TalonOne.Model
         /// <param name="endTime">Timestamp when the campaign will become inactive..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign..</param>
         /// <param name="state">A disabled or archived campaign is not evaluated for rules or coupons.  (default to StateEnum.Enabled).</param>
-        /// <param name="activeRulesetId">ID of Ruleset this campaign applies on customer session evaluation..</param>
+        /// <param name="activeRulesetId">[ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. .</param>
         /// <param name="tags">A list of tags for the campaign. (required).</param>
         /// <param name="features">A list of features for the campaign. (required).</param>
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of limits that will operate for this campaign. (required).</param>
-        /// <param name="campaignGroups">The IDs of the campaign groups that own this entity..</param>
+        /// <param name="campaignGroups">The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. .</param>
         public UpdateCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum? state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>))
         {
             // to ensure "name" is required (not null)
@@ -187,9 +187,9 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// ID of Ruleset this campaign applies on customer session evaluation.
+        /// [ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. 
         /// </summary>
-        /// <value>ID of Ruleset this campaign applies on customer session evaluation.</value>
+        /// <value>[ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. </value>
         [DataMember(Name="activeRulesetId", EmitDefaultValue=false)]
         public int ActiveRulesetId { get; set; }
 
@@ -220,9 +220,9 @@ namespace TalonOne.Model
         public List<LimitConfig> Limits { get; set; }
 
         /// <summary>
-        /// The IDs of the campaign groups that own this entity.
+        /// The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. 
         /// </summary>
-        /// <value>The IDs of the campaign groups that own this entity.</value>
+        /// <value>The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. </value>
         [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
         public List<int> CampaignGroups { get; set; }
 

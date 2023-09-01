@@ -45,7 +45,8 @@ namespace TalonOne.Model
         /// <param name="startTime">Timestamp when the campaign will become active..</param>
         /// <param name="endTime">Timestamp when the campaign will become inactive..</param>
         /// <param name="tags">A list of tags for the campaign..</param>
-        public CampaignCopy(string name = default(string), List<int> applicationIds = default(List<int>), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), List<string> tags = default(List<string>))
+        /// <param name="evaluationGroupId">The ID of the campaign evaluation group the campaign belongs to..</param>
+        public CampaignCopy(string name = default(string), List<int> applicationIds = default(List<int>), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), List<string> tags = default(List<string>), int evaluationGroupId = default(int))
         {
             // to ensure "applicationIds" is required (not null)
             this.ApplicationIds = applicationIds ?? throw new ArgumentNullException("applicationIds is a required property for CampaignCopy and cannot be null");
@@ -54,6 +55,7 @@ namespace TalonOne.Model
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.Tags = tags;
+            this.EvaluationGroupId = evaluationGroupId;
         }
         
         /// <summary>
@@ -99,6 +101,13 @@ namespace TalonOne.Model
         public List<string> Tags { get; set; }
 
         /// <summary>
+        /// The ID of the campaign evaluation group the campaign belongs to.
+        /// </summary>
+        /// <value>The ID of the campaign evaluation group the campaign belongs to.</value>
+        [DataMember(Name="evaluationGroupId", EmitDefaultValue=false)]
+        public int EvaluationGroupId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -112,6 +121,7 @@ namespace TalonOne.Model
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
             sb.Append("  EndTime: ").Append(EndTime).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  EvaluationGroupId: ").Append(EvaluationGroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,6 +187,10 @@ namespace TalonOne.Model
                     this.Tags != null &&
                     input.Tags != null &&
                     this.Tags.SequenceEqual(input.Tags)
+                ) && 
+                (
+                    this.EvaluationGroupId == input.EvaluationGroupId ||
+                    this.EvaluationGroupId.Equals(input.EvaluationGroupId)
                 );
         }
 
@@ -201,6 +215,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.EndTime.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                hashCode = hashCode * 59 + this.EvaluationGroupId.GetHashCode();
                 return hashCode;
             }
         }

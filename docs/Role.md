@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Created** | **DateTime** | The time this entity was created. | 
 **Modified** | **DateTime** | The time this entity was last modified. | 
 **AccountId** | **int** | The ID of the account that owns this entity. | 
-**CampaignGroupID** | **int** | The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/managing-campaign-groups) this role was created for.  | [optional] 
+**CampaignGroupID** | **int** | The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this role was created for.  | [optional] 
 **Name** | **string** | Name of the role. | 
 **Description** | **string** | Description of the role. | [optional] 
 **Members** | **List&lt;int&gt;** | A list of user identifiers assigned to this role. | [optional] 

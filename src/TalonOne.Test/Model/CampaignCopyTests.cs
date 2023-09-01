@@ -105,6 +105,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Tags'
         }
+        /// <summary>
+        /// Test the property 'EvaluationGroupId'
+        /// </summary>
+        [Fact]
+        public void EvaluationGroupIdTest()
+        {
+            // TODO unit test for the property 'EvaluationGroupId'
+        }
 
     }
 

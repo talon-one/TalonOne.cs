@@ -65,72 +65,6 @@ namespace TalonOne.Model
         [DataMember(Name="caseSensitivity", EmitDefaultValue=false)]
         public CaseSensitivityEnum? CaseSensitivity { get; set; }
         /// <summary>
-        /// Default [priority](https://docs.talon.one/docs/product/applications/setting-up-campaign-priorities) for campaigns created in this Application. 
-        /// </summary>
-        /// <value>Default [priority](https://docs.talon.one/docs/product/applications/setting-up-campaign-priorities) for campaigns created in this Application. </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum CampaignPriorityEnum
-        {
-            /// <summary>
-            /// Enum Universal for value: universal
-            /// </summary>
-            [EnumMember(Value = "universal")]
-            Universal = 1,
-
-            /// <summary>
-            /// Enum Stackable for value: stackable
-            /// </summary>
-            [EnumMember(Value = "stackable")]
-            Stackable = 2,
-
-            /// <summary>
-            /// Enum Exclusive for value: exclusive
-            /// </summary>
-            [EnumMember(Value = "exclusive")]
-            Exclusive = 3
-
-        }
-
-        /// <summary>
-        /// Default [priority](https://docs.talon.one/docs/product/applications/setting-up-campaign-priorities) for campaigns created in this Application. 
-        /// </summary>
-        /// <value>Default [priority](https://docs.talon.one/docs/product/applications/setting-up-campaign-priorities) for campaigns created in this Application. </value>
-        [DataMember(Name="campaignPriority", EmitDefaultValue=false)]
-        public CampaignPriorityEnum? CampaignPriority { get; set; }
-        /// <summary>
-        /// The strategy used when choosing exclusive campaigns for evaluation.
-        /// </summary>
-        /// <value>The strategy used when choosing exclusive campaigns for evaluation.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum ExclusiveCampaignsStrategyEnum
-        {
-            /// <summary>
-            /// Enum ListOrder for value: listOrder
-            /// </summary>
-            [EnumMember(Value = "listOrder")]
-            ListOrder = 1,
-
-            /// <summary>
-            /// Enum LowestDiscount for value: lowestDiscount
-            /// </summary>
-            [EnumMember(Value = "lowestDiscount")]
-            LowestDiscount = 2,
-
-            /// <summary>
-            /// Enum HighestDiscount for value: highestDiscount
-            /// </summary>
-            [EnumMember(Value = "highestDiscount")]
-            HighestDiscount = 3
-
-        }
-
-        /// <summary>
-        /// The strategy used when choosing exclusive campaigns for evaluation.
-        /// </summary>
-        /// <value>The strategy used when choosing exclusive campaigns for evaluation.</value>
-        [DataMember(Name="exclusiveCampaignsStrategy", EmitDefaultValue=false)]
-        public ExclusiveCampaignsStrategyEnum? ExclusiveCampaignsStrategy { get; set; }
-        /// <summary>
         /// The default scope to apply &#x60;setDiscount&#x60; effects on if no scope was provided with the effect. 
         /// </summary>
         /// <value>The default scope to apply &#x60;setDiscount&#x60; effects on if no scope was provided with the effect. </value>
@@ -211,16 +145,15 @@ namespace TalonOne.Model
         /// <param name="caseSensitivity">The case sensitivity behavior to check coupon codes in the campaigns of this Application..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign..</param>
         /// <param name="limits">Default limits for campaigns created in this application..</param>
-        /// <param name="campaignPriority">Default [priority](https://docs.talon.one/docs/product/applications/setting-up-campaign-priorities) for campaigns created in this Application.  (default to CampaignPriorityEnum.Universal).</param>
-        /// <param name="exclusiveCampaignsStrategy">The strategy used when choosing exclusive campaigns for evaluation. (default to ExclusiveCampaignsStrategyEnum.ListOrder).</param>
         /// <param name="defaultDiscountScope">The default scope to apply &#x60;setDiscount&#x60; effects on if no scope was provided with the effect. .</param>
         /// <param name="enableCascadingDiscounts">Indicates if discounts should cascade for this Application..</param>
-        /// <param name="enableFlattenedCartItems">Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening). .</param>
+        /// <param name="enableFlattenedCartItems">Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening). .</param>
         /// <param name="attributesSettings">attributesSettings.</param>
         /// <param name="sandbox">Indicates if this is a live or sandbox Application..</param>
         /// <param name="enablePartialDiscounts">Indicates if this Application supports partial discounts..</param>
         /// <param name="defaultDiscountAdditionalCostPerItemScope">The default scope to apply &#x60;setDiscountPerItem&#x60; effects on if no scope was provided with the effect. .</param>
-        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), CampaignPriorityEnum? campaignPriority = CampaignPriorityEnum.Universal, ExclusiveCampaignsStrategyEnum? exclusiveCampaignsStrategy = ExclusiveCampaignsStrategyEnum.ListOrder, DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?))
+        /// <param name="defaultEvaluationGroupId">The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign..</param>
+        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), int defaultEvaluationGroupId = default(int))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateApplication and cannot be null");
@@ -232,8 +165,6 @@ namespace TalonOne.Model
             this.CaseSensitivity = caseSensitivity;
             this.Attributes = attributes;
             this.Limits = limits;
-            this.CampaignPriority = campaignPriority;
-            this.ExclusiveCampaignsStrategy = exclusiveCampaignsStrategy;
             this.DefaultDiscountScope = defaultDiscountScope;
             this.EnableCascadingDiscounts = enableCascadingDiscounts;
             this.EnableFlattenedCartItems = enableFlattenedCartItems;
@@ -241,6 +172,7 @@ namespace TalonOne.Model
             this.Sandbox = sandbox;
             this.EnablePartialDiscounts = enablePartialDiscounts;
             this.DefaultDiscountAdditionalCostPerItemScope = defaultDiscountAdditionalCostPerItemScope;
+            this.DefaultEvaluationGroupId = defaultEvaluationGroupId;
         }
         
         /// <summary>
@@ -293,9 +225,9 @@ namespace TalonOne.Model
         public bool EnableCascadingDiscounts { get; set; }
 
         /// <summary>
-        /// Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening). 
+        /// Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening). 
         /// </summary>
-        /// <value>Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening). </value>
+        /// <value>Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening). </value>
         [DataMember(Name="enableFlattenedCartItems", EmitDefaultValue=false)]
         public bool EnableFlattenedCartItems { get; set; }
 
@@ -320,6 +252,13 @@ namespace TalonOne.Model
         public bool EnablePartialDiscounts { get; set; }
 
         /// <summary>
+        /// The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign.
+        /// </summary>
+        /// <value>The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign.</value>
+        [DataMember(Name="defaultEvaluationGroupId", EmitDefaultValue=false)]
+        public int DefaultEvaluationGroupId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -334,8 +273,6 @@ namespace TalonOne.Model
             sb.Append("  CaseSensitivity: ").Append(CaseSensitivity).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
-            sb.Append("  CampaignPriority: ").Append(CampaignPriority).Append("\n");
-            sb.Append("  ExclusiveCampaignsStrategy: ").Append(ExclusiveCampaignsStrategy).Append("\n");
             sb.Append("  DefaultDiscountScope: ").Append(DefaultDiscountScope).Append("\n");
             sb.Append("  EnableCascadingDiscounts: ").Append(EnableCascadingDiscounts).Append("\n");
             sb.Append("  EnableFlattenedCartItems: ").Append(EnableFlattenedCartItems).Append("\n");
@@ -343,6 +280,7 @@ namespace TalonOne.Model
             sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  EnablePartialDiscounts: ").Append(EnablePartialDiscounts).Append("\n");
             sb.Append("  DefaultDiscountAdditionalCostPerItemScope: ").Append(DefaultDiscountAdditionalCostPerItemScope).Append("\n");
+            sb.Append("  DefaultEvaluationGroupId: ").Append(DefaultEvaluationGroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -413,14 +351,6 @@ namespace TalonOne.Model
                     this.Limits.SequenceEqual(input.Limits)
                 ) && 
                 (
-                    this.CampaignPriority == input.CampaignPriority ||
-                    this.CampaignPriority.Equals(input.CampaignPriority)
-                ) && 
-                (
-                    this.ExclusiveCampaignsStrategy == input.ExclusiveCampaignsStrategy ||
-                    this.ExclusiveCampaignsStrategy.Equals(input.ExclusiveCampaignsStrategy)
-                ) && 
-                (
                     this.DefaultDiscountScope == input.DefaultDiscountScope ||
                     this.DefaultDiscountScope.Equals(input.DefaultDiscountScope)
                 ) && 
@@ -448,6 +378,10 @@ namespace TalonOne.Model
                 (
                     this.DefaultDiscountAdditionalCostPerItemScope == input.DefaultDiscountAdditionalCostPerItemScope ||
                     this.DefaultDiscountAdditionalCostPerItemScope.Equals(input.DefaultDiscountAdditionalCostPerItemScope)
+                ) && 
+                (
+                    this.DefaultEvaluationGroupId == input.DefaultEvaluationGroupId ||
+                    this.DefaultEvaluationGroupId.Equals(input.DefaultEvaluationGroupId)
                 );
         }
 
@@ -473,8 +407,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
-                hashCode = hashCode * 59 + this.CampaignPriority.GetHashCode();
-                hashCode = hashCode * 59 + this.ExclusiveCampaignsStrategy.GetHashCode();
                 hashCode = hashCode * 59 + this.DefaultDiscountScope.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableCascadingDiscounts.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableFlattenedCartItems.GetHashCode();
@@ -483,6 +415,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 hashCode = hashCode * 59 + this.EnablePartialDiscounts.GetHashCode();
                 hashCode = hashCode * 59 + this.DefaultDiscountAdditionalCostPerItemScope.GetHashCode();
+                hashCode = hashCode * 59 + this.DefaultEvaluationGroupId.GetHashCode();
                 return hashCode;
             }
         }

@@ -32,6 +32,33 @@ namespace TalonOne.Model
     public partial class UpdateLoyaltyProgram :  IEquatable<UpdateLoyaltyProgram>, IValidatableObject
     {
         /// <summary>
+        /// Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. 
+        /// </summary>
+        /// <value>Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TiersDowngradePolicyEnum
+        {
+            /// <summary>
+            /// Enum Onedown for value: one_down
+            /// </summary>
+            [EnumMember(Value = "one_down")]
+            Onedown = 1,
+
+            /// <summary>
+            /// Enum Balancebased for value: balance_based
+            /// </summary>
+            [EnumMember(Value = "balance_based")]
+            Balancebased = 2
+
+        }
+
+        /// <summary>
+        /// Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. 
+        /// </summary>
+        /// <value>Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. </value>
+        [DataMember(Name="tiersDowngradePolicy", EmitDefaultValue=false)]
+        public TiersDowngradePolicyEnum? TiersDowngradePolicy { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="UpdateLoyaltyProgram" /> class.
         /// </summary>
         /// <param name="title">The display title for the Loyalty Program..</param>
@@ -42,8 +69,10 @@ namespace TalonOne.Model
         /// <param name="allowSubledger">Indicates if this program supports subledgers inside the program..</param>
         /// <param name="usersPerCardLimit">The max amount of user profiles with whom a card can be shared. This can be set to 0 for no limit. This property is only used when &#x60;cardBased&#x60; is &#x60;true&#x60;. .</param>
         /// <param name="sandbox">Indicates if this program is a live or sandbox program. Programs of a given type can only be connected to Applications of the same type..</param>
+        /// <param name="tiersExpireIn">The duration is an **integer** followed by one letter indicating the time unit.  Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. .</param>
+        /// <param name="tiersDowngradePolicy">Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. .</param>
         /// <param name="tiers">The tiers in this loyalty program..</param>
-        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), bool sandbox = default(bool), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
+        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), bool sandbox = default(bool), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
         {
             this.Title = title;
             this.Description = description;
@@ -53,6 +82,8 @@ namespace TalonOne.Model
             this.AllowSubledger = allowSubledger;
             this.UsersPerCardLimit = usersPerCardLimit;
             this.Sandbox = sandbox;
+            this.TiersExpireIn = tiersExpireIn;
+            this.TiersDowngradePolicy = tiersDowngradePolicy;
             this.Tiers = tiers;
         }
         
@@ -113,6 +144,13 @@ namespace TalonOne.Model
         public bool Sandbox { get; set; }
 
         /// <summary>
+        /// The duration is an **integer** followed by one letter indicating the time unit.  Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. 
+        /// </summary>
+        /// <value>The duration is an **integer** followed by one letter indicating the time unit.  Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. </value>
+        [DataMember(Name="tiersExpireIn", EmitDefaultValue=false)]
+        public string TiersExpireIn { get; set; }
+
+        /// <summary>
         /// The tiers in this loyalty program.
         /// </summary>
         /// <value>The tiers in this loyalty program.</value>
@@ -135,6 +173,8 @@ namespace TalonOne.Model
             sb.Append("  AllowSubledger: ").Append(AllowSubledger).Append("\n");
             sb.Append("  UsersPerCardLimit: ").Append(UsersPerCardLimit).Append("\n");
             sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
+            sb.Append("  TiersExpireIn: ").Append(TiersExpireIn).Append("\n");
+            sb.Append("  TiersDowngradePolicy: ").Append(TiersDowngradePolicy).Append("\n");
             sb.Append("  Tiers: ").Append(Tiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -209,6 +249,15 @@ namespace TalonOne.Model
                     this.Sandbox.Equals(input.Sandbox)
                 ) && 
                 (
+                    this.TiersExpireIn == input.TiersExpireIn ||
+                    (this.TiersExpireIn != null &&
+                    this.TiersExpireIn.Equals(input.TiersExpireIn))
+                ) && 
+                (
+                    this.TiersDowngradePolicy == input.TiersDowngradePolicy ||
+                    this.TiersDowngradePolicy.Equals(input.TiersDowngradePolicy)
+                ) && 
+                (
                     this.Tiers == input.Tiers ||
                     this.Tiers != null &&
                     input.Tiers != null &&
@@ -238,6 +287,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.AllowSubledger.GetHashCode();
                 hashCode = hashCode * 59 + this.UsersPerCardLimit.GetHashCode();
                 hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
+                if (this.TiersExpireIn != null)
+                    hashCode = hashCode * 59 + this.TiersExpireIn.GetHashCode();
+                hashCode = hashCode * 59 + this.TiersDowngradePolicy.GetHashCode();
                 if (this.Tiers != null)
                     hashCode = hashCode * 59 + this.Tiers.GetHashCode();
                 return hashCode;
@@ -255,6 +307,12 @@ namespace TalonOne.Model
             if(this.UsersPerCardLimit < (int)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsersPerCardLimit, must be a value greater than or equal to 0.", new [] { "UsersPerCardLimit" });
+            }
+
+            // TiersExpireIn (string) maxLength
+            if(this.TiersExpireIn != null && this.TiersExpireIn.Length > 6)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for TiersExpireIn, length must be less than 6.", new [] { "TiersExpireIn" });
             }
 
             yield break;
