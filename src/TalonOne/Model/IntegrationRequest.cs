@@ -101,9 +101,9 @@ namespace TalonOne.Model
 
 
         /// <summary>
-        /// Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints. 
+        /// Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints.  **Note:** To retrieve loyalty card details, your request must include a loyalty card ID. 
         /// </summary>
-        /// <value>Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints. </value>
+        /// <value>Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints.  **Note:** To retrieve loyalty card details, your request must include a loyalty card ID. </value>
         [DataMember(Name="responseContent", EmitDefaultValue=false)]
         public List<ResponseContentEnum> ResponseContent { get; set; }
         /// <summary>
@@ -115,7 +115,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="IntegrationRequest" /> class.
         /// </summary>
         /// <param name="customerSession">customerSession (required).</param>
-        /// <param name="responseContent">Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints. .</param>
+        /// <param name="responseContent">Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer session_ request instead of sending extra requests to other endpoints.  **Note:** To retrieve loyalty card details, your request must include a loyalty card ID. .</param>
         public IntegrationRequest(NewCustomerSessionV2 customerSession = default(NewCustomerSessionV2), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             // to ensure "customerSession" is required (not null)

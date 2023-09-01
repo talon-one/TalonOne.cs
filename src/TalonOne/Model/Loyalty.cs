@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Customer specific information about loyalty points.
+    /// Customer-specific information about loyalty points.
     /// </summary>
     [DataContract]
     public partial class Loyalty :  IEquatable<Loyalty>, IValidatableObject

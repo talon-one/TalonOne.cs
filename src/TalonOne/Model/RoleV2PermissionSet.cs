@@ -40,13 +40,13 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="RoleV2PermissionSet" /> class.
         /// </summary>
         /// <param name="name">Name of the permission set. (required).</param>
-        /// <param name="operationIds">operationIds (required).</param>
-        public RoleV2PermissionSet(string name = default(string), List<string> operationIds = default(List<string>))
+        /// <param name="logicalOperations">List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-logicalPermissionOperation&#x60; tag on an endpoint level.  (required).</param>
+        public RoleV2PermissionSet(string name = default(string), List<string> logicalOperations = default(List<string>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for RoleV2PermissionSet and cannot be null");
-            // to ensure "operationIds" is required (not null)
-            this.OperationIds = operationIds ?? throw new ArgumentNullException("operationIds is a required property for RoleV2PermissionSet and cannot be null");
+            // to ensure "logicalOperations" is required (not null)
+            this.LogicalOperations = logicalOperations ?? throw new ArgumentNullException("logicalOperations is a required property for RoleV2PermissionSet and cannot be null");
         }
         
         /// <summary>
@@ -57,10 +57,11 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets OperationIds
+        /// List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-logicalPermissionOperation&#x60; tag on an endpoint level. 
         /// </summary>
-        [DataMember(Name="operationIds", EmitDefaultValue=false)]
-        public List<string> OperationIds { get; set; }
+        /// <value>List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-logicalPermissionOperation&#x60; tag on an endpoint level. </value>
+        [DataMember(Name="logicalOperations", EmitDefaultValue=false)]
+        public List<string> LogicalOperations { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,7 +72,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class RoleV2PermissionSet {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  OperationIds: ").Append(OperationIds).Append("\n");
+            sb.Append("  LogicalOperations: ").Append(LogicalOperations).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,10 +113,10 @@ namespace TalonOne.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.OperationIds == input.OperationIds ||
-                    this.OperationIds != null &&
-                    input.OperationIds != null &&
-                    this.OperationIds.SequenceEqual(input.OperationIds)
+                    this.LogicalOperations == input.LogicalOperations ||
+                    this.LogicalOperations != null &&
+                    input.LogicalOperations != null &&
+                    this.LogicalOperations.SequenceEqual(input.LogicalOperations)
                 );
         }
 
@@ -130,8 +131,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.OperationIds != null)
-                    hashCode = hashCode * 59 + this.OperationIds.GetHashCode();
+                if (this.LogicalOperations != null)
+                    hashCode = hashCode * 59 + this.LogicalOperations.GetHashCode();
                 return hashCode;
             }
         }

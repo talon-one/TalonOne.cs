@@ -3,9 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Internal ID of this entity. | 
-**Created** | **DateTime** | The time this entity was created. | 
 **ApplicationId** | **int** | The ID of the application that owns this entity. | 
+**Id** | **int** | Internal ID of this entity. | 
 **Version** | **int** | Version of the campaign set. | 
 **Set** | [**CampaignSetBranchNode**](CampaignSetBranchNode.md) |  | 
 **UpdatedBy** | **string** | Name of the user who last updated this campaign set, if available. | [optional] 

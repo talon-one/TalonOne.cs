@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="modified">The time this entity was last modified. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
-        /// <param name="campaignGroupID">The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/managing-campaign-groups) this role was created for. .</param>
+        /// <param name="campaignGroupID">The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this role was created for. .</param>
         /// <param name="name">Name of the role. (required).</param>
         /// <param name="description">Description of the role..</param>
         /// <param name="members">A list of user identifiers assigned to this role..</param>
@@ -92,9 +92,9 @@ namespace TalonOne.Model
         public int AccountId { get; set; }
 
         /// <summary>
-        /// The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/managing-campaign-groups) this role was created for. 
+        /// The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this role was created for. 
         /// </summary>
-        /// <value>The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/managing-campaign-groups) this role was created for. </value>
+        /// <value>The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this role was created for. </value>
         [DataMember(Name="campaignGroupID", EmitDefaultValue=false)]
         public int CampaignGroupID { get; set; }
 

@@ -53,9 +53,9 @@ namespace TalonOne.Model
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum Type { get; set; }
         /// <summary>
-        /// How does the set operates on its elements.
+        /// An indicator of how the set operates on its elements.
         /// </summary>
-        /// <value>How does the set operates on its elements.</value>
+        /// <value>An indicator of how the set operates on its elements.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OperatorEnum
         {
@@ -74,11 +74,48 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// How does the set operates on its elements.
+        /// An indicator of how the set operates on its elements.
         /// </summary>
-        /// <value>How does the set operates on its elements.</value>
+        /// <value>An indicator of how the set operates on its elements.</value>
         [DataMember(Name="operator", EmitDefaultValue=false)]
         public OperatorEnum Operator { get; set; }
+        /// <summary>
+        /// Defines EvaluationMode
+        /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EvaluationModeEnum
+        {
+            /// <summary>
+            /// Enum Stackable for value: stackable
+            /// </summary>
+            [EnumMember(Value = "stackable")]
+            Stackable = 1,
+
+            /// <summary>
+            /// Enum ListOrder for value: listOrder
+            /// </summary>
+            [EnumMember(Value = "listOrder")]
+            ListOrder = 2,
+
+            /// <summary>
+            /// Enum LowestDiscount for value: lowestDiscount
+            /// </summary>
+            [EnumMember(Value = "lowestDiscount")]
+            LowestDiscount = 3,
+
+            /// <summary>
+            /// Enum HighestDiscount for value: highestDiscount
+            /// </summary>
+            [EnumMember(Value = "highestDiscount")]
+            HighestDiscount = 4
+
+        }
+
+        /// <summary>
+        /// Gets or Sets EvaluationMode
+        /// </summary>
+        [DataMember(Name="evaluationMode", EmitDefaultValue=false)]
+        public EvaluationModeEnum EvaluationMode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignSetBranchNode" /> class.
         /// </summary>
@@ -88,10 +125,14 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CampaignSetBranchNode" /> class.
         /// </summary>
         /// <param name="type">Indicates the node type. (required).</param>
-        /// <param name="name">Name of the set (required).</param>
-        /// <param name="_operator">How does the set operates on its elements. (required).</param>
+        /// <param name="name">Name of the set. (required).</param>
+        /// <param name="_operator">An indicator of how the set operates on its elements. (required).</param>
         /// <param name="elements">Child elements of this set. (required).</param>
-        public CampaignSetBranchNode(TypeEnum type = default(TypeEnum), string name = default(string), OperatorEnum _operator = default(OperatorEnum), List<CampaignSetNode> elements = default(List<CampaignSetNode>))
+        /// <param name="groupId">The ID of the campaign set. (required).</param>
+        /// <param name="locked">An indicator of whether the campaign set is locked for modification. (required).</param>
+        /// <param name="description">A description of the campaign set..</param>
+        /// <param name="evaluationMode">evaluationMode (required).</param>
+        public CampaignSetBranchNode(TypeEnum type = default(TypeEnum), string name = default(string), OperatorEnum _operator = default(OperatorEnum), List<CampaignSetNode> elements = default(List<CampaignSetNode>), int groupId = default(int), bool locked = default(bool), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum))
         {
             this.Type = type;
             // to ensure "name" is required (not null)
@@ -99,12 +140,16 @@ namespace TalonOne.Model
             this.Operator = _operator;
             // to ensure "elements" is required (not null)
             this.Elements = elements ?? throw new ArgumentNullException("elements is a required property for CampaignSetBranchNode and cannot be null");
+            this.GroupId = groupId;
+            this.Locked = locked;
+            this.EvaluationMode = evaluationMode;
+            this.Description = description;
         }
         
         /// <summary>
-        /// Name of the set
+        /// Name of the set.
         /// </summary>
-        /// <value>Name of the set</value>
+        /// <value>Name of the set.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
@@ -114,6 +159,27 @@ namespace TalonOne.Model
         /// <value>Child elements of this set.</value>
         [DataMember(Name="elements", EmitDefaultValue=false)]
         public List<CampaignSetNode> Elements { get; set; }
+
+        /// <summary>
+        /// The ID of the campaign set.
+        /// </summary>
+        /// <value>The ID of the campaign set.</value>
+        [DataMember(Name="groupId", EmitDefaultValue=false)]
+        public int GroupId { get; set; }
+
+        /// <summary>
+        /// An indicator of whether the campaign set is locked for modification.
+        /// </summary>
+        /// <value>An indicator of whether the campaign set is locked for modification.</value>
+        [DataMember(Name="locked", EmitDefaultValue=false)]
+        public bool Locked { get; set; }
+
+        /// <summary>
+        /// A description of the campaign set.
+        /// </summary>
+        /// <value>A description of the campaign set.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -127,6 +193,10 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Operator: ").Append(Operator).Append("\n");
             sb.Append("  Elements: ").Append(Elements).Append("\n");
+            sb.Append("  GroupId: ").Append(GroupId).Append("\n");
+            sb.Append("  Locked: ").Append(Locked).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  EvaluationMode: ").Append(EvaluationMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -179,6 +249,23 @@ namespace TalonOne.Model
                     this.Elements != null &&
                     input.Elements != null &&
                     this.Elements.SequenceEqual(input.Elements)
+                ) && 
+                (
+                    this.GroupId == input.GroupId ||
+                    this.GroupId.Equals(input.GroupId)
+                ) && 
+                (
+                    this.Locked == input.Locked ||
+                    this.Locked.Equals(input.Locked)
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.EvaluationMode == input.EvaluationMode ||
+                    this.EvaluationMode.Equals(input.EvaluationMode)
                 );
         }
 
@@ -197,6 +284,11 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Operator.GetHashCode();
                 if (this.Elements != null)
                     hashCode = hashCode * 59 + this.Elements.GetHashCode();
+                hashCode = hashCode * 59 + this.GroupId.GetHashCode();
+                hashCode = hashCode * 59 + this.Locked.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                hashCode = hashCode * 59 + this.EvaluationMode.GetHashCode();
                 return hashCode;
             }
         }

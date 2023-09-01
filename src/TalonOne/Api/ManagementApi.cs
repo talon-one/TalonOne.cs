@@ -898,6 +898,31 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> ExportLoyaltyLedgerWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string loyaltyProgramId, string integrationId, string dateFormat = default(string));
         /// <summary>
+        /// Export giveaway codes of a giveaway pool
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="poolId">The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.</param>
+        /// <param name="createdBefore">Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <returns>string</returns>
+        string ExportPoolGiveaways (int poolId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+
+        /// <summary>
+        /// Export giveaway codes of a giveaway pool
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="poolId">The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.</param>
+        /// <param name="createdBefore">Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> ExportPoolGiveawaysWithHttpInfo (int poolId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <summary>
         /// Export referrals
         /// </summary>
         /// <remarks>
@@ -946,7 +971,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse20018</returns>
         InlineResponse20018 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -965,7 +990,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20018</returns>
         ApiResponse<InlineResponse20018> GetAccessLogsWithoutTotalCountWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -1061,10 +1086,10 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>InlineResponse20032</returns>
-        InlineResponse20032 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>InlineResponse20033</returns>
+        InlineResponse20033 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List additional costs
@@ -1074,10 +1099,10 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20032</returns>
-        ApiResponse<InlineResponse20032> GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>ApiResponse of InlineResponse20033</returns>
+        ApiResponse<InlineResponse20033> GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// List access logs
         /// </summary>
@@ -1091,7 +1116,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse20019</returns>
         InlineResponse20019 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -1109,7 +1134,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20019</returns>
         ApiResponse<InlineResponse20019> GetAllAccessLogsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -1120,8 +1145,8 @@ namespace TalonOne.Api
         /// List all roles.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse20040</returns>
-        InlineResponse20040 GetAllRoles ();
+        /// <returns>InlineResponse20041</returns>
+        InlineResponse20041 GetAllRoles ();
 
         /// <summary>
         /// List roles
@@ -1130,8 +1155,8 @@ namespace TalonOne.Api
         /// List all roles.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse20040</returns>
-        ApiResponse<InlineResponse20040> GetAllRolesWithHttpInfo ();
+        /// <returns>ApiResponse of InlineResponse20041</returns>
+        ApiResponse<InlineResponse20041> GetAllRolesWithHttpInfo ();
         /// <summary>
         /// Get Application
         /// </summary>
@@ -1207,7 +1232,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">The Integration ID of the Advocate&#39;s Profile.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20030</returns>
@@ -1223,7 +1248,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">The Integration ID of the Advocate&#39;s Profile.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20030</returns>
@@ -1238,7 +1263,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20021</returns>
         InlineResponse20021 GetApplicationCustomers (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
@@ -1253,7 +1278,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20021</returns>
         ApiResponse<InlineResponse20021> GetApplicationCustomersWithHttpInfo (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
@@ -1267,7 +1292,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20022</returns>
         InlineResponse20022 GetApplicationCustomersByAttributes (int applicationId, CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
@@ -1282,7 +1307,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20022</returns>
         ApiResponse<InlineResponse20022> GetApplicationCustomersByAttributesWithHttpInfo (int applicationId, CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
@@ -1290,12 +1315,12 @@ namespace TalonOne.Api
         /// List Applications event types
         /// </summary>
         /// <remarks>
-        /// Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent) 
+        /// Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse20028</returns>
         InlineResponse20028 GetApplicationEventTypes (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -1304,12 +1329,12 @@ namespace TalonOne.Api
         /// List Applications event types
         /// </summary>
         /// <remarks>
-        /// Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent) 
+        /// Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20028</returns>
         ApiResponse<InlineResponse20028> GetApplicationEventTypesWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -1322,7 +1347,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -1347,7 +1372,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -1394,7 +1419,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
@@ -1415,7 +1440,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
@@ -1434,7 +1459,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse2003</returns>
         InlineResponse2003 GetApplications (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -1447,7 +1472,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
         ApiResponse<InlineResponse2003> GetApplicationsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -1480,7 +1505,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="entity">Returned attributes will be filtered by supplied entity. (optional)</param>
         /// <returns>InlineResponse20031</returns>
@@ -1494,7 +1519,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="entity">Returned attributes will be filtered by supplied entity. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20031</returns>
@@ -1507,7 +1532,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20029</returns>
@@ -1521,7 +1546,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20029</returns>
@@ -1588,7 +1613,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <returns>InlineResponse2004</returns>
@@ -1604,7 +1629,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
@@ -1617,7 +1642,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="state">Filter results by the state of the campaign template. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign template. (optional)</param>
@@ -1634,7 +1659,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="state">Filter results by the state of the campaign template. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign template. (optional)</param>
@@ -1651,7 +1676,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
@@ -1672,7 +1697,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
@@ -1691,7 +1716,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
@@ -1701,8 +1726,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>InlineResponse20038</returns>
-        InlineResponse20038 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?));
+        /// <returns>InlineResponse20039</returns>
+        InlineResponse20039 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?));
 
         /// <summary>
         /// Get audit logs for an account
@@ -1712,7 +1737,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
@@ -1722,8 +1747,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20038</returns>
-        ApiResponse<InlineResponse20038> GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?));
+        /// <returns>ApiResponse of InlineResponse20039</returns>
+        ApiResponse<InlineResponse20039> GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?));
         /// <summary>
         /// Get collection
         /// </summary>
@@ -1758,7 +1783,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20016</returns>
         InlineResponse20016 GetCollectionItems (int collectionId, int? pageSize = default(int?), int? skip = default(int?));
 
@@ -1771,7 +1796,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20016</returns>
         ApiResponse<InlineResponse20016> GetCollectionItemsWithHttpInfo (int collectionId, int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
@@ -1784,7 +1809,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -1808,7 +1833,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -1833,7 +1858,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>CustomerActivityReport</returns>
         CustomerActivityReport GetCustomerActivityReport (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?));
 
@@ -1849,7 +1874,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of CustomerActivityReport</returns>
         ApiResponse<CustomerActivityReport> GetCustomerActivityReportWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
@@ -1863,7 +1888,7 @@ namespace TalonOne.Api
         /// <param name="rangeEnd">Only return results from before this timestamp. This must be an RFC3339 timestamp string.</param>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="name">Only return reports matching the customer name (optional)</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
@@ -1883,7 +1908,7 @@ namespace TalonOne.Api
         /// <param name="rangeEnd">Only return results from before this timestamp. This must be an RFC3339 timestamp string.</param>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="name">Only return reports matching the customer name (optional)</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
@@ -1901,7 +1926,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>CustomerAnalytics</returns>
         CustomerAnalytics GetCustomerAnalytics (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -1916,7 +1941,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of CustomerAnalytics</returns>
         ApiResponse<CustomerAnalytics> GetCustomerAnalyticsWithHttpInfo (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -1949,7 +1974,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>InlineResponse20024</returns>
         InlineResponse20024 GetCustomerProfiles (int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?));
@@ -1962,7 +1987,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse20024</returns>
         ApiResponse<InlineResponse20024> GetCustomerProfilesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?));
@@ -1975,7 +2000,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>InlineResponse20023</returns>
         InlineResponse20023 GetCustomersByAttributes (CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?));
@@ -1989,7 +2014,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse20023</returns>
         ApiResponse<InlineResponse20023> GetCustomersByAttributesWithHttpInfo (CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?));
@@ -2003,10 +2028,10 @@ namespace TalonOne.Api
         /// <param name="name">Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)</param>
         /// <param name="includeOldVersions">Include all versions of every event type. (optional, default to false)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>InlineResponse20036</returns>
-        InlineResponse20036 GetEventTypes (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>InlineResponse20037</returns>
+        InlineResponse20037 GetEventTypes (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List event types
@@ -2018,10 +2043,10 @@ namespace TalonOne.Api
         /// <param name="name">Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)</param>
         /// <param name="includeOldVersions">Include all versions of every event type. (optional, default to false)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20036</returns>
-        ApiResponse<InlineResponse20036> GetEventTypesWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>ApiResponse of InlineResponse20037</returns>
+        ApiResponse<InlineResponse20037> GetEventTypesWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get exports
         /// </summary>
@@ -2030,12 +2055,12 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>InlineResponse20039</returns>
-        InlineResponse20039 GetExports (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string));
+        /// <returns>InlineResponse20040</returns>
+        InlineResponse20040 GetExports (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string));
 
         /// <summary>
         /// Get exports
@@ -2045,12 +2070,12 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20039</returns>
-        ApiResponse<InlineResponse20039> GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string));
+        /// <returns>ApiResponse of InlineResponse20040</returns>
+        ApiResponse<InlineResponse20040> GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string));
         /// <summary>
         /// Get loyalty card
         /// </summary>
@@ -2086,7 +2111,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>InlineResponse20014</returns>
         InlineResponse20014 GetLoyaltyCardTransactionLogs (int loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?), string subledgerId = default(string));
@@ -2103,7 +2128,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20014</returns>
         ApiResponse<InlineResponse20014> GetLoyaltyCardTransactionLogsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?), string subledgerId = default(string));
@@ -2116,7 +2141,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
         /// <param name="profileId">Filter by the profile ID. (optional)</param>
@@ -2132,7 +2157,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
         /// <param name="profileId">Filter by the profile ID. (optional)</param>
@@ -2195,7 +2220,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 50)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20012</returns>
         InlineResponse20012 GetLoyaltyProgramTransactions (int loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
 
@@ -2212,7 +2237,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 50)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20012</returns>
         ApiResponse<InlineResponse20012> GetLoyaltyProgramTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
@@ -2309,7 +2334,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -2330,7 +2355,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -2344,10 +2369,10 @@ namespace TalonOne.Api
         /// Get role
         /// </summary>
         /// <remarks>
-        /// Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The Id of role. </param>
+        /// <param name="roleId">The ID of role. </param>
         /// <returns>Role</returns>
         Role GetRole (int roleId);
 
@@ -2355,10 +2380,10 @@ namespace TalonOne.Api
         /// Get role
         /// </summary>
         /// <remarks>
-        /// Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The Id of role. </param>
+        /// <param name="roleId">The ID of role. </param>
         /// <returns>ApiResponse of Role</returns>
         ApiResponse<Role> GetRoleWithHttpInfo (int roleId);
         /// <summary>
@@ -2396,7 +2421,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse2006</returns>
         InlineResponse2006 GetRulesets (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -2411,7 +2436,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
         ApiResponse<InlineResponse2006> GetRulesetsWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -2444,10 +2469,10 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>InlineResponse20037</returns>
-        InlineResponse20037 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>InlineResponse20038</returns>
+        InlineResponse20038 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List users in account
@@ -2457,10 +2482,10 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20037</returns>
-        ApiResponse<InlineResponse20037> GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>ApiResponse of InlineResponse20038</returns>
+        ApiResponse<InlineResponse20038> GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get webhook
         /// </summary>
@@ -2490,7 +2515,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
@@ -2498,8 +2523,8 @@ namespace TalonOne.Api
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>InlineResponse20034</returns>
-        InlineResponse20034 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <returns>InlineResponse20035</returns>
+        InlineResponse20035 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
 
         /// <summary>
         /// List webhook activation log entries
@@ -2509,7 +2534,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
@@ -2517,47 +2542,47 @@ namespace TalonOne.Api
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20034</returns>
-        ApiResponse<InlineResponse20034> GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-        /// <summary>
-        /// List webhook log entries
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all webhook log entries.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>InlineResponse20035</returns>
-        InlineResponse20035 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-
-        /// <summary>
-        /// List webhook log entries
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all webhook log entries.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20035</returns>
-        ApiResponse<InlineResponse20035> GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        ApiResponse<InlineResponse20035> GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <summary>
+        /// List webhook log entries
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all webhook log entries.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>InlineResponse20036</returns>
+        InlineResponse20036 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+
+        /// <summary>
+        /// List webhook log entries
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all webhook log entries.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20036</returns>
+        ApiResponse<InlineResponse20036> GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List webhooks
         /// </summary>
@@ -2565,12 +2590,16 @@ namespace TalonOne.Api
         /// List all webhooks.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more application IDs separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse20033</returns>
-        InlineResponse20033 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="creationType">Filter results by creation type. (optional)</param>
+        /// <param name="visibility">Filter results by visibility. (optional)</param>
+        /// <param name="outgoingIntegrationsTypeId">Filter results by outgoing integration type ID. (optional)</param>
+        /// <param name="title">Filter results performing case-insensitive matching against the webhook title. (optional)</param>
+        /// <returns>InlineResponse20034</returns>
+        InlineResponse20034 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?), string creationType = default(string), string visibility = default(string), int? outgoingIntegrationsTypeId = default(int?), string title = default(string));
 
         /// <summary>
         /// List webhooks
@@ -2579,12 +2608,16 @@ namespace TalonOne.Api
         /// List all webhooks.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more application IDs separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20033</returns>
-        ApiResponse<InlineResponse20033> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="creationType">Filter results by creation type. (optional)</param>
+        /// <param name="visibility">Filter results by visibility. (optional)</param>
+        /// <param name="outgoingIntegrationsTypeId">Filter results by outgoing integration type ID. (optional)</param>
+        /// <param name="title">Filter results performing case-insensitive matching against the webhook title. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20034</returns>
+        ApiResponse<InlineResponse20034> GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?), string creationType = default(string), string visibility = default(string), int? outgoingIntegrationsTypeId = default(int?), string title = default(string));
         /// <summary>
         /// Import data in existing account-level collection
         /// </summary>
@@ -2707,10 +2740,33 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of Import</returns>
         ApiResponse<Import> ImportLoyaltyCardsWithHttpInfo (int loyaltyProgramId, string upFile = default(string));
         /// <summary>
+        /// Import customers into loyalty tiers
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in a tier, the customer is assigned to match the new information provided in the CSV file. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Import</returns>
+        Import ImportLoyaltyCustomersTiers (int loyaltyProgramId, string upFile = default(string));
+
+        /// <summary>
+        /// Import customers into loyalty tiers
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in a tier, the customer is assigned to match the new information provided in the CSV file. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>ApiResponse of Import</returns>
+        ApiResponse<Import> ImportLoyaltyCustomersTiersWithHttpInfo (int loyaltyProgramId, string upFile = default(string));
+        /// <summary>
         /// Import loyalty points
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
+        /// Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;immediate&#x60;. Empty or missing values are considered &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed. The points are &#x60;expired&#x60; after this date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -2722,7 +2778,7 @@ namespace TalonOne.Api
         /// Import loyalty points
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
+        /// Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;immediate&#x60;. Empty or missing values are considered &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed. The points are &#x60;expired&#x60; after this date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -2785,7 +2841,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -2800,12 +2856,41 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20015</returns>
         ApiResponse<InlineResponse20015> ListAccountCollectionsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?), string name = default(string));
+        /// <summary>
+        /// List items in a catalog
+        /// </summary>
+        /// <remarks>
+        /// Return a paginated list of cart items in the given catalog. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
+        /// <param name="sku">The SKU of the item. (optional)</param>
+        /// <returns>InlineResponse20032</returns>
+        InlineResponse20032 ListCatalogItems (int catalogId, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?), string sku = default(string));
+
+        /// <summary>
+        /// List items in a catalog
+        /// </summary>
+        /// <remarks>
+        /// Return a paginated list of cart items in the given catalog. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
+        /// <param name="sku">The SKU of the item. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20032</returns>
+        ApiResponse<InlineResponse20032> ListCatalogItemsWithHttpInfo (int catalogId, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?), string sku = default(string));
         /// <summary>
         /// List collections
         /// </summary>
@@ -2816,7 +2901,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -2833,7 +2918,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -2848,7 +2933,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -2864,7 +2949,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -2877,7 +2962,7 @@ namespace TalonOne.Api
         /// Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>BaseNotification</returns>
         BaseNotification PostAddedDeductedPointsNotification (int loyaltyProgramId, NewBaseNotification body);
@@ -2889,7 +2974,7 @@ namespace TalonOne.Api
         /// Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of BaseNotification</returns>
         ApiResponse<BaseNotification> PostAddedDeductedPointsNotificationWithHttpInfo (int loyaltyProgramId, NewBaseNotification body);
@@ -2917,10 +3002,33 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of BaseNotification</returns>
         ApiResponse<BaseNotification> PostCatalogsStrikethroughNotificationWithHttpInfo (int applicationId, NewBaseNotification body);
         /// <summary>
+        /// Create notification about pending loyalty points
+        /// </summary>
+        /// <remarks>
+        /// Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>BaseNotification</returns>
+        BaseNotification PostPendingPointsNotification (int loyaltyProgramId, NewBaseNotification body);
+
+        /// <summary>
+        /// Create notification about pending loyalty points
+        /// </summary>
+        /// <remarks>
+        /// Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of BaseNotification</returns>
+        ApiResponse<BaseNotification> PostPendingPointsNotificationWithHttpInfo (int loyaltyProgramId, NewBaseNotification body);
+        /// <summary>
         /// Deduct points from customer profile
         /// </summary>
         /// <remarks>
-        /// Deduct points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+        /// Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -2933,7 +3041,7 @@ namespace TalonOne.Api
         /// Deduct points from customer profile
         /// </summary>
         /// <remarks>
-        /// Deduct points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+        /// Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -2972,7 +3080,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -2997,7 +3105,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -3022,7 +3130,7 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -3047,7 +3155,7 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -4213,6 +4321,31 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> ExportLoyaltyLedgerAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string loyaltyProgramId, string integrationId, string dateFormat = default(string));
         /// <summary>
+        /// Export giveaway codes of a giveaway pool
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="poolId">The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.</param>
+        /// <param name="createdBefore">Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> ExportPoolGiveawaysAsync (int poolId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+
+        /// <summary>
+        /// Export giveaway codes of a giveaway pool
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="poolId">The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.</param>
+        /// <param name="createdBefore">Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> ExportPoolGiveawaysAsyncWithHttpInfo (int poolId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <summary>
         /// Export referrals
         /// </summary>
         /// <remarks>
@@ -4261,7 +4394,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse20018</returns>
         System.Threading.Tasks.Task<InlineResponse20018> GetAccessLogsWithoutTotalCountAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -4280,7 +4413,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20018>> GetAccessLogsWithoutTotalCountAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -4376,10 +4509,10 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of InlineResponse20032</returns>
-        System.Threading.Tasks.Task<InlineResponse20032> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of InlineResponse20033</returns>
+        System.Threading.Tasks.Task<InlineResponse20033> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List additional costs
@@ -4389,10 +4522,10 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20032)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20032>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20033)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20033>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// List access logs
         /// </summary>
@@ -4406,7 +4539,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse20019</returns>
         System.Threading.Tasks.Task<InlineResponse20019> GetAllAccessLogsAsync (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -4424,7 +4557,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetAllAccessLogsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -4435,8 +4568,8 @@ namespace TalonOne.Api
         /// List all roles.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse20040</returns>
-        System.Threading.Tasks.Task<InlineResponse20040> GetAllRolesAsync ();
+        /// <returns>Task of InlineResponse20041</returns>
+        System.Threading.Tasks.Task<InlineResponse20041> GetAllRolesAsync ();
 
         /// <summary>
         /// List roles
@@ -4445,8 +4578,8 @@ namespace TalonOne.Api
         /// List all roles.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse20040)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20040>> GetAllRolesAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (InlineResponse20041)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20041>> GetAllRolesAsyncWithHttpInfo ();
         /// <summary>
         /// Get Application
         /// </summary>
@@ -4522,7 +4655,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">The Integration ID of the Advocate&#39;s Profile.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20030</returns>
@@ -4538,7 +4671,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">The Integration ID of the Advocate&#39;s Profile.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20030)</returns>
@@ -4553,7 +4686,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20021</returns>
         System.Threading.Tasks.Task<InlineResponse20021> GetApplicationCustomersAsync (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
@@ -4568,7 +4701,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20021>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
@@ -4582,7 +4715,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20022</returns>
         System.Threading.Tasks.Task<InlineResponse20022> GetApplicationCustomersByAttributesAsync (int applicationId, CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
@@ -4597,7 +4730,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20022>> GetApplicationCustomersByAttributesAsyncWithHttpInfo (int applicationId, CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?));
@@ -4605,12 +4738,12 @@ namespace TalonOne.Api
         /// List Applications event types
         /// </summary>
         /// <remarks>
-        /// Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent) 
+        /// Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse20028</returns>
         System.Threading.Tasks.Task<InlineResponse20028> GetApplicationEventTypesAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -4619,12 +4752,12 @@ namespace TalonOne.Api
         /// List Applications event types
         /// </summary>
         /// <remarks>
-        /// Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent) 
+        /// Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20028>> GetApplicationEventTypesAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -4637,7 +4770,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -4662,7 +4795,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -4709,7 +4842,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
@@ -4730,7 +4863,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
@@ -4749,7 +4882,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse2003</returns>
         System.Threading.Tasks.Task<InlineResponse2003> GetApplicationsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -4762,7 +4895,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetApplicationsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -4795,7 +4928,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="entity">Returned attributes will be filtered by supplied entity. (optional)</param>
         /// <returns>Task of InlineResponse20031</returns>
@@ -4809,7 +4942,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="entity">Returned attributes will be filtered by supplied entity. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20031)</returns>
@@ -4822,7 +4955,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20029</returns>
@@ -4836,7 +4969,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20029)</returns>
@@ -4903,7 +5036,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
@@ -4919,7 +5052,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
@@ -4932,7 +5065,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="state">Filter results by the state of the campaign template. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign template. (optional)</param>
@@ -4949,7 +5082,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="state">Filter results by the state of the campaign template. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign template. (optional)</param>
@@ -4966,7 +5099,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
@@ -4987,7 +5120,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
@@ -5006,7 +5139,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
@@ -5016,8 +5149,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of InlineResponse20038</returns>
-        System.Threading.Tasks.Task<InlineResponse20038> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?));
+        /// <returns>Task of InlineResponse20039</returns>
+        System.Threading.Tasks.Task<InlineResponse20039> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?));
 
         /// <summary>
         /// Get audit logs for an account
@@ -5027,7 +5160,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
@@ -5037,8 +5170,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20038)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20038>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?));
+        /// <returns>Task of ApiResponse (InlineResponse20039)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20039>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?));
         /// <summary>
         /// Get collection
         /// </summary>
@@ -5073,7 +5206,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20016</returns>
         System.Threading.Tasks.Task<InlineResponse20016> GetCollectionItemsAsync (int collectionId, int? pageSize = default(int?), int? skip = default(int?));
 
@@ -5086,7 +5219,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20016>> GetCollectionItemsAsyncWithHttpInfo (int collectionId, int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
@@ -5099,7 +5232,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -5123,7 +5256,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -5148,7 +5281,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of CustomerActivityReport</returns>
         System.Threading.Tasks.Task<CustomerActivityReport> GetCustomerActivityReportAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?));
 
@@ -5164,7 +5297,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (CustomerActivityReport)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerActivityReport>> GetCustomerActivityReportAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
@@ -5178,7 +5311,7 @@ namespace TalonOne.Api
         /// <param name="rangeEnd">Only return results from before this timestamp. This must be an RFC3339 timestamp string.</param>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="name">Only return reports matching the customer name (optional)</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
@@ -5198,7 +5331,7 @@ namespace TalonOne.Api
         /// <param name="rangeEnd">Only return results from before this timestamp. This must be an RFC3339 timestamp string.</param>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="name">Only return reports matching the customer name (optional)</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
@@ -5216,7 +5349,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of CustomerAnalytics</returns>
         System.Threading.Tasks.Task<CustomerAnalytics> GetCustomerAnalyticsAsync (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -5231,7 +5364,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (CustomerAnalytics)</returns>
         System.Threading.Tasks.Task<ApiResponse<CustomerAnalytics>> GetCustomerAnalyticsAsyncWithHttpInfo (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -5264,7 +5397,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>Task of InlineResponse20024</returns>
         System.Threading.Tasks.Task<InlineResponse20024> GetCustomerProfilesAsync (int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?));
@@ -5277,7 +5410,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse20024)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20024>> GetCustomerProfilesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?));
@@ -5290,7 +5423,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>Task of InlineResponse20023</returns>
         System.Threading.Tasks.Task<InlineResponse20023> GetCustomersByAttributesAsync (CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?));
@@ -5304,7 +5437,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20023>> GetCustomersByAttributesAsyncWithHttpInfo (CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?));
@@ -5318,10 +5451,10 @@ namespace TalonOne.Api
         /// <param name="name">Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)</param>
         /// <param name="includeOldVersions">Include all versions of every event type. (optional, default to false)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of InlineResponse20036</returns>
-        System.Threading.Tasks.Task<InlineResponse20036> GetEventTypesAsync (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of InlineResponse20037</returns>
+        System.Threading.Tasks.Task<InlineResponse20037> GetEventTypesAsync (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List event types
@@ -5333,10 +5466,10 @@ namespace TalonOne.Api
         /// <param name="name">Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)</param>
         /// <param name="includeOldVersions">Include all versions of every event type. (optional, default to false)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20036)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20036>> GetEventTypesAsyncWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20037)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20037>> GetEventTypesAsyncWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get exports
         /// </summary>
@@ -5345,12 +5478,12 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of InlineResponse20039</returns>
-        System.Threading.Tasks.Task<InlineResponse20039> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string));
+        /// <returns>Task of InlineResponse20040</returns>
+        System.Threading.Tasks.Task<InlineResponse20040> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string));
 
         /// <summary>
         /// Get exports
@@ -5360,12 +5493,12 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20039)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20039>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20040)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20040>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string));
         /// <summary>
         /// Get loyalty card
         /// </summary>
@@ -5401,7 +5534,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>Task of InlineResponse20014</returns>
         System.Threading.Tasks.Task<InlineResponse20014> GetLoyaltyCardTransactionLogsAsync (int loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?), string subledgerId = default(string));
@@ -5418,7 +5551,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20014>> GetLoyaltyCardTransactionLogsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?), string subledgerId = default(string));
@@ -5431,7 +5564,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
         /// <param name="profileId">Filter by the profile ID. (optional)</param>
@@ -5447,7 +5580,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
         /// <param name="profileId">Filter by the profile ID. (optional)</param>
@@ -5510,7 +5643,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 50)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20012</returns>
         System.Threading.Tasks.Task<InlineResponse20012> GetLoyaltyProgramTransactionsAsync (int loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
 
@@ -5527,7 +5660,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 50)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20012>> GetLoyaltyProgramTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
@@ -5624,7 +5757,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -5645,7 +5778,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -5659,10 +5792,10 @@ namespace TalonOne.Api
         /// Get role
         /// </summary>
         /// <remarks>
-        /// Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The Id of role. </param>
+        /// <param name="roleId">The ID of role. </param>
         /// <returns>Task of Role</returns>
         System.Threading.Tasks.Task<Role> GetRoleAsync (int roleId);
 
@@ -5670,10 +5803,10 @@ namespace TalonOne.Api
         /// Get role
         /// </summary>
         /// <remarks>
-        /// Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The Id of role. </param>
+        /// <param name="roleId">The ID of role. </param>
         /// <returns>Task of ApiResponse (Role)</returns>
         System.Threading.Tasks.Task<ApiResponse<Role>> GetRoleAsyncWithHttpInfo (int roleId);
         /// <summary>
@@ -5711,7 +5844,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse2006</returns>
         System.Threading.Tasks.Task<InlineResponse2006> GetRulesetsAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -5726,7 +5859,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetRulesetsAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
@@ -5759,10 +5892,10 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of InlineResponse20037</returns>
-        System.Threading.Tasks.Task<InlineResponse20037> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of InlineResponse20038</returns>
+        System.Threading.Tasks.Task<InlineResponse20038> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
 
         /// <summary>
         /// List users in account
@@ -5772,10 +5905,10 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20037)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20037>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20038)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20038>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string));
         /// <summary>
         /// Get webhook
         /// </summary>
@@ -5805,7 +5938,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
@@ -5813,8 +5946,8 @@ namespace TalonOne.Api
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of InlineResponse20034</returns>
-        System.Threading.Tasks.Task<InlineResponse20034> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <returns>Task of InlineResponse20035</returns>
+        System.Threading.Tasks.Task<InlineResponse20035> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
 
         /// <summary>
         /// List webhook activation log entries
@@ -5824,7 +5957,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
@@ -5832,47 +5965,47 @@ namespace TalonOne.Api
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20034)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20034>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-        /// <summary>
-        /// List webhook log entries
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all webhook log entries.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of InlineResponse20035</returns>
-        System.Threading.Tasks.Task<InlineResponse20035> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-
-        /// <summary>
-        /// List webhook log entries
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all webhook log entries.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20035)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20035>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20035>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+        /// <summary>
+        /// List webhook log entries
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all webhook log entries.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of InlineResponse20036</returns>
+        System.Threading.Tasks.Task<InlineResponse20036> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
+
+        /// <summary>
+        /// List webhook log entries
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all webhook log entries.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20036)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20036>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List webhooks
         /// </summary>
@@ -5880,12 +6013,16 @@ namespace TalonOne.Api
         /// List all webhooks.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more application IDs separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse20033</returns>
-        System.Threading.Tasks.Task<InlineResponse20033> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="creationType">Filter results by creation type. (optional)</param>
+        /// <param name="visibility">Filter results by visibility. (optional)</param>
+        /// <param name="outgoingIntegrationsTypeId">Filter results by outgoing integration type ID. (optional)</param>
+        /// <param name="title">Filter results performing case-insensitive matching against the webhook title. (optional)</param>
+        /// <returns>Task of InlineResponse20034</returns>
+        System.Threading.Tasks.Task<InlineResponse20034> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?), string creationType = default(string), string visibility = default(string), int? outgoingIntegrationsTypeId = default(int?), string title = default(string));
 
         /// <summary>
         /// List webhooks
@@ -5894,12 +6031,16 @@ namespace TalonOne.Api
         /// List all webhooks.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more application IDs separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20033)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20033>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="creationType">Filter results by creation type. (optional)</param>
+        /// <param name="visibility">Filter results by visibility. (optional)</param>
+        /// <param name="outgoingIntegrationsTypeId">Filter results by outgoing integration type ID. (optional)</param>
+        /// <param name="title">Filter results performing case-insensitive matching against the webhook title. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20034)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20034>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?), string creationType = default(string), string visibility = default(string), int? outgoingIntegrationsTypeId = default(int?), string title = default(string));
         /// <summary>
         /// Import data in existing account-level collection
         /// </summary>
@@ -6022,10 +6163,33 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (Import)</returns>
         System.Threading.Tasks.Task<ApiResponse<Import>> ImportLoyaltyCardsAsyncWithHttpInfo (int loyaltyProgramId, string upFile = default(string));
         /// <summary>
+        /// Import customers into loyalty tiers
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in a tier, the customer is assigned to match the new information provided in the CSV file. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Task of Import</returns>
+        System.Threading.Tasks.Task<Import> ImportLoyaltyCustomersTiersAsync (int loyaltyProgramId, string upFile = default(string));
+
+        /// <summary>
+        /// Import customers into loyalty tiers
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in a tier, the customer is assigned to match the new information provided in the CSV file. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Task of ApiResponse (Import)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Import>> ImportLoyaltyCustomersTiersAsyncWithHttpInfo (int loyaltyProgramId, string upFile = default(string));
+        /// <summary>
         /// Import loyalty points
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
+        /// Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;immediate&#x60;. Empty or missing values are considered &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed. The points are &#x60;expired&#x60; after this date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -6037,7 +6201,7 @@ namespace TalonOne.Api
         /// Import loyalty points
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
+        /// Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;immediate&#x60;. Empty or missing values are considered &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed. The points are &#x60;expired&#x60; after this date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -6100,7 +6264,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -6115,12 +6279,41 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> ListAccountCollectionsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), bool? withTotalResultSize = default(bool?), string name = default(string));
+        /// <summary>
+        /// List items in a catalog
+        /// </summary>
+        /// <remarks>
+        /// Return a paginated list of cart items in the given catalog. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
+        /// <param name="sku">The SKU of the item. (optional)</param>
+        /// <returns>Task of InlineResponse20032</returns>
+        System.Threading.Tasks.Task<InlineResponse20032> ListCatalogItemsAsync (int catalogId, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?), string sku = default(string));
+
+        /// <summary>
+        /// List items in a catalog
+        /// </summary>
+        /// <remarks>
+        /// Return a paginated list of cart items in the given catalog. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
+        /// <param name="sku">The SKU of the item. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20032)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20032>> ListCatalogItemsAsyncWithHttpInfo (int catalogId, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?), string sku = default(string));
         /// <summary>
         /// List collections
         /// </summary>
@@ -6131,7 +6324,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -6148,7 +6341,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -6163,7 +6356,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -6179,7 +6372,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -6192,7 +6385,7 @@ namespace TalonOne.Api
         /// Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of BaseNotification</returns>
         System.Threading.Tasks.Task<BaseNotification> PostAddedDeductedPointsNotificationAsync (int loyaltyProgramId, NewBaseNotification body);
@@ -6204,7 +6397,7 @@ namespace TalonOne.Api
         /// Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (BaseNotification)</returns>
         System.Threading.Tasks.Task<ApiResponse<BaseNotification>> PostAddedDeductedPointsNotificationAsyncWithHttpInfo (int loyaltyProgramId, NewBaseNotification body);
@@ -6232,10 +6425,33 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (BaseNotification)</returns>
         System.Threading.Tasks.Task<ApiResponse<BaseNotification>> PostCatalogsStrikethroughNotificationAsyncWithHttpInfo (int applicationId, NewBaseNotification body);
         /// <summary>
+        /// Create notification about pending loyalty points
+        /// </summary>
+        /// <remarks>
+        /// Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>Task of BaseNotification</returns>
+        System.Threading.Tasks.Task<BaseNotification> PostPendingPointsNotificationAsync (int loyaltyProgramId, NewBaseNotification body);
+
+        /// <summary>
+        /// Create notification about pending loyalty points
+        /// </summary>
+        /// <remarks>
+        /// Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (BaseNotification)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BaseNotification>> PostPendingPointsNotificationAsyncWithHttpInfo (int loyaltyProgramId, NewBaseNotification body);
+        /// <summary>
         /// Deduct points from customer profile
         /// </summary>
         /// <remarks>
-        /// Deduct points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+        /// Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -6248,7 +6464,7 @@ namespace TalonOne.Api
         /// Deduct points from customer profile
         /// </summary>
         /// <remarks>
-        /// Deduct points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+        /// Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -6287,7 +6503,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -6312,7 +6528,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -6337,7 +6553,7 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -6362,7 +6578,7 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -6911,12 +7127,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -7084,12 +7310,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -7243,12 +7479,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -7390,12 +7636,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -7537,12 +7793,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -7684,12 +7950,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -7837,12 +8113,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -7996,12 +8282,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -8167,12 +8463,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -8326,12 +8632,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -8497,12 +8813,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -8650,12 +8976,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -8797,12 +9133,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -8944,12 +9290,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -9109,12 +9465,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -9244,12 +9610,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -9383,12 +9759,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -9530,12 +9916,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -9683,12 +10079,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("couponId", TalonOne.Client.ClientUtils.ParameterToString(couponId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -9978,12 +10384,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -10127,12 +10543,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -10266,12 +10692,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("notificationWebhookId", TalonOne.Client.ClientUtils.ParameterToString(notificationWebhookId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -10419,12 +10855,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("referralId", TalonOne.Client.ClientUtils.ParameterToString(referralId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -10546,12 +10992,22 @@ namespace TalonOne.Api
             
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -10683,12 +11139,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -10832,12 +11298,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -11125,12 +11601,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -11322,12 +11808,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -11507,12 +12003,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -11664,12 +12170,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -11821,12 +12337,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -11970,12 +12496,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -12145,12 +12681,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -12328,12 +12874,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -12346,6 +12902,177 @@ namespace TalonOne.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ExportLoyaltyLedger", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Export giveaway codes of a giveaway pool Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="poolId">The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.</param>
+        /// <param name="createdBefore">Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <returns>string</returns>
+        public string ExportPoolGiveaways (int poolId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+             TalonOne.Client.ApiResponse<string> localVarResponse = ExportPoolGiveawaysWithHttpInfo(poolId, createdBefore, createdAfter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export giveaway codes of a giveaway pool Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="poolId">The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.</param>
+        /// <param name="createdBefore">Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        public TalonOne.Client.ApiResponse< string > ExportPoolGiveawaysWithHttpInfo (int poolId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/csv"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("poolId", TalonOne.Client.ClientUtils.ParameterToString(poolId)); // path parameter
+            if (createdBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
+            }
+            if (createdAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< string >("/v1/giveaways/pools/{poolId}/export", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExportPoolGiveaways", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Export giveaway codes of a giveaway pool Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="poolId">The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.</param>
+        /// <param name="createdBefore">Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> ExportPoolGiveawaysAsync (int poolId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+             TalonOne.Client.ApiResponse<string> localVarResponse = await ExportPoolGiveawaysAsyncWithHttpInfo(poolId, createdBefore, createdAfter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export giveaway codes of a giveaway pool Download a CSV file containing the giveaway codes of a specific giveaway pool.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns:  - &#x60;id&#x60;: The internal ID of the giveaway. - &#x60;poolid&#x60;: The internal ID of the giveaway pool. - &#x60;code&#x60;: The giveaway code. - &#x60;startdate&#x60;: The validity start date in RFC3339 of the giveaway (can be empty). - &#x60;enddate&#x60;: The validity end date in RFC3339 of the giveaway (can be empty). - &#x60;attributes&#x60;: Any custom attributes associated with the giveaway code (can be empty). - &#x60;used&#x60;: An indication of whether the giveaway is already awarded. - &#x60;importid&#x60;: The ID of the import which created the giveaway. - &#x60;created&#x60;: The creation time of the giveaway code. - &#x60;profileintegrationid&#x60;: The third-party integration ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded. - &#x60;profileid&#x60;: The internal ID of the customer profile that was awarded the giveaway. Can be empty if the giveaway was not awarded or an internal ID does not exist. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="poolId">The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.</param>
+        /// <param name="createdBefore">Timestamp that filters the results to only contain giveaways created before this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <param name="createdAfter">Timestamp that filters the results to only contain giveaways created after this date. Must be an RFC3339 timestamp string. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<string>> ExportPoolGiveawaysAsyncWithHttpInfo (int poolId, DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/csv"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("poolId", TalonOne.Client.ClientUtils.ParameterToString(poolId)); // path parameter
+            if (createdBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
+            }
+            if (createdAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/v1/giveaways/pools/{poolId}/export", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExportPoolGiveaways", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -12549,12 +13276,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -12584,7 +13321,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse20018</returns>
         public InlineResponse20018 GetAccessLogsWithoutTotalCount (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -12604,7 +13341,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20018</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20018 > GetAccessLogsWithoutTotalCountWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -12698,7 +13435,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse20018</returns>
         public async System.Threading.Tasks.Task<InlineResponse20018> GetAccessLogsWithoutTotalCountAsync (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -12719,7 +13456,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20018)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20018>> GetAccessLogsWithoutTotalCountAsyncWithHttpInfo (int applicationId, DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -12770,12 +13507,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -12907,12 +13654,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("accountId", TalonOne.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -13044,12 +13801,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("accountId", TalonOne.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -13181,12 +13948,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -13318,12 +14095,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("additionalCostId", TalonOne.Client.ClientUtils.ParameterToString(additionalCostId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -13347,12 +14134,12 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>InlineResponse20032</returns>
-        public InlineResponse20032 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>InlineResponse20033</returns>
+        public InlineResponse20033 GetAdditionalCosts (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20032> localVarResponse = GetAdditionalCostsWithHttpInfo(pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20033> localVarResponse = GetAdditionalCostsWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
         }
 
@@ -13361,10 +14148,10 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20032</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20032 > GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>ApiResponse of InlineResponse20033</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20033 > GetAdditionalCostsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -13417,7 +14204,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20032 >("/v1/additional_costs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20033 >("/v1/additional_costs", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -13434,12 +14221,12 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of InlineResponse20032</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20032> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of InlineResponse20033</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20033> GetAdditionalCostsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20032> localVarResponse = await GetAdditionalCostsAsyncWithHttpInfo(pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20033> localVarResponse = await GetAdditionalCostsAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
 
         }
@@ -13449,10 +14236,10 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20032)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20032>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20033)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20033>> GetAdditionalCostsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -13485,19 +14272,29 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20032>("/v1/additional_costs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20033>("/v1/additional_costs", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -13519,7 +14316,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse20019</returns>
         public InlineResponse20019 GetAllAccessLogs (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -13538,7 +14335,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20019</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20019 > GetAllAccessLogsWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -13630,7 +14427,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse20019</returns>
         public async System.Threading.Tasks.Task<InlineResponse20019> GetAllAccessLogsAsync (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -13650,7 +14447,7 @@ namespace TalonOne.Api
         /// <param name="method">Only return results where the request method matches the given regular expression. (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20019>> GetAllAccessLogsAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, string path = default(string), string method = default(string), string status = default(string), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -13700,12 +14497,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -13728,10 +14535,10 @@ namespace TalonOne.Api
         /// List roles List all roles.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse20040</returns>
-        public InlineResponse20040 GetAllRoles ()
+        /// <returns>InlineResponse20041</returns>
+        public InlineResponse20041 GetAllRoles ()
         {
-             TalonOne.Client.ApiResponse<InlineResponse20040> localVarResponse = GetAllRolesWithHttpInfo();
+             TalonOne.Client.ApiResponse<InlineResponse20041> localVarResponse = GetAllRolesWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -13739,8 +14546,8 @@ namespace TalonOne.Api
         /// List roles List all roles.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse20040</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20040 > GetAllRolesWithHttpInfo ()
+        /// <returns>ApiResponse of InlineResponse20041</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20041 > GetAllRolesWithHttpInfo ()
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -13781,7 +14588,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20040 >("/v1/roles", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20041 >("/v1/roles", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -13797,10 +14604,10 @@ namespace TalonOne.Api
         /// List roles List all roles.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse20040</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20040> GetAllRolesAsync ()
+        /// <returns>Task of InlineResponse20041</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20041> GetAllRolesAsync ()
         {
-             TalonOne.Client.ApiResponse<InlineResponse20040> localVarResponse = await GetAllRolesAsyncWithHttpInfo();
+             TalonOne.Client.ApiResponse<InlineResponse20041> localVarResponse = await GetAllRolesAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -13809,8 +14616,8 @@ namespace TalonOne.Api
         /// List roles List all roles.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse20040)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20040>> GetAllRolesAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (InlineResponse20041)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20041>> GetAllRolesAsyncWithHttpInfo ()
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -13831,19 +14638,29 @@ namespace TalonOne.Api
             
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20040>("/v1/roles", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20041>("/v1/roles", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -13968,12 +14785,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -14105,12 +14932,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -14248,12 +15085,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("customerId", TalonOne.Client.ClientUtils.ParameterToString(customerId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -14279,7 +15126,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">The Integration ID of the Advocate&#39;s Profile.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20030</returns>
@@ -14296,7 +15143,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">The Integration ID of the Advocate&#39;s Profile.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20030</returns>
@@ -14382,7 +15229,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">The Integration ID of the Advocate&#39;s Profile.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20030</returns>
@@ -14400,7 +15247,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">The Integration ID of the Advocate&#39;s Profile.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20030)</returns>
@@ -14447,12 +15294,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -14478,7 +15335,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20021</returns>
         public InlineResponse20021 GetApplicationCustomers (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
@@ -14494,7 +15351,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20021</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20021 > GetApplicationCustomersWithHttpInfo (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
@@ -14574,7 +15431,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20021</returns>
         public async System.Threading.Tasks.Task<InlineResponse20021> GetApplicationCustomersAsync (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
@@ -14591,7 +15448,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20021)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20021>> GetApplicationCustomersAsyncWithHttpInfo (int applicationId, string integrationId = default(string), int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
@@ -14632,12 +15489,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -14663,7 +15530,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20022</returns>
         public InlineResponse20022 GetApplicationCustomersByAttributes (int applicationId, CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
@@ -14679,7 +15546,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20022</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20022 > GetApplicationCustomersByAttributesWithHttpInfo (int applicationId, CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
@@ -14761,7 +15628,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20022</returns>
         public async System.Threading.Tasks.Task<InlineResponse20022> GetApplicationCustomersByAttributesAsync (int applicationId, CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
@@ -14778,7 +15645,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20022)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20022>> GetApplicationCustomersByAttributesAsyncWithHttpInfo (int applicationId, CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?))
@@ -14821,12 +15688,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -14846,12 +15723,12 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List Applications event types Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent) 
+        /// List Applications event types Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse20028</returns>
         public InlineResponse20028 GetApplicationEventTypes (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -14861,12 +15738,12 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List Applications event types Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent) 
+        /// List Applications event types Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20028</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20028 > GetApplicationEventTypesWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -14936,12 +15813,12 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List Applications event types Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent) 
+        /// List Applications event types Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse20028</returns>
         public async System.Threading.Tasks.Task<InlineResponse20028> GetApplicationEventTypesAsync (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -14952,12 +15829,12 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List Applications event types Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#operation/trackEvent) 
+        /// List Applications event types Get all of the distinct values of the Event &#x60;type&#x60; property for events recorded in the application.  See also: [Track an event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20028)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20028>> GetApplicationEventTypesAsyncWithHttpInfo (int applicationId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -14994,12 +15871,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -15024,7 +15911,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -15050,7 +15937,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -15180,7 +16067,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -15207,7 +16094,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="type">Comma-separated list of types by which to filter events. Must be exact match(es). (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -15299,12 +16186,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -15442,12 +16339,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("sessionId", TalonOne.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -15472,7 +16379,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
@@ -15494,7 +16401,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
@@ -15604,7 +16511,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
@@ -15627,7 +16534,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="profile">Profile integration ID filter for sessions. Must be exact match. (optional)</param>
         /// <param name="state">Filter by sessions with this state. Must be exact match. (optional)</param>
@@ -15699,12 +16606,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -15728,7 +16645,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse2003</returns>
         public InlineResponse2003 GetApplications (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -15742,7 +16659,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
         public TalonOne.Client.ApiResponse< InlineResponse2003 > GetApplicationsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -15815,7 +16732,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse2003</returns>
         public async System.Threading.Tasks.Task<InlineResponse2003> GetApplicationsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -15830,7 +16747,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2003>> GetApplicationsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -15866,12 +16783,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -16003,12 +16930,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("attributeId", TalonOne.Client.ClientUtils.ParameterToString(attributeId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -16032,7 +16969,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="entity">Returned attributes will be filtered by supplied entity. (optional)</param>
         /// <returns>InlineResponse20031</returns>
@@ -16047,7 +16984,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="entity">Returned attributes will be filtered by supplied entity. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20031</returns>
@@ -16125,7 +17062,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="entity">Returned attributes will be filtered by supplied entity. (optional)</param>
         /// <returns>Task of InlineResponse20031</returns>
@@ -16141,7 +17078,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="entity">Returned attributes will be filtered by supplied entity. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20031)</returns>
@@ -16182,12 +17119,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -16211,7 +17158,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>InlineResponse20029</returns>
@@ -16226,7 +17173,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20029</returns>
@@ -16304,7 +17251,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of InlineResponse20029</returns>
@@ -16320,7 +17267,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20029)</returns>
@@ -16361,12 +17308,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -16504,12 +17461,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -16671,12 +17638,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -16702,7 +17679,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <returns>InlineResponse2004</returns>
@@ -16719,7 +17696,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
@@ -16806,7 +17783,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
@@ -16824,7 +17801,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
@@ -16872,12 +17849,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -16901,7 +17888,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="state">Filter results by the state of the campaign template. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign template. (optional)</param>
@@ -16919,7 +17906,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="state">Filter results by the state of the campaign template. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign template. (optional)</param>
@@ -17012,7 +17999,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="state">Filter results by the state of the campaign template. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign template. (optional)</param>
@@ -17031,7 +18018,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="state">Filter results by the state of the campaign template. (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign template. (optional)</param>
@@ -17087,12 +18074,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -17117,7 +18114,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
@@ -17139,7 +18136,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
@@ -17249,7 +18246,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
@@ -17272,7 +18269,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
@@ -17344,12 +18341,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -17373,7 +18380,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
@@ -17383,10 +18390,10 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>InlineResponse20038</returns>
-        public InlineResponse20038 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?))
+        /// <returns>InlineResponse20039</returns>
+        public InlineResponse20039 GetChanges (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20038> localVarResponse = GetChangesWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
+             TalonOne.Client.ApiResponse<InlineResponse20039> localVarResponse = GetChangesWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
              return localVarResponse.Data;
         }
 
@@ -17395,7 +18402,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
@@ -17405,8 +18412,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20038</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20038 > GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?))
+        /// <returns>ApiResponse of InlineResponse20039</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20039 > GetChangesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -17491,7 +18498,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20038 >("/v1/changes", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20039 >("/v1/changes", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -17508,7 +18515,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
@@ -17518,10 +18525,10 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of InlineResponse20038</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20038> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?))
+        /// <returns>Task of InlineResponse20039</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20039> GetChangesAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20038> localVarResponse = await GetChangesAsyncWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
+             TalonOne.Client.ApiResponse<InlineResponse20039> localVarResponse = await GetChangesAsyncWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
              return localVarResponse.Data;
 
         }
@@ -17531,7 +18538,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="entityPath">Filter results on a case insensitive matching of the url path of the entity (optional)</param>
@@ -17541,8 +18548,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20038)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20038>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?))
+        /// <returns>Task of ApiResponse (InlineResponse20039)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20039>> GetChangesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), int? userId = default(int?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), int? managementKeyId = default(int?), bool? includeOld = default(bool?))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -17607,19 +18614,29 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20038>("/v1/changes", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20039>("/v1/changes", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -17756,12 +18773,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -17786,7 +18813,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20016</returns>
         public InlineResponse20016 GetCollectionItems (int collectionId, int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -17800,7 +18827,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20016</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20016 > GetCollectionItemsWithHttpInfo (int collectionId, int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -17870,7 +18897,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20016</returns>
         public async System.Threading.Tasks.Task<InlineResponse20016> GetCollectionItemsAsync (int collectionId, int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -17885,7 +18912,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID of the collection. You can get it with the [List collection in account](#operation/listCollectionsInApplication) endpoint.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20016)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20016>> GetCollectionItemsAsyncWithHttpInfo (int collectionId, int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -17917,12 +18944,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -17948,7 +18985,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -17973,7 +19010,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -18095,7 +19132,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -18121,7 +19158,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -18204,12 +19241,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -18237,7 +19284,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>CustomerActivityReport</returns>
         public CustomerActivityReport GetCustomerActivityReport (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -18254,7 +19301,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of CustomerActivityReport</returns>
         public TalonOne.Client.ApiResponse< CustomerActivityReport > GetCustomerActivityReportWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -18330,7 +19377,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of CustomerActivityReport</returns>
         public async System.Threading.Tasks.Task<CustomerActivityReport> GetCustomerActivityReportAsync (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -18348,7 +19395,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (CustomerActivityReport)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<CustomerActivityReport>> GetCustomerActivityReportAsyncWithHttpInfo (DateTime rangeStart, DateTime rangeEnd, int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -18383,12 +19430,22 @@ namespace TalonOne.Api
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "rangeEnd", rangeEnd));
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -18415,7 +19472,7 @@ namespace TalonOne.Api
         /// <param name="rangeEnd">Only return results from before this timestamp. This must be an RFC3339 timestamp string.</param>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="name">Only return reports matching the customer name (optional)</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
@@ -18436,7 +19493,7 @@ namespace TalonOne.Api
         /// <param name="rangeEnd">Only return results from before this timestamp. This must be an RFC3339 timestamp string.</param>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="name">Only return reports matching the customer name (optional)</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
@@ -18535,7 +19592,7 @@ namespace TalonOne.Api
         /// <param name="rangeEnd">Only return results from before this timestamp. This must be an RFC3339 timestamp string.</param>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="name">Only return reports matching the customer name (optional)</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
@@ -18557,7 +19614,7 @@ namespace TalonOne.Api
         /// <param name="rangeEnd">Only return results from before this timestamp. This must be an RFC3339 timestamp string.</param>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="name">Only return reports matching the customer name (optional)</param>
         /// <param name="integrationId">Filter results performing an exact matching against the profile integration identifier. (optional)</param>
@@ -18616,12 +19673,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -18647,7 +19714,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>CustomerAnalytics</returns>
         public CustomerAnalytics GetCustomerAnalytics (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -18663,7 +19730,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of CustomerAnalytics</returns>
         public TalonOne.Client.ApiResponse< CustomerAnalytics > GetCustomerAnalyticsWithHttpInfo (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -18740,7 +19807,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of CustomerAnalytics</returns>
         public async System.Threading.Tasks.Task<CustomerAnalytics> GetCustomerAnalyticsAsync (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -18757,7 +19824,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="customerId">The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (CustomerAnalytics)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<CustomerAnalytics>> GetCustomerAnalyticsAsyncWithHttpInfo (int applicationId, int customerId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -18795,12 +19862,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -18932,12 +20009,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("customerId", TalonOne.Client.ClientUtils.ParameterToString(customerId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -18961,7 +20048,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>InlineResponse20024</returns>
         public InlineResponse20024 GetCustomerProfiles (int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?))
@@ -18975,7 +20062,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse20024</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20024 > GetCustomerProfilesWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?))
@@ -19048,7 +20135,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>Task of InlineResponse20024</returns>
         public async System.Threading.Tasks.Task<InlineResponse20024> GetCustomerProfilesAsync (int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?))
@@ -19063,7 +20150,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse20024)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20024>> GetCustomerProfilesAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?))
@@ -19099,12 +20186,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -19129,7 +20226,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>InlineResponse20023</returns>
         public InlineResponse20023 GetCustomersByAttributes (CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?))
@@ -19144,7 +20241,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse20023</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20023 > GetCustomersByAttributesWithHttpInfo (CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?))
@@ -19224,7 +20321,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>Task of InlineResponse20023</returns>
         public async System.Threading.Tasks.Task<InlineResponse20023> GetCustomersByAttributesAsync (CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?))
@@ -19240,7 +20337,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sandbox">Indicates whether you are pointing to a sandbox or Live customer. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse20023)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20023>> GetCustomersByAttributesAsyncWithHttpInfo (CustomerProfileSearchQuery body, int? pageSize = default(int?), int? skip = default(int?), bool? sandbox = default(bool?))
@@ -19282,12 +20379,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -19313,12 +20420,12 @@ namespace TalonOne.Api
         /// <param name="name">Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)</param>
         /// <param name="includeOldVersions">Include all versions of every event type. (optional, default to false)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>InlineResponse20036</returns>
-        public InlineResponse20036 GetEventTypes (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>InlineResponse20037</returns>
+        public InlineResponse20037 GetEventTypes (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20036> localVarResponse = GetEventTypesWithHttpInfo(name, includeOldVersions, pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20037> localVarResponse = GetEventTypesWithHttpInfo(name, includeOldVersions, pageSize, skip, sort);
              return localVarResponse.Data;
         }
 
@@ -19329,10 +20436,10 @@ namespace TalonOne.Api
         /// <param name="name">Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)</param>
         /// <param name="includeOldVersions">Include all versions of every event type. (optional, default to false)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20036</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20036 > GetEventTypesWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>ApiResponse of InlineResponse20037</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20037 > GetEventTypesWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -19393,7 +20500,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20036 >("/v1/event_types", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20037 >("/v1/event_types", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -19412,12 +20519,12 @@ namespace TalonOne.Api
         /// <param name="name">Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)</param>
         /// <param name="includeOldVersions">Include all versions of every event type. (optional, default to false)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of InlineResponse20036</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20036> GetEventTypesAsync (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of InlineResponse20037</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20037> GetEventTypesAsync (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20036> localVarResponse = await GetEventTypesAsyncWithHttpInfo(name, includeOldVersions, pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20037> localVarResponse = await GetEventTypesAsyncWithHttpInfo(name, includeOldVersions, pageSize, skip, sort);
              return localVarResponse.Data;
 
         }
@@ -19429,10 +20536,10 @@ namespace TalonOne.Api
         /// <param name="name">Filter results to event types with the given name. This parameter implies &#x60;includeOldVersions&#x60;. (optional)</param>
         /// <param name="includeOldVersions">Include all versions of every event type. (optional, default to false)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20036)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20036>> GetEventTypesAsyncWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20037)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20037>> GetEventTypesAsyncWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -19473,19 +20580,29 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20036>("/v1/event_types", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20037>("/v1/event_types", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -19502,14 +20619,14 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>InlineResponse20039</returns>
-        public InlineResponse20039 GetExports (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string))
+        /// <returns>InlineResponse20040</returns>
+        public InlineResponse20040 GetExports (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20039> localVarResponse = GetExportsWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
+             TalonOne.Client.ApiResponse<InlineResponse20040> localVarResponse = GetExportsWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
              return localVarResponse.Data;
         }
 
@@ -19518,12 +20635,12 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20039</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20039 > GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string))
+        /// <returns>ApiResponse of InlineResponse20040</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20040 > GetExportsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -19584,7 +20701,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20039 >("/v1/exports", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20040 >("/v1/exports", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -19601,14 +20718,14 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of InlineResponse20039</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20039> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string))
+        /// <returns>Task of InlineResponse20040</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20040> GetExportsAsync (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20039> localVarResponse = await GetExportsAsyncWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
+             TalonOne.Client.ApiResponse<InlineResponse20040> localVarResponse = await GetExportsAsyncWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
              return localVarResponse.Data;
 
         }
@@ -19618,12 +20735,12 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20039)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20039>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20040)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20040>> GetExportsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), decimal? applicationId = default(decimal?), int? campaignId = default(int?), string entity = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -19664,19 +20781,29 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20039>("/v1/exports", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20040>("/v1/exports", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -19815,12 +20942,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -19848,7 +20985,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>InlineResponse20014</returns>
         public InlineResponse20014 GetLoyaltyCardTransactionLogs (int loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?), string subledgerId = default(string))
@@ -19866,7 +21003,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20014</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20014 > GetLoyaltyCardTransactionLogsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?), string subledgerId = default(string))
@@ -19957,7 +21094,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>Task of InlineResponse20014</returns>
         public async System.Threading.Tasks.Task<InlineResponse20014> GetLoyaltyCardTransactionLogsAsync (int loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?), string subledgerId = default(string))
@@ -19976,7 +21113,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20014)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20014>> GetLoyaltyCardTransactionLogsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?), string subledgerId = default(string))
@@ -20026,12 +21163,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -20056,7 +21203,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
         /// <param name="profileId">Filter by the profile ID. (optional)</param>
@@ -20073,7 +21220,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
         /// <param name="profileId">Filter by the profile ID. (optional)</param>
@@ -20158,7 +21305,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
         /// <param name="profileId">Filter by the profile ID. (optional)</param>
@@ -20176,7 +21323,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
         /// <param name="profileId">Filter by the profile ID. (optional)</param>
@@ -20223,12 +21370,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -20382,12 +21539,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -20519,12 +21686,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -20553,7 +21730,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 50)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20012</returns>
         public InlineResponse20012 GetLoyaltyProgramTransactions (int loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -20571,7 +21748,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 50)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20012</returns>
         public TalonOne.Client.ApiResponse< InlineResponse20012 > GetLoyaltyProgramTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -20661,7 +21838,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 50)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20012</returns>
         public async System.Threading.Tasks.Task<InlineResponse20012> GetLoyaltyProgramTransactionsAsync (int loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -20680,7 +21857,7 @@ namespace TalonOne.Api
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:** It must be an RFC3339 timestamp string.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 50)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20012)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20012>> GetLoyaltyProgramTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
@@ -20728,12 +21905,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -20859,12 +22046,22 @@ namespace TalonOne.Api
             
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -20996,12 +22193,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -21139,12 +22346,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("notificationWebhookId", TalonOne.Client.ClientUtils.ParameterToString(notificationWebhookId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -21276,12 +22493,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -21307,7 +22534,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -21329,7 +22556,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -21436,7 +22663,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -21459,7 +22686,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="code">Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -21527,12 +22754,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -21552,10 +22789,10 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get role Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get role Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The Id of role. </param>
+        /// <param name="roleId">The ID of role. </param>
         /// <returns>Role</returns>
         public Role GetRole (int roleId)
         {
@@ -21564,10 +22801,10 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get role Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get role Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The Id of role. </param>
+        /// <param name="roleId">The ID of role. </param>
         /// <returns>ApiResponse of Role</returns>
         public TalonOne.Client.ApiResponse< Role > GetRoleWithHttpInfo (int roleId)
         {
@@ -21624,10 +22861,10 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get role Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get role Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The Id of role. </param>
+        /// <param name="roleId">The ID of role. </param>
         /// <returns>Task of Role</returns>
         public async System.Threading.Tasks.Task<Role> GetRoleAsync (int roleId)
         {
@@ -21637,10 +22874,10 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Get role Get the details of the specified role. To see all the roles, use [List roles](#operation/getAllRoles). 
+        /// Get role Get the details of a specific role. To see all the roles, use [List roles](#operation/getAllRoles). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="roleId">The Id of role. </param>
+        /// <param name="roleId">The ID of role. </param>
         /// <returns>Task of ApiResponse (Role)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Role>> GetRoleAsyncWithHttpInfo (int roleId)
         {
@@ -21664,12 +22901,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("roleId", TalonOne.Client.ClientUtils.ParameterToString(roleId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -21813,12 +23060,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("rulesetId", TalonOne.Client.ClientUtils.ParameterToString(rulesetId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -21844,7 +23101,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>InlineResponse2006</returns>
         public InlineResponse2006 GetRulesets (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -21860,7 +23117,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
         public TalonOne.Client.ApiResponse< InlineResponse2006 > GetRulesetsWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -21937,7 +23194,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of InlineResponse2006</returns>
         public async System.Threading.Tasks.Task<InlineResponse2006> GetRulesetsAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -21954,7 +23211,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2006>> GetRulesetsAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
@@ -21992,12 +23249,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -22129,12 +23396,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -22158,12 +23435,12 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>InlineResponse20037</returns>
-        public InlineResponse20037 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>InlineResponse20038</returns>
+        public InlineResponse20038 GetUsers (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20037> localVarResponse = GetUsersWithHttpInfo(pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20038> localVarResponse = GetUsersWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
         }
 
@@ -22172,10 +23449,10 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20037</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20037 > GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>ApiResponse of InlineResponse20038</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20038 > GetUsersWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -22228,7 +23505,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20037 >("/v1/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20038 >("/v1/users", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -22245,12 +23522,12 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of InlineResponse20037</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20037> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of InlineResponse20038</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20038> GetUsersAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20037> localVarResponse = await GetUsersAsyncWithHttpInfo(pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20038> localVarResponse = await GetUsersAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
 
         }
@@ -22260,10 +23537,10 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20037)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20037>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20038)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20038>> GetUsersAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -22296,19 +23573,29 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20037>("/v1/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20038>("/v1/users", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -22433,12 +23720,22 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("webhookId", TalonOne.Client.ClientUtils.ParameterToString(webhookId)); // path parameter
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -22462,7 +23759,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
@@ -22470,251 +23767,240 @@ namespace TalonOne.Api
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
         /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>InlineResponse20034</returns>
-        public InlineResponse20034 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20034> localVarResponse = GetWebhookActivationLogsWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20034</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20034 > GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
-            if (integrationRequestUuid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "integrationRequestUuid", integrationRequestUuid));
-            }
-            if (webhookId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookId", webhookId));
-            }
-            if (applicationId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "applicationId", applicationId));
-            }
-            if (campaignId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
-            }
-            if (createdBefore != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
-            }
-            if (createdAfter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
-            }
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20034 >("/v1/webhook_activation_logs", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of InlineResponse20034</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20034> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20034> localVarResponse = await GetWebhookActivationLogsAsyncWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20034)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20034>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
-            if (integrationRequestUuid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "integrationRequestUuid", integrationRequestUuid));
-            }
-            if (webhookId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookId", webhookId));
-            }
-            if (applicationId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "applicationId", applicationId));
-            }
-            if (campaignId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
-            }
-            if (createdBefore != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
-            }
-            if (createdAfter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
-            }
-
-            // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20034>("/v1/webhook_activation_logs", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List webhook log entries Retrieve all webhook log entries.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <returns>InlineResponse20035</returns>
-        public InlineResponse20035 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        public InlineResponse20035 GetWebhookActivationLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20035> localVarResponse = GetWebhookLogsWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
+             TalonOne.Client.ApiResponse<InlineResponse20035> localVarResponse = GetWebhookActivationLogsWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
              return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
+        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20035</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20035 > GetWebhookActivationLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (integrationRequestUuid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "integrationRequestUuid", integrationRequestUuid));
+            }
+            if (webhookId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookId", webhookId));
+            }
+            if (applicationId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "applicationId", applicationId));
+            }
+            if (campaignId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
+            }
+            if (createdBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
+            }
+            if (createdAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< InlineResponse20035 >("/v1/webhook_activation_logs", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
+        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of InlineResponse20035</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20035> GetWebhookActivationLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20035> localVarResponse = await GetWebhookActivationLogsAsyncWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
+        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="createdBefore">Only return events created before this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Only return events created after this date. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20035)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20035>> GetWebhookActivationLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
+            }
+            if (integrationRequestUuid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "integrationRequestUuid", integrationRequestUuid));
+            }
+            if (webhookId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookId", webhookId));
+            }
+            if (applicationId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "applicationId", applicationId));
+            }
+            if (campaignId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
+            }
+            if (createdBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
+            }
+            if (createdAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20035>("/v1/webhook_activation_logs", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
         }
 
         /// <summary>
@@ -22722,7 +24008,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
@@ -22731,8 +24017,29 @@ namespace TalonOne.Api
         /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20035</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20035 > GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        /// <returns>InlineResponse20036</returns>
+        public InlineResponse20036 GetWebhookLogs (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20036> localVarResponse = GetWebhookLogsWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List webhook log entries Retrieve all webhook log entries.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
+        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
+        /// <param name="webhookId">Filter results by Webhook. (optional)</param>
+        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
+        /// <param name="campaignId">Filter results by campaign. (optional)</param>
+        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20036</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20036 > GetWebhookLogsWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -22813,7 +24120,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20035 >("/v1/webhook_logs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20036 >("/v1/webhook_logs", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -22830,7 +24137,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
@@ -22839,10 +24146,10 @@ namespace TalonOne.Api
         /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of InlineResponse20035</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20035> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        /// <returns>Task of InlineResponse20036</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20036> GetWebhookLogsAsync (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20035> localVarResponse = await GetWebhookLogsAsyncWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
+             TalonOne.Client.ApiResponse<InlineResponse20036> localVarResponse = await GetWebhookLogsAsyncWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
              return localVarResponse.Data;
 
         }
@@ -22852,7 +24159,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="status">Filter results by HTTP status codes. (optional)</param>
         /// <param name="webhookId">Filter results by Webhook. (optional)</param>
@@ -22861,8 +24168,8 @@ namespace TalonOne.Api
         /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
         /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20035)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20035>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
+        /// <returns>Task of ApiResponse (InlineResponse20036)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20036>> GetWebhookLogsAsyncWithHttpInfo (int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -22923,19 +24230,29 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20035>("/v1/webhook_logs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20036>("/v1/webhook_logs", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -22951,14 +24268,18 @@ namespace TalonOne.Api
         /// List webhooks List all webhooks.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more application IDs separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse20033</returns>
-        public InlineResponse20033 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="creationType">Filter results by creation type. (optional)</param>
+        /// <param name="visibility">Filter results by visibility. (optional)</param>
+        /// <param name="outgoingIntegrationsTypeId">Filter results by outgoing integration type ID. (optional)</param>
+        /// <param name="title">Filter results performing case-insensitive matching against the webhook title. (optional)</param>
+        /// <returns>InlineResponse20034</returns>
+        public InlineResponse20034 GetWebhooks (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?), string creationType = default(string), string visibility = default(string), int? outgoingIntegrationsTypeId = default(int?), string title = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20033> localVarResponse = GetWebhooksWithHttpInfo(applicationIds, sort, pageSize, skip);
+             TalonOne.Client.ApiResponse<InlineResponse20034> localVarResponse = GetWebhooksWithHttpInfo(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title);
              return localVarResponse.Data;
         }
 
@@ -22966,12 +24287,16 @@ namespace TalonOne.Api
         /// List webhooks List all webhooks.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more application IDs separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20033</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20033 > GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="creationType">Filter results by creation type. (optional)</param>
+        /// <param name="visibility">Filter results by visibility. (optional)</param>
+        /// <param name="outgoingIntegrationsTypeId">Filter results by outgoing integration type ID. (optional)</param>
+        /// <param name="title">Filter results performing case-insensitive matching against the webhook title. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20034</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20034 > GetWebhooksWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?), string creationType = default(string), string visibility = default(string), int? outgoingIntegrationsTypeId = default(int?), string title = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -23005,6 +24330,22 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
             }
+            if (creationType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "creationType", creationType));
+            }
+            if (visibility != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "visibility", visibility));
+            }
+            if (outgoingIntegrationsTypeId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "outgoingIntegrationsTypeId", outgoingIntegrationsTypeId));
+            }
+            if (title != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
+            }
 
             // authentication (management_key) required
             if (
@@ -23028,7 +24369,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20033 >("/v1/webhooks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20034 >("/v1/webhooks", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -23044,14 +24385,18 @@ namespace TalonOne.Api
         /// List webhooks List all webhooks.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more application IDs separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse20033</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20033> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="creationType">Filter results by creation type. (optional)</param>
+        /// <param name="visibility">Filter results by visibility. (optional)</param>
+        /// <param name="outgoingIntegrationsTypeId">Filter results by outgoing integration type ID. (optional)</param>
+        /// <param name="title">Filter results performing case-insensitive matching against the webhook title. (optional)</param>
+        /// <returns>Task of InlineResponse20034</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20034> GetWebhooksAsync (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?), string creationType = default(string), string visibility = default(string), int? outgoingIntegrationsTypeId = default(int?), string title = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20033> localVarResponse = await GetWebhooksAsyncWithHttpInfo(applicationIds, sort, pageSize, skip);
+             TalonOne.Client.ApiResponse<InlineResponse20034> localVarResponse = await GetWebhooksAsyncWithHttpInfo(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title);
              return localVarResponse.Data;
 
         }
@@ -23060,12 +24405,16 @@ namespace TalonOne.Api
         /// List webhooks List all webhooks.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more application IDs separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20033)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20033>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="creationType">Filter results by creation type. (optional)</param>
+        /// <param name="visibility">Filter results by visibility. (optional)</param>
+        /// <param name="outgoingIntegrationsTypeId">Filter results by outgoing integration type ID. (optional)</param>
+        /// <param name="title">Filter results performing case-insensitive matching against the webhook title. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20034)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20034>> GetWebhooksAsyncWithHttpInfo (string applicationIds = default(string), string sort = default(string), int? pageSize = default(int?), int? skip = default(int?), string creationType = default(string), string visibility = default(string), int? outgoingIntegrationsTypeId = default(int?), string title = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -23100,21 +24449,47 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
             }
+            if (creationType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "creationType", creationType));
+            }
+            if (visibility != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "visibility", visibility));
+            }
+            if (outgoingIntegrationsTypeId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "outgoingIntegrationsTypeId", outgoingIntegrationsTypeId));
+            }
+            if (title != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
+            }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20033>("/v1/webhooks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20034>("/v1/webhooks", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -23260,12 +24635,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -23423,12 +24808,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -23598,12 +24993,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -23767,12 +25172,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -23930,12 +25345,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -23960,7 +25385,180 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import loyalty points Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
+        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in a tier, the customer is assigned to match the new information provided in the CSV file. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Import</returns>
+        public Import ImportLoyaltyCustomersTiers (int loyaltyProgramId, string upFile = default(string))
+        {
+             TalonOne.Client.ApiResponse<Import> localVarResponse = ImportLoyaltyCustomersTiersWithHttpInfo(loyaltyProgramId, upFile);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in a tier, the customer is assigned to match the new information provided in the CSV file. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>ApiResponse of Import</returns>
+        public TalonOne.Client.ApiResponse< Import > ImportLoyaltyCustomersTiersWithHttpInfo (int loyaltyProgramId, string upFile = default(string))
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            MemoryStream upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+            if (upFile != null)
+            {
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< Import >("/v1/loyalty_programs/{loyaltyProgramId}/import_customers_tiers", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ImportLoyaltyCustomersTiers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in a tier, the customer is assigned to match the new information provided in the CSV file. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Task of Import</returns>
+        public async System.Threading.Tasks.Task<Import> ImportLoyaltyCustomersTiersAsync (int loyaltyProgramId, string upFile = default(string))
+        {
+             TalonOne.Client.ApiResponse<Import> localVarResponse = await ImportLoyaltyCustomersTiersAsyncWithHttpInfo(loyaltyProgramId, upFile);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in a tier, the customer is assigned to match the new information provided in the CSV file. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="upFile">The file with the information about the data that should be imported. (optional)</param>
+        /// <returns>Task of ApiResponse (Import)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Import>> ImportLoyaltyCustomersTiersAsyncWithHttpInfo (int loyaltyProgramId, string upFile = default(string))
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            MemoryStream upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+            if (upFile != null)
+            {
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Import>("/v1/loyalty_programs/{loyaltyProgramId}/import_customers_tiers", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ImportLoyaltyCustomersTiers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Import loyalty points Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;immediate&#x60;. Empty or missing values are considered &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed. The points are &#x60;expired&#x60; after this date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -23973,7 +25571,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import loyalty points Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
+        /// Import loyalty points Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;immediate&#x60;. Empty or missing values are considered &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed. The points are &#x60;expired&#x60; after this date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -24045,7 +25643,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import loyalty points Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
+        /// Import loyalty points Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;immediate&#x60;. Empty or missing values are considered &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed. The points are &#x60;expired&#x60; after this date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -24059,7 +25657,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import loyalty points Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60;: The earliest date when the points can be redeemed. On this date and until the expiration date, the points are &#x60;active&#x60;. - &#x60;expirydate&#x60;: The latest date when the points can be redeemed. After this date, the points are &#x60;expired&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
+        /// Import loyalty points Upload a CSV file containing the loyalty points you want to import into a given loyalty program. Send the file as multipart data.  Depending on the loyalty program type, you can import the points into a given customer profile or into a given _active_ loyalty card.  The CSV file contains the following columns:  - &#x60;customerprofileid&#x60; (optional): For profile-based loyalty programs, the integration ID of the customer profile where the loyalty points are imported. - &#x60;identifier&#x60; (optional): For card-based loyalty programs, the identifier of the loyalty card where the loyalty points are imported. - &#x60;amount&#x60;: The amount of points to award to the customer profile. - &#x60;startdate&#x60; (optional): The earliest date when the points can be redeemed. The points are &#x60;active&#x60; from this date until the expiration date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;immediate&#x60;. Empty or missing values are considered &#x60;immediate&#x60;. - &#x60;expirydate&#x60; (optional): The latest date when the points can be redeemed. The points are &#x60;expired&#x60; after this date.    **Note**: It must be an RFC3339 timestamp string or string &#x60;unlimited&#x60;. Empty or missing values are considered &#x60;unlimited&#x60;. - &#x60;subledgerid&#x60; (optional): The ID of the subledger that should received the points. - &#x60;reason&#x60; (optional): The reason why these points are awarded.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** For existing customer profiles and loyalty cards, the imported points are added to any previous active or pending points, depending on the value provided for &#x60;startdate&#x60;. If &#x60;startdate&#x60; matches the current date, the imported points are _active_. If it is later, the points are _pending_ until the date provided for &#x60;startdate&#x60; is reached.  **Note:** We recommend limiting your file size to 500MB.  **Example for profile-based programs:**  &#x60;&#x60;&#x60;text customerprofileid,amount,startdate,expirydate,subledgerid,reason URNGV8294NV,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60;  **Example for card-based programs:**  &#x60;&#x60;&#x60;text identifier,amount,startdate,expirydate,subledgerid,reason summer-loyalty-card-0543,100,2009-11-10T23:00:00Z,2009-11-11T23:00:00Z,subledger1,appeasement &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -24093,12 +25691,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -24256,12 +25864,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -24425,12 +26043,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -24459,7 +26087,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24475,7 +26103,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24558,7 +26186,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24575,7 +26203,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24621,12 +26249,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -24646,13 +26284,208 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// List items in a catalog Return a paginated list of cart items in the given catalog. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
+        /// <param name="sku">The SKU of the item. (optional)</param>
+        /// <returns>InlineResponse20032</returns>
+        public InlineResponse20032 ListCatalogItems (int catalogId, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?), string sku = default(string))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20032> localVarResponse = ListCatalogItemsWithHttpInfo(catalogId, pageSize, skip, withTotalResultSize, sku);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List items in a catalog Return a paginated list of cart items in the given catalog. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
+        /// <param name="sku">The SKU of the item. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20032</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20032 > ListCatalogItemsWithHttpInfo (int catalogId, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?), string sku = default(string))
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("catalogId", TalonOne.Client.ClientUtils.ParameterToString(catalogId)); // path parameter
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+            if (withTotalResultSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "withTotalResultSize", withTotalResultSize));
+            }
+            if (sku != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sku", sku));
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< InlineResponse20032 >("/v1/catalogs/{catalogId}/items", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCatalogItems", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List items in a catalog Return a paginated list of cart items in the given catalog. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
+        /// <param name="sku">The SKU of the item. (optional)</param>
+        /// <returns>Task of InlineResponse20032</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20032> ListCatalogItemsAsync (int catalogId, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?), string sku = default(string))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20032> localVarResponse = await ListCatalogItemsAsyncWithHttpInfo(catalogId, pageSize, skip, withTotalResultSize, sku);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List items in a catalog Return a paginated list of cart items in the given catalog. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
+        /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
+        /// <param name="sku">The SKU of the item. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20032)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20032>> ListCatalogItemsAsyncWithHttpInfo (int catalogId, int? pageSize = default(int?), int? skip = default(int?), bool? withTotalResultSize = default(bool?), string sku = default(string))
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("catalogId", TalonOne.Client.ClientUtils.ParameterToString(catalogId)); // path parameter
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+            if (withTotalResultSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "withTotalResultSize", withTotalResultSize));
+            }
+            if (sku != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sku", sku));
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20032>("/v1/catalogs/{catalogId}/items", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListCatalogItems", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List collections List collections in the campaign.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24670,7 +26503,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24757,7 +26590,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24776,7 +26609,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24824,12 +26657,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -24854,7 +26697,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24871,7 +26714,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24956,7 +26799,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -24974,7 +26817,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="name">Filter by the name of the Collection. (optional)</param>
@@ -25021,12 +26864,22 @@ namespace TalonOne.Api
             }
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -25049,7 +26902,7 @@ namespace TalonOne.Api
         /// Create notification about added or deducted loyalty points Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>BaseNotification</returns>
         public BaseNotification PostAddedDeductedPointsNotification (int loyaltyProgramId, NewBaseNotification body)
@@ -25062,7 +26915,7 @@ namespace TalonOne.Api
         /// Create notification about added or deducted loyalty points Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of BaseNotification</returns>
         public TalonOne.Client.ApiResponse< BaseNotification > PostAddedDeductedPointsNotificationWithHttpInfo (int loyaltyProgramId, NewBaseNotification body)
@@ -25129,7 +26982,7 @@ namespace TalonOne.Api
         /// Create notification about added or deducted loyalty points Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of BaseNotification</returns>
         public async System.Threading.Tasks.Task<BaseNotification> PostAddedDeductedPointsNotificationAsync (int loyaltyProgramId, NewBaseNotification body)
@@ -25143,7 +26996,7 @@ namespace TalonOne.Api
         /// Create notification about added or deducted loyalty points Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (BaseNotification)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<BaseNotification>> PostAddedDeductedPointsNotificationAsyncWithHttpInfo (int loyaltyProgramId, NewBaseNotification body)
@@ -25174,12 +27027,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -25327,12 +27190,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -25352,7 +27225,170 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deduct points from customer profile Deduct points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+        /// Create notification about pending loyalty points Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>BaseNotification</returns>
+        public BaseNotification PostPendingPointsNotification (int loyaltyProgramId, NewBaseNotification body)
+        {
+             TalonOne.Client.ApiResponse<BaseNotification> localVarResponse = PostPendingPointsNotificationWithHttpInfo(loyaltyProgramId, body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create notification about pending loyalty points Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of BaseNotification</returns>
+        public TalonOne.Client.ApiResponse< BaseNotification > PostPendingPointsNotificationWithHttpInfo (int loyaltyProgramId, NewBaseNotification body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->PostPendingPointsNotification");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< BaseNotification >("/v1/loyalty_programs/{loyaltyProgramId}/notifications/pending_points", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostPendingPointsNotification", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create notification about pending loyalty points Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>Task of BaseNotification</returns>
+        public async System.Threading.Tasks.Task<BaseNotification> PostPendingPointsNotificationAsync (int loyaltyProgramId, NewBaseNotification body)
+        {
+             TalonOne.Client.ApiResponse<BaseNotification> localVarResponse = await PostPendingPointsNotificationAsyncWithHttpInfo(loyaltyProgramId, body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create notification about pending loyalty points Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-notifications). 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (BaseNotification)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<BaseNotification>> PostPendingPointsNotificationAsyncWithHttpInfo (int loyaltyProgramId, NewBaseNotification body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->PostPendingPointsNotification");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<BaseNotification>("/v1/loyalty_programs/{loyaltyProgramId}/notifications/pending_points", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("PostPendingPointsNotification", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Deduct points from customer profile Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -25365,7 +27401,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deduct points from customer profile Deduct points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+        /// Deduct points from customer profile Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -25442,7 +27478,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deduct points from customer profile Deduct points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+        /// Deduct points from customer profile Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -25456,7 +27492,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deduct points from customer profile Deduct points from the specified loyalty program and specified customer profile.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
+        /// Deduct points from customer profile Deduct points from the specified loyalty program and specified customer profile.  **Important:** - Only active points can be deducted. - Only pending points are rolled back when a session is cancelled or reopened.  To get the &#x60;integrationId&#x60; of the profile from a &#x60;sessionId&#x60;, use the [Update customer session](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -25500,12 +27536,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -25647,12 +27693,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -25678,7 +27734,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -25704,7 +27760,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -25836,7 +27892,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -25863,7 +27919,7 @@ namespace TalonOne.Api
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -25956,12 +28012,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -25988,7 +28054,7 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -26014,7 +28080,7 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -26143,7 +28209,7 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -26170,7 +28236,7 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="body">body</param>
         /// <param name="pageSize">The number of items in this response. (optional, default to 1000)</param>
-        /// <param name="skip">Skips the given number of items when paging through large result sets. (optional)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any timezone. Talon.One will convert to UTC internally. (optional)</param>
@@ -26259,12 +28325,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -26424,12 +28500,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -26577,12 +28663,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -26730,12 +28826,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -26883,12 +28989,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -27042,12 +29158,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -27207,12 +29333,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -27380,12 +29516,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -27535,12 +29681,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -27702,12 +29858,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -27861,12 +30027,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
@@ -28034,12 +30210,22 @@ namespace TalonOne.Api
             localVarRequestOptions.Data = body;
 
             // authentication (management_key) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
             // authentication (manager_auth) required
-            if (!String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }

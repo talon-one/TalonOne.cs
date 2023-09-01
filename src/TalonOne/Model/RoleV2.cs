@@ -34,13 +34,26 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleV2" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected RoleV2() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RoleV2" /> class.
+        /// </summary>
+        /// <param name="id">Internal ID of this entity. (required).</param>
+        /// <param name="created">The time this entity was created. (required).</param>
+        /// <param name="modified">The time this entity was last modified. (required).</param>
+        /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="name">Name of the role..</param>
         /// <param name="description">Description of the role..</param>
         /// <param name="isAdmin">Indicates whether the role grants admin permissions..</param>
         /// <param name="permissions">permissions.</param>
-        /// <param name="members">An array of user identifiers..</param>
-        public RoleV2(string name = default(string), string description = default(string), bool isAdmin = default(bool), RoleV2Permissions permissions = default(RoleV2Permissions), List<int> members = default(List<int>))
+        /// <param name="members">A list of user identifiers the role is assigned to..</param>
+        public RoleV2(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), bool isAdmin = default(bool), RoleV2Permissions permissions = default(RoleV2Permissions), List<int> members = default(List<int>))
         {
+            this.Id = id;
+            this.Created = created;
+            this.Modified = modified;
+            this.AccountId = accountId;
             this.Name = name;
             this.Description = description;
             this.IsAdmin = isAdmin;
@@ -48,6 +61,34 @@ namespace TalonOne.Model
             this.Members = members;
         }
         
+        /// <summary>
+        /// Internal ID of this entity.
+        /// </summary>
+        /// <value>Internal ID of this entity.</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public int Id { get; set; }
+
+        /// <summary>
+        /// The time this entity was created.
+        /// </summary>
+        /// <value>The time this entity was created.</value>
+        [DataMember(Name="created", EmitDefaultValue=false)]
+        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// The time this entity was last modified.
+        /// </summary>
+        /// <value>The time this entity was last modified.</value>
+        [DataMember(Name="modified", EmitDefaultValue=false)]
+        public DateTime Modified { get; set; }
+
+        /// <summary>
+        /// The ID of the account that owns this entity.
+        /// </summary>
+        /// <value>The ID of the account that owns this entity.</value>
+        [DataMember(Name="accountId", EmitDefaultValue=false)]
+        public int AccountId { get; set; }
+
         /// <summary>
         /// Name of the role.
         /// </summary>
@@ -76,9 +117,9 @@ namespace TalonOne.Model
         public RoleV2Permissions Permissions { get; set; }
 
         /// <summary>
-        /// An array of user identifiers.
+        /// A list of user identifiers the role is assigned to.
         /// </summary>
-        /// <value>An array of user identifiers.</value>
+        /// <value>A list of user identifiers the role is assigned to.</value>
         [DataMember(Name="members", EmitDefaultValue=false)]
         public List<int> Members { get; set; }
 
@@ -90,6 +131,10 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RoleV2 {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  Modified: ").Append(Modified).Append("\n");
+            sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  IsAdmin: ").Append(IsAdmin).Append("\n");
@@ -130,6 +175,24 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.Id == input.Id ||
+                    this.Id.Equals(input.Id)
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.Modified == input.Modified ||
+                    (this.Modified != null &&
+                    this.Modified.Equals(input.Modified))
+                ) && 
+                (
+                    this.AccountId == input.AccountId ||
+                    this.AccountId.Equals(input.AccountId)
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -165,6 +228,12 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                if (this.Modified != null)
+                    hashCode = hashCode * 59 + this.Modified.GetHashCode();
+                hashCode = hashCode * 59 + this.AccountId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)

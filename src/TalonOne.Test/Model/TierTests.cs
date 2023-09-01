@@ -73,6 +73,22 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Name'
         }
+        /// <summary>
+        /// Test the property 'ExpiryDate'
+        /// </summary>
+        [Fact]
+        public void ExpiryDateTest()
+        {
+            // TODO unit test for the property 'ExpiryDate'
+        }
+        /// <summary>
+        /// Test the property 'DowngradePolicy'
+        /// </summary>
+        [Fact]
+        public void DowngradePolicyTest()
+        {
+            // TODO unit test for the property 'DowngradePolicy'
+        }
 
     }
 

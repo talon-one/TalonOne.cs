@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ReturnedCartItem" /> class.
         /// </summary>
         /// <param name="position">The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property. (required).</param>
-        /// <param name="quantity">Number of cart items to return. It is only available when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. If cart item flattening is disabled, the cart item can only be returned in its entirety. .</param>
+        /// <param name="quantity">Number of cart items to return. It is only available when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. If cart item flattening is disabled, the cart item can only be returned in its entirety. .</param>
         public ReturnedCartItem(int position = default(int), int quantity = default(int))
         {
             this.Position = position;
@@ -55,9 +55,9 @@ namespace TalonOne.Model
         public int Position { get; set; }
 
         /// <summary>
-        /// Number of cart items to return. It is only available when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. If cart item flattening is disabled, the cart item can only be returned in its entirety. 
+        /// Number of cart items to return. It is only available when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. If cart item flattening is disabled, the cart item can only be returned in its entirety. 
         /// </summary>
-        /// <value>Number of cart items to return. It is only available when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. If cart item flattening is disabled, the cart item can only be returned in its entirety. </value>
+        /// <value>Number of cart items to return. It is only available when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. If cart item flattening is disabled, the cart item can only be returned in its entirety. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int Quantity { get; set; }
 

@@ -32,6 +32,33 @@ namespace TalonOne.Model
     public partial class Tier :  IEquatable<Tier>, IValidatableObject
     {
         /// <summary>
+        /// Customers&#39;s tier downgrade policy. - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down. - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. 
+        /// </summary>
+        /// <value>Customers&#39;s tier downgrade policy. - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down. - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum DowngradePolicyEnum
+        {
+            /// <summary>
+            /// Enum Onedown for value: one_down
+            /// </summary>
+            [EnumMember(Value = "one_down")]
+            Onedown = 1,
+
+            /// <summary>
+            /// Enum Balancebased for value: balance_based
+            /// </summary>
+            [EnumMember(Value = "balance_based")]
+            Balancebased = 2
+
+        }
+
+        /// <summary>
+        /// Customers&#39;s tier downgrade policy. - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down. - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. 
+        /// </summary>
+        /// <value>Customers&#39;s tier downgrade policy. - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down. - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. </value>
+        [DataMember(Name="downgradePolicy", EmitDefaultValue=false)]
+        public DowngradePolicyEnum? DowngradePolicy { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Tier" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -41,11 +68,15 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">The internal ID of the tier. (required).</param>
         /// <param name="name">The name of the tier. (required).</param>
-        public Tier(int id = default(int), string name = default(string))
+        /// <param name="expiryDate">Date when tier level expires in the RFC3339 format (in the Loyalty Program&#39;s timezone)..</param>
+        /// <param name="downgradePolicy">Customers&#39;s tier downgrade policy. - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down. - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. .</param>
+        public Tier(int id = default(int), string name = default(string), DateTime expiryDate = default(DateTime), DowngradePolicyEnum? downgradePolicy = default(DowngradePolicyEnum?))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Tier and cannot be null");
+            this.ExpiryDate = expiryDate;
+            this.DowngradePolicy = downgradePolicy;
         }
         
         /// <summary>
@@ -63,6 +94,13 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Date when tier level expires in the RFC3339 format (in the Loyalty Program&#39;s timezone).
+        /// </summary>
+        /// <value>Date when tier level expires in the RFC3339 format (in the Loyalty Program&#39;s timezone).</value>
+        [DataMember(Name="expiryDate", EmitDefaultValue=false)]
+        public DateTime ExpiryDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +110,8 @@ namespace TalonOne.Model
             sb.Append("class Tier {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  DowngradePolicy: ").Append(DowngradePolicy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,6 +154,15 @@ namespace TalonOne.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.ExpiryDate == input.ExpiryDate ||
+                    (this.ExpiryDate != null &&
+                    this.ExpiryDate.Equals(input.ExpiryDate))
+                ) && 
+                (
+                    this.DowngradePolicy == input.DowngradePolicy ||
+                    this.DowngradePolicy.Equals(input.DowngradePolicy)
                 );
         }
 
@@ -129,6 +178,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.ExpiryDate != null)
+                    hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                hashCode = hashCode * 59 + this.DowngradePolicy.GetHashCode();
                 return hashCode;
             }
         }

@@ -41,13 +41,13 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="campaign">campaign (required).</param>
         /// <param name="ruleset">ruleset.</param>
-        /// <param name="priority">priority (required).</param>
-        public CampaignCreatedNotification(Campaign campaign = default(Campaign), Ruleset ruleset = default(Ruleset), PriorityPosition priority = default(PriorityPosition))
+        /// <param name="evaluationPosition">evaluationPosition (required).</param>
+        public CampaignCreatedNotification(Campaign campaign = default(Campaign), Ruleset ruleset = default(Ruleset), CampaignEvaluationPosition evaluationPosition = default(CampaignEvaluationPosition))
         {
             // to ensure "campaign" is required (not null)
             this.Campaign = campaign ?? throw new ArgumentNullException("campaign is a required property for CampaignCreatedNotification and cannot be null");
-            // to ensure "priority" is required (not null)
-            this.Priority = priority ?? throw new ArgumentNullException("priority is a required property for CampaignCreatedNotification and cannot be null");
+            // to ensure "evaluationPosition" is required (not null)
+            this.EvaluationPosition = evaluationPosition ?? throw new ArgumentNullException("evaluationPosition is a required property for CampaignCreatedNotification and cannot be null");
             this.Ruleset = ruleset;
         }
         
@@ -64,10 +64,10 @@ namespace TalonOne.Model
         public Ruleset Ruleset { get; set; }
 
         /// <summary>
-        /// Gets or Sets Priority
+        /// Gets or Sets EvaluationPosition
         /// </summary>
-        [DataMember(Name="priority", EmitDefaultValue=false)]
-        public PriorityPosition Priority { get; set; }
+        [DataMember(Name="evaluationPosition", EmitDefaultValue=false)]
+        public CampaignEvaluationPosition EvaluationPosition { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -79,7 +79,7 @@ namespace TalonOne.Model
             sb.Append("class CampaignCreatedNotification {\n");
             sb.Append("  Campaign: ").Append(Campaign).Append("\n");
             sb.Append("  Ruleset: ").Append(Ruleset).Append("\n");
-            sb.Append("  Priority: ").Append(Priority).Append("\n");
+            sb.Append("  EvaluationPosition: ").Append(EvaluationPosition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,9 +125,9 @@ namespace TalonOne.Model
                     this.Ruleset.Equals(input.Ruleset))
                 ) && 
                 (
-                    this.Priority == input.Priority ||
-                    (this.Priority != null &&
-                    this.Priority.Equals(input.Priority))
+                    this.EvaluationPosition == input.EvaluationPosition ||
+                    (this.EvaluationPosition != null &&
+                    this.EvaluationPosition.Equals(input.EvaluationPosition))
                 );
         }
 
@@ -144,8 +144,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Campaign.GetHashCode();
                 if (this.Ruleset != null)
                     hashCode = hashCode * 59 + this.Ruleset.GetHashCode();
-                if (this.Priority != null)
-                    hashCode = hashCode * 59 + this.Priority.GetHashCode();
+                if (this.EvaluationPosition != null)
+                    hashCode = hashCode * 59 + this.EvaluationPosition.GetHashCode();
                 return hashCode;
             }
         }

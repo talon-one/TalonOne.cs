@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="accountId">The ID of the account to which this configuration belongs. (required).</param>
         /// <param name="typeId">The outgoing integration type ID. (required).</param>
-        /// <param name="policy">policy (required).</param>
+        /// <param name="policy">The outgoing integration policy specific to each integration type. (required).</param>
         public OutgoingIntegrationConfiguration(int id = default(int), int accountId = default(int), int typeId = default(int), Object policy = default(Object))
         {
             this.Id = id;
@@ -74,8 +74,9 @@ namespace TalonOne.Model
         public int TypeId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Policy
+        /// The outgoing integration policy specific to each integration type.
         /// </summary>
+        /// <value>The outgoing integration policy specific to each integration type.</value>
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public Object Policy { get; set; }
 

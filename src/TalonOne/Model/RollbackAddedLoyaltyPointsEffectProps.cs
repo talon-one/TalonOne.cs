@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="recipientIntegrationId">The user for whom these points were originally added. (required).</param>
         /// <param name="transactionUUID">The identifier of &#39;deduction&#39; entry added to the ledger as the &#x60;addLoyaltyPoints&#x60; effect is rolled back. (required).</param>
         /// <param name="cartItemPosition">The index of the item in the cart items for which the loyalty points were rolled back..</param>
-        /// <param name="cartItemSubPosition">The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with &#x60;quantity&#x60; &gt; 1. .</param>
+        /// <param name="cartItemSubPosition">The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with &#x60;quantity&#x60; &gt; 1. .</param>
         /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
         public RollbackAddedLoyaltyPointsEffectProps(int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), string cardIdentifier = default(string))
         {
@@ -105,9 +105,9 @@ namespace TalonOne.Model
         public decimal CartItemPosition { get; set; }
 
         /// <summary>
-        /// The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with &#x60;quantity&#x60; &gt; 1. 
+        /// The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with &#x60;quantity&#x60; &gt; 1. 
         /// </summary>
-        /// <value>The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with &#x60;quantity&#x60; &gt; 1. </value>
+        /// <value>The sub-position is returned when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. It indicates to which item the loyalty points were rolled back, for cart items with &#x60;quantity&#x60; &gt; 1. </value>
         [DataMember(Name="cartItemSubPosition", EmitDefaultValue=false)]
         public decimal CartItemSubPosition { get; set; }
 

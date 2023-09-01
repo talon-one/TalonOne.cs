@@ -313,19 +313,6 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test TrackEvent
-        /// </summary>
-        [Fact]
-        public void TrackEventTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //NewEvent body = null;
-            //bool? dry = null;
-            //var response = instance.TrackEvent(body, dry);
-            //Assert.IsType<IntegrationState> (response, "response is IntegrationState");
-        }
-        
-        /// <summary>
         /// Test TrackEventV2
         /// </summary>
         [Fact]

@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">Name of item..</param>
         /// <param name="sku">Stock keeping unit of item. (required).</param>
-        /// <param name="quantity">Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.  (required).</param>
+        /// <param name="quantity">Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.  (required).</param>
         /// <param name="returnedQuantity">Number of returned items, calculated internally based on returns of this item..</param>
         /// <param name="remainingQuantity">Remaining quantity of the item, calculated internally based on returns of this item..</param>
         /// <param name="price">Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs). If it is part of a catalog, setting a price here overrides the price from the catalog. .</param>
@@ -89,9 +89,9 @@ namespace TalonOne.Model
         public string Sku { get; set; }
 
         /// <summary>
-        /// Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. 
+        /// Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. 
         /// </summary>
-        /// <value>Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/campaign-evaluation#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. </value>
+        /// <value>Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int Quantity { get; set; }
 

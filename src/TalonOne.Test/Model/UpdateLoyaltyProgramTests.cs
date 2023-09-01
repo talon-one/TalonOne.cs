@@ -122,6 +122,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Sandbox'
         }
         /// <summary>
+        /// Test the property 'TiersExpireIn'
+        /// </summary>
+        [Fact]
+        public void TiersExpireInTest()
+        {
+            // TODO unit test for the property 'TiersExpireIn'
+        }
+        /// <summary>
+        /// Test the property 'TiersDowngradePolicy'
+        /// </summary>
+        [Fact]
+        public void TiersDowngradePolicyTest()
+        {
+            // TODO unit test for the property 'TiersDowngradePolicy'
+        }
+        /// <summary>
         /// Test the property 'Tiers'
         /// </summary>
         [Fact]

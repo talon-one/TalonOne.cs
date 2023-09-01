@@ -1,5 +1,5 @@
 # TalonOne.Model.LoyaltyProgramLedgers
-Customer specific information about loyalty points.
+Customer-specific information about loyalty points.
 ## Properties
 
 Name | Type | Description | Notes
