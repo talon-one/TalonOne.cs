@@ -73,7 +73,7 @@ namespace TalonOne.Model
         /// The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply. 
         /// </summary>
         /// <value>The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply. </value>
-        [DataMember(Name="usageLimit", EmitDefaultValue=false)]
+        [DataMember(Name="usageLimit", EmitDefaultValue=true)]
         public int UsageLimit { get; set; }
 
         /// <summary>
