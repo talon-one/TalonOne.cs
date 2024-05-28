@@ -194,6 +194,30 @@ namespace TalonOne.Test
             // TODO unit test for the property 'CampaignGroups'
         }
         /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Fact]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'LinkedStoreIds'
+        /// </summary>
+        [Fact]
+        public void LinkedStoreIdsTest()
+        {
+            // TODO unit test for the property 'LinkedStoreIds'
+        }
+        /// <summary>
+        /// Test the property 'Budgets'
+        /// </summary>
+        [Fact]
+        public void BudgetsTest()
+        {
+            // TODO unit test for the property 'Budgets'
+        }
+        /// <summary>
         /// Test the property 'CouponRedemptionCount'
         /// </summary>
         [Fact]
@@ -352,6 +376,14 @@ namespace TalonOne.Test
         public void TemplateIdTest()
         {
             // TODO unit test for the property 'TemplateId'
+        }
+        /// <summary>
+        /// Test the property 'FrontendState'
+        /// </summary>
+        [Fact]
+        public void FrontendStateTest()
+        {
+            // TODO unit test for the property 'FrontendState'
         }
 
     }

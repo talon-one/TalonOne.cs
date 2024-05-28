@@ -39,8 +39,8 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleAssign" /> class.
         /// </summary>
-        /// <param name="users">An array of userIDs. (required).</param>
-        /// <param name="roles">An array of roleIDs. (required).</param>
+        /// <param name="users">An array of user IDs. (required).</param>
+        /// <param name="roles">An array of role IDs. (required).</param>
         public RoleAssign(List<int> users = default(List<int>), List<int> roles = default(List<int>))
         {
             // to ensure "users" is required (not null)
@@ -50,16 +50,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// An array of userIDs.
+        /// An array of user IDs.
         /// </summary>
-        /// <value>An array of userIDs.</value>
+        /// <value>An array of user IDs.</value>
         [DataMember(Name="users", EmitDefaultValue=false)]
         public List<int> Users { get; set; }
 
         /// <summary>
-        /// An array of roleIDs.
+        /// An array of role IDs.
         /// </summary>
-        /// <value>An array of roleIDs.</value>
+        /// <value>An array of role IDs.</value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
         public List<int> Roles { get; set; }
 

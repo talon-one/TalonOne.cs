@@ -39,8 +39,8 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewInviteEmail" /> class.
         /// </summary>
-        /// <param name="email">email (required).</param>
-        /// <param name="token">token (required).</param>
+        /// <param name="email">Email address of the user. (required).</param>
+        /// <param name="token">Invitation token of the user. (required).</param>
         public NewInviteEmail(string email = default(string), string token = default(string))
         {
             // to ensure "email" is required (not null)
@@ -50,14 +50,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Gets or Sets Email
+        /// Email address of the user.
         /// </summary>
+        /// <value>Email address of the user.</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or Sets Token
+        /// Invitation token of the user.
         /// </summary>
+        /// <value>Invitation token of the user.</value>
         [DataMember(Name="token", EmitDefaultValue=false)]
         public string Token { get; set; }
 
@@ -141,18 +143,6 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Email (string) minLength
-            if(this.Email != null && this.Email.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Email, length must be greater than 1.", new [] { "Email" });
-            }
-
-            // Token (string) minLength
-            if(this.Token != null && this.Token.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Token, length must be greater than 1.", new [] { "Token" });
-            }
-
             yield break;
         }
     }

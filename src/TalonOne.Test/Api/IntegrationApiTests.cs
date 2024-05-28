@@ -167,7 +167,8 @@ namespace TalonOne.Test
             //bool? coupons = null;
             //bool? loyalty = null;
             //bool? giveaways = null;
-            //var response = instance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty, giveaways);
+            //bool? achievements = null;
+            //var response = instance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements);
             //Assert.IsType<CustomerInventory> (response, "response is CustomerInventory");
         }
         
@@ -193,7 +194,8 @@ namespace TalonOne.Test
             //int loyaltyProgramId = null;
             //string integrationId = null;
             //DateTime? endDate = null;
-            //var response = instance.GetLoyaltyBalances(loyaltyProgramId, integrationId, endDate);
+            //List<string> subledgerId = null;
+            //var response = instance.GetLoyaltyBalances(loyaltyProgramId, integrationId, endDate, subledgerId);
             //Assert.IsType<LoyaltyBalances> (response, "response is LoyaltyBalances");
         }
         
@@ -207,8 +209,26 @@ namespace TalonOne.Test
             //int loyaltyProgramId = null;
             //string loyaltyCardId = null;
             //DateTime? endDate = null;
-            //var response = instance.GetLoyaltyCardBalances(loyaltyProgramId, loyaltyCardId, endDate);
+            //List<string> subledgerId = null;
+            //var response = instance.GetLoyaltyCardBalances(loyaltyProgramId, loyaltyCardId, endDate, subledgerId);
             //Assert.IsType<LoyaltyBalances> (response, "response is LoyaltyBalances");
+        }
+        
+        /// <summary>
+        /// Test GetLoyaltyCardPoints
+        /// </summary>
+        [Fact]
+        public void GetLoyaltyCardPointsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int loyaltyProgramId = null;
+            //string loyaltyCardId = null;
+            //string status = null;
+            //string subledgerId = null;
+            //int? pageSize = null;
+            //int? skip = null;
+            //var response = instance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
+            //Assert.IsType<InlineResponse2003> (response, "response is InlineResponse2003");
         }
         
         /// <summary>
@@ -221,12 +241,30 @@ namespace TalonOne.Test
             //int loyaltyProgramId = null;
             //string loyaltyCardId = null;
             //string subledgerId = null;
+            //string loyaltyTransactionType = null;
             //DateTime? startDate = null;
             //DateTime? endDate = null;
             //int? pageSize = null;
             //int? skip = null;
-            //var response = instance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, startDate, endDate, pageSize, skip);
+            //var response = instance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
             //Assert.IsType<InlineResponse2001> (response, "response is InlineResponse2001");
+        }
+        
+        /// <summary>
+        /// Test GetLoyaltyProgramProfilePoints
+        /// </summary>
+        [Fact]
+        public void GetLoyaltyProgramProfilePointsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int loyaltyProgramId = null;
+            //string integrationId = null;
+            //string status = null;
+            //string subledgerId = null;
+            //int? pageSize = null;
+            //int? skip = null;
+            //var response = instance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
+            //Assert.IsType<InlineResponse2004> (response, "response is InlineResponse2004");
         }
         
         /// <summary>
@@ -239,11 +277,12 @@ namespace TalonOne.Test
             //int loyaltyProgramId = null;
             //string integrationId = null;
             //string subledgerId = null;
+            //string loyaltyTransactionType = null;
             //DateTime? startDate = null;
             //DateTime? endDate = null;
             //int? pageSize = null;
             //int? skip = null;
-            //var response = instance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, subledgerId, startDate, endDate, pageSize, skip);
+            //var response = instance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
             //Assert.IsType<InlineResponse2002> (response, "response is InlineResponse2002");
         }
         
@@ -323,7 +362,7 @@ namespace TalonOne.Test
             //string silent = null;
             //bool? dry = null;
             //var response = instance.TrackEventV2(body, silent, dry);
-            //Assert.IsType<IntegrationStateV2> (response, "response is IntegrationStateV2");
+            //Assert.IsType<TrackEventV2Response> (response, "response is TrackEventV2Response");
         }
         
         /// <summary>
@@ -376,7 +415,7 @@ namespace TalonOne.Test
             //bool? runRuleEngine = null;
             //bool? dry = null;
             //var response = instance.UpdateCustomerProfileV2(integrationId, body, runRuleEngine, dry);
-            //Assert.IsType<IntegrationStateV2> (response, "response is IntegrationStateV2");
+            //Assert.IsType<CustomerProfileIntegrationResponseV2> (response, "response is CustomerProfileIntegrationResponseV2");
         }
         
         /// <summary>
@@ -402,7 +441,8 @@ namespace TalonOne.Test
             //string customerSessionId = null;
             //IntegrationRequest body = null;
             //bool? dry = null;
-            //var response = instance.UpdateCustomerSessionV2(customerSessionId, body, dry);
+            //DateTime? now = null;
+            //var response = instance.UpdateCustomerSessionV2(customerSessionId, body, dry, now);
             //Assert.IsType<IntegrationStateV2> (response, "response is IntegrationStateV2");
         }
         

@@ -79,12 +79,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">Notification name. (required).</param>
         /// <param name="scopes">scopes (required).</param>
-        public CouponsNotificationPolicy(string name = default(string), List<ScopesEnum> scopes = default(List<ScopesEnum>))
+        /// <param name="batchingEnabled">Indicates whether batching is activated. (default to true).</param>
+        public CouponsNotificationPolicy(string name = default(string), List<ScopesEnum> scopes = default(List<ScopesEnum>), bool batchingEnabled = true)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CouponsNotificationPolicy and cannot be null");
             // to ensure "scopes" is required (not null)
             this.Scopes = scopes ?? throw new ArgumentNullException("scopes is a required property for CouponsNotificationPolicy and cannot be null");
+            this.BatchingEnabled = batchingEnabled;
         }
         
         /// <summary>
@@ -93,6 +95,13 @@ namespace TalonOne.Model
         /// <value>Notification name.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Indicates whether batching is activated.
+        /// </summary>
+        /// <value>Indicates whether batching is activated.</value>
+        [DataMember(Name="batchingEnabled", EmitDefaultValue=false)]
+        public bool BatchingEnabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -104,6 +113,7 @@ namespace TalonOne.Model
             sb.Append("class CouponsNotificationPolicy {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Scopes: ").Append(Scopes).Append("\n");
+            sb.Append("  BatchingEnabled: ").Append(BatchingEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -146,6 +156,10 @@ namespace TalonOne.Model
                 (
                     this.Scopes == input.Scopes ||
                     this.Scopes.SequenceEqual(input.Scopes)
+                ) && 
+                (
+                    this.BatchingEnabled == input.BatchingEnabled ||
+                    this.BatchingEnabled.Equals(input.BatchingEnabled)
                 );
         }
 
@@ -161,6 +175,7 @@ namespace TalonOne.Model
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 hashCode = hashCode * 59 + this.Scopes.GetHashCode();
+                hashCode = hashCode * 59 + this.BatchingEnabled.GetHashCode();
                 return hashCode;
             }
         }

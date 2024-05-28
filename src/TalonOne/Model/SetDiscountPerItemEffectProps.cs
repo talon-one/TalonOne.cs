@@ -42,14 +42,16 @@ namespace TalonOne.Model
         /// <param name="name">The name of the discount. Contains a hashtag character indicating the index of the position of the item the discount applies to. It is identical to the value of the &#x60;position&#x60; property.  (required).</param>
         /// <param name="value">The total monetary value of the discount. (required).</param>
         /// <param name="position">The index of the item in the cart items list on which this discount should be applied. (required).</param>
-        /// <param name="subPosition">Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. .</param>
+        /// <param name="subPosition">For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates which item the discount applies to. .</param>
         /// <param name="desiredValue">The original value of the discount..</param>
         /// <param name="scope">The scope of the discount: - &#x60;additionalCosts&#x60;: The discount applies to all the additional costs of the item. - &#x60;itemTotal&#x60;: The discount applies to the price of the item + the additional costs of the item. - &#x60;price&#x60;: The discount applies to the price of the item. .</param>
         /// <param name="totalDiscount">The total discount given if this effect is a result of a prorated discount..</param>
         /// <param name="desiredTotalDiscount">The original total discount to give if this effect is a result of a prorated discount..</param>
         /// <param name="bundleIndex">The position of the bundle in a list of item bundles created from the same bundle definition..</param>
         /// <param name="bundleName">The name of the bundle definition..</param>
-        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), decimal desiredValue = default(decimal), string scope = default(string), decimal totalDiscount = default(decimal), decimal desiredTotalDiscount = default(decimal), int bundleIndex = default(int), string bundleName = default(string))
+        /// <param name="targetedItemPosition">The index of the targeted bundle item on which the applied discount is based..</param>
+        /// <param name="targetedItemSubPosition">The sub-position of the targeted bundle item on which the applied discount is based. .</param>
+        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), decimal desiredValue = default(decimal), string scope = default(string), decimal totalDiscount = default(decimal), decimal desiredTotalDiscount = default(decimal), int bundleIndex = default(int), string bundleName = default(string), decimal targetedItemPosition = default(decimal), decimal targetedItemSubPosition = default(decimal))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SetDiscountPerItemEffectProps and cannot be null");
@@ -62,6 +64,8 @@ namespace TalonOne.Model
             this.DesiredTotalDiscount = desiredTotalDiscount;
             this.BundleIndex = bundleIndex;
             this.BundleName = bundleName;
+            this.TargetedItemPosition = targetedItemPosition;
+            this.TargetedItemSubPosition = targetedItemSubPosition;
         }
         
         /// <summary>
@@ -86,9 +90,9 @@ namespace TalonOne.Model
         public decimal Position { get; set; }
 
         /// <summary>
-        /// Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. 
+        /// For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates which item the discount applies to. 
         /// </summary>
-        /// <value>Only used when [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening) is enabled. Indicates which item the discount applies to for cart items with &#x60;quantity&#x60; &gt; 1. </value>
+        /// <value>For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates which item the discount applies to. </value>
         [DataMember(Name="subPosition", EmitDefaultValue=false)]
         public decimal SubPosition { get; set; }
 
@@ -135,6 +139,20 @@ namespace TalonOne.Model
         public string BundleName { get; set; }
 
         /// <summary>
+        /// The index of the targeted bundle item on which the applied discount is based.
+        /// </summary>
+        /// <value>The index of the targeted bundle item on which the applied discount is based.</value>
+        [DataMember(Name="targetedItemPosition", EmitDefaultValue=false)]
+        public decimal TargetedItemPosition { get; set; }
+
+        /// <summary>
+        /// The sub-position of the targeted bundle item on which the applied discount is based. 
+        /// </summary>
+        /// <value>The sub-position of the targeted bundle item on which the applied discount is based. </value>
+        [DataMember(Name="targetedItemSubPosition", EmitDefaultValue=false)]
+        public decimal TargetedItemSubPosition { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -152,6 +170,8 @@ namespace TalonOne.Model
             sb.Append("  DesiredTotalDiscount: ").Append(DesiredTotalDiscount).Append("\n");
             sb.Append("  BundleIndex: ").Append(BundleIndex).Append("\n");
             sb.Append("  BundleName: ").Append(BundleName).Append("\n");
+            sb.Append("  TargetedItemPosition: ").Append(TargetedItemPosition).Append("\n");
+            sb.Append("  TargetedItemSubPosition: ").Append(TargetedItemSubPosition).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -228,6 +248,14 @@ namespace TalonOne.Model
                     this.BundleName == input.BundleName ||
                     (this.BundleName != null &&
                     this.BundleName.Equals(input.BundleName))
+                ) && 
+                (
+                    this.TargetedItemPosition == input.TargetedItemPosition ||
+                    this.TargetedItemPosition.Equals(input.TargetedItemPosition)
+                ) && 
+                (
+                    this.TargetedItemSubPosition == input.TargetedItemSubPosition ||
+                    this.TargetedItemSubPosition.Equals(input.TargetedItemSubPosition)
                 );
         }
 
@@ -253,6 +281,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.BundleIndex.GetHashCode();
                 if (this.BundleName != null)
                     hashCode = hashCode * 59 + this.BundleName.GetHashCode();
+                hashCode = hashCode * 59 + this.TargetedItemPosition.GetHashCode();
+                hashCode = hashCode * 59 + this.TargetedItemSubPosition.GetHashCode();
                 return hashCode;
             }
         }

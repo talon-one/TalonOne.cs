@@ -113,6 +113,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'TriggeredForCatalogItem'
         }
+        /// <summary>
+        /// Test the property 'ConditionIndex'
+        /// </summary>
+        [Fact]
+        public void ConditionIndexTest()
+        {
+            // TODO unit test for the property 'ConditionIndex'
+        }
 
     }
 

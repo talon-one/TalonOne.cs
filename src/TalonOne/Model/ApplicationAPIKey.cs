@@ -90,7 +90,13 @@ namespace TalonOne.Model
             /// Enum Salesforce for value: salesforce
             /// </summary>
             [EnumMember(Value = "salesforce")]
-            Salesforce = 9
+            Salesforce = 9,
+
+            /// <summary>
+            /// Enum Emarsys for value: emarsys
+            /// </summary>
+            [EnumMember(Value = "emarsys")]
+            Emarsys = 10
 
         }
 
@@ -101,6 +107,27 @@ namespace TalonOne.Model
         [DataMember(Name="platform", EmitDefaultValue=false)]
         public PlatformEnum? Platform { get; set; }
         /// <summary>
+        /// The API key type. Can be empty or &#x60;staging&#x60;.  Staging API keys can only be used for dry requests with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint, [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint, and [Track event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) endpoint.  When using the _Update customer profile_ endpoint with a staging API key, the query parameter &#x60;runRuleEngine&#x60; must be &#x60;true&#x60;. 
+        /// </summary>
+        /// <value>The API key type. Can be empty or &#x60;staging&#x60;.  Staging API keys can only be used for dry requests with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint, [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint, and [Track event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) endpoint.  When using the _Update customer profile_ endpoint with a staging API key, the query parameter &#x60;runRuleEngine&#x60; must be &#x60;true&#x60;. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum Staging for value: staging
+            /// </summary>
+            [EnumMember(Value = "staging")]
+            Staging = 1
+
+        }
+
+        /// <summary>
+        /// The API key type. Can be empty or &#x60;staging&#x60;.  Staging API keys can only be used for dry requests with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint, [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint, and [Track event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) endpoint.  When using the _Update customer profile_ endpoint with a staging API key, the query parameter &#x60;runRuleEngine&#x60; must be &#x60;true&#x60;. 
+        /// </summary>
+        /// <value>The API key type. Can be empty or &#x60;staging&#x60;.  Staging API keys can only be used for dry requests with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint, [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint, and [Track event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) endpoint.  When using the _Update customer profile_ endpoint with a staging API key, the query parameter &#x60;runRuleEngine&#x60; must be &#x60;true&#x60;. </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationAPIKey" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -108,15 +135,17 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationAPIKey" /> class.
         /// </summary>
-        /// <param name="title">Title for API Key. (required).</param>
-        /// <param name="expires">The date the API key expired. (required).</param>
+        /// <param name="title">Title of the API key. (required).</param>
+        /// <param name="expires">The date the API key expires. (required).</param>
         /// <param name="platform">The third-party platform the API key is valid for. Use &#x60;none&#x60; for a generic API key to be used from your own integration layer. .</param>
+        /// <param name="type">The API key type. Can be empty or &#x60;staging&#x60;.  Staging API keys can only be used for dry requests with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint, [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint, and [Track event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) endpoint.  When using the _Update customer profile_ endpoint with a staging API key, the query parameter &#x60;runRuleEngine&#x60; must be &#x60;true&#x60;. .</param>
+        /// <param name="timeOffset">A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date. .</param>
         /// <param name="id">ID of the API Key. (required).</param>
         /// <param name="createdBy">ID of user who created. (required).</param>
         /// <param name="accountID">ID of account the key is used for. (required).</param>
         /// <param name="applicationID">ID of application the key is used for. (required).</param>
         /// <param name="created">The date the API key was created. (required).</param>
-        public ApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime), PlatformEnum? platform = default(PlatformEnum?), int id = default(int), int createdBy = default(int), int accountID = default(int), int applicationID = default(int), DateTime created = default(DateTime))
+        public ApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime), PlatformEnum? platform = default(PlatformEnum?), TypeEnum? type = default(TypeEnum?), int timeOffset = default(int), int id = default(int), int createdBy = default(int), int accountID = default(int), int applicationID = default(int), DateTime created = default(DateTime))
         {
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for ApplicationAPIKey and cannot be null");
@@ -127,21 +156,30 @@ namespace TalonOne.Model
             this.ApplicationID = applicationID;
             this.Created = created;
             this.Platform = platform;
+            this.Type = type;
+            this.TimeOffset = timeOffset;
         }
         
         /// <summary>
-        /// Title for API Key.
+        /// Title of the API key.
         /// </summary>
-        /// <value>Title for API Key.</value>
+        /// <value>Title of the API key.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The date the API key expired.
+        /// The date the API key expires.
         /// </summary>
-        /// <value>The date the API key expired.</value>
+        /// <value>The date the API key expires.</value>
         [DataMember(Name="expires", EmitDefaultValue=false)]
         public DateTime Expires { get; set; }
+
+        /// <summary>
+        /// A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date. 
+        /// </summary>
+        /// <value>A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date. </value>
+        [DataMember(Name="timeOffset", EmitDefaultValue=false)]
+        public int TimeOffset { get; set; }
 
         /// <summary>
         /// ID of the API Key.
@@ -189,6 +227,8 @@ namespace TalonOne.Model
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Expires: ").Append(Expires).Append("\n");
             sb.Append("  Platform: ").Append(Platform).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  TimeOffset: ").Append(TimeOffset).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  AccountID: ").Append(AccountID).Append("\n");
@@ -243,6 +283,14 @@ namespace TalonOne.Model
                     this.Platform.Equals(input.Platform)
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.TimeOffset == input.TimeOffset ||
+                    this.TimeOffset.Equals(input.TimeOffset)
+                ) && 
+                (
                     this.Id == input.Id ||
                     this.Id.Equals(input.Id)
                 ) && 
@@ -279,6 +327,8 @@ namespace TalonOne.Model
                 if (this.Expires != null)
                     hashCode = hashCode * 59 + this.Expires.GetHashCode();
                 hashCode = hashCode * 59 + this.Platform.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                hashCode = hashCode * 59 + this.TimeOffset.GetHashCode();
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
                 hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
                 hashCode = hashCode * 59 + this.AccountID.GetHashCode();

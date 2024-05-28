@@ -98,7 +98,13 @@ namespace TalonOne.Model
             /// Enum Strikethrough for value: strikethrough
             /// </summary>
             [EnumMember(Value = "strikethrough")]
-            Strikethrough = 5
+            Strikethrough = 5,
+
+            /// <summary>
+            /// Enum Achievements for value: achievements
+            /// </summary>
+            [EnumMember(Value = "achievements")]
+            Achievements = 6
 
         }
 
@@ -109,6 +115,72 @@ namespace TalonOne.Model
         /// <value>The features enabled in this campaign.</value>
         [DataMember(Name="features", EmitDefaultValue=false)]
         public List<FeaturesEnum> Features { get; set; }
+        /// <summary>
+        /// The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
+        /// </summary>
+        /// <value>The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum CartItem for value: cartItem
+            /// </summary>
+            [EnumMember(Value = "cartItem")]
+            CartItem = 1,
+
+            /// <summary>
+            /// Enum Advanced for value: advanced
+            /// </summary>
+            [EnumMember(Value = "advanced")]
+            Advanced = 2
+
+        }
+
+        /// <summary>
+        /// The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
+        /// </summary>
+        /// <value>The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum Type { get; set; }
+        /// <summary>
+        /// A campaign state described exactly as in the Campaign Manager.
+        /// </summary>
+        /// <value>A campaign state described exactly as in the Campaign Manager.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum FrontendStateEnum
+        {
+            /// <summary>
+            /// Enum Expired for value: expired
+            /// </summary>
+            [EnumMember(Value = "expired")]
+            Expired = 1,
+
+            /// <summary>
+            /// Enum Scheduled for value: scheduled
+            /// </summary>
+            [EnumMember(Value = "scheduled")]
+            Scheduled = 2,
+
+            /// <summary>
+            /// Enum Running for value: running
+            /// </summary>
+            [EnumMember(Value = "running")]
+            Running = 3,
+
+            /// <summary>
+            /// Enum Draft for value: draft
+            /// </summary>
+            [EnumMember(Value = "draft")]
+            Draft = 4
+
+        }
+
+        /// <summary>
+        /// A campaign state described exactly as in the Campaign Manager.
+        /// </summary>
+        /// <value>A campaign state described exactly as in the Campaign Manager.</value>
+        [DataMember(Name="frontendState", EmitDefaultValue=false)]
+        public FrontendStateEnum FrontendState { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Campaign" /> class.
         /// </summary>
@@ -134,27 +206,31 @@ namespace TalonOne.Model
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of [budget limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets) for this campaign.  (required).</param>
         /// <param name="campaignGroups">The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to. .</param>
-        /// <param name="couponRedemptionCount">Number of coupons redeemed in the campaign..</param>
-        /// <param name="referralRedemptionCount">Number of referral codes redeemed in the campaign..</param>
-        /// <param name="discountCount">Total amount of discounts redeemed in the campaign..</param>
-        /// <param name="discountEffectCount">Total number of times discounts were redeemed in this campaign..</param>
-        /// <param name="couponCreationCount">Total number of coupons created by rules in this campaign..</param>
-        /// <param name="customEffectCount">Total number of custom effects triggered by rules in this campaign..</param>
-        /// <param name="referralCreationCount">Total number of referrals created by rules in this campaign..</param>
-        /// <param name="addFreeItemEffectCount">Total number of times triggering add free item effext is allowed in this campaign..</param>
-        /// <param name="awardedGiveawaysCount">Total number of giveaways awarded by rules in this campaign..</param>
-        /// <param name="createdLoyaltyPointsCount">Total number of loyalty points created by rules in this campaign..</param>
-        /// <param name="createdLoyaltyPointsEffectCount">Total number of loyalty point creation effects triggered by rules in this campaign..</param>
-        /// <param name="redeemedLoyaltyPointsCount">Total number of loyalty points redeemed by rules in this campaign..</param>
-        /// <param name="redeemedLoyaltyPointsEffectCount">Total number of loyalty point redemption effects triggered by rules in this campaign..</param>
-        /// <param name="callApiEffectCount">Total number of webhook triggered by rules in this campaign..</param>
-        /// <param name="reservecouponEffectCount">Total number of reserve coupon effects triggered by rules in this campaign..</param>
+        /// <param name="type">The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  (required) (default to TypeEnum.Advanced).</param>
+        /// <param name="linkedStoreIds">A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. .</param>
+        /// <param name="budgets">A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.  (required).</param>
+        /// <param name="couponRedemptionCount">This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign. .</param>
+        /// <param name="referralRedemptionCount">This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign. .</param>
+        /// <param name="discountCount">This property is **deprecated**. The count should be available under *budgets* property. Total amount of discounts redeemed in the campaign. .</param>
+        /// <param name="discountEffectCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of times discounts were redeemed in this campaign. .</param>
+        /// <param name="couponCreationCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of coupons created by rules in this campaign. .</param>
+        /// <param name="customEffectCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of custom effects triggered by rules in this campaign. .</param>
+        /// <param name="referralCreationCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of referrals created by rules in this campaign. .</param>
+        /// <param name="addFreeItemEffectCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of times the [add free item effect](https://docs.talon.one/docs/dev/integration-api/api-effects#addfreeitem) can be triggered in this campaign. .</param>
+        /// <param name="awardedGiveawaysCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of giveaways awarded by rules in this campaign. .</param>
+        /// <param name="createdLoyaltyPointsCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points created by rules in this campaign. .</param>
+        /// <param name="createdLoyaltyPointsEffectCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point creation effects triggered by rules in this campaign. .</param>
+        /// <param name="redeemedLoyaltyPointsCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points redeemed by rules in this campaign. .</param>
+        /// <param name="redeemedLoyaltyPointsEffectCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point redemption effects triggered by rules in this campaign. .</param>
+        /// <param name="callApiEffectCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of webhooks triggered by rules in this campaign. .</param>
+        /// <param name="reservecouponEffectCount">This property is **deprecated**. The count should be available under *budgets* property. Total number of reserve coupon effects triggered by rules in this campaign. .</param>
         /// <param name="lastActivity">Timestamp of the most recent event received by this campaign..</param>
         /// <param name="updated">Timestamp of the most recent update to the campaign&#39;s property. Updates to external entities used in this campaign are **not** registered by this property, such as collection or coupon updates. .</param>
         /// <param name="createdBy">Name of the user who created this campaign if available..</param>
         /// <param name="updatedBy">Name of the user who last updated this campaign if available..</param>
         /// <param name="templateId">The ID of the Campaign Template this Campaign was created from..</param>
-        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), decimal discountCount = default(decimal), int discountEffectCount = default(int), int couponCreationCount = default(int), int customEffectCount = default(int), int referralCreationCount = default(int), int addFreeItemEffectCount = default(int), int awardedGiveawaysCount = default(int), decimal createdLoyaltyPointsCount = default(decimal), int createdLoyaltyPointsEffectCount = default(int), decimal redeemedLoyaltyPointsCount = default(decimal), int redeemedLoyaltyPointsEffectCount = default(int), int callApiEffectCount = default(int), int reservecouponEffectCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string), int templateId = default(int))
+        /// <param name="frontendState">A campaign state described exactly as in the Campaign Manager. (required).</param>
+        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), TypeEnum type = TypeEnum.Advanced, List<int> linkedStoreIds = default(List<int>), List<CampaignBudget> budgets = default(List<CampaignBudget>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), decimal discountCount = default(decimal), int discountEffectCount = default(int), int couponCreationCount = default(int), int customEffectCount = default(int), int referralCreationCount = default(int), int addFreeItemEffectCount = default(int), int awardedGiveawaysCount = default(int), decimal createdLoyaltyPointsCount = default(decimal), int createdLoyaltyPointsEffectCount = default(int), decimal redeemedLoyaltyPointsCount = default(decimal), int redeemedLoyaltyPointsEffectCount = default(int), int callApiEffectCount = default(int), int reservecouponEffectCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string), int templateId = default(int), FrontendStateEnum frontendState = default(FrontendStateEnum))
         {
             this.Id = id;
             this.Created = created;
@@ -171,6 +247,10 @@ namespace TalonOne.Model
             this.Features = features ?? throw new ArgumentNullException("features is a required property for Campaign and cannot be null");
             // to ensure "limits" is required (not null)
             this.Limits = limits ?? throw new ArgumentNullException("limits is a required property for Campaign and cannot be null");
+            this.Type = type;
+            // to ensure "budgets" is required (not null)
+            this.Budgets = budgets ?? throw new ArgumentNullException("budgets is a required property for Campaign and cannot be null");
+            this.FrontendState = frontendState;
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.Attributes = attributes;
@@ -178,6 +258,7 @@ namespace TalonOne.Model
             this.CouponSettings = couponSettings;
             this.ReferralSettings = referralSettings;
             this.CampaignGroups = campaignGroups;
+            this.LinkedStoreIds = linkedStoreIds;
             this.CouponRedemptionCount = couponRedemptionCount;
             this.ReferralRedemptionCount = referralRedemptionCount;
             this.DiscountCount = discountCount;
@@ -304,107 +385,121 @@ namespace TalonOne.Model
         public List<int> CampaignGroups { get; set; }
 
         /// <summary>
-        /// Number of coupons redeemed in the campaign.
+        /// A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. 
         /// </summary>
-        /// <value>Number of coupons redeemed in the campaign.</value>
+        /// <value>A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. </value>
+        [DataMember(Name="linkedStoreIds", EmitDefaultValue=false)]
+        public List<int> LinkedStoreIds { get; set; }
+
+        /// <summary>
+        /// A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined. 
+        /// </summary>
+        /// <value>A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined. </value>
+        [DataMember(Name="budgets", EmitDefaultValue=false)]
+        public List<CampaignBudget> Budgets { get; set; }
+
+        /// <summary>
+        /// This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign. 
+        /// </summary>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign. </value>
         [DataMember(Name="couponRedemptionCount", EmitDefaultValue=false)]
         public int CouponRedemptionCount { get; set; }
 
         /// <summary>
-        /// Number of referral codes redeemed in the campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign. 
         /// </summary>
-        /// <value>Number of referral codes redeemed in the campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign. </value>
         [DataMember(Name="referralRedemptionCount", EmitDefaultValue=false)]
         public int ReferralRedemptionCount { get; set; }
 
         /// <summary>
-        /// Total amount of discounts redeemed in the campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total amount of discounts redeemed in the campaign. 
         /// </summary>
-        /// <value>Total amount of discounts redeemed in the campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total amount of discounts redeemed in the campaign. </value>
         [DataMember(Name="discountCount", EmitDefaultValue=false)]
         public decimal DiscountCount { get; set; }
 
         /// <summary>
-        /// Total number of times discounts were redeemed in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of times discounts were redeemed in this campaign. 
         /// </summary>
-        /// <value>Total number of times discounts were redeemed in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of times discounts were redeemed in this campaign. </value>
         [DataMember(Name="discountEffectCount", EmitDefaultValue=false)]
         public int DiscountEffectCount { get; set; }
 
         /// <summary>
-        /// Total number of coupons created by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of coupons created by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of coupons created by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of coupons created by rules in this campaign. </value>
         [DataMember(Name="couponCreationCount", EmitDefaultValue=false)]
         public int CouponCreationCount { get; set; }
 
         /// <summary>
-        /// Total number of custom effects triggered by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of custom effects triggered by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of custom effects triggered by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of custom effects triggered by rules in this campaign. </value>
         [DataMember(Name="customEffectCount", EmitDefaultValue=false)]
         public int CustomEffectCount { get; set; }
 
         /// <summary>
-        /// Total number of referrals created by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of referrals created by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of referrals created by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of referrals created by rules in this campaign. </value>
         [DataMember(Name="referralCreationCount", EmitDefaultValue=false)]
         public int ReferralCreationCount { get; set; }
 
         /// <summary>
-        /// Total number of times triggering add free item effext is allowed in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of times the [add free item effect](https://docs.talon.one/docs/dev/integration-api/api-effects#addfreeitem) can be triggered in this campaign. 
         /// </summary>
-        /// <value>Total number of times triggering add free item effext is allowed in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of times the [add free item effect](https://docs.talon.one/docs/dev/integration-api/api-effects#addfreeitem) can be triggered in this campaign. </value>
         [DataMember(Name="addFreeItemEffectCount", EmitDefaultValue=false)]
         public int AddFreeItemEffectCount { get; set; }
 
         /// <summary>
-        /// Total number of giveaways awarded by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of giveaways awarded by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of giveaways awarded by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of giveaways awarded by rules in this campaign. </value>
         [DataMember(Name="awardedGiveawaysCount", EmitDefaultValue=false)]
         public int AwardedGiveawaysCount { get; set; }
 
         /// <summary>
-        /// Total number of loyalty points created by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points created by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of loyalty points created by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points created by rules in this campaign. </value>
         [DataMember(Name="createdLoyaltyPointsCount", EmitDefaultValue=false)]
         public decimal CreatedLoyaltyPointsCount { get; set; }
 
         /// <summary>
-        /// Total number of loyalty point creation effects triggered by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point creation effects triggered by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of loyalty point creation effects triggered by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point creation effects triggered by rules in this campaign. </value>
         [DataMember(Name="createdLoyaltyPointsEffectCount", EmitDefaultValue=false)]
         public int CreatedLoyaltyPointsEffectCount { get; set; }
 
         /// <summary>
-        /// Total number of loyalty points redeemed by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points redeemed by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of loyalty points redeemed by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty points redeemed by rules in this campaign. </value>
         [DataMember(Name="redeemedLoyaltyPointsCount", EmitDefaultValue=false)]
         public decimal RedeemedLoyaltyPointsCount { get; set; }
 
         /// <summary>
-        /// Total number of loyalty point redemption effects triggered by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point redemption effects triggered by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of loyalty point redemption effects triggered by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of loyalty point redemption effects triggered by rules in this campaign. </value>
         [DataMember(Name="redeemedLoyaltyPointsEffectCount", EmitDefaultValue=false)]
         public int RedeemedLoyaltyPointsEffectCount { get; set; }
 
         /// <summary>
-        /// Total number of webhook triggered by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of webhooks triggered by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of webhook triggered by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of webhooks triggered by rules in this campaign. </value>
         [DataMember(Name="callApiEffectCount", EmitDefaultValue=false)]
         public int CallApiEffectCount { get; set; }
 
         /// <summary>
-        /// Total number of reserve coupon effects triggered by rules in this campaign.
+        /// This property is **deprecated**. The count should be available under *budgets* property. Total number of reserve coupon effects triggered by rules in this campaign. 
         /// </summary>
-        /// <value>Total number of reserve coupon effects triggered by rules in this campaign.</value>
+        /// <value>This property is **deprecated**. The count should be available under *budgets* property. Total number of reserve coupon effects triggered by rules in this campaign. </value>
         [DataMember(Name="reservecouponEffectCount", EmitDefaultValue=false)]
         public int ReservecouponEffectCount { get; set; }
 
@@ -468,6 +563,9 @@ namespace TalonOne.Model
             sb.Append("  ReferralSettings: ").Append(ReferralSettings).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  LinkedStoreIds: ").Append(LinkedStoreIds).Append("\n");
+            sb.Append("  Budgets: ").Append(Budgets).Append("\n");
             sb.Append("  CouponRedemptionCount: ").Append(CouponRedemptionCount).Append("\n");
             sb.Append("  ReferralRedemptionCount: ").Append(ReferralRedemptionCount).Append("\n");
             sb.Append("  DiscountCount: ").Append(DiscountCount).Append("\n");
@@ -488,6 +586,7 @@ namespace TalonOne.Model
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
             sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
+            sb.Append("  FrontendState: ").Append(FrontendState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -605,6 +704,22 @@ namespace TalonOne.Model
                     this.CampaignGroups.SequenceEqual(input.CampaignGroups)
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.LinkedStoreIds == input.LinkedStoreIds ||
+                    this.LinkedStoreIds != null &&
+                    input.LinkedStoreIds != null &&
+                    this.LinkedStoreIds.SequenceEqual(input.LinkedStoreIds)
+                ) && 
+                (
+                    this.Budgets == input.Budgets ||
+                    this.Budgets != null &&
+                    input.Budgets != null &&
+                    this.Budgets.SequenceEqual(input.Budgets)
+                ) && 
+                (
                     this.CouponRedemptionCount == input.CouponRedemptionCount ||
                     this.CouponRedemptionCount.Equals(input.CouponRedemptionCount)
                 ) && 
@@ -687,6 +802,10 @@ namespace TalonOne.Model
                 (
                     this.TemplateId == input.TemplateId ||
                     this.TemplateId.Equals(input.TemplateId)
+                ) && 
+                (
+                    this.FrontendState == input.FrontendState ||
+                    this.FrontendState.Equals(input.FrontendState)
                 );
         }
 
@@ -727,6 +846,11 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
                 if (this.CampaignGroups != null)
                     hashCode = hashCode * 59 + this.CampaignGroups.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.LinkedStoreIds != null)
+                    hashCode = hashCode * 59 + this.LinkedStoreIds.GetHashCode();
+                if (this.Budgets != null)
+                    hashCode = hashCode * 59 + this.Budgets.GetHashCode();
                 hashCode = hashCode * 59 + this.CouponRedemptionCount.GetHashCode();
                 hashCode = hashCode * 59 + this.ReferralRedemptionCount.GetHashCode();
                 hashCode = hashCode * 59 + this.DiscountCount.GetHashCode();
@@ -751,6 +875,7 @@ namespace TalonOne.Model
                 if (this.UpdatedBy != null)
                     hashCode = hashCode * 59 + this.UpdatedBy.GetHashCode();
                 hashCode = hashCode * 59 + this.TemplateId.GetHashCode();
+                hashCode = hashCode * 59 + this.FrontendState.GetHashCode();
                 return hashCode;
             }
         }

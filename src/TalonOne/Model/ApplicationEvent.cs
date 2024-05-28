@@ -43,12 +43,14 @@ namespace TalonOne.Model
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
         /// <param name="profileId">The globally unique Talon.One ID of the customer that created this entity..</param>
+        /// <param name="storeId">The ID of the store..</param>
+        /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
         /// <param name="sessionId">The globally unique Talon.One ID of the session that contains this event..</param>
         /// <param name="type">A string representing the event. Must not be a reserved event name. (required).</param>
         /// <param name="attributes">Additional JSON serialized data associated with the event. (required).</param>
         /// <param name="effects">An array containing the effects that were applied as a result of this event. (required).</param>
         /// <param name="ruleFailureReasons">An array containing the rule failure reasons which happened during this event..</param>
-        public ApplicationEvent(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int profileId = default(int), int sessionId = default(int), string type = default(string), Object attributes = default(Object), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>))
+        public ApplicationEvent(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int profileId = default(int), int storeId = default(int), string storeIntegrationId = default(string), int sessionId = default(int), string type = default(string), Object attributes = default(Object), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>))
         {
             this.Id = id;
             this.Created = created;
@@ -60,6 +62,8 @@ namespace TalonOne.Model
             // to ensure "effects" is required (not null)
             this.Effects = effects ?? throw new ArgumentNullException("effects is a required property for ApplicationEvent and cannot be null");
             this.ProfileId = profileId;
+            this.StoreId = storeId;
+            this.StoreIntegrationId = storeIntegrationId;
             this.SessionId = sessionId;
             this.RuleFailureReasons = ruleFailureReasons;
         }
@@ -91,6 +95,20 @@ namespace TalonOne.Model
         /// <value>The globally unique Talon.One ID of the customer that created this entity.</value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
         public int ProfileId { get; set; }
+
+        /// <summary>
+        /// The ID of the store.
+        /// </summary>
+        /// <value>The ID of the store.</value>
+        [DataMember(Name="storeId", EmitDefaultValue=false)]
+        public int StoreId { get; set; }
+
+        /// <summary>
+        /// The integration ID of the store. You choose this ID when you create a store.
+        /// </summary>
+        /// <value>The integration ID of the store. You choose this ID when you create a store.</value>
+        [DataMember(Name="storeIntegrationId", EmitDefaultValue=false)]
+        public string StoreIntegrationId { get; set; }
 
         /// <summary>
         /// The globally unique Talon.One ID of the session that contains this event.
@@ -139,6 +157,8 @@ namespace TalonOne.Model
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
+            sb.Append("  StoreId: ").Append(StoreId).Append("\n");
+            sb.Append("  StoreIntegrationId: ").Append(StoreIntegrationId).Append("\n");
             sb.Append("  SessionId: ").Append(SessionId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
@@ -196,6 +216,15 @@ namespace TalonOne.Model
                     this.ProfileId.Equals(input.ProfileId)
                 ) && 
                 (
+                    this.StoreId == input.StoreId ||
+                    this.StoreId.Equals(input.StoreId)
+                ) && 
+                (
+                    this.StoreIntegrationId == input.StoreIntegrationId ||
+                    (this.StoreIntegrationId != null &&
+                    this.StoreIntegrationId.Equals(input.StoreIntegrationId))
+                ) && 
+                (
                     this.SessionId == input.SessionId ||
                     this.SessionId.Equals(input.SessionId)
                 ) && 
@@ -237,6 +266,9 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 hashCode = hashCode * 59 + this.ProfileId.GetHashCode();
+                hashCode = hashCode * 59 + this.StoreId.GetHashCode();
+                if (this.StoreIntegrationId != null)
+                    hashCode = hashCode * 59 + this.StoreIntegrationId.GetHashCode();
                 hashCode = hashCode * 59 + this.SessionId.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
@@ -257,6 +289,18 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // StoreIntegrationId (string) maxLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length > 1000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be less than 1000.", new [] { "StoreIntegrationId" });
+            }
+
+            // StoreIntegrationId (string) minLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be greater than 1.", new [] { "StoreIntegrationId" });
+            }
+
             yield break;
         }
     }

@@ -268,7 +268,7 @@ namespace TalonOne.Model
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
             // Name (string) pattern
-            Regex regexName = new Regex(@"^[A-Za-z](\\w|\\s)*$", RegexOptions.CultureInvariant);
+            Regex regexName = new Regex(@"^[A-Za-z]\\w*$", RegexOptions.CultureInvariant);
             if (false == regexName.Match(this.Name).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });

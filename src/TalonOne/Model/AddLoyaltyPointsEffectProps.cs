@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// <param name="expiryDate">Date after which points will expire..</param>
         /// <param name="transactionUUID">The identifier of this addition in the loyalty ledger. (required).</param>
         /// <param name="cartItemPosition">The index of the item in the cart items list on which the loyal points addition should be applied..</param>
-        /// <param name="cartItemSubPosition">The sub position is triggered when application flattening is enabled. It indicates to which item the loyalty points addition applies, for cart items with &#x60;quantity&#x60; &gt; 1. .</param>
+        /// <param name="cartItemSubPosition">For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates to which item the loyalty points addition is applied. .</param>
         /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
         /// <param name="bundleIndex">The position of the bundle in a list of item bundles created from the same bundle definition..</param>
         /// <param name="bundleName">The name of the bundle definition..</param>
@@ -146,9 +146,9 @@ namespace TalonOne.Model
         public decimal CartItemPosition { get; set; }
 
         /// <summary>
-        /// The sub position is triggered when application flattening is enabled. It indicates to which item the loyalty points addition applies, for cart items with &#x60;quantity&#x60; &gt; 1. 
+        /// For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates to which item the loyalty points addition is applied. 
         /// </summary>
-        /// <value>The sub position is triggered when application flattening is enabled. It indicates to which item the loyalty points addition applies, for cart items with &#x60;quantity&#x60; &gt; 1. </value>
+        /// <value>For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates to which item the loyalty points addition is applied. </value>
         [DataMember(Name="cartItemSubPosition", EmitDefaultValue=false)]
         public decimal CartItemSubPosition { get; set; }
 

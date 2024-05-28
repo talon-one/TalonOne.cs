@@ -34,7 +34,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RoleV2Permissions" /> class.
         /// </summary>
-        /// <param name="permissionSets">List of grouped logical operations to use as a reference in the roles section. Each group of logical operations has a name..</param>
+        /// <param name="permissionSets">List of grouped logical operations referenced by roles..</param>
         /// <param name="roles">roles.</param>
         public RoleV2Permissions(List<RoleV2PermissionSet> permissionSets = default(List<RoleV2PermissionSet>), RoleV2RolesGroup roles = default(RoleV2RolesGroup))
         {
@@ -43,9 +43,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// List of grouped logical operations to use as a reference in the roles section. Each group of logical operations has a name.
+        /// List of grouped logical operations referenced by roles.
         /// </summary>
-        /// <value>List of grouped logical operations to use as a reference in the roles section. Each group of logical operations has a name.</value>
+        /// <value>List of grouped logical operations referenced by roles.</value>
         [DataMember(Name="permissionSets", EmitDefaultValue=false)]
         public List<RoleV2PermissionSet> PermissionSets { get; set; }
 

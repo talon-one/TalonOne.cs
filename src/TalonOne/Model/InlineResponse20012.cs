@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="hasMore">hasMore (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20012(bool hasMore = default(bool), List<LoyaltyProgramTransaction> data = default(List<LoyaltyProgramTransaction>))
+        public InlineResponse20012(bool hasMore = default(bool), List<CampaignTemplate> data = default(List<CampaignTemplate>))
         {
             this.HasMore = hasMore;
             // to ensure "data" is required (not null)
@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<LoyaltyProgramTransaction> Data { get; set; }
+        public List<CampaignTemplate> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -98,12 +98,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'AccountId'
         }
         /// <summary>
-        /// Test the property 'InviteToken'
+        /// Test the property 'Name'
         /// </summary>
         [Fact]
-        public void InviteTokenTest()
+        public void NameTest()
         {
-            // TODO unit test for the property 'InviteToken'
+            // TODO unit test for the property 'Name'
         }
         /// <summary>
         /// Test the property 'State'
@@ -114,12 +114,20 @@ namespace TalonOne.Test
             // TODO unit test for the property 'State'
         }
         /// <summary>
-        /// Test the property 'Name'
+        /// Test the property 'InviteToken'
         /// </summary>
         [Fact]
-        public void NameTest()
+        public void InviteTokenTest()
         {
-            // TODO unit test for the property 'Name'
+            // TODO unit test for the property 'InviteToken'
+        }
+        /// <summary>
+        /// Test the property 'IsAdmin'
+        /// </summary>
+        [Fact]
+        public void IsAdminTest()
+        {
+            // TODO unit test for the property 'IsAdmin'
         }
         /// <summary>
         /// Test the property 'Policy'
@@ -130,20 +138,20 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Policy'
         }
         /// <summary>
-        /// Test the property 'LatestFeedTimestamp'
-        /// </summary>
-        [Fact]
-        public void LatestFeedTimestampTest()
-        {
-            // TODO unit test for the property 'LatestFeedTimestamp'
-        }
-        /// <summary>
         /// Test the property 'Roles'
         /// </summary>
         [Fact]
         public void RolesTest()
         {
             // TODO unit test for the property 'Roles'
+        }
+        /// <summary>
+        /// Test the property 'AuthMethod'
+        /// </summary>
+        [Fact]
+        public void AuthMethodTest()
+        {
+            // TODO unit test for the property 'AuthMethod'
         }
         /// <summary>
         /// Test the property 'ApplicationNotificationSubscriptions'
@@ -154,12 +162,28 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ApplicationNotificationSubscriptions'
         }
         /// <summary>
-        /// Test the property 'AuthMethod'
+        /// Test the property 'LastSignedIn'
         /// </summary>
         [Fact]
-        public void AuthMethodTest()
+        public void LastSignedInTest()
         {
-            // TODO unit test for the property 'AuthMethod'
+            // TODO unit test for the property 'LastSignedIn'
+        }
+        /// <summary>
+        /// Test the property 'LastAccessed'
+        /// </summary>
+        [Fact]
+        public void LastAccessedTest()
+        {
+            // TODO unit test for the property 'LastAccessed'
+        }
+        /// <summary>
+        /// Test the property 'LatestFeedTimestamp'
+        /// </summary>
+        [Fact]
+        public void LatestFeedTimestampTest()
+        {
+            // TODO unit test for the property 'LatestFeedTimestamp'
         }
 
     }

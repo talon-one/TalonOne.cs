@@ -32,6 +32,87 @@ namespace TalonOne.Model
     public partial class BaseNotification :  IEquatable<BaseNotification>, IValidatableObject
     {
         /// <summary>
+        /// The notification type.
+        /// </summary>
+        /// <value>The notification type.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum Campaign for value: campaign
+            /// </summary>
+            [EnumMember(Value = "campaign")]
+            Campaign = 1,
+
+            /// <summary>
+            /// Enum Loyaltyaddeddeductedpoints for value: loyalty_added_deducted_points
+            /// </summary>
+            [EnumMember(Value = "loyalty_added_deducted_points")]
+            Loyaltyaddeddeductedpoints = 2,
+
+            /// <summary>
+            /// Enum Coupon for value: coupon
+            /// </summary>
+            [EnumMember(Value = "coupon")]
+            Coupon = 3,
+
+            /// <summary>
+            /// Enum Expiringcoupons for value: expiring_coupons
+            /// </summary>
+            [EnumMember(Value = "expiring_coupons")]
+            Expiringcoupons = 4,
+
+            /// <summary>
+            /// Enum Expiringpoints for value: expiring_points
+            /// </summary>
+            [EnumMember(Value = "expiring_points")]
+            Expiringpoints = 5,
+
+            /// <summary>
+            /// Enum Cardexpiringpoints for value: card_expiring_points
+            /// </summary>
+            [EnumMember(Value = "card_expiring_points")]
+            Cardexpiringpoints = 6,
+
+            /// <summary>
+            /// Enum Pendingtoactivepoints for value: pending_to_active_points
+            /// </summary>
+            [EnumMember(Value = "pending_to_active_points")]
+            Pendingtoactivepoints = 7,
+
+            /// <summary>
+            /// Enum Strikethroughpricing for value: strikethrough_pricing
+            /// </summary>
+            [EnumMember(Value = "strikethrough_pricing")]
+            Strikethroughpricing = 8,
+
+            /// <summary>
+            /// Enum Tierdowngrade for value: tier_downgrade
+            /// </summary>
+            [EnumMember(Value = "tier_downgrade")]
+            Tierdowngrade = 9,
+
+            /// <summary>
+            /// Enum Tierupgrade for value: tier_upgrade
+            /// </summary>
+            [EnumMember(Value = "tier_upgrade")]
+            Tierupgrade = 10,
+
+            /// <summary>
+            /// Enum Tierwilldowngrade for value: tier_will_downgrade
+            /// </summary>
+            [EnumMember(Value = "tier_will_downgrade")]
+            Tierwilldowngrade = 11
+
+        }
+
+        /// <summary>
+        /// The notification type.
+        /// </summary>
+        /// <value>The notification type.</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="BaseNotification" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -40,15 +121,19 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="BaseNotification" /> class.
         /// </summary>
         /// <param name="policy">policy (required).</param>
+        /// <param name="enabled">Indicates whether the notification is activated. (default to true).</param>
         /// <param name="webhook">webhook (required).</param>
         /// <param name="id">Unique ID for this entity. (required).</param>
-        public BaseNotification(Object policy = default(Object), BaseNotificationWebhook webhook = default(BaseNotificationWebhook), int id = default(int))
+        /// <param name="type">The notification type. (required).</param>
+        public BaseNotification(Object policy = default(Object), bool enabled = true, BaseNotificationWebhook webhook = default(BaseNotificationWebhook), int id = default(int), TypeEnum type = default(TypeEnum))
         {
             // to ensure "policy" is required (not null)
             this.Policy = policy ?? throw new ArgumentNullException("policy is a required property for BaseNotification and cannot be null");
             // to ensure "webhook" is required (not null)
             this.Webhook = webhook ?? throw new ArgumentNullException("webhook is a required property for BaseNotification and cannot be null");
             this.Id = id;
+            this.Type = type;
+            this.Enabled = enabled;
         }
         
         /// <summary>
@@ -56,6 +141,13 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public Object Policy { get; set; }
+
+        /// <summary>
+        /// Indicates whether the notification is activated.
+        /// </summary>
+        /// <value>Indicates whether the notification is activated.</value>
+        [DataMember(Name="enabled", EmitDefaultValue=false)]
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Gets or Sets Webhook
@@ -79,8 +171,10 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class BaseNotification {\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Webhook: ").Append(Webhook).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,6 +215,10 @@ namespace TalonOne.Model
                     this.Policy.Equals(input.Policy))
                 ) && 
                 (
+                    this.Enabled == input.Enabled ||
+                    this.Enabled.Equals(input.Enabled)
+                ) && 
+                (
                     this.Webhook == input.Webhook ||
                     (this.Webhook != null &&
                     this.Webhook.Equals(input.Webhook))
@@ -128,6 +226,10 @@ namespace TalonOne.Model
                 (
                     this.Id == input.Id ||
                     this.Id.Equals(input.Id)
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -142,9 +244,11 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Policy != null)
                     hashCode = hashCode * 59 + this.Policy.GetHashCode();
+                hashCode = hashCode * 59 + this.Enabled.GetHashCode();
                 if (this.Webhook != null)
                     hashCode = hashCode * 59 + this.Webhook.GetHashCode();
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }

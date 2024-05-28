@@ -90,6 +90,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ProfileId'
         }
         /// <summary>
+        /// Test the property 'StoreId'
+        /// </summary>
+        [Fact]
+        public void StoreIdTest()
+        {
+            // TODO unit test for the property 'StoreId'
+        }
+        /// <summary>
+        /// Test the property 'StoreIntegrationId'
+        /// </summary>
+        [Fact]
+        public void StoreIntegrationIdTest()
+        {
+            // TODO unit test for the property 'StoreIntegrationId'
+        }
+        /// <summary>
         /// Test the property 'SessionId'
         /// </summary>
         [Fact]

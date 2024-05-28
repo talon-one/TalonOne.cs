@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class User :  IEquatable<User>, IValidatableObject
     {
         /// <summary>
-        /// Current user state.
+        /// State of the user.
         /// </summary>
-        /// <value>Current user state.</value>
+        /// <value>State of the user.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StateEnum
         {
@@ -59,9 +59,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// Current user state.
+        /// State of the user.
         /// </summary>
-        /// <value>Current user state.</value>
+        /// <value>State of the user.</value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public StateEnum State { get; set; }
         /// <summary>
@@ -75,17 +75,20 @@ namespace TalonOne.Model
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="modified">The time this entity was last modified. (required).</param>
-        /// <param name="email">The email address associated with your account. (required).</param>
+        /// <param name="email">The email address associated with the user profile. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
-        /// <param name="inviteToken">Invite token, empty if the user as already accepted their invite. (required).</param>
-        /// <param name="state">Current user state. (required).</param>
-        /// <param name="name">Full name (required).</param>
-        /// <param name="policy">User ACL Policy (required).</param>
-        /// <param name="latestFeedTimestamp">Latest timestamp the user has been notified for feed..</param>
-        /// <param name="roles">Contains a list of all roles the user is a member of..</param>
-        /// <param name="applicationNotificationSubscriptions">applicationNotificationSubscriptions.</param>
-        /// <param name="authMethod">The Authentication method for this user..</param>
-        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string inviteToken = default(string), StateEnum state = default(StateEnum), string name = default(string), Object policy = default(Object), DateTime latestFeedTimestamp = default(DateTime), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object), string authMethod = default(string))
+        /// <param name="name">Name of the user. (required).</param>
+        /// <param name="state">State of the user. (required).</param>
+        /// <param name="inviteToken">Invitation token of the user.  **Note**: If the user has already accepted their invitation, this is &#x60;null&#x60;.  (required).</param>
+        /// <param name="isAdmin">Indicates whether the user is an &#x60;admin&#x60;..</param>
+        /// <param name="policy">Access level of the user. (required).</param>
+        /// <param name="roles">A list of the IDs of the roles assigned to the user..</param>
+        /// <param name="authMethod">Authentication method for this user..</param>
+        /// <param name="applicationNotificationSubscriptions">Application notifications that the user is subscribed to..</param>
+        /// <param name="lastSignedIn">Timestamp when the user last signed in to Talon.One..</param>
+        /// <param name="lastAccessed">Timestamp of the user&#39;s last activity after signing in to Talon.One..</param>
+        /// <param name="latestFeedTimestamp">Timestamp when the user was notified for feed..</param>
+        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string name = default(string), StateEnum state = default(StateEnum), string inviteToken = default(string), bool isAdmin = default(bool), Object policy = default(Object), List<int> roles = default(List<int>), string authMethod = default(string), Object applicationNotificationSubscriptions = default(Object), DateTime lastSignedIn = default(DateTime), DateTime lastAccessed = default(DateTime), DateTime latestFeedTimestamp = default(DateTime))
         {
             this.Id = id;
             this.Created = created;
@@ -93,17 +96,20 @@ namespace TalonOne.Model
             // to ensure "email" is required (not null)
             this.Email = email ?? throw new ArgumentNullException("email is a required property for User and cannot be null");
             this.AccountId = accountId;
-            // to ensure "inviteToken" is required (not null)
-            this.InviteToken = inviteToken ?? throw new ArgumentNullException("inviteToken is a required property for User and cannot be null");
-            this.State = state;
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for User and cannot be null");
+            this.State = state;
+            // to ensure "inviteToken" is required (not null)
+            this.InviteToken = inviteToken ?? throw new ArgumentNullException("inviteToken is a required property for User and cannot be null");
             // to ensure "policy" is required (not null)
             this.Policy = policy ?? throw new ArgumentNullException("policy is a required property for User and cannot be null");
-            this.LatestFeedTimestamp = latestFeedTimestamp;
+            this.IsAdmin = isAdmin;
             this.Roles = roles;
-            this.ApplicationNotificationSubscriptions = applicationNotificationSubscriptions;
             this.AuthMethod = authMethod;
+            this.ApplicationNotificationSubscriptions = applicationNotificationSubscriptions;
+            this.LastSignedIn = lastSignedIn;
+            this.LastAccessed = lastAccessed;
+            this.LatestFeedTimestamp = latestFeedTimestamp;
         }
         
         /// <summary>
@@ -128,9 +134,9 @@ namespace TalonOne.Model
         public DateTime Modified { get; set; }
 
         /// <summary>
-        /// The email address associated with your account.
+        /// The email address associated with the user profile.
         /// </summary>
-        /// <value>The email address associated with your account.</value>
+        /// <value>The email address associated with the user profile.</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
@@ -142,52 +148,74 @@ namespace TalonOne.Model
         public int AccountId { get; set; }
 
         /// <summary>
-        /// Invite token, empty if the user as already accepted their invite.
+        /// Name of the user.
         /// </summary>
-        /// <value>Invite token, empty if the user as already accepted their invite.</value>
-        [DataMember(Name="inviteToken", EmitDefaultValue=false)]
-        public string InviteToken { get; set; }
-
-        /// <summary>
-        /// Full name
-        /// </summary>
-        /// <value>Full name</value>
+        /// <value>Name of the user.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// User ACL Policy
+        /// Invitation token of the user.  **Note**: If the user has already accepted their invitation, this is &#x60;null&#x60;. 
         /// </summary>
-        /// <value>User ACL Policy</value>
+        /// <value>Invitation token of the user.  **Note**: If the user has already accepted their invitation, this is &#x60;null&#x60;. </value>
+        [DataMember(Name="inviteToken", EmitDefaultValue=false)]
+        public string InviteToken { get; set; }
+
+        /// <summary>
+        /// Indicates whether the user is an &#x60;admin&#x60;.
+        /// </summary>
+        /// <value>Indicates whether the user is an &#x60;admin&#x60;.</value>
+        [DataMember(Name="isAdmin", EmitDefaultValue=false)]
+        public bool IsAdmin { get; set; }
+
+        /// <summary>
+        /// Access level of the user.
+        /// </summary>
+        /// <value>Access level of the user.</value>
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public Object Policy { get; set; }
 
         /// <summary>
-        /// Latest timestamp the user has been notified for feed.
+        /// A list of the IDs of the roles assigned to the user.
         /// </summary>
-        /// <value>Latest timestamp the user has been notified for feed.</value>
-        [DataMember(Name="latestFeedTimestamp", EmitDefaultValue=false)]
-        public DateTime LatestFeedTimestamp { get; set; }
-
-        /// <summary>
-        /// Contains a list of all roles the user is a member of.
-        /// </summary>
-        /// <value>Contains a list of all roles the user is a member of.</value>
+        /// <value>A list of the IDs of the roles assigned to the user.</value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
         public List<int> Roles { get; set; }
 
         /// <summary>
-        /// Gets or Sets ApplicationNotificationSubscriptions
+        /// Authentication method for this user.
         /// </summary>
+        /// <value>Authentication method for this user.</value>
+        [DataMember(Name="authMethod", EmitDefaultValue=false)]
+        public string AuthMethod { get; set; }
+
+        /// <summary>
+        /// Application notifications that the user is subscribed to.
+        /// </summary>
+        /// <value>Application notifications that the user is subscribed to.</value>
         [DataMember(Name="applicationNotificationSubscriptions", EmitDefaultValue=false)]
         public Object ApplicationNotificationSubscriptions { get; set; }
 
         /// <summary>
-        /// The Authentication method for this user.
+        /// Timestamp when the user last signed in to Talon.One.
         /// </summary>
-        /// <value>The Authentication method for this user.</value>
-        [DataMember(Name="authMethod", EmitDefaultValue=false)]
-        public string AuthMethod { get; set; }
+        /// <value>Timestamp when the user last signed in to Talon.One.</value>
+        [DataMember(Name="lastSignedIn", EmitDefaultValue=false)]
+        public DateTime LastSignedIn { get; set; }
+
+        /// <summary>
+        /// Timestamp of the user&#39;s last activity after signing in to Talon.One.
+        /// </summary>
+        /// <value>Timestamp of the user&#39;s last activity after signing in to Talon.One.</value>
+        [DataMember(Name="lastAccessed", EmitDefaultValue=false)]
+        public DateTime LastAccessed { get; set; }
+
+        /// <summary>
+        /// Timestamp when the user was notified for feed.
+        /// </summary>
+        /// <value>Timestamp when the user was notified for feed.</value>
+        [DataMember(Name="latestFeedTimestamp", EmitDefaultValue=false)]
+        public DateTime LatestFeedTimestamp { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -202,14 +230,17 @@ namespace TalonOne.Model
             sb.Append("  Modified: ").Append(Modified).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
-            sb.Append("  InviteToken: ").Append(InviteToken).Append("\n");
-            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  InviteToken: ").Append(InviteToken).Append("\n");
+            sb.Append("  IsAdmin: ").Append(IsAdmin).Append("\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
-            sb.Append("  LatestFeedTimestamp: ").Append(LatestFeedTimestamp).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
-            sb.Append("  ApplicationNotificationSubscriptions: ").Append(ApplicationNotificationSubscriptions).Append("\n");
             sb.Append("  AuthMethod: ").Append(AuthMethod).Append("\n");
+            sb.Append("  ApplicationNotificationSubscriptions: ").Append(ApplicationNotificationSubscriptions).Append("\n");
+            sb.Append("  LastSignedIn: ").Append(LastSignedIn).Append("\n");
+            sb.Append("  LastAccessed: ").Append(LastAccessed).Append("\n");
+            sb.Append("  LatestFeedTimestamp: ").Append(LatestFeedTimestamp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -268,28 +299,27 @@ namespace TalonOne.Model
                     this.AccountId.Equals(input.AccountId)
                 ) && 
                 (
-                    this.InviteToken == input.InviteToken ||
-                    (this.InviteToken != null &&
-                    this.InviteToken.Equals(input.InviteToken))
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.State == input.State ||
                     this.State.Equals(input.State)
                 ) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.InviteToken == input.InviteToken ||
+                    (this.InviteToken != null &&
+                    this.InviteToken.Equals(input.InviteToken))
+                ) && 
+                (
+                    this.IsAdmin == input.IsAdmin ||
+                    this.IsAdmin.Equals(input.IsAdmin)
                 ) && 
                 (
                     this.Policy == input.Policy ||
                     (this.Policy != null &&
                     this.Policy.Equals(input.Policy))
-                ) && 
-                (
-                    this.LatestFeedTimestamp == input.LatestFeedTimestamp ||
-                    (this.LatestFeedTimestamp != null &&
-                    this.LatestFeedTimestamp.Equals(input.LatestFeedTimestamp))
                 ) && 
                 (
                     this.Roles == input.Roles ||
@@ -298,14 +328,29 @@ namespace TalonOne.Model
                     this.Roles.SequenceEqual(input.Roles)
                 ) && 
                 (
+                    this.AuthMethod == input.AuthMethod ||
+                    (this.AuthMethod != null &&
+                    this.AuthMethod.Equals(input.AuthMethod))
+                ) && 
+                (
                     this.ApplicationNotificationSubscriptions == input.ApplicationNotificationSubscriptions ||
                     (this.ApplicationNotificationSubscriptions != null &&
                     this.ApplicationNotificationSubscriptions.Equals(input.ApplicationNotificationSubscriptions))
                 ) && 
                 (
-                    this.AuthMethod == input.AuthMethod ||
-                    (this.AuthMethod != null &&
-                    this.AuthMethod.Equals(input.AuthMethod))
+                    this.LastSignedIn == input.LastSignedIn ||
+                    (this.LastSignedIn != null &&
+                    this.LastSignedIn.Equals(input.LastSignedIn))
+                ) && 
+                (
+                    this.LastAccessed == input.LastAccessed ||
+                    (this.LastAccessed != null &&
+                    this.LastAccessed.Equals(input.LastAccessed))
+                ) && 
+                (
+                    this.LatestFeedTimestamp == input.LatestFeedTimestamp ||
+                    (this.LatestFeedTimestamp != null &&
+                    this.LatestFeedTimestamp.Equals(input.LatestFeedTimestamp))
                 );
         }
 
@@ -326,21 +371,26 @@ namespace TalonOne.Model
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
                 hashCode = hashCode * 59 + this.AccountId.GetHashCode();
-                if (this.InviteToken != null)
-                    hashCode = hashCode * 59 + this.InviteToken.GetHashCode();
-                hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                hashCode = hashCode * 59 + this.State.GetHashCode();
+                if (this.InviteToken != null)
+                    hashCode = hashCode * 59 + this.InviteToken.GetHashCode();
+                hashCode = hashCode * 59 + this.IsAdmin.GetHashCode();
                 if (this.Policy != null)
                     hashCode = hashCode * 59 + this.Policy.GetHashCode();
-                if (this.LatestFeedTimestamp != null)
-                    hashCode = hashCode * 59 + this.LatestFeedTimestamp.GetHashCode();
                 if (this.Roles != null)
                     hashCode = hashCode * 59 + this.Roles.GetHashCode();
-                if (this.ApplicationNotificationSubscriptions != null)
-                    hashCode = hashCode * 59 + this.ApplicationNotificationSubscriptions.GetHashCode();
                 if (this.AuthMethod != null)
                     hashCode = hashCode * 59 + this.AuthMethod.GetHashCode();
+                if (this.ApplicationNotificationSubscriptions != null)
+                    hashCode = hashCode * 59 + this.ApplicationNotificationSubscriptions.GetHashCode();
+                if (this.LastSignedIn != null)
+                    hashCode = hashCode * 59 + this.LastSignedIn.GetHashCode();
+                if (this.LastAccessed != null)
+                    hashCode = hashCode * 59 + this.LastAccessed.GetHashCode();
+                if (this.LatestFeedTimestamp != null)
+                    hashCode = hashCode * 59 + this.LatestFeedTimestamp.GetHashCode();
                 return hashCode;
             }
         }

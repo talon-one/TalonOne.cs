@@ -48,8 +48,8 @@ namespace TalonOne.Model
         /// <param name="totalSales">The total amount of money spent by the customer **before** discounts are applied.  The total sales amount excludes the following: - Cancelled or reopened sessions. - Returned items.  (required).</param>
         /// <param name="loyaltyMemberships">**DEPRECATED** A list of loyalty programs joined by the customer. .</param>
         /// <param name="audienceMemberships">The audiences the customer belongs to..</param>
-        /// <param name="lastActivity">Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the rule-engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field.  (required).</param>
-        /// <param name="sandbox">Shows whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments). .</param>
+        /// <param name="lastActivity">Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field.  (required).</param>
+        /// <param name="sandbox">An indicator of whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments). .</param>
         /// <param name="advocateIntegrationId">The Integration ID of the Customer Profile that referred this Customer in the Application..</param>
         public ApplicationCustomer(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), Object attributes = default(Object), int accountId = default(int), int closedSessions = default(int), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime), bool sandbox = default(bool), string advocateIntegrationId = default(string))
         {
@@ -133,16 +133,16 @@ namespace TalonOne.Model
         public List<AudienceMembership> AudienceMemberships { get; set; }
 
         /// <summary>
-        /// Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the rule-engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field. 
+        /// Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field. 
         /// </summary>
-        /// <value>Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the rule-engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field. </value>
+        /// <value>Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field. </value>
         [DataMember(Name="lastActivity", EmitDefaultValue=false)]
         public DateTime LastActivity { get; set; }
 
         /// <summary>
-        /// Shows whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments). 
+        /// An indicator of whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments). 
         /// </summary>
-        /// <value>Shows whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments). </value>
+        /// <value>An indicator of whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments). </value>
         [DataMember(Name="sandbox", EmitDefaultValue=false)]
         public bool Sandbox { get; set; }
 

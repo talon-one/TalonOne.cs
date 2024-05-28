@@ -209,6 +209,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'LiveLoyaltyPrograms'
         }
+        /// <summary>
+        /// Test the property 'LastUpdatedAt'
+        /// </summary>
+        [Fact]
+        public void LastUpdatedAtTest()
+        {
+            // TODO unit test for the property 'LastUpdatedAt'
+        }
 
     }
 

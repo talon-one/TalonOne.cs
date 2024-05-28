@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The audiences and their members count.
+    /// The audiences and their member count.
     /// </summary>
     [DataContract]
     public partial class AudienceAnalytics :  IEquatable<AudienceAnalytics>, IValidatableObject
@@ -35,7 +35,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="AudienceAnalytics" /> class.
         /// </summary>
         /// <param name="audienceId">The ID of the audience..</param>
-        /// <param name="membersCount">The count of members under a single audience..</param>
+        /// <param name="membersCount">The member count of the audience..</param>
         public AudienceAnalytics(int audienceId = default(int), int membersCount = default(int))
         {
             this.AudienceId = audienceId;
@@ -50,9 +50,9 @@ namespace TalonOne.Model
         public int AudienceId { get; set; }
 
         /// <summary>
-        /// The count of members under a single audience.
+        /// The member count of the audience.
         /// </summary>
-        /// <value>The count of members under a single audience.</value>
+        /// <value>The member count of the audience.</value>
         [DataMember(Name="membersCount", EmitDefaultValue=false)]
         public int MembersCount { get; set; }
 

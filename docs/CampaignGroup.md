@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 **Created** | **DateTime** | The time this entity was created. | 
 **Modified** | **DateTime** | The time this entity was last modified. | 
 **AccountId** | **int** | The ID of the account that owns this entity. | 
-**Name** | **string** | The name of this campaign group. | 
-**Description** | **string** | A longer description of the campaign group. | [optional] 
-**SubscribedApplicationsIds** | **List&lt;int&gt;** | A list of the IDs of the applications that this campaign group is enabled for. | [optional] 
-**CampaignIds** | **List&lt;int&gt;** | A list of the IDs of the campaigns that this campaign group owns. | [optional] 
+**Name** | **string** | The name of the campaign access group. | 
+**Description** | **string** | A longer description of the campaign access group. | [optional] 
+**SubscribedApplicationsIds** | **List&lt;int&gt;** | A list of IDs of the Applications that this campaign access group is enabled for. | [optional] 
+**CampaignIds** | **List&lt;int&gt;** | A list of IDs of the campaigns that are part of the campaign access group. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

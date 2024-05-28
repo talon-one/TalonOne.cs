@@ -138,7 +138,19 @@ namespace TalonOne.Model
             /// Enum Session for value: Session
             /// </summary>
             [EnumMember(Value = "Session")]
-            Session = 17
+            Session = 17,
+
+            /// <summary>
+            /// Enum Store for value: Store
+            /// </summary>
+            [EnumMember(Value = "Store")]
+            Store = 18,
+
+            /// <summary>
+            /// Enum Achievements for value: Achievements
+            /// </summary>
+            [EnumMember(Value = "Achievements")]
+            Achievements = 19
 
         }
 

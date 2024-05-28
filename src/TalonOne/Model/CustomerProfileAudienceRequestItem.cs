@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class CustomerProfileAudienceRequestItem :  IEquatable<CustomerProfileAudienceRequestItem>, IValidatableObject
     {
         /// <summary>
-        /// Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. - &#x60;delete&#x60;: Removes the customer profile from the audience. 
+        /// Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. If the customer profile does not exist, it will be created. - &#x60;delete&#x60;: Removes the customer profile from the audience. 
         /// </summary>
-        /// <value>Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. - &#x60;delete&#x60;: Removes the customer profile from the audience. </value>
+        /// <value>Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. If the customer profile does not exist, it will be created. - &#x60;delete&#x60;: Removes the customer profile from the audience. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum ActionEnum
         {
@@ -53,9 +53,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. - &#x60;delete&#x60;: Removes the customer profile from the audience. 
+        /// Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. If the customer profile does not exist, it will be created. - &#x60;delete&#x60;: Removes the customer profile from the audience. 
         /// </summary>
-        /// <value>Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. - &#x60;delete&#x60;: Removes the customer profile from the audience. </value>
+        /// <value>Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. If the customer profile does not exist, it will be created. - &#x60;delete&#x60;: Removes the customer profile from the audience. </value>
         [DataMember(Name="action", EmitDefaultValue=false)]
         public ActionEnum Action { get; set; }
         /// <summary>
@@ -66,7 +66,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerProfileAudienceRequestItem" /> class.
         /// </summary>
-        /// <param name="action">Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. - &#x60;delete&#x60;: Removes the customer profile from the audience.  (required).</param>
+        /// <param name="action">Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience. If the customer profile does not exist, it will be created. - &#x60;delete&#x60;: Removes the customer profile from the audience.  (required).</param>
         /// <param name="profileIntegrationId">The ID of this customer profile in the third-party integration. (required).</param>
         /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required).</param>
         public CustomerProfileAudienceRequestItem(ActionEnum action = default(ActionEnum), string profileIntegrationId = default(string), int audienceId = default(int))

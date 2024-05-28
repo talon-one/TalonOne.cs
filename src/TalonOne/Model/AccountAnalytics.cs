@@ -58,7 +58,8 @@ namespace TalonOne.Model
         /// <param name="webhooks">Total number of webhooks in the account. (required).</param>
         /// <param name="loyaltyPrograms">Total number of all loyalty programs in the account. (required).</param>
         /// <param name="liveLoyaltyPrograms">Total number of live loyalty programs in the account. (required).</param>
-        public AccountAnalytics(int applications = default(int), int liveApplications = default(int), int sandboxApplications = default(int), int campaigns = default(int), int activeCampaigns = default(int), int liveActiveCampaigns = default(int), int coupons = default(int), int activeCoupons = default(int), int expiredCoupons = default(int), int referralCodes = default(int), int activeReferralCodes = default(int), int expiredReferralCodes = default(int), int activeRules = default(int), int users = default(int), int roles = default(int), int customAttributes = default(int), int webhooks = default(int), int loyaltyPrograms = default(int), int liveLoyaltyPrograms = default(int))
+        /// <param name="lastUpdatedAt">The point in time when the analytics numbers were updated last. (required).</param>
+        public AccountAnalytics(int applications = default(int), int liveApplications = default(int), int sandboxApplications = default(int), int campaigns = default(int), int activeCampaigns = default(int), int liveActiveCampaigns = default(int), int coupons = default(int), int activeCoupons = default(int), int expiredCoupons = default(int), int referralCodes = default(int), int activeReferralCodes = default(int), int expiredReferralCodes = default(int), int activeRules = default(int), int users = default(int), int roles = default(int), int customAttributes = default(int), int webhooks = default(int), int loyaltyPrograms = default(int), int liveLoyaltyPrograms = default(int), DateTime lastUpdatedAt = default(DateTime))
         {
             this.Applications = applications;
             this.LiveApplications = liveApplications;
@@ -79,6 +80,7 @@ namespace TalonOne.Model
             this.Webhooks = webhooks;
             this.LoyaltyPrograms = loyaltyPrograms;
             this.LiveLoyaltyPrograms = liveLoyaltyPrograms;
+            this.LastUpdatedAt = lastUpdatedAt;
         }
         
         /// <summary>
@@ -215,6 +217,13 @@ namespace TalonOne.Model
         public int LiveLoyaltyPrograms { get; set; }
 
         /// <summary>
+        /// The point in time when the analytics numbers were updated last.
+        /// </summary>
+        /// <value>The point in time when the analytics numbers were updated last.</value>
+        [DataMember(Name="lastUpdatedAt", EmitDefaultValue=false)]
+        public DateTime LastUpdatedAt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -241,6 +250,7 @@ namespace TalonOne.Model
             sb.Append("  Webhooks: ").Append(Webhooks).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
             sb.Append("  LiveLoyaltyPrograms: ").Append(LiveLoyaltyPrograms).Append("\n");
+            sb.Append("  LastUpdatedAt: ").Append(LastUpdatedAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -350,6 +360,11 @@ namespace TalonOne.Model
                 (
                     this.LiveLoyaltyPrograms == input.LiveLoyaltyPrograms ||
                     this.LiveLoyaltyPrograms.Equals(input.LiveLoyaltyPrograms)
+                ) && 
+                (
+                    this.LastUpdatedAt == input.LastUpdatedAt ||
+                    (this.LastUpdatedAt != null &&
+                    this.LastUpdatedAt.Equals(input.LastUpdatedAt))
                 );
         }
 
@@ -381,6 +396,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Webhooks.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyPrograms.GetHashCode();
                 hashCode = hashCode * 59 + this.LiveLoyaltyPrograms.GetHashCode();
+                if (this.LastUpdatedAt != null)
+                    hashCode = hashCode * 59 + this.LastUpdatedAt.GetHashCode();
                 return hashCode;
             }
         }

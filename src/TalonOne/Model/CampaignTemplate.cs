@@ -98,7 +98,13 @@ namespace TalonOne.Model
             /// Enum Strikethrough for value: strikethrough
             /// </summary>
             [EnumMember(Value = "strikethrough")]
-            Strikethrough = 5
+            Strikethrough = 5,
+
+            /// <summary>
+            /// Enum Achievements for value: achievements
+            /// </summary>
+            [EnumMember(Value = "achievements")]
+            Achievements = 6
 
         }
 
@@ -109,6 +115,33 @@ namespace TalonOne.Model
         /// <value>A list of features for the campaign template.</value>
         [DataMember(Name="features", EmitDefaultValue=false)]
         public List<FeaturesEnum> Features { get; set; }
+        /// <summary>
+        /// The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
+        /// </summary>
+        /// <value>The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CampaignTypeEnum
+        {
+            /// <summary>
+            /// Enum CartItem for value: cartItem
+            /// </summary>
+            [EnumMember(Value = "cartItem")]
+            CartItem = 1,
+
+            /// <summary>
+            /// Enum Advanced for value: advanced
+            /// </summary>
+            [EnumMember(Value = "advanced")]
+            Advanced = 2
+
+        }
+
+        /// <summary>
+        /// The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
+        /// </summary>
+        /// <value>The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. </value>
+        [DataMember(Name="campaignType", EmitDefaultValue=false)]
+        public CampaignTypeEnum CampaignType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignTemplate" /> class.
         /// </summary>
@@ -137,10 +170,11 @@ namespace TalonOne.Model
         /// <param name="applicationsIds">A list of IDs of the Applications that are subscribed to this campaign template. (required).</param>
         /// <param name="campaignCollections">The campaign collections from the blueprint campaign for the template..</param>
         /// <param name="defaultCampaignGroupId">The default campaign group ID..</param>
+        /// <param name="campaignType">The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  (required) (default to CampaignTypeEnum.Advanced).</param>
         /// <param name="updated">Timestamp of the most recent update to the campaign template or any of its elements..</param>
         /// <param name="updatedBy">Name of the user who last updated this campaign template, if available..</param>
         /// <param name="validApplicationIds">The IDs of the Applications that are related to this entity. (required).</param>
-        public CampaignTemplate(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<int> applicationsIds = default(List<int>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int), DateTime updated = default(DateTime), string updatedBy = default(string), List<int> validApplicationIds = default(List<int>))
+        public CampaignTemplate(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<int> applicationsIds = default(List<int>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced, DateTime updated = default(DateTime), string updatedBy = default(string), List<int> validApplicationIds = default(List<int>))
         {
             this.Id = id;
             this.Created = created;
@@ -155,6 +189,7 @@ namespace TalonOne.Model
             this.State = state;
             // to ensure "applicationsIds" is required (not null)
             this.ApplicationsIds = applicationsIds ?? throw new ArgumentNullException("applicationsIds is a required property for CampaignTemplate and cannot be null");
+            this.CampaignType = campaignType;
             // to ensure "validApplicationIds" is required (not null)
             this.ValidApplicationIds = validApplicationIds ?? throw new ArgumentNullException("validApplicationIds is a required property for CampaignTemplate and cannot be null");
             this.CampaignAttributes = campaignAttributes;
@@ -345,6 +380,7 @@ namespace TalonOne.Model
             sb.Append("  ApplicationsIds: ").Append(ApplicationsIds).Append("\n");
             sb.Append("  CampaignCollections: ").Append(CampaignCollections).Append("\n");
             sb.Append("  DefaultCampaignGroupId: ").Append(DefaultCampaignGroupId).Append("\n");
+            sb.Append("  CampaignType: ").Append(CampaignType).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
             sb.Append("  ValidApplicationIds: ").Append(ValidApplicationIds).Append("\n");
@@ -481,6 +517,10 @@ namespace TalonOne.Model
                     this.DefaultCampaignGroupId.Equals(input.DefaultCampaignGroupId)
                 ) && 
                 (
+                    this.CampaignType == input.CampaignType ||
+                    this.CampaignType.Equals(input.CampaignType)
+                ) && 
+                (
                     this.Updated == input.Updated ||
                     (this.Updated != null &&
                     this.Updated.Equals(input.Updated))
@@ -540,6 +580,7 @@ namespace TalonOne.Model
                 if (this.CampaignCollections != null)
                     hashCode = hashCode * 59 + this.CampaignCollections.GetHashCode();
                 hashCode = hashCode * 59 + this.DefaultCampaignGroupId.GetHashCode();
+                hashCode = hashCode * 59 + this.CampaignType.GetHashCode();
                 if (this.Updated != null)
                     hashCode = hashCode * 59 + this.Updated.GetHashCode();
                 if (this.UpdatedBy != null)

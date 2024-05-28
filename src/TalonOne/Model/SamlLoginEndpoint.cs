@@ -39,16 +39,25 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SamlLoginEndpoint" /> class.
         /// </summary>
+        /// <param name="id">ID of the SAML login endpoint. (required).</param>
         /// <param name="name">ID of the SAML service. (required).</param>
-        /// <param name="loginURL">Single Sign-On URL. (required).</param>
-        public SamlLoginEndpoint(string name = default(string), string loginURL = default(string))
+        /// <param name="loginURL">The single sign-on URL. (required).</param>
+        public SamlLoginEndpoint(int id = default(int), string name = default(string), string loginURL = default(string))
         {
+            this.Id = id;
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SamlLoginEndpoint and cannot be null");
             // to ensure "loginURL" is required (not null)
             this.LoginURL = loginURL ?? throw new ArgumentNullException("loginURL is a required property for SamlLoginEndpoint and cannot be null");
         }
         
+        /// <summary>
+        /// ID of the SAML login endpoint.
+        /// </summary>
+        /// <value>ID of the SAML login endpoint.</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public int Id { get; set; }
+
         /// <summary>
         /// ID of the SAML service.
         /// </summary>
@@ -57,9 +66,9 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Single Sign-On URL.
+        /// The single sign-on URL.
         /// </summary>
-        /// <value>Single Sign-On URL.</value>
+        /// <value>The single sign-on URL.</value>
         [DataMember(Name="loginURL", EmitDefaultValue=false)]
         public string LoginURL { get; set; }
 
@@ -71,6 +80,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SamlLoginEndpoint {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  LoginURL: ").Append(LoginURL).Append("\n");
             sb.Append("}\n");
@@ -108,6 +118,10 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.Id == input.Id ||
+                    this.Id.Equals(input.Id)
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -128,6 +142,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.LoginURL != null)

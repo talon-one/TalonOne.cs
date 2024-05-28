@@ -39,46 +39,55 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewInvitation" /> class.
         /// </summary>
-        /// <param name="name">Name of the user being invited..</param>
-        /// <param name="email">email (required).</param>
-        /// <param name="acl">The &#x60;Access Control List&#x60; json defining the role of the user.  This represents the access control on the user level. Use one of the following: - normal user: &#x60;{\&quot;Role\&quot;: 0}&#x60; - admin: &#x60;{\&quot;Role\&quot;: 127}&#x60;  (required).</param>
-        /// <param name="roles">An array of roleIDs to assign the new user to..</param>
-        public NewInvitation(string name = default(string), string email = default(string), string acl = default(string), List<int> roles = default(List<int>))
+        /// <param name="name">Name of the user..</param>
+        /// <param name="email">Email address of the user. (required).</param>
+        /// <param name="isAdmin">Indicates whether the user is an &#x60;admin&#x60;..</param>
+        /// <param name="roles">A list of the IDs of the roles assigned to the user..</param>
+        /// <param name="acl">Indicates the access level of the user..</param>
+        public NewInvitation(string name = default(string), string email = default(string), bool isAdmin = default(bool), List<int> roles = default(List<int>), string acl = default(string))
         {
             // to ensure "email" is required (not null)
             this.Email = email ?? throw new ArgumentNullException("email is a required property for NewInvitation and cannot be null");
-            // to ensure "acl" is required (not null)
-            this.Acl = acl ?? throw new ArgumentNullException("acl is a required property for NewInvitation and cannot be null");
             this.Name = name;
+            this.IsAdmin = isAdmin;
             this.Roles = roles;
+            this.Acl = acl;
         }
         
         /// <summary>
-        /// Name of the user being invited.
+        /// Name of the user.
         /// </summary>
-        /// <value>Name of the user being invited.</value>
+        /// <value>Name of the user.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or Sets Email
+        /// Email address of the user.
         /// </summary>
+        /// <value>Email address of the user.</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 
         /// <summary>
-        /// The &#x60;Access Control List&#x60; json defining the role of the user.  This represents the access control on the user level. Use one of the following: - normal user: &#x60;{\&quot;Role\&quot;: 0}&#x60; - admin: &#x60;{\&quot;Role\&quot;: 127}&#x60; 
+        /// Indicates whether the user is an &#x60;admin&#x60;.
         /// </summary>
-        /// <value>The &#x60;Access Control List&#x60; json defining the role of the user.  This represents the access control on the user level. Use one of the following: - normal user: &#x60;{\&quot;Role\&quot;: 0}&#x60; - admin: &#x60;{\&quot;Role\&quot;: 127}&#x60; </value>
-        [DataMember(Name="acl", EmitDefaultValue=false)]
-        public string Acl { get; set; }
+        /// <value>Indicates whether the user is an &#x60;admin&#x60;.</value>
+        [DataMember(Name="isAdmin", EmitDefaultValue=false)]
+        public bool IsAdmin { get; set; }
 
         /// <summary>
-        /// An array of roleIDs to assign the new user to.
+        /// A list of the IDs of the roles assigned to the user.
         /// </summary>
-        /// <value>An array of roleIDs to assign the new user to.</value>
+        /// <value>A list of the IDs of the roles assigned to the user.</value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
         public List<int> Roles { get; set; }
+
+        /// <summary>
+        /// Indicates the access level of the user.
+        /// </summary>
+        /// <value>Indicates the access level of the user.</value>
+        [DataMember(Name="acl", EmitDefaultValue=false)]
+        public string Acl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -90,8 +99,9 @@ namespace TalonOne.Model
             sb.Append("class NewInvitation {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Email: ").Append(Email).Append("\n");
-            sb.Append("  Acl: ").Append(Acl).Append("\n");
+            sb.Append("  IsAdmin: ").Append(IsAdmin).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
+            sb.Append("  Acl: ").Append(Acl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,15 +147,19 @@ namespace TalonOne.Model
                     this.Email.Equals(input.Email))
                 ) && 
                 (
-                    this.Acl == input.Acl ||
-                    (this.Acl != null &&
-                    this.Acl.Equals(input.Acl))
+                    this.IsAdmin == input.IsAdmin ||
+                    this.IsAdmin.Equals(input.IsAdmin)
                 ) && 
                 (
                     this.Roles == input.Roles ||
                     this.Roles != null &&
                     input.Roles != null &&
                     this.Roles.SequenceEqual(input.Roles)
+                ) && 
+                (
+                    this.Acl == input.Acl ||
+                    (this.Acl != null &&
+                    this.Acl.Equals(input.Acl))
                 );
         }
 
@@ -162,10 +176,11 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Email != null)
                     hashCode = hashCode * 59 + this.Email.GetHashCode();
-                if (this.Acl != null)
-                    hashCode = hashCode * 59 + this.Acl.GetHashCode();
+                hashCode = hashCode * 59 + this.IsAdmin.GetHashCode();
                 if (this.Roles != null)
                     hashCode = hashCode * 59 + this.Roles.GetHashCode();
+                if (this.Acl != null)
+                    hashCode = hashCode * 59 + this.Acl.GetHashCode();
                 return hashCode;
             }
         }

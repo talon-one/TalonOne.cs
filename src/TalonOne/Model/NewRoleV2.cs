@@ -41,16 +41,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">Name of the role. (required).</param>
         /// <param name="description">Description of the role. (required).</param>
-        /// <param name="isAdmin">Indicates whether the role grants admin permissions..</param>
         /// <param name="permissions">permissions.</param>
-        /// <param name="members">A list of user identifiers the role is assigned to..</param>
-        public NewRoleV2(string name = default(string), string description = default(string), bool isAdmin = default(bool), RoleV2Permissions permissions = default(RoleV2Permissions), List<int> members = default(List<int>))
+        /// <param name="members">A list of user IDs the role is assigned to..</param>
+        public NewRoleV2(string name = default(string), string description = default(string), RoleV2Permissions permissions = default(RoleV2Permissions), List<int> members = default(List<int>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewRoleV2 and cannot be null");
             // to ensure "description" is required (not null)
             this.Description = description ?? throw new ArgumentNullException("description is a required property for NewRoleV2 and cannot be null");
-            this.IsAdmin = isAdmin;
             this.Permissions = permissions;
             this.Members = members;
         }
@@ -70,22 +68,15 @@ namespace TalonOne.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// Indicates whether the role grants admin permissions.
-        /// </summary>
-        /// <value>Indicates whether the role grants admin permissions.</value>
-        [DataMember(Name="isAdmin", EmitDefaultValue=false)]
-        public bool IsAdmin { get; set; }
-
-        /// <summary>
         /// Gets or Sets Permissions
         /// </summary>
         [DataMember(Name="permissions", EmitDefaultValue=false)]
         public RoleV2Permissions Permissions { get; set; }
 
         /// <summary>
-        /// A list of user identifiers the role is assigned to.
+        /// A list of user IDs the role is assigned to.
         /// </summary>
-        /// <value>A list of user identifiers the role is assigned to.</value>
+        /// <value>A list of user IDs the role is assigned to.</value>
         [DataMember(Name="members", EmitDefaultValue=false)]
         public List<int> Members { get; set; }
 
@@ -99,7 +90,6 @@ namespace TalonOne.Model
             sb.Append("class NewRoleV2 {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  IsAdmin: ").Append(IsAdmin).Append("\n");
             sb.Append("  Permissions: ").Append(Permissions).Append("\n");
             sb.Append("  Members: ").Append(Members).Append("\n");
             sb.Append("}\n");
@@ -147,10 +137,6 @@ namespace TalonOne.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.IsAdmin == input.IsAdmin ||
-                    this.IsAdmin.Equals(input.IsAdmin)
-                ) && 
-                (
                     this.Permissions == input.Permissions ||
                     (this.Permissions != null &&
                     this.Permissions.Equals(input.Permissions))
@@ -176,7 +162,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.IsAdmin.GetHashCode();
                 if (this.Permissions != null)
                     hashCode = hashCode * 59 + this.Permissions.GetHashCode();
                 if (this.Members != null)

@@ -9,9 +9,8 @@ Name | Type | Description | Notes
 **AccountId** | **int** | The ID of the account that owns this entity. | 
 **Name** | **string** | Name of the role. | [optional] 
 **Description** | **string** | Description of the role. | [optional] 
-**IsAdmin** | **bool** | Indicates whether the role grants admin permissions. | [optional] 
 **Permissions** | [**RoleV2Permissions**](RoleV2Permissions.md) |  | [optional] 
-**Members** | **List&lt;int&gt;** | A list of user identifiers the role is assigned to. | [optional] 
+**Members** | **List&lt;int&gt;** | A list of user IDs the role is assigned to. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

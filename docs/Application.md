@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **Limits** | [**List&lt;LimitConfig&gt;**](LimitConfig.md) | Default limits for campaigns created in this application. | [optional] 
 **DefaultDiscountScope** | **string** | The default scope to apply &#x60;setDiscount&#x60; effects on if no scope was provided with the effect.  | [optional] 
 **EnableCascadingDiscounts** | **bool** | Indicates if discounts should cascade for this Application. | [optional] 
-**EnableFlattenedCartItems** | **bool** | Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening).  | [optional] 
+**EnableFlattenedCartItems** | **bool** | Indicates if cart items of quantity larger than one should be separated into different items of quantity one.  | [optional] 
 **AttributesSettings** | [**AttributesSettings**](AttributesSettings.md) |  | [optional] 
 **Sandbox** | **bool** | Indicates if this is a live or sandbox Application. | [optional] 
 **EnablePartialDiscounts** | **bool** | Indicates if this Application supports partial discounts. | [optional] 

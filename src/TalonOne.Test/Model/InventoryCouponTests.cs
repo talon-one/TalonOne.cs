@@ -226,6 +226,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'IsReservationMandatory'
         }
         /// <summary>
+        /// Test the property 'ImplicitlyReserved'
+        /// </summary>
+        [Fact]
+        public void ImplicitlyReservedTest()
+        {
+            // TODO unit test for the property 'ImplicitlyReserved'
+        }
+        /// <summary>
         /// Test the property 'ProfileRedemptionCount'
         /// </summary>
         [Fact]

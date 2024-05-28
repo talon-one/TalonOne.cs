@@ -73,6 +73,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Scopes'
         }
+        /// <summary>
+        /// Test the property 'BatchingEnabled'
+        /// </summary>
+        [Fact]
+        public void BatchingEnabledTest()
+        {
+            // TODO unit test for the property 'BatchingEnabled'
+        }
 
     }
 

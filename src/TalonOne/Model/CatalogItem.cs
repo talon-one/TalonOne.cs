@@ -46,7 +46,8 @@ namespace TalonOne.Model
         /// <param name="catalogid">The ID of the catalog the item belongs to. (required).</param>
         /// <param name="version">The version of the catalog item. (required).</param>
         /// <param name="attributes">attributes.</param>
-        public CatalogItem(int id = default(int), DateTime created = default(DateTime), string sku = default(string), decimal price = default(decimal), int catalogid = default(int), int version = default(int), List<ItemAttribute> attributes = default(List<ItemAttribute>))
+        /// <param name="product">product.</param>
+        public CatalogItem(int id = default(int), DateTime created = default(DateTime), string sku = default(string), decimal price = default(decimal), int catalogid = default(int), int version = default(int), List<ItemAttribute> attributes = default(List<ItemAttribute>), Product product = default(Product))
         {
             this.Id = id;
             this.Created = created;
@@ -56,6 +57,7 @@ namespace TalonOne.Model
             this.Version = version;
             this.Price = price;
             this.Attributes = attributes;
+            this.Product = product;
         }
         
         /// <summary>
@@ -83,7 +85,7 @@ namespace TalonOne.Model
         /// Price of the item.
         /// </summary>
         /// <value>Price of the item.</value>
-        [DataMember(Name="price", EmitDefaultValue=true)]
+        [DataMember(Name="price", EmitDefaultValue=false)]
         public decimal Price { get; set; }
 
         /// <summary>
@@ -107,6 +109,12 @@ namespace TalonOne.Model
         public List<ItemAttribute> Attributes { get; set; }
 
         /// <summary>
+        /// Gets or Sets Product
+        /// </summary>
+        [DataMember(Name="product", EmitDefaultValue=false)]
+        public Product Product { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -121,6 +129,7 @@ namespace TalonOne.Model
             sb.Append("  Catalogid: ").Append(Catalogid).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  Product: ").Append(Product).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -186,6 +195,11 @@ namespace TalonOne.Model
                     this.Attributes != null &&
                     input.Attributes != null &&
                     this.Attributes.SequenceEqual(input.Attributes)
+                ) && 
+                (
+                    this.Product == input.Product ||
+                    (this.Product != null &&
+                    this.Product.Equals(input.Product))
                 );
         }
 
@@ -208,6 +222,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Version.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.Product != null)
+                    hashCode = hashCode * 59 + this.Product.GetHashCode();
                 return hashCode;
             }
         }

@@ -80,8 +80,9 @@ namespace TalonOne.Model
         [DataMember(Name="operator", EmitDefaultValue=false)]
         public OperatorEnum Operator { get; set; }
         /// <summary>
-        /// Defines EvaluationMode
+        /// The mode by which campaigns in the campaign evaluation group are evaluated.
         /// </summary>
+        /// <value>The mode by which campaigns in the campaign evaluation group are evaluated.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EvaluationModeEnum
         {
@@ -112,10 +113,38 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// Gets or Sets EvaluationMode
+        /// The mode by which campaigns in the campaign evaluation group are evaluated.
         /// </summary>
+        /// <value>The mode by which campaigns in the campaign evaluation group are evaluated.</value>
         [DataMember(Name="evaluationMode", EmitDefaultValue=false)]
         public EvaluationModeEnum EvaluationMode { get; set; }
+        /// <summary>
+        /// The evaluation scope of the campaign evaluation group.
+        /// </summary>
+        /// <value>The evaluation scope of the campaign evaluation group.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EvaluationScopeEnum
+        {
+            /// <summary>
+            /// Enum CartItem for value: cartItem
+            /// </summary>
+            [EnumMember(Value = "cartItem")]
+            CartItem = 1,
+
+            /// <summary>
+            /// Enum Session for value: session
+            /// </summary>
+            [EnumMember(Value = "session")]
+            Session = 2
+
+        }
+
+        /// <summary>
+        /// The evaluation scope of the campaign evaluation group.
+        /// </summary>
+        /// <value>The evaluation scope of the campaign evaluation group.</value>
+        [DataMember(Name="evaluationScope", EmitDefaultValue=false)]
+        public EvaluationScopeEnum EvaluationScope { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignSetBranchNode" /> class.
         /// </summary>
@@ -131,8 +160,9 @@ namespace TalonOne.Model
         /// <param name="groupId">The ID of the campaign set. (required).</param>
         /// <param name="locked">An indicator of whether the campaign set is locked for modification. (required).</param>
         /// <param name="description">A description of the campaign set..</param>
-        /// <param name="evaluationMode">evaluationMode (required).</param>
-        public CampaignSetBranchNode(TypeEnum type = default(TypeEnum), string name = default(string), OperatorEnum _operator = default(OperatorEnum), List<CampaignSetNode> elements = default(List<CampaignSetNode>), int groupId = default(int), bool locked = default(bool), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum))
+        /// <param name="evaluationMode">The mode by which campaigns in the campaign evaluation group are evaluated. (required).</param>
+        /// <param name="evaluationScope">The evaluation scope of the campaign evaluation group. (required).</param>
+        public CampaignSetBranchNode(TypeEnum type = default(TypeEnum), string name = default(string), OperatorEnum _operator = default(OperatorEnum), List<CampaignSetNode> elements = default(List<CampaignSetNode>), int groupId = default(int), bool locked = default(bool), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum), EvaluationScopeEnum evaluationScope = default(EvaluationScopeEnum))
         {
             this.Type = type;
             // to ensure "name" is required (not null)
@@ -143,6 +173,7 @@ namespace TalonOne.Model
             this.GroupId = groupId;
             this.Locked = locked;
             this.EvaluationMode = evaluationMode;
+            this.EvaluationScope = evaluationScope;
             this.Description = description;
         }
         
@@ -197,6 +228,7 @@ namespace TalonOne.Model
             sb.Append("  Locked: ").Append(Locked).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  EvaluationMode: ").Append(EvaluationMode).Append("\n");
+            sb.Append("  EvaluationScope: ").Append(EvaluationScope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -266,6 +298,10 @@ namespace TalonOne.Model
                 (
                     this.EvaluationMode == input.EvaluationMode ||
                     this.EvaluationMode.Equals(input.EvaluationMode)
+                ) && 
+                (
+                    this.EvaluationScope == input.EvaluationScope ||
+                    this.EvaluationScope.Equals(input.EvaluationScope)
                 );
         }
 
@@ -289,6 +325,7 @@ namespace TalonOne.Model
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 hashCode = hashCode * 59 + this.EvaluationMode.GetHashCode();
+                hashCode = hashCode * 59 + this.EvaluationScope.GetHashCode();
                 return hashCode;
             }
         }

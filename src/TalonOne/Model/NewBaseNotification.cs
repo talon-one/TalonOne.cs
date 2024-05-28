@@ -40,13 +40,15 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="NewBaseNotification" /> class.
         /// </summary>
         /// <param name="policy">policy (required).</param>
+        /// <param name="enabled">Indicates whether the notification is activated. (default to true).</param>
         /// <param name="webhook">webhook (required).</param>
-        public NewBaseNotification(Object policy = default(Object), NewNotificationWebhook webhook = default(NewNotificationWebhook))
+        public NewBaseNotification(Object policy = default(Object), bool enabled = true, NewNotificationWebhook webhook = default(NewNotificationWebhook))
         {
             // to ensure "policy" is required (not null)
             this.Policy = policy ?? throw new ArgumentNullException("policy is a required property for NewBaseNotification and cannot be null");
             // to ensure "webhook" is required (not null)
             this.Webhook = webhook ?? throw new ArgumentNullException("webhook is a required property for NewBaseNotification and cannot be null");
+            this.Enabled = enabled;
         }
         
         /// <summary>
@@ -54,6 +56,13 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public Object Policy { get; set; }
+
+        /// <summary>
+        /// Indicates whether the notification is activated.
+        /// </summary>
+        /// <value>Indicates whether the notification is activated.</value>
+        [DataMember(Name="enabled", EmitDefaultValue=false)]
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Gets or Sets Webhook
@@ -70,6 +79,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class NewBaseNotification {\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Webhook: ").Append(Webhook).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -111,6 +121,10 @@ namespace TalonOne.Model
                     this.Policy.Equals(input.Policy))
                 ) && 
                 (
+                    this.Enabled == input.Enabled ||
+                    this.Enabled.Equals(input.Enabled)
+                ) && 
+                (
                     this.Webhook == input.Webhook ||
                     (this.Webhook != null &&
                     this.Webhook.Equals(input.Webhook))
@@ -128,6 +142,7 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Policy != null)
                     hashCode = hashCode * 59 + this.Policy.GetHashCode();
+                hashCode = hashCode * 59 + this.Enabled.GetHashCode();
                 if (this.Webhook != null)
                     hashCode = hashCode * 59 + this.Webhook.GetHashCode();
                 return hashCode;

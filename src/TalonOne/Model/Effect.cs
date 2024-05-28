@@ -46,8 +46,9 @@ namespace TalonOne.Model
         /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (required).</param>
         /// <param name="triggeredByCoupon">The ID of the coupon that was being evaluated when this effect was triggered..</param>
         /// <param name="triggeredForCatalogItem">The ID of the catalog item that was being evaluated when this effect was triggered..</param>
+        /// <param name="conditionIndex">The index of the condition that was triggered..</param>
         /// <param name="props">The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (required).</param>
-        public Effect(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int), int triggeredForCatalogItem = default(int), Object props = default(Object))
+        public Effect(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int), int triggeredForCatalogItem = default(int), int conditionIndex = default(int), Object props = default(Object))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -60,6 +61,7 @@ namespace TalonOne.Model
             this.Props = props ?? throw new ArgumentNullException("props is a required property for Effect and cannot be null");
             this.TriggeredByCoupon = triggeredByCoupon;
             this.TriggeredForCatalogItem = triggeredForCatalogItem;
+            this.ConditionIndex = conditionIndex;
         }
         
         /// <summary>
@@ -112,6 +114,13 @@ namespace TalonOne.Model
         public int TriggeredForCatalogItem { get; set; }
 
         /// <summary>
+        /// The index of the condition that was triggered.
+        /// </summary>
+        /// <value>The index of the condition that was triggered.</value>
+        [DataMember(Name="conditionIndex", EmitDefaultValue=false)]
+        public int ConditionIndex { get; set; }
+
+        /// <summary>
         /// The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
         /// </summary>
         /// <value>The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).</value>
@@ -133,6 +142,7 @@ namespace TalonOne.Model
             sb.Append("  EffectType: ").Append(EffectType).Append("\n");
             sb.Append("  TriggeredByCoupon: ").Append(TriggeredByCoupon).Append("\n");
             sb.Append("  TriggeredForCatalogItem: ").Append(TriggeredForCatalogItem).Append("\n");
+            sb.Append("  ConditionIndex: ").Append(ConditionIndex).Append("\n");
             sb.Append("  Props: ").Append(Props).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -199,6 +209,10 @@ namespace TalonOne.Model
                     this.TriggeredForCatalogItem.Equals(input.TriggeredForCatalogItem)
                 ) && 
                 (
+                    this.ConditionIndex == input.ConditionIndex ||
+                    this.ConditionIndex.Equals(input.ConditionIndex)
+                ) && 
+                (
                     this.Props == input.Props ||
                     (this.Props != null &&
                     this.Props.Equals(input.Props))
@@ -223,6 +237,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.EffectType.GetHashCode();
                 hashCode = hashCode * 59 + this.TriggeredByCoupon.GetHashCode();
                 hashCode = hashCode * 59 + this.TriggeredForCatalogItem.GetHashCode();
+                hashCode = hashCode * 59 + this.ConditionIndex.GetHashCode();
                 if (this.Props != null)
                     hashCode = hashCode * 59 + this.Props.GetHashCode();
                 return hashCode;

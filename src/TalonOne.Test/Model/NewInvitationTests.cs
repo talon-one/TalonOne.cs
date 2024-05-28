@@ -74,12 +74,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Email'
         }
         /// <summary>
-        /// Test the property 'Acl'
+        /// Test the property 'IsAdmin'
         /// </summary>
         [Fact]
-        public void AclTest()
+        public void IsAdminTest()
         {
-            // TODO unit test for the property 'Acl'
+            // TODO unit test for the property 'IsAdmin'
         }
         /// <summary>
         /// Test the property 'Roles'
@@ -88,6 +88,14 @@ namespace TalonOne.Test
         public void RolesTest()
         {
             // TODO unit test for the property 'Roles'
+        }
+        /// <summary>
+        /// Test the property 'Acl'
+        /// </summary>
+        [Fact]
+        public void AclTest()
+        {
+            // TODO unit test for the property 'Acl'
         }
 
     }

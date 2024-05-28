@@ -114,6 +114,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Category'
         }
         /// <summary>
+        /// Test the property 'Product'
+        /// </summary>
+        [Fact]
+        public void ProductTest()
+        {
+            // TODO unit test for the property 'Product'
+        }
+        /// <summary>
         /// Test the property 'Weight'
         /// </summary>
         [Fact]

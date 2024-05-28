@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="hasMore">hasMore.</param>
         /// <param name="totalResultSize">totalResultSize.</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20017(bool hasMore = default(bool), int totalResultSize = default(int), List<Collection> data = default(List<Collection>))
+        public InlineResponse20017(bool hasMore = default(bool), int totalResultSize = default(int), List<CollectionWithoutPayload> data = default(List<CollectionWithoutPayload>))
         {
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20017 and cannot be null");
@@ -66,7 +66,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<Collection> Data { get; set; }
+        public List<CollectionWithoutPayload> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

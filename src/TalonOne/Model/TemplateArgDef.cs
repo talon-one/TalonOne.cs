@@ -85,7 +85,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="TemplateArgDef" /> class.
         /// </summary>
         /// <param name="type">The type of value this argument expects. (required).</param>
-        /// <param name="description">A campaigner-friendly description of the argument, this will also be shown in the rule editor. (required).</param>
+        /// <param name="description">A campaigner-friendly description of the argument, this will also be shown in the rule editor..</param>
         /// <param name="title">A campaigner friendly name for the argument, this will be shown in the rule editor. (required).</param>
         /// <param name="ui">Arbitrary metadata that may be used to render an input for this argument. (required).</param>
         /// <param name="picklistID">ID of the picklist linked to a template..</param>
@@ -93,12 +93,11 @@ namespace TalonOne.Model
         public TemplateArgDef(TypeEnum type = default(TypeEnum), string description = default(string), string title = default(string), Object ui = default(Object), int picklistID = default(int), bool restrictedByPicklist = default(bool))
         {
             this.Type = type;
-            // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for TemplateArgDef and cannot be null");
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for TemplateArgDef and cannot be null");
             // to ensure "ui" is required (not null)
             this.Ui = ui ?? throw new ArgumentNullException("ui is a required property for TemplateArgDef and cannot be null");
+            this.Description = description;
             this.PicklistID = picklistID;
             this.RestrictedByPicklist = restrictedByPicklist;
         }

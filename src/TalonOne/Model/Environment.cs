@@ -48,11 +48,12 @@ namespace TalonOne.Model
         /// <param name="variables">A stringified version of the environment&#39;s Talang variables scope. (required).</param>
         /// <param name="giveawaysPools">The giveaways pools that the application is subscribed to..</param>
         /// <param name="loyaltyPrograms">The loyalty programs that the application is subscribed to..</param>
+        /// <param name="achievements">The achievements, linked to the campaigns, belonging to the application..</param>
         /// <param name="attributes">The attributes that the application is subscribed to..</param>
         /// <param name="additionalCosts">The additional costs that the application is subscribed to..</param>
         /// <param name="audiences">The audiences contained in the account which the application belongs to..</param>
         /// <param name="collections">The account-level collections that the application is subscribed to..</param>
-        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), List<Collection> collections = default(List<Collection>))
+        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Achievement> achievements = default(List<Achievement>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), List<Collection> collections = default(List<Collection>))
         {
             this.Id = id;
             this.Created = created;
@@ -67,6 +68,7 @@ namespace TalonOne.Model
             this.Variables = variables ?? throw new ArgumentNullException("variables is a required property for Environment and cannot be null");
             this.GiveawaysPools = giveawaysPools;
             this.LoyaltyPrograms = loyaltyPrograms;
+            this.Achievements = achievements;
             this.Attributes = attributes;
             this.AdditionalCosts = additionalCosts;
             this.Audiences = audiences;
@@ -137,6 +139,13 @@ namespace TalonOne.Model
         public List<LoyaltyProgram> LoyaltyPrograms { get; set; }
 
         /// <summary>
+        /// The achievements, linked to the campaigns, belonging to the application.
+        /// </summary>
+        /// <value>The achievements, linked to the campaigns, belonging to the application.</value>
+        [DataMember(Name="achievements", EmitDefaultValue=false)]
+        public List<Achievement> Achievements { get; set; }
+
+        /// <summary>
         /// The attributes that the application is subscribed to.
         /// </summary>
         /// <value>The attributes that the application is subscribed to.</value>
@@ -181,6 +190,7 @@ namespace TalonOne.Model
             sb.Append("  Variables: ").Append(Variables).Append("\n");
             sb.Append("  GiveawaysPools: ").Append(GiveawaysPools).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
+            sb.Append("  Achievements: ").Append(Achievements).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  AdditionalCosts: ").Append(AdditionalCosts).Append("\n");
             sb.Append("  Audiences: ").Append(Audiences).Append("\n");
@@ -268,6 +278,12 @@ namespace TalonOne.Model
                     this.LoyaltyPrograms.SequenceEqual(input.LoyaltyPrograms)
                 ) && 
                 (
+                    this.Achievements == input.Achievements ||
+                    this.Achievements != null &&
+                    input.Achievements != null &&
+                    this.Achievements.SequenceEqual(input.Achievements)
+                ) && 
+                (
                     this.Attributes == input.Attributes ||
                     this.Attributes != null &&
                     input.Attributes != null &&
@@ -318,6 +334,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.GiveawaysPools.GetHashCode();
                 if (this.LoyaltyPrograms != null)
                     hashCode = hashCode * 59 + this.LoyaltyPrograms.GetHashCode();
+                if (this.Achievements != null)
+                    hashCode = hashCode * 59 + this.Achievements.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.AdditionalCosts != null)

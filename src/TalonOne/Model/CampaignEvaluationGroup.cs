@@ -32,8 +32,9 @@ namespace TalonOne.Model
     public partial class CampaignEvaluationGroup :  IEquatable<CampaignEvaluationGroup>, IValidatableObject
     {
         /// <summary>
-        /// Defines EvaluationMode
+        /// The mode by which campaigns in the campaign evaluation group are evaluated.
         /// </summary>
+        /// <value>The mode by which campaigns in the campaign evaluation group are evaluated.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EvaluationModeEnum
         {
@@ -64,10 +65,38 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// Gets or Sets EvaluationMode
+        /// The mode by which campaigns in the campaign evaluation group are evaluated.
         /// </summary>
+        /// <value>The mode by which campaigns in the campaign evaluation group are evaluated.</value>
         [DataMember(Name="evaluationMode", EmitDefaultValue=false)]
         public EvaluationModeEnum EvaluationMode { get; set; }
+        /// <summary>
+        /// The evaluation scope of the campaign evaluation group.
+        /// </summary>
+        /// <value>The evaluation scope of the campaign evaluation group.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum EvaluationScopeEnum
+        {
+            /// <summary>
+            /// Enum CartItem for value: cartItem
+            /// </summary>
+            [EnumMember(Value = "cartItem")]
+            CartItem = 1,
+
+            /// <summary>
+            /// Enum Session for value: session
+            /// </summary>
+            [EnumMember(Value = "session")]
+            Session = 2
+
+        }
+
+        /// <summary>
+        /// The evaluation scope of the campaign evaluation group.
+        /// </summary>
+        /// <value>The evaluation scope of the campaign evaluation group.</value>
+        [DataMember(Name="evaluationScope", EmitDefaultValue=false)]
+        public EvaluationScopeEnum EvaluationScope { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignEvaluationGroup" /> class.
         /// </summary>
@@ -80,16 +109,18 @@ namespace TalonOne.Model
         /// <param name="name">The name of the campaign evaluation group. (required).</param>
         /// <param name="parentId">The ID of the parent group that contains the campaign evaluation group. (required).</param>
         /// <param name="description">A description of the campaign evaluation group..</param>
-        /// <param name="evaluationMode">evaluationMode (required).</param>
+        /// <param name="evaluationMode">The mode by which campaigns in the campaign evaluation group are evaluated. (required).</param>
+        /// <param name="evaluationScope">The evaluation scope of the campaign evaluation group. (required).</param>
         /// <param name="locked">An indicator of whether the campaign evaluation group is locked for modification. (required).</param>
         /// <param name="id">Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. (required).</param>
-        public CampaignEvaluationGroup(int applicationId = default(int), string name = default(string), int parentId = default(int), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum), bool locked = default(bool), int id = default(int))
+        public CampaignEvaluationGroup(int applicationId = default(int), string name = default(string), int parentId = default(int), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum), EvaluationScopeEnum evaluationScope = default(EvaluationScopeEnum), bool locked = default(bool), int id = default(int))
         {
             this.ApplicationId = applicationId;
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CampaignEvaluationGroup and cannot be null");
             this.ParentId = parentId;
             this.EvaluationMode = evaluationMode;
+            this.EvaluationScope = evaluationScope;
             this.Locked = locked;
             this.Id = id;
             this.Description = description;
@@ -150,6 +181,7 @@ namespace TalonOne.Model
             sb.Append("  ParentId: ").Append(ParentId).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  EvaluationMode: ").Append(EvaluationMode).Append("\n");
+            sb.Append("  EvaluationScope: ").Append(EvaluationScope).Append("\n");
             sb.Append("  Locked: ").Append(Locked).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
@@ -209,6 +241,10 @@ namespace TalonOne.Model
                     this.EvaluationMode.Equals(input.EvaluationMode)
                 ) && 
                 (
+                    this.EvaluationScope == input.EvaluationScope ||
+                    this.EvaluationScope.Equals(input.EvaluationScope)
+                ) && 
+                (
                     this.Locked == input.Locked ||
                     this.Locked.Equals(input.Locked)
                 ) && 
@@ -234,6 +270,7 @@ namespace TalonOne.Model
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 hashCode = hashCode * 59 + this.EvaluationMode.GetHashCode();
+                hashCode = hashCode * 59 + this.EvaluationScope.GetHashCode();
                 hashCode = hashCode * 59 + this.Locked.GetHashCode();
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
                 return hashCode;

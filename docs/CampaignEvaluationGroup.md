@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the campaign evaluation group. | 
 **ParentId** | **int** | The ID of the parent group that contains the campaign evaluation group. | 
 **Description** | **string** | A description of the campaign evaluation group. | [optional] 
-**EvaluationMode** | **string** |  | 
+**EvaluationMode** | **string** | The mode by which campaigns in the campaign evaluation group are evaluated. | 
+**EvaluationScope** | **string** | The evaluation scope of the campaign evaluation group. | 
 **Locked** | **bool** | An indicator of whether the campaign evaluation group is locked for modification. | 
 **Id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
 

@@ -91,15 +91,17 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="IntegrationEventV2Request" /> class.
         /// </summary>
         /// <param name="profileId">ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. .</param>
+        /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
         /// <param name="evaluableCampaignIds">When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. .</param>
-        /// <param name="type">A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager.  (required).</param>
-        /// <param name="attributes">Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-custom-attributes)..</param>
+        /// <param name="type">A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager.  (required).</param>
+        /// <param name="attributes">Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute)..</param>
         /// <param name="responseContent">Optional list of requested information to be present on the response related to the tracking custom event. .</param>
-        public IntegrationEventV2Request(string profileId = default(string), List<int> evaluableCampaignIds = default(List<int>), string type = default(string), Object attributes = default(Object), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
+        public IntegrationEventV2Request(string profileId = default(string), string storeIntegrationId = default(string), List<int> evaluableCampaignIds = default(List<int>), string type = default(string), Object attributes = default(Object), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IntegrationEventV2Request and cannot be null");
             this.ProfileId = profileId;
+            this.StoreIntegrationId = storeIntegrationId;
             this.EvaluableCampaignIds = evaluableCampaignIds;
             this.Attributes = attributes;
             this.ResponseContent = responseContent;
@@ -113,6 +115,13 @@ namespace TalonOne.Model
         public string ProfileId { get; set; }
 
         /// <summary>
+        /// The integration ID of the store. You choose this ID when you create a store.
+        /// </summary>
+        /// <value>The integration ID of the store. You choose this ID when you create a store.</value>
+        [DataMember(Name="storeIntegrationId", EmitDefaultValue=false)]
+        public string StoreIntegrationId { get; set; }
+
+        /// <summary>
         /// When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. 
         /// </summary>
         /// <value>When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. </value>
@@ -120,16 +129,16 @@ namespace TalonOne.Model
         public List<int> EvaluableCampaignIds { get; set; }
 
         /// <summary>
-        /// A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. 
+        /// A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. 
         /// </summary>
-        /// <value>A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. </value>
+        /// <value>A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. </value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-custom-attributes).
+        /// Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute).
         /// </summary>
-        /// <value>Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-custom-attributes).</value>
+        /// <value>Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute).</value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public Object Attributes { get; set; }
 
@@ -142,6 +151,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class IntegrationEventV2Request {\n");
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
+            sb.Append("  StoreIntegrationId: ").Append(StoreIntegrationId).Append("\n");
             sb.Append("  EvaluableCampaignIds: ").Append(EvaluableCampaignIds).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
@@ -186,6 +196,11 @@ namespace TalonOne.Model
                     this.ProfileId.Equals(input.ProfileId))
                 ) && 
                 (
+                    this.StoreIntegrationId == input.StoreIntegrationId ||
+                    (this.StoreIntegrationId != null &&
+                    this.StoreIntegrationId.Equals(input.StoreIntegrationId))
+                ) && 
+                (
                     this.EvaluableCampaignIds == input.EvaluableCampaignIds ||
                     this.EvaluableCampaignIds != null &&
                     input.EvaluableCampaignIds != null &&
@@ -218,6 +233,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.ProfileId != null)
                     hashCode = hashCode * 59 + this.ProfileId.GetHashCode();
+                if (this.StoreIntegrationId != null)
+                    hashCode = hashCode * 59 + this.StoreIntegrationId.GetHashCode();
                 if (this.EvaluableCampaignIds != null)
                     hashCode = hashCode * 59 + this.EvaluableCampaignIds.GetHashCode();
                 if (this.Type != null)
@@ -236,6 +253,18 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // StoreIntegrationId (string) maxLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length > 1000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be less than 1000.", new [] { "StoreIntegrationId" });
+            }
+
+            // StoreIntegrationId (string) minLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be greater than 1.", new [] { "StoreIntegrationId" });
+            }
+
             // Type (string) minLength
             if(this.Type != null && this.Type.Length < 1)
             {

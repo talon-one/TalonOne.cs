@@ -40,10 +40,12 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="BaseNotificationEntity" /> class.
         /// </summary>
         /// <param name="policy">policy (required).</param>
-        public BaseNotificationEntity(Object policy = default(Object))
+        /// <param name="enabled">Indicates whether the notification is activated. (default to true).</param>
+        public BaseNotificationEntity(Object policy = default(Object), bool enabled = true)
         {
             // to ensure "policy" is required (not null)
             this.Policy = policy ?? throw new ArgumentNullException("policy is a required property for BaseNotificationEntity and cannot be null");
+            this.Enabled = enabled;
         }
         
         /// <summary>
@@ -51,6 +53,13 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public Object Policy { get; set; }
+
+        /// <summary>
+        /// Indicates whether the notification is activated.
+        /// </summary>
+        /// <value>Indicates whether the notification is activated.</value>
+        [DataMember(Name="enabled", EmitDefaultValue=false)]
+        public bool Enabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,6 +70,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class BaseNotificationEntity {\n");
             sb.Append("  Policy: ").Append(Policy).Append("\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,6 +109,10 @@ namespace TalonOne.Model
                     this.Policy == input.Policy ||
                     (this.Policy != null &&
                     this.Policy.Equals(input.Policy))
+                ) && 
+                (
+                    this.Enabled == input.Enabled ||
+                    this.Enabled.Equals(input.Enabled)
                 );
         }
 
@@ -113,6 +127,7 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Policy != null)
                     hashCode = hashCode * 59 + this.Policy.GetHashCode();
+                hashCode = hashCode * 59 + this.Enabled.GetHashCode();
                 return hashCode;
             }
         }

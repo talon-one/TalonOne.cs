@@ -106,14 +106,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Description'
         }
         /// <summary>
-        /// Test the property 'IsAdmin'
-        /// </summary>
-        [Fact]
-        public void IsAdminTest()
-        {
-            // TODO unit test for the property 'IsAdmin'
-        }
-        /// <summary>
         /// Test the property 'Permissions'
         /// </summary>
         [Fact]

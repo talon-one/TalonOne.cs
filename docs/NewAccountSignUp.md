@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Email** | **string** | The email address associated with your account. | 
+**Email** | **string** | The email address associated with the user profile. | 
 **Password** | **string** | The password for your account. | 
 **CompanyName** | **string** |  | 
 

@@ -98,7 +98,13 @@ namespace TalonOne.Model
             /// Enum Strikethrough for value: strikethrough
             /// </summary>
             [EnumMember(Value = "strikethrough")]
-            Strikethrough = 5
+            Strikethrough = 5,
+
+            /// <summary>
+            /// Enum Achievements for value: achievements
+            /// </summary>
+            [EnumMember(Value = "achievements")]
+            Achievements = 6
 
         }
 
@@ -109,6 +115,33 @@ namespace TalonOne.Model
         /// <value>A list of features for the campaign template.</value>
         [DataMember(Name="features", EmitDefaultValue=false)]
         public List<FeaturesEnum> Features { get; set; }
+        /// <summary>
+        /// The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
+        /// </summary>
+        /// <value>The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CampaignTypeEnum
+        {
+            /// <summary>
+            /// Enum CartItem for value: cartItem
+            /// </summary>
+            [EnumMember(Value = "cartItem")]
+            CartItem = 1,
+
+            /// <summary>
+            /// Enum Advanced for value: advanced
+            /// </summary>
+            [EnumMember(Value = "advanced")]
+            Advanced = 2
+
+        }
+
+        /// <summary>
+        /// The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
+        /// </summary>
+        /// <value>The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. </value>
+        [DataMember(Name="campaignType", EmitDefaultValue=false)]
+        public CampaignTypeEnum CampaignType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="NewCampaignTemplate" /> class.
         /// </summary>
@@ -131,7 +164,8 @@ namespace TalonOne.Model
         /// <param name="templateParams">Fields which can be used to replace values in a rule..</param>
         /// <param name="campaignCollections">The campaign collections from the blueprint campaign for the template..</param>
         /// <param name="defaultCampaignGroupId">The default campaign group ID..</param>
-        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int))
+        /// <param name="campaignType">The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  (required) (default to CampaignTypeEnum.Advanced).</param>
+        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCampaignTemplate and cannot be null");
@@ -140,6 +174,7 @@ namespace TalonOne.Model
             // to ensure "instructions" is required (not null)
             this.Instructions = instructions ?? throw new ArgumentNullException("instructions is a required property for NewCampaignTemplate and cannot be null");
             this.State = state;
+            this.CampaignType = campaignType;
             this.CampaignAttributes = campaignAttributes;
             this.CouponAttributes = couponAttributes;
             this.Tags = tags;
@@ -256,6 +291,7 @@ namespace TalonOne.Model
             sb.Append("  TemplateParams: ").Append(TemplateParams).Append("\n");
             sb.Append("  CampaignCollections: ").Append(CampaignCollections).Append("\n");
             sb.Append("  DefaultCampaignGroupId: ").Append(DefaultCampaignGroupId).Append("\n");
+            sb.Append("  CampaignType: ").Append(CampaignType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -360,6 +396,10 @@ namespace TalonOne.Model
                 (
                     this.DefaultCampaignGroupId == input.DefaultCampaignGroupId ||
                     this.DefaultCampaignGroupId.Equals(input.DefaultCampaignGroupId)
+                ) && 
+                (
+                    this.CampaignType == input.CampaignType ||
+                    this.CampaignType.Equals(input.CampaignType)
                 );
         }
 
@@ -397,6 +437,7 @@ namespace TalonOne.Model
                 if (this.CampaignCollections != null)
                     hashCode = hashCode * 59 + this.CampaignCollections.GetHashCode();
                 hashCode = hashCode * 59 + this.DefaultCampaignGroupId.GetHashCode();
+                hashCode = hashCode * 59 + this.CampaignType.GetHashCode();
                 return hashCode;
             }
         }

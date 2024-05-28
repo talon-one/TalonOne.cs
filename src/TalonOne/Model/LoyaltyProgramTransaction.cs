@@ -68,6 +68,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">ID of the loyalty ledger transaction. (required).</param>
         /// <param name="programId">ID of the loyalty program. (required).</param>
+        /// <param name="campaignId">ID of the campaign..</param>
         /// <param name="created">Date and time the loyalty transaction occurred. (required).</param>
         /// <param name="type">Type of transaction. Possible values:   - &#x60;addition&#x60;: Signifies added points.   - &#x60;subtraction&#x60;: Signifies deducted points.  (required).</param>
         /// <param name="amount">Amount of loyalty points added or deducted in the transaction. (required).</param>
@@ -79,11 +80,11 @@ namespace TalonOne.Model
         /// <param name="subledgerId">ID of the subledger. (required).</param>
         /// <param name="customerSessionId">ID of the customer session where the transaction occurred..</param>
         /// <param name="importId">ID of the import where the transaction occurred..</param>
-        /// <param name="userId">ID of the user who manually added or deducted points. Applies only for manual transactions..</param>
-        /// <param name="userEmail">The email of the user who manually added or deducted points. Applies only for manual transactions..</param>
+        /// <param name="userId">ID of the user who manually added or deducted points. Applies only to manual transactions..</param>
+        /// <param name="userEmail">The email of the Campaign Manager account that manually added or deducted points. Applies only to manual transactions..</param>
         /// <param name="rulesetId">ID of the ruleset containing the rule that triggered the effect. Applies only for transactions that resulted from a customer session..</param>
         /// <param name="ruleName">Name of the rule that triggered the effect. Applies only for transactions that resulted from a customer session..</param>
-        public LoyaltyProgramTransaction(int id = default(int), int programId = default(int), DateTime created = default(DateTime), TypeEnum type = default(TypeEnum), decimal amount = default(decimal), string name = default(string), string startDate = default(string), string expiryDate = default(string), string customerProfileId = default(string), string cardIdentifier = default(string), string subledgerId = default(string), string customerSessionId = default(string), int importId = default(int), int userId = default(int), string userEmail = default(string), int rulesetId = default(int), string ruleName = default(string))
+        public LoyaltyProgramTransaction(int id = default(int), int programId = default(int), int campaignId = default(int), DateTime created = default(DateTime), TypeEnum type = default(TypeEnum), decimal amount = default(decimal), string name = default(string), string startDate = default(string), string expiryDate = default(string), string customerProfileId = default(string), string cardIdentifier = default(string), string subledgerId = default(string), string customerSessionId = default(string), int importId = default(int), int userId = default(int), string userEmail = default(string), int rulesetId = default(int), string ruleName = default(string))
         {
             this.Id = id;
             this.ProgramId = programId;
@@ -98,6 +99,7 @@ namespace TalonOne.Model
             this.ExpiryDate = expiryDate ?? throw new ArgumentNullException("expiryDate is a required property for LoyaltyProgramTransaction and cannot be null");
             // to ensure "subledgerId" is required (not null)
             this.SubledgerId = subledgerId ?? throw new ArgumentNullException("subledgerId is a required property for LoyaltyProgramTransaction and cannot be null");
+            this.CampaignId = campaignId;
             this.CustomerProfileId = customerProfileId;
             this.CardIdentifier = cardIdentifier;
             this.CustomerSessionId = customerSessionId;
@@ -121,6 +123,13 @@ namespace TalonOne.Model
         /// <value>ID of the loyalty program.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
         public int ProgramId { get; set; }
+
+        /// <summary>
+        /// ID of the campaign.
+        /// </summary>
+        /// <value>ID of the campaign.</value>
+        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        public int CampaignId { get; set; }
 
         /// <summary>
         /// Date and time the loyalty transaction occurred.
@@ -193,16 +202,16 @@ namespace TalonOne.Model
         public int ImportId { get; set; }
 
         /// <summary>
-        /// ID of the user who manually added or deducted points. Applies only for manual transactions.
+        /// ID of the user who manually added or deducted points. Applies only to manual transactions.
         /// </summary>
-        /// <value>ID of the user who manually added or deducted points. Applies only for manual transactions.</value>
+        /// <value>ID of the user who manually added or deducted points. Applies only to manual transactions.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
         public int UserId { get; set; }
 
         /// <summary>
-        /// The email of the user who manually added or deducted points. Applies only for manual transactions.
+        /// The email of the Campaign Manager account that manually added or deducted points. Applies only to manual transactions.
         /// </summary>
-        /// <value>The email of the user who manually added or deducted points. Applies only for manual transactions.</value>
+        /// <value>The email of the Campaign Manager account that manually added or deducted points. Applies only to manual transactions.</value>
         [DataMember(Name="userEmail", EmitDefaultValue=false)]
         public string UserEmail { get; set; }
 
@@ -230,6 +239,7 @@ namespace TalonOne.Model
             sb.Append("class LoyaltyProgramTransaction {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ProgramId: ").Append(ProgramId).Append("\n");
+            sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
@@ -286,6 +296,10 @@ namespace TalonOne.Model
                 (
                     this.ProgramId == input.ProgramId ||
                     this.ProgramId.Equals(input.ProgramId)
+                ) && 
+                (
+                    this.CampaignId == input.CampaignId ||
+                    this.CampaignId.Equals(input.CampaignId)
                 ) && 
                 (
                     this.Created == input.Created ||
@@ -370,6 +384,7 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
                 hashCode = hashCode * 59 + this.ProgramId.GetHashCode();
+                hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.Type.GetHashCode();

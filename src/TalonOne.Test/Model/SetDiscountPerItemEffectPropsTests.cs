@@ -137,6 +137,22 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'BundleName'
         }
+        /// <summary>
+        /// Test the property 'TargetedItemPosition'
+        /// </summary>
+        [Fact]
+        public void TargetedItemPositionTest()
+        {
+            // TODO unit test for the property 'TargetedItemPosition'
+        }
+        /// <summary>
+        /// Test the property 'TargetedItemSubPosition'
+        /// </summary>
+        [Fact]
+        public void TargetedItemSubPositionTest()
+        {
+            // TODO unit test for the property 'TargetedItemSubPosition'
+        }
 
     }
 
