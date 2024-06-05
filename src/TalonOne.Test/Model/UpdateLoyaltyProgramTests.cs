@@ -122,6 +122,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Sandbox'
         }
         /// <summary>
+        /// Test the property 'TiersExpirationPolicy'
+        /// </summary>
+        [Fact]
+        public void TiersExpirationPolicyTest()
+        {
+            // TODO unit test for the property 'TiersExpirationPolicy'
+        }
+        /// <summary>
         /// Test the property 'TiersExpireIn'
         /// </summary>
         [Fact]
@@ -136,6 +144,14 @@ namespace TalonOne.Test
         public void TiersDowngradePolicyTest()
         {
             // TODO unit test for the property 'TiersDowngradePolicy'
+        }
+        /// <summary>
+        /// Test the property 'ProgramJoinPolicy'
+        /// </summary>
+        [Fact]
+        public void ProgramJoinPolicyTest()
+        {
+            // TODO unit test for the property 'ProgramJoinPolicy'
         }
         /// <summary>
         /// Test the property 'Tiers'

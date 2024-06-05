@@ -147,7 +147,7 @@ namespace TalonOne.Model
         /// <param name="limits">Default limits for campaigns created in this application..</param>
         /// <param name="defaultDiscountScope">The default scope to apply &#x60;setDiscount&#x60; effects on if no scope was provided with the effect. .</param>
         /// <param name="enableCascadingDiscounts">Indicates if discounts should cascade for this Application..</param>
-        /// <param name="enableFlattenedCartItems">Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening). .</param>
+        /// <param name="enableFlattenedCartItems">Indicates if cart items of quantity larger than one should be separated into different items of quantity one. .</param>
         /// <param name="attributesSettings">attributesSettings.</param>
         /// <param name="sandbox">Indicates if this is a live or sandbox Application..</param>
         /// <param name="enablePartialDiscounts">Indicates if this Application supports partial discounts..</param>
@@ -225,9 +225,9 @@ namespace TalonOne.Model
         public bool EnableCascadingDiscounts { get; set; }
 
         /// <summary>
-        /// Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening). 
+        /// Indicates if cart items of quantity larger than one should be separated into different items of quantity one. 
         /// </summary>
-        /// <value>Indicates if cart items of quantity larger than one should be separated into different items of quantity one. See the [docs](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening). </value>
+        /// <value>Indicates if cart items of quantity larger than one should be separated into different items of quantity one. </value>
         [DataMember(Name="enableFlattenedCartItems", EmitDefaultValue=false)]
         public bool EnableFlattenedCartItems { get; set; }
 

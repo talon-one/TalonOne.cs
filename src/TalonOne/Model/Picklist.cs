@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class Picklist :  IEquatable<Picklist>, IValidatableObject
     {
         /// <summary>
-        /// The type of allowed values in the picklist. If type time is chosen, it must be an RFC3339 timestamp string.
+        /// The type of allowed values in the picklist. If the type &#x60;time&#x60; is chosen, it must be an RFC3339 timestamp string.
         /// </summary>
-        /// <value>The type of allowed values in the picklist. If type time is chosen, it must be an RFC3339 timestamp string.</value>
+        /// <value>The type of allowed values in the picklist. If the type &#x60;time&#x60; is chosen, it must be an RFC3339 timestamp string.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -65,9 +65,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// The type of allowed values in the picklist. If type time is chosen, it must be an RFC3339 timestamp string.
+        /// The type of allowed values in the picklist. If the type &#x60;time&#x60; is chosen, it must be an RFC3339 timestamp string.
         /// </summary>
-        /// <value>The type of allowed values in the picklist. If type time is chosen, it must be an RFC3339 timestamp string.</value>
+        /// <value>The type of allowed values in the picklist. If the type &#x60;time&#x60; is chosen, it must be an RFC3339 timestamp string.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum Type { get; set; }
         /// <summary>
@@ -80,7 +80,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
-        /// <param name="type">The type of allowed values in the picklist. If type time is chosen, it must be an RFC3339 timestamp string. (required).</param>
+        /// <param name="type">The type of allowed values in the picklist. If the type &#x60;time&#x60; is chosen, it must be an RFC3339 timestamp string. (required).</param>
         /// <param name="values">The list of allowed values provided by this picklist. (required).</param>
         /// <param name="modifiedBy">ID of the user who last updated this effect if available..</param>
         /// <param name="createdBy">ID of the user who created this effect. (required).</param>

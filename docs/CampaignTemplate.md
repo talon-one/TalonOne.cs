@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **ApplicationsIds** | **List&lt;int&gt;** | A list of IDs of the Applications that are subscribed to this campaign template. | 
 **CampaignCollections** | [**List&lt;CampaignTemplateCollection&gt;**](CampaignTemplateCollection.md) | The campaign collections from the blueprint campaign for the template. | [optional] 
 **DefaultCampaignGroupId** | **int** | The default campaign group ID. | [optional] 
+**CampaignType** | **string** | The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  | [default to CampaignTypeEnum.Advanced]
 **Updated** | **DateTime** | Timestamp of the most recent update to the campaign template or any of its elements. | [optional] 
 **UpdatedBy** | **string** | Name of the user who last updated this campaign template, if available. | [optional] 
 **ValidApplicationIds** | **List&lt;int&gt;** | The IDs of the Applications that are related to this entity. | 

@@ -66,20 +66,28 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Name'
         }
         /// <summary>
-        /// Test the property 'Policy'
-        /// </summary>
-        [Fact]
-        public void PolicyTest()
-        {
-            // TODO unit test for the property 'Policy'
-        }
-        /// <summary>
         /// Test the property 'State'
         /// </summary>
         [Fact]
         public void StateTest()
         {
             // TODO unit test for the property 'State'
+        }
+        /// <summary>
+        /// Test the property 'IsAdmin'
+        /// </summary>
+        [Fact]
+        public void IsAdminTest()
+        {
+            // TODO unit test for the property 'IsAdmin'
+        }
+        /// <summary>
+        /// Test the property 'Policy'
+        /// </summary>
+        [Fact]
+        public void PolicyTest()
+        {
+            // TODO unit test for the property 'Policy'
         }
         /// <summary>
         /// Test the property 'Roles'

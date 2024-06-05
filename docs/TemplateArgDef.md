@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Type** | **string** | The type of value this argument expects. | 
-**Description** | **string** | A campaigner-friendly description of the argument, this will also be shown in the rule editor. | 
+**Description** | **string** | A campaigner-friendly description of the argument, this will also be shown in the rule editor. | [optional] 
 **Title** | **string** | A campaigner friendly name for the argument, this will be shown in the rule editor. | 
 **Ui** | [**Object**](.md) | Arbitrary metadata that may be used to render an input for this argument. | 
 **PicklistID** | **int** | ID of the picklist linked to a template. | [optional] 

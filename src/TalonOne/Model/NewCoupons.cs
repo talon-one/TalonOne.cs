@@ -51,8 +51,9 @@ namespace TalonOne.Model
         /// <param name="recipientIntegrationId">The integration ID for this coupon&#39;s beneficiary&#39;s profile..</param>
         /// <param name="validCharacters">List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. .</param>
         /// <param name="couponPattern">The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set. .</param>
-        /// <param name="isReservationMandatory">Whether the reservation effect actually created a new reservation. (default to true).</param>
-        public NewCoupons(int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), int numberOfCoupons = default(int), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string), List<string> validCharacters = default(List<string>), string couponPattern = default(string), bool isReservationMandatory = true)
+        /// <param name="isReservationMandatory">An indication of whether the code can be redeemed only if it has been reserved first. (default to false).</param>
+        /// <param name="implicitlyReserved">An indication of whether the coupon is implicitly reserved for all customers..</param>
+        public NewCoupons(int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), int numberOfCoupons = default(int), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string), List<string> validCharacters = default(List<string>), string couponPattern = default(string), bool isReservationMandatory = false, bool implicitlyReserved = default(bool))
         {
             this.UsageLimit = usageLimit;
             this.NumberOfCoupons = numberOfCoupons;
@@ -67,13 +68,14 @@ namespace TalonOne.Model
             this.ValidCharacters = validCharacters;
             this.CouponPattern = couponPattern;
             this.IsReservationMandatory = isReservationMandatory;
+            this.ImplicitlyReserved = implicitlyReserved;
         }
         
         /// <summary>
         /// The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply. 
         /// </summary>
         /// <value>The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply. </value>
-        [DataMember(Name="usageLimit", EmitDefaultValue=true)]
+        [DataMember(Name="usageLimit", EmitDefaultValue=false)]
         public int UsageLimit { get; set; }
 
         /// <summary>
@@ -154,11 +156,18 @@ namespace TalonOne.Model
         public string CouponPattern { get; set; }
 
         /// <summary>
-        /// Whether the reservation effect actually created a new reservation.
+        /// An indication of whether the code can be redeemed only if it has been reserved first.
         /// </summary>
-        /// <value>Whether the reservation effect actually created a new reservation.</value>
+        /// <value>An indication of whether the code can be redeemed only if it has been reserved first.</value>
         [DataMember(Name="isReservationMandatory", EmitDefaultValue=false)]
         public bool IsReservationMandatory { get; set; }
+
+        /// <summary>
+        /// An indication of whether the coupon is implicitly reserved for all customers.
+        /// </summary>
+        /// <value>An indication of whether the coupon is implicitly reserved for all customers.</value>
+        [DataMember(Name="implicitlyReserved", EmitDefaultValue=false)]
+        public bool ImplicitlyReserved { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -181,6 +190,7 @@ namespace TalonOne.Model
             sb.Append("  ValidCharacters: ").Append(ValidCharacters).Append("\n");
             sb.Append("  CouponPattern: ").Append(CouponPattern).Append("\n");
             sb.Append("  IsReservationMandatory: ").Append(IsReservationMandatory).Append("\n");
+            sb.Append("  ImplicitlyReserved: ").Append(ImplicitlyReserved).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -276,6 +286,10 @@ namespace TalonOne.Model
                 (
                     this.IsReservationMandatory == input.IsReservationMandatory ||
                     this.IsReservationMandatory.Equals(input.IsReservationMandatory)
+                ) && 
+                (
+                    this.ImplicitlyReserved == input.ImplicitlyReserved ||
+                    this.ImplicitlyReserved.Equals(input.ImplicitlyReserved)
                 );
         }
 
@@ -309,6 +323,7 @@ namespace TalonOne.Model
                 if (this.CouponPattern != null)
                     hashCode = hashCode * 59 + this.CouponPattern.GetHashCode();
                 hashCode = hashCode * 59 + this.IsReservationMandatory.GetHashCode();
+                hashCode = hashCode * 59 + this.ImplicitlyReserved.GetHashCode();
                 return hashCode;
             }
         }

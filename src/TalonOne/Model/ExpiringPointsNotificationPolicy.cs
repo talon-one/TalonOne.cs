@@ -41,12 +41,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">Notification name. (required).</param>
         /// <param name="triggers">triggers (required).</param>
-        public ExpiringPointsNotificationPolicy(string name = default(string), List<ExpiringPointsNotificationTrigger> triggers = default(List<ExpiringPointsNotificationTrigger>))
+        /// <param name="batchingEnabled">Indicates whether batching is activated. (default to true).</param>
+        public ExpiringPointsNotificationPolicy(string name = default(string), List<ExpiringPointsNotificationTrigger> triggers = default(List<ExpiringPointsNotificationTrigger>), bool batchingEnabled = true)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for ExpiringPointsNotificationPolicy and cannot be null");
             // to ensure "triggers" is required (not null)
             this.Triggers = triggers ?? throw new ArgumentNullException("triggers is a required property for ExpiringPointsNotificationPolicy and cannot be null");
+            this.BatchingEnabled = batchingEnabled;
         }
         
         /// <summary>
@@ -63,6 +65,13 @@ namespace TalonOne.Model
         public List<ExpiringPointsNotificationTrigger> Triggers { get; set; }
 
         /// <summary>
+        /// Indicates whether batching is activated.
+        /// </summary>
+        /// <value>Indicates whether batching is activated.</value>
+        [DataMember(Name="batchingEnabled", EmitDefaultValue=false)]
+        public bool BatchingEnabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,6 +81,7 @@ namespace TalonOne.Model
             sb.Append("class ExpiringPointsNotificationPolicy {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Triggers: ").Append(Triggers).Append("\n");
+            sb.Append("  BatchingEnabled: ").Append(BatchingEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,6 +126,10 @@ namespace TalonOne.Model
                     this.Triggers != null &&
                     input.Triggers != null &&
                     this.Triggers.SequenceEqual(input.Triggers)
+                ) && 
+                (
+                    this.BatchingEnabled == input.BatchingEnabled ||
+                    this.BatchingEnabled.Equals(input.BatchingEnabled)
                 );
         }
 
@@ -132,6 +146,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Triggers != null)
                     hashCode = hashCode * 59 + this.Triggers.GetHashCode();
+                hashCode = hashCode * 59 + this.BatchingEnabled.GetHashCode();
                 return hashCode;
             }
         }

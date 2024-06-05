@@ -48,7 +48,8 @@ namespace TalonOne.Model
         /// <param name="campaignGroups">The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. .</param>
         /// <param name="tags">A list of tags for the campaign. If the campaign template has tags, they will be overridden by this list..</param>
         /// <param name="evaluationGroupId">The ID of the campaign evaluation group the campaign belongs to..</param>
-        public CreateTemplateCampaign(string name = default(string), string description = default(string), int templateId = default(int), Object campaignAttributesOverrides = default(Object), List<Binding> templateParamValues = default(List<Binding>), List<LimitConfig> limitOverrides = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), List<string> tags = default(List<string>), int evaluationGroupId = default(int))
+        /// <param name="linkedStoreIds">A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. .</param>
+        public CreateTemplateCampaign(string name = default(string), string description = default(string), int templateId = default(int), Object campaignAttributesOverrides = default(Object), List<Binding> templateParamValues = default(List<Binding>), List<LimitConfig> limitOverrides = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), List<string> tags = default(List<string>), int evaluationGroupId = default(int), List<int> linkedStoreIds = default(List<int>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CreateTemplateCampaign and cannot be null");
@@ -60,6 +61,7 @@ namespace TalonOne.Model
             this.CampaignGroups = campaignGroups;
             this.Tags = tags;
             this.EvaluationGroupId = evaluationGroupId;
+            this.LinkedStoreIds = linkedStoreIds;
         }
         
         /// <summary>
@@ -126,6 +128,13 @@ namespace TalonOne.Model
         public int EvaluationGroupId { get; set; }
 
         /// <summary>
+        /// A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. 
+        /// </summary>
+        /// <value>A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. </value>
+        [DataMember(Name="linkedStoreIds", EmitDefaultValue=false)]
+        public List<int> LinkedStoreIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -142,6 +151,7 @@ namespace TalonOne.Model
             sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  EvaluationGroupId: ").Append(EvaluationGroupId).Append("\n");
+            sb.Append("  LinkedStoreIds: ").Append(LinkedStoreIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -222,6 +232,12 @@ namespace TalonOne.Model
                 (
                     this.EvaluationGroupId == input.EvaluationGroupId ||
                     this.EvaluationGroupId.Equals(input.EvaluationGroupId)
+                ) && 
+                (
+                    this.LinkedStoreIds == input.LinkedStoreIds ||
+                    this.LinkedStoreIds != null &&
+                    input.LinkedStoreIds != null &&
+                    this.LinkedStoreIds.SequenceEqual(input.LinkedStoreIds)
                 );
         }
 
@@ -250,6 +266,8 @@ namespace TalonOne.Model
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 hashCode = hashCode * 59 + this.EvaluationGroupId.GetHashCode();
+                if (this.LinkedStoreIds != null)
+                    hashCode = hashCode * 59 + this.LinkedStoreIds.GetHashCode();
                 return hashCode;
             }
         }

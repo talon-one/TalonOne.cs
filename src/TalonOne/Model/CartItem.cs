@@ -41,11 +41,12 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">Name of item..</param>
         /// <param name="sku">Stock keeping unit of item. (required).</param>
-        /// <param name="quantity">Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly.  (required).</param>
+        /// <param name="quantity">Number of units of this item. Due to [cart item flattening](https://docs.talon.one/docs/product/rules/understanding-cart-item-flattening), if you provide a quantity greater than 1, the item will be split in as many items as the provided quantity. This will impact the number of **per-item** effects triggered from your campaigns.  (required).</param>
         /// <param name="returnedQuantity">Number of returned items, calculated internally based on returns of this item..</param>
         /// <param name="remainingQuantity">Remaining quantity of the item, calculated internally based on returns of this item..</param>
         /// <param name="price">Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs). If it is part of a catalog, setting a price here overrides the price from the catalog. .</param>
         /// <param name="category">Type, group or model of the item..</param>
+        /// <param name="product">product.</param>
         /// <param name="weight">Weight of item in grams..</param>
         /// <param name="height">Height of item in mm..</param>
         /// <param name="width">Width of item in mm..</param>
@@ -53,8 +54,8 @@ namespace TalonOne.Model
         /// <param name="position">Position of the Cart Item in the Cart (calculated internally)..</param>
         /// <param name="attributes">Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property. .</param>
         /// <param name="additionalCosts">Use this property to set a value for the additional costs of this item, such as a shipping cost. They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs). .</param>
-        /// <param name="catalogItemID">The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-cart-item-catalogs)..</param>
-        public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), int returnedQuantity = default(int), int remainingQuantity = default(int), decimal price = default(decimal), string category = default(string), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), int catalogItemID = default(int))
+        /// <param name="catalogItemID">The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog)..</param>
+        public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), int returnedQuantity = default(int), int remainingQuantity = default(int), decimal price = default(decimal), string category = default(string), Product product = default(Product), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), int catalogItemID = default(int))
         {
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for CartItem and cannot be null");
@@ -64,6 +65,7 @@ namespace TalonOne.Model
             this.RemainingQuantity = remainingQuantity;
             this.Price = price;
             this.Category = category;
+            this.Product = product;
             this.Weight = weight;
             this.Height = height;
             this.Width = width;
@@ -89,9 +91,9 @@ namespace TalonOne.Model
         public string Sku { get; set; }
 
         /// <summary>
-        /// Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. 
+        /// Number of units of this item. Due to [cart item flattening](https://docs.talon.one/docs/product/rules/understanding-cart-item-flattening), if you provide a quantity greater than 1, the item will be split in as many items as the provided quantity. This will impact the number of **per-item** effects triggered from your campaigns. 
         /// </summary>
-        /// <value>Quantity of item. **Important:** If you enabled [cart item flattening](https://docs.talon.one/docs/product/campaigns/managing-general-settings#flattening), the quantity is always one and the same cart item might receive multiple per-item discounts. Ensure you can process multiple discounts on one cart item correctly. </value>
+        /// <value>Number of units of this item. Due to [cart item flattening](https://docs.talon.one/docs/product/rules/understanding-cart-item-flattening), if you provide a quantity greater than 1, the item will be split in as many items as the provided quantity. This will impact the number of **per-item** effects triggered from your campaigns. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
         public int Quantity { get; set; }
 
@@ -113,7 +115,7 @@ namespace TalonOne.Model
         /// Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs). If it is part of a catalog, setting a price here overrides the price from the catalog. 
         /// </summary>
         /// <value>Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs). If it is part of a catalog, setting a price here overrides the price from the catalog. </value>
-        [DataMember(Name="price", EmitDefaultValue=true)]
+        [DataMember(Name="price", EmitDefaultValue=false)]
         public decimal Price { get; set; }
 
         /// <summary>
@@ -122,6 +124,12 @@ namespace TalonOne.Model
         /// <value>Type, group or model of the item.</value>
         [DataMember(Name="category", EmitDefaultValue=false)]
         public string Category { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Product
+        /// </summary>
+        [DataMember(Name="product", EmitDefaultValue=false)]
+        public Product Product { get; set; }
 
         /// <summary>
         /// Weight of item in grams.
@@ -155,7 +163,7 @@ namespace TalonOne.Model
         /// Position of the Cart Item in the Cart (calculated internally).
         /// </summary>
         /// <value>Position of the Cart Item in the Cart (calculated internally).</value>
-        [DataMember(Name="position", EmitDefaultValue=true)]
+        [DataMember(Name="position", EmitDefaultValue=false)]
         public decimal Position { get; set; }
 
         /// <summary>
@@ -173,9 +181,9 @@ namespace TalonOne.Model
         public Dictionary<string, AdditionalCost> AdditionalCosts { get; set; }
 
         /// <summary>
-        /// The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-cart-item-catalogs).
+        /// The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).
         /// </summary>
-        /// <value>The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-cart-item-catalogs).</value>
+        /// <value>The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).</value>
         [DataMember(Name="catalogItemID", EmitDefaultValue=false)]
         public int CatalogItemID { get; set; }
 
@@ -194,6 +202,7 @@ namespace TalonOne.Model
             sb.Append("  RemainingQuantity: ").Append(RemainingQuantity).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Category: ").Append(Category).Append("\n");
+            sb.Append("  Product: ").Append(Product).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  Height: ").Append(Height).Append("\n");
             sb.Append("  Width: ").Append(Width).Append("\n");
@@ -268,6 +277,11 @@ namespace TalonOne.Model
                     this.Category.Equals(input.Category))
                 ) && 
                 (
+                    this.Product == input.Product ||
+                    (this.Product != null &&
+                    this.Product.Equals(input.Product))
+                ) && 
+                (
                     this.Weight == input.Weight ||
                     this.Weight.Equals(input.Weight)
                 ) && 
@@ -323,6 +337,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Price.GetHashCode();
                 if (this.Category != null)
                     hashCode = hashCode * 59 + this.Category.GetHashCode();
+                if (this.Product != null)
+                    hashCode = hashCode * 59 + this.Product.GetHashCode();
                 hashCode = hashCode * 59 + this.Weight.GetHashCode();
                 hashCode = hashCode * 59 + this.Height.GetHashCode();
                 hashCode = hashCode * 59 + this.Width.GetHashCode();

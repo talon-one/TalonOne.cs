@@ -6,16 +6,19 @@ Name | Type | Description | Notes
 **Id** | **int** | Internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **Modified** | **DateTime** | The time this entity was last modified. | 
-**Email** | **string** | The email address associated with your account. | 
+**Email** | **string** | The email address associated with the user profile. | 
 **AccountId** | **int** | The ID of the account that owns this entity. | 
-**InviteToken** | **string** | Invite token, empty if the user as already accepted their invite. | 
-**State** | **string** | Current user state. | 
-**Name** | **string** | Full name | 
-**Policy** | [**Object**](.md) | User ACL Policy | 
-**LatestFeedTimestamp** | **DateTime** | Latest timestamp the user has been notified for feed. | [optional] 
-**Roles** | **List&lt;int&gt;** | Contains a list of all roles the user is a member of. | [optional] 
-**ApplicationNotificationSubscriptions** | [**Object**](.md) |  | [optional] 
-**AuthMethod** | **string** | The Authentication method for this user. | [optional] 
+**Name** | **string** | Name of the user. | 
+**State** | **string** | State of the user. | 
+**InviteToken** | **string** | Invitation token of the user.  **Note**: If the user has already accepted their invitation, this is &#x60;null&#x60;.  | 
+**IsAdmin** | **bool** | Indicates whether the user is an &#x60;admin&#x60;. | [optional] 
+**Policy** | [**Object**](.md) | Access level of the user. | 
+**Roles** | **List&lt;int&gt;** | A list of the IDs of the roles assigned to the user. | [optional] 
+**AuthMethod** | **string** | Authentication method for this user. | [optional] 
+**ApplicationNotificationSubscriptions** | [**Object**](.md) | Application notifications that the user is subscribed to. | [optional] 
+**LastSignedIn** | **DateTime** | Timestamp when the user last signed in to Talon.One. | [optional] 
+**LastAccessed** | **DateTime** | Timestamp of the user&#39;s last activity after signing in to Talon.One. | [optional] 
+**LatestFeedTimestamp** | **DateTime** | Timestamp when the user was notified for feed. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

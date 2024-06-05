@@ -74,6 +74,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Created'
         }
         /// <summary>
+        /// Test the property 'IntegrationId'
+        /// </summary>
+        [Fact]
+        public void IntegrationIdTest()
+        {
+            // TODO unit test for the property 'IntegrationId'
+        }
+        /// <summary>
+        /// Test the property 'StoreIntegrationId'
+        /// </summary>
+        [Fact]
+        public void StoreIntegrationIdTest()
+        {
+            // TODO unit test for the property 'StoreIntegrationId'
+        }
+        /// <summary>
         /// Test the property 'ApplicationId'
         /// </summary>
         [Fact]
@@ -88,14 +104,6 @@ namespace TalonOne.Test
         public void ProfileIdTest()
         {
             // TODO unit test for the property 'ProfileId'
-        }
-        /// <summary>
-        /// Test the property 'IntegrationId'
-        /// </summary>
-        [Fact]
-        public void IntegrationIdTest()
-        {
-            // TODO unit test for the property 'IntegrationId'
         }
         /// <summary>
         /// Test the property 'Profileintegrationid'

@@ -66,6 +66,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Policy'
         }
         /// <summary>
+        /// Test the property 'Enabled'
+        /// </summary>
+        [Fact]
+        public void EnabledTest()
+        {
+            // TODO unit test for the property 'Enabled'
+        }
+        /// <summary>
         /// Test the property 'Webhook'
         /// </summary>
         [Fact]
@@ -80,6 +88,14 @@ namespace TalonOne.Test
         public void IdTest()
         {
             // TODO unit test for the property 'Id'
+        }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Fact]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
         }
 
     }

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The specific properties of the \&quot;ADD\&quot; catalog sync action.
+    /// The specific properties of the \&quot;ADD\&quot; catalog sync action. 
     /// </summary>
     [DataContract]
     public partial class AddItemCatalogAction :  IEquatable<AddItemCatalogAction>, IValidatableObject
@@ -42,13 +42,15 @@ namespace TalonOne.Model
         /// <param name="sku">The unique SKU of the item to add. (required).</param>
         /// <param name="price">Price of the item..</param>
         /// <param name="attributes">The attributes of the item to add..</param>
-        /// <param name="replaceIfExists">Indicates whether to replace the attributes of the item if the same SKU exists. (default to false).</param>
-        public AddItemCatalogAction(string sku = default(string), decimal price = default(decimal), Object attributes = default(Object), bool replaceIfExists = false)
+        /// <param name="product">product.</param>
+        /// <param name="replaceIfExists">Indicates whether to replace the attributes of the item if the same SKU exists.  **Note**: When set to &#x60;true&#x60;:   - If you do not provide a new &#x60;price&#x60; value, the existing &#x60;price&#x60; value is retained.   - If you do not provide a new &#x60;product&#x60; value, the &#x60;product&#x60; value is set to &#x60;null&#x60;.  (default to false).</param>
+        public AddItemCatalogAction(string sku = default(string), decimal price = default(decimal), Object attributes = default(Object), Product product = default(Product), bool replaceIfExists = false)
         {
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for AddItemCatalogAction and cannot be null");
             this.Price = price;
             this.Attributes = attributes;
+            this.Product = product;
             this.ReplaceIfExists = replaceIfExists;
         }
         
@@ -63,7 +65,7 @@ namespace TalonOne.Model
         /// Price of the item.
         /// </summary>
         /// <value>Price of the item.</value>
-        [DataMember(Name="price", EmitDefaultValue=true)]
+        [DataMember(Name="price", EmitDefaultValue=false)]
         public decimal Price { get; set; }
 
         /// <summary>
@@ -74,9 +76,15 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// Indicates whether to replace the attributes of the item if the same SKU exists.
+        /// Gets or Sets Product
         /// </summary>
-        /// <value>Indicates whether to replace the attributes of the item if the same SKU exists.</value>
+        [DataMember(Name="product", EmitDefaultValue=false)]
+        public Product Product { get; set; }
+
+        /// <summary>
+        /// Indicates whether to replace the attributes of the item if the same SKU exists.  **Note**: When set to &#x60;true&#x60;:   - If you do not provide a new &#x60;price&#x60; value, the existing &#x60;price&#x60; value is retained.   - If you do not provide a new &#x60;product&#x60; value, the &#x60;product&#x60; value is set to &#x60;null&#x60;. 
+        /// </summary>
+        /// <value>Indicates whether to replace the attributes of the item if the same SKU exists.  **Note**: When set to &#x60;true&#x60;:   - If you do not provide a new &#x60;price&#x60; value, the existing &#x60;price&#x60; value is retained.   - If you do not provide a new &#x60;product&#x60; value, the &#x60;product&#x60; value is set to &#x60;null&#x60;. </value>
         [DataMember(Name="replaceIfExists", EmitDefaultValue=false)]
         public bool ReplaceIfExists { get; set; }
 
@@ -91,6 +99,7 @@ namespace TalonOne.Model
             sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  Product: ").Append(Product).Append("\n");
             sb.Append("  ReplaceIfExists: ").Append(ReplaceIfExists).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -141,6 +150,11 @@ namespace TalonOne.Model
                     this.Attributes.Equals(input.Attributes))
                 ) && 
                 (
+                    this.Product == input.Product ||
+                    (this.Product != null &&
+                    this.Product.Equals(input.Product))
+                ) && 
+                (
                     this.ReplaceIfExists == input.ReplaceIfExists ||
                     this.ReplaceIfExists.Equals(input.ReplaceIfExists)
                 );
@@ -160,6 +174,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Price.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.Product != null)
+                    hashCode = hashCode * 59 + this.Product.GetHashCode();
                 hashCode = hashCode * 59 + this.ReplaceIfExists.GetHashCode();
                 return hashCode;
             }

@@ -34,7 +34,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoyaltyLedgerTransactions" /> class.
         /// </summary>
-        /// <param name="hasMore">true means there is more data in the source collection to request..</param>
+        /// <param name="hasMore">If &#x60;true&#x60;, it means that there is more data to request in the source collection..</param>
         /// <param name="data">List of transaction entries from a loyalty ledger..</param>
         public LoyaltyLedgerTransactions(bool hasMore = default(bool), List<LoyaltyLedgerEntry> data = default(List<LoyaltyLedgerEntry>))
         {
@@ -43,9 +43,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// true means there is more data in the source collection to request.
+        /// If &#x60;true&#x60;, it means that there is more data to request in the source collection.
         /// </summary>
-        /// <value>true means there is more data in the source collection to request.</value>
+        /// <value>If &#x60;true&#x60;, it means that there is more data to request in the source collection.</value>
         [DataMember(Name="hasMore", EmitDefaultValue=false)]
         public bool HasMore { get; set; }
 

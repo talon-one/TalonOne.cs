@@ -39,9 +39,9 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20016" /> class.
         /// </summary>
-        /// <param name="hasMore">hasMore (required).</param>
-        /// <param name="data">data (required).</param>
-        public InlineResponse20016(bool hasMore = default(bool), List<CollectionItem> data = default(List<CollectionItem>))
+        /// <param name="hasMore">true means there is more data in the source collection to request.. (required).</param>
+        /// <param name="data">List of loyalty card transaction logs. (required).</param>
+        public InlineResponse20016(bool hasMore = default(bool), List<CardLedgerTransactionLogEntry> data = default(List<CardLedgerTransactionLogEntry>))
         {
             this.HasMore = hasMore;
             // to ensure "data" is required (not null)
@@ -49,16 +49,18 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Gets or Sets HasMore
+        /// true means there is more data in the source collection to request..
         /// </summary>
+        /// <value>true means there is more data in the source collection to request..</value>
         [DataMember(Name="hasMore", EmitDefaultValue=false)]
         public bool HasMore { get; set; }
 
         /// <summary>
-        /// Gets or Sets Data
+        /// List of loyalty card transaction logs.
         /// </summary>
+        /// <value>List of loyalty card transaction logs.</value>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<CollectionItem> Data { get; set; }
+        public List<CardLedgerTransactionLogEntry> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

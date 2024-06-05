@@ -121,6 +121,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'EvaluationMode'
         }
+        /// <summary>
+        /// Test the property 'EvaluationScope'
+        /// </summary>
+        [Fact]
+        public void EvaluationScopeTest()
+        {
+            // TODO unit test for the property 'EvaluationScope'
+        }
 
     }
 

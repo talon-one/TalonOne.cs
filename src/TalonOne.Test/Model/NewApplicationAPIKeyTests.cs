@@ -82,6 +82,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Platform'
         }
         /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Fact]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'TimeOffset'
+        /// </summary>
+        [Fact]
+        public void TimeOffsetTest()
+        {
+            // TODO unit test for the property 'TimeOffset'
+        }
+        /// <summary>
         /// Test the property 'Id'
         /// </summary>
         [Fact]

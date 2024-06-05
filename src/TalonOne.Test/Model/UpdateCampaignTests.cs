@@ -161,6 +161,30 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'CampaignGroups'
         }
+        /// <summary>
+        /// Test the property 'EvaluationGroupId'
+        /// </summary>
+        [Fact]
+        public void EvaluationGroupIdTest()
+        {
+            // TODO unit test for the property 'EvaluationGroupId'
+        }
+        /// <summary>
+        /// Test the property 'Type'
+        /// </summary>
+        [Fact]
+        public void TypeTest()
+        {
+            // TODO unit test for the property 'Type'
+        }
+        /// <summary>
+        /// Test the property 'LinkedStoreIds'
+        /// </summary>
+        [Fact]
+        public void LinkedStoreIdsTest()
+        {
+            // TODO unit test for the property 'LinkedStoreIds'
+        }
 
     }
 

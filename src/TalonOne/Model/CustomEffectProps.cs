@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="effectId">The ID of the custom effect that was triggered. (required).</param>
         /// <param name="name">The type of the custom effect. (required).</param>
         /// <param name="cartItemPosition">The index of the item in the cart item list to which the custom effect is applied..</param>
-        /// <param name="cartItemSubPosition">When cart item flattening is enabled, the sub position indicates to which item unit the custom effect is applied, for cart items with quantity &gt; 1. .</param>
+        /// <param name="cartItemSubPosition">For cart items with quantity &gt; 1, the sub position indicates to which item unit the custom effect is applied. .</param>
         /// <param name="bundleIndex">The position of the bundle in a list of item bundles created from the same bundle definition..</param>
         /// <param name="bundleName">The name of the bundle definition..</param>
         /// <param name="payload">The JSON payload of the custom effect. (required).</param>
@@ -81,9 +81,9 @@ namespace TalonOne.Model
         public decimal CartItemPosition { get; set; }
 
         /// <summary>
-        /// When cart item flattening is enabled, the sub position indicates to which item unit the custom effect is applied, for cart items with quantity &gt; 1. 
+        /// For cart items with quantity &gt; 1, the sub position indicates to which item unit the custom effect is applied. 
         /// </summary>
-        /// <value>When cart item flattening is enabled, the sub position indicates to which item unit the custom effect is applied, for cart items with quantity &gt; 1. </value>
+        /// <value>For cart items with quantity &gt; 1, the sub position indicates to which item unit the custom effect is applied. </value>
         [DataMember(Name="cartItemSubPosition", EmitDefaultValue=false)]
         public decimal CartItemSubPosition { get; set; }
 

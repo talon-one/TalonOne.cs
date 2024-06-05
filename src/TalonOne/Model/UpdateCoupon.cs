@@ -42,8 +42,9 @@ namespace TalonOne.Model
         /// <param name="limits">Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. .</param>
         /// <param name="recipientIntegrationId">The integration ID for this coupon&#39;s beneficiary&#39;s profile..</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
-        /// <param name="isReservationMandatory">Whether the reservation effect actually created a new reservation. (default to true).</param>
-        public UpdateCoupon(int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), string recipientIntegrationId = default(string), Object attributes = default(Object), bool isReservationMandatory = true)
+        /// <param name="isReservationMandatory">An indication of whether the code can be redeemed only if it has been reserved first. (default to false).</param>
+        /// <param name="implicitlyReserved">An indication of whether the coupon is implicitly reserved for all customers..</param>
+        public UpdateCoupon(int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), string recipientIntegrationId = default(string), Object attributes = default(Object), bool isReservationMandatory = false, bool implicitlyReserved = default(bool))
         {
             this.UsageLimit = usageLimit;
             this.DiscountLimit = discountLimit;
@@ -54,6 +55,7 @@ namespace TalonOne.Model
             this.RecipientIntegrationId = recipientIntegrationId;
             this.Attributes = attributes;
             this.IsReservationMandatory = isReservationMandatory;
+            this.ImplicitlyReserved = implicitlyReserved;
         }
         
         /// <summary>
@@ -113,11 +115,18 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// Whether the reservation effect actually created a new reservation.
+        /// An indication of whether the code can be redeemed only if it has been reserved first.
         /// </summary>
-        /// <value>Whether the reservation effect actually created a new reservation.</value>
+        /// <value>An indication of whether the code can be redeemed only if it has been reserved first.</value>
         [DataMember(Name="isReservationMandatory", EmitDefaultValue=false)]
         public bool IsReservationMandatory { get; set; }
+
+        /// <summary>
+        /// An indication of whether the coupon is implicitly reserved for all customers.
+        /// </summary>
+        /// <value>An indication of whether the coupon is implicitly reserved for all customers.</value>
+        [DataMember(Name="implicitlyReserved", EmitDefaultValue=false)]
+        public bool ImplicitlyReserved { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -136,6 +145,7 @@ namespace TalonOne.Model
             sb.Append("  RecipientIntegrationId: ").Append(RecipientIntegrationId).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  IsReservationMandatory: ").Append(IsReservationMandatory).Append("\n");
+            sb.Append("  ImplicitlyReserved: ").Append(ImplicitlyReserved).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -211,6 +221,10 @@ namespace TalonOne.Model
                 (
                     this.IsReservationMandatory == input.IsReservationMandatory ||
                     this.IsReservationMandatory.Equals(input.IsReservationMandatory)
+                ) && 
+                (
+                    this.ImplicitlyReserved == input.ImplicitlyReserved ||
+                    this.ImplicitlyReserved.Equals(input.ImplicitlyReserved)
                 );
         }
 
@@ -237,6 +251,7 @@ namespace TalonOne.Model
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 hashCode = hashCode * 59 + this.IsReservationMandatory.GetHashCode();
+                hashCode = hashCode * 59 + this.ImplicitlyReserved.GetHashCode();
                 return hashCode;
             }
         }

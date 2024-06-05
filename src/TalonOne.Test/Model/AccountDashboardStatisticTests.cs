@@ -90,14 +90,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Referrals'
         }
         /// <summary>
-        /// Test the property 'ApiCalls'
-        /// </summary>
-        [Fact]
-        public void ApiCallsTest()
-        {
-            // TODO unit test for the property 'ApiCalls'
-        }
-        /// <summary>
         /// Test the property 'Campaigns'
         /// </summary>
         [Fact]

@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="RoleV2PermissionSet" /> class.
         /// </summary>
         /// <param name="name">Name of the permission set. (required).</param>
-        /// <param name="logicalOperations">List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-logicalPermissionOperation&#x60; tag on an endpoint level.  (required).</param>
+        /// <param name="logicalOperations">List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-permission&#x60; tag on an endpoint level.  (required).</param>
         public RoleV2PermissionSet(string name = default(string), List<string> logicalOperations = default(List<string>))
         {
             // to ensure "name" is required (not null)
@@ -57,9 +57,9 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-logicalPermissionOperation&#x60; tag on an endpoint level. 
+        /// List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-permission&#x60; tag on an endpoint level. 
         /// </summary>
-        /// <value>List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-logicalPermissionOperation&#x60; tag on an endpoint level. </value>
+        /// <value>List of logical operations in the permission set. Each logical operation must be shown under the &#x60;x-permission&#x60; tag on an endpoint level. </value>
         [DataMember(Name="logicalOperations", EmitDefaultValue=false)]
         public List<string> LogicalOperations { get; set; }
 

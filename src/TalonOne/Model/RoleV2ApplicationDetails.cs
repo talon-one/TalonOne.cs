@@ -37,11 +37,13 @@ namespace TalonOne.Model
         /// <param name="application">Name of the Application-related permission set for the given Application..</param>
         /// <param name="campaign">Name of the campaign-related permission set for the given Application..</param>
         /// <param name="draftCampaign">Name of the draft campaign-related permission set for the given Application..</param>
-        public RoleV2ApplicationDetails(string application = default(string), string campaign = default(string), string draftCampaign = default(string))
+        /// <param name="tools">Name of the tools-related permission set..</param>
+        public RoleV2ApplicationDetails(string application = default(string), string campaign = default(string), string draftCampaign = default(string), string tools = default(string))
         {
             this.Application = application;
             this.Campaign = campaign;
             this.DraftCampaign = draftCampaign;
+            this.Tools = tools;
         }
         
         /// <summary>
@@ -66,6 +68,13 @@ namespace TalonOne.Model
         public string DraftCampaign { get; set; }
 
         /// <summary>
+        /// Name of the tools-related permission set.
+        /// </summary>
+        /// <value>Name of the tools-related permission set.</value>
+        [DataMember(Name="tools", EmitDefaultValue=false)]
+        public string Tools { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +85,7 @@ namespace TalonOne.Model
             sb.Append("  Application: ").Append(Application).Append("\n");
             sb.Append("  Campaign: ").Append(Campaign).Append("\n");
             sb.Append("  DraftCampaign: ").Append(DraftCampaign).Append("\n");
+            sb.Append("  Tools: ").Append(Tools).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -124,6 +134,11 @@ namespace TalonOne.Model
                     this.DraftCampaign == input.DraftCampaign ||
                     (this.DraftCampaign != null &&
                     this.DraftCampaign.Equals(input.DraftCampaign))
+                ) && 
+                (
+                    this.Tools == input.Tools ||
+                    (this.Tools != null &&
+                    this.Tools.Equals(input.Tools))
                 );
         }
 
@@ -142,6 +157,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Campaign.GetHashCode();
                 if (this.DraftCampaign != null)
                     hashCode = hashCode * 59 + this.DraftCampaign.GetHashCode();
+                if (this.Tools != null)
+                    hashCode = hashCode * 59 + this.Tools.GetHashCode();
                 return hashCode;
             }
         }

@@ -42,9 +42,10 @@ namespace TalonOne.Model
         /// <param name="id">The internal ID of loyalty program. (required).</param>
         /// <param name="title">Visible name of loyalty program. (required).</param>
         /// <param name="name">Internal name of loyalty program. (required).</param>
+        /// <param name="joinDate">The date on which the customer joined the loyalty program in RFC3339.  **Note**: This is in the loyalty program&#39;s time zone. .</param>
         /// <param name="ledger">ledger (required).</param>
         /// <param name="subLedgers">A map containing information about each loyalty subledger..</param>
-        public LoyaltyProgramLedgers(int id = default(int), string title = default(string), string name = default(string), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subLedgers = default(Dictionary<string, LedgerInfo>))
+        public LoyaltyProgramLedgers(int id = default(int), string title = default(string), string name = default(string), DateTime joinDate = default(DateTime), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subLedgers = default(Dictionary<string, LedgerInfo>))
         {
             this.Id = id;
             // to ensure "title" is required (not null)
@@ -53,6 +54,7 @@ namespace TalonOne.Model
             this.Name = name ?? throw new ArgumentNullException("name is a required property for LoyaltyProgramLedgers and cannot be null");
             // to ensure "ledger" is required (not null)
             this.Ledger = ledger ?? throw new ArgumentNullException("ledger is a required property for LoyaltyProgramLedgers and cannot be null");
+            this.JoinDate = joinDate;
             this.SubLedgers = subLedgers;
         }
         
@@ -78,6 +80,13 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// The date on which the customer joined the loyalty program in RFC3339.  **Note**: This is in the loyalty program&#39;s time zone. 
+        /// </summary>
+        /// <value>The date on which the customer joined the loyalty program in RFC3339.  **Note**: This is in the loyalty program&#39;s time zone. </value>
+        [DataMember(Name="joinDate", EmitDefaultValue=false)]
+        public DateTime JoinDate { get; set; }
+
+        /// <summary>
         /// Gets or Sets Ledger
         /// </summary>
         [DataMember(Name="ledger", EmitDefaultValue=false)]
@@ -101,6 +110,7 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  JoinDate: ").Append(JoinDate).Append("\n");
             sb.Append("  Ledger: ").Append(Ledger).Append("\n");
             sb.Append("  SubLedgers: ").Append(SubLedgers).Append("\n");
             sb.Append("}\n");
@@ -152,6 +162,11 @@ namespace TalonOne.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.JoinDate == input.JoinDate ||
+                    (this.JoinDate != null &&
+                    this.JoinDate.Equals(input.JoinDate))
+                ) && 
+                (
                     this.Ledger == input.Ledger ||
                     (this.Ledger != null &&
                     this.Ledger.Equals(input.Ledger))
@@ -178,6 +193,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.JoinDate != null)
+                    hashCode = hashCode * 59 + this.JoinDate.GetHashCode();
                 if (this.Ledger != null)
                     hashCode = hashCode * 59 + this.Ledger.GetHashCode();
                 if (this.SubLedgers != null)

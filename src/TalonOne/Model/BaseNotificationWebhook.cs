@@ -44,7 +44,8 @@ namespace TalonOne.Model
         /// <param name="modified">The time this entity was last modified. (required).</param>
         /// <param name="url">API URL for the given webhook-based notification. (required).</param>
         /// <param name="headers">List of API HTTP headers for the given webhook-based notification. (required).</param>
-        public BaseNotificationWebhook(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string url = default(string), List<string> headers = default(List<string>))
+        /// <param name="enabled">Indicates whether the notification is activated. (default to true).</param>
+        public BaseNotificationWebhook(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string url = default(string), List<string> headers = default(List<string>), bool enabled = true)
         {
             this.Id = id;
             this.Created = created;
@@ -53,6 +54,7 @@ namespace TalonOne.Model
             this.Url = url ?? throw new ArgumentNullException("url is a required property for BaseNotificationWebhook and cannot be null");
             // to ensure "headers" is required (not null)
             this.Headers = headers ?? throw new ArgumentNullException("headers is a required property for BaseNotificationWebhook and cannot be null");
+            this.Enabled = enabled;
         }
         
         /// <summary>
@@ -91,6 +93,13 @@ namespace TalonOne.Model
         public List<string> Headers { get; set; }
 
         /// <summary>
+        /// Indicates whether the notification is activated.
+        /// </summary>
+        /// <value>Indicates whether the notification is activated.</value>
+        [DataMember(Name="enabled", EmitDefaultValue=false)]
+        public bool Enabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +112,7 @@ namespace TalonOne.Model
             sb.Append("  Modified: ").Append(Modified).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Headers: ").Append(Headers).Append("\n");
+            sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,6 +171,10 @@ namespace TalonOne.Model
                     this.Headers != null &&
                     input.Headers != null &&
                     this.Headers.SequenceEqual(input.Headers)
+                ) && 
+                (
+                    this.Enabled == input.Enabled ||
+                    this.Enabled.Equals(input.Enabled)
                 );
         }
 
@@ -182,6 +196,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.Headers != null)
                     hashCode = hashCode * 59 + this.Headers.GetHashCode();
+                hashCode = hashCode * 59 + this.Enabled.GetHashCode();
                 return hashCode;
             }
         }

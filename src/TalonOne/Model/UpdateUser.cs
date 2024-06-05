@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class UpdateUser :  IEquatable<UpdateUser>, IValidatableObject
     {
         /// <summary>
-        /// New state (\&quot;deactivated\&quot; or \&quot;active\&quot;) for the user. Only usable by admins for the user.
+        /// The state of the user.   - &#x60;deactivated&#x60;: The user has been deactivated.   - &#x60;active&#x60;: The user is active.  **Note**: Only &#x60;admin&#x60; users can update the state of another user. 
         /// </summary>
-        /// <value>New state (\&quot;deactivated\&quot; or \&quot;active\&quot;) for the user. Only usable by admins for the user.</value>
+        /// <value>The state of the user.   - &#x60;deactivated&#x60;: The user has been deactivated.   - &#x60;active&#x60;: The user is active.  **Note**: Only &#x60;admin&#x60; users can update the state of another user. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StateEnum
         {
@@ -53,52 +53,62 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// New state (\&quot;deactivated\&quot; or \&quot;active\&quot;) for the user. Only usable by admins for the user.
+        /// The state of the user.   - &#x60;deactivated&#x60;: The user has been deactivated.   - &#x60;active&#x60;: The user is active.  **Note**: Only &#x60;admin&#x60; users can update the state of another user. 
         /// </summary>
-        /// <value>New state (\&quot;deactivated\&quot; or \&quot;active\&quot;) for the user. Only usable by admins for the user.</value>
+        /// <value>The state of the user.   - &#x60;deactivated&#x60;: The user has been deactivated.   - &#x60;active&#x60;: The user is active.  **Note**: Only &#x60;admin&#x60; users can update the state of another user. </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public StateEnum? State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateUser" /> class.
         /// </summary>
-        /// <param name="name">The user name..</param>
-        /// <param name="policy">The &#x60;Access Control List&#x60; json defining the role of the user. This represents the access control on the user level..</param>
-        /// <param name="state">New state (\&quot;deactivated\&quot; or \&quot;active\&quot;) for the user. Only usable by admins for the user..</param>
-        /// <param name="roles">List of roles to assign to the user..</param>
-        /// <param name="applicationNotificationSubscriptions">applicationNotificationSubscriptions.</param>
-        public UpdateUser(string name = default(string), string policy = default(string), StateEnum? state = default(StateEnum?), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object))
+        /// <param name="name">Name of the user..</param>
+        /// <param name="state">The state of the user.   - &#x60;deactivated&#x60;: The user has been deactivated.   - &#x60;active&#x60;: The user is active.  **Note**: Only &#x60;admin&#x60; users can update the state of another user. .</param>
+        /// <param name="isAdmin">Indicates whether the user is an &#x60;admin&#x60;..</param>
+        /// <param name="policy">Indicates the access level of the user..</param>
+        /// <param name="roles">A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. .</param>
+        /// <param name="applicationNotificationSubscriptions">Application notifications that the user is subscribed to..</param>
+        public UpdateUser(string name = default(string), StateEnum? state = default(StateEnum?), bool isAdmin = default(bool), string policy = default(string), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object))
         {
             this.Name = name;
-            this.Policy = policy;
             this.State = state;
+            this.IsAdmin = isAdmin;
+            this.Policy = policy;
             this.Roles = roles;
             this.ApplicationNotificationSubscriptions = applicationNotificationSubscriptions;
         }
         
         /// <summary>
-        /// The user name.
+        /// Name of the user.
         /// </summary>
-        /// <value>The user name.</value>
+        /// <value>Name of the user.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The &#x60;Access Control List&#x60; json defining the role of the user. This represents the access control on the user level.
+        /// Indicates whether the user is an &#x60;admin&#x60;.
         /// </summary>
-        /// <value>The &#x60;Access Control List&#x60; json defining the role of the user. This represents the access control on the user level.</value>
+        /// <value>Indicates whether the user is an &#x60;admin&#x60;.</value>
+        [DataMember(Name="isAdmin", EmitDefaultValue=false)]
+        public bool IsAdmin { get; set; }
+
+        /// <summary>
+        /// Indicates the access level of the user.
+        /// </summary>
+        /// <value>Indicates the access level of the user.</value>
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public string Policy { get; set; }
 
         /// <summary>
-        /// List of roles to assign to the user.
+        /// A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
         /// </summary>
-        /// <value>List of roles to assign to the user.</value>
+        /// <value>A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
         public List<int> Roles { get; set; }
 
         /// <summary>
-        /// Gets or Sets ApplicationNotificationSubscriptions
+        /// Application notifications that the user is subscribed to.
         /// </summary>
+        /// <value>Application notifications that the user is subscribed to.</value>
         [DataMember(Name="applicationNotificationSubscriptions", EmitDefaultValue=false)]
         public Object ApplicationNotificationSubscriptions { get; set; }
 
@@ -111,8 +121,9 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class UpdateUser {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
+            sb.Append("  IsAdmin: ").Append(IsAdmin).Append("\n");
+            sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
             sb.Append("  ApplicationNotificationSubscriptions: ").Append(ApplicationNotificationSubscriptions).Append("\n");
             sb.Append("}\n");
@@ -155,13 +166,17 @@ namespace TalonOne.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.State == input.State ||
+                    this.State.Equals(input.State)
+                ) && 
+                (
+                    this.IsAdmin == input.IsAdmin ||
+                    this.IsAdmin.Equals(input.IsAdmin)
+                ) && 
+                (
                     this.Policy == input.Policy ||
                     (this.Policy != null &&
                     this.Policy.Equals(input.Policy))
-                ) && 
-                (
-                    this.State == input.State ||
-                    this.State.Equals(input.State)
                 ) && 
                 (
                     this.Roles == input.Roles ||
@@ -187,9 +202,10 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                hashCode = hashCode * 59 + this.State.GetHashCode();
+                hashCode = hashCode * 59 + this.IsAdmin.GetHashCode();
                 if (this.Policy != null)
                     hashCode = hashCode * 59 + this.Policy.GetHashCode();
-                hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Roles != null)
                     hashCode = hashCode * 59 + this.Roles.GetHashCode();
                 if (this.ApplicationNotificationSubscriptions != null)

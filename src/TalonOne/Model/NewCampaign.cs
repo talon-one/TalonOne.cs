@@ -98,7 +98,13 @@ namespace TalonOne.Model
             /// Enum Strikethrough for value: strikethrough
             /// </summary>
             [EnumMember(Value = "strikethrough")]
-            Strikethrough = 5
+            Strikethrough = 5,
+
+            /// <summary>
+            /// Enum Achievements for value: achievements
+            /// </summary>
+            [EnumMember(Value = "achievements")]
+            Achievements = 6
 
         }
 
@@ -109,6 +115,33 @@ namespace TalonOne.Model
         /// <value>The features enabled in this campaign.</value>
         [DataMember(Name="features", EmitDefaultValue=false)]
         public List<FeaturesEnum> Features { get; set; }
+        /// <summary>
+        /// The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
+        /// </summary>
+        /// <value>The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum CartItem for value: cartItem
+            /// </summary>
+            [EnumMember(Value = "cartItem")]
+            CartItem = 1,
+
+            /// <summary>
+            /// Enum Advanced for value: advanced
+            /// </summary>
+            [EnumMember(Value = "advanced")]
+            Advanced = 2
+
+        }
+
+        /// <summary>
+        /// The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. 
+        /// </summary>
+        /// <value>The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items. </value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="NewCampaign" /> class.
         /// </summary>
@@ -130,8 +163,10 @@ namespace TalonOne.Model
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of [budget limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets) for this campaign.  (required).</param>
         /// <param name="campaignGroups">The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to. .</param>
+        /// <param name="type">The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  (default to TypeEnum.Advanced).</param>
+        /// <param name="linkedStoreIds">A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. .</param>
         /// <param name="evaluationGroupId">The ID of the campaign evaluation group the campaign belongs to..</param>
-        public NewCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), int evaluationGroupId = default(int))
+        public NewCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), TypeEnum? type = TypeEnum.Advanced, List<int> linkedStoreIds = default(List<int>), int evaluationGroupId = default(int))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCampaign and cannot be null");
@@ -150,6 +185,8 @@ namespace TalonOne.Model
             this.CouponSettings = couponSettings;
             this.ReferralSettings = referralSettings;
             this.CampaignGroups = campaignGroups;
+            this.Type = type;
+            this.LinkedStoreIds = linkedStoreIds;
             this.EvaluationGroupId = evaluationGroupId;
         }
         
@@ -229,6 +266,13 @@ namespace TalonOne.Model
         public List<int> CampaignGroups { get; set; }
 
         /// <summary>
+        /// A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. 
+        /// </summary>
+        /// <value>A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. </value>
+        [DataMember(Name="linkedStoreIds", EmitDefaultValue=false)]
+        public List<int> LinkedStoreIds { get; set; }
+
+        /// <summary>
         /// The ID of the campaign evaluation group the campaign belongs to.
         /// </summary>
         /// <value>The ID of the campaign evaluation group the campaign belongs to.</value>
@@ -256,6 +300,8 @@ namespace TalonOne.Model
             sb.Append("  ReferralSettings: ").Append(ReferralSettings).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  LinkedStoreIds: ").Append(LinkedStoreIds).Append("\n");
             sb.Append("  EvaluationGroupId: ").Append(EvaluationGroupId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -357,6 +403,16 @@ namespace TalonOne.Model
                     this.CampaignGroups.SequenceEqual(input.CampaignGroups)
                 ) && 
                 (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this.LinkedStoreIds == input.LinkedStoreIds ||
+                    this.LinkedStoreIds != null &&
+                    input.LinkedStoreIds != null &&
+                    this.LinkedStoreIds.SequenceEqual(input.LinkedStoreIds)
+                ) && 
+                (
                     this.EvaluationGroupId == input.EvaluationGroupId ||
                     this.EvaluationGroupId.Equals(input.EvaluationGroupId)
                 );
@@ -394,6 +450,9 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
                 if (this.CampaignGroups != null)
                     hashCode = hashCode * 59 + this.CampaignGroups.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.LinkedStoreIds != null)
+                    hashCode = hashCode * 59 + this.LinkedStoreIds.GetHashCode();
                 hashCode = hashCode * 59 + this.EvaluationGroupId.GetHashCode();
                 return hashCode;
             }

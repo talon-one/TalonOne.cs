@@ -85,12 +85,11 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="FuncArgDef" /> class.
         /// </summary>
         /// <param name="type">The type of value this argument expects. (required).</param>
-        /// <param name="description">A campaigner-friendly description of the argument, this will also be shown in the rule editor. (required).</param>
+        /// <param name="description">A campaigner-friendly description of the argument, this will also be shown in the rule editor..</param>
         public FuncArgDef(TypeEnum type = default(TypeEnum), string description = default(string))
         {
             this.Type = type;
-            // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for FuncArgDef and cannot be null");
+            this.Description = description;
         }
         
         /// <summary>

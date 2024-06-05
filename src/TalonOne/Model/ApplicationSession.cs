@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class ApplicationSession :  IEquatable<ApplicationSession>, IValidatableObject
     {
         /// <summary>
-        /// Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session). 
+        /// Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
         /// </summary>
-        /// <value>Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session). </value>
+        /// <value>Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StateEnum
         {
@@ -65,9 +65,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session). 
+        /// Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
         /// </summary>
-        /// <value>Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session). </value>
+        /// <value>Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public StateEnum State { get; set; }
         /// <summary>
@@ -80,25 +80,26 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. The time this entity was created. (required).</param>
+        /// <param name="integrationId">The integration ID set by your integration layer. (required).</param>
+        /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
         /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
         /// <param name="profileId">The globally unique Talon.One ID of the customer that created this entity..</param>
-        /// <param name="integrationId">The integration ID set by your integration layer. (required).</param>
         /// <param name="profileintegrationid">Integration ID of the customer for the session..</param>
         /// <param name="coupon">Any coupon code entered. (required).</param>
         /// <param name="referral">Any referral code entered. (required).</param>
-        /// <param name="state">Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities#customer-session).  (required).</param>
+        /// <param name="state">Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  (required).</param>
         /// <param name="cartItems">Serialized JSON representation. (required).</param>
         /// <param name="discounts">**API V1 only.** A map of labeled discount values, in the same currency as the session.  If you are using the V2 endpoints, refer to the &#x60;totalDiscounts&#x60; property instead.  (required).</param>
         /// <param name="totalDiscounts">The total sum of the discounts applied to this session. (required).</param>
         /// <param name="total">The total sum of the session before any discounts applied. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
-        public ApplicationSession(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int profileId = default(int), string integrationId = default(string), string profileintegrationid = default(string), string coupon = default(string), string referral = default(string), StateEnum state = default(StateEnum), List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), decimal totalDiscounts = default(decimal), decimal total = default(decimal), Object attributes = default(Object))
+        public ApplicationSession(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), string storeIntegrationId = default(string), int applicationId = default(int), int profileId = default(int), string profileintegrationid = default(string), string coupon = default(string), string referral = default(string), StateEnum state = default(StateEnum), List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), decimal totalDiscounts = default(decimal), decimal total = default(decimal), Object attributes = default(Object))
         {
             this.Id = id;
             this.Created = created;
-            this.ApplicationId = applicationId;
             // to ensure "integrationId" is required (not null)
             this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for ApplicationSession and cannot be null");
+            this.ApplicationId = applicationId;
             // to ensure "coupon" is required (not null)
             this.Coupon = coupon ?? throw new ArgumentNullException("coupon is a required property for ApplicationSession and cannot be null");
             // to ensure "referral" is required (not null)
@@ -110,6 +111,7 @@ namespace TalonOne.Model
             this.Discounts = discounts ?? throw new ArgumentNullException("discounts is a required property for ApplicationSession and cannot be null");
             this.TotalDiscounts = totalDiscounts;
             this.Total = total;
+            this.StoreIntegrationId = storeIntegrationId;
             this.ProfileId = profileId;
             this.Profileintegrationid = profileintegrationid;
             this.Attributes = attributes;
@@ -130,6 +132,20 @@ namespace TalonOne.Model
         public DateTime Created { get; set; }
 
         /// <summary>
+        /// The integration ID set by your integration layer.
+        /// </summary>
+        /// <value>The integration ID set by your integration layer.</value>
+        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        public string IntegrationId { get; set; }
+
+        /// <summary>
+        /// The integration ID of the store. You choose this ID when you create a store.
+        /// </summary>
+        /// <value>The integration ID of the store. You choose this ID when you create a store.</value>
+        [DataMember(Name="storeIntegrationId", EmitDefaultValue=false)]
+        public string StoreIntegrationId { get; set; }
+
+        /// <summary>
         /// The ID of the application that owns this entity.
         /// </summary>
         /// <value>The ID of the application that owns this entity.</value>
@@ -142,13 +158,6 @@ namespace TalonOne.Model
         /// <value>The globally unique Talon.One ID of the customer that created this entity.</value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
         public int ProfileId { get; set; }
-
-        /// <summary>
-        /// The integration ID set by your integration layer.
-        /// </summary>
-        /// <value>The integration ID set by your integration layer.</value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
-        public string IntegrationId { get; set; }
 
         /// <summary>
         /// Integration ID of the customer for the session.
@@ -216,9 +225,10 @@ namespace TalonOne.Model
             sb.Append("class ApplicationSession {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
+            sb.Append("  StoreIntegrationId: ").Append(StoreIntegrationId).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
-            sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
             sb.Append("  Profileintegrationid: ").Append(Profileintegrationid).Append("\n");
             sb.Append("  Coupon: ").Append(Coupon).Append("\n");
             sb.Append("  Referral: ").Append(Referral).Append("\n");
@@ -272,17 +282,22 @@ namespace TalonOne.Model
                     this.Created.Equals(input.Created))
                 ) && 
                 (
+                    this.IntegrationId == input.IntegrationId ||
+                    (this.IntegrationId != null &&
+                    this.IntegrationId.Equals(input.IntegrationId))
+                ) && 
+                (
+                    this.StoreIntegrationId == input.StoreIntegrationId ||
+                    (this.StoreIntegrationId != null &&
+                    this.StoreIntegrationId.Equals(input.StoreIntegrationId))
+                ) && 
+                (
                     this.ApplicationId == input.ApplicationId ||
                     this.ApplicationId.Equals(input.ApplicationId)
                 ) && 
                 (
                     this.ProfileId == input.ProfileId ||
                     this.ProfileId.Equals(input.ProfileId)
-                ) && 
-                (
-                    this.IntegrationId == input.IntegrationId ||
-                    (this.IntegrationId != null &&
-                    this.IntegrationId.Equals(input.IntegrationId))
                 ) && 
                 (
                     this.Profileintegrationid == input.Profileintegrationid ||
@@ -342,10 +357,12 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
-                hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
-                hashCode = hashCode * 59 + this.ProfileId.GetHashCode();
                 if (this.IntegrationId != null)
                     hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
+                if (this.StoreIntegrationId != null)
+                    hashCode = hashCode * 59 + this.StoreIntegrationId.GetHashCode();
+                hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
+                hashCode = hashCode * 59 + this.ProfileId.GetHashCode();
                 if (this.Profileintegrationid != null)
                     hashCode = hashCode * 59 + this.Profileintegrationid.GetHashCode();
                 if (this.Coupon != null)
@@ -376,6 +393,18 @@ namespace TalonOne.Model
             if(this.IntegrationId != null && this.IntegrationId.Length > 1000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationId, length must be less than 1000.", new [] { "IntegrationId" });
+            }
+
+            // StoreIntegrationId (string) maxLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length > 1000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be less than 1000.", new [] { "StoreIntegrationId" });
+            }
+
+            // StoreIntegrationId (string) minLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be greater than 1.", new [] { "StoreIntegrationId" });
             }
 
             // Profileintegrationid (string) maxLength

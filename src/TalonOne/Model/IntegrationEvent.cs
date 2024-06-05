@@ -40,15 +40,17 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="IntegrationEvent" /> class.
         /// </summary>
         /// <param name="profileId">ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. .</param>
+        /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
         /// <param name="type">A string representing the event. Must not be a reserved event name. (required).</param>
         /// <param name="attributes">Arbitrary additional JSON data associated with the event. (required).</param>
-        public IntegrationEvent(string profileId = default(string), string type = default(string), Object attributes = default(Object))
+        public IntegrationEvent(string profileId = default(string), string storeIntegrationId = default(string), string type = default(string), Object attributes = default(Object))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IntegrationEvent and cannot be null");
             // to ensure "attributes" is required (not null)
             this.Attributes = attributes ?? throw new ArgumentNullException("attributes is a required property for IntegrationEvent and cannot be null");
             this.ProfileId = profileId;
+            this.StoreIntegrationId = storeIntegrationId;
         }
         
         /// <summary>
@@ -57,6 +59,13 @@ namespace TalonOne.Model
         /// <value>ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. </value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
         public string ProfileId { get; set; }
+
+        /// <summary>
+        /// The integration ID of the store. You choose this ID when you create a store.
+        /// </summary>
+        /// <value>The integration ID of the store. You choose this ID when you create a store.</value>
+        [DataMember(Name="storeIntegrationId", EmitDefaultValue=false)]
+        public string StoreIntegrationId { get; set; }
 
         /// <summary>
         /// A string representing the event. Must not be a reserved event name.
@@ -81,6 +90,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class IntegrationEvent {\n");
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
+            sb.Append("  StoreIntegrationId: ").Append(StoreIntegrationId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("}\n");
@@ -123,6 +133,11 @@ namespace TalonOne.Model
                     this.ProfileId.Equals(input.ProfileId))
                 ) && 
                 (
+                    this.StoreIntegrationId == input.StoreIntegrationId ||
+                    (this.StoreIntegrationId != null &&
+                    this.StoreIntegrationId.Equals(input.StoreIntegrationId))
+                ) && 
+                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -145,6 +160,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.ProfileId != null)
                     hashCode = hashCode * 59 + this.ProfileId.GetHashCode();
+                if (this.StoreIntegrationId != null)
+                    hashCode = hashCode * 59 + this.StoreIntegrationId.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Attributes != null)
@@ -160,6 +177,18 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // StoreIntegrationId (string) maxLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length > 1000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be less than 1000.", new [] { "StoreIntegrationId" });
+            }
+
+            // StoreIntegrationId (string) minLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be greater than 1.", new [] { "StoreIntegrationId" });
+            }
+
             // Type (string) minLength
             if(this.Type != null && this.Type.Length < 1)
             {

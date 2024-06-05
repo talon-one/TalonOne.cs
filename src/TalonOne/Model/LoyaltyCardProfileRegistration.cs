@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="LoyaltyCardProfileRegistration" /> class.
         /// </summary>
         /// <param name="integrationId">Integration ID of the customer profile linked to the card. (required).</param>
-        /// <param name="timestamp">Timestamp of the registration to the card. (required).</param>
+        /// <param name="timestamp">Timestamp the customer profile was linked to the card. (required).</param>
         public LoyaltyCardProfileRegistration(string integrationId = default(string), DateTime timestamp = default(DateTime))
         {
             // to ensure "integrationId" is required (not null)
@@ -56,9 +56,9 @@ namespace TalonOne.Model
         public string IntegrationId { get; set; }
 
         /// <summary>
-        /// Timestamp of the registration to the card.
+        /// Timestamp the customer profile was linked to the card.
         /// </summary>
-        /// <value>Timestamp of the registration to the card.</value>
+        /// <value>Timestamp the customer profile was linked to the card.</value>
         [DataMember(Name="timestamp", EmitDefaultValue=false)]
         public DateTime Timestamp { get; set; }
 

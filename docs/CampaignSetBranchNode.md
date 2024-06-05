@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **GroupId** | **int** | The ID of the campaign set. | 
 **Locked** | **bool** | An indicator of whether the campaign set is locked for modification. | 
 **Description** | **string** | A description of the campaign set. | [optional] 
-**EvaluationMode** | **string** |  | 
+**EvaluationMode** | **string** | The mode by which campaigns in the campaign evaluation group are evaluated. | 
+**EvaluationScope** | **string** | The evaluation scope of the campaign evaluation group. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

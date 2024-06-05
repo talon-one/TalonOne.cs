@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="attributes">Arbitrary properties associated with coupons. (required).</param>
         /// <param name="batchId">The batch ID coupons created by this job will bear. (required).</param>
-        /// <param name="status">The current status of this request. Possible values: - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60; - &#x60;coupon pattern full&#x60;  (required).</param>
+        /// <param name="status">The current status of this request. Possible values: - &#x60;pending verification&#x60; - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60; - &#x60;coupon pattern full&#x60;  (required).</param>
         /// <param name="createdAmount">The number of coupon codes that were already created for this request. (required).</param>
         /// <param name="failCount">The number of times this job failed. (required).</param>
         /// <param name="errors">An array of individual problems encountered during the request. (required).</param>
@@ -189,9 +189,9 @@ namespace TalonOne.Model
         public string BatchId { get; set; }
 
         /// <summary>
-        /// The current status of this request. Possible values: - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60; - &#x60;coupon pattern full&#x60; 
+        /// The current status of this request. Possible values: - &#x60;pending verification&#x60; - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60; - &#x60;coupon pattern full&#x60; 
         /// </summary>
-        /// <value>The current status of this request. Possible values: - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60; - &#x60;coupon pattern full&#x60; </value>
+        /// <value>The current status of this request. Possible values: - &#x60;pending verification&#x60; - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60; - &#x60;coupon pattern full&#x60; </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
 

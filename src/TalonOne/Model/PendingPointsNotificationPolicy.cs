@@ -40,10 +40,12 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="PendingPointsNotificationPolicy" /> class.
         /// </summary>
         /// <param name="name">Notification name. (required).</param>
-        public PendingPointsNotificationPolicy(string name = default(string))
+        /// <param name="batchingEnabled">Indicates whether batching is activated. (default to true).</param>
+        public PendingPointsNotificationPolicy(string name = default(string), bool batchingEnabled = true)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for PendingPointsNotificationPolicy and cannot be null");
+            this.BatchingEnabled = batchingEnabled;
         }
         
         /// <summary>
@@ -54,6 +56,13 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// Indicates whether batching is activated.
+        /// </summary>
+        /// <value>Indicates whether batching is activated.</value>
+        [DataMember(Name="batchingEnabled", EmitDefaultValue=false)]
+        public bool BatchingEnabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +71,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class PendingPointsNotificationPolicy {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  BatchingEnabled: ").Append(BatchingEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +110,10 @@ namespace TalonOne.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.BatchingEnabled == input.BatchingEnabled ||
+                    this.BatchingEnabled.Equals(input.BatchingEnabled)
                 );
         }
 
@@ -114,6 +128,7 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                hashCode = hashCode * 59 + this.BatchingEnabled.GetHashCode();
                 return hashCode;
             }
         }

@@ -97,6 +97,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Headers'
         }
+        /// <summary>
+        /// Test the property 'Enabled'
+        /// </summary>
+        [Fact]
+        public void EnabledTest()
+        {
+            // TODO unit test for the property 'Enabled'
+        }
 
     }
 

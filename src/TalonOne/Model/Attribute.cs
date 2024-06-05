@@ -96,7 +96,13 @@ namespace TalonOne.Model
             /// Enum Referral for value: Referral
             /// </summary>
             [EnumMember(Value = "Referral")]
-            Referral = 10
+            Referral = 10,
+
+            /// <summary>
+            /// Enum Store for value: Store
+            /// </summary>
+            [EnumMember(Value = "Store")]
+            Store = 11
 
         }
 

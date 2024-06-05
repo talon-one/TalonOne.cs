@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LoginParams" /> class.
         /// </summary>
-        /// <param name="email">The email address associated with your account. (required).</param>
+        /// <param name="email">The email address associated with the user profile. (required).</param>
         /// <param name="password">The password for your account. (required).</param>
         public LoginParams(string email = default(string), string password = default(string))
         {
@@ -50,9 +50,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The email address associated with your account.
+        /// The email address associated with the user profile.
         /// </summary>
-        /// <value>The email address associated with your account.</value>
+        /// <value>The email address associated with the user profile.</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
 

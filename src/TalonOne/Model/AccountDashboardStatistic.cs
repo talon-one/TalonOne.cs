@@ -43,9 +43,8 @@ namespace TalonOne.Model
         /// <param name="discounts">Aggregated statistic for account discount..</param>
         /// <param name="loyaltyPoints">Aggregated statistic for account loyalty points..</param>
         /// <param name="referrals">Aggregated statistic for account referrals..</param>
-        /// <param name="apiCalls">Aggregated statistic for the number of account API calls..</param>
         /// <param name="campaigns">campaigns (required).</param>
-        public AccountDashboardStatistic(List<AccountDashboardStatisticRevenue> revenue = default(List<AccountDashboardStatisticRevenue>), List<AccountDashboardStatisticDiscount> discounts = default(List<AccountDashboardStatisticDiscount>), List<AccountDashboardStatisticLoyaltyPoints> loyaltyPoints = default(List<AccountDashboardStatisticLoyaltyPoints>), List<AccountDashboardStatisticReferrals> referrals = default(List<AccountDashboardStatisticReferrals>), List<AccountDashboardStatisticApiCalls> apiCalls = default(List<AccountDashboardStatisticApiCalls>), AccountDashboardStatisticCampaigns campaigns = default(AccountDashboardStatisticCampaigns))
+        public AccountDashboardStatistic(List<AccountDashboardStatisticRevenue> revenue = default(List<AccountDashboardStatisticRevenue>), List<AccountDashboardStatisticDiscount> discounts = default(List<AccountDashboardStatisticDiscount>), List<AccountDashboardStatisticLoyaltyPoints> loyaltyPoints = default(List<AccountDashboardStatisticLoyaltyPoints>), List<AccountDashboardStatisticReferrals> referrals = default(List<AccountDashboardStatisticReferrals>), AccountDashboardStatisticCampaigns campaigns = default(AccountDashboardStatisticCampaigns))
         {
             // to ensure "campaigns" is required (not null)
             this.Campaigns = campaigns ?? throw new ArgumentNullException("campaigns is a required property for AccountDashboardStatistic and cannot be null");
@@ -53,7 +52,6 @@ namespace TalonOne.Model
             this.Discounts = discounts;
             this.LoyaltyPoints = loyaltyPoints;
             this.Referrals = referrals;
-            this.ApiCalls = apiCalls;
         }
         
         /// <summary>
@@ -85,13 +83,6 @@ namespace TalonOne.Model
         public List<AccountDashboardStatisticReferrals> Referrals { get; set; }
 
         /// <summary>
-        /// Aggregated statistic for the number of account API calls.
-        /// </summary>
-        /// <value>Aggregated statistic for the number of account API calls.</value>
-        [DataMember(Name="apiCalls", EmitDefaultValue=false)]
-        public List<AccountDashboardStatisticApiCalls> ApiCalls { get; set; }
-
-        /// <summary>
         /// Gets or Sets Campaigns
         /// </summary>
         [DataMember(Name="campaigns", EmitDefaultValue=false)]
@@ -109,7 +100,6 @@ namespace TalonOne.Model
             sb.Append("  Discounts: ").Append(Discounts).Append("\n");
             sb.Append("  LoyaltyPoints: ").Append(LoyaltyPoints).Append("\n");
             sb.Append("  Referrals: ").Append(Referrals).Append("\n");
-            sb.Append("  ApiCalls: ").Append(ApiCalls).Append("\n");
             sb.Append("  Campaigns: ").Append(Campaigns).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -170,12 +160,6 @@ namespace TalonOne.Model
                     this.Referrals.SequenceEqual(input.Referrals)
                 ) && 
                 (
-                    this.ApiCalls == input.ApiCalls ||
-                    this.ApiCalls != null &&
-                    input.ApiCalls != null &&
-                    this.ApiCalls.SequenceEqual(input.ApiCalls)
-                ) && 
-                (
                     this.Campaigns == input.Campaigns ||
                     (this.Campaigns != null &&
                     this.Campaigns.Equals(input.Campaigns))
@@ -199,8 +183,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.LoyaltyPoints.GetHashCode();
                 if (this.Referrals != null)
                     hashCode = hashCode * 59 + this.Referrals.GetHashCode();
-                if (this.ApiCalls != null)
-                    hashCode = hashCode * 59 + this.ApiCalls.GetHashCode();
                 if (this.Campaigns != null)
                     hashCode = hashCode * 59 + this.Campaigns.GetHashCode();
                 return hashCode;

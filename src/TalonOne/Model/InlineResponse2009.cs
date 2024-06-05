@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="hasMore">hasMore (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse2009(bool hasMore = default(bool), List<Referral> data = default(List<Referral>))
+        public InlineResponse2009(bool hasMore = default(bool), List<Coupon> data = default(List<Coupon>))
         {
             this.HasMore = hasMore;
             // to ensure "data" is required (not null)
@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<Referral> Data { get; set; }
+        public List<Coupon> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

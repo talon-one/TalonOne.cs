@@ -37,15 +37,17 @@ namespace TalonOne.Model
         /// <param name="profile">profile.</param>
         /// <param name="loyalty">loyalty.</param>
         /// <param name="referrals">referrals.</param>
-        /// <param name="coupons">The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon&#39;s &#x60;reservation&#x60; property. .</param>
+        /// <param name="coupons">The coupons reserved by this profile. This array includes hard and soft reservations. .</param>
         /// <param name="giveaways">giveaways.</param>
-        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<InventoryReferral> referrals = default(List<InventoryReferral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>))
+        /// <param name="achievements">achievements.</param>
+        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<InventoryReferral> referrals = default(List<InventoryReferral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>), List<AchievementProgress> achievements = default(List<AchievementProgress>))
         {
             this.Profile = profile;
             this.Loyalty = loyalty;
             this.Referrals = referrals;
             this.Coupons = coupons;
             this.Giveaways = giveaways;
+            this.Achievements = achievements;
         }
         
         /// <summary>
@@ -67,9 +69,9 @@ namespace TalonOne.Model
         public List<InventoryReferral> Referrals { get; set; }
 
         /// <summary>
-        /// The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon&#39;s &#x60;reservation&#x60; property. 
+        /// The coupons reserved by this profile. This array includes hard and soft reservations. 
         /// </summary>
-        /// <value>The coupons reserved by this profile. This array includes hard and soft reservations. See each coupon&#39;s &#x60;reservation&#x60; property. </value>
+        /// <value>The coupons reserved by this profile. This array includes hard and soft reservations. </value>
         [DataMember(Name="coupons", EmitDefaultValue=false)]
         public List<InventoryCoupon> Coupons { get; set; }
 
@@ -78,6 +80,12 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="giveaways", EmitDefaultValue=false)]
         public List<Giveaway> Giveaways { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Achievements
+        /// </summary>
+        [DataMember(Name="achievements", EmitDefaultValue=false)]
+        public List<AchievementProgress> Achievements { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,6 +100,7 @@ namespace TalonOne.Model
             sb.Append("  Referrals: ").Append(Referrals).Append("\n");
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("  Giveaways: ").Append(Giveaways).Append("\n");
+            sb.Append("  Achievements: ").Append(Achievements).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +162,12 @@ namespace TalonOne.Model
                     this.Giveaways != null &&
                     input.Giveaways != null &&
                     this.Giveaways.SequenceEqual(input.Giveaways)
+                ) && 
+                (
+                    this.Achievements == input.Achievements ||
+                    this.Achievements != null &&
+                    input.Achievements != null &&
+                    this.Achievements.SequenceEqual(input.Achievements)
                 );
         }
 
@@ -175,6 +190,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Coupons.GetHashCode();
                 if (this.Giveaways != null)
                     hashCode = hashCode * 59 + this.Giveaways.GetHashCode();
+                if (this.Achievements != null)
+                    hashCode = hashCode * 59 + this.Achievements.GetHashCode();
                 return hashCode;
             }
         }

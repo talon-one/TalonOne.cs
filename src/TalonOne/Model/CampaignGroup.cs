@@ -43,10 +43,10 @@ namespace TalonOne.Model
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="modified">The time this entity was last modified. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
-        /// <param name="name">The name of this campaign group. (required).</param>
-        /// <param name="description">A longer description of the campaign group..</param>
-        /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that this campaign group is enabled for..</param>
-        /// <param name="campaignIds">A list of the IDs of the campaigns that this campaign group owns..</param>
+        /// <param name="name">The name of the campaign access group. (required).</param>
+        /// <param name="description">A longer description of the campaign access group..</param>
+        /// <param name="subscribedApplicationsIds">A list of IDs of the Applications that this campaign access group is enabled for..</param>
+        /// <param name="campaignIds">A list of IDs of the campaigns that are part of the campaign access group..</param>
         public CampaignGroup(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), List<int> subscribedApplicationsIds = default(List<int>), List<int> campaignIds = default(List<int>))
         {
             this.Id = id;
@@ -89,30 +89,30 @@ namespace TalonOne.Model
         public int AccountId { get; set; }
 
         /// <summary>
-        /// The name of this campaign group.
+        /// The name of the campaign access group.
         /// </summary>
-        /// <value>The name of this campaign group.</value>
+        /// <value>The name of the campaign access group.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// A longer description of the campaign group.
+        /// A longer description of the campaign access group.
         /// </summary>
-        /// <value>A longer description of the campaign group.</value>
+        /// <value>A longer description of the campaign access group.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// A list of the IDs of the applications that this campaign group is enabled for.
+        /// A list of IDs of the Applications that this campaign access group is enabled for.
         /// </summary>
-        /// <value>A list of the IDs of the applications that this campaign group is enabled for.</value>
+        /// <value>A list of IDs of the Applications that this campaign access group is enabled for.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
         public List<int> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
-        /// A list of the IDs of the campaigns that this campaign group owns.
+        /// A list of IDs of the campaigns that are part of the campaign access group.
         /// </summary>
-        /// <value>A list of the IDs of the campaigns that this campaign group owns.</value>
+        /// <value>A list of IDs of the campaigns that are part of the campaign access group.</value>
         [DataMember(Name="campaignIds", EmitDefaultValue=false)]
         public List<int> CampaignIds { get; set; }
 

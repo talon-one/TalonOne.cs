@@ -40,11 +40,13 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="AccountDashboardStatisticCampaigns" /> class.
         /// </summary>
         /// <param name="live">Number of campaigns that are active and live (across all Applications). (required).</param>
-        /// <param name="endingSoon">Campaigns with a schedule ending in 7 days or with only 10% of budget left. (required).</param>
-        public AccountDashboardStatisticCampaigns(int live = default(int), int endingSoon = default(int))
+        /// <param name="endingSoon">Campaigns scheduled to expire sometime in the next 7 days. (required).</param>
+        /// <param name="lowOnBudget">Campaigns with less than 10% of budget left. (required).</param>
+        public AccountDashboardStatisticCampaigns(int live = default(int), int endingSoon = default(int), int lowOnBudget = default(int))
         {
             this.Live = live;
             this.EndingSoon = endingSoon;
+            this.LowOnBudget = lowOnBudget;
         }
         
         /// <summary>
@@ -55,11 +57,18 @@ namespace TalonOne.Model
         public int Live { get; set; }
 
         /// <summary>
-        /// Campaigns with a schedule ending in 7 days or with only 10% of budget left.
+        /// Campaigns scheduled to expire sometime in the next 7 days.
         /// </summary>
-        /// <value>Campaigns with a schedule ending in 7 days or with only 10% of budget left.</value>
+        /// <value>Campaigns scheduled to expire sometime in the next 7 days.</value>
         [DataMember(Name="endingSoon", EmitDefaultValue=false)]
         public int EndingSoon { get; set; }
+
+        /// <summary>
+        /// Campaigns with less than 10% of budget left.
+        /// </summary>
+        /// <value>Campaigns with less than 10% of budget left.</value>
+        [DataMember(Name="lowOnBudget", EmitDefaultValue=false)]
+        public int LowOnBudget { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,6 +80,7 @@ namespace TalonOne.Model
             sb.Append("class AccountDashboardStatisticCampaigns {\n");
             sb.Append("  Live: ").Append(Live).Append("\n");
             sb.Append("  EndingSoon: ").Append(EndingSoon).Append("\n");
+            sb.Append("  LowOnBudget: ").Append(LowOnBudget).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,6 +122,10 @@ namespace TalonOne.Model
                 (
                     this.EndingSoon == input.EndingSoon ||
                     this.EndingSoon.Equals(input.EndingSoon)
+                ) && 
+                (
+                    this.LowOnBudget == input.LowOnBudget ||
+                    this.LowOnBudget.Equals(input.LowOnBudget)
                 );
         }
 
@@ -126,6 +140,7 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Live.GetHashCode();
                 hashCode = hashCode * 59 + this.EndingSoon.GetHashCode();
+                hashCode = hashCode * 59 + this.LowOnBudget.GetHashCode();
                 return hashCode;
             }
         }
