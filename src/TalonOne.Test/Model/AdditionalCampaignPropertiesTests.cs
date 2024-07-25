@@ -233,6 +233,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'FrontendState'
         }
+        /// <summary>
+        /// Test the property 'StoresImported'
+        /// </summary>
+        [Fact]
+        public void StoresImportedTest()
+        {
+            // TODO unit test for the property 'StoresImported'
+        }
 
     }
 

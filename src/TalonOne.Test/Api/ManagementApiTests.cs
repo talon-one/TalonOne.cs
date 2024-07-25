@@ -486,6 +486,19 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test DisconnectCampaignStores
+        /// </summary>
+        [Fact]
+        public void DisconnectCampaignStoresTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int applicationId = null;
+            //int campaignId = null;
+            //instance.DisconnectCampaignStores(applicationId, campaignId);
+            
+        }
+        
+        /// <summary>
         /// Test ExportAccountCollectionItems
         /// </summary>
         [Fact]
@@ -520,6 +533,19 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //int audienceId = null;
             //var response = instance.ExportAudiencesMemberships(audienceId);
+            //Assert.IsType<string> (response, "response is string");
+        }
+        
+        /// <summary>
+        /// Test ExportCampaignStores
+        /// </summary>
+        [Fact]
+        public void ExportCampaignStoresTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int applicationId = null;
+            //int campaignId = null;
+            //var response = instance.ExportCampaignStores(applicationId, campaignId);
             //Assert.IsType<string> (response, "response is string");
         }
         
@@ -1261,7 +1287,12 @@ namespace TalonOne.Test
             //string recipientIntegrationId = null;
             //string batchId = null;
             //bool? exactMatch = null;
-            //var response = instance.GetCouponsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch);
+            //DateTime? expiresBefore = null;
+            //DateTime? expiresAfter = null;
+            //DateTime? startsBefore = null;
+            //DateTime? startsAfter = null;
+            //bool? valuesOnly = null;
+            //var response = instance.GetCouponsWithoutTotalCount(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, expiresBefore, expiresAfter, startsBefore, startsAfter, valuesOnly);
             //Assert.IsType<InlineResponse2009> (response, "response is InlineResponse2009");
         }
         
@@ -1738,6 +1769,20 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test ImportCampaignStores
+        /// </summary>
+        [Fact]
+        public void ImportCampaignStoresTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int applicationId = null;
+            //int campaignId = null;
+            //string upFile = null;
+            //var response = instance.ImportCampaignStores(applicationId, campaignId, upFile);
+            //Assert.IsType<Import> (response, "response is Import");
+        }
+        
+        /// <summary>
         /// Test ImportCollection
         /// </summary>
         [Fact]
@@ -1974,6 +2019,17 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test OktaEventHandlerChallenge
+        /// </summary>
+        [Fact]
+        public void OktaEventHandlerChallengeTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //instance.OktaEventHandlerChallenge();
+            
+        }
+        
+        /// <summary>
         /// Test PostAddedDeductedPointsNotification
         /// </summary>
         [Fact]
@@ -2036,6 +2092,111 @@ namespace TalonOne.Test
             //NewPassword body = null;
             //var response = instance.ResetPassword(body);
             //Assert.IsType<NewPassword> (response, "response is NewPassword");
+        }
+        
+        /// <summary>
+        /// Test ScimCreateUser
+        /// </summary>
+        [Fact]
+        public void ScimCreateUserTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Object body = null;
+            //var response = instance.ScimCreateUser(body);
+            //Assert.IsType<ScimUser> (response, "response is ScimUser");
+        }
+        
+        /// <summary>
+        /// Test ScimDeleteUser
+        /// </summary>
+        [Fact]
+        public void ScimDeleteUserTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int userId = null;
+            //instance.ScimDeleteUser(userId);
+            
+        }
+        
+        /// <summary>
+        /// Test ScimGetResourceTypes
+        /// </summary>
+        [Fact]
+        public void ScimGetResourceTypesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.ScimGetResourceTypes();
+            //Assert.IsType<ScimResourceTypesListResponse> (response, "response is ScimResourceTypesListResponse");
+        }
+        
+        /// <summary>
+        /// Test ScimGetSchemas
+        /// </summary>
+        [Fact]
+        public void ScimGetSchemasTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //instance.ScimGetSchemas();
+            
+        }
+        
+        /// <summary>
+        /// Test ScimGetServiceProviderConfig
+        /// </summary>
+        [Fact]
+        public void ScimGetServiceProviderConfigTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //instance.ScimGetServiceProviderConfig();
+            
+        }
+        
+        /// <summary>
+        /// Test ScimGetUser
+        /// </summary>
+        [Fact]
+        public void ScimGetUserTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int userId = null;
+            //var response = instance.ScimGetUser(userId);
+            //Assert.IsType<ScimUser> (response, "response is ScimUser");
+        }
+        
+        /// <summary>
+        /// Test ScimGetUsers
+        /// </summary>
+        [Fact]
+        public void ScimGetUsersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.ScimGetUsers();
+            //Assert.IsType<ScimUsersListResponse> (response, "response is ScimUsersListResponse");
+        }
+        
+        /// <summary>
+        /// Test ScimPatchUser
+        /// </summary>
+        [Fact]
+        public void ScimPatchUserTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int userId = null;
+            //var response = instance.ScimPatchUser(userId);
+            //Assert.IsType<ScimUser> (response, "response is ScimUser");
+        }
+        
+        /// <summary>
+        /// Test ScimReplaceUserAttributes
+        /// </summary>
+        [Fact]
+        public void ScimReplaceUserAttributesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int userId = null;
+            //Object body = null;
+            //var response = instance.ScimReplaceUserAttributes(userId, body);
+            //Assert.IsType<ScimUser> (response, "response is ScimUser");
         }
         
         /// <summary>

@@ -44,6 +44,7 @@ Name | Type | Description | Notes
 **UpdatedBy** | **string** | Name of the user who last updated this campaign if available. | [optional] 
 **TemplateId** | **int** | The ID of the Campaign Template this Campaign was created from. | [optional] 
 **FrontendState** | **string** | A campaign state described exactly as in the Campaign Manager. | 
+**StoresImported** | **bool** | Indicates whether the linked stores were imported via a CSV file. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

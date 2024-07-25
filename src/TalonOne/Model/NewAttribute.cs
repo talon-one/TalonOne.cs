@@ -39,70 +39,64 @@ namespace TalonOne.Model
         public enum EntityEnum
         {
             /// <summary>
-            /// Enum Account for value: Account
-            /// </summary>
-            [EnumMember(Value = "Account")]
-            Account = 1,
-
-            /// <summary>
             /// Enum Application for value: Application
             /// </summary>
             [EnumMember(Value = "Application")]
-            Application = 2,
+            Application = 1,
 
             /// <summary>
             /// Enum Campaign for value: Campaign
             /// </summary>
             [EnumMember(Value = "Campaign")]
-            Campaign = 3,
+            Campaign = 2,
 
             /// <summary>
             /// Enum CustomerProfile for value: CustomerProfile
             /// </summary>
             [EnumMember(Value = "CustomerProfile")]
-            CustomerProfile = 4,
+            CustomerProfile = 3,
 
             /// <summary>
             /// Enum CustomerSession for value: CustomerSession
             /// </summary>
             [EnumMember(Value = "CustomerSession")]
-            CustomerSession = 5,
+            CustomerSession = 4,
 
             /// <summary>
             /// Enum CartItem for value: CartItem
             /// </summary>
             [EnumMember(Value = "CartItem")]
-            CartItem = 6,
+            CartItem = 5,
 
             /// <summary>
             /// Enum Coupon for value: Coupon
             /// </summary>
             [EnumMember(Value = "Coupon")]
-            Coupon = 7,
+            Coupon = 6,
 
             /// <summary>
             /// Enum Event for value: Event
             /// </summary>
             [EnumMember(Value = "Event")]
-            Event = 8,
+            Event = 7,
 
             /// <summary>
             /// Enum Giveaway for value: Giveaway
             /// </summary>
             [EnumMember(Value = "Giveaway")]
-            Giveaway = 9,
+            Giveaway = 8,
 
             /// <summary>
             /// Enum Referral for value: Referral
             /// </summary>
             [EnumMember(Value = "Referral")]
-            Referral = 10,
+            Referral = 9,
 
             /// <summary>
             /// Enum Store for value: Store
             /// </summary>
             [EnumMember(Value = "Store")]
-            Store = 11
+            Store = 10
 
         }
 

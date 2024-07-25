@@ -34,15 +34,20 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationAnalyticsDataPoint" /> class.
         /// </summary>
-        /// <param name="startTime">The start of the aggregation time frame in UTC..</param>
-        /// <param name="endTime">The end of the aggregation time frame in UTC..</param>
+        [JsonConstructorAttribute]
+        protected ApplicationAnalyticsDataPoint() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApplicationAnalyticsDataPoint" /> class.
+        /// </summary>
+        /// <param name="startTime">The start of the aggregation time frame in UTC. (required).</param>
+        /// <param name="endTime">The end of the aggregation time frame in UTC. (required).</param>
         /// <param name="totalRevenue">totalRevenue.</param>
         /// <param name="sessionsCount">sessionsCount.</param>
         /// <param name="avgItemsPerSession">avgItemsPerSession.</param>
         /// <param name="avgSessionValue">avgSessionValue.</param>
         /// <param name="totalDiscounts">The total value of discounts given for cart items in influenced sessions..</param>
         /// <param name="couponsCount">The number of times a coupon was successfully redeemed in influenced sessions..</param>
-        public ApplicationAnalyticsDataPoint(DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), ApplicationAnalyticsDataPointTotalRevenue totalRevenue = default(ApplicationAnalyticsDataPointTotalRevenue), ApplicationAnalyticsDataPointSessionsCount sessionsCount = default(ApplicationAnalyticsDataPointSessionsCount), ApplicationAnalyticsDataPointAvgItemsPerSession avgItemsPerSession = default(ApplicationAnalyticsDataPointAvgItemsPerSession), ApplicationAnalyticsDataPointAvgSessionValue avgSessionValue = default(ApplicationAnalyticsDataPointAvgSessionValue), decimal totalDiscounts = default(decimal), decimal couponsCount = default(decimal))
+        public ApplicationAnalyticsDataPoint(DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), AnalyticsDataPoint totalRevenue = default(AnalyticsDataPoint), AnalyticsDataPoint sessionsCount = default(AnalyticsDataPoint), AnalyticsDataPoint avgItemsPerSession = default(AnalyticsDataPoint), AnalyticsDataPoint avgSessionValue = default(AnalyticsDataPoint), decimal totalDiscounts = default(decimal), decimal couponsCount = default(decimal))
         {
             this.StartTime = startTime;
             this.EndTime = endTime;
@@ -72,25 +77,25 @@ namespace TalonOne.Model
         /// Gets or Sets TotalRevenue
         /// </summary>
         [DataMember(Name="totalRevenue", EmitDefaultValue=false)]
-        public ApplicationAnalyticsDataPointTotalRevenue TotalRevenue { get; set; }
+        public AnalyticsDataPoint TotalRevenue { get; set; }
 
         /// <summary>
         /// Gets or Sets SessionsCount
         /// </summary>
         [DataMember(Name="sessionsCount", EmitDefaultValue=false)]
-        public ApplicationAnalyticsDataPointSessionsCount SessionsCount { get; set; }
+        public AnalyticsDataPoint SessionsCount { get; set; }
 
         /// <summary>
         /// Gets or Sets AvgItemsPerSession
         /// </summary>
         [DataMember(Name="avgItemsPerSession", EmitDefaultValue=false)]
-        public ApplicationAnalyticsDataPointAvgItemsPerSession AvgItemsPerSession { get; set; }
+        public AnalyticsDataPoint AvgItemsPerSession { get; set; }
 
         /// <summary>
         /// Gets or Sets AvgSessionValue
         /// </summary>
         [DataMember(Name="avgSessionValue", EmitDefaultValue=false)]
-        public ApplicationAnalyticsDataPointAvgSessionValue AvgSessionValue { get; set; }
+        public AnalyticsDataPoint AvgSessionValue { get; set; }
 
         /// <summary>
         /// The total value of discounts given for cart items in influenced sessions.

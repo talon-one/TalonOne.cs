@@ -106,30 +106,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'CampaignState'
         }
         /// <summary>
-        /// Test the property 'CampaignActiveRulesetId'
-        /// </summary>
-        [Fact]
-        public void CampaignActiveRulesetIdTest()
-        {
-            // TODO unit test for the property 'CampaignActiveRulesetId'
-        }
-        /// <summary>
-        /// Test the property 'CampaignStartTime'
-        /// </summary>
-        [Fact]
-        public void CampaignStartTimeTest()
-        {
-            // TODO unit test for the property 'CampaignStartTime'
-        }
-        /// <summary>
-        /// Test the property 'CampaignEndTime'
-        /// </summary>
-        [Fact]
-        public void CampaignEndTimeTest()
-        {
-            // TODO unit test for the property 'CampaignEndTime'
-        }
-        /// <summary>
         /// Test the property 'TotalRevenue'
         /// </summary>
         [Fact]

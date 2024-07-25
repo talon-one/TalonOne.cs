@@ -97,6 +97,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Details'
         }
+        /// <summary>
+        /// Test the property 'CampaignExclusionReason'
+        /// </summary>
+        [Fact]
+        public void CampaignExclusionReasonTest()
+        {
+            // TODO unit test for the property 'CampaignExclusionReason'
+        }
 
     }
 

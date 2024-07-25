@@ -242,7 +242,8 @@ namespace TalonOne.Model
         /// <param name="updatedBy">Name of the user who last updated this campaign if available..</param>
         /// <param name="templateId">The ID of the Campaign Template this Campaign was created from..</param>
         /// <param name="frontendState">A campaign state described exactly as in the Campaign Manager. (required).</param>
-        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), TypeEnum type = TypeEnum.Advanced, List<int> linkedStoreIds = default(List<int>), List<CampaignBudget> budgets = default(List<CampaignBudget>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), decimal discountCount = default(decimal), int discountEffectCount = default(int), int couponCreationCount = default(int), int customEffectCount = default(int), int referralCreationCount = default(int), int addFreeItemEffectCount = default(int), int awardedGiveawaysCount = default(int), decimal createdLoyaltyPointsCount = default(decimal), int createdLoyaltyPointsEffectCount = default(int), decimal redeemedLoyaltyPointsCount = default(decimal), int redeemedLoyaltyPointsEffectCount = default(int), int callApiEffectCount = default(int), int reservecouponEffectCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string), int templateId = default(int), FrontendStateEnum frontendState = default(FrontendStateEnum))
+        /// <param name="storesImported">Indicates whether the linked stores were imported via a CSV file. (required).</param>
+        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), TypeEnum type = TypeEnum.Advanced, List<int> linkedStoreIds = default(List<int>), List<CampaignBudget> budgets = default(List<CampaignBudget>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), decimal discountCount = default(decimal), int discountEffectCount = default(int), int couponCreationCount = default(int), int customEffectCount = default(int), int referralCreationCount = default(int), int addFreeItemEffectCount = default(int), int awardedGiveawaysCount = default(int), decimal createdLoyaltyPointsCount = default(decimal), int createdLoyaltyPointsEffectCount = default(int), decimal redeemedLoyaltyPointsCount = default(decimal), int redeemedLoyaltyPointsEffectCount = default(int), int callApiEffectCount = default(int), int reservecouponEffectCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string), int templateId = default(int), FrontendStateEnum frontendState = default(FrontendStateEnum), bool storesImported = default(bool))
         {
             this.Id = id;
             this.Created = created;
@@ -263,6 +264,7 @@ namespace TalonOne.Model
             // to ensure "budgets" is required (not null)
             this.Budgets = budgets ?? throw new ArgumentNullException("budgets is a required property for Campaign and cannot be null");
             this.FrontendState = frontendState;
+            this.StoresImported = storesImported;
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.Attributes = attributes;
@@ -551,6 +553,13 @@ namespace TalonOne.Model
         public int TemplateId { get; set; }
 
         /// <summary>
+        /// Indicates whether the linked stores were imported via a CSV file.
+        /// </summary>
+        /// <value>Indicates whether the linked stores were imported via a CSV file.</value>
+        [DataMember(Name="storesImported", EmitDefaultValue=false)]
+        public bool StoresImported { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -599,6 +608,7 @@ namespace TalonOne.Model
             sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
             sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
             sb.Append("  FrontendState: ").Append(FrontendState).Append("\n");
+            sb.Append("  StoresImported: ").Append(StoresImported).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -818,6 +828,10 @@ namespace TalonOne.Model
                 (
                     this.FrontendState == input.FrontendState ||
                     this.FrontendState.Equals(input.FrontendState)
+                ) && 
+                (
+                    this.StoresImported == input.StoresImported ||
+                    this.StoresImported.Equals(input.StoresImported)
                 );
         }
 
@@ -888,6 +902,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.UpdatedBy.GetHashCode();
                 hashCode = hashCode * 59 + this.TemplateId.GetHashCode();
                 hashCode = hashCode * 59 + this.FrontendState.GetHashCode();
+                hashCode = hashCode * 59 + this.StoresImported.GetHashCode();
                 return hashCode;
             }
         }

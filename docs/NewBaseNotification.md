@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Policy** | [**Object**](.md) |  | 
+**Policy** | [**Object**](.md) | Indicates which notification properties to apply. | 
 **Enabled** | **bool** | Indicates whether the notification is activated. | [optional] [default to true]
 **Webhook** | [**NewNotificationWebhook**](NewNotificationWebhook.md) |  | 
 

@@ -51,58 +51,64 @@ namespace TalonOne.Model
             Loyaltyaddeddeductedpoints = 2,
 
             /// <summary>
+            /// Enum Cardaddeddeductedpoints for value: card_added_deducted_points
+            /// </summary>
+            [EnumMember(Value = "card_added_deducted_points")]
+            Cardaddeddeductedpoints = 3,
+
+            /// <summary>
             /// Enum Coupon for value: coupon
             /// </summary>
             [EnumMember(Value = "coupon")]
-            Coupon = 3,
+            Coupon = 4,
 
             /// <summary>
             /// Enum Expiringcoupons for value: expiring_coupons
             /// </summary>
             [EnumMember(Value = "expiring_coupons")]
-            Expiringcoupons = 4,
+            Expiringcoupons = 5,
 
             /// <summary>
             /// Enum Expiringpoints for value: expiring_points
             /// </summary>
             [EnumMember(Value = "expiring_points")]
-            Expiringpoints = 5,
+            Expiringpoints = 6,
 
             /// <summary>
             /// Enum Cardexpiringpoints for value: card_expiring_points
             /// </summary>
             [EnumMember(Value = "card_expiring_points")]
-            Cardexpiringpoints = 6,
+            Cardexpiringpoints = 7,
 
             /// <summary>
             /// Enum Pendingtoactivepoints for value: pending_to_active_points
             /// </summary>
             [EnumMember(Value = "pending_to_active_points")]
-            Pendingtoactivepoints = 7,
+            Pendingtoactivepoints = 8,
 
             /// <summary>
             /// Enum Strikethroughpricing for value: strikethrough_pricing
             /// </summary>
             [EnumMember(Value = "strikethrough_pricing")]
-            Strikethroughpricing = 8,
+            Strikethroughpricing = 9,
 
             /// <summary>
             /// Enum Tierdowngrade for value: tier_downgrade
             /// </summary>
             [EnumMember(Value = "tier_downgrade")]
-            Tierdowngrade = 9,
+            Tierdowngrade = 10,
 
             /// <summary>
             /// Enum Tierupgrade for value: tier_upgrade
             /// </summary>
             [EnumMember(Value = "tier_upgrade")]
-            Tierupgrade = 10,
+            Tierupgrade = 11,
 
             /// <summary>
             /// Enum Tierwilldowngrade for value: tier_will_downgrade
             /// </summary>
             [EnumMember(Value = "tier_will_downgrade")]
-            Tierwilldowngrade = 11
+            Tierwilldowngrade = 12
 
         }
 
@@ -120,7 +126,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseNotification" /> class.
         /// </summary>
-        /// <param name="policy">policy (required).</param>
+        /// <param name="policy">Indicates which notification properties to apply. (required).</param>
         /// <param name="enabled">Indicates whether the notification is activated. (default to true).</param>
         /// <param name="webhook">webhook (required).</param>
         /// <param name="id">Unique ID for this entity. (required).</param>
@@ -137,8 +143,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Gets or Sets Policy
+        /// Indicates which notification properties to apply.
         /// </summary>
+        /// <value>Indicates which notification properties to apply.</value>
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public Object Policy { get; set; }
 

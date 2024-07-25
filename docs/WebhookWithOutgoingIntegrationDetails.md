@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Modified** | **DateTime** | The time this entity was last modified. | 
 **ApplicationIds** | **List&lt;int&gt;** | The IDs of the Applications that are related to this entity. The IDs of the Applications that are related to this entity. | 
 **Title** | **string** | Name or title for this webhook. | 
+**Description** | **string** | A description of the webhook. | [optional] 
 **Verb** | **string** | API method for this webhook. | 
 **Url** | **string** | API URL (supports templating using parameters) for this webhook. | 
 **Headers** | **List&lt;string&gt;** | List of API HTTP headers for this webhook. | 

@@ -44,7 +44,8 @@ namespace TalonOne.Model
         /// <param name="conditionIndex">The index of the condition that caused the rejection of the coupon..</param>
         /// <param name="effectIndex">The index of the effect that caused the rejection of the coupon..</param>
         /// <param name="details">More details about the failure..</param>
-        public RejectCouponEffectProps(string value = default(string), string rejectionReason = default(string), int conditionIndex = default(int), int effectIndex = default(int), string details = default(string))
+        /// <param name="campaignExclusionReason">The reason why the campaign was not applied..</param>
+        public RejectCouponEffectProps(string value = default(string), string rejectionReason = default(string), int conditionIndex = default(int), int effectIndex = default(int), string details = default(string), string campaignExclusionReason = default(string))
         {
             // to ensure "value" is required (not null)
             this.Value = value ?? throw new ArgumentNullException("value is a required property for RejectCouponEffectProps and cannot be null");
@@ -53,6 +54,7 @@ namespace TalonOne.Model
             this.ConditionIndex = conditionIndex;
             this.EffectIndex = effectIndex;
             this.Details = details;
+            this.CampaignExclusionReason = campaignExclusionReason;
         }
         
         /// <summary>
@@ -91,6 +93,13 @@ namespace TalonOne.Model
         public string Details { get; set; }
 
         /// <summary>
+        /// The reason why the campaign was not applied.
+        /// </summary>
+        /// <value>The reason why the campaign was not applied.</value>
+        [DataMember(Name="campaignExclusionReason", EmitDefaultValue=false)]
+        public string CampaignExclusionReason { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,6 +112,7 @@ namespace TalonOne.Model
             sb.Append("  ConditionIndex: ").Append(ConditionIndex).Append("\n");
             sb.Append("  EffectIndex: ").Append(EffectIndex).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  CampaignExclusionReason: ").Append(CampaignExclusionReason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -159,6 +169,11 @@ namespace TalonOne.Model
                     this.Details == input.Details ||
                     (this.Details != null &&
                     this.Details.Equals(input.Details))
+                ) && 
+                (
+                    this.CampaignExclusionReason == input.CampaignExclusionReason ||
+                    (this.CampaignExclusionReason != null &&
+                    this.CampaignExclusionReason.Equals(input.CampaignExclusionReason))
                 );
         }
 
@@ -179,6 +194,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.EffectIndex.GetHashCode();
                 if (this.Details != null)
                     hashCode = hashCode * 59 + this.Details.GetHashCode();
+                if (this.CampaignExclusionReason != null)
+                    hashCode = hashCode * 59 + this.CampaignExclusionReason.GetHashCode();
                 return hashCode;
             }
         }

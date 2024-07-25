@@ -40,10 +40,12 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="TransferLoyaltyCard" /> class.
         /// </summary>
         /// <param name="newCardIdentifier">The alphanumeric identifier of the loyalty card.  (required).</param>
-        public TransferLoyaltyCard(string newCardIdentifier = default(string))
+        /// <param name="blockReason">Reason for transferring and blocking the loyalty card. .</param>
+        public TransferLoyaltyCard(string newCardIdentifier = default(string), string blockReason = default(string))
         {
             // to ensure "newCardIdentifier" is required (not null)
             this.NewCardIdentifier = newCardIdentifier ?? throw new ArgumentNullException("newCardIdentifier is a required property for TransferLoyaltyCard and cannot be null");
+            this.BlockReason = blockReason;
         }
         
         /// <summary>
@@ -54,6 +56,13 @@ namespace TalonOne.Model
         public string NewCardIdentifier { get; set; }
 
         /// <summary>
+        /// Reason for transferring and blocking the loyalty card. 
+        /// </summary>
+        /// <value>Reason for transferring and blocking the loyalty card. </value>
+        [DataMember(Name="blockReason", EmitDefaultValue=false)]
+        public string BlockReason { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +71,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class TransferLoyaltyCard {\n");
             sb.Append("  NewCardIdentifier: ").Append(NewCardIdentifier).Append("\n");
+            sb.Append("  BlockReason: ").Append(BlockReason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +110,11 @@ namespace TalonOne.Model
                     this.NewCardIdentifier == input.NewCardIdentifier ||
                     (this.NewCardIdentifier != null &&
                     this.NewCardIdentifier.Equals(input.NewCardIdentifier))
+                ) && 
+                (
+                    this.BlockReason == input.BlockReason ||
+                    (this.BlockReason != null &&
+                    this.BlockReason.Equals(input.BlockReason))
                 );
         }
 
@@ -114,6 +129,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.NewCardIdentifier != null)
                     hashCode = hashCode * 59 + this.NewCardIdentifier.GetHashCode();
+                if (this.BlockReason != null)
+                    hashCode = hashCode * 59 + this.BlockReason.GetHashCode();
                 return hashCode;
             }
         }
