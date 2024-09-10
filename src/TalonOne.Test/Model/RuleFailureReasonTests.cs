@@ -153,6 +153,22 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Details'
         }
+        /// <summary>
+        /// Test the property 'EvaluationGroupID'
+        /// </summary>
+        [Fact]
+        public void EvaluationGroupIDTest()
+        {
+            // TODO unit test for the property 'EvaluationGroupID'
+        }
+        /// <summary>
+        /// Test the property 'EvaluationGroupMode'
+        /// </summary>
+        [Fact]
+        public void EvaluationGroupModeTest()
+        {
+            // TODO unit test for the property 'EvaluationGroupMode'
+        }
 
     }
 

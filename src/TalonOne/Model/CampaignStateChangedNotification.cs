@@ -40,8 +40,8 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CampaignStateChangedNotification" /> class.
         /// </summary>
         /// <param name="campaign">campaign (required).</param>
-        /// <param name="oldState">The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;draft&#39;, &#39;archived&#39;]  (required).</param>
-        /// <param name="newState">The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;draft&#39;, &#39;archived&#39;]  (required).</param>
+        /// <param name="oldState">The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;]  (required).</param>
+        /// <param name="newState">The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;]  (required).</param>
         /// <param name="ruleset">ruleset.</param>
         public CampaignStateChangedNotification(Campaign campaign = default(Campaign), string oldState = default(string), string newState = default(string), Ruleset ruleset = default(Ruleset))
         {
@@ -61,16 +61,16 @@ namespace TalonOne.Model
         public Campaign Campaign { get; set; }
 
         /// <summary>
-        /// The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;draft&#39;, &#39;archived&#39;] 
+        /// The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;] 
         /// </summary>
-        /// <value>The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;draft&#39;, &#39;archived&#39;] </value>
+        /// <value>The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;] </value>
         [DataMember(Name="oldState", EmitDefaultValue=false)]
         public string OldState { get; set; }
 
         /// <summary>
-        /// The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;draft&#39;, &#39;archived&#39;] 
+        /// The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;] 
         /// </summary>
-        /// <value>The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;draft&#39;, &#39;archived&#39;] </value>
+        /// <value>The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;] </value>
         [DataMember(Name="newState", EmitDefaultValue=false)]
         public string NewState { get; set; }
 

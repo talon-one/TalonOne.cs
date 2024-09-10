@@ -65,6 +65,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Enforced'
         }
+        /// <summary>
+        /// Test the property 'NewAcsUrl'
+        /// </summary>
+        [Fact]
+        public void NewAcsUrlTest()
+        {
+            // TODO unit test for the property 'NewAcsUrl'
+        }
 
     }
 

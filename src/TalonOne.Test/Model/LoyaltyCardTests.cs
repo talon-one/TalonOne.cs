@@ -90,6 +90,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Status'
         }
         /// <summary>
+        /// Test the property 'BlockReason'
+        /// </summary>
+        [Fact]
+        public void BlockReasonTest()
+        {
+            // TODO unit test for the property 'BlockReason'
+        }
+        /// <summary>
         /// Test the property 'Identifier'
         /// </summary>
         [Fact]

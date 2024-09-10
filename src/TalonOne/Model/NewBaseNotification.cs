@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewBaseNotification" /> class.
         /// </summary>
-        /// <param name="policy">policy (required).</param>
+        /// <param name="policy">Indicates which notification properties to apply. (required).</param>
         /// <param name="enabled">Indicates whether the notification is activated. (default to true).</param>
         /// <param name="webhook">webhook (required).</param>
         public NewBaseNotification(Object policy = default(Object), bool enabled = true, NewNotificationWebhook webhook = default(NewNotificationWebhook))
@@ -52,8 +52,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Gets or Sets Policy
+        /// Indicates which notification properties to apply.
         /// </summary>
+        /// <value>Indicates which notification properties to apply.</value>
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public Object Policy { get; set; }
 

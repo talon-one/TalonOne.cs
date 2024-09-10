@@ -32,60 +32,6 @@ namespace TalonOne.Model
     public partial class UpdateLoyaltyProgram :  IEquatable<UpdateLoyaltyProgram>, IValidatableObject
     {
         /// <summary>
-        /// The policy that defines which date is used to calculate the expiration date of a customer&#39;s current tier.  - &#x60;tier_start_date&#x60;: The tier expiration date is calculated based on when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration date is calculated based on when the customer joined the loyalty program. 
-        /// </summary>
-        /// <value>The policy that defines which date is used to calculate the expiration date of a customer&#39;s current tier.  - &#x60;tier_start_date&#x60;: The tier expiration date is calculated based on when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration date is calculated based on when the customer joined the loyalty program. </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TiersExpirationPolicyEnum
-        {
-            /// <summary>
-            /// Enum Tierstartdate for value: tier_start_date
-            /// </summary>
-            [EnumMember(Value = "tier_start_date")]
-            Tierstartdate = 1,
-
-            /// <summary>
-            /// Enum Programjoindate for value: program_join_date
-            /// </summary>
-            [EnumMember(Value = "program_join_date")]
-            Programjoindate = 2
-
-        }
-
-        /// <summary>
-        /// The policy that defines which date is used to calculate the expiration date of a customer&#39;s current tier.  - &#x60;tier_start_date&#x60;: The tier expiration date is calculated based on when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration date is calculated based on when the customer joined the loyalty program. 
-        /// </summary>
-        /// <value>The policy that defines which date is used to calculate the expiration date of a customer&#39;s current tier.  - &#x60;tier_start_date&#x60;: The tier expiration date is calculated based on when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration date is calculated based on when the customer joined the loyalty program. </value>
-        [DataMember(Name="tiersExpirationPolicy", EmitDefaultValue=false)]
-        public TiersExpirationPolicyEnum? TiersExpirationPolicy { get; set; }
-        /// <summary>
-        /// Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. 
-        /// </summary>
-        /// <value>Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. </value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TiersDowngradePolicyEnum
-        {
-            /// <summary>
-            /// Enum Onedown for value: one_down
-            /// </summary>
-            [EnumMember(Value = "one_down")]
-            Onedown = 1,
-
-            /// <summary>
-            /// Enum Balancebased for value: balance_based
-            /// </summary>
-            [EnumMember(Value = "balance_based")]
-            Balancebased = 2
-
-        }
-
-        /// <summary>
-        /// Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. 
-        /// </summary>
-        /// <value>Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. </value>
-        [DataMember(Name="tiersDowngradePolicy", EmitDefaultValue=false)]
-        public TiersDowngradePolicyEnum? TiersDowngradePolicy { get; set; }
-        /// <summary>
         /// The policy that defines when the customer joins the loyalty program.   - &#x60;not_join&#x60;: The customer does not join the loyalty program but can still earn and spend loyalty points.       **Note**: The customer does not have a program join date.   - &#x60;points_activated&#x60;: The customer joins the loyalty program only when their earned loyalty points become active for the first time.   - &#x60;points_earned&#x60;: The customer joins the loyalty program when they earn loyalty points for the first time. 
         /// </summary>
         /// <value>The policy that defines when the customer joins the loyalty program.   - &#x60;not_join&#x60;: The customer does not join the loyalty program but can still earn and spend loyalty points.       **Note**: The customer does not have a program join date.   - &#x60;points_activated&#x60;: The customer joins the loyalty program only when their earned loyalty points become active for the first time.   - &#x60;points_earned&#x60;: The customer joins the loyalty program when they earn loyalty points for the first time. </value>
@@ -119,6 +65,72 @@ namespace TalonOne.Model
         [DataMember(Name="programJoinPolicy", EmitDefaultValue=false)]
         public ProgramJoinPolicyEnum? ProgramJoinPolicy { get; set; }
         /// <summary>
+        /// The policy that defines how tier expiration, used to reevaluate the customer&#39;s current tier, is determined.  - &#x60;tier_start_date&#x60;: The tier expiration is relative to when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration is relative to when the customer joined the loyalty program.  - &#x60;customer_attribute&#x60;: The tier expiration is determined by a custom customer attribute.  - &#x60;absolute_expiration&#x60;: The tier is reevaluated at the start of each tier cycle. For this policy, it is required to provide a &#x60;tierCycleStartDate&#x60;. 
+        /// </summary>
+        /// <value>The policy that defines how tier expiration, used to reevaluate the customer&#39;s current tier, is determined.  - &#x60;tier_start_date&#x60;: The tier expiration is relative to when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration is relative to when the customer joined the loyalty program.  - &#x60;customer_attribute&#x60;: The tier expiration is determined by a custom customer attribute.  - &#x60;absolute_expiration&#x60;: The tier is reevaluated at the start of each tier cycle. For this policy, it is required to provide a &#x60;tierCycleStartDate&#x60;. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TiersExpirationPolicyEnum
+        {
+            /// <summary>
+            /// Enum Tierstartdate for value: tier_start_date
+            /// </summary>
+            [EnumMember(Value = "tier_start_date")]
+            Tierstartdate = 1,
+
+            /// <summary>
+            /// Enum Programjoindate for value: program_join_date
+            /// </summary>
+            [EnumMember(Value = "program_join_date")]
+            Programjoindate = 2,
+
+            /// <summary>
+            /// Enum Customerattribute for value: customer_attribute
+            /// </summary>
+            [EnumMember(Value = "customer_attribute")]
+            Customerattribute = 3,
+
+            /// <summary>
+            /// Enum Absoluteexpiration for value: absolute_expiration
+            /// </summary>
+            [EnumMember(Value = "absolute_expiration")]
+            Absoluteexpiration = 4
+
+        }
+
+        /// <summary>
+        /// The policy that defines how tier expiration, used to reevaluate the customer&#39;s current tier, is determined.  - &#x60;tier_start_date&#x60;: The tier expiration is relative to when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration is relative to when the customer joined the loyalty program.  - &#x60;customer_attribute&#x60;: The tier expiration is determined by a custom customer attribute.  - &#x60;absolute_expiration&#x60;: The tier is reevaluated at the start of each tier cycle. For this policy, it is required to provide a &#x60;tierCycleStartDate&#x60;. 
+        /// </summary>
+        /// <value>The policy that defines how tier expiration, used to reevaluate the customer&#39;s current tier, is determined.  - &#x60;tier_start_date&#x60;: The tier expiration is relative to when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration is relative to when the customer joined the loyalty program.  - &#x60;customer_attribute&#x60;: The tier expiration is determined by a custom customer attribute.  - &#x60;absolute_expiration&#x60;: The tier is reevaluated at the start of each tier cycle. For this policy, it is required to provide a &#x60;tierCycleStartDate&#x60;. </value>
+        [DataMember(Name="tiersExpirationPolicy", EmitDefaultValue=false)]
+        public TiersExpirationPolicyEnum? TiersExpirationPolicy { get; set; }
+        /// <summary>
+        /// The policy that defines how customer tiers are downgraded in the loyalty program after tier reevaluation.  - &#x60;one_down&#x60;: If the customer doesn&#39;t have enough points to stay in the current tier, they are downgraded by one tier.  - &#x60;balance_based&#x60;: The customer&#39;s tier is reevaluated based on the amount of active points they have at the moment. 
+        /// </summary>
+        /// <value>The policy that defines how customer tiers are downgraded in the loyalty program after tier reevaluation.  - &#x60;one_down&#x60;: If the customer doesn&#39;t have enough points to stay in the current tier, they are downgraded by one tier.  - &#x60;balance_based&#x60;: The customer&#39;s tier is reevaluated based on the amount of active points they have at the moment. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TiersDowngradePolicyEnum
+        {
+            /// <summary>
+            /// Enum Onedown for value: one_down
+            /// </summary>
+            [EnumMember(Value = "one_down")]
+            Onedown = 1,
+
+            /// <summary>
+            /// Enum Balancebased for value: balance_based
+            /// </summary>
+            [EnumMember(Value = "balance_based")]
+            Balancebased = 2
+
+        }
+
+        /// <summary>
+        /// The policy that defines how customer tiers are downgraded in the loyalty program after tier reevaluation.  - &#x60;one_down&#x60;: If the customer doesn&#39;t have enough points to stay in the current tier, they are downgraded by one tier.  - &#x60;balance_based&#x60;: The customer&#39;s tier is reevaluated based on the amount of active points they have at the moment. 
+        /// </summary>
+        /// <value>The policy that defines how customer tiers are downgraded in the loyalty program after tier reevaluation.  - &#x60;one_down&#x60;: If the customer doesn&#39;t have enough points to stay in the current tier, they are downgraded by one tier.  - &#x60;balance_based&#x60;: The customer&#39;s tier is reevaluated based on the amount of active points they have at the moment. </value>
+        [DataMember(Name="tiersDowngradePolicy", EmitDefaultValue=false)]
+        public TiersDowngradePolicyEnum? TiersDowngradePolicy { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="UpdateLoyaltyProgram" /> class.
         /// </summary>
         /// <param name="title">The display title for the Loyalty Program..</param>
@@ -129,12 +141,14 @@ namespace TalonOne.Model
         /// <param name="allowSubledger">Indicates if this program supports subledgers inside the program..</param>
         /// <param name="usersPerCardLimit">The max amount of user profiles with whom a card can be shared. This can be set to 0 for no limit. This property is only used when &#x60;cardBased&#x60; is &#x60;true&#x60;. .</param>
         /// <param name="sandbox">Indicates if this program is a live or sandbox program. Programs of a given type can only be connected to Applications of the same type..</param>
-        /// <param name="tiersExpirationPolicy">The policy that defines which date is used to calculate the expiration date of a customer&#39;s current tier.  - &#x60;tier_start_date&#x60;: The tier expiration date is calculated based on when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration date is calculated based on when the customer joined the loyalty program. .</param>
-        /// <param name="tiersExpireIn">The amount of time after which the tier expires.  The time format is an **integer** followed by one letter indicating the time unit. Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. .</param>
-        /// <param name="tiersDowngradePolicy">Customers&#39;s tier downgrade policy.  - &#x60;one_down&#x60;: Once the tier expires and if the user doesn&#39;t have enough points to stay in the tier, the user is downgraded one tier down.  - &#x60;balance_based&#x60;: Once the tier expires, the user&#39;s tier is evaluated based on the amount of active points the user has at this instant. .</param>
         /// <param name="programJoinPolicy">The policy that defines when the customer joins the loyalty program.   - &#x60;not_join&#x60;: The customer does not join the loyalty program but can still earn and spend loyalty points.       **Note**: The customer does not have a program join date.   - &#x60;points_activated&#x60;: The customer joins the loyalty program only when their earned loyalty points become active for the first time.   - &#x60;points_earned&#x60;: The customer joins the loyalty program when they earn loyalty points for the first time. .</param>
+        /// <param name="tiersExpirationPolicy">The policy that defines how tier expiration, used to reevaluate the customer&#39;s current tier, is determined.  - &#x60;tier_start_date&#x60;: The tier expiration is relative to when the customer joined the current tier.  - &#x60;program_join_date&#x60;: The tier expiration is relative to when the customer joined the loyalty program.  - &#x60;customer_attribute&#x60;: The tier expiration is determined by a custom customer attribute.  - &#x60;absolute_expiration&#x60;: The tier is reevaluated at the start of each tier cycle. For this policy, it is required to provide a &#x60;tierCycleStartDate&#x60;. .</param>
+        /// <param name="tierCycleStartDate">Timestamp at which the tier cycle starts for all customers in the loyalty program.  **Note**: This is only required when the tier expiration policy is set to &#x60;absolute_expiration&#x60;. .</param>
+        /// <param name="tiersExpireIn">The amount of time after which the tier expires and is reevaluated.  The time format is an **integer** followed by one letter indicating the time unit. Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. .</param>
+        /// <param name="tiersDowngradePolicy">The policy that defines how customer tiers are downgraded in the loyalty program after tier reevaluation.  - &#x60;one_down&#x60;: If the customer doesn&#39;t have enough points to stay in the current tier, they are downgraded by one tier.  - &#x60;balance_based&#x60;: The customer&#39;s tier is reevaluated based on the amount of active points they have at the moment. .</param>
+        /// <param name="cardCodeSettings">cardCodeSettings.</param>
         /// <param name="tiers">The tiers in this loyalty program..</param>
-        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), bool sandbox = default(bool), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
+        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), bool sandbox = default(bool), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), DateTime tierCycleStartDate = default(DateTime), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
         {
             this.Title = title;
             this.Description = description;
@@ -144,10 +158,12 @@ namespace TalonOne.Model
             this.AllowSubledger = allowSubledger;
             this.UsersPerCardLimit = usersPerCardLimit;
             this.Sandbox = sandbox;
+            this.ProgramJoinPolicy = programJoinPolicy;
             this.TiersExpirationPolicy = tiersExpirationPolicy;
+            this.TierCycleStartDate = tierCycleStartDate;
             this.TiersExpireIn = tiersExpireIn;
             this.TiersDowngradePolicy = tiersDowngradePolicy;
-            this.ProgramJoinPolicy = programJoinPolicy;
+            this.CardCodeSettings = cardCodeSettings;
             this.Tiers = tiers;
         }
         
@@ -208,11 +224,24 @@ namespace TalonOne.Model
         public bool Sandbox { get; set; }
 
         /// <summary>
-        /// The amount of time after which the tier expires.  The time format is an **integer** followed by one letter indicating the time unit. Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. 
+        /// Timestamp at which the tier cycle starts for all customers in the loyalty program.  **Note**: This is only required when the tier expiration policy is set to &#x60;absolute_expiration&#x60;. 
         /// </summary>
-        /// <value>The amount of time after which the tier expires.  The time format is an **integer** followed by one letter indicating the time unit. Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. </value>
+        /// <value>Timestamp at which the tier cycle starts for all customers in the loyalty program.  **Note**: This is only required when the tier expiration policy is set to &#x60;absolute_expiration&#x60;. </value>
+        [DataMember(Name="tierCycleStartDate", EmitDefaultValue=false)]
+        public DateTime TierCycleStartDate { get; set; }
+
+        /// <summary>
+        /// The amount of time after which the tier expires and is reevaluated.  The time format is an **integer** followed by one letter indicating the time unit. Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. 
+        /// </summary>
+        /// <value>The amount of time after which the tier expires and is reevaluated.  The time format is an **integer** followed by one letter indicating the time unit. Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. </value>
         [DataMember(Name="tiersExpireIn", EmitDefaultValue=false)]
         public string TiersExpireIn { get; set; }
+
+        /// <summary>
+        /// Gets or Sets CardCodeSettings
+        /// </summary>
+        [DataMember(Name="cardCodeSettings", EmitDefaultValue=false)]
+        public CodeGeneratorSettings CardCodeSettings { get; set; }
 
         /// <summary>
         /// The tiers in this loyalty program.
@@ -237,10 +266,12 @@ namespace TalonOne.Model
             sb.Append("  AllowSubledger: ").Append(AllowSubledger).Append("\n");
             sb.Append("  UsersPerCardLimit: ").Append(UsersPerCardLimit).Append("\n");
             sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
+            sb.Append("  ProgramJoinPolicy: ").Append(ProgramJoinPolicy).Append("\n");
             sb.Append("  TiersExpirationPolicy: ").Append(TiersExpirationPolicy).Append("\n");
+            sb.Append("  TierCycleStartDate: ").Append(TierCycleStartDate).Append("\n");
             sb.Append("  TiersExpireIn: ").Append(TiersExpireIn).Append("\n");
             sb.Append("  TiersDowngradePolicy: ").Append(TiersDowngradePolicy).Append("\n");
-            sb.Append("  ProgramJoinPolicy: ").Append(ProgramJoinPolicy).Append("\n");
+            sb.Append("  CardCodeSettings: ").Append(CardCodeSettings).Append("\n");
             sb.Append("  Tiers: ").Append(Tiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -315,8 +346,17 @@ namespace TalonOne.Model
                     this.Sandbox.Equals(input.Sandbox)
                 ) && 
                 (
+                    this.ProgramJoinPolicy == input.ProgramJoinPolicy ||
+                    this.ProgramJoinPolicy.Equals(input.ProgramJoinPolicy)
+                ) && 
+                (
                     this.TiersExpirationPolicy == input.TiersExpirationPolicy ||
                     this.TiersExpirationPolicy.Equals(input.TiersExpirationPolicy)
+                ) && 
+                (
+                    this.TierCycleStartDate == input.TierCycleStartDate ||
+                    (this.TierCycleStartDate != null &&
+                    this.TierCycleStartDate.Equals(input.TierCycleStartDate))
                 ) && 
                 (
                     this.TiersExpireIn == input.TiersExpireIn ||
@@ -328,8 +368,9 @@ namespace TalonOne.Model
                     this.TiersDowngradePolicy.Equals(input.TiersDowngradePolicy)
                 ) && 
                 (
-                    this.ProgramJoinPolicy == input.ProgramJoinPolicy ||
-                    this.ProgramJoinPolicy.Equals(input.ProgramJoinPolicy)
+                    this.CardCodeSettings == input.CardCodeSettings ||
+                    (this.CardCodeSettings != null &&
+                    this.CardCodeSettings.Equals(input.CardCodeSettings))
                 ) && 
                 (
                     this.Tiers == input.Tiers ||
@@ -361,11 +402,15 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.AllowSubledger.GetHashCode();
                 hashCode = hashCode * 59 + this.UsersPerCardLimit.GetHashCode();
                 hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
+                hashCode = hashCode * 59 + this.ProgramJoinPolicy.GetHashCode();
                 hashCode = hashCode * 59 + this.TiersExpirationPolicy.GetHashCode();
+                if (this.TierCycleStartDate != null)
+                    hashCode = hashCode * 59 + this.TierCycleStartDate.GetHashCode();
                 if (this.TiersExpireIn != null)
                     hashCode = hashCode * 59 + this.TiersExpireIn.GetHashCode();
                 hashCode = hashCode * 59 + this.TiersDowngradePolicy.GetHashCode();
-                hashCode = hashCode * 59 + this.ProgramJoinPolicy.GetHashCode();
+                if (this.CardCodeSettings != null)
+                    hashCode = hashCode * 59 + this.CardCodeSettings.GetHashCode();
                 if (this.Tiers != null)
                     hashCode = hashCode * 59 + this.Tiers.GetHashCode();
                 return hashCode;

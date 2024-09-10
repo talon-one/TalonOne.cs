@@ -26,39 +26,31 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// InlineResponse20047
+    /// NewCouponDeletionJob
     /// </summary>
     [DataContract]
-    public partial class InlineResponse20047 :  IEquatable<InlineResponse20047>, IValidatableObject
+    public partial class NewCouponDeletionJob :  IEquatable<NewCouponDeletionJob>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse20047" /> class.
+        /// Initializes a new instance of the <see cref="NewCouponDeletionJob" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected InlineResponse20047() { }
+        protected NewCouponDeletionJob() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse20047" /> class.
+        /// Initializes a new instance of the <see cref="NewCouponDeletionJob" /> class.
         /// </summary>
-        /// <param name="hasMore">hasMore (required).</param>
-        /// <param name="data">data (required).</param>
-        public InlineResponse20047(bool hasMore = default(bool), List<AchievementProgress> data = default(List<AchievementProgress>))
+        /// <param name="filters">filters (required).</param>
+        public NewCouponDeletionJob(CouponDeletionFilters filters = default(CouponDeletionFilters))
         {
-            this.HasMore = hasMore;
-            // to ensure "data" is required (not null)
-            this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20047 and cannot be null");
+            // to ensure "filters" is required (not null)
+            this.Filters = filters ?? throw new ArgumentNullException("filters is a required property for NewCouponDeletionJob and cannot be null");
         }
         
         /// <summary>
-        /// Gets or Sets HasMore
+        /// Gets or Sets Filters
         /// </summary>
-        [DataMember(Name="hasMore", EmitDefaultValue=false)]
-        public bool HasMore { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Data
-        /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<AchievementProgress> Data { get; set; }
+        [DataMember(Name="filters", EmitDefaultValue=false)]
+        public CouponDeletionFilters Filters { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -67,9 +59,8 @@ namespace TalonOne.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse20047 {\n");
-            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class NewCouponDeletionJob {\n");
+            sb.Append("  Filters: ").Append(Filters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -90,29 +81,24 @@ namespace TalonOne.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse20047);
+            return this.Equals(input as NewCouponDeletionJob);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse20047 instances are equal
+        /// Returns true if NewCouponDeletionJob instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse20047 to be compared</param>
+        /// <param name="input">Instance of NewCouponDeletionJob to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse20047 input)
+        public bool Equals(NewCouponDeletionJob input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.HasMore == input.HasMore ||
-                    this.HasMore.Equals(input.HasMore)
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Filters == input.Filters ||
+                    (this.Filters != null &&
+                    this.Filters.Equals(input.Filters))
                 );
         }
 
@@ -125,9 +111,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.HasMore.GetHashCode();
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Filters != null)
+                    hashCode = hashCode * 59 + this.Filters.GetHashCode();
                 return hashCode;
             }
         }

@@ -153,7 +153,8 @@ namespace TalonOne.Model
         /// <param name="enablePartialDiscounts">Indicates if this Application supports partial discounts..</param>
         /// <param name="defaultDiscountAdditionalCostPerItemScope">The default scope to apply &#x60;setDiscountPerItem&#x60; effects on if no scope was provided with the effect. .</param>
         /// <param name="defaultEvaluationGroupId">The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign..</param>
-        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), int defaultEvaluationGroupId = default(int))
+        /// <param name="enableCampaignStateManagement">Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. .</param>
+        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), int defaultEvaluationGroupId = default(int), bool enableCampaignStateManagement = default(bool))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateApplication and cannot be null");
@@ -173,6 +174,7 @@ namespace TalonOne.Model
             this.EnablePartialDiscounts = enablePartialDiscounts;
             this.DefaultDiscountAdditionalCostPerItemScope = defaultDiscountAdditionalCostPerItemScope;
             this.DefaultEvaluationGroupId = defaultEvaluationGroupId;
+            this.EnableCampaignStateManagement = enableCampaignStateManagement;
         }
         
         /// <summary>
@@ -259,6 +261,13 @@ namespace TalonOne.Model
         public int DefaultEvaluationGroupId { get; set; }
 
         /// <summary>
+        /// Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. 
+        /// </summary>
+        /// <value>Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. </value>
+        [DataMember(Name="enableCampaignStateManagement", EmitDefaultValue=false)]
+        public bool EnableCampaignStateManagement { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -281,6 +290,7 @@ namespace TalonOne.Model
             sb.Append("  EnablePartialDiscounts: ").Append(EnablePartialDiscounts).Append("\n");
             sb.Append("  DefaultDiscountAdditionalCostPerItemScope: ").Append(DefaultDiscountAdditionalCostPerItemScope).Append("\n");
             sb.Append("  DefaultEvaluationGroupId: ").Append(DefaultEvaluationGroupId).Append("\n");
+            sb.Append("  EnableCampaignStateManagement: ").Append(EnableCampaignStateManagement).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -382,6 +392,10 @@ namespace TalonOne.Model
                 (
                     this.DefaultEvaluationGroupId == input.DefaultEvaluationGroupId ||
                     this.DefaultEvaluationGroupId.Equals(input.DefaultEvaluationGroupId)
+                ) && 
+                (
+                    this.EnableCampaignStateManagement == input.EnableCampaignStateManagement ||
+                    this.EnableCampaignStateManagement.Equals(input.EnableCampaignStateManagement)
                 );
         }
 
@@ -416,6 +430,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.EnablePartialDiscounts.GetHashCode();
                 hashCode = hashCode * 59 + this.DefaultDiscountAdditionalCostPerItemScope.GetHashCode();
                 hashCode = hashCode * 59 + this.DefaultEvaluationGroupId.GetHashCode();
+                hashCode = hashCode * 59 + this.EnableCampaignStateManagement.GetHashCode();
                 return hashCode;
             }
         }

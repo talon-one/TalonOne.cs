@@ -39,13 +39,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20046" /> class.
         /// </summary>
-        /// <param name="hasMore">hasMore.</param>
+        /// <param name="hasMore">hasMore (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20046(bool hasMore = default(bool), List<Achievement> data = default(List<Achievement>))
+        public InlineResponse20046(bool hasMore = default(bool), List<AchievementProgress> data = default(List<AchievementProgress>))
         {
+            this.HasMore = hasMore;
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20046 and cannot be null");
-            this.HasMore = hasMore;
         }
         
         /// <summary>
@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<Achievement> Data { get; set; }
+        public List<AchievementProgress> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

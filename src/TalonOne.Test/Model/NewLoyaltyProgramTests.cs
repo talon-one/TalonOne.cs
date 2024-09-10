@@ -122,12 +122,28 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Sandbox'
         }
         /// <summary>
+        /// Test the property 'ProgramJoinPolicy'
+        /// </summary>
+        [Fact]
+        public void ProgramJoinPolicyTest()
+        {
+            // TODO unit test for the property 'ProgramJoinPolicy'
+        }
+        /// <summary>
         /// Test the property 'TiersExpirationPolicy'
         /// </summary>
         [Fact]
         public void TiersExpirationPolicyTest()
         {
             // TODO unit test for the property 'TiersExpirationPolicy'
+        }
+        /// <summary>
+        /// Test the property 'TierCycleStartDate'
+        /// </summary>
+        [Fact]
+        public void TierCycleStartDateTest()
+        {
+            // TODO unit test for the property 'TierCycleStartDate'
         }
         /// <summary>
         /// Test the property 'TiersExpireIn'
@@ -146,12 +162,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'TiersDowngradePolicy'
         }
         /// <summary>
-        /// Test the property 'ProgramJoinPolicy'
+        /// Test the property 'CardCodeSettings'
         /// </summary>
         [Fact]
-        public void ProgramJoinPolicyTest()
+        public void CardCodeSettingsTest()
         {
-            // TODO unit test for the property 'ProgramJoinPolicy'
+            // TODO unit test for the property 'CardCodeSettings'
         }
         /// <summary>
         /// Test the property 'Name'

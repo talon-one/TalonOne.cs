@@ -47,8 +47,10 @@ namespace TalonOne.Model
         /// <param name="triggeredByCoupon">The ID of the coupon that was being evaluated when this effect was triggered..</param>
         /// <param name="triggeredForCatalogItem">The ID of the catalog item that was being evaluated when this effect was triggered..</param>
         /// <param name="conditionIndex">The index of the condition that was triggered..</param>
+        /// <param name="evaluationGroupID">The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
+        /// <param name="evaluationGroupMode">The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
         /// <param name="props">The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (required).</param>
-        public Effect(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int), int triggeredForCatalogItem = default(int), int conditionIndex = default(int), Object props = default(Object))
+        public Effect(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int), int triggeredForCatalogItem = default(int), int conditionIndex = default(int), int evaluationGroupID = default(int), string evaluationGroupMode = default(string), Object props = default(Object))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -62,6 +64,8 @@ namespace TalonOne.Model
             this.TriggeredByCoupon = triggeredByCoupon;
             this.TriggeredForCatalogItem = triggeredForCatalogItem;
             this.ConditionIndex = conditionIndex;
+            this.EvaluationGroupID = evaluationGroupID;
+            this.EvaluationGroupMode = evaluationGroupMode;
         }
         
         /// <summary>
@@ -121,6 +125,20 @@ namespace TalonOne.Model
         public int ConditionIndex { get; set; }
 
         /// <summary>
+        /// The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
+        /// </summary>
+        /// <value>The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).</value>
+        [DataMember(Name="evaluationGroupID", EmitDefaultValue=false)]
+        public int EvaluationGroupID { get; set; }
+
+        /// <summary>
+        /// The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
+        /// </summary>
+        /// <value>The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).</value>
+        [DataMember(Name="evaluationGroupMode", EmitDefaultValue=false)]
+        public string EvaluationGroupMode { get; set; }
+
+        /// <summary>
         /// The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
         /// </summary>
         /// <value>The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).</value>
@@ -143,6 +161,8 @@ namespace TalonOne.Model
             sb.Append("  TriggeredByCoupon: ").Append(TriggeredByCoupon).Append("\n");
             sb.Append("  TriggeredForCatalogItem: ").Append(TriggeredForCatalogItem).Append("\n");
             sb.Append("  ConditionIndex: ").Append(ConditionIndex).Append("\n");
+            sb.Append("  EvaluationGroupID: ").Append(EvaluationGroupID).Append("\n");
+            sb.Append("  EvaluationGroupMode: ").Append(EvaluationGroupMode).Append("\n");
             sb.Append("  Props: ").Append(Props).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -213,6 +233,15 @@ namespace TalonOne.Model
                     this.ConditionIndex.Equals(input.ConditionIndex)
                 ) && 
                 (
+                    this.EvaluationGroupID == input.EvaluationGroupID ||
+                    this.EvaluationGroupID.Equals(input.EvaluationGroupID)
+                ) && 
+                (
+                    this.EvaluationGroupMode == input.EvaluationGroupMode ||
+                    (this.EvaluationGroupMode != null &&
+                    this.EvaluationGroupMode.Equals(input.EvaluationGroupMode))
+                ) && 
+                (
                     this.Props == input.Props ||
                     (this.Props != null &&
                     this.Props.Equals(input.Props))
@@ -238,6 +267,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.TriggeredByCoupon.GetHashCode();
                 hashCode = hashCode * 59 + this.TriggeredForCatalogItem.GetHashCode();
                 hashCode = hashCode * 59 + this.ConditionIndex.GetHashCode();
+                hashCode = hashCode * 59 + this.EvaluationGroupID.GetHashCode();
+                if (this.EvaluationGroupMode != null)
+                    hashCode = hashCode * 59 + this.EvaluationGroupMode.GetHashCode();
                 if (this.Props != null)
                     hashCode = hashCode * 59 + this.Props.GetHashCode();
                 return hashCode;

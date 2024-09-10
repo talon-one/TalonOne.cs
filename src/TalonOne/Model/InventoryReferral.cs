@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="startDate">Timestamp at which point the referral code becomes valid..</param>
-        /// <param name="expiryDate">Expiration date of the referral code. Referral never expires if this is omitted, zero, or negative..</param>
+        /// <param name="expiryDate">Expiration date of the referral code. Referral never expires if this is omitted..</param>
         /// <param name="usageLimit">The number of times a referral code can be used. &#x60;0&#x60; means no limit but any campaign usage limits will still apply.  (required).</param>
         /// <param name="campaignId">ID of the campaign from which the referral received the referral code. (required).</param>
         /// <param name="advocateProfileIntegrationId">The Integration ID of the Advocate&#39;s Profile. (required).</param>
@@ -96,9 +96,9 @@ namespace TalonOne.Model
         public DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Expiration date of the referral code. Referral never expires if this is omitted, zero, or negative.
+        /// Expiration date of the referral code. Referral never expires if this is omitted.
         /// </summary>
-        /// <value>Expiration date of the referral code. Referral never expires if this is omitted, zero, or negative.</value>
+        /// <value>Expiration date of the referral code. Referral never expires if this is omitted.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
 

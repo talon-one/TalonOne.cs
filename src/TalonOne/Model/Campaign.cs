@@ -168,22 +168,16 @@ namespace TalonOne.Model
             Running = 3,
 
             /// <summary>
-            /// Enum Draft for value: draft
-            /// </summary>
-            [EnumMember(Value = "draft")]
-            Draft = 4,
-
-            /// <summary>
             /// Enum Disabled for value: disabled
             /// </summary>
             [EnumMember(Value = "disabled")]
-            Disabled = 5,
+            Disabled = 4,
 
             /// <summary>
             /// Enum Archived for value: archived
             /// </summary>
             [EnumMember(Value = "archived")]
-            Archived = 6
+            Archived = 5
 
         }
 
@@ -242,7 +236,14 @@ namespace TalonOne.Model
         /// <param name="updatedBy">Name of the user who last updated this campaign if available..</param>
         /// <param name="templateId">The ID of the Campaign Template this Campaign was created from..</param>
         /// <param name="frontendState">A campaign state described exactly as in the Campaign Manager. (required).</param>
-        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), TypeEnum type = TypeEnum.Advanced, List<int> linkedStoreIds = default(List<int>), List<CampaignBudget> budgets = default(List<CampaignBudget>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), decimal discountCount = default(decimal), int discountEffectCount = default(int), int couponCreationCount = default(int), int customEffectCount = default(int), int referralCreationCount = default(int), int addFreeItemEffectCount = default(int), int awardedGiveawaysCount = default(int), decimal createdLoyaltyPointsCount = default(decimal), int createdLoyaltyPointsEffectCount = default(int), decimal redeemedLoyaltyPointsCount = default(decimal), int redeemedLoyaltyPointsEffectCount = default(int), int callApiEffectCount = default(int), int reservecouponEffectCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string), int templateId = default(int), FrontendStateEnum frontendState = default(FrontendStateEnum))
+        /// <param name="storesImported">Indicates whether the linked stores were imported via a CSV file. (required).</param>
+        /// <param name="activeRevisionId">ID of the revision that was last activated on this campaign. .</param>
+        /// <param name="activeVersionId">ID of the revision version that is active on the campaign. .</param>
+        /// <param name="version">Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. .</param>
+        /// <param name="currentRevisionId">ID of the revision currently being modified for the campaign. .</param>
+        /// <param name="currentRevisionVersionId">ID of the latest version applied on the current revision. .</param>
+        /// <param name="stageRevision">Flag for determining whether we use current revision when sending requests with staging API key.  (default to false).</param>
+        public Campaign(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int userId = default(int), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), TypeEnum type = TypeEnum.Advanced, List<int> linkedStoreIds = default(List<int>), List<CampaignBudget> budgets = default(List<CampaignBudget>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), decimal discountCount = default(decimal), int discountEffectCount = default(int), int couponCreationCount = default(int), int customEffectCount = default(int), int referralCreationCount = default(int), int addFreeItemEffectCount = default(int), int awardedGiveawaysCount = default(int), decimal createdLoyaltyPointsCount = default(decimal), int createdLoyaltyPointsEffectCount = default(int), decimal redeemedLoyaltyPointsCount = default(decimal), int redeemedLoyaltyPointsEffectCount = default(int), int callApiEffectCount = default(int), int reservecouponEffectCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string), int templateId = default(int), FrontendStateEnum frontendState = default(FrontendStateEnum), bool storesImported = default(bool), int activeRevisionId = default(int), int activeVersionId = default(int), int version = default(int), int currentRevisionId = default(int), int currentRevisionVersionId = default(int), bool stageRevision = false)
         {
             this.Id = id;
             this.Created = created;
@@ -263,6 +264,7 @@ namespace TalonOne.Model
             // to ensure "budgets" is required (not null)
             this.Budgets = budgets ?? throw new ArgumentNullException("budgets is a required property for Campaign and cannot be null");
             this.FrontendState = frontendState;
+            this.StoresImported = storesImported;
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.Attributes = attributes;
@@ -291,6 +293,12 @@ namespace TalonOne.Model
             this.CreatedBy = createdBy;
             this.UpdatedBy = updatedBy;
             this.TemplateId = templateId;
+            this.ActiveRevisionId = activeRevisionId;
+            this.ActiveVersionId = activeVersionId;
+            this.Version = version;
+            this.CurrentRevisionId = currentRevisionId;
+            this.CurrentRevisionVersionId = currentRevisionVersionId;
+            this.StageRevision = stageRevision;
         }
         
         /// <summary>
@@ -551,6 +559,55 @@ namespace TalonOne.Model
         public int TemplateId { get; set; }
 
         /// <summary>
+        /// Indicates whether the linked stores were imported via a CSV file.
+        /// </summary>
+        /// <value>Indicates whether the linked stores were imported via a CSV file.</value>
+        [DataMember(Name="storesImported", EmitDefaultValue=false)]
+        public bool StoresImported { get; set; }
+
+        /// <summary>
+        /// ID of the revision that was last activated on this campaign. 
+        /// </summary>
+        /// <value>ID of the revision that was last activated on this campaign. </value>
+        [DataMember(Name="activeRevisionId", EmitDefaultValue=false)]
+        public int ActiveRevisionId { get; set; }
+
+        /// <summary>
+        /// ID of the revision version that is active on the campaign. 
+        /// </summary>
+        /// <value>ID of the revision version that is active on the campaign. </value>
+        [DataMember(Name="activeVersionId", EmitDefaultValue=false)]
+        public int ActiveVersionId { get; set; }
+
+        /// <summary>
+        /// Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. 
+        /// </summary>
+        /// <value>Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. </value>
+        [DataMember(Name="version", EmitDefaultValue=false)]
+        public int Version { get; set; }
+
+        /// <summary>
+        /// ID of the revision currently being modified for the campaign. 
+        /// </summary>
+        /// <value>ID of the revision currently being modified for the campaign. </value>
+        [DataMember(Name="currentRevisionId", EmitDefaultValue=false)]
+        public int CurrentRevisionId { get; set; }
+
+        /// <summary>
+        /// ID of the latest version applied on the current revision. 
+        /// </summary>
+        /// <value>ID of the latest version applied on the current revision. </value>
+        [DataMember(Name="currentRevisionVersionId", EmitDefaultValue=false)]
+        public int CurrentRevisionVersionId { get; set; }
+
+        /// <summary>
+        /// Flag for determining whether we use current revision when sending requests with staging API key. 
+        /// </summary>
+        /// <value>Flag for determining whether we use current revision when sending requests with staging API key. </value>
+        [DataMember(Name="stageRevision", EmitDefaultValue=false)]
+        public bool StageRevision { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -599,6 +656,13 @@ namespace TalonOne.Model
             sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
             sb.Append("  TemplateId: ").Append(TemplateId).Append("\n");
             sb.Append("  FrontendState: ").Append(FrontendState).Append("\n");
+            sb.Append("  StoresImported: ").Append(StoresImported).Append("\n");
+            sb.Append("  ActiveRevisionId: ").Append(ActiveRevisionId).Append("\n");
+            sb.Append("  ActiveVersionId: ").Append(ActiveVersionId).Append("\n");
+            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  CurrentRevisionId: ").Append(CurrentRevisionId).Append("\n");
+            sb.Append("  CurrentRevisionVersionId: ").Append(CurrentRevisionVersionId).Append("\n");
+            sb.Append("  StageRevision: ").Append(StageRevision).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -818,6 +882,34 @@ namespace TalonOne.Model
                 (
                     this.FrontendState == input.FrontendState ||
                     this.FrontendState.Equals(input.FrontendState)
+                ) && 
+                (
+                    this.StoresImported == input.StoresImported ||
+                    this.StoresImported.Equals(input.StoresImported)
+                ) && 
+                (
+                    this.ActiveRevisionId == input.ActiveRevisionId ||
+                    this.ActiveRevisionId.Equals(input.ActiveRevisionId)
+                ) && 
+                (
+                    this.ActiveVersionId == input.ActiveVersionId ||
+                    this.ActiveVersionId.Equals(input.ActiveVersionId)
+                ) && 
+                (
+                    this.Version == input.Version ||
+                    this.Version.Equals(input.Version)
+                ) && 
+                (
+                    this.CurrentRevisionId == input.CurrentRevisionId ||
+                    this.CurrentRevisionId.Equals(input.CurrentRevisionId)
+                ) && 
+                (
+                    this.CurrentRevisionVersionId == input.CurrentRevisionVersionId ||
+                    this.CurrentRevisionVersionId.Equals(input.CurrentRevisionVersionId)
+                ) && 
+                (
+                    this.StageRevision == input.StageRevision ||
+                    this.StageRevision.Equals(input.StageRevision)
                 );
         }
 
@@ -888,6 +980,13 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.UpdatedBy.GetHashCode();
                 hashCode = hashCode * 59 + this.TemplateId.GetHashCode();
                 hashCode = hashCode * 59 + this.FrontendState.GetHashCode();
+                hashCode = hashCode * 59 + this.StoresImported.GetHashCode();
+                hashCode = hashCode * 59 + this.ActiveRevisionId.GetHashCode();
+                hashCode = hashCode * 59 + this.ActiveVersionId.GetHashCode();
+                hashCode = hashCode * 59 + this.Version.GetHashCode();
+                hashCode = hashCode * 59 + this.CurrentRevisionId.GetHashCode();
+                hashCode = hashCode * 59 + this.CurrentRevisionVersionId.GetHashCode();
+                hashCode = hashCode * 59 + this.StageRevision.GetHashCode();
                 return hashCode;
             }
         }

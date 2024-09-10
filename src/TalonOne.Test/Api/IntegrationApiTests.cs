@@ -155,6 +155,19 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test GenerateLoyaltyCard
+        /// </summary>
+        [Fact]
+        public void GenerateLoyaltyCardTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int loyaltyProgramId = null;
+            //GenerateLoyaltyCard body = null;
+            //var response = instance.GenerateLoyaltyCard(loyaltyProgramId, body);
+            //Assert.IsType<LoyaltyCard> (response, "response is LoyaltyCard");
+        }
+        
+        /// <summary>
         /// Test GetCustomerInventory
         /// </summary>
         [Fact]
@@ -195,8 +208,10 @@ namespace TalonOne.Test
             //string integrationId = null;
             //DateTime? endDate = null;
             //string subledgerId = null;
-            //var response = instance.GetLoyaltyBalances(loyaltyProgramId, integrationId, endDate, subledgerId);
-            //Assert.IsType<LoyaltyBalances> (response, "response is LoyaltyBalances");
+            //bool? includeTiers = null;
+            //bool? includeProjectedTier = null;
+            //var response = instance.GetLoyaltyBalances(loyaltyProgramId, integrationId, endDate, subledgerId, includeTiers, includeProjectedTier);
+            //Assert.IsType<LoyaltyBalancesWithTiers> (response, "response is LoyaltyBalancesWithTiers");
         }
         
         /// <summary>

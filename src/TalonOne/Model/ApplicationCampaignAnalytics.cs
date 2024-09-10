@@ -39,22 +39,34 @@ namespace TalonOne.Model
         public enum CampaignStateEnum
         {
             /// <summary>
-            /// Enum Enabled for value: enabled
+            /// Enum Expired for value: expired
             /// </summary>
-            [EnumMember(Value = "enabled")]
-            Enabled = 1,
+            [EnumMember(Value = "expired")]
+            Expired = 1,
+
+            /// <summary>
+            /// Enum Scheduled for value: scheduled
+            /// </summary>
+            [EnumMember(Value = "scheduled")]
+            Scheduled = 2,
+
+            /// <summary>
+            /// Enum Running for value: running
+            /// </summary>
+            [EnumMember(Value = "running")]
+            Running = 3,
 
             /// <summary>
             /// Enum Disabled for value: disabled
             /// </summary>
             [EnumMember(Value = "disabled")]
-            Disabled = 2,
+            Disabled = 4,
 
             /// <summary>
             /// Enum Archived for value: archived
             /// </summary>
             [EnumMember(Value = "archived")]
-            Archived = 3
+            Archived = 5
 
         }
 
@@ -63,36 +75,37 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The state of the campaign.  **Note:** A disabled or archived campaign is not evaluated for rules or coupons. </value>
         [DataMember(Name="campaignState", EmitDefaultValue=false)]
-        public CampaignStateEnum? CampaignState { get; set; }
+        public CampaignStateEnum CampaignState { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationCampaignAnalytics" /> class.
         /// </summary>
-        /// <param name="startTime">The start of the aggregation time frame in UTC..</param>
-        /// <param name="endTime">The end of the aggregation time frame in UTC..</param>
-        /// <param name="campaignId">The ID of the campaign..</param>
-        /// <param name="campaignName">The name of the campaign..</param>
-        /// <param name="campaignTags">A list of tags for the campaign..</param>
-        /// <param name="campaignState">The state of the campaign.  **Note:** A disabled or archived campaign is not evaluated for rules or coupons.  (default to CampaignStateEnum.Enabled).</param>
-        /// <param name="campaignActiveRulesetId">The [ID of the ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. .</param>
-        /// <param name="campaignStartTime">Date and time when the campaign becomes active..</param>
-        /// <param name="campaignEndTime">Date and time when the campaign becomes inactive..</param>
+        [JsonConstructorAttribute]
+        protected ApplicationCampaignAnalytics() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApplicationCampaignAnalytics" /> class.
+        /// </summary>
+        /// <param name="startTime">The start of the aggregation time frame in UTC. (required).</param>
+        /// <param name="endTime">The end of the aggregation time frame in UTC. (required).</param>
+        /// <param name="campaignId">The ID of the campaign. (required).</param>
+        /// <param name="campaignName">The name of the campaign. (required).</param>
+        /// <param name="campaignTags">A list of tags for the campaign. (required).</param>
+        /// <param name="campaignState">The state of the campaign.  **Note:** A disabled or archived campaign is not evaluated for rules or coupons.  (required).</param>
         /// <param name="totalRevenue">totalRevenue.</param>
         /// <param name="sessionsCount">sessionsCount.</param>
         /// <param name="avgItemsPerSession">avgItemsPerSession.</param>
         /// <param name="avgSessionValue">avgSessionValue.</param>
         /// <param name="totalDiscounts">totalDiscounts.</param>
         /// <param name="couponsCount">couponsCount.</param>
-        public ApplicationCampaignAnalytics(DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), int campaignId = default(int), string campaignName = default(string), List<string> campaignTags = default(List<string>), CampaignStateEnum? campaignState = CampaignStateEnum.Enabled, int campaignActiveRulesetId = default(int), DateTime campaignStartTime = default(DateTime), DateTime campaignEndTime = default(DateTime), ApplicationCampaignAnalyticsTotalRevenue totalRevenue = default(ApplicationCampaignAnalyticsTotalRevenue), ApplicationCampaignAnalyticsSessionsCount sessionsCount = default(ApplicationCampaignAnalyticsSessionsCount), ApplicationCampaignAnalyticsAvgItemsPerSession avgItemsPerSession = default(ApplicationCampaignAnalyticsAvgItemsPerSession), ApplicationCampaignAnalyticsAvgSessionValue avgSessionValue = default(ApplicationCampaignAnalyticsAvgSessionValue), ApplicationCampaignAnalyticsTotalDiscounts totalDiscounts = default(ApplicationCampaignAnalyticsTotalDiscounts), ApplicationCampaignAnalyticsCouponsCount couponsCount = default(ApplicationCampaignAnalyticsCouponsCount))
+        public ApplicationCampaignAnalytics(DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), int campaignId = default(int), string campaignName = default(string), List<string> campaignTags = default(List<string>), CampaignStateEnum campaignState = default(CampaignStateEnum), AnalyticsDataPointWithTrendAndInfluencedRate totalRevenue = default(AnalyticsDataPointWithTrendAndInfluencedRate), AnalyticsDataPointWithTrendAndInfluencedRate sessionsCount = default(AnalyticsDataPointWithTrendAndInfluencedRate), AnalyticsDataPointWithTrendAndUplift avgItemsPerSession = default(AnalyticsDataPointWithTrendAndUplift), AnalyticsDataPointWithTrendAndUplift avgSessionValue = default(AnalyticsDataPointWithTrendAndUplift), AnalyticsDataPointWithTrend totalDiscounts = default(AnalyticsDataPointWithTrend), AnalyticsDataPointWithTrend couponsCount = default(AnalyticsDataPointWithTrend))
         {
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.CampaignId = campaignId;
-            this.CampaignName = campaignName;
-            this.CampaignTags = campaignTags;
+            // to ensure "campaignName" is required (not null)
+            this.CampaignName = campaignName ?? throw new ArgumentNullException("campaignName is a required property for ApplicationCampaignAnalytics and cannot be null");
+            // to ensure "campaignTags" is required (not null)
+            this.CampaignTags = campaignTags ?? throw new ArgumentNullException("campaignTags is a required property for ApplicationCampaignAnalytics and cannot be null");
             this.CampaignState = campaignState;
-            this.CampaignActiveRulesetId = campaignActiveRulesetId;
-            this.CampaignStartTime = campaignStartTime;
-            this.CampaignEndTime = campaignEndTime;
             this.TotalRevenue = totalRevenue;
             this.SessionsCount = sessionsCount;
             this.AvgItemsPerSession = avgItemsPerSession;
@@ -137,61 +150,40 @@ namespace TalonOne.Model
         public List<string> CampaignTags { get; set; }
 
         /// <summary>
-        /// The [ID of the ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. 
-        /// </summary>
-        /// <value>The [ID of the ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. </value>
-        [DataMember(Name="campaignActiveRulesetId", EmitDefaultValue=false)]
-        public int CampaignActiveRulesetId { get; set; }
-
-        /// <summary>
-        /// Date and time when the campaign becomes active.
-        /// </summary>
-        /// <value>Date and time when the campaign becomes active.</value>
-        [DataMember(Name="campaignStartTime", EmitDefaultValue=false)]
-        public DateTime CampaignStartTime { get; set; }
-
-        /// <summary>
-        /// Date and time when the campaign becomes inactive.
-        /// </summary>
-        /// <value>Date and time when the campaign becomes inactive.</value>
-        [DataMember(Name="campaignEndTime", EmitDefaultValue=false)]
-        public DateTime CampaignEndTime { get; set; }
-
-        /// <summary>
         /// Gets or Sets TotalRevenue
         /// </summary>
         [DataMember(Name="totalRevenue", EmitDefaultValue=false)]
-        public ApplicationCampaignAnalyticsTotalRevenue TotalRevenue { get; set; }
+        public AnalyticsDataPointWithTrendAndInfluencedRate TotalRevenue { get; set; }
 
         /// <summary>
         /// Gets or Sets SessionsCount
         /// </summary>
         [DataMember(Name="sessionsCount", EmitDefaultValue=false)]
-        public ApplicationCampaignAnalyticsSessionsCount SessionsCount { get; set; }
+        public AnalyticsDataPointWithTrendAndInfluencedRate SessionsCount { get; set; }
 
         /// <summary>
         /// Gets or Sets AvgItemsPerSession
         /// </summary>
         [DataMember(Name="avgItemsPerSession", EmitDefaultValue=false)]
-        public ApplicationCampaignAnalyticsAvgItemsPerSession AvgItemsPerSession { get; set; }
+        public AnalyticsDataPointWithTrendAndUplift AvgItemsPerSession { get; set; }
 
         /// <summary>
         /// Gets or Sets AvgSessionValue
         /// </summary>
         [DataMember(Name="avgSessionValue", EmitDefaultValue=false)]
-        public ApplicationCampaignAnalyticsAvgSessionValue AvgSessionValue { get; set; }
+        public AnalyticsDataPointWithTrendAndUplift AvgSessionValue { get; set; }
 
         /// <summary>
         /// Gets or Sets TotalDiscounts
         /// </summary>
         [DataMember(Name="totalDiscounts", EmitDefaultValue=false)]
-        public ApplicationCampaignAnalyticsTotalDiscounts TotalDiscounts { get; set; }
+        public AnalyticsDataPointWithTrend TotalDiscounts { get; set; }
 
         /// <summary>
         /// Gets or Sets CouponsCount
         /// </summary>
         [DataMember(Name="couponsCount", EmitDefaultValue=false)]
-        public ApplicationCampaignAnalyticsCouponsCount CouponsCount { get; set; }
+        public AnalyticsDataPointWithTrend CouponsCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -207,9 +199,6 @@ namespace TalonOne.Model
             sb.Append("  CampaignName: ").Append(CampaignName).Append("\n");
             sb.Append("  CampaignTags: ").Append(CampaignTags).Append("\n");
             sb.Append("  CampaignState: ").Append(CampaignState).Append("\n");
-            sb.Append("  CampaignActiveRulesetId: ").Append(CampaignActiveRulesetId).Append("\n");
-            sb.Append("  CampaignStartTime: ").Append(CampaignStartTime).Append("\n");
-            sb.Append("  CampaignEndTime: ").Append(CampaignEndTime).Append("\n");
             sb.Append("  TotalRevenue: ").Append(TotalRevenue).Append("\n");
             sb.Append("  SessionsCount: ").Append(SessionsCount).Append("\n");
             sb.Append("  AvgItemsPerSession: ").Append(AvgItemsPerSession).Append("\n");
@@ -280,20 +269,6 @@ namespace TalonOne.Model
                     this.CampaignState.Equals(input.CampaignState)
                 ) && 
                 (
-                    this.CampaignActiveRulesetId == input.CampaignActiveRulesetId ||
-                    this.CampaignActiveRulesetId.Equals(input.CampaignActiveRulesetId)
-                ) && 
-                (
-                    this.CampaignStartTime == input.CampaignStartTime ||
-                    (this.CampaignStartTime != null &&
-                    this.CampaignStartTime.Equals(input.CampaignStartTime))
-                ) && 
-                (
-                    this.CampaignEndTime == input.CampaignEndTime ||
-                    (this.CampaignEndTime != null &&
-                    this.CampaignEndTime.Equals(input.CampaignEndTime))
-                ) && 
-                (
                     this.TotalRevenue == input.TotalRevenue ||
                     (this.TotalRevenue != null &&
                     this.TotalRevenue.Equals(input.TotalRevenue))
@@ -344,11 +319,6 @@ namespace TalonOne.Model
                 if (this.CampaignTags != null)
                     hashCode = hashCode * 59 + this.CampaignTags.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignState.GetHashCode();
-                hashCode = hashCode * 59 + this.CampaignActiveRulesetId.GetHashCode();
-                if (this.CampaignStartTime != null)
-                    hashCode = hashCode * 59 + this.CampaignStartTime.GetHashCode();
-                if (this.CampaignEndTime != null)
-                    hashCode = hashCode * 59 + this.CampaignEndTime.GetHashCode();
                 if (this.TotalRevenue != null)
                     hashCode = hashCode * 59 + this.TotalRevenue.GetHashCode();
                 if (this.SessionsCount != null)

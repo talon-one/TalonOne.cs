@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="discountLimit">The total discount value that the code can give. Typically used to represent a gift card value. .</param>
         /// <param name="reservationLimit">The number of reservations that can be made with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
-        /// <param name="expiryDate">Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
+        /// <param name="expiryDate">Expiration date of the coupon. Coupon never expires if this is omitted..</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
         /// <param name="recipientsIntegrationIds">The integration IDs for recipients. (required).</param>
         /// <param name="validCharacters">List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. .</param>
@@ -91,9 +91,9 @@ namespace TalonOne.Model
         public DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative.
+        /// Expiration date of the coupon. Coupon never expires if this is omitted.
         /// </summary>
-        /// <value>Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative.</value>
+        /// <value>Expiration date of the coupon. Coupon never expires if this is omitted.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
 

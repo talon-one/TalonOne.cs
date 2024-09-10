@@ -34,19 +34,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageLogResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected MessageLogResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MessageLogResponse" /> class.
-        /// </summary>
-        /// <param name="createdAt">Timestamp when the response was received. (required).</param>
-        /// <param name="response">Raw response data. (required).</param>
-        /// <param name="status">HTTP status code of the response. (required).</param>
+        /// <param name="createdAt">Timestamp when the response was received..</param>
+        /// <param name="response">Raw response data..</param>
+        /// <param name="status">HTTP status code of the response..</param>
         public MessageLogResponse(DateTime createdAt = default(DateTime), byte[] response = default(byte[]), int status = default(int))
         {
             this.CreatedAt = createdAt;
-            // to ensure "response" is required (not null)
-            this.Response = response ?? throw new ArgumentNullException("response is a required property for MessageLogResponse and cannot be null");
+            this.Response = response;
             this.Status = status;
         }
         

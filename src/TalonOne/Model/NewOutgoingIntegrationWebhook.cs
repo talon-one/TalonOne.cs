@@ -40,13 +40,15 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="NewOutgoingIntegrationWebhook" /> class.
         /// </summary>
         /// <param name="title">Webhook title. (required).</param>
+        /// <param name="description">A description of the webhook..</param>
         /// <param name="applicationIds">IDs of the Applications to which a webhook must be linked. (required).</param>
-        public NewOutgoingIntegrationWebhook(string title = default(string), List<int> applicationIds = default(List<int>))
+        public NewOutgoingIntegrationWebhook(string title = default(string), string description = default(string), List<int> applicationIds = default(List<int>))
         {
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for NewOutgoingIntegrationWebhook and cannot be null");
             // to ensure "applicationIds" is required (not null)
             this.ApplicationIds = applicationIds ?? throw new ArgumentNullException("applicationIds is a required property for NewOutgoingIntegrationWebhook and cannot be null");
+            this.Description = description;
         }
         
         /// <summary>
@@ -55,6 +57,13 @@ namespace TalonOne.Model
         /// <value>Webhook title.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// A description of the webhook.
+        /// </summary>
+        /// <value>A description of the webhook.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// IDs of the Applications to which a webhook must be linked.
@@ -72,6 +81,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class NewOutgoingIntegrationWebhook {\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ApplicationIds: ").Append(ApplicationIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -113,6 +123,11 @@ namespace TalonOne.Model
                     this.Title.Equals(input.Title))
                 ) && 
                 (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
                     this.ApplicationIds == input.ApplicationIds ||
                     this.ApplicationIds != null &&
                     input.ApplicationIds != null &&
@@ -131,6 +146,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 if (this.ApplicationIds != null)
                     hashCode = hashCode * 59 + this.ApplicationIds.GetHashCode();
                 return hashCode;

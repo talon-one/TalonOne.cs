@@ -177,6 +177,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'DefaultEvaluationGroupId'
         }
+        /// <summary>
+        /// Test the property 'EnableCampaignStateManagement'
+        /// </summary>
+        [Fact]
+        public void EnableCampaignStateManagementTest()
+        {
+            // TODO unit test for the property 'EnableCampaignStateManagement'
+        }
 
     }
 

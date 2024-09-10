@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 **Id** | **int** | Internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **ProgramID** | **int** | The ID of the loyalty program that owns this entity. | 
-**Status** | **string** | Status of the loyalty card. Can be one of: [&#39;active&#39;, &#39;inactive&#39;]  | 
+**Status** | **string** | Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;.  | 
+**BlockReason** | **string** | Reason for transferring and blocking the loyalty card.  | [optional] 
 **Identifier** | **string** | The alphanumeric identifier of the loyalty card.  | 
 **UsersPerCardLimit** | **int** | The max amount of customer profiles that can be linked to the card. 0 means unlimited.  | 
 **Profiles** | [**List&lt;LoyaltyCardProfileRegistration&gt;**](LoyaltyCardProfileRegistration.md) | Integration IDs of the customers profiles linked to the card. | [optional] 
