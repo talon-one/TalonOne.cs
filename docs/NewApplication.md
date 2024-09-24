@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **EnablePartialDiscounts** | **bool** | Indicates if this Application supports partial discounts. | [optional] 
 **DefaultDiscountAdditionalCostPerItemScope** | **string** | The default scope to apply &#x60;setDiscountPerItem&#x60; effects on if no scope was provided with the effect.  | [optional] 
 **Key** | **string** | Hex key for HMAC-signing API calls as coming from this application (16 hex digits). | [optional] 
+**EnableCampaignStateManagement** | **bool** | Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

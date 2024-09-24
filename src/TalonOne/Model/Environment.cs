@@ -53,7 +53,8 @@ namespace TalonOne.Model
         /// <param name="additionalCosts">The additional costs that the application is subscribed to..</param>
         /// <param name="audiences">The audiences contained in the account which the application belongs to..</param>
         /// <param name="collections">The account-level collections that the application is subscribed to..</param>
-        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Achievement> achievements = default(List<Achievement>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), List<Collection> collections = default(List<Collection>))
+        /// <param name="applicationCartItemFilters">The cart item filters belonging to the Application..</param>
+        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Achievement> achievements = default(List<Achievement>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), List<Collection> collections = default(List<Collection>), List<ApplicationCIF> applicationCartItemFilters = default(List<ApplicationCIF>))
         {
             this.Id = id;
             this.Created = created;
@@ -73,6 +74,7 @@ namespace TalonOne.Model
             this.AdditionalCosts = additionalCosts;
             this.Audiences = audiences;
             this.Collections = collections;
+            this.ApplicationCartItemFilters = applicationCartItemFilters;
         }
         
         /// <summary>
@@ -174,6 +176,13 @@ namespace TalonOne.Model
         public List<Collection> Collections { get; set; }
 
         /// <summary>
+        /// The cart item filters belonging to the Application.
+        /// </summary>
+        /// <value>The cart item filters belonging to the Application.</value>
+        [DataMember(Name="applicationCartItemFilters", EmitDefaultValue=false)]
+        public List<ApplicationCIF> ApplicationCartItemFilters { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -195,6 +204,7 @@ namespace TalonOne.Model
             sb.Append("  AdditionalCosts: ").Append(AdditionalCosts).Append("\n");
             sb.Append("  Audiences: ").Append(Audiences).Append("\n");
             sb.Append("  Collections: ").Append(Collections).Append("\n");
+            sb.Append("  ApplicationCartItemFilters: ").Append(ApplicationCartItemFilters).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -306,6 +316,12 @@ namespace TalonOne.Model
                     this.Collections != null &&
                     input.Collections != null &&
                     this.Collections.SequenceEqual(input.Collections)
+                ) && 
+                (
+                    this.ApplicationCartItemFilters == input.ApplicationCartItemFilters ||
+                    this.ApplicationCartItemFilters != null &&
+                    input.ApplicationCartItemFilters != null &&
+                    this.ApplicationCartItemFilters.SequenceEqual(input.ApplicationCartItemFilters)
                 );
         }
 
@@ -344,6 +360,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Audiences.GetHashCode();
                 if (this.Collections != null)
                     hashCode = hashCode * 59 + this.Collections.GetHashCode();
+                if (this.ApplicationCartItemFilters != null)
+                    hashCode = hashCode * 59 + this.ApplicationCartItemFilters.GetHashCode();
                 return hashCode;
             }
         }

@@ -40,9 +40,11 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="SSOConfig" /> class.
         /// </summary>
         /// <param name="enforced">An indication of whether single sign-on is enforced for the account. When enforced, users cannot use their email and password to sign in to Talon.One. It is not possible to change this to &#x60;false&#x60; after it is set to &#x60;true&#x60;.  (required).</param>
-        public SSOConfig(bool enforced = default(bool))
+        /// <param name="newAcsUrl">Assertion Consumer Service (ACS) URL for setting up a new SAML connection with an identity provider like Okta or Microsoft Entra ID. .</param>
+        public SSOConfig(bool enforced = default(bool), string newAcsUrl = default(string))
         {
             this.Enforced = enforced;
+            this.NewAcsUrl = newAcsUrl;
         }
         
         /// <summary>
@@ -53,6 +55,13 @@ namespace TalonOne.Model
         public bool Enforced { get; set; }
 
         /// <summary>
+        /// Assertion Consumer Service (ACS) URL for setting up a new SAML connection with an identity provider like Okta or Microsoft Entra ID. 
+        /// </summary>
+        /// <value>Assertion Consumer Service (ACS) URL for setting up a new SAML connection with an identity provider like Okta or Microsoft Entra ID. </value>
+        [DataMember(Name="newAcsUrl", EmitDefaultValue=false)]
+        public string NewAcsUrl { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,6 +70,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class SSOConfig {\n");
             sb.Append("  Enforced: ").Append(Enforced).Append("\n");
+            sb.Append("  NewAcsUrl: ").Append(NewAcsUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,6 +108,11 @@ namespace TalonOne.Model
                 (
                     this.Enforced == input.Enforced ||
                     this.Enforced.Equals(input.Enforced)
+                ) && 
+                (
+                    this.NewAcsUrl == input.NewAcsUrl ||
+                    (this.NewAcsUrl != null &&
+                    this.NewAcsUrl.Equals(input.NewAcsUrl))
                 );
         }
 
@@ -111,6 +126,8 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Enforced.GetHashCode();
+                if (this.NewAcsUrl != null)
+                    hashCode = hashCode * 59 + this.NewAcsUrl.GetHashCode();
                 return hashCode;
             }
         }

@@ -58,14 +58,6 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'Draft'
-        /// </summary>
-        [Fact]
-        public void DraftTest()
-        {
-            // TODO unit test for the property 'Draft'
-        }
-        /// <summary>
         /// Test the property 'Disabled'
         /// </summary>
         [Fact]

@@ -42,7 +42,8 @@ namespace TalonOne.Model
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="programID">The ID of the loyalty program that owns this entity. (required).</param>
-        /// <param name="status">Status of the loyalty card. Can be one of: [&#39;active&#39;, &#39;inactive&#39;]  (required).</param>
+        /// <param name="status">Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;.  (required).</param>
+        /// <param name="blockReason">Reason for transferring and blocking the loyalty card. .</param>
         /// <param name="identifier">The alphanumeric identifier of the loyalty card.  (required).</param>
         /// <param name="usersPerCardLimit">The max amount of customer profiles that can be linked to the card. 0 means unlimited.  (required).</param>
         /// <param name="profiles">Integration IDs of the customers profiles linked to the card..</param>
@@ -51,7 +52,8 @@ namespace TalonOne.Model
         /// <param name="modified">Timestamp of the most recent update of the loyalty card..</param>
         /// <param name="oldCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
         /// <param name="newCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
-        public LoyaltyCard(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string status = default(string), string identifier = default(string), int usersPerCardLimit = default(int), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subledgers = default(Dictionary<string, LedgerInfo>), DateTime modified = default(DateTime), string oldCardIdentifier = default(string), string newCardIdentifier = default(string))
+        /// <param name="batchId">The ID of the batch in which the loyalty card was created..</param>
+        public LoyaltyCard(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string status = default(string), string blockReason = default(string), string identifier = default(string), int usersPerCardLimit = default(int), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subledgers = default(Dictionary<string, LedgerInfo>), DateTime modified = default(DateTime), string oldCardIdentifier = default(string), string newCardIdentifier = default(string), string batchId = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -61,12 +63,14 @@ namespace TalonOne.Model
             // to ensure "identifier" is required (not null)
             this.Identifier = identifier ?? throw new ArgumentNullException("identifier is a required property for LoyaltyCard and cannot be null");
             this.UsersPerCardLimit = usersPerCardLimit;
+            this.BlockReason = blockReason;
             this.Profiles = profiles;
             this.Ledger = ledger;
             this.Subledgers = subledgers;
             this.Modified = modified;
             this.OldCardIdentifier = oldCardIdentifier;
             this.NewCardIdentifier = newCardIdentifier;
+            this.BatchId = batchId;
         }
         
         /// <summary>
@@ -91,11 +95,18 @@ namespace TalonOne.Model
         public int ProgramID { get; set; }
 
         /// <summary>
-        /// Status of the loyalty card. Can be one of: [&#39;active&#39;, &#39;inactive&#39;] 
+        /// Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;. 
         /// </summary>
-        /// <value>Status of the loyalty card. Can be one of: [&#39;active&#39;, &#39;inactive&#39;] </value>
+        /// <value>Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;. </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
+
+        /// <summary>
+        /// Reason for transferring and blocking the loyalty card. 
+        /// </summary>
+        /// <value>Reason for transferring and blocking the loyalty card. </value>
+        [DataMember(Name="blockReason", EmitDefaultValue=false)]
+        public string BlockReason { get; set; }
 
         /// <summary>
         /// The alphanumeric identifier of the loyalty card. 
@@ -153,6 +164,13 @@ namespace TalonOne.Model
         public string NewCardIdentifier { get; set; }
 
         /// <summary>
+        /// The ID of the batch in which the loyalty card was created.
+        /// </summary>
+        /// <value>The ID of the batch in which the loyalty card was created.</value>
+        [DataMember(Name="batchId", EmitDefaultValue=false)]
+        public string BatchId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -164,6 +182,7 @@ namespace TalonOne.Model
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ProgramID: ").Append(ProgramID).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  BlockReason: ").Append(BlockReason).Append("\n");
             sb.Append("  Identifier: ").Append(Identifier).Append("\n");
             sb.Append("  UsersPerCardLimit: ").Append(UsersPerCardLimit).Append("\n");
             sb.Append("  Profiles: ").Append(Profiles).Append("\n");
@@ -172,6 +191,7 @@ namespace TalonOne.Model
             sb.Append("  Modified: ").Append(Modified).Append("\n");
             sb.Append("  OldCardIdentifier: ").Append(OldCardIdentifier).Append("\n");
             sb.Append("  NewCardIdentifier: ").Append(NewCardIdentifier).Append("\n");
+            sb.Append("  BatchId: ").Append(BatchId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -225,6 +245,11 @@ namespace TalonOne.Model
                     this.Status.Equals(input.Status))
                 ) && 
                 (
+                    this.BlockReason == input.BlockReason ||
+                    (this.BlockReason != null &&
+                    this.BlockReason.Equals(input.BlockReason))
+                ) && 
+                (
                     this.Identifier == input.Identifier ||
                     (this.Identifier != null &&
                     this.Identifier.Equals(input.Identifier))
@@ -264,6 +289,11 @@ namespace TalonOne.Model
                     this.NewCardIdentifier == input.NewCardIdentifier ||
                     (this.NewCardIdentifier != null &&
                     this.NewCardIdentifier.Equals(input.NewCardIdentifier))
+                ) && 
+                (
+                    this.BatchId == input.BatchId ||
+                    (this.BatchId != null &&
+                    this.BatchId.Equals(input.BatchId))
                 );
         }
 
@@ -282,6 +312,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ProgramID.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.BlockReason != null)
+                    hashCode = hashCode * 59 + this.BlockReason.GetHashCode();
                 if (this.Identifier != null)
                     hashCode = hashCode * 59 + this.Identifier.GetHashCode();
                 hashCode = hashCode * 59 + this.UsersPerCardLimit.GetHashCode();
@@ -297,6 +329,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.OldCardIdentifier.GetHashCode();
                 if (this.NewCardIdentifier != null)
                     hashCode = hashCode * 59 + this.NewCardIdentifier.GetHashCode();
+                if (this.BatchId != null)
+                    hashCode = hashCode * 59 + this.BatchId.GetHashCode();
                 return hashCode;
             }
         }

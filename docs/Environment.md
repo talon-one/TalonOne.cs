@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **AdditionalCosts** | [**List&lt;AccountAdditionalCost&gt;**](AccountAdditionalCost.md) | The additional costs that the application is subscribed to. | [optional] 
 **Audiences** | [**List&lt;Audience&gt;**](Audience.md) | The audiences contained in the account which the application belongs to. | [optional] 
 **Collections** | **List&lt;Collection&gt;** | The account-level collections that the application is subscribed to. | [optional] 
+**ApplicationCartItemFilters** | [**List&lt;ApplicationCIF&gt;**](ApplicationCIF.md) | The cart item filters belonging to the Application. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

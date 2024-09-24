@@ -52,7 +52,7 @@ namespace TalonOne.Model
         /// <param name="width">Width of item in mm..</param>
         /// <param name="length">Length of item in mm..</param>
         /// <param name="position">Position of the Cart Item in the Cart (calculated internally)..</param>
-        /// <param name="attributes">Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property. .</param>
+        /// <param name="attributes">Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.  **Note:** Any previously defined attributes that you do not include in the array will be removed. .</param>
         /// <param name="additionalCosts">Use this property to set a value for the additional costs of this item, such as a shipping cost. They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs). .</param>
         /// <param name="catalogItemID">The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog)..</param>
         public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), int returnedQuantity = default(int), int remainingQuantity = default(int), decimal price = default(decimal), string category = default(string), Product product = default(Product), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), int catalogItemID = default(int))
@@ -167,9 +167,9 @@ namespace TalonOne.Model
         public decimal Position { get; set; }
 
         /// <summary>
-        /// Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property. 
+        /// Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.  **Note:** Any previously defined attributes that you do not include in the array will be removed. 
         /// </summary>
-        /// <value>Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property. </value>
+        /// <value>Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.  **Note:** Any previously defined attributes that you do not include in the array will be removed. </value>
         [DataMember(Name="attributes", EmitDefaultValue=false)]
         public Object Attributes { get; set; }
 

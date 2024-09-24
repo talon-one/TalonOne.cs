@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseNotificationEntity" /> class.
         /// </summary>
-        /// <param name="policy">policy (required).</param>
+        /// <param name="policy">Indicates which notification properties to apply. (required).</param>
         /// <param name="enabled">Indicates whether the notification is activated. (default to true).</param>
         public BaseNotificationEntity(Object policy = default(Object), bool enabled = true)
         {
@@ -49,8 +49,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Gets or Sets Policy
+        /// Indicates which notification properties to apply.
         /// </summary>
+        /// <value>Indicates which notification properties to apply.</value>
         [DataMember(Name="policy", EmitDefaultValue=false)]
         public Object Policy { get; set; }
 

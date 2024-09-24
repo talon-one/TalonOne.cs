@@ -39,15 +39,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationCampaignStats" /> class.
         /// </summary>
-        /// <param name="draft">Number of draft campaigns. (required).</param>
         /// <param name="disabled">Number of disabled campaigns. (required).</param>
         /// <param name="scheduled">Number of scheduled campaigns. (required).</param>
         /// <param name="running">Number of running campaigns. (required).</param>
         /// <param name="expired">Number of expired campaigns. (required).</param>
         /// <param name="archived">Number of archived campaigns. (required).</param>
-        public ApplicationCampaignStats(int draft = default(int), int disabled = default(int), int scheduled = default(int), int running = default(int), int expired = default(int), int archived = default(int))
+        public ApplicationCampaignStats(int disabled = default(int), int scheduled = default(int), int running = default(int), int expired = default(int), int archived = default(int))
         {
-            this.Draft = draft;
             this.Disabled = disabled;
             this.Scheduled = scheduled;
             this.Running = running;
@@ -55,13 +53,6 @@ namespace TalonOne.Model
             this.Archived = archived;
         }
         
-        /// <summary>
-        /// Number of draft campaigns.
-        /// </summary>
-        /// <value>Number of draft campaigns.</value>
-        [DataMember(Name="draft", EmitDefaultValue=false)]
-        public int Draft { get; set; }
-
         /// <summary>
         /// Number of disabled campaigns.
         /// </summary>
@@ -105,7 +96,6 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ApplicationCampaignStats {\n");
-            sb.Append("  Draft: ").Append(Draft).Append("\n");
             sb.Append("  Disabled: ").Append(Disabled).Append("\n");
             sb.Append("  Scheduled: ").Append(Scheduled).Append("\n");
             sb.Append("  Running: ").Append(Running).Append("\n");
@@ -146,10 +136,6 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Draft == input.Draft ||
-                    this.Draft.Equals(input.Draft)
-                ) && 
-                (
                     this.Disabled == input.Disabled ||
                     this.Disabled.Equals(input.Disabled)
                 ) && 
@@ -180,7 +166,6 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Draft.GetHashCode();
                 hashCode = hashCode * 59 + this.Disabled.GetHashCode();
                 hashCode = hashCode * 59 + this.Scheduled.GetHashCode();
                 hashCode = hashCode * 59 + this.Running.GetHashCode();

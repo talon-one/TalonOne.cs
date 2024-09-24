@@ -121,6 +121,38 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ConditionIndex'
         }
+        /// <summary>
+        /// Test the property 'EvaluationGroupID'
+        /// </summary>
+        [Fact]
+        public void EvaluationGroupIDTest()
+        {
+            // TODO unit test for the property 'EvaluationGroupID'
+        }
+        /// <summary>
+        /// Test the property 'EvaluationGroupMode'
+        /// </summary>
+        [Fact]
+        public void EvaluationGroupModeTest()
+        {
+            // TODO unit test for the property 'EvaluationGroupMode'
+        }
+        /// <summary>
+        /// Test the property 'CampaignRevisionId'
+        /// </summary>
+        [Fact]
+        public void CampaignRevisionIdTest()
+        {
+            // TODO unit test for the property 'CampaignRevisionId'
+        }
+        /// <summary>
+        /// Test the property 'CampaignRevisionVersionId'
+        /// </summary>
+        [Fact]
+        public void CampaignRevisionVersionIdTest()
+        {
+            // TODO unit test for the property 'CampaignRevisionVersionId'
+        }
 
     }
 

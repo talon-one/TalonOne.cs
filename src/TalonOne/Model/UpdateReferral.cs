@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="friendProfileIntegrationId">An optional Integration ID of the Friend&#39;s Profile..</param>
         /// <param name="startDate">Timestamp at which point the referral code becomes valid..</param>
-        /// <param name="expiryDate">Expiration date of the referral code. Referral never expires if this is omitted, zero, or negative..</param>
+        /// <param name="expiryDate">Expiration date of the referral code. Referral never expires if this is omitted..</param>
         /// <param name="usageLimit">The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. .</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
         public UpdateReferral(string friendProfileIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageLimit = default(int), Object attributes = default(Object))
@@ -63,9 +63,9 @@ namespace TalonOne.Model
         public DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Expiration date of the referral code. Referral never expires if this is omitted, zero, or negative.
+        /// Expiration date of the referral code. Referral never expires if this is omitted.
         /// </summary>
-        /// <value>Expiration date of the referral code. Referral never expires if this is omitted, zero, or negative.</value>
+        /// <value>Expiration date of the referral code. Referral never expires if this is omitted.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
 

@@ -38,7 +38,7 @@ namespace TalonOne.Model
         /// <param name="discountLimit">The total discount value that the code can give. Typically used to represent a gift card value. .</param>
         /// <param name="reservationLimit">The number of reservations that can be made with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
-        /// <param name="expiryDate">Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
+        /// <param name="expiryDate">Expiration date of the coupon. Coupon never expires if this is omitted..</param>
         /// <param name="attributes">Optional property to set the value of custom coupon attributes. They are defined in the Campaign Manager, see [Managing attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes).  Coupon attributes can also be set to _mandatory_ in your Application [settings](https://docs.talon.one/docs/product/applications/using-attributes#making-attributes-mandatory). If your Application uses mandatory attributes, you must use this property to set their value. .</param>
         /// <param name="batchID">The ID of the batch the coupon(s) belong to..</param>
         public UpdateCouponBatch(int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), Object attributes = default(Object), string batchID = default(string))
@@ -81,9 +81,9 @@ namespace TalonOne.Model
         public DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative.
+        /// Expiration date of the coupon. Coupon never expires if this is omitted.
         /// </summary>
-        /// <value>Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative.</value>
+        /// <value>Expiration date of the coupon. Coupon never expires if this is omitted.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
 

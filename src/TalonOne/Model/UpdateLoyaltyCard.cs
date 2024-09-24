@@ -39,19 +39,28 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateLoyaltyCard" /> class.
         /// </summary>
-        /// <param name="status">Status of the loyalty card. Can be one of: [&#39;active&#39;, &#39;inactive&#39;]  (required).</param>
-        public UpdateLoyaltyCard(string status = default(string))
+        /// <param name="status">Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;.  (required).</param>
+        /// <param name="blockReason">Reason for transferring and blocking the loyalty card. .</param>
+        public UpdateLoyaltyCard(string status = default(string), string blockReason = default(string))
         {
             // to ensure "status" is required (not null)
             this.Status = status ?? throw new ArgumentNullException("status is a required property for UpdateLoyaltyCard and cannot be null");
+            this.BlockReason = blockReason;
         }
         
         /// <summary>
-        /// Status of the loyalty card. Can be one of: [&#39;active&#39;, &#39;inactive&#39;] 
+        /// Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;. 
         /// </summary>
-        /// <value>Status of the loyalty card. Can be one of: [&#39;active&#39;, &#39;inactive&#39;] </value>
+        /// <value>Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;. </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
+
+        /// <summary>
+        /// Reason for transferring and blocking the loyalty card. 
+        /// </summary>
+        /// <value>Reason for transferring and blocking the loyalty card. </value>
+        [DataMember(Name="blockReason", EmitDefaultValue=false)]
+        public string BlockReason { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,6 +71,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class UpdateLoyaltyCard {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  BlockReason: ").Append(BlockReason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +110,11 @@ namespace TalonOne.Model
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.BlockReason == input.BlockReason ||
+                    (this.BlockReason != null &&
+                    this.BlockReason.Equals(input.BlockReason))
                 );
         }
 
@@ -114,6 +129,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.BlockReason != null)
+                    hashCode = hashCode * 59 + this.BlockReason.GetHashCode();
                 return hashCode;
             }
         }

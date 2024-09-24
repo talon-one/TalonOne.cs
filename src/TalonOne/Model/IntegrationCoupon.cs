@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="discountLimit">The total discount value that the code can give. Typically used to represent a gift card value. .</param>
         /// <param name="reservationLimit">The number of reservations that can be made with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
-        /// <param name="expiryDate">Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative..</param>
+        /// <param name="expiryDate">Expiration date of the coupon. Coupon never expires if this is omitted..</param>
         /// <param name="limits">Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. .</param>
         /// <param name="usageCounter">The number of times the coupon has been successfully redeemed. (required).</param>
         /// <param name="discountCounter">The amount of discounts given on rules redeeming this coupon. Only usable if a coupon discount budget was set for this coupon..</param>
@@ -147,9 +147,9 @@ namespace TalonOne.Model
         public DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative.
+        /// Expiration date of the coupon. Coupon never expires if this is omitted.
         /// </summary>
-        /// <value>Expiration date of the coupon. Coupon never expires if this is omitted, zero, or negative.</value>
+        /// <value>Expiration date of the coupon. Coupon never expires if this is omitted.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
 

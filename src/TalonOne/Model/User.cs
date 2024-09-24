@@ -88,7 +88,8 @@ namespace TalonOne.Model
         /// <param name="lastSignedIn">Timestamp when the user last signed in to Talon.One..</param>
         /// <param name="lastAccessed">Timestamp of the user&#39;s last activity after signing in to Talon.One..</param>
         /// <param name="latestFeedTimestamp">Timestamp when the user was notified for feed..</param>
-        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string name = default(string), StateEnum state = default(StateEnum), string inviteToken = default(string), bool isAdmin = default(bool), Object policy = default(Object), List<int> roles = default(List<int>), string authMethod = default(string), Object applicationNotificationSubscriptions = default(Object), DateTime lastSignedIn = default(DateTime), DateTime lastAccessed = default(DateTime), DateTime latestFeedTimestamp = default(DateTime))
+        /// <param name="additionalAttributes">Additional user attributes, created and used by external identity providers..</param>
+        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string name = default(string), StateEnum state = default(StateEnum), string inviteToken = default(string), bool isAdmin = default(bool), Object policy = default(Object), List<int> roles = default(List<int>), string authMethod = default(string), Object applicationNotificationSubscriptions = default(Object), DateTime lastSignedIn = default(DateTime), DateTime lastAccessed = default(DateTime), DateTime latestFeedTimestamp = default(DateTime), Object additionalAttributes = default(Object))
         {
             this.Id = id;
             this.Created = created;
@@ -110,6 +111,7 @@ namespace TalonOne.Model
             this.LastSignedIn = lastSignedIn;
             this.LastAccessed = lastAccessed;
             this.LatestFeedTimestamp = latestFeedTimestamp;
+            this.AdditionalAttributes = additionalAttributes;
         }
         
         /// <summary>
@@ -218,6 +220,13 @@ namespace TalonOne.Model
         public DateTime LatestFeedTimestamp { get; set; }
 
         /// <summary>
+        /// Additional user attributes, created and used by external identity providers.
+        /// </summary>
+        /// <value>Additional user attributes, created and used by external identity providers.</value>
+        [DataMember(Name="additionalAttributes", EmitDefaultValue=false)]
+        public Object AdditionalAttributes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -241,6 +250,7 @@ namespace TalonOne.Model
             sb.Append("  LastSignedIn: ").Append(LastSignedIn).Append("\n");
             sb.Append("  LastAccessed: ").Append(LastAccessed).Append("\n");
             sb.Append("  LatestFeedTimestamp: ").Append(LatestFeedTimestamp).Append("\n");
+            sb.Append("  AdditionalAttributes: ").Append(AdditionalAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -351,6 +361,11 @@ namespace TalonOne.Model
                     this.LatestFeedTimestamp == input.LatestFeedTimestamp ||
                     (this.LatestFeedTimestamp != null &&
                     this.LatestFeedTimestamp.Equals(input.LatestFeedTimestamp))
+                ) && 
+                (
+                    this.AdditionalAttributes == input.AdditionalAttributes ||
+                    (this.AdditionalAttributes != null &&
+                    this.AdditionalAttributes.Equals(input.AdditionalAttributes))
                 );
         }
 
@@ -391,6 +406,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.LastAccessed.GetHashCode();
                 if (this.LatestFeedTimestamp != null)
                     hashCode = hashCode * 59 + this.LatestFeedTimestamp.GetHashCode();
+                if (this.AdditionalAttributes != null)
+                    hashCode = hashCode * 59 + this.AdditionalAttributes.GetHashCode();
                 return hashCode;
             }
         }

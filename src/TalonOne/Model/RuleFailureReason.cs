@@ -51,7 +51,9 @@ namespace TalonOne.Model
         /// <param name="conditionIndex">The index of the condition that failed..</param>
         /// <param name="effectIndex">The index of the effect that failed..</param>
         /// <param name="details">More details about the failure..</param>
-        public RuleFailureReason(int campaignID = default(int), string campaignName = default(string), int rulesetID = default(int), int couponID = default(int), string couponValue = default(string), int referralID = default(int), string referralValue = default(string), int ruleIndex = default(int), string ruleName = default(string), int conditionIndex = default(int), int effectIndex = default(int), string details = default(string))
+        /// <param name="evaluationGroupID">The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
+        /// <param name="evaluationGroupMode">The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-.</param>
+        public RuleFailureReason(int campaignID = default(int), string campaignName = default(string), int rulesetID = default(int), int couponID = default(int), string couponValue = default(string), int referralID = default(int), string referralValue = default(string), int ruleIndex = default(int), string ruleName = default(string), int conditionIndex = default(int), int effectIndex = default(int), string details = default(string), int evaluationGroupID = default(int), string evaluationGroupMode = default(string))
         {
             this.CampaignID = campaignID;
             // to ensure "campaignName" is required (not null)
@@ -67,6 +69,8 @@ namespace TalonOne.Model
             this.ConditionIndex = conditionIndex;
             this.EffectIndex = effectIndex;
             this.Details = details;
+            this.EvaluationGroupID = evaluationGroupID;
+            this.EvaluationGroupMode = evaluationGroupMode;
         }
         
         /// <summary>
@@ -154,6 +158,20 @@ namespace TalonOne.Model
         public string Details { get; set; }
 
         /// <summary>
+        /// The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
+        /// </summary>
+        /// <value>The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).</value>
+        [DataMember(Name="evaluationGroupID", EmitDefaultValue=false)]
+        public int EvaluationGroupID { get; set; }
+
+        /// <summary>
+        /// The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-
+        /// </summary>
+        /// <value>The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-</value>
+        [DataMember(Name="evaluationGroupMode", EmitDefaultValue=false)]
+        public string EvaluationGroupMode { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -173,6 +191,8 @@ namespace TalonOne.Model
             sb.Append("  ConditionIndex: ").Append(ConditionIndex).Append("\n");
             sb.Append("  EffectIndex: ").Append(EffectIndex).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  EvaluationGroupID: ").Append(EvaluationGroupID).Append("\n");
+            sb.Append("  EvaluationGroupMode: ").Append(EvaluationGroupMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -259,6 +279,15 @@ namespace TalonOne.Model
                     this.Details == input.Details ||
                     (this.Details != null &&
                     this.Details.Equals(input.Details))
+                ) && 
+                (
+                    this.EvaluationGroupID == input.EvaluationGroupID ||
+                    this.EvaluationGroupID.Equals(input.EvaluationGroupID)
+                ) && 
+                (
+                    this.EvaluationGroupMode == input.EvaluationGroupMode ||
+                    (this.EvaluationGroupMode != null &&
+                    this.EvaluationGroupMode.Equals(input.EvaluationGroupMode))
                 );
         }
 
@@ -288,6 +317,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.EffectIndex.GetHashCode();
                 if (this.Details != null)
                     hashCode = hashCode * 59 + this.Details.GetHashCode();
+                hashCode = hashCode * 59 + this.EvaluationGroupID.GetHashCode();
+                if (this.EvaluationGroupMode != null)
+                    hashCode = hashCode * 59 + this.EvaluationGroupMode.GetHashCode();
                 return hashCode;
             }
         }

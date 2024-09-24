@@ -385,6 +385,62 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'FrontendState'
         }
+        /// <summary>
+        /// Test the property 'StoresImported'
+        /// </summary>
+        [Fact]
+        public void StoresImportedTest()
+        {
+            // TODO unit test for the property 'StoresImported'
+        }
+        /// <summary>
+        /// Test the property 'ActiveRevisionId'
+        /// </summary>
+        [Fact]
+        public void ActiveRevisionIdTest()
+        {
+            // TODO unit test for the property 'ActiveRevisionId'
+        }
+        /// <summary>
+        /// Test the property 'ActiveRevisionVersionId'
+        /// </summary>
+        [Fact]
+        public void ActiveRevisionVersionIdTest()
+        {
+            // TODO unit test for the property 'ActiveRevisionVersionId'
+        }
+        /// <summary>
+        /// Test the property 'Version'
+        /// </summary>
+        [Fact]
+        public void VersionTest()
+        {
+            // TODO unit test for the property 'Version'
+        }
+        /// <summary>
+        /// Test the property 'CurrentRevisionId'
+        /// </summary>
+        [Fact]
+        public void CurrentRevisionIdTest()
+        {
+            // TODO unit test for the property 'CurrentRevisionId'
+        }
+        /// <summary>
+        /// Test the property 'CurrentRevisionVersionId'
+        /// </summary>
+        [Fact]
+        public void CurrentRevisionVersionIdTest()
+        {
+            // TODO unit test for the property 'CurrentRevisionVersionId'
+        }
+        /// <summary>
+        /// Test the property 'StageRevision'
+        /// </summary>
+        [Fact]
+        public void StageRevisionTest()
+        {
+            // TODO unit test for the property 'StageRevision'
+        }
 
     }
 

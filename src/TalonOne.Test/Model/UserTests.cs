@@ -185,6 +185,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'LatestFeedTimestamp'
         }
+        /// <summary>
+        /// Test the property 'AdditionalAttributes'
+        /// </summary>
+        [Fact]
+        public void AdditionalAttributesTest()
+        {
+            // TODO unit test for the property 'AdditionalAttributes'
+        }
 
     }
 

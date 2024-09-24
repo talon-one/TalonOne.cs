@@ -210,6 +210,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'DefaultEvaluationGroupId'
         }
         /// <summary>
+        /// Test the property 'DefaultCartItemFilterId'
+        /// </summary>
+        [Fact]
+        public void DefaultCartItemFilterIdTest()
+        {
+            // TODO unit test for the property 'DefaultCartItemFilterId'
+        }
+        /// <summary>
+        /// Test the property 'EnableCampaignStateManagement'
+        /// </summary>
+        [Fact]
+        public void EnableCampaignStateManagementTest()
+        {
+            // TODO unit test for the property 'EnableCampaignStateManagement'
+        }
+        /// <summary>
         /// Test the property 'LoyaltyPrograms'
         /// </summary>
         [Fact]

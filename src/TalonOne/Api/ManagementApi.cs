@@ -30,10 +30,10 @@ namespace TalonOne.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate user by email address
+        /// Enable user by email address
         /// </summary>
         /// <remarks>
-        /// Activate a deactivated user by their email address. 
+        /// Enable a [disabled user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -41,10 +41,10 @@ namespace TalonOne.Api
         void ActivateUserByEmail (ActivateUserRequest body);
 
         /// <summary>
-        /// Activate user by email address
+        /// Enable user by email address
         /// </summary>
         /// <remarks>
-        /// Activate a deactivated user by their email address. 
+        /// Enable a [disabled user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -214,6 +214,29 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of Attribute</returns>
         ApiResponse<Attribute> CreateAttributeWithHttpInfo (NewAttribute body);
         /// <summary>
+        /// Create loyalty cards
+        /// </summary>
+        /// <remarks>
+        /// Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a &#x60;400&#x60; status code. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>LoyaltyCardBatchResponse</returns>
+        LoyaltyCardBatchResponse CreateBatchLoyaltyCards (int loyaltyProgramId, LoyaltyCardBatch body);
+
+        /// <summary>
+        /// Create loyalty cards
+        /// </summary>
+        /// <remarks>
+        /// Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a &#x60;400&#x60; status code. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of LoyaltyCardBatchResponse</returns>
+        ApiResponse<LoyaltyCardBatchResponse> CreateBatchLoyaltyCardsWithHttpInfo (int loyaltyProgramId, LoyaltyCardBatch body);
+        /// <summary>
         /// Create campaign from campaign template
         /// </summary>
         /// <remarks>
@@ -313,6 +336,31 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <returns>ApiResponse of AsyncCouponCreationResponse</returns>
         ApiResponse<AsyncCouponCreationResponse> CreateCouponsAsyncWithHttpInfo (int applicationId, int campaignId, NewCouponCreationJob body);
+        /// <summary>
+        /// Creates a coupon deletion job
+        /// </summary>
+        /// <remarks>
+        /// This endpoint handles creating a job to delete coupons asynchronously. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="body">body</param>
+        /// <returns>AsyncCouponDeletionJobResponse</returns>
+        AsyncCouponDeletionJobResponse CreateCouponsDeletionJob (int applicationId, int campaignId, NewCouponDeletionJob body);
+
+        /// <summary>
+        /// Creates a coupon deletion job
+        /// </summary>
+        /// <remarks>
+        /// This endpoint handles creating a job to delete coupons asynchronously. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of AsyncCouponDeletionJobResponse</returns>
+        ApiResponse<AsyncCouponDeletionJobResponse> CreateCouponsDeletionJobWithHttpInfo (int applicationId, int campaignId, NewCouponDeletionJob body);
         /// <summary>
         /// Create coupons for multiple recipients
         /// </summary>
@@ -448,10 +496,10 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of Store</returns>
         ApiResponse<Store> CreateStoreWithHttpInfo (int applicationId, NewStore body);
         /// <summary>
-        /// Deactivate user by email address
+        /// Disable user by email address
         /// </summary>
         /// <remarks>
-        /// Deactivate a specific user by their email address. 
+        /// [Disable a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -459,10 +507,10 @@ namespace TalonOne.Api
         void DeactivateUserByEmail (DeactivateUserRequest body);
 
         /// <summary>
-        /// Deactivate user by email address
+        /// Disable user by email address
         /// </summary>
         /// <remarks>
-        /// Deactivate a specific user by their email address. 
+        /// [Disable a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -624,10 +672,10 @@ namespace TalonOne.Api
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">- &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
@@ -649,10 +697,10 @@ namespace TalonOne.Api
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">- &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
@@ -757,7 +805,7 @@ namespace TalonOne.Api
         /// Delete user by email address
         /// </summary>
         /// <remarks>
-        /// Delete a specific user by their email address. 
+        /// [Delete a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#deleting-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -768,7 +816,7 @@ namespace TalonOne.Api
         /// Delete user by email address
         /// </summary>
         /// <remarks>
-        /// Delete a specific user by their email address. 
+        /// [Delete a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#deleting-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -793,6 +841,29 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DestroySessionWithHttpInfo ();
+        /// <summary>
+        /// Disconnect stores
+        /// </summary>
+        /// <remarks>
+        /// Disconnect the stores linked to a specific campaign.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns></returns>
+        void DisconnectCampaignStores (int applicationId, int campaignId);
+
+        /// <summary>
+        /// Disconnect stores
+        /// </summary>
+        /// <remarks>
+        /// Disconnect the stores linked to a specific campaign.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> DisconnectCampaignStoresWithHttpInfo (int applicationId, int campaignId);
         /// <summary>
         /// Export account-level collection&#39;s items
         /// </summary>
@@ -861,6 +932,29 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> ExportAudiencesMembershipsWithHttpInfo (int audienceId);
         /// <summary>
+        /// Export stores
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>string</returns>
+        string ExportCampaignStores (int applicationId, int campaignId);
+
+        /// <summary>
+        /// Export stores
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> ExportCampaignStoresWithHttpInfo (int applicationId, int campaignId);
+        /// <summary>
         /// Export campaign-level collection&#39;s items
         /// </summary>
         /// <remarks>
@@ -905,7 +999,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>string</returns>
         string ExportCoupons (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string), bool? valuesOnly = default(bool?));
@@ -930,7 +1024,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> ExportCouponsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string), bool? valuesOnly = default(bool?));
@@ -969,7 +1063,7 @@ namespace TalonOne.Api
         /// Export customers&#39; tier data
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerId&#x60; (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierName&#x60; (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported. 
+        /// Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerIds&#x60; (optional): Filter results by an array of subledger IDs. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierNames&#x60; (optional): Filter results by an array of tier names. If no value is provided, all tier data for the specified loyalty program will be exported. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -982,7 +1076,7 @@ namespace TalonOne.Api
         /// Export customers&#39; tier data
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerId&#x60; (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierName&#x60; (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported. 
+        /// Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerIds&#x60; (optional): Filter results by an array of subledger IDs. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierNames&#x60; (optional): Filter results by an array of tier names. If no value is provided, all tier data for the specified loyalty program will be exported. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -999,8 +1093,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>string</returns>
         string ExportEffects (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string));
@@ -1014,8 +1108,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> ExportEffectsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string));
@@ -1118,10 +1212,33 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> ExportLoyaltyCardLedgerWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime rangeStart, DateTime rangeEnd, string dateFormat = default(string));
         /// <summary>
+        /// Export loyalty cards
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
+        /// <returns>string</returns>
+        string ExportLoyaltyCards (int loyaltyProgramId, string batchId = default(string));
+
+        /// <summary>
+        /// Export loyalty cards
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> ExportLoyaltyCardsWithHttpInfo (int loyaltyProgramId, string batchId = default(string));
+        /// <summary>
         /// Export customer&#39;s transaction logs
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The type of the loyalty program. - &#x60;name&#x60;: The name of the loyalty program. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
+        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -1136,7 +1253,7 @@ namespace TalonOne.Api
         /// Export customer&#39;s transaction logs
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The type of the loyalty program. - &#x60;name&#x60;: The name of the loyalty program. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
+        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -1924,7 +2041,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>InlineResponse2006</returns>
         InlineResponse2006 GetCampaignByAttributes (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
 
@@ -1940,7 +2057,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
         ApiResponse<InlineResponse2006> GetCampaignByAttributesWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
         /// <summary>
@@ -2033,7 +2150,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
@@ -2055,7 +2172,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
@@ -2173,12 +2290,18 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="redeemed">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)</param>
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>InlineResponse2009</returns>
-        InlineResponse2009 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?));
+        InlineResponse2009 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string redeemed = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), DateTime? expiresBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? startsAfter = default(DateTime?), bool? valuesOnly = default(bool?));
 
         /// <summary>
         /// List coupons
@@ -2197,12 +2320,18 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="redeemed">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)</param>
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        ApiResponse<InlineResponse2009> GetCouponsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?));
+        ApiResponse<InlineResponse2009> GetCouponsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string redeemed = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), DateTime? expiresBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? startsAfter = default(DateTime?), bool? valuesOnly = default(bool?));
         /// <summary>
         /// Get customer&#39;s activity report
         /// </summary>
@@ -2531,10 +2660,11 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
-        /// <param name="profileId">Filter by the profile ID. (optional)</param>
+        /// <param name="identifier">The card code by which to filter loyalty cards in the response. (optional)</param>
+        /// <param name="profileId">Filter results by customer profile ID. (optional)</param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
         /// <returns>InlineResponse20015</returns>
-        InlineResponse20015 GetLoyaltyCards (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?));
+        InlineResponse20015 GetLoyaltyCards (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?), string batchId = default(string));
 
         /// <summary>
         /// List loyalty cards
@@ -2547,10 +2677,11 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
-        /// <param name="profileId">Filter by the profile ID. (optional)</param>
+        /// <param name="identifier">The card code by which to filter loyalty cards in the response. (optional)</param>
+        /// <param name="profileId">Filter results by customer profile ID. (optional)</param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20015</returns>
-        ApiResponse<InlineResponse20015> GetLoyaltyCardsWithHttpInfo (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?));
+        ApiResponse<InlineResponse20015> GetLoyaltyCardsWithHttpInfo (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?), string batchId = default(string));
         /// <summary>
         /// Get customer&#39;s full loyalty ledger
         /// </summary>
@@ -2957,7 +3088,7 @@ namespace TalonOne.Api
         /// List all webhooks.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
@@ -2975,7 +3106,7 @@ namespace TalonOne.Api
         /// List all webhooks.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
@@ -3054,6 +3185,31 @@ namespace TalonOne.Api
         /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
         /// <returns>ApiResponse of Import</returns>
         ApiResponse<Import> ImportAudiencesMembershipsWithHttpInfo (int audienceId, string upFile = default(string));
+        /// <summary>
+        /// Import stores
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
+        /// <returns>Import</returns>
+        Import ImportCampaignStores (int applicationId, int campaignId, string upFile = default(string));
+
+        /// <summary>
+        /// Import stores
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
+        /// <returns>ApiResponse of Import</returns>
+        ApiResponse<Import> ImportCampaignStoresWithHttpInfo (int applicationId, int campaignId, string upFile = default(string));
         /// <summary>
         /// Import data into existing campaign-level collection
         /// </summary>
@@ -3135,7 +3291,7 @@ namespace TalonOne.Api
         /// Import customers into loyalty tiers
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -3147,7 +3303,7 @@ namespace TalonOne.Api
         /// Import customers into loyalty tiers
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -3229,7 +3385,7 @@ namespace TalonOne.Api
         /// Invite user from identity provider
         /// </summary>
         /// <remarks>
-        /// Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// [Invite a user](https://docs.talon.one/docs/product/account/account-settings/managing-users#inviting-a-user) from an external identity provider to Talon.One by sending an invitation to their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -3240,7 +3396,7 @@ namespace TalonOne.Api
         /// Invite user from identity provider
         /// </summary>
         /// <remarks>
-        /// Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// [Invite a user](https://docs.talon.one/docs/product/account/account-settings/managing-users#inviting-a-user) from an external identity provider to Talon.One by sending an invitation to their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -3479,6 +3635,25 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> NotificationActivationWithHttpInfo (int notificationId, NotificationActivation body);
         /// <summary>
+        /// Validate Okta API ownership
+        /// </summary>
+        /// <remarks>
+        /// Validate the ownership of the API through a challenge-response mechanism.  This challenger endpoint is used by Okta to confirm that communication between Talon.One and Okta is correctly configured and accessible for provisioning and deprovisioning of Talon.One users, and that only Talon.One can receive and respond to events from Okta. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        void OktaEventHandlerChallenge ();
+
+        /// <summary>
+        /// Validate Okta API ownership
+        /// </summary>
+        /// <remarks>
+        /// Validate the ownership of the API through a challenge-response mechanism.  This challenger endpoint is used by Okta to confirm that communication between Talon.One and Okta is correctly configured and accessible for provisioning and deprovisioning of Talon.One users, and that only Talon.One can receive and respond to events from Okta. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> OktaEventHandlerChallengeWithHttpInfo ();
+        /// <summary>
         /// Create notification about added or deducted loyalty points
         /// </summary>
         /// <remarks>
@@ -3594,6 +3769,191 @@ namespace TalonOne.Api
         /// <returns>ApiResponse of NewPassword</returns>
         ApiResponse<NewPassword> ResetPasswordWithHttpInfo (NewPassword body);
         /// <summary>
+        /// Create SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Create a new Talon.One user using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>ScimUser</returns>
+        ScimUser ScimCreateUser (ScimNewUser body);
+
+        /// <summary>
+        /// Create SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Create a new Talon.One user using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of ScimUser</returns>
+        ApiResponse<ScimUser> ScimCreateUserWithHttpInfo (ScimNewUser body);
+        /// <summary>
+        /// Delete SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Delete a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns></returns>
+        void ScimDeleteUser (int userId);
+
+        /// <summary>
+        /// Delete SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Delete a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> ScimDeleteUserWithHttpInfo (int userId);
+        /// <summary>
+        /// List supported SCIM resource types
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of resource types supported by the SCIM provisioning protocol.  Resource types define the various kinds of resources that can be managed via the SCIM API, such as users, groups, or custom-defined resources. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ScimResourceTypesListResponse</returns>
+        ScimResourceTypesListResponse ScimGetResourceTypes ();
+
+        /// <summary>
+        /// List supported SCIM resource types
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of resource types supported by the SCIM provisioning protocol.  Resource types define the various kinds of resources that can be managed via the SCIM API, such as users, groups, or custom-defined resources. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ScimResourceTypesListResponse</returns>
+        ApiResponse<ScimResourceTypesListResponse> ScimGetResourceTypesWithHttpInfo ();
+        /// <summary>
+        /// List supported SCIM schemas
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas define the structure and attributes of the different resources that can be managed via the SCIM API, such as users, groups, and any custom-defined resources. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ScimSchemasListResponse</returns>
+        ScimSchemasListResponse ScimGetSchemas ();
+
+        /// <summary>
+        /// List supported SCIM schemas
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas define the structure and attributes of the different resources that can be managed via the SCIM API, such as users, groups, and any custom-defined resources. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ScimSchemasListResponse</returns>
+        ApiResponse<ScimSchemasListResponse> ScimGetSchemasWithHttpInfo ();
+        /// <summary>
+        /// Get SCIM service provider configuration
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the configuration settings of the SCIM service provider. It provides details about the features and capabilities supported by the SCIM API, such as the different operation settings. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ScimServiceProviderConfigResponse</returns>
+        ScimServiceProviderConfigResponse ScimGetServiceProviderConfig ();
+
+        /// <summary>
+        /// Get SCIM service provider configuration
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the configuration settings of the SCIM service provider. It provides details about the features and capabilities supported by the SCIM API, such as the different operation settings. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ScimServiceProviderConfigResponse</returns>
+        ApiResponse<ScimServiceProviderConfigResponse> ScimGetServiceProviderConfigWithHttpInfo ();
+        /// <summary>
+        /// Get SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Retrieve data for a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>ScimUser</returns>
+        ScimUser ScimGetUser (int userId);
+
+        /// <summary>
+        /// Get SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Retrieve data for a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>ApiResponse of ScimUser</returns>
+        ApiResponse<ScimUser> ScimGetUserWithHttpInfo (int userId);
+        /// <summary>
+        /// List SCIM users
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a paginated list of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ScimUsersListResponse</returns>
+        ScimUsersListResponse ScimGetUsers ();
+
+        /// <summary>
+        /// List SCIM users
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a paginated list of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ScimUsersListResponse</returns>
+        ApiResponse<ScimUsersListResponse> ScimGetUsersWithHttpInfo ();
+        /// <summary>
+        /// Update SCIM user attributes
+        /// </summary>
+        /// <remarks>
+        /// Update certain attributes of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint allows for selective adding, removing, or replacing specific attributes while leaving other attributes unchanged. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>ScimUser</returns>
+        ScimUser ScimPatchUser (int userId, ScimPatchRequest body);
+
+        /// <summary>
+        /// Update SCIM user attributes
+        /// </summary>
+        /// <remarks>
+        /// Update certain attributes of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint allows for selective adding, removing, or replacing specific attributes while leaving other attributes unchanged. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of ScimUser</returns>
+        ApiResponse<ScimUser> ScimPatchUserWithHttpInfo (int userId, ScimPatchRequest body);
+        /// <summary>
+        /// Update SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Update the details of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint replaces all attributes of the specific user with the attributes provided in the request payload. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>ScimUser</returns>
+        ScimUser ScimReplaceUserAttributes (int userId, ScimNewUser body);
+
+        /// <summary>
+        /// Update SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Update the details of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint replaces all attributes of the specific user with the attributes provided in the request payload. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of ScimUser</returns>
+        ApiResponse<ScimUser> ScimReplaceUserAttributesWithHttpInfo (int userId, ScimNewUser body);
+        /// <summary>
         /// List coupons that match the given attributes (without total count)
         /// </summary>
         /// <remarks>
@@ -3614,7 +3974,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>InlineResponse2009</returns>
         InlineResponse2009 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
@@ -3639,7 +3999,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
         ApiResponse<InlineResponse2009> SearchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
@@ -3868,7 +4228,7 @@ namespace TalonOne.Api
         /// Update coupon
         /// </summary>
         /// <remarks>
-        /// Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this PUT endpoint only, any property you do not explicitly set in your request   will be set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
+        /// Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint alone, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt;, &lt;code&gt;expiryDate&lt;/code&gt;, and &lt;code&gt;recipientIntegrationId&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -3882,7 +4242,7 @@ namespace TalonOne.Api
         /// Update coupon
         /// </summary>
         /// <remarks>
-        /// Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this PUT endpoint only, any property you do not explicitly set in your request   will be set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
+        /// Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint alone, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt;, &lt;code&gt;expiryDate&lt;/code&gt;, and &lt;code&gt;recipientIntegrationId&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -4049,10 +4409,10 @@ namespace TalonOne.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate user by email address
+        /// Enable user by email address
         /// </summary>
         /// <remarks>
-        /// Activate a deactivated user by their email address. 
+        /// Enable a [disabled user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -4060,10 +4420,10 @@ namespace TalonOne.Api
         System.Threading.Tasks.Task ActivateUserByEmailAsync (ActivateUserRequest body);
 
         /// <summary>
-        /// Activate user by email address
+        /// Enable user by email address
         /// </summary>
         /// <remarks>
-        /// Activate a deactivated user by their email address. 
+        /// Enable a [disabled user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -4233,6 +4593,29 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (Attribute)</returns>
         System.Threading.Tasks.Task<ApiResponse<Attribute>> CreateAttributeAsyncWithHttpInfo (NewAttribute body);
         /// <summary>
+        /// Create loyalty cards
+        /// </summary>
+        /// <remarks>
+        /// Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a &#x60;400&#x60; status code. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>Task of LoyaltyCardBatchResponse</returns>
+        System.Threading.Tasks.Task<LoyaltyCardBatchResponse> CreateBatchLoyaltyCardsAsync (int loyaltyProgramId, LoyaltyCardBatch body);
+
+        /// <summary>
+        /// Create loyalty cards
+        /// </summary>
+        /// <remarks>
+        /// Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a &#x60;400&#x60; status code. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (LoyaltyCardBatchResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<LoyaltyCardBatchResponse>> CreateBatchLoyaltyCardsAsyncWithHttpInfo (int loyaltyProgramId, LoyaltyCardBatch body);
+        /// <summary>
         /// Create campaign from campaign template
         /// </summary>
         /// <remarks>
@@ -4332,6 +4715,31 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (AsyncCouponCreationResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<AsyncCouponCreationResponse>> CreateCouponsAsyncAsyncWithHttpInfo (int applicationId, int campaignId, NewCouponCreationJob body);
+        /// <summary>
+        /// Creates a coupon deletion job
+        /// </summary>
+        /// <remarks>
+        /// This endpoint handles creating a job to delete coupons asynchronously. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of AsyncCouponDeletionJobResponse</returns>
+        System.Threading.Tasks.Task<AsyncCouponDeletionJobResponse> CreateCouponsDeletionJobAsync (int applicationId, int campaignId, NewCouponDeletionJob body);
+
+        /// <summary>
+        /// Creates a coupon deletion job
+        /// </summary>
+        /// <remarks>
+        /// This endpoint handles creating a job to delete coupons asynchronously. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (AsyncCouponDeletionJobResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AsyncCouponDeletionJobResponse>> CreateCouponsDeletionJobAsyncWithHttpInfo (int applicationId, int campaignId, NewCouponDeletionJob body);
         /// <summary>
         /// Create coupons for multiple recipients
         /// </summary>
@@ -4467,10 +4875,10 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (Store)</returns>
         System.Threading.Tasks.Task<ApiResponse<Store>> CreateStoreAsyncWithHttpInfo (int applicationId, NewStore body);
         /// <summary>
-        /// Deactivate user by email address
+        /// Disable user by email address
         /// </summary>
         /// <remarks>
-        /// Deactivate a specific user by their email address. 
+        /// [Disable a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -4478,10 +4886,10 @@ namespace TalonOne.Api
         System.Threading.Tasks.Task DeactivateUserByEmailAsync (DeactivateUserRequest body);
 
         /// <summary>
-        /// Deactivate user by email address
+        /// Disable user by email address
         /// </summary>
         /// <remarks>
-        /// Deactivate a specific user by their email address. 
+        /// [Disable a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -4643,10 +5051,10 @@ namespace TalonOne.Api
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">- &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
@@ -4668,10 +5076,10 @@ namespace TalonOne.Api
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">- &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
@@ -4776,7 +5184,7 @@ namespace TalonOne.Api
         /// Delete user by email address
         /// </summary>
         /// <remarks>
-        /// Delete a specific user by their email address. 
+        /// [Delete a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#deleting-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -4787,7 +5195,7 @@ namespace TalonOne.Api
         /// Delete user by email address
         /// </summary>
         /// <remarks>
-        /// Delete a specific user by their email address. 
+        /// [Delete a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#deleting-a-user) by their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -4812,6 +5220,29 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DestroySessionAsyncWithHttpInfo ();
+        /// <summary>
+        /// Disconnect stores
+        /// </summary>
+        /// <remarks>
+        /// Disconnect the stores linked to a specific campaign.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task DisconnectCampaignStoresAsync (int applicationId, int campaignId);
+
+        /// <summary>
+        /// Disconnect stores
+        /// </summary>
+        /// <remarks>
+        /// Disconnect the stores linked to a specific campaign.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DisconnectCampaignStoresAsyncWithHttpInfo (int applicationId, int campaignId);
         /// <summary>
         /// Export account-level collection&#39;s items
         /// </summary>
@@ -4880,6 +5311,29 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> ExportAudiencesMembershipsAsyncWithHttpInfo (int audienceId);
         /// <summary>
+        /// Export stores
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> ExportCampaignStoresAsync (int applicationId, int campaignId);
+
+        /// <summary>
+        /// Export stores
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> ExportCampaignStoresAsyncWithHttpInfo (int applicationId, int campaignId);
+        /// <summary>
         /// Export campaign-level collection&#39;s items
         /// </summary>
         /// <remarks>
@@ -4924,7 +5378,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>Task of string</returns>
         System.Threading.Tasks.Task<string> ExportCouponsAsync (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string), bool? valuesOnly = default(bool?));
@@ -4949,7 +5403,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> ExportCouponsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string), bool? valuesOnly = default(bool?));
@@ -4988,7 +5442,7 @@ namespace TalonOne.Api
         /// Export customers&#39; tier data
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerId&#x60; (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierName&#x60; (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported. 
+        /// Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerIds&#x60; (optional): Filter results by an array of subledger IDs. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierNames&#x60; (optional): Filter results by an array of tier names. If no value is provided, all tier data for the specified loyalty program will be exported. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -5001,7 +5455,7 @@ namespace TalonOne.Api
         /// Export customers&#39; tier data
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerId&#x60; (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierName&#x60; (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported. 
+        /// Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerIds&#x60; (optional): Filter results by an array of subledger IDs. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierNames&#x60; (optional): Filter results by an array of tier names. If no value is provided, all tier data for the specified loyalty program will be exported. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -5018,8 +5472,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>Task of string</returns>
         System.Threading.Tasks.Task<string> ExportEffectsAsync (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string));
@@ -5033,8 +5487,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> ExportEffectsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string));
@@ -5137,10 +5591,33 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> ExportLoyaltyCardLedgerAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime rangeStart, DateTime rangeEnd, string dateFormat = default(string));
         /// <summary>
+        /// Export loyalty cards
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> ExportLoyaltyCardsAsync (int loyaltyProgramId, string batchId = default(string));
+
+        /// <summary>
+        /// Export loyalty cards
+        /// </summary>
+        /// <remarks>
+        /// Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> ExportLoyaltyCardsAsyncWithHttpInfo (int loyaltyProgramId, string batchId = default(string));
+        /// <summary>
         /// Export customer&#39;s transaction logs
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The type of the loyalty program. - &#x60;name&#x60;: The name of the loyalty program. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
+        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -5155,7 +5632,7 @@ namespace TalonOne.Api
         /// Export customer&#39;s transaction logs
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The type of the loyalty program. - &#x60;name&#x60;: The name of the loyalty program. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
+        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -5943,7 +6420,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of InlineResponse2006</returns>
         System.Threading.Tasks.Task<InlineResponse2006> GetCampaignByAttributesAsync (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
 
@@ -5959,7 +6436,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetCampaignByAttributesAsyncWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string));
         /// <summary>
@@ -6052,7 +6529,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
@@ -6074,7 +6551,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
@@ -6192,12 +6669,18 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="redeemed">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)</param>
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>Task of InlineResponse2009</returns>
-        System.Threading.Tasks.Task<InlineResponse2009> GetCouponsWithoutTotalCountAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?));
+        System.Threading.Tasks.Task<InlineResponse2009> GetCouponsWithoutTotalCountAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string redeemed = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), DateTime? expiresBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? startsAfter = default(DateTime?), bool? valuesOnly = default(bool?));
 
         /// <summary>
         /// List coupons
@@ -6216,12 +6699,18 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="redeemed">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)</param>
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetCouponsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> GetCouponsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string redeemed = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), DateTime? expiresBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? startsAfter = default(DateTime?), bool? valuesOnly = default(bool?));
         /// <summary>
         /// Get customer&#39;s activity report
         /// </summary>
@@ -6550,10 +7039,11 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
-        /// <param name="profileId">Filter by the profile ID. (optional)</param>
+        /// <param name="identifier">The card code by which to filter loyalty cards in the response. (optional)</param>
+        /// <param name="profileId">Filter results by customer profile ID. (optional)</param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
         /// <returns>Task of InlineResponse20015</returns>
-        System.Threading.Tasks.Task<InlineResponse20015> GetLoyaltyCardsAsync (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?));
+        System.Threading.Tasks.Task<InlineResponse20015> GetLoyaltyCardsAsync (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?), string batchId = default(string));
 
         /// <summary>
         /// List loyalty cards
@@ -6566,10 +7056,11 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
-        /// <param name="profileId">Filter by the profile ID. (optional)</param>
+        /// <param name="identifier">The card code by which to filter loyalty cards in the response. (optional)</param>
+        /// <param name="profileId">Filter results by customer profile ID. (optional)</param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> GetLoyaltyCardsAsyncWithHttpInfo (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20015>> GetLoyaltyCardsAsyncWithHttpInfo (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?), string batchId = default(string));
         /// <summary>
         /// Get customer&#39;s full loyalty ledger
         /// </summary>
@@ -6976,7 +7467,7 @@ namespace TalonOne.Api
         /// List all webhooks.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
@@ -6994,7 +7485,7 @@ namespace TalonOne.Api
         /// List all webhooks.
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
@@ -7073,6 +7564,31 @@ namespace TalonOne.Api
         /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
         /// <returns>Task of ApiResponse (Import)</returns>
         System.Threading.Tasks.Task<ApiResponse<Import>> ImportAudiencesMembershipsAsyncWithHttpInfo (int audienceId, string upFile = default(string));
+        /// <summary>
+        /// Import stores
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
+        /// <returns>Task of Import</returns>
+        System.Threading.Tasks.Task<Import> ImportCampaignStoresAsync (int applicationId, int campaignId, string upFile = default(string));
+
+        /// <summary>
+        /// Import stores
+        /// </summary>
+        /// <remarks>
+        /// Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
+        /// <returns>Task of ApiResponse (Import)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Import>> ImportCampaignStoresAsyncWithHttpInfo (int applicationId, int campaignId, string upFile = default(string));
         /// <summary>
         /// Import data into existing campaign-level collection
         /// </summary>
@@ -7154,7 +7670,7 @@ namespace TalonOne.Api
         /// Import customers into loyalty tiers
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -7166,7 +7682,7 @@ namespace TalonOne.Api
         /// Import customers into loyalty tiers
         /// </summary>
         /// <remarks>
-        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -7248,7 +7764,7 @@ namespace TalonOne.Api
         /// Invite user from identity provider
         /// </summary>
         /// <remarks>
-        /// Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// [Invite a user](https://docs.talon.one/docs/product/account/account-settings/managing-users#inviting-a-user) from an external identity provider to Talon.One by sending an invitation to their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -7259,7 +7775,7 @@ namespace TalonOne.Api
         /// Invite user from identity provider
         /// </summary>
         /// <remarks>
-        /// Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// [Invite a user](https://docs.talon.one/docs/product/account/account-settings/managing-users#inviting-a-user) from an external identity provider to Talon.One by sending an invitation to their email address. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -7498,6 +8014,25 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> NotificationActivationAsyncWithHttpInfo (int notificationId, NotificationActivation body);
         /// <summary>
+        /// Validate Okta API ownership
+        /// </summary>
+        /// <remarks>
+        /// Validate the ownership of the API through a challenge-response mechanism.  This challenger endpoint is used by Okta to confirm that communication between Talon.One and Okta is correctly configured and accessible for provisioning and deprovisioning of Talon.One users, and that only Talon.One can receive and respond to events from Okta. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task OktaEventHandlerChallengeAsync ();
+
+        /// <summary>
+        /// Validate Okta API ownership
+        /// </summary>
+        /// <remarks>
+        /// Validate the ownership of the API through a challenge-response mechanism.  This challenger endpoint is used by Okta to confirm that communication between Talon.One and Okta is correctly configured and accessible for provisioning and deprovisioning of Talon.One users, and that only Talon.One can receive and respond to events from Okta. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> OktaEventHandlerChallengeAsyncWithHttpInfo ();
+        /// <summary>
         /// Create notification about added or deducted loyalty points
         /// </summary>
         /// <remarks>
@@ -7613,6 +8148,191 @@ namespace TalonOne.Api
         /// <returns>Task of ApiResponse (NewPassword)</returns>
         System.Threading.Tasks.Task<ApiResponse<NewPassword>> ResetPasswordAsyncWithHttpInfo (NewPassword body);
         /// <summary>
+        /// Create SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Create a new Talon.One user using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of ScimUser</returns>
+        System.Threading.Tasks.Task<ScimUser> ScimCreateUserAsync (ScimNewUser body);
+
+        /// <summary>
+        /// Create SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Create a new Talon.One user using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (ScimUser)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScimUser>> ScimCreateUserAsyncWithHttpInfo (ScimNewUser body);
+        /// <summary>
+        /// Delete SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Delete a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task ScimDeleteUserAsync (int userId);
+
+        /// <summary>
+        /// Delete SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Delete a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> ScimDeleteUserAsyncWithHttpInfo (int userId);
+        /// <summary>
+        /// List supported SCIM resource types
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of resource types supported by the SCIM provisioning protocol.  Resource types define the various kinds of resources that can be managed via the SCIM API, such as users, groups, or custom-defined resources. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ScimResourceTypesListResponse</returns>
+        System.Threading.Tasks.Task<ScimResourceTypesListResponse> ScimGetResourceTypesAsync ();
+
+        /// <summary>
+        /// List supported SCIM resource types
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of resource types supported by the SCIM provisioning protocol.  Resource types define the various kinds of resources that can be managed via the SCIM API, such as users, groups, or custom-defined resources. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ScimResourceTypesListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScimResourceTypesListResponse>> ScimGetResourceTypesAsyncWithHttpInfo ();
+        /// <summary>
+        /// List supported SCIM schemas
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas define the structure and attributes of the different resources that can be managed via the SCIM API, such as users, groups, and any custom-defined resources. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ScimSchemasListResponse</returns>
+        System.Threading.Tasks.Task<ScimSchemasListResponse> ScimGetSchemasAsync ();
+
+        /// <summary>
+        /// List supported SCIM schemas
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas define the structure and attributes of the different resources that can be managed via the SCIM API, such as users, groups, and any custom-defined resources. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ScimSchemasListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScimSchemasListResponse>> ScimGetSchemasAsyncWithHttpInfo ();
+        /// <summary>
+        /// Get SCIM service provider configuration
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the configuration settings of the SCIM service provider. It provides details about the features and capabilities supported by the SCIM API, such as the different operation settings. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ScimServiceProviderConfigResponse</returns>
+        System.Threading.Tasks.Task<ScimServiceProviderConfigResponse> ScimGetServiceProviderConfigAsync ();
+
+        /// <summary>
+        /// Get SCIM service provider configuration
+        /// </summary>
+        /// <remarks>
+        /// Retrieve the configuration settings of the SCIM service provider. It provides details about the features and capabilities supported by the SCIM API, such as the different operation settings. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ScimServiceProviderConfigResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScimServiceProviderConfigResponse>> ScimGetServiceProviderConfigAsyncWithHttpInfo ();
+        /// <summary>
+        /// Get SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Retrieve data for a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>Task of ScimUser</returns>
+        System.Threading.Tasks.Task<ScimUser> ScimGetUserAsync (int userId);
+
+        /// <summary>
+        /// Get SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Retrieve data for a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>Task of ApiResponse (ScimUser)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScimUser>> ScimGetUserAsyncWithHttpInfo (int userId);
+        /// <summary>
+        /// List SCIM users
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a paginated list of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ScimUsersListResponse</returns>
+        System.Threading.Tasks.Task<ScimUsersListResponse> ScimGetUsersAsync ();
+
+        /// <summary>
+        /// List SCIM users
+        /// </summary>
+        /// <remarks>
+        /// Retrieve a paginated list of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ScimUsersListResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScimUsersListResponse>> ScimGetUsersAsyncWithHttpInfo ();
+        /// <summary>
+        /// Update SCIM user attributes
+        /// </summary>
+        /// <remarks>
+        /// Update certain attributes of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint allows for selective adding, removing, or replacing specific attributes while leaving other attributes unchanged. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ScimUser</returns>
+        System.Threading.Tasks.Task<ScimUser> ScimPatchUserAsync (int userId, ScimPatchRequest body);
+
+        /// <summary>
+        /// Update SCIM user attributes
+        /// </summary>
+        /// <remarks>
+        /// Update certain attributes of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint allows for selective adding, removing, or replacing specific attributes while leaving other attributes unchanged. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (ScimUser)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScimUser>> ScimPatchUserAsyncWithHttpInfo (int userId, ScimPatchRequest body);
+        /// <summary>
+        /// Update SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Update the details of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint replaces all attributes of the specific user with the attributes provided in the request payload. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ScimUser</returns>
+        System.Threading.Tasks.Task<ScimUser> ScimReplaceUserAttributesAsync (int userId, ScimNewUser body);
+
+        /// <summary>
+        /// Update SCIM user
+        /// </summary>
+        /// <remarks>
+        /// Update the details of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint replaces all attributes of the specific user with the attributes provided in the request payload. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (ScimUser)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ScimUser>> ScimReplaceUserAttributesAsyncWithHttpInfo (int userId, ScimNewUser body);
+        /// <summary>
         /// List coupons that match the given attributes (without total count)
         /// </summary>
         /// <remarks>
@@ -7633,7 +8353,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of InlineResponse2009</returns>
         System.Threading.Tasks.Task<InlineResponse2009> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsync (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
 
@@ -7658,7 +8378,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2009>> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string));
         /// <summary>
@@ -7887,7 +8607,7 @@ namespace TalonOne.Api
         /// Update coupon
         /// </summary>
         /// <remarks>
-        /// Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this PUT endpoint only, any property you do not explicitly set in your request   will be set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
+        /// Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint alone, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt;, &lt;code&gt;expiryDate&lt;/code&gt;, and &lt;code&gt;recipientIntegrationId&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -7901,7 +8621,7 @@ namespace TalonOne.Api
         /// Update coupon
         /// </summary>
         /// <remarks>
-        /// Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this PUT endpoint only, any property you do not explicitly set in your request   will be set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
+        /// Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint alone, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt;, &lt;code&gt;expiryDate&lt;/code&gt;, and &lt;code&gt;recipientIntegrationId&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -8179,7 +8899,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Activate user by email address Activate a deactivated user by their email address. 
+        /// Enable user by email address Enable a [disabled user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -8190,7 +8910,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Activate user by email address Activate a deactivated user by their email address. 
+        /// Enable user by email address Enable a [disabled user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -8254,7 +8974,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Activate user by email address Activate a deactivated user by their email address. 
+        /// Enable user by email address Enable a [disabled user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -8266,7 +8986,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Activate user by email address Activate a deactivated user by their email address. 
+        /// Enable user by email address Enable a [disabled user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -9499,6 +10219,169 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Create loyalty cards Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a &#x60;400&#x60; status code. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>LoyaltyCardBatchResponse</returns>
+        public LoyaltyCardBatchResponse CreateBatchLoyaltyCards (int loyaltyProgramId, LoyaltyCardBatch body)
+        {
+             TalonOne.Client.ApiResponse<LoyaltyCardBatchResponse> localVarResponse = CreateBatchLoyaltyCardsWithHttpInfo(loyaltyProgramId, body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create loyalty cards Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a &#x60;400&#x60; status code. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of LoyaltyCardBatchResponse</returns>
+        public TalonOne.Client.ApiResponse< LoyaltyCardBatchResponse > CreateBatchLoyaltyCardsWithHttpInfo (int loyaltyProgramId, LoyaltyCardBatch body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->CreateBatchLoyaltyCards");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< LoyaltyCardBatchResponse >("/v1/loyalty_programs/{loyaltyProgramId}/cards/batch", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateBatchLoyaltyCards", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create loyalty cards Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a &#x60;400&#x60; status code. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>Task of LoyaltyCardBatchResponse</returns>
+        public async System.Threading.Tasks.Task<LoyaltyCardBatchResponse> CreateBatchLoyaltyCardsAsync (int loyaltyProgramId, LoyaltyCardBatch body)
+        {
+             TalonOne.Client.ApiResponse<LoyaltyCardBatchResponse> localVarResponse = await CreateBatchLoyaltyCardsAsyncWithHttpInfo(loyaltyProgramId, body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create loyalty cards Create a batch of loyalty cards in a specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types).  Customers can use loyalty cards to collect and spend loyalty points.  **Important:**  - The specified card-based loyalty program must have a defined card code format that is used to generate the loyalty card codes. - Trying to create more than 20,000 loyalty cards in a single request returns an error message with a &#x60;400&#x60; status code. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (LoyaltyCardBatchResponse)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyCardBatchResponse>> CreateBatchLoyaltyCardsAsyncWithHttpInfo (int loyaltyProgramId, LoyaltyCardBatch body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->CreateBatchLoyaltyCards");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<LoyaltyCardBatchResponse>("/v1/loyalty_programs/{loyaltyProgramId}/cards/batch", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateBatchLoyaltyCards", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Create campaign from campaign template Use the campaign template referenced in the request body to create a new campaign in one of the connected Applications.  If the template was created from a campaign with rules referencing [campaign collections](https://docs.talon.one/docs/product/campaigns/managing-collections), the corresponding collections for the new campaign are created automatically. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
@@ -10174,6 +11057,175 @@ namespace TalonOne.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateCouponsAsync", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Creates a coupon deletion job This endpoint handles creating a job to delete coupons asynchronously. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="body">body</param>
+        /// <returns>AsyncCouponDeletionJobResponse</returns>
+        public AsyncCouponDeletionJobResponse CreateCouponsDeletionJob (int applicationId, int campaignId, NewCouponDeletionJob body)
+        {
+             TalonOne.Client.ApiResponse<AsyncCouponDeletionJobResponse> localVarResponse = CreateCouponsDeletionJobWithHttpInfo(applicationId, campaignId, body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Creates a coupon deletion job This endpoint handles creating a job to delete coupons asynchronously. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of AsyncCouponDeletionJobResponse</returns>
+        public TalonOne.Client.ApiResponse< AsyncCouponDeletionJobResponse > CreateCouponsDeletionJobWithHttpInfo (int applicationId, int campaignId, NewCouponDeletionJob body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->CreateCouponsDeletionJob");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< AsyncCouponDeletionJobResponse >("/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_deletion_jobs", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateCouponsDeletionJob", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Creates a coupon deletion job This endpoint handles creating a job to delete coupons asynchronously. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of AsyncCouponDeletionJobResponse</returns>
+        public async System.Threading.Tasks.Task<AsyncCouponDeletionJobResponse> CreateCouponsDeletionJobAsync (int applicationId, int campaignId, NewCouponDeletionJob body)
+        {
+             TalonOne.Client.ApiResponse<AsyncCouponDeletionJobResponse> localVarResponse = await CreateCouponsDeletionJobAsyncWithHttpInfo(applicationId, campaignId, body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Creates a coupon deletion job This endpoint handles creating a job to delete coupons asynchronously. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (AsyncCouponDeletionJobResponse)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<AsyncCouponDeletionJobResponse>> CreateCouponsDeletionJobAsyncWithHttpInfo (int applicationId, int campaignId, NewCouponDeletionJob body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->CreateCouponsDeletionJob");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<AsyncCouponDeletionJobResponse>("/v1/applications/{applicationId}/campaigns/{campaignId}/coupons_deletion_jobs", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("CreateCouponsDeletionJob", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -11153,7 +12205,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deactivate user by email address Deactivate a specific user by their email address. 
+        /// Disable user by email address [Disable a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -11164,7 +12216,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deactivate user by email address Deactivate a specific user by their email address. 
+        /// Disable user by email address [Disable a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -11228,7 +12280,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deactivate user by email address Deactivate a specific user by their email address. 
+        /// Disable user by email address [Disable a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -11240,7 +12292,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Deactivate user by email address Deactivate a specific user by their email address. 
+        /// Disable user by email address [Disable a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#disabling-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -12260,10 +13312,10 @@ namespace TalonOne.Api
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">- &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
@@ -12285,10 +13337,10 @@ namespace TalonOne.Api
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">- &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
@@ -12411,10 +13463,10 @@ namespace TalonOne.Api
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">- &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
@@ -12437,10 +13489,10 @@ namespace TalonOne.Api
         /// <param name="value">Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">- &#x60;expired&#x60;: Matches coupons in which the expiration date is set and in the past. - &#x60;validNow&#x60;: Matches coupons in which start date is null or in the past and expiration date is null or in the future. - &#x60;validFuture&#x60;: Matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="usable">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60; will be returned.  (optional)</param>
@@ -13181,7 +14233,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Delete user by email address Delete a specific user by their email address. 
+        /// Delete user by email address [Delete a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#deleting-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -13192,7 +14244,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Delete user by email address Delete a specific user by their email address. 
+        /// Delete user by email address [Delete a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#deleting-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -13256,7 +14308,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Delete user by email address Delete a specific user by their email address. 
+        /// Delete user by email address [Delete a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#deleting-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -13268,7 +14320,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Delete user by email address Delete a specific user by their email address. 
+        /// Delete user by email address [Delete a specific user](https://docs.talon.one/docs/product/account/account-settings/managing-users#deleting-a-user) by their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -13464,6 +14516,157 @@ namespace TalonOne.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DestroySession", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Disconnect stores Disconnect the stores linked to a specific campaign.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns></returns>
+        public void DisconnectCampaignStores (int applicationId, int campaignId)
+        {
+             DisconnectCampaignStoresWithHttpInfo(applicationId, campaignId);
+        }
+
+        /// <summary>
+        /// Disconnect stores Disconnect the stores linked to a specific campaign.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public TalonOne.Client.ApiResponse<Object> DisconnectCampaignStoresWithHttpInfo (int applicationId, int campaignId)
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/v1/applications/{applicationId}/campaigns/{campaignId}/stores", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DisconnectCampaignStores", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Disconnect stores Disconnect the stores linked to a specific campaign.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task DisconnectCampaignStoresAsync (int applicationId, int campaignId)
+        {
+             await DisconnectCampaignStoresAsyncWithHttpInfo(applicationId, campaignId);
+
+        }
+
+        /// <summary>
+        /// Disconnect stores Disconnect the stores linked to a specific campaign.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> DisconnectCampaignStoresAsyncWithHttpInfo (int applicationId, int campaignId)
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v1/applications/{applicationId}/campaigns/{campaignId}/stores", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DisconnectCampaignStores", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -13924,6 +15127,159 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Export stores Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>string</returns>
+        public string ExportCampaignStores (int applicationId, int campaignId)
+        {
+             TalonOne.Client.ApiResponse<string> localVarResponse = ExportCampaignStoresWithHttpInfo(applicationId, campaignId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export stores Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>ApiResponse of string</returns>
+        public TalonOne.Client.ApiResponse< string > ExportCampaignStoresWithHttpInfo (int applicationId, int campaignId)
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/csv"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< string >("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/export", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExportCampaignStores", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Export stores Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> ExportCampaignStoresAsync (int applicationId, int campaignId)
+        {
+             TalonOne.Client.ApiResponse<string> localVarResponse = await ExportCampaignStoresAsyncWithHttpInfo(applicationId, campaignId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export stores Download a CSV file containing the stores linked to a specific campaign.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following column:  - &#x60;store_integration_id&#x60;: The identifier of the store. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<string>> ExportCampaignStoresAsyncWithHttpInfo (int applicationId, int campaignId)
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/csv"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/export", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExportCampaignStores", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Export campaign-level collection&#39;s items Download a CSV file containing items from a given campaign-level collection.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
@@ -14099,7 +15455,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>string</returns>
         public string ExportCoupons (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string), bool? valuesOnly = default(bool?))
@@ -14125,7 +15481,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>ApiResponse of string</returns>
         public TalonOne.Client.ApiResponse< string > ExportCouponsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string), bool? valuesOnly = default(bool?))
@@ -14255,7 +15611,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>Task of string</returns>
         public async System.Threading.Tasks.Task<string> ExportCouponsAsync (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string), bool? valuesOnly = default(bool?))
@@ -14282,7 +15638,7 @@ namespace TalonOne.Api
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code. (optional, default to false)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (string)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<string>> ExportCouponsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string dateFormat = default(string), string campaignState = default(string), bool? valuesOnly = default(bool?))
@@ -14605,7 +15961,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customers&#39; tier data Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerId&#x60; (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierName&#x60; (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported. 
+        /// Export customers&#39; tier data Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerIds&#x60; (optional): Filter results by an array of subledger IDs. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierNames&#x60; (optional): Filter results by an array of tier names. If no value is provided, all tier data for the specified loyalty program will be exported. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -14619,7 +15975,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customers&#39; tier data Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerId&#x60; (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierName&#x60; (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported. 
+        /// Export customers&#39; tier data Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerIds&#x60; (optional): Filter results by an array of subledger IDs. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierNames&#x60; (optional): Filter results by an array of tier names. If no value is provided, all tier data for the specified loyalty program will be exported. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -14693,7 +16049,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customers&#39; tier data Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerId&#x60; (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierName&#x60; (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported. 
+        /// Export customers&#39; tier data Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerIds&#x60; (optional): Filter results by an array of subledger IDs. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierNames&#x60; (optional): Filter results by an array of tier names. If no value is provided, all tier data for the specified loyalty program will be exported. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -14708,7 +16064,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customers&#39; tier data Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerId&#x60; (optional): Filter results by subledger ID. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierName&#x60; (optional): Filter results by tier name. If no value is provided, all tier data for the specified loyalty program will be exported. 
+        /// Export customers&#39; tier data Download a CSV file containing the tier information for customers of the specified loyalty program.  The generated file contains the following columns:  - &#x60;programid&#x60;: The identifier of the loyalty program. It is displayed in your Talon.One deployment URL. - &#x60;subledgerid&#x60;: The ID of the subledger associated with the loyalty program. This column is empty if the loyalty program has no subledger. In this case, refer to the export file name to get the ID of the loyalty program. - &#x60;customerprofileid&#x60;: The ID used to integrate customer profiles with the loyalty program. - &#x60;tiername&#x60;: The name of the tier. - &#x60;startdate&#x60;: The tier start date in RFC3339. - &#x60;expirydate&#x60;: The tier expiry date in RFC3339.  You can filter the results by providing the following optional input parameters:  - &#x60;subledgerIds&#x60; (optional): Filter results by an array of subledger IDs. If no value is provided, all subledger data for the specified loyalty program will be exported. - &#x60;tierNames&#x60; (optional): Filter results by an array of tier names. If no value is provided, all tier data for the specified loyalty program will be exported. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">The identifier for the loyalty program.</param>
@@ -14789,8 +16145,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>string</returns>
         public string ExportEffects (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string))
@@ -14805,8 +16161,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>ApiResponse of string</returns>
         public TalonOne.Client.ApiResponse< string > ExportEffectsWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string))
@@ -14885,8 +16241,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>Task of string</returns>
         public async System.Threading.Tasks.Task<string> ExportEffectsAsync (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string))
@@ -14902,8 +16258,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">Filter results by campaign. (optional)</param>
-        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="dateFormat">Determines the format of dates in the export document. (optional)</param>
         /// <returns>Task of ApiResponse (string)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<string>> ExportEffectsAsyncWithHttpInfo (int applicationId, decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string dateFormat = default(string))
@@ -15657,7 +17013,166 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The type of the loyalty program. - &#x60;name&#x60;: The name of the loyalty program. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
+        /// Export loyalty cards Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
+        /// <returns>string</returns>
+        public string ExportLoyaltyCards (int loyaltyProgramId, string batchId = default(string))
+        {
+             TalonOne.Client.ApiResponse<string> localVarResponse = ExportLoyaltyCardsWithHttpInfo(loyaltyProgramId, batchId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Export loyalty cards Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
+        /// <returns>ApiResponse of string</returns>
+        public TalonOne.Client.ApiResponse< string > ExportLoyaltyCardsWithHttpInfo (int loyaltyProgramId, string batchId = default(string))
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/csv"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            if (batchId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "batchId", batchId));
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< string >("/v1/loyalty_programs/{loyaltyProgramId}/cards/export", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExportLoyaltyCards", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Export loyalty cards Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> ExportLoyaltyCardsAsync (int loyaltyProgramId, string batchId = default(string))
+        {
+             TalonOne.Client.ApiResponse<string> localVarResponse = await ExportLoyaltyCardsAsyncWithHttpInfo(loyaltyProgramId, batchId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Export loyalty cards Download a CSV file containing the loyalty cards from a specified loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The CSV file contains the following columns: - &#x60;identifier&#x60;: The unique identifier of the loyalty card. - &#x60;created&#x60;: The date and time the loyalty card was created. - &#x60;status&#x60;: The status of the loyalty card. - &#x60;userpercardlimit&#x60;: The maximum number of customer profiles that can be linked to the card. - &#x60;customerprofileids&#x60;: Integration IDs of the customer profiles linked to the card. - &#x60;blockreason&#x60;: The reason for transferring and blocking the loyalty card. - &#x60;generated&#x60;: An indicator of whether the loyalty card was generated. - &#x60;batchid&#x60;: The ID of the batch the loyalty card is in. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<string>> ExportLoyaltyCardsAsyncWithHttpInfo (int loyaltyProgramId, string batchId = default(string))
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/csv"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            if (batchId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "batchId", batchId));
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/v1/loyalty_programs/{loyaltyProgramId}/cards/export", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExportLoyaltyCards", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -15673,7 +17188,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The type of the loyalty program. - &#x60;name&#x60;: The name of the loyalty program. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
+        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -15752,7 +17267,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The type of the loyalty program. - &#x60;name&#x60;: The name of the loyalty program. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
+        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -15769,7 +17284,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The type of the loyalty program. - &#x60;name&#x60;: The name of the loyalty program. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
+        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -21026,7 +22541,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>InlineResponse2006</returns>
         public InlineResponse2006 GetCampaignByAttributes (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
@@ -21043,7 +22558,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
         public TalonOne.Client.ApiResponse< InlineResponse2006 > GetCampaignByAttributesWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
@@ -21130,7 +22645,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of InlineResponse2006</returns>
         public async System.Threading.Tasks.Task<InlineResponse2006> GetCampaignByAttributesAsync (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
@@ -21148,7 +22663,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2006>> GetCampaignByAttributesAsyncWithHttpInfo (int applicationId, CampaignSearch body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string campaignState = default(string))
         {
@@ -21785,7 +23300,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
@@ -21808,7 +23323,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
@@ -21923,7 +23438,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
@@ -21947,7 +23462,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <param name="name">Filter results performing case-insensitive matching against the name of the campaign. (optional)</param>
         /// <param name="tags">Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional)</param>
         /// <param name="createdBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
@@ -22673,14 +24188,20 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="redeemed">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)</param>
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>InlineResponse2009</returns>
-        public InlineResponse2009 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?))
+        public InlineResponse2009 GetCouponsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string redeemed = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), DateTime? expiresBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? startsAfter = default(DateTime?), bool? valuesOnly = default(bool?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse2009> localVarResponse = GetCouponsWithoutTotalCountWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch);
+             TalonOne.Client.ApiResponse<InlineResponse2009> localVarResponse = GetCouponsWithoutTotalCountWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, redeemed, referralId, recipientIntegrationId, batchId, exactMatch, expiresBefore, expiresAfter, startsBefore, startsAfter, valuesOnly);
              return localVarResponse.Data;
         }
 
@@ -22698,12 +24219,18 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="redeemed">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)</param>
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2009 > GetCouponsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?))
+        public TalonOne.Client.ApiResponse< InlineResponse2009 > GetCouponsWithoutTotalCountWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string redeemed = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), DateTime? expiresBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? startsAfter = default(DateTime?), bool? valuesOnly = default(bool?))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -22755,6 +24282,10 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "usable", usable));
             }
+            if (redeemed != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "redeemed", redeemed));
+            }
             if (referralId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "referralId", referralId));
@@ -22770,6 +24301,26 @@ namespace TalonOne.Api
             if (exactMatch != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "exactMatch", exactMatch));
+            }
+            if (expiresBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "expiresBefore", expiresBefore));
+            }
+            if (expiresAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "expiresAfter", expiresAfter));
+            }
+            if (startsBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startsBefore", startsBefore));
+            }
+            if (startsAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startsAfter", startsAfter));
+            }
+            if (valuesOnly != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "valuesOnly", valuesOnly));
             }
 
             // authentication (management_key) required
@@ -22820,14 +24371,20 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="redeemed">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)</param>
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>Task of InlineResponse2009</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2009> GetCouponsWithoutTotalCountAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?))
+        public async System.Threading.Tasks.Task<InlineResponse2009> GetCouponsWithoutTotalCountAsync (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string redeemed = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), DateTime? expiresBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? startsAfter = default(DateTime?), bool? valuesOnly = default(bool?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse2009> localVarResponse = await GetCouponsWithoutTotalCountAsyncWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch);
+             TalonOne.Client.ApiResponse<InlineResponse2009> localVarResponse = await GetCouponsWithoutTotalCountAsyncWithHttpInfo(applicationId, campaignId, pageSize, skip, sort, value, createdBefore, createdAfter, valid, usable, redeemed, referralId, recipientIntegrationId, batchId, exactMatch, expiresBefore, expiresAfter, startsBefore, startsAfter, valuesOnly);
              return localVarResponse.Data;
 
         }
@@ -22846,12 +24403,18 @@ namespace TalonOne.Api
         /// <param name="createdAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
         /// <param name="valid">Either \&quot;expired\&quot;, \&quot;validNow\&quot;, or \&quot;validFuture\&quot;. The first option matches coupons in which the expiration date is set and in the past. The second matches coupons in which start date is null or in the past and expiration date is null or in the future, the third matches coupons in which start date is set and in the future.  (optional)</param>
         /// <param name="usable">Either \&quot;true\&quot; or \&quot;false\&quot;. If \&quot;true\&quot;, only coupons where &#x60;usageCounter &lt; usageLimit&#x60; will be returned, \&quot;false\&quot; will return only coupons where &#x60;usageCounter &gt;&#x3D; usageLimit&#x60;.  (optional)</param>
+        /// <param name="redeemed">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned. - This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  (optional)</param>
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. (optional)</param>
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
+        /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon expiration date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="startsAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon start date timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="valuesOnly">Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. (optional, default to false)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2009>> GetCouponsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2009>> GetCouponsWithoutTotalCountAsyncWithHttpInfo (int applicationId, int campaignId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), string redeemed = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), DateTime? expiresBefore = default(DateTime?), DateTime? expiresAfter = default(DateTime?), DateTime? startsBefore = default(DateTime?), DateTime? startsAfter = default(DateTime?), bool? valuesOnly = default(bool?))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -22904,6 +24467,10 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "usable", usable));
             }
+            if (redeemed != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "redeemed", redeemed));
+            }
             if (referralId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "referralId", referralId));
@@ -22919,6 +24486,26 @@ namespace TalonOne.Api
             if (exactMatch != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "exactMatch", exactMatch));
+            }
+            if (expiresBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "expiresBefore", expiresBefore));
+            }
+            if (expiresAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "expiresAfter", expiresAfter));
+            }
+            if (startsBefore != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startsBefore", startsBefore));
+            }
+            if (startsAfter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startsAfter", startsAfter));
+            }
+            if (valuesOnly != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "valuesOnly", valuesOnly));
             }
 
             // authentication (management_key) required
@@ -25095,12 +26682,13 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
-        /// <param name="profileId">Filter by the profile ID. (optional)</param>
+        /// <param name="identifier">The card code by which to filter loyalty cards in the response. (optional)</param>
+        /// <param name="profileId">Filter results by customer profile ID. (optional)</param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
         /// <returns>InlineResponse20015</returns>
-        public InlineResponse20015 GetLoyaltyCards (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?))
+        public InlineResponse20015 GetLoyaltyCards (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?), string batchId = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20015> localVarResponse = GetLoyaltyCardsWithHttpInfo(loyaltyProgramId, pageSize, skip, sort, identifier, profileId);
+             TalonOne.Client.ApiResponse<InlineResponse20015> localVarResponse = GetLoyaltyCardsWithHttpInfo(loyaltyProgramId, pageSize, skip, sort, identifier, profileId, batchId);
              return localVarResponse.Data;
         }
 
@@ -25112,10 +26700,11 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
-        /// <param name="profileId">Filter by the profile ID. (optional)</param>
+        /// <param name="identifier">The card code by which to filter loyalty cards in the response. (optional)</param>
+        /// <param name="profileId">Filter results by customer profile ID. (optional)</param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20015</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20015 > GetLoyaltyCardsWithHttpInfo (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse20015 > GetLoyaltyCardsWithHttpInfo (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?), string batchId = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -25153,6 +26742,10 @@ namespace TalonOne.Api
             if (profileId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "profileId", profileId));
+            }
+            if (batchId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "batchId", batchId));
             }
 
             // authentication (management_key) required
@@ -25197,12 +26790,13 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
-        /// <param name="profileId">Filter by the profile ID. (optional)</param>
+        /// <param name="identifier">The card code by which to filter loyalty cards in the response. (optional)</param>
+        /// <param name="profileId">Filter results by customer profile ID. (optional)</param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
         /// <returns>Task of InlineResponse20015</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20015> GetLoyaltyCardsAsync (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse20015> GetLoyaltyCardsAsync (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?), string batchId = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20015> localVarResponse = await GetLoyaltyCardsAsyncWithHttpInfo(loyaltyProgramId, pageSize, skip, sort, identifier, profileId);
+             TalonOne.Client.ApiResponse<InlineResponse20015> localVarResponse = await GetLoyaltyCardsAsyncWithHttpInfo(loyaltyProgramId, pageSize, skip, sort, identifier, profileId, batchId);
              return localVarResponse.Data;
 
         }
@@ -25215,10 +26809,11 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
-        /// <param name="identifier">Optional query parameter to search cards by identifier. (optional)</param>
-        /// <param name="profileId">Filter by the profile ID. (optional)</param>
+        /// <param name="identifier">The card code by which to filter loyalty cards in the response. (optional)</param>
+        /// <param name="profileId">Filter results by customer profile ID. (optional)</param>
+        /// <param name="batchId">Filter results by loyalty card batch ID. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20015)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20015>> GetLoyaltyCardsAsyncWithHttpInfo (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20015>> GetLoyaltyCardsAsyncWithHttpInfo (int loyaltyProgramId, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string identifier = default(string), int? profileId = default(int?), string batchId = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -25257,6 +26852,10 @@ namespace TalonOne.Api
             if (profileId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "profileId", profileId));
+            }
+            if (batchId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "batchId", batchId));
             }
 
             // authentication (management_key) required
@@ -28019,7 +29618,7 @@ namespace TalonOne.Api
         /// List webhooks List all webhooks.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
@@ -28038,7 +29637,7 @@ namespace TalonOne.Api
         /// List webhooks List all webhooks.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
@@ -28136,7 +29735,7 @@ namespace TalonOne.Api
         /// List webhooks List all webhooks.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
@@ -28156,7 +29755,7 @@ namespace TalonOne.Api
         /// List webhooks List all webhooks.
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationIds">Filter by one or more Application IDs, separated by a comma. (optional)</param>
+        /// <param name="applicationIds">Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
@@ -28772,6 +30371,185 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Import stores Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
+        /// <returns>Import</returns>
+        public Import ImportCampaignStores (int applicationId, int campaignId, string upFile = default(string))
+        {
+             TalonOne.Client.ApiResponse<Import> localVarResponse = ImportCampaignStoresWithHttpInfo(applicationId, campaignId, upFile);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Import stores Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
+        /// <returns>ApiResponse of Import</returns>
+        public TalonOne.Client.ApiResponse< Import > ImportCampaignStoresWithHttpInfo (int applicationId, int campaignId, string upFile = default(string))
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+            MemoryStream upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+            if (upFile != null)
+            {
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< Import >("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/import", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ImportCampaignStores", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Import stores Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
+        /// <returns>Task of Import</returns>
+        public async System.Threading.Tasks.Task<Import> ImportCampaignStoresAsync (int applicationId, int campaignId, string upFile = default(string))
+        {
+             TalonOne.Client.ApiResponse<Import> localVarResponse = await ImportCampaignStoresAsyncWithHttpInfo(applicationId, campaignId, upFile);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Import stores Upload a CSV file containing the stores you want to link to a specific campaign.  Send the file as multipart data.  The CSV file **must** only contain the following column: - &#x60;store_integration_id&#x60;: The identifier of the store.  The import **replaces** the previous list of stores linked to the campaign. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="upFile">The file containing the data that is being imported. (optional)</param>
+        /// <returns>Task of ApiResponse (Import)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Import>> ImportCampaignStoresAsyncWithHttpInfo (int applicationId, int campaignId, string upFile = default(string))
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "multipart/form-data"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+            MemoryStream upFileStream = TalonOne.Client.ClientUtils.ParameterToStream(upFile);
+            if (upFile != null)
+            {
+                localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
+            }
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Import>("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/import", localVarRequestOptions, this.Configuration);
+
+            if (upFileStream != null)
+            {
+                upFileStream.Close();
+                upFileStream.Dispose();
+            }
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ImportCampaignStores", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Import data into existing campaign-level collection Upload a CSV file containing the collection of string values that should be attached as payload for collection. The file should be sent as multipart data.  The import **replaces** the initial content of the collection.  The CSV file **must** only contain the following column:  - &#x60;item&#x60;: the values in your collection.  A collection is limited to 500,000 items.  Example:  &#x60;&#x60;&#x60; item Addidas Nike Asics &#x60;&#x60;&#x60;  **Note:** Before sending a request to this endpoint, ensure the data in the CSV to import is different from the data currently stored in the collection. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
@@ -29321,7 +31099,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -29334,7 +31112,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -29406,7 +31184,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -29420,7 +31198,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
+        /// Import customers into loyalty tiers Upload a CSV file containing existing customers to be assigned to existing tiers. Send the file as multipart data.  **Important:** This endpoint only works with loyalty programs with advanced tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns: - &#x60;subledgerid&#x60; (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - &#x60;customerprofileid&#x60;: The integration ID of the customer profile to whom the tier should be assigned. - &#x60;tiername&#x60;: The name of an existing tier to assign to the customer. - &#x60;expirydate&#x60;: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier: - If the customer isn&#39;t already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that&#39;s specified in the CSV file, only the expiration date is updated.  **Note:** We recommend not using this endpoint to update the tier of a customer. To update a customer&#39;s tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  **Note:** We recommend limiting your file size to 500MB.  **Example:** &#x60;&#x60;&#x60;csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z &#x60;&#x60;&#x60; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
@@ -30019,7 +31797,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Invite user from identity provider Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// Invite user from identity provider [Invite a user](https://docs.talon.one/docs/product/account/account-settings/managing-users#inviting-a-user) from an external identity provider to Talon.One by sending an invitation to their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -30030,7 +31808,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Invite user from identity provider Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// Invite user from identity provider [Invite a user](https://docs.talon.one/docs/product/account/account-settings/managing-users#inviting-a-user) from an external identity provider to Talon.One by sending an invitation to their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -30094,7 +31872,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Invite user from identity provider Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// Invite user from identity provider [Invite a user](https://docs.talon.one/docs/product/account/account-settings/managing-users#inviting-a-user) from an external identity provider to Talon.One by sending an invitation to their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -30106,7 +31884,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Invite user from identity provider Invite a user from an external identity provider to Talon.One by sending an invitation to their email address. 
+        /// Invite user from identity provider [Invite a user](https://docs.talon.one/docs/product/account/account-settings/managing-users#inviting-a-user) from an external identity provider to Talon.One by sending an invitation to their email address. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -31732,6 +33510,143 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Validate Okta API ownership Validate the ownership of the API through a challenge-response mechanism.  This challenger endpoint is used by Okta to confirm that communication between Talon.One and Okta is correctly configured and accessible for provisioning and deprovisioning of Talon.One users, and that only Talon.One can receive and respond to events from Okta. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        public void OktaEventHandlerChallenge ()
+        {
+             OktaEventHandlerChallengeWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Validate Okta API ownership Validate the ownership of the API through a challenge-response mechanism.  This challenger endpoint is used by Okta to confirm that communication between Talon.One and Okta is correctly configured and accessible for provisioning and deprovisioning of Talon.One users, and that only Talon.One can receive and respond to events from Okta. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public TalonOne.Client.ApiResponse<Object> OktaEventHandlerChallengeWithHttpInfo ()
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/provisioning/okta", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("OktaEventHandlerChallenge", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Validate Okta API ownership Validate the ownership of the API through a challenge-response mechanism.  This challenger endpoint is used by Okta to confirm that communication between Talon.One and Okta is correctly configured and accessible for provisioning and deprovisioning of Talon.One users, and that only Talon.One can receive and respond to events from Okta. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task OktaEventHandlerChallengeAsync ()
+        {
+             await OktaEventHandlerChallengeAsyncWithHttpInfo();
+
+        }
+
+        /// <summary>
+        /// Validate Okta API ownership Validate the ownership of the API through a challenge-response mechanism.  This challenger endpoint is used by Okta to confirm that communication between Talon.One and Okta is correctly configured and accessible for provisioning and deprovisioning of Talon.One users, and that only Talon.One can receive and respond to events from Okta. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> OktaEventHandlerChallengeAsyncWithHttpInfo ()
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/provisioning/okta", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("OktaEventHandlerChallenge", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Create notification about added or deducted loyalty points Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Managing loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/managing-loyalty-notifications). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
@@ -32561,6 +34476,1343 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// Create SCIM user Create a new Talon.One user using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>ScimUser</returns>
+        public ScimUser ScimCreateUser (ScimNewUser body)
+        {
+             TalonOne.Client.ApiResponse<ScimUser> localVarResponse = ScimCreateUserWithHttpInfo(body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create SCIM user Create a new Talon.One user using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of ScimUser</returns>
+        public TalonOne.Client.ApiResponse< ScimUser > ScimCreateUserWithHttpInfo (ScimNewUser body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->ScimCreateUser");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post< ScimUser >("/v1/provisioning/scim/Users", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimCreateUser", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Create SCIM user Create a new Talon.One user using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of ScimUser</returns>
+        public async System.Threading.Tasks.Task<ScimUser> ScimCreateUserAsync (ScimNewUser body)
+        {
+             TalonOne.Client.ApiResponse<ScimUser> localVarResponse = await ScimCreateUserAsyncWithHttpInfo(body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create SCIM user Create a new Talon.One user using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (ScimUser)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<ScimUser>> ScimCreateUserAsyncWithHttpInfo (ScimNewUser body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->ScimCreateUser");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ScimUser>("/v1/provisioning/scim/Users", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimCreateUser", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete SCIM user Delete a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns></returns>
+        public void ScimDeleteUser (int userId)
+        {
+             ScimDeleteUserWithHttpInfo(userId);
+        }
+
+        /// <summary>
+        /// Delete SCIM user Delete a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public TalonOne.Client.ApiResponse<Object> ScimDeleteUserWithHttpInfo (int userId)
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/v1/provisioning/scim/Users/{userId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimDeleteUser", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete SCIM user Delete a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task ScimDeleteUserAsync (int userId)
+        {
+             await ScimDeleteUserAsyncWithHttpInfo(userId);
+
+        }
+
+        /// <summary>
+        /// Delete SCIM user Delete a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> ScimDeleteUserAsyncWithHttpInfo (int userId)
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v1/provisioning/scim/Users/{userId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimDeleteUser", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List supported SCIM resource types Retrieve a list of resource types supported by the SCIM provisioning protocol.  Resource types define the various kinds of resources that can be managed via the SCIM API, such as users, groups, or custom-defined resources. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ScimResourceTypesListResponse</returns>
+        public ScimResourceTypesListResponse ScimGetResourceTypes ()
+        {
+             TalonOne.Client.ApiResponse<ScimResourceTypesListResponse> localVarResponse = ScimGetResourceTypesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List supported SCIM resource types Retrieve a list of resource types supported by the SCIM provisioning protocol.  Resource types define the various kinds of resources that can be managed via the SCIM API, such as users, groups, or custom-defined resources. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ScimResourceTypesListResponse</returns>
+        public TalonOne.Client.ApiResponse< ScimResourceTypesListResponse > ScimGetResourceTypesWithHttpInfo ()
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< ScimResourceTypesListResponse >("/v1/provisioning/scim/ResourceTypes", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetResourceTypes", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List supported SCIM resource types Retrieve a list of resource types supported by the SCIM provisioning protocol.  Resource types define the various kinds of resources that can be managed via the SCIM API, such as users, groups, or custom-defined resources. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ScimResourceTypesListResponse</returns>
+        public async System.Threading.Tasks.Task<ScimResourceTypesListResponse> ScimGetResourceTypesAsync ()
+        {
+             TalonOne.Client.ApiResponse<ScimResourceTypesListResponse> localVarResponse = await ScimGetResourceTypesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List supported SCIM resource types Retrieve a list of resource types supported by the SCIM provisioning protocol.  Resource types define the various kinds of resources that can be managed via the SCIM API, such as users, groups, or custom-defined resources. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ScimResourceTypesListResponse)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<ScimResourceTypesListResponse>> ScimGetResourceTypesAsyncWithHttpInfo ()
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ScimResourceTypesListResponse>("/v1/provisioning/scim/ResourceTypes", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetResourceTypes", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List supported SCIM schemas Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas define the structure and attributes of the different resources that can be managed via the SCIM API, such as users, groups, and any custom-defined resources. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ScimSchemasListResponse</returns>
+        public ScimSchemasListResponse ScimGetSchemas ()
+        {
+             TalonOne.Client.ApiResponse<ScimSchemasListResponse> localVarResponse = ScimGetSchemasWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List supported SCIM schemas Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas define the structure and attributes of the different resources that can be managed via the SCIM API, such as users, groups, and any custom-defined resources. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ScimSchemasListResponse</returns>
+        public TalonOne.Client.ApiResponse< ScimSchemasListResponse > ScimGetSchemasWithHttpInfo ()
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< ScimSchemasListResponse >("/v1/provisioning/scim/Schemas", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetSchemas", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List supported SCIM schemas Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas define the structure and attributes of the different resources that can be managed via the SCIM API, such as users, groups, and any custom-defined resources. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ScimSchemasListResponse</returns>
+        public async System.Threading.Tasks.Task<ScimSchemasListResponse> ScimGetSchemasAsync ()
+        {
+             TalonOne.Client.ApiResponse<ScimSchemasListResponse> localVarResponse = await ScimGetSchemasAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List supported SCIM schemas Retrieve a list of schemas supported by the SCIM provisioning protocol.  Schemas define the structure and attributes of the different resources that can be managed via the SCIM API, such as users, groups, and any custom-defined resources. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ScimSchemasListResponse)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<ScimSchemasListResponse>> ScimGetSchemasAsyncWithHttpInfo ()
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ScimSchemasListResponse>("/v1/provisioning/scim/Schemas", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetSchemas", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get SCIM service provider configuration Retrieve the configuration settings of the SCIM service provider. It provides details about the features and capabilities supported by the SCIM API, such as the different operation settings. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ScimServiceProviderConfigResponse</returns>
+        public ScimServiceProviderConfigResponse ScimGetServiceProviderConfig ()
+        {
+             TalonOne.Client.ApiResponse<ScimServiceProviderConfigResponse> localVarResponse = ScimGetServiceProviderConfigWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get SCIM service provider configuration Retrieve the configuration settings of the SCIM service provider. It provides details about the features and capabilities supported by the SCIM API, such as the different operation settings. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ScimServiceProviderConfigResponse</returns>
+        public TalonOne.Client.ApiResponse< ScimServiceProviderConfigResponse > ScimGetServiceProviderConfigWithHttpInfo ()
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< ScimServiceProviderConfigResponse >("/v1/provisioning/scim/ServiceProviderConfig", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetServiceProviderConfig", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get SCIM service provider configuration Retrieve the configuration settings of the SCIM service provider. It provides details about the features and capabilities supported by the SCIM API, such as the different operation settings. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ScimServiceProviderConfigResponse</returns>
+        public async System.Threading.Tasks.Task<ScimServiceProviderConfigResponse> ScimGetServiceProviderConfigAsync ()
+        {
+             TalonOne.Client.ApiResponse<ScimServiceProviderConfigResponse> localVarResponse = await ScimGetServiceProviderConfigAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get SCIM service provider configuration Retrieve the configuration settings of the SCIM service provider. It provides details about the features and capabilities supported by the SCIM API, such as the different operation settings. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ScimServiceProviderConfigResponse)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<ScimServiceProviderConfigResponse>> ScimGetServiceProviderConfigAsyncWithHttpInfo ()
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ScimServiceProviderConfigResponse>("/v1/provisioning/scim/ServiceProviderConfig", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetServiceProviderConfig", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get SCIM user Retrieve data for a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>ScimUser</returns>
+        public ScimUser ScimGetUser (int userId)
+        {
+             TalonOne.Client.ApiResponse<ScimUser> localVarResponse = ScimGetUserWithHttpInfo(userId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get SCIM user Retrieve data for a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>ApiResponse of ScimUser</returns>
+        public TalonOne.Client.ApiResponse< ScimUser > ScimGetUserWithHttpInfo (int userId)
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< ScimUser >("/v1/provisioning/scim/Users/{userId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetUser", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get SCIM user Retrieve data for a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>Task of ScimUser</returns>
+        public async System.Threading.Tasks.Task<ScimUser> ScimGetUserAsync (int userId)
+        {
+             TalonOne.Client.ApiResponse<ScimUser> localVarResponse = await ScimGetUserAsyncWithHttpInfo(userId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get SCIM user Retrieve data for a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <returns>Task of ApiResponse (ScimUser)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<ScimUser>> ScimGetUserAsyncWithHttpInfo (int userId)
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ScimUser>("/v1/provisioning/scim/Users/{userId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetUser", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List SCIM users Retrieve a paginated list of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ScimUsersListResponse</returns>
+        public ScimUsersListResponse ScimGetUsers ()
+        {
+             TalonOne.Client.ApiResponse<ScimUsersListResponse> localVarResponse = ScimGetUsersWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List SCIM users Retrieve a paginated list of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ScimUsersListResponse</returns>
+        public TalonOne.Client.ApiResponse< ScimUsersListResponse > ScimGetUsersWithHttpInfo ()
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< ScimUsersListResponse >("/v1/provisioning/scim/Users", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List SCIM users Retrieve a paginated list of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ScimUsersListResponse</returns>
+        public async System.Threading.Tasks.Task<ScimUsersListResponse> ScimGetUsersAsync ()
+        {
+             TalonOne.Client.ApiResponse<ScimUsersListResponse> localVarResponse = await ScimGetUsersAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List SCIM users Retrieve a paginated list of users that have been provisioned using the SCIM protocol with an identity provider, for example, Microsoft Entra ID.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ScimUsersListResponse)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<ScimUsersListResponse>> ScimGetUsersAsyncWithHttpInfo ()
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ScimUsersListResponse>("/v1/provisioning/scim/Users", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimGetUsers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update SCIM user attributes Update certain attributes of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint allows for selective adding, removing, or replacing specific attributes while leaving other attributes unchanged. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>ScimUser</returns>
+        public ScimUser ScimPatchUser (int userId, ScimPatchRequest body)
+        {
+             TalonOne.Client.ApiResponse<ScimUser> localVarResponse = ScimPatchUserWithHttpInfo(userId, body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update SCIM user attributes Update certain attributes of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint allows for selective adding, removing, or replacing specific attributes while leaving other attributes unchanged. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of ScimUser</returns>
+        public TalonOne.Client.ApiResponse< ScimUser > ScimPatchUserWithHttpInfo (int userId, ScimPatchRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->ScimPatchUser");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch< ScimUser >("/v1/provisioning/scim/Users/{userId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimPatchUser", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update SCIM user attributes Update certain attributes of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint allows for selective adding, removing, or replacing specific attributes while leaving other attributes unchanged. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ScimUser</returns>
+        public async System.Threading.Tasks.Task<ScimUser> ScimPatchUserAsync (int userId, ScimPatchRequest body)
+        {
+             TalonOne.Client.ApiResponse<ScimUser> localVarResponse = await ScimPatchUserAsyncWithHttpInfo(userId, body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update SCIM user attributes Update certain attributes of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint allows for selective adding, removing, or replacing specific attributes while leaving other attributes unchanged. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (ScimUser)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<ScimUser>> ScimPatchUserAsyncWithHttpInfo (int userId, ScimPatchRequest body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->ScimPatchUser");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<ScimUser>("/v1/provisioning/scim/Users/{userId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimPatchUser", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update SCIM user Update the details of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint replaces all attributes of the specific user with the attributes provided in the request payload. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>ScimUser</returns>
+        public ScimUser ScimReplaceUserAttributes (int userId, ScimNewUser body)
+        {
+             TalonOne.Client.ApiResponse<ScimUser> localVarResponse = ScimReplaceUserAttributesWithHttpInfo(userId, body);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update SCIM user Update the details of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint replaces all attributes of the specific user with the attributes provided in the request payload. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>ApiResponse of ScimUser</returns>
+        public TalonOne.Client.ApiResponse< ScimUser > ScimReplaceUserAttributesWithHttpInfo (int userId, ScimNewUser body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->ScimReplaceUserAttributes");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put< ScimUser >("/v1/provisioning/scim/Users/{userId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimReplaceUserAttributes", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update SCIM user Update the details of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint replaces all attributes of the specific user with the attributes provided in the request payload. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ScimUser</returns>
+        public async System.Threading.Tasks.Task<ScimUser> ScimReplaceUserAttributesAsync (int userId, ScimNewUser body)
+        {
+             TalonOne.Client.ApiResponse<ScimUser> localVarResponse = await ScimReplaceUserAttributesAsyncWithHttpInfo(userId, body);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update SCIM user Update the details of a specific Talon.One user created using the SCIM provisioning protocol with an identity provider, for example, Microsoft Entra ID.  This endpoint replaces all attributes of the specific user with the attributes provided in the request payload. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="userId">The ID of the user.</param>
+        /// <param name="body">body</param>
+        /// <returns>Task of ApiResponse (ScimUser)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<ScimUser>> ScimReplaceUserAttributesAsyncWithHttpInfo (int userId, ScimNewUser body)
+        {
+            // verify the required parameter 'body' is set
+            if (body == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'body' when calling ManagementApi->ScimReplaceUserAttributes");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
+            localVarRequestOptions.Data = body;
+
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PutAsync<ScimUser>("/v1/provisioning/scim/Users/{userId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ScimReplaceUserAttributes", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List coupons that match the given attributes (without total count) List the coupons whose attributes match the query criteria in all the campaigns of the given Application.  The match is successful if all the attributes of the request are found in a coupon, even if the coupon has more attributes that are not present on the request.  **Note:** The total count is not included in the response. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
@@ -32578,7 +35830,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>InlineResponse2009</returns>
         public InlineResponse2009 SearchCouponsAdvancedApplicationWideWithoutTotalCount (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
@@ -32604,7 +35856,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse2009</returns>
         public TalonOne.Client.ApiResponse< InlineResponse2009 > SearchCouponsAdvancedApplicationWideWithoutTotalCountWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
@@ -32736,7 +35988,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of InlineResponse2009</returns>
         public async System.Threading.Tasks.Task<InlineResponse2009> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsync (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
@@ -32763,7 +36015,7 @@ namespace TalonOne.Api
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s RecipientIntegrationId field (optional)</param>
         /// <param name="batchId">Filter results by batches of coupons (optional)</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (optional, default to false)</param>
-        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived. - &#x60;draft&#x60;: Campaigns that are drafts.  (optional)</param>
+        /// <param name="campaignState">Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2009)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2009>> SearchCouponsAdvancedApplicationWideWithoutTotalCountAsyncWithHttpInfo (int applicationId, Object body, int? pageSize = default(int?), int? skip = default(int?), string sort = default(string), string value = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string valid = default(string), string usable = default(string), int? referralId = default(int?), string recipientIntegrationId = default(string), string batchId = default(string), bool? exactMatch = default(bool?), string campaignState = default(string))
         {
@@ -34376,7 +37628,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update coupon Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this PUT endpoint only, any property you do not explicitly set in your request   will be set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
+        /// Update coupon Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint alone, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt;, &lt;code&gt;expiryDate&lt;/code&gt;, and &lt;code&gt;recipientIntegrationId&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -34391,7 +37643,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update coupon Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this PUT endpoint only, any property you do not explicitly set in your request   will be set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
+        /// Update coupon Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint alone, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt;, &lt;code&gt;expiryDate&lt;/code&gt;, and &lt;code&gt;recipientIntegrationId&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -34466,7 +37718,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update coupon Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this PUT endpoint only, any property you do not explicitly set in your request   will be set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
+        /// Update coupon Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint alone, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt;, &lt;code&gt;expiryDate&lt;/code&gt;, and &lt;code&gt;recipientIntegrationId&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
@@ -34482,7 +37734,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update coupon Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this PUT endpoint only, any property you do not explicitly set in your request   will be set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
+        /// Update coupon Update the specified coupon.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    &lt;p&gt;With this &lt;code&gt;PUT&lt;/code&gt; endpoint alone, if you do not explicitly set a value for the &lt;code&gt;startDate&lt;/code&gt;, &lt;code&gt;expiryDate&lt;/code&gt;, and &lt;code&gt;recipientIntegrationId&lt;/code&gt; properties in your request, it is automatically set to &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;  &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
