@@ -257,6 +257,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'CanUpgradeToAdvancedTiers'
         }
+        /// <summary>
+        /// Test the property 'CanUpdateSubledgers'
+        /// </summary>
+        [Fact]
+        public void CanUpdateSubledgersTest()
+        {
+            // TODO unit test for the property 'CanUpdateSubledgers'
+        }
 
     }
 

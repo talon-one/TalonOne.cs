@@ -28,6 +28,7 @@ Name | Type | Description | Notes
 **CanUpdateJoinPolicy** | **bool** | &#x60;True&#x60; if the program join policy can be updated.  | [optional] 
 **CanUpdateTierExpirationPolicy** | **bool** | &#x60;True&#x60; if the tier expiration policy can be updated.  | [optional] 
 **CanUpgradeToAdvancedTiers** | **bool** | &#x60;True&#x60; if the program can be upgraded to use the &#x60;tiersExpireIn&#x60; and &#x60;tiersDowngradePolicy&#x60; properties.  | [optional] [default to false]
+**CanUpdateSubledgers** | **bool** | &#x60;True&#x60; if the &#x60;allowSubledger&#x60; property can be updated in the loyalty program.  | [optional] [default to false]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

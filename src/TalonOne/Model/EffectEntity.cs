@@ -49,7 +49,9 @@ namespace TalonOne.Model
         /// <param name="conditionIndex">The index of the condition that was triggered..</param>
         /// <param name="evaluationGroupID">The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
         /// <param name="evaluationGroupMode">The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
-        public EffectEntity(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int), int triggeredForCatalogItem = default(int), int conditionIndex = default(int), int evaluationGroupID = default(int), string evaluationGroupMode = default(string))
+        /// <param name="campaignRevisionId">The revision ID of the campaign that was used when triggering the effect..</param>
+        /// <param name="campaignRevisionVersionId">The revision version ID of the campaign that was used when triggering the effect..</param>
+        public EffectEntity(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int), int triggeredForCatalogItem = default(int), int conditionIndex = default(int), int evaluationGroupID = default(int), string evaluationGroupMode = default(string), int campaignRevisionId = default(int), int campaignRevisionVersionId = default(int))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -63,6 +65,8 @@ namespace TalonOne.Model
             this.ConditionIndex = conditionIndex;
             this.EvaluationGroupID = evaluationGroupID;
             this.EvaluationGroupMode = evaluationGroupMode;
+            this.CampaignRevisionId = campaignRevisionId;
+            this.CampaignRevisionVersionId = campaignRevisionVersionId;
         }
         
         /// <summary>
@@ -136,6 +140,20 @@ namespace TalonOne.Model
         public string EvaluationGroupMode { get; set; }
 
         /// <summary>
+        /// The revision ID of the campaign that was used when triggering the effect.
+        /// </summary>
+        /// <value>The revision ID of the campaign that was used when triggering the effect.</value>
+        [DataMember(Name="campaignRevisionId", EmitDefaultValue=false)]
+        public int CampaignRevisionId { get; set; }
+
+        /// <summary>
+        /// The revision version ID of the campaign that was used when triggering the effect.
+        /// </summary>
+        /// <value>The revision version ID of the campaign that was used when triggering the effect.</value>
+        [DataMember(Name="campaignRevisionVersionId", EmitDefaultValue=false)]
+        public int CampaignRevisionVersionId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -153,6 +171,8 @@ namespace TalonOne.Model
             sb.Append("  ConditionIndex: ").Append(ConditionIndex).Append("\n");
             sb.Append("  EvaluationGroupID: ").Append(EvaluationGroupID).Append("\n");
             sb.Append("  EvaluationGroupMode: ").Append(EvaluationGroupMode).Append("\n");
+            sb.Append("  CampaignRevisionId: ").Append(CampaignRevisionId).Append("\n");
+            sb.Append("  CampaignRevisionVersionId: ").Append(CampaignRevisionVersionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -229,6 +249,14 @@ namespace TalonOne.Model
                     this.EvaluationGroupMode == input.EvaluationGroupMode ||
                     (this.EvaluationGroupMode != null &&
                     this.EvaluationGroupMode.Equals(input.EvaluationGroupMode))
+                ) && 
+                (
+                    this.CampaignRevisionId == input.CampaignRevisionId ||
+                    this.CampaignRevisionId.Equals(input.CampaignRevisionId)
+                ) && 
+                (
+                    this.CampaignRevisionVersionId == input.CampaignRevisionVersionId ||
+                    this.CampaignRevisionVersionId.Equals(input.CampaignRevisionVersionId)
                 );
         }
 
@@ -254,6 +282,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.EvaluationGroupID.GetHashCode();
                 if (this.EvaluationGroupMode != null)
                     hashCode = hashCode * 59 + this.EvaluationGroupMode.GetHashCode();
+                hashCode = hashCode * 59 + this.CampaignRevisionId.GetHashCode();
+                hashCode = hashCode * 59 + this.CampaignRevisionVersionId.GetHashCode();
                 return hashCode;
             }
         }

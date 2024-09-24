@@ -138,6 +138,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'EvaluationGroupMode'
         }
         /// <summary>
+        /// Test the property 'CampaignRevisionId'
+        /// </summary>
+        [Fact]
+        public void CampaignRevisionIdTest()
+        {
+            // TODO unit test for the property 'CampaignRevisionId'
+        }
+        /// <summary>
+        /// Test the property 'CampaignRevisionVersionId'
+        /// </summary>
+        [Fact]
+        public void CampaignRevisionVersionIdTest()
+        {
+            // TODO unit test for the property 'CampaignRevisionVersionId'
+        }
+        /// <summary>
         /// Test the property 'Props'
         /// </summary>
         [Fact]

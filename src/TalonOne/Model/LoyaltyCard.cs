@@ -52,7 +52,8 @@ namespace TalonOne.Model
         /// <param name="modified">Timestamp of the most recent update of the loyalty card..</param>
         /// <param name="oldCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
         /// <param name="newCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
-        public LoyaltyCard(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string status = default(string), string blockReason = default(string), string identifier = default(string), int usersPerCardLimit = default(int), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subledgers = default(Dictionary<string, LedgerInfo>), DateTime modified = default(DateTime), string oldCardIdentifier = default(string), string newCardIdentifier = default(string))
+        /// <param name="batchId">The ID of the batch in which the loyalty card was created..</param>
+        public LoyaltyCard(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string status = default(string), string blockReason = default(string), string identifier = default(string), int usersPerCardLimit = default(int), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subledgers = default(Dictionary<string, LedgerInfo>), DateTime modified = default(DateTime), string oldCardIdentifier = default(string), string newCardIdentifier = default(string), string batchId = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -69,6 +70,7 @@ namespace TalonOne.Model
             this.Modified = modified;
             this.OldCardIdentifier = oldCardIdentifier;
             this.NewCardIdentifier = newCardIdentifier;
+            this.BatchId = batchId;
         }
         
         /// <summary>
@@ -162,6 +164,13 @@ namespace TalonOne.Model
         public string NewCardIdentifier { get; set; }
 
         /// <summary>
+        /// The ID of the batch in which the loyalty card was created.
+        /// </summary>
+        /// <value>The ID of the batch in which the loyalty card was created.</value>
+        [DataMember(Name="batchId", EmitDefaultValue=false)]
+        public string BatchId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -182,6 +191,7 @@ namespace TalonOne.Model
             sb.Append("  Modified: ").Append(Modified).Append("\n");
             sb.Append("  OldCardIdentifier: ").Append(OldCardIdentifier).Append("\n");
             sb.Append("  NewCardIdentifier: ").Append(NewCardIdentifier).Append("\n");
+            sb.Append("  BatchId: ").Append(BatchId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -279,6 +289,11 @@ namespace TalonOne.Model
                     this.NewCardIdentifier == input.NewCardIdentifier ||
                     (this.NewCardIdentifier != null &&
                     this.NewCardIdentifier.Equals(input.NewCardIdentifier))
+                ) && 
+                (
+                    this.BatchId == input.BatchId ||
+                    (this.BatchId != null &&
+                    this.BatchId.Equals(input.BatchId))
                 );
         }
 
@@ -314,6 +329,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.OldCardIdentifier.GetHashCode();
                 if (this.NewCardIdentifier != null)
                     hashCode = hashCode * 59 + this.NewCardIdentifier.GetHashCode();
+                if (this.BatchId != null)
+                    hashCode = hashCode * 59 + this.BatchId.GetHashCode();
                 return hashCode;
             }
         }

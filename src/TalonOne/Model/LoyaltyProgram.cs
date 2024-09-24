@@ -163,7 +163,8 @@ namespace TalonOne.Model
         /// <param name="canUpdateJoinPolicy">&#x60;True&#x60; if the program join policy can be updated. .</param>
         /// <param name="canUpdateTierExpirationPolicy">&#x60;True&#x60; if the tier expiration policy can be updated. .</param>
         /// <param name="canUpgradeToAdvancedTiers">&#x60;True&#x60; if the program can be upgraded to use the &#x60;tiersExpireIn&#x60; and &#x60;tiersDowngradePolicy&#x60; properties.  (default to false).</param>
-        public LoyaltyProgram(int id = default(int), DateTime created = default(DateTime), string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), bool sandbox = default(bool), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), DateTime tierCycleStartDate = default(DateTime), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings), int accountID = default(int), string name = default(string), List<LoyaltyTier> tiers = default(List<LoyaltyTier>), string timezone = default(string), bool cardBased = false, bool canUpdateTiers = false, bool canUpdateJoinPolicy = default(bool), bool canUpdateTierExpirationPolicy = default(bool), bool canUpgradeToAdvancedTiers = false)
+        /// <param name="canUpdateSubledgers">&#x60;True&#x60; if the &#x60;allowSubledger&#x60; property can be updated in the loyalty program.  (default to false).</param>
+        public LoyaltyProgram(int id = default(int), DateTime created = default(DateTime), string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), bool sandbox = default(bool), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), DateTime tierCycleStartDate = default(DateTime), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings), int accountID = default(int), string name = default(string), List<LoyaltyTier> tiers = default(List<LoyaltyTier>), string timezone = default(string), bool cardBased = false, bool canUpdateTiers = false, bool canUpdateJoinPolicy = default(bool), bool canUpdateTierExpirationPolicy = default(bool), bool canUpgradeToAdvancedTiers = false, bool canUpdateSubledgers = false)
         {
             this.Id = id;
             this.Created = created;
@@ -197,6 +198,7 @@ namespace TalonOne.Model
             this.CanUpdateJoinPolicy = canUpdateJoinPolicy;
             this.CanUpdateTierExpirationPolicy = canUpdateTierExpirationPolicy;
             this.CanUpgradeToAdvancedTiers = canUpgradeToAdvancedTiers;
+            this.CanUpdateSubledgers = canUpdateSubledgers;
         }
         
         /// <summary>
@@ -353,6 +355,13 @@ namespace TalonOne.Model
         public bool CanUpgradeToAdvancedTiers { get; set; }
 
         /// <summary>
+        /// &#x60;True&#x60; if the &#x60;allowSubledger&#x60; property can be updated in the loyalty program. 
+        /// </summary>
+        /// <value>&#x60;True&#x60; if the &#x60;allowSubledger&#x60; property can be updated in the loyalty program. </value>
+        [DataMember(Name="canUpdateSubledgers", EmitDefaultValue=false)]
+        public bool CanUpdateSubledgers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -385,6 +394,7 @@ namespace TalonOne.Model
             sb.Append("  CanUpdateJoinPolicy: ").Append(CanUpdateJoinPolicy).Append("\n");
             sb.Append("  CanUpdateTierExpirationPolicy: ").Append(CanUpdateTierExpirationPolicy).Append("\n");
             sb.Append("  CanUpgradeToAdvancedTiers: ").Append(CanUpgradeToAdvancedTiers).Append("\n");
+            sb.Append("  CanUpdateSubledgers: ").Append(CanUpdateSubledgers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -532,6 +542,10 @@ namespace TalonOne.Model
                 (
                     this.CanUpgradeToAdvancedTiers == input.CanUpgradeToAdvancedTiers ||
                     this.CanUpgradeToAdvancedTiers.Equals(input.CanUpgradeToAdvancedTiers)
+                ) && 
+                (
+                    this.CanUpdateSubledgers == input.CanUpdateSubledgers ||
+                    this.CanUpdateSubledgers.Equals(input.CanUpdateSubledgers)
                 );
         }
 
@@ -581,6 +595,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.CanUpdateJoinPolicy.GetHashCode();
                 hashCode = hashCode * 59 + this.CanUpdateTierExpirationPolicy.GetHashCode();
                 hashCode = hashCode * 59 + this.CanUpgradeToAdvancedTiers.GetHashCode();
+                hashCode = hashCode * 59 + this.CanUpdateSubledgers.GetHashCode();
                 return hashCode;
             }
         }

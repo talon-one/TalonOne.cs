@@ -109,7 +109,7 @@ namespace TalonOne.Model
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of limits that will operate for this campaign version..</param>
         /// <param name="features">A list of features for the campaign template..</param>
-        public RevisionVersion(int id = default(int), int accountId = default(int), int applicationId = default(int), int campaignId = default(int), DateTime created = default(DateTime), int createdBy = default(int), int revisionId = default(int), int version = default(int), string name = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), string description = default(string), int activeRulesetId = default(int), List<string> tags = default(List<string>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<FeaturesEnum> features = default(List<FeaturesEnum>))
+        public RevisionVersion(int id = default(int), int accountId = default(int), int applicationId = default(int), int campaignId = default(int), DateTime created = default(DateTime), int createdBy = default(int), int revisionId = default(int), int version = default(int), string name = default(string), DateTime? startTime = default(DateTime?), DateTime? endTime = default(DateTime?), Object attributes = default(Object), string description = default(string), int? activeRulesetId = default(int?), List<string> tags = default(List<string>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<FeaturesEnum> features = default(List<FeaturesEnum>))
         {
             this.Id = id;
             this.AccountId = accountId;
@@ -192,15 +192,15 @@ namespace TalonOne.Model
         /// Timestamp when the campaign will become active.
         /// </summary>
         /// <value>Timestamp when the campaign will become active.</value>
-        [DataMember(Name="startTime", EmitDefaultValue=false)]
-        public DateTime StartTime { get; set; }
+        [DataMember(Name="startTime", EmitDefaultValue=true)]
+        public DateTime? StartTime { get; set; }
 
         /// <summary>
         /// Timestamp when the campaign will become inactive.
         /// </summary>
         /// <value>Timestamp when the campaign will become inactive.</value>
-        [DataMember(Name="endTime", EmitDefaultValue=false)]
-        public DateTime EndTime { get; set; }
+        [DataMember(Name="endTime", EmitDefaultValue=true)]
+        public DateTime? EndTime { get; set; }
 
         /// <summary>
         /// Arbitrary properties associated with this campaign.
@@ -213,15 +213,15 @@ namespace TalonOne.Model
         /// A detailed description of the campaign.
         /// </summary>
         /// <value>A detailed description of the campaign.</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
+        [DataMember(Name="description", EmitDefaultValue=true)]
         public string Description { get; set; }
 
         /// <summary>
         /// The ID of the ruleset this campaign template will use.
         /// </summary>
         /// <value>The ID of the ruleset this campaign template will use.</value>
-        [DataMember(Name="activeRulesetId", EmitDefaultValue=false)]
-        public int ActiveRulesetId { get; set; }
+        [DataMember(Name="activeRulesetId", EmitDefaultValue=true)]
+        public int? ActiveRulesetId { get; set; }
 
         /// <summary>
         /// A list of tags for the campaign template.
@@ -370,7 +370,8 @@ namespace TalonOne.Model
                 ) && 
                 (
                     this.ActiveRulesetId == input.ActiveRulesetId ||
-                    this.ActiveRulesetId.Equals(input.ActiveRulesetId)
+                    (this.ActiveRulesetId != null &&
+                    this.ActiveRulesetId.Equals(input.ActiveRulesetId))
                 ) && 
                 (
                     this.Tags == input.Tags ||
@@ -428,7 +429,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.ActiveRulesetId.GetHashCode();
+                if (this.ActiveRulesetId != null)
+                    hashCode = hashCode * 59 + this.ActiveRulesetId.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 if (this.CouponSettings != null)

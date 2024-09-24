@@ -157,9 +157,10 @@ namespace TalonOne.Model
         /// <param name="enablePartialDiscounts">Indicates if this Application supports partial discounts..</param>
         /// <param name="defaultDiscountAdditionalCostPerItemScope">The default scope to apply &#x60;setDiscountPerItem&#x60; effects on if no scope was provided with the effect. .</param>
         /// <param name="defaultEvaluationGroupId">The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign..</param>
+        /// <param name="defaultCartItemFilterId">The ID of the default Cart-Item-Filter for this application..</param>
         /// <param name="enableCampaignStateManagement">Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. .</param>
         /// <param name="loyaltyPrograms">An array containing all the loyalty programs to which this application is subscribed. (required).</param>
-        public Application(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), int defaultEvaluationGroupId = default(int), bool enableCampaignStateManagement = default(bool), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>))
+        public Application(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), int defaultEvaluationGroupId = default(int), int defaultCartItemFilterId = default(int), bool enableCampaignStateManagement = default(bool), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>))
         {
             this.Id = id;
             this.Created = created;
@@ -185,6 +186,7 @@ namespace TalonOne.Model
             this.EnablePartialDiscounts = enablePartialDiscounts;
             this.DefaultDiscountAdditionalCostPerItemScope = defaultDiscountAdditionalCostPerItemScope;
             this.DefaultEvaluationGroupId = defaultEvaluationGroupId;
+            this.DefaultCartItemFilterId = defaultCartItemFilterId;
             this.EnableCampaignStateManagement = enableCampaignStateManagement;
         }
         
@@ -300,6 +302,13 @@ namespace TalonOne.Model
         public int DefaultEvaluationGroupId { get; set; }
 
         /// <summary>
+        /// The ID of the default Cart-Item-Filter for this application.
+        /// </summary>
+        /// <value>The ID of the default Cart-Item-Filter for this application.</value>
+        [DataMember(Name="defaultCartItemFilterId", EmitDefaultValue=false)]
+        public int DefaultCartItemFilterId { get; set; }
+
+        /// <summary>
         /// Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. 
         /// </summary>
         /// <value>Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. </value>
@@ -340,6 +349,7 @@ namespace TalonOne.Model
             sb.Append("  EnablePartialDiscounts: ").Append(EnablePartialDiscounts).Append("\n");
             sb.Append("  DefaultDiscountAdditionalCostPerItemScope: ").Append(DefaultDiscountAdditionalCostPerItemScope).Append("\n");
             sb.Append("  DefaultEvaluationGroupId: ").Append(DefaultEvaluationGroupId).Append("\n");
+            sb.Append("  DefaultCartItemFilterId: ").Append(DefaultCartItemFilterId).Append("\n");
             sb.Append("  EnableCampaignStateManagement: ").Append(EnableCampaignStateManagement).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
             sb.Append("}\n");
@@ -463,6 +473,10 @@ namespace TalonOne.Model
                     this.DefaultEvaluationGroupId.Equals(input.DefaultEvaluationGroupId)
                 ) && 
                 (
+                    this.DefaultCartItemFilterId == input.DefaultCartItemFilterId ||
+                    this.DefaultCartItemFilterId.Equals(input.DefaultCartItemFilterId)
+                ) && 
+                (
                     this.EnableCampaignStateManagement == input.EnableCampaignStateManagement ||
                     this.EnableCampaignStateManagement.Equals(input.EnableCampaignStateManagement)
                 ) && 
@@ -511,6 +525,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.EnablePartialDiscounts.GetHashCode();
                 hashCode = hashCode * 59 + this.DefaultDiscountAdditionalCostPerItemScope.GetHashCode();
                 hashCode = hashCode * 59 + this.DefaultEvaluationGroupId.GetHashCode();
+                hashCode = hashCode * 59 + this.DefaultCartItemFilterId.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableCampaignStateManagement.GetHashCode();
                 if (this.LoyaltyPrograms != null)
                     hashCode = hashCode * 59 + this.LoyaltyPrograms.GetHashCode();

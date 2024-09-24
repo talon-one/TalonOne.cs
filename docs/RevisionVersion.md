@@ -12,11 +12,11 @@ Name | Type | Description | Notes
 **RevisionId** | **int** |  | 
 **Version** | **int** |  | 
 **Name** | **string** | A user-facing name for this campaign. | [optional] 
-**StartTime** | **DateTime** | Timestamp when the campaign will become active. | [optional] 
-**EndTime** | **DateTime** | Timestamp when the campaign will become inactive. | [optional] 
+**StartTime** | **DateTime?** | Timestamp when the campaign will become active. | [optional] 
+**EndTime** | **DateTime?** | Timestamp when the campaign will become inactive. | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this campaign. | [optional] 
 **Description** | **string** | A detailed description of the campaign. | [optional] 
-**ActiveRulesetId** | **int** | The ID of the ruleset this campaign template will use. | [optional] 
+**ActiveRulesetId** | **int?** | The ID of the ruleset this campaign template will use. | [optional] 
 **Tags** | **List&lt;string&gt;** | A list of tags for the campaign template. | [optional] 
 **CouponSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **ReferralSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 

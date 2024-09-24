@@ -75,6 +75,7 @@ namespace TalonOne.Model
         /// <param name="achievementId">The internal ID of the achievement. (required).</param>
         /// <param name="name">The internal name of the achievement used in API requests.  (required).</param>
         /// <param name="title">The display name of the achievement in the Campaign Manager. (required).</param>
+        /// <param name="description">The description of the achievement in the Campaign Manager. (required).</param>
         /// <param name="campaignId">The ID of the campaign the achievement belongs to. (required).</param>
         /// <param name="status">The status of the achievement. (required).</param>
         /// <param name="target">The required number of actions or the transactional milestone to complete the achievement..</param>
@@ -82,13 +83,15 @@ namespace TalonOne.Model
         /// <param name="startDate">Timestamp at which the customer started the achievement. (required).</param>
         /// <param name="completionDate">Timestamp at which point the customer completed the achievement..</param>
         /// <param name="endDate">Timestamp at which point the achievement ends and resets for the customer. (required).</param>
-        public AchievementProgress(int achievementId = default(int), string name = default(string), string title = default(string), int campaignId = default(int), StatusEnum status = default(StatusEnum), decimal target = default(decimal), decimal progress = default(decimal), DateTime startDate = default(DateTime), DateTime completionDate = default(DateTime), DateTime endDate = default(DateTime))
+        public AchievementProgress(int achievementId = default(int), string name = default(string), string title = default(string), string description = default(string), int campaignId = default(int), StatusEnum status = default(StatusEnum), decimal target = default(decimal), decimal progress = default(decimal), DateTime startDate = default(DateTime), DateTime completionDate = default(DateTime), DateTime endDate = default(DateTime))
         {
             this.AchievementId = achievementId;
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for AchievementProgress and cannot be null");
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for AchievementProgress and cannot be null");
+            // to ensure "description" is required (not null)
+            this.Description = description ?? throw new ArgumentNullException("description is a required property for AchievementProgress and cannot be null");
             this.CampaignId = campaignId;
             this.Status = status;
             this.Progress = progress;
@@ -118,6 +121,13 @@ namespace TalonOne.Model
         /// <value>The display name of the achievement in the Campaign Manager.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
+
+        /// <summary>
+        /// The description of the achievement in the Campaign Manager.
+        /// </summary>
+        /// <value>The description of the achievement in the Campaign Manager.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// The ID of the campaign the achievement belongs to.
@@ -172,6 +182,7 @@ namespace TalonOne.Model
             sb.Append("  AchievementId: ").Append(AchievementId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Target: ").Append(Target).Append("\n");
@@ -228,6 +239,11 @@ namespace TalonOne.Model
                     this.Title.Equals(input.Title))
                 ) && 
                 (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
+                ) && 
+                (
                     this.CampaignId == input.CampaignId ||
                     this.CampaignId.Equals(input.CampaignId)
                 ) && 
@@ -274,6 +290,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Title != null)
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 hashCode = hashCode * 59 + this.Target.GetHashCode();

@@ -35,15 +35,15 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CampaignVersions" /> class.
         /// </summary>
         /// <param name="activeRevisionId">ID of the revision that was last activated on this campaign. .</param>
-        /// <param name="activeVersionId">ID of the revision version that is active on the campaign. .</param>
+        /// <param name="activeRevisionVersionId">ID of the revision version that is active on the campaign. .</param>
         /// <param name="version">Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. .</param>
         /// <param name="currentRevisionId">ID of the revision currently being modified for the campaign. .</param>
         /// <param name="currentRevisionVersionId">ID of the latest version applied on the current revision. .</param>
         /// <param name="stageRevision">Flag for determining whether we use current revision when sending requests with staging API key.  (default to false).</param>
-        public CampaignVersions(int activeRevisionId = default(int), int activeVersionId = default(int), int version = default(int), int currentRevisionId = default(int), int currentRevisionVersionId = default(int), bool stageRevision = false)
+        public CampaignVersions(int activeRevisionId = default(int), int activeRevisionVersionId = default(int), int version = default(int), int currentRevisionId = default(int), int currentRevisionVersionId = default(int), bool stageRevision = false)
         {
             this.ActiveRevisionId = activeRevisionId;
-            this.ActiveVersionId = activeVersionId;
+            this.ActiveRevisionVersionId = activeRevisionVersionId;
             this.Version = version;
             this.CurrentRevisionId = currentRevisionId;
             this.CurrentRevisionVersionId = currentRevisionVersionId;
@@ -61,8 +61,8 @@ namespace TalonOne.Model
         /// ID of the revision version that is active on the campaign. 
         /// </summary>
         /// <value>ID of the revision version that is active on the campaign. </value>
-        [DataMember(Name="activeVersionId", EmitDefaultValue=false)]
-        public int ActiveVersionId { get; set; }
+        [DataMember(Name="activeRevisionVersionId", EmitDefaultValue=false)]
+        public int ActiveRevisionVersionId { get; set; }
 
         /// <summary>
         /// Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. 
@@ -101,7 +101,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class CampaignVersions {\n");
             sb.Append("  ActiveRevisionId: ").Append(ActiveRevisionId).Append("\n");
-            sb.Append("  ActiveVersionId: ").Append(ActiveVersionId).Append("\n");
+            sb.Append("  ActiveRevisionVersionId: ").Append(ActiveRevisionVersionId).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("  CurrentRevisionId: ").Append(CurrentRevisionId).Append("\n");
             sb.Append("  CurrentRevisionVersionId: ").Append(CurrentRevisionVersionId).Append("\n");
@@ -145,8 +145,8 @@ namespace TalonOne.Model
                     this.ActiveRevisionId.Equals(input.ActiveRevisionId)
                 ) && 
                 (
-                    this.ActiveVersionId == input.ActiveVersionId ||
-                    this.ActiveVersionId.Equals(input.ActiveVersionId)
+                    this.ActiveRevisionVersionId == input.ActiveRevisionVersionId ||
+                    this.ActiveRevisionVersionId.Equals(input.ActiveRevisionVersionId)
                 ) && 
                 (
                     this.Version == input.Version ||
@@ -176,7 +176,7 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.ActiveRevisionId.GetHashCode();
-                hashCode = hashCode * 59 + this.ActiveVersionId.GetHashCode();
+                hashCode = hashCode * 59 + this.ActiveRevisionVersionId.GetHashCode();
                 hashCode = hashCode * 59 + this.Version.GetHashCode();
                 hashCode = hashCode * 59 + this.CurrentRevisionId.GetHashCode();
                 hashCode = hashCode * 59 + this.CurrentRevisionVersionId.GetHashCode();

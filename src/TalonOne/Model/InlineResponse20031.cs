@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="hasMore">hasMore.</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20031(bool hasMore = default(bool), List<CustomerProfile> data = default(List<CustomerProfile>))
+        public InlineResponse20031(bool hasMore = default(bool), List<AudienceAnalytics> data = default(List<AudienceAnalytics>))
         {
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20031 and cannot be null");
@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<CustomerProfile> Data { get; set; }
+        public List<AudienceAnalytics> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

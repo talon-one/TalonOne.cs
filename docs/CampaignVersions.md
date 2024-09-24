@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ActiveRevisionId** | **int** | ID of the revision that was last activated on this campaign.  | [optional] 
-**ActiveVersionId** | **int** | ID of the revision version that is active on the campaign.  | [optional] 
+**ActiveRevisionVersionId** | **int** | ID of the revision version that is active on the campaign.  | [optional] 
 **Version** | **int** | Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign.  | [optional] 
 **CurrentRevisionId** | **int** | ID of the revision currently being modified for the campaign.  | [optional] 
 **CurrentRevisionVersionId** | **int** | ID of the latest version applied on the current revision.  | [optional] 

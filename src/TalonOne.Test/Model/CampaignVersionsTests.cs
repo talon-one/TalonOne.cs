@@ -66,12 +66,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ActiveRevisionId'
         }
         /// <summary>
-        /// Test the property 'ActiveVersionId'
+        /// Test the property 'ActiveRevisionVersionId'
         /// </summary>
         [Fact]
-        public void ActiveVersionIdTest()
+        public void ActiveRevisionVersionIdTest()
         {
-            // TODO unit test for the property 'ActiveVersionId'
+            // TODO unit test for the property 'ActiveRevisionVersionId'
         }
         /// <summary>
         /// Test the property 'Version'

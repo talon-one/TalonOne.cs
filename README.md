@@ -259,6 +259,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**CreateAchievement**](docs/ManagementApi.md#createachievement) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | Create achievement
 *ManagementApi* | [**CreateAdditionalCost**](docs/ManagementApi.md#createadditionalcost) | **POST** /v1/additional_costs | Create additional cost
 *ManagementApi* | [**CreateAttribute**](docs/ManagementApi.md#createattribute) | **POST** /v1/attributes | Create custom attribute
+*ManagementApi* | [**CreateBatchLoyaltyCards**](docs/ManagementApi.md#createbatchloyaltycards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards/batch | Create loyalty cards
 *ManagementApi* | [**CreateCampaignFromTemplate**](docs/ManagementApi.md#createcampaignfromtemplate) | **POST** /v1/applications/{applicationId}/create_campaign_from_template | Create campaign from campaign template
 *ManagementApi* | [**CreateCollection**](docs/ManagementApi.md#createcollection) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | Create campaign-level collection
 *ManagementApi* | [**CreateCoupons**](docs/ManagementApi.md#createcoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/coupons | Create coupons
@@ -348,6 +349,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**GetExports**](docs/ManagementApi.md#getexports) | **GET** /v1/exports | Get exports
 *ManagementApi* | [**GetLoyaltyCard**](docs/ManagementApi.md#getloyaltycard) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card
 *ManagementApi* | [**GetLoyaltyCardTransactionLogs**](docs/ManagementApi.md#getloyaltycardtransactionlogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card's transactions
+*ManagementApi* | [**GetLoyaltyCards**](docs/ManagementApi.md#getloyaltycards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards | List loyalty cards
 *ManagementApi* | [**GetLoyaltyPoints**](docs/ManagementApi.md#getloyaltypoints) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId} | Get customer's full loyalty ledger
 *ManagementApi* | [**GetLoyaltyProgram**](docs/ManagementApi.md#getloyaltyprogram) | **GET** /v1/loyalty_programs/{loyaltyProgramId} | Get loyalty program
 *ManagementApi* | [**GetLoyaltyProgramTransactions**](docs/ManagementApi.md#getloyaltyprogramtransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
@@ -455,6 +457,8 @@ Class | Method | HTTP request | Description
  - [Model.ApplicationAPIKey](docs/ApplicationAPIKey.md)
  - [Model.ApplicationAnalyticsDataPoint](docs/ApplicationAnalyticsDataPoint.md)
  - [Model.ApplicationApiHealth](docs/ApplicationApiHealth.md)
+ - [Model.ApplicationCIF](docs/ApplicationCIF.md)
+ - [Model.ApplicationCIFExpression](docs/ApplicationCIFExpression.md)
  - [Model.ApplicationCampaignAnalytics](docs/ApplicationCampaignAnalytics.md)
  - [Model.ApplicationCampaignStats](docs/ApplicationCampaignStats.md)
  - [Model.ApplicationCustomer](docs/ApplicationCustomer.md)
@@ -653,6 +657,7 @@ Class | Method | HTTP request | Description
  - [Model.InlineResponse20044](docs/InlineResponse20044.md)
  - [Model.InlineResponse20045](docs/InlineResponse20045.md)
  - [Model.InlineResponse20046](docs/InlineResponse20046.md)
+ - [Model.InlineResponse20047](docs/InlineResponse20047.md)
  - [Model.InlineResponse2005](docs/InlineResponse2005.md)
  - [Model.InlineResponse2006](docs/InlineResponse2006.md)
  - [Model.InlineResponse2007](docs/InlineResponse2007.md)
@@ -687,6 +692,8 @@ Class | Method | HTTP request | Description
  - [Model.LoyaltyBalancesWithTiers](docs/LoyaltyBalancesWithTiers.md)
  - [Model.LoyaltyCard](docs/LoyaltyCard.md)
  - [Model.LoyaltyCardBalances](docs/LoyaltyCardBalances.md)
+ - [Model.LoyaltyCardBatch](docs/LoyaltyCardBatch.md)
+ - [Model.LoyaltyCardBatchResponse](docs/LoyaltyCardBatchResponse.md)
  - [Model.LoyaltyCardProfileRegistration](docs/LoyaltyCardProfileRegistration.md)
  - [Model.LoyaltyCardRegistration](docs/LoyaltyCardRegistration.md)
  - [Model.LoyaltyDashboardData](docs/LoyaltyDashboardData.md)
@@ -699,7 +706,6 @@ Class | Method | HTTP request | Description
  - [Model.LoyaltyProgramBalance](docs/LoyaltyProgramBalance.md)
  - [Model.LoyaltyProgramEntity](docs/LoyaltyProgramEntity.md)
  - [Model.LoyaltyProgramLedgers](docs/LoyaltyProgramLedgers.md)
- - [Model.LoyaltyProgramSubledgers](docs/LoyaltyProgramSubledgers.md)
  - [Model.LoyaltyProgramTransaction](docs/LoyaltyProgramTransaction.md)
  - [Model.LoyaltySubLedger](docs/LoyaltySubLedger.md)
  - [Model.LoyaltyTier](docs/LoyaltyTier.md)
@@ -726,6 +732,8 @@ Class | Method | HTTP request | Description
  - [Model.NewAppWideCouponDeletionJob](docs/NewAppWideCouponDeletionJob.md)
  - [Model.NewApplication](docs/NewApplication.md)
  - [Model.NewApplicationAPIKey](docs/NewApplicationAPIKey.md)
+ - [Model.NewApplicationCIF](docs/NewApplicationCIF.md)
+ - [Model.NewApplicationCIFExpression](docs/NewApplicationCIFExpression.md)
  - [Model.NewAttribute](docs/NewAttribute.md)
  - [Model.NewAudience](docs/NewAudience.md)
  - [Model.NewBaseNotification](docs/NewBaseNotification.md)
@@ -891,6 +899,7 @@ Class | Method | HTTP request | Description
  - [Model.UpdateAchievement](docs/UpdateAchievement.md)
  - [Model.UpdateApplication](docs/UpdateApplication.md)
  - [Model.UpdateApplicationAPIKey](docs/UpdateApplicationAPIKey.md)
+ - [Model.UpdateApplicationCIF](docs/UpdateApplicationCIF.md)
  - [Model.UpdateAttributeEffectProps](docs/UpdateAttributeEffectProps.md)
  - [Model.UpdateAudience](docs/UpdateAudience.md)
  - [Model.UpdateCampaign](docs/UpdateCampaign.md)

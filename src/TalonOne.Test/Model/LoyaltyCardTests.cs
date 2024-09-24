@@ -161,6 +161,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'NewCardIdentifier'
         }
+        /// <summary>
+        /// Test the property 'BatchId'
+        /// </summary>
+        [Fact]
+        public void BatchIdTest()
+        {
+            // TODO unit test for the property 'BatchId'
+        }
 
     }
 

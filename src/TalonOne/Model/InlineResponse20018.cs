@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="hasMore">hasMore (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20018(bool hasMore = default(bool), List<AccessLogEntry> data = default(List<AccessLogEntry>))
+        public InlineResponse20018(bool hasMore = default(bool), List<CollectionItem> data = default(List<CollectionItem>))
         {
             this.HasMore = hasMore;
             // to ensure "data" is required (not null)
@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<AccessLogEntry> Data { get; set; }
+        public List<CollectionItem> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

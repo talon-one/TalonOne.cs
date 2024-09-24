@@ -39,34 +39,28 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20016" /> class.
         /// </summary>
-        /// <param name="hasMore">hasMore.</param>
-        /// <param name="totalResultSize">totalResultSize.</param>
-        /// <param name="data">data (required).</param>
-        public InlineResponse20016(bool hasMore = default(bool), int totalResultSize = default(int), List<CollectionWithoutPayload> data = default(List<CollectionWithoutPayload>))
+        /// <param name="hasMore">true means there is more data in the source collection to request.. (required).</param>
+        /// <param name="data">List of loyalty card transaction logs. (required).</param>
+        public InlineResponse20016(bool hasMore = default(bool), List<CardLedgerTransactionLogEntry> data = default(List<CardLedgerTransactionLogEntry>))
         {
+            this.HasMore = hasMore;
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20016 and cannot be null");
-            this.HasMore = hasMore;
-            this.TotalResultSize = totalResultSize;
         }
         
         /// <summary>
-        /// Gets or Sets HasMore
+        /// true means there is more data in the source collection to request..
         /// </summary>
+        /// <value>true means there is more data in the source collection to request..</value>
         [DataMember(Name="hasMore", EmitDefaultValue=false)]
         public bool HasMore { get; set; }
 
         /// <summary>
-        /// Gets or Sets TotalResultSize
+        /// List of loyalty card transaction logs.
         /// </summary>
-        [DataMember(Name="totalResultSize", EmitDefaultValue=false)]
-        public int TotalResultSize { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Data
-        /// </summary>
+        /// <value>List of loyalty card transaction logs.</value>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<CollectionWithoutPayload> Data { get; set; }
+        public List<CardLedgerTransactionLogEntry> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,7 +71,6 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20016 {\n");
             sb.Append("  HasMore: ").Append(HasMore).Append("\n");
-            sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -118,10 +111,6 @@ namespace TalonOne.Model
                     this.HasMore.Equals(input.HasMore)
                 ) && 
                 (
-                    this.TotalResultSize == input.TotalResultSize ||
-                    this.TotalResultSize.Equals(input.TotalResultSize)
-                ) && 
-                (
                     this.Data == input.Data ||
                     this.Data != null &&
                     input.Data != null &&
@@ -139,7 +128,6 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.HasMore.GetHashCode();
-                hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
