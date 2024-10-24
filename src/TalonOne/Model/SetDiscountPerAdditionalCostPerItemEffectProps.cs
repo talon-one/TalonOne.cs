@@ -84,7 +84,7 @@ namespace TalonOne.Model
         /// The index of the item in the cart item list containing the additional cost to be discounted.
         /// </summary>
         /// <value>The index of the item in the cart item list containing the additional cost to be discounted.</value>
-        [DataMember(Name="position", EmitDefaultValue=false)]
+        [DataMember(Name="position", EmitDefaultValue=true)]
         public decimal Position { get; set; }
 
         /// <summary>
