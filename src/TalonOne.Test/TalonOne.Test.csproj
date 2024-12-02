@@ -13,7 +13,7 @@ Contact: devs@talon.one
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TalonOne.Test</RootNamespace>
     <AssemblyName>TalonOne.Test</AssemblyName>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

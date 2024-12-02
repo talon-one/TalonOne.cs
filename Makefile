@@ -1,6 +1,6 @@
 BUILD_DIR:=src/TalonOne
 VERSION:=$(shell grep -om1 -E '^\[assembly: AssemblyVersion\("[0-9\.]+"\)\]$$' $(PWD)/$(BUILD_DIR)/Properties/AssemblyInfo.cs | sed 's/\[assembly: AssemblyVersion("\(.*\)")\]/\1/')
-DOCKER_TAG_ARCH:=$(shell [[ $(shell uname -m) == "arm64" ]] && echo "3.1-focal-arm64v8" || echo "sdk:3.1-focal")
+DOCKER_TAG_ARCH:=$(shell [[ $(shell uname -m) == "arm64" ]] && echo "8.0-focal-arm64v8" || echo "sdk:8.0-focal")
 
 default: testenv
 
