@@ -79,7 +79,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ApplicationSession" /> class.
         /// </summary>
         /// <param name="id">Internal ID of this entity. (required).</param>
-        /// <param name="created">The time this entity was created. The time this entity was created. (required).</param>
+        /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="integrationId">The integration ID set by your integration layer. (required).</param>
         /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
         /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
@@ -125,9 +125,9 @@ namespace TalonOne.Model
         public int Id { get; set; }
 
         /// <summary>
-        /// The time this entity was created. The time this entity was created.
+        /// The time this entity was created.
         /// </summary>
-        /// <value>The time this entity was created. The time this entity was created.</value>
+        /// <value>The time this entity was created.</value>
         [DataMember(Name="created", EmitDefaultValue=false)]
         public DateTime Created { get; set; }
 

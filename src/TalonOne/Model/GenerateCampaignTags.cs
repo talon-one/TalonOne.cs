@@ -39,18 +39,18 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateCampaignTags" /> class.
         /// </summary>
-        /// <param name="campaignID">ID of the campaign. (required).</param>
-        public GenerateCampaignTags(int campaignID = default(int))
+        /// <param name="rulesetID">ID of a ruleset. (required).</param>
+        public GenerateCampaignTags(int rulesetID = default(int))
         {
-            this.CampaignID = campaignID;
+            this.RulesetID = rulesetID;
         }
         
         /// <summary>
-        /// ID of the campaign.
+        /// ID of a ruleset.
         /// </summary>
-        /// <value>ID of the campaign.</value>
-        [DataMember(Name="campaignID", EmitDefaultValue=false)]
-        public int CampaignID { get; set; }
+        /// <value>ID of a ruleset.</value>
+        [DataMember(Name="rulesetID", EmitDefaultValue=false)]
+        public int RulesetID { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,7 +60,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GenerateCampaignTags {\n");
-            sb.Append("  CampaignID: ").Append(CampaignID).Append("\n");
+            sb.Append("  RulesetID: ").Append(RulesetID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,8 +96,8 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.CampaignID == input.CampaignID ||
-                    this.CampaignID.Equals(input.CampaignID)
+                    this.RulesetID == input.RulesetID ||
+                    this.RulesetID.Equals(input.RulesetID)
                 );
         }
 
@@ -110,7 +110,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.CampaignID.GetHashCode();
+                hashCode = hashCode * 59 + this.RulesetID.GetHashCode();
                 return hashCode;
             }
         }

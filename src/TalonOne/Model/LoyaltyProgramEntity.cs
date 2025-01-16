@@ -40,9 +40,13 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="LoyaltyProgramEntity" /> class.
         /// </summary>
         /// <param name="programID">The ID of the loyalty program that owns this entity. (required).</param>
-        public LoyaltyProgramEntity(int programID = default(int))
+        /// <param name="programName">The integration name of the loyalty program that owns this entity..</param>
+        /// <param name="programTitle">The Campaign Manager-displayed name of the loyalty program that owns this entity..</param>
+        public LoyaltyProgramEntity(int programID = default(int), string programName = default(string), string programTitle = default(string))
         {
             this.ProgramID = programID;
+            this.ProgramName = programName;
+            this.ProgramTitle = programTitle;
         }
         
         /// <summary>
@@ -53,6 +57,20 @@ namespace TalonOne.Model
         public int ProgramID { get; set; }
 
         /// <summary>
+        /// The integration name of the loyalty program that owns this entity.
+        /// </summary>
+        /// <value>The integration name of the loyalty program that owns this entity.</value>
+        [DataMember(Name="programName", EmitDefaultValue=false)]
+        public string ProgramName { get; set; }
+
+        /// <summary>
+        /// The Campaign Manager-displayed name of the loyalty program that owns this entity.
+        /// </summary>
+        /// <value>The Campaign Manager-displayed name of the loyalty program that owns this entity.</value>
+        [DataMember(Name="programTitle", EmitDefaultValue=false)]
+        public string ProgramTitle { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,6 +79,8 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class LoyaltyProgramEntity {\n");
             sb.Append("  ProgramID: ").Append(ProgramID).Append("\n");
+            sb.Append("  ProgramName: ").Append(ProgramName).Append("\n");
+            sb.Append("  ProgramTitle: ").Append(ProgramTitle).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -98,6 +118,16 @@ namespace TalonOne.Model
                 (
                     this.ProgramID == input.ProgramID ||
                     this.ProgramID.Equals(input.ProgramID)
+                ) && 
+                (
+                    this.ProgramName == input.ProgramName ||
+                    (this.ProgramName != null &&
+                    this.ProgramName.Equals(input.ProgramName))
+                ) && 
+                (
+                    this.ProgramTitle == input.ProgramTitle ||
+                    (this.ProgramTitle != null &&
+                    this.ProgramTitle.Equals(input.ProgramTitle))
                 );
         }
 
@@ -111,6 +141,10 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.ProgramID.GetHashCode();
+                if (this.ProgramName != null)
+                    hashCode = hashCode * 59 + this.ProgramName.GetHashCode();
+                if (this.ProgramTitle != null)
+                    hashCode = hashCode * 59 + this.ProgramTitle.GetHashCode();
                 return hashCode;
             }
         }

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// LedgerEntry
+    /// Entry in the point ledger.
     /// </summary>
     [DataContract]
     public partial class LedgerEntry :  IEquatable<LedgerEntry>, IValidatableObject

@@ -39,8 +39,8 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewLoyaltyTier" /> class.
         /// </summary>
-        /// <param name="name">The name of the tier (required).</param>
-        /// <param name="minPoints">The minimum amount of points required to be eligible for the tier. (required).</param>
+        /// <param name="name">The name of the tier. (required).</param>
+        /// <param name="minPoints">The minimum amount of points required to enter the tier. (required).</param>
         public NewLoyaltyTier(string name = default(string), decimal minPoints = default(decimal))
         {
             // to ensure "name" is required (not null)
@@ -49,16 +49,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The name of the tier
+        /// The name of the tier.
         /// </summary>
-        /// <value>The name of the tier</value>
+        /// <value>The name of the tier.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The minimum amount of points required to be eligible for the tier.
+        /// The minimum amount of points required to enter the tier.
         /// </summary>
-        /// <value>The minimum amount of points required to be eligible for the tier.</value>
+        /// <value>The minimum amount of points required to enter the tier.</value>
         [DataMember(Name="minPoints", EmitDefaultValue=false)]
         public decimal MinPoints { get; set; }
 

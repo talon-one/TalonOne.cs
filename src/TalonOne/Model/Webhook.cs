@@ -87,7 +87,7 @@ namespace TalonOne.Model
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="modified">The time this entity was last modified. (required).</param>
-        /// <param name="applicationIds">The IDs of the Applications that are related to this entity. The IDs of the Applications that are related to this entity. (required).</param>
+        /// <param name="applicationIds">The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;.  (required).</param>
         /// <param name="title">Name or title for this webhook. (required).</param>
         /// <param name="description">A description of the webhook..</param>
         /// <param name="verb">API method for this webhook. (required).</param>
@@ -139,9 +139,9 @@ namespace TalonOne.Model
         public DateTime Modified { get; set; }
 
         /// <summary>
-        /// The IDs of the Applications that are related to this entity. The IDs of the Applications that are related to this entity.
+        /// The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;. 
         /// </summary>
-        /// <value>The IDs of the Applications that are related to this entity. The IDs of the Applications that are related to this entity.</value>
+        /// <value>The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;. </value>
         [DataMember(Name="applicationIds", EmitDefaultValue=false)]
         public List<int> ApplicationIds { get; set; }
 

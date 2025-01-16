@@ -76,12 +76,12 @@ namespace TalonOne.Model
         /// <param name="redeemed">- &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned.  **Note:** This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter. .</param>
         /// <param name="recipientIntegrationId">Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field. .</param>
         /// <param name="exactMatch">Filter results to an exact case-insensitive matching against the coupon code (default to false).</param>
-        /// <param name="value">Filter results by the coupon code (default to &quot;false&quot;).</param>
+        /// <param name="value">Filter results by the coupon code.</param>
         /// <param name="batchId">Filter results by batches of coupons.</param>
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code..</param>
         /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally..</param>
         /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally..</param>
-        public CouponDeletionFilters(DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), ValidEnum? valid = default(ValidEnum?), bool usable = default(bool), bool redeemed = default(bool), string recipientIntegrationId = default(string), bool exactMatch = false, string value = "false", string batchId = default(string), int referralId = default(int), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime))
+        public CouponDeletionFilters(DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), ValidEnum? valid = default(ValidEnum?), bool usable = default(bool), bool redeemed = default(bool), string recipientIntegrationId = default(string), bool exactMatch = false, string value = default(string), string batchId = default(string), int referralId = default(int), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime))
         {
             this.CreatedBefore = createdBefore;
             this.CreatedAfter = createdAfter;
@@ -92,8 +92,7 @@ namespace TalonOne.Model
             this.Redeemed = redeemed;
             this.RecipientIntegrationId = recipientIntegrationId;
             this.ExactMatch = exactMatch;
-            // use default value if no "value" provided
-            this.Value = value ?? "false";
+            this.Value = value;
             this.BatchId = batchId;
             this.ReferralId = referralId;
             this.ExpiresAfter = expiresAfter;

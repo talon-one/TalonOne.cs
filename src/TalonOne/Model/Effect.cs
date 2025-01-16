@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Effect
+    /// A generic effect that is fired by a triggered campaign. The props property will contain information specific to the specific effect type.
     /// </summary>
     [DataContract]
     public partial class Effect :  IEquatable<Effect>, IValidatableObject

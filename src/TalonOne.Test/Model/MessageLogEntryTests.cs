@@ -98,6 +98,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'NotificationName'
         }
         /// <summary>
+        /// Test the property 'WebhookId'
+        /// </summary>
+        [Fact]
+        public void WebhookIdTest()
+        {
+            // TODO unit test for the property 'WebhookId'
+        }
+        /// <summary>
+        /// Test the property 'WebhookName'
+        /// </summary>
+        [Fact]
+        public void WebhookNameTest()
+        {
+            // TODO unit test for the property 'WebhookName'
+        }
+        /// <summary>
         /// Test the property 'Request'
         /// </summary>
         [Fact]
@@ -130,6 +146,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'EntityType'
         }
         /// <summary>
+        /// Test the property 'Url'
+        /// </summary>
+        [Fact]
+        public void UrlTest()
+        {
+            // TODO unit test for the property 'Url'
+        }
+        /// <summary>
         /// Test the property 'ApplicationId'
         /// </summary>
         [Fact]
@@ -144,6 +168,14 @@ namespace TalonOne.Test
         public void LoyaltyProgramIdTest()
         {
             // TODO unit test for the property 'LoyaltyProgramId'
+        }
+        /// <summary>
+        /// Test the property 'CampaignId'
+        /// </summary>
+        [Fact]
+        public void CampaignIdTest()
+        {
+            // TODO unit test for the property 'CampaignId'
         }
 
     }

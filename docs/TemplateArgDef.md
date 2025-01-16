@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Description** | **string** | A campaigner-friendly description of the argument, this will also be shown in the rule editor. | [optional] 
 **Title** | **string** | A campaigner friendly name for the argument, this will be shown in the rule editor. | 
 **Ui** | [**Object**](.md) | Arbitrary metadata that may be used to render an input for this argument. | 
+**Key** | **string** | The identifier for the associated value within the JSON object. | [optional] 
 **PicklistID** | **int** | ID of the picklist linked to a template. | [optional] 
 **RestrictedByPicklist** | **bool** | Whether or not this attribute&#39;s value is restricted by picklist (&#x60;picklist&#x60; property) | [optional] 
 

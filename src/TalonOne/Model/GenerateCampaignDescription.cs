@@ -39,21 +39,21 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GenerateCampaignDescription" /> class.
         /// </summary>
-        /// <param name="campaignID">ID of the campaign. (required).</param>
+        /// <param name="rulesetID">ID of a ruleset. (required).</param>
         /// <param name="currency">Currency for the campaign. (required).</param>
-        public GenerateCampaignDescription(int campaignID = default(int), string currency = default(string))
+        public GenerateCampaignDescription(int rulesetID = default(int), string currency = default(string))
         {
-            this.CampaignID = campaignID;
+            this.RulesetID = rulesetID;
             // to ensure "currency" is required (not null)
             this.Currency = currency ?? throw new ArgumentNullException("currency is a required property for GenerateCampaignDescription and cannot be null");
         }
         
         /// <summary>
-        /// ID of the campaign.
+        /// ID of a ruleset.
         /// </summary>
-        /// <value>ID of the campaign.</value>
-        [DataMember(Name="campaignID", EmitDefaultValue=false)]
-        public int CampaignID { get; set; }
+        /// <value>ID of a ruleset.</value>
+        [DataMember(Name="rulesetID", EmitDefaultValue=false)]
+        public int RulesetID { get; set; }
 
         /// <summary>
         /// Currency for the campaign.
@@ -70,7 +70,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GenerateCampaignDescription {\n");
-            sb.Append("  CampaignID: ").Append(CampaignID).Append("\n");
+            sb.Append("  RulesetID: ").Append(RulesetID).Append("\n");
             sb.Append("  Currency: ").Append(Currency).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -107,8 +107,8 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.CampaignID == input.CampaignID ||
-                    this.CampaignID.Equals(input.CampaignID)
+                    this.RulesetID == input.RulesetID ||
+                    this.RulesetID.Equals(input.RulesetID)
                 ) && 
                 (
                     this.Currency == input.Currency ||
@@ -126,7 +126,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.CampaignID.GetHashCode();
+                hashCode = hashCode * 59 + this.RulesetID.GetHashCode();
                 if (this.Currency != null)
                     hashCode = hashCode * 59 + this.Currency.GetHashCode();
                 return hashCode;

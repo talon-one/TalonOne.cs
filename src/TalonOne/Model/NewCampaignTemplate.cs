@@ -159,13 +159,14 @@ namespace TalonOne.Model
         /// <param name="tags">A list of tags for the campaign template..</param>
         /// <param name="features">A list of features for the campaign template..</param>
         /// <param name="couponSettings">couponSettings.</param>
+        /// <param name="couponReservationSettings">couponReservationSettings.</param>
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of limits that will operate for this campaign template..</param>
         /// <param name="templateParams">Fields which can be used to replace values in a rule..</param>
         /// <param name="campaignCollections">The campaign collections from the blueprint campaign for the template..</param>
         /// <param name="defaultCampaignGroupId">The default campaign group ID..</param>
         /// <param name="campaignType">The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  (required) (default to CampaignTypeEnum.Advanced).</param>
-        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced)
+        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CampaignTemplateCouponReservationSettings couponReservationSettings = default(CampaignTemplateCouponReservationSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCampaignTemplate and cannot be null");
@@ -180,6 +181,7 @@ namespace TalonOne.Model
             this.Tags = tags;
             this.Features = features;
             this.CouponSettings = couponSettings;
+            this.CouponReservationSettings = couponReservationSettings;
             this.ReferralSettings = referralSettings;
             this.Limits = limits;
             this.TemplateParams = templateParams;
@@ -236,6 +238,12 @@ namespace TalonOne.Model
         public CodeGeneratorSettings CouponSettings { get; set; }
 
         /// <summary>
+        /// Gets or Sets CouponReservationSettings
+        /// </summary>
+        [DataMember(Name="couponReservationSettings", EmitDefaultValue=false)]
+        public CampaignTemplateCouponReservationSettings CouponReservationSettings { get; set; }
+
+        /// <summary>
         /// Gets or Sets ReferralSettings
         /// </summary>
         [DataMember(Name="referralSettings", EmitDefaultValue=false)]
@@ -286,6 +294,7 @@ namespace TalonOne.Model
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  CouponSettings: ").Append(CouponSettings).Append("\n");
+            sb.Append("  CouponReservationSettings: ").Append(CouponReservationSettings).Append("\n");
             sb.Append("  ReferralSettings: ").Append(ReferralSettings).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  TemplateParams: ").Append(TemplateParams).Append("\n");
@@ -371,6 +380,11 @@ namespace TalonOne.Model
                     this.CouponSettings.Equals(input.CouponSettings))
                 ) && 
                 (
+                    this.CouponReservationSettings == input.CouponReservationSettings ||
+                    (this.CouponReservationSettings != null &&
+                    this.CouponReservationSettings.Equals(input.CouponReservationSettings))
+                ) && 
+                (
                     this.ReferralSettings == input.ReferralSettings ||
                     (this.ReferralSettings != null &&
                     this.ReferralSettings.Equals(input.ReferralSettings))
@@ -428,6 +442,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Features.GetHashCode();
                 if (this.CouponSettings != null)
                     hashCode = hashCode * 59 + this.CouponSettings.GetHashCode();
+                if (this.CouponReservationSettings != null)
+                    hashCode = hashCode * 59 + this.CouponReservationSettings.GetHashCode();
                 if (this.ReferralSettings != null)
                     hashCode = hashCode * 59 + this.ReferralSettings.GetHashCode();
                 if (this.Limits != null)

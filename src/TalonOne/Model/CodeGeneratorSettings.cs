@@ -156,6 +156,13 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CouponPattern, length must be greater than 3.", new [] { "CouponPattern" });
             }
 
+            // CouponPattern (string) pattern
+            Regex regexCouponPattern = new Regex(@"^[A-Za-z0-9_#-]*$", RegexOptions.CultureInvariant);
+            if (false == regexCouponPattern.Match(this.CouponPattern).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CouponPattern, must match a pattern of " + regexCouponPattern, new [] { "CouponPattern" });
+            }
+
             yield break;
         }
     }

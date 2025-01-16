@@ -105,6 +105,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Schemas'
         }
+        /// <summary>
+        /// Test the property 'Sort'
+        /// </summary>
+        [Fact]
+        public void SortTest()
+        {
+            // TODO unit test for the property 'Sort'
+        }
 
     }
 

@@ -90,6 +90,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Ui'
         }
         /// <summary>
+        /// Test the property 'Key'
+        /// </summary>
+        [Fact]
+        public void KeyTest()
+        {
+            // TODO unit test for the property 'Key'
+        }
+        /// <summary>
         /// Test the property 'PicklistID'
         /// </summary>
         [Fact]

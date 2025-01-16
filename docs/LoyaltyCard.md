@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 **Id** | **int** | Internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **ProgramID** | **int** | The ID of the loyalty program that owns this entity. | 
+**ProgramName** | **string** | The integration name of the loyalty program that owns this entity. | [optional] 
+**ProgramTitle** | **string** | The Campaign Manager-displayed name of the loyalty program that owns this entity. | [optional] 
 **Status** | **string** | Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;.  | 
 **BlockReason** | **string** | Reason for transferring and blocking the loyalty card.  | [optional] 
 **Identifier** | **string** | The alphanumeric identifier of the loyalty card.  | 

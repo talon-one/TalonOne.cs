@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class AdditionalCampaignProperties :  IEquatable<AdditionalCampaignProperties>, IValidatableObject
     {
         /// <summary>
-        /// A campaign state described exactly as in the Campaign Manager.
+        /// The campaign state displayed in the Campaign Manager.
         /// </summary>
-        /// <value>A campaign state described exactly as in the Campaign Manager.</value>
+        /// <value>The campaign state displayed in the Campaign Manager.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum FrontendStateEnum
         {
@@ -66,14 +66,20 @@ namespace TalonOne.Model
             /// Enum Archived for value: archived
             /// </summary>
             [EnumMember(Value = "archived")]
-            Archived = 5
+            Archived = 5,
+
+            /// <summary>
+            /// Enum Staged for value: staged
+            /// </summary>
+            [EnumMember(Value = "staged")]
+            Staged = 6
 
         }
 
         /// <summary>
-        /// A campaign state described exactly as in the Campaign Manager.
+        /// The campaign state displayed in the Campaign Manager.
         /// </summary>
-        /// <value>A campaign state described exactly as in the Campaign Manager.</value>
+        /// <value>The campaign state displayed in the Campaign Manager.</value>
         [DataMember(Name="frontendState", EmitDefaultValue=false)]
         public FrontendStateEnum FrontendState { get; set; }
         /// <summary>
@@ -105,7 +111,7 @@ namespace TalonOne.Model
         /// <param name="createdBy">Name of the user who created this campaign if available..</param>
         /// <param name="updatedBy">Name of the user who last updated this campaign if available..</param>
         /// <param name="templateId">The ID of the Campaign Template this Campaign was created from..</param>
-        /// <param name="frontendState">A campaign state described exactly as in the Campaign Manager. (required).</param>
+        /// <param name="frontendState">The campaign state displayed in the Campaign Manager. (required).</param>
         /// <param name="storesImported">Indicates whether the linked stores were imported via a CSV file. (required).</param>
         public AdditionalCampaignProperties(List<CampaignBudget> budgets = default(List<CampaignBudget>), int couponRedemptionCount = default(int), int referralRedemptionCount = default(int), decimal discountCount = default(decimal), int discountEffectCount = default(int), int couponCreationCount = default(int), int customEffectCount = default(int), int referralCreationCount = default(int), int addFreeItemEffectCount = default(int), int awardedGiveawaysCount = default(int), decimal createdLoyaltyPointsCount = default(decimal), int createdLoyaltyPointsEffectCount = default(int), decimal redeemedLoyaltyPointsCount = default(decimal), int redeemedLoyaltyPointsEffectCount = default(int), int callApiEffectCount = default(int), int reservecouponEffectCount = default(int), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string), int templateId = default(int), FrontendStateEnum frontendState = default(FrontendStateEnum), bool storesImported = default(bool))
         {

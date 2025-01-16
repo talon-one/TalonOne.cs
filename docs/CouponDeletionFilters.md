@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Redeemed** | **bool** | - &#x60;true&#x60;: only coupons where &#x60;usageCounter &gt; 0&#x60; will be returned. - &#x60;false&#x60;: only coupons where &#x60;usageCounter &#x3D; 0&#x60; will be returned.  **Note:** This field cannot be used in conjunction with the &#x60;usable&#x60; query parameter.  | [optional] 
 **RecipientIntegrationId** | **string** | Filter results by match with a profile id specified in the coupon&#39;s &#x60;RecipientIntegrationId&#x60; field.  | [optional] 
 **ExactMatch** | **bool** | Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
-**Value** | **string** | Filter results by the coupon code | [optional] [default to "false"]
+**Value** | **string** | Filter results by the coupon code | [optional] 
 **BatchId** | **string** | Filter results by batches of coupons | [optional] 
 **ReferralId** | **int** | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
 **ExpiresAfter** | **DateTime** | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 

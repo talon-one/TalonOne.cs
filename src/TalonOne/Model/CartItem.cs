@@ -163,7 +163,7 @@ namespace TalonOne.Model
         /// Position of the Cart Item in the Cart (calculated internally).
         /// </summary>
         /// <value>Position of the Cart Item in the Cart (calculated internally).</value>
-        [DataMember(Name="position", EmitDefaultValue=true)]
+        [DataMember(Name="position", EmitDefaultValue=false)]
         public decimal Position { get; set; }
 
         /// <summary>

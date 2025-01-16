@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Active** | **bool** | Status of the user. | [optional] 
 **DisplayName** | **string** | Display name of the user. | [optional] 
-**UserName** | **string** | Unique identifier of the user. This is usually an email address. | [optional] 
+**UserName** | **string** | Unique identifier of the user. This is usually an email address. | 
 **Name** | [**ScimBaseUserName**](ScimBaseUserName.md) |  | [optional] 
 **Id** | **string** | ID of the user. | 
 

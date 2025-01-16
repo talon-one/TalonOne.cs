@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// LoyaltyBalanceWithTier
+    /// Point balance of a ledger in the Loyalty Program.
     /// </summary>
     [DataContract]
     public partial class LoyaltyBalanceWithTier :  IEquatable<LoyaltyBalanceWithTier>, IValidatableObject

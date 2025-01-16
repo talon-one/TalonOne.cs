@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="AudienceCustomer" /> class.
         /// </summary>
         /// <param name="id">Internal ID of this entity. (required).</param>
-        /// <param name="created">The time this entity was created. The time this entity was created. (required).</param>
+        /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="integrationId">The integration ID set by your integration layer. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this item. (required).</param>
         /// <param name="accountId">The ID of the Talon.One account that owns this profile. (required).</param>
@@ -79,9 +79,9 @@ namespace TalonOne.Model
         public int Id { get; set; }
 
         /// <summary>
-        /// The time this entity was created. The time this entity was created.
+        /// The time this entity was created.
         /// </summary>
-        /// <value>The time this entity was created. The time this entity was created.</value>
+        /// <value>The time this entity was created.</value>
         [DataMember(Name="created", EmitDefaultValue=false)]
         public DateTime Created { get; set; }
 

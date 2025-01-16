@@ -32,6 +32,60 @@ namespace TalonOne.Model
     public partial class UpdateAchievement :  IEquatable<UpdateAchievement>, IValidatableObject
     {
         /// <summary>
+        /// The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. 
+        /// </summary>
+        /// <value>The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RecurrencePolicyEnum
+        {
+            /// <summary>
+            /// Enum Norecurrence for value: no_recurrence
+            /// </summary>
+            [EnumMember(Value = "no_recurrence")]
+            Norecurrence = 1,
+
+            /// <summary>
+            /// Enum Onexpiration for value: on_expiration
+            /// </summary>
+            [EnumMember(Value = "on_expiration")]
+            Onexpiration = 2
+
+        }
+
+        /// <summary>
+        /// The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. 
+        /// </summary>
+        /// <value>The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. </value>
+        [DataMember(Name="recurrencePolicy", EmitDefaultValue=false)]
+        public RecurrencePolicyEnum? RecurrencePolicy { get; set; }
+        /// <summary>
+        /// The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. 
+        /// </summary>
+        /// <value>The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ActivationPolicyEnum
+        {
+            /// <summary>
+            /// Enum Useraction for value: user_action
+            /// </summary>
+            [EnumMember(Value = "user_action")]
+            Useraction = 1,
+
+            /// <summary>
+            /// Enum Fixedschedule for value: fixed_schedule
+            /// </summary>
+            [EnumMember(Value = "fixed_schedule")]
+            Fixedschedule = 2
+
+        }
+
+        /// <summary>
+        /// The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. 
+        /// </summary>
+        /// <value>The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. </value>
+        [DataMember(Name="activationPolicy", EmitDefaultValue=false)]
+        public ActivationPolicyEnum? ActivationPolicy { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="UpdateAchievement" /> class.
         /// </summary>
         /// <param name="name">The internal name of the achievement used in API requests. .</param>
@@ -40,7 +94,11 @@ namespace TalonOne.Model
         /// <param name="target">The required number of actions or the transactional milestone to complete the achievement..</param>
         /// <param name="period">The relative duration after which the achievement ends and resets for a particular customer profile. .</param>
         /// <param name="periodEndOverride">periodEndOverride.</param>
-        public UpdateAchievement(string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint))
+        /// <param name="recurrencePolicy">The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. .</param>
+        /// <param name="activationPolicy">The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. .</param>
+        /// <param name="fixedStartDate">The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. .</param>
+        /// <param name="endDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. .</param>
+        public UpdateAchievement(string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime))
         {
             this.Name = name;
             this.Title = title;
@@ -48,6 +106,10 @@ namespace TalonOne.Model
             this.Target = target;
             this.Period = period;
             this.PeriodEndOverride = periodEndOverride;
+            this.RecurrencePolicy = recurrencePolicy;
+            this.ActivationPolicy = activationPolicy;
+            this.FixedStartDate = fixedStartDate;
+            this.EndDate = endDate;
         }
         
         /// <summary>
@@ -92,6 +154,20 @@ namespace TalonOne.Model
         public TimePoint PeriodEndOverride { get; set; }
 
         /// <summary>
+        /// The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. 
+        /// </summary>
+        /// <value>The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. </value>
+        [DataMember(Name="fixedStartDate", EmitDefaultValue=false)]
+        public DateTime FixedStartDate { get; set; }
+
+        /// <summary>
+        /// The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. 
+        /// </summary>
+        /// <value>The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. </value>
+        [DataMember(Name="endDate", EmitDefaultValue=false)]
+        public DateTime EndDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -105,6 +181,10 @@ namespace TalonOne.Model
             sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("  Period: ").Append(Period).Append("\n");
             sb.Append("  PeriodEndOverride: ").Append(PeriodEndOverride).Append("\n");
+            sb.Append("  RecurrencePolicy: ").Append(RecurrencePolicy).Append("\n");
+            sb.Append("  ActivationPolicy: ").Append(ActivationPolicy).Append("\n");
+            sb.Append("  FixedStartDate: ").Append(FixedStartDate).Append("\n");
+            sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -167,6 +247,24 @@ namespace TalonOne.Model
                     this.PeriodEndOverride == input.PeriodEndOverride ||
                     (this.PeriodEndOverride != null &&
                     this.PeriodEndOverride.Equals(input.PeriodEndOverride))
+                ) && 
+                (
+                    this.RecurrencePolicy == input.RecurrencePolicy ||
+                    this.RecurrencePolicy.Equals(input.RecurrencePolicy)
+                ) && 
+                (
+                    this.ActivationPolicy == input.ActivationPolicy ||
+                    this.ActivationPolicy.Equals(input.ActivationPolicy)
+                ) && 
+                (
+                    this.FixedStartDate == input.FixedStartDate ||
+                    (this.FixedStartDate != null &&
+                    this.FixedStartDate.Equals(input.FixedStartDate))
+                ) && 
+                (
+                    this.EndDate == input.EndDate ||
+                    (this.EndDate != null &&
+                    this.EndDate.Equals(input.EndDate))
                 );
         }
 
@@ -190,6 +288,12 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Period.GetHashCode();
                 if (this.PeriodEndOverride != null)
                     hashCode = hashCode * 59 + this.PeriodEndOverride.GetHashCode();
+                hashCode = hashCode * 59 + this.RecurrencePolicy.GetHashCode();
+                hashCode = hashCode * 59 + this.ActivationPolicy.GetHashCode();
+                if (this.FixedStartDate != null)
+                    hashCode = hashCode * 59 + this.FixedStartDate.GetHashCode();
+                if (this.EndDate != null)
+                    hashCode = hashCode * 59 + this.EndDate.GetHashCode();
                 return hashCode;
             }
         }

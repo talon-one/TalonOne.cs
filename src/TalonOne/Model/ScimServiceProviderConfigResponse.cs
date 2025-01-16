@@ -40,7 +40,8 @@ namespace TalonOne.Model
         /// <param name="filter">filter.</param>
         /// <param name="patch">patch.</param>
         /// <param name="schemas">A list of SCIM schemas that define the structure and data types supported by the service provider..</param>
-        public ScimServiceProviderConfigResponse(ScimServiceProviderConfigResponseBulk bulk = default(ScimServiceProviderConfigResponseBulk), ScimServiceProviderConfigResponseChangePassword changePassword = default(ScimServiceProviderConfigResponseChangePassword), string documentationUri = default(string), ScimServiceProviderConfigResponseFilter filter = default(ScimServiceProviderConfigResponseFilter), ScimServiceProviderConfigResponsePatch patch = default(ScimServiceProviderConfigResponsePatch), List<string> schemas = default(List<string>))
+        /// <param name="sort">sort.</param>
+        public ScimServiceProviderConfigResponse(ScimServiceProviderConfigResponseBulk bulk = default(ScimServiceProviderConfigResponseBulk), ScimServiceProviderConfigResponseChangePassword changePassword = default(ScimServiceProviderConfigResponseChangePassword), string documentationUri = default(string), ScimServiceProviderConfigResponseFilter filter = default(ScimServiceProviderConfigResponseFilter), ScimServiceProviderConfigResponsePatch patch = default(ScimServiceProviderConfigResponsePatch), List<string> schemas = default(List<string>), ScimServiceProviderConfigResponseSort sort = default(ScimServiceProviderConfigResponseSort))
         {
             this.Bulk = bulk;
             this.ChangePassword = changePassword;
@@ -48,6 +49,7 @@ namespace TalonOne.Model
             this.Filter = filter;
             this.Patch = patch;
             this.Schemas = schemas;
+            this.Sort = sort;
         }
         
         /// <summary>
@@ -89,6 +91,12 @@ namespace TalonOne.Model
         public List<string> Schemas { get; set; }
 
         /// <summary>
+        /// Gets or Sets Sort
+        /// </summary>
+        [DataMember(Name="sort", EmitDefaultValue=false)]
+        public ScimServiceProviderConfigResponseSort Sort { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -102,6 +110,7 @@ namespace TalonOne.Model
             sb.Append("  Filter: ").Append(Filter).Append("\n");
             sb.Append("  Patch: ").Append(Patch).Append("\n");
             sb.Append("  Schemas: ").Append(Schemas).Append("\n");
+            sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,6 +175,11 @@ namespace TalonOne.Model
                     this.Schemas != null &&
                     input.Schemas != null &&
                     this.Schemas.SequenceEqual(input.Schemas)
+                ) && 
+                (
+                    this.Sort == input.Sort ||
+                    (this.Sort != null &&
+                    this.Sort.Equals(input.Sort))
                 );
         }
 
@@ -190,6 +204,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Patch.GetHashCode();
                 if (this.Schemas != null)
                     hashCode = hashCode * 59 + this.Schemas.GetHashCode();
+                if (this.Sort != null)
+                    hashCode = hashCode * 59 + this.Sort.GetHashCode();
                 return hashCode;
             }
         }

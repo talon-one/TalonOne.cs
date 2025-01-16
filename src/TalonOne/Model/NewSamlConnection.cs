@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// NewSamlConnection
+    /// A new SAML 2.0 connection.
     /// </summary>
     [DataContract]
     public partial class NewSamlConnection :  IEquatable<NewSamlConnection>, IValidatableObject

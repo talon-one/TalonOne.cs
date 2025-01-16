@@ -69,11 +69,13 @@ namespace TalonOne.Model
         /// <param name="numberOfCards">Number of loyalty cards in the batch. (required).</param>
         /// <param name="batchId">ID of the loyalty card batch..</param>
         /// <param name="status">Status of the loyalty cards in the batch. (default to StatusEnum.Active).</param>
-        public LoyaltyCardBatch(int numberOfCards = default(int), string batchId = default(string), StatusEnum? status = StatusEnum.Active)
+        /// <param name="cardCodeSettings">cardCodeSettings.</param>
+        public LoyaltyCardBatch(int numberOfCards = default(int), string batchId = default(string), StatusEnum? status = StatusEnum.Active, CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings))
         {
             this.NumberOfCards = numberOfCards;
             this.BatchId = batchId;
             this.Status = status;
+            this.CardCodeSettings = cardCodeSettings;
         }
         
         /// <summary>
@@ -91,6 +93,12 @@ namespace TalonOne.Model
         public string BatchId { get; set; }
 
         /// <summary>
+        /// Gets or Sets CardCodeSettings
+        /// </summary>
+        [DataMember(Name="cardCodeSettings", EmitDefaultValue=false)]
+        public CodeGeneratorSettings CardCodeSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,6 +109,7 @@ namespace TalonOne.Model
             sb.Append("  NumberOfCards: ").Append(NumberOfCards).Append("\n");
             sb.Append("  BatchId: ").Append(BatchId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  CardCodeSettings: ").Append(CardCodeSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,6 +156,11 @@ namespace TalonOne.Model
                 (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.CardCodeSettings == input.CardCodeSettings ||
+                    (this.CardCodeSettings != null &&
+                    this.CardCodeSettings.Equals(input.CardCodeSettings))
                 );
         }
 
@@ -163,6 +177,8 @@ namespace TalonOne.Model
                 if (this.BatchId != null)
                     hashCode = hashCode * 59 + this.BatchId.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.CardCodeSettings != null)
+                    hashCode = hashCode * 59 + this.CardCodeSettings.GetHashCode();
                 return hashCode;
             }
         }

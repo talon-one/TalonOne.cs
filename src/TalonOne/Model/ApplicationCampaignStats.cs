@@ -40,13 +40,15 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ApplicationCampaignStats" /> class.
         /// </summary>
         /// <param name="disabled">Number of disabled campaigns. (required).</param>
+        /// <param name="staged">Number of staged campaigns. (required).</param>
         /// <param name="scheduled">Number of scheduled campaigns. (required).</param>
         /// <param name="running">Number of running campaigns. (required).</param>
         /// <param name="expired">Number of expired campaigns. (required).</param>
         /// <param name="archived">Number of archived campaigns. (required).</param>
-        public ApplicationCampaignStats(int disabled = default(int), int scheduled = default(int), int running = default(int), int expired = default(int), int archived = default(int))
+        public ApplicationCampaignStats(int disabled = default(int), int staged = default(int), int scheduled = default(int), int running = default(int), int expired = default(int), int archived = default(int))
         {
             this.Disabled = disabled;
+            this.Staged = staged;
             this.Scheduled = scheduled;
             this.Running = running;
             this.Expired = expired;
@@ -59,6 +61,13 @@ namespace TalonOne.Model
         /// <value>Number of disabled campaigns.</value>
         [DataMember(Name="disabled", EmitDefaultValue=false)]
         public int Disabled { get; set; }
+
+        /// <summary>
+        /// Number of staged campaigns.
+        /// </summary>
+        /// <value>Number of staged campaigns.</value>
+        [DataMember(Name="staged", EmitDefaultValue=false)]
+        public int Staged { get; set; }
 
         /// <summary>
         /// Number of scheduled campaigns.
@@ -97,6 +106,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class ApplicationCampaignStats {\n");
             sb.Append("  Disabled: ").Append(Disabled).Append("\n");
+            sb.Append("  Staged: ").Append(Staged).Append("\n");
             sb.Append("  Scheduled: ").Append(Scheduled).Append("\n");
             sb.Append("  Running: ").Append(Running).Append("\n");
             sb.Append("  Expired: ").Append(Expired).Append("\n");
@@ -140,6 +150,10 @@ namespace TalonOne.Model
                     this.Disabled.Equals(input.Disabled)
                 ) && 
                 (
+                    this.Staged == input.Staged ||
+                    this.Staged.Equals(input.Staged)
+                ) && 
+                (
                     this.Scheduled == input.Scheduled ||
                     this.Scheduled.Equals(input.Scheduled)
                 ) && 
@@ -167,6 +181,7 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Disabled.GetHashCode();
+                hashCode = hashCode * 59 + this.Staged.GetHashCode();
                 hashCode = hashCode * 59 + this.Scheduled.GetHashCode();
                 hashCode = hashCode * 59 + this.Running.GetHashCode();
                 hashCode = hashCode * 59 + this.Expired.GetHashCode();

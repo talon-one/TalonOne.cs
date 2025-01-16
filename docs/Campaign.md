@@ -43,8 +43,9 @@ Name | Type | Description | Notes
 **CreatedBy** | **string** | Name of the user who created this campaign if available. | [optional] 
 **UpdatedBy** | **string** | Name of the user who last updated this campaign if available. | [optional] 
 **TemplateId** | **int** | The ID of the Campaign Template this Campaign was created from. | [optional] 
-**FrontendState** | **string** | A campaign state described exactly as in the Campaign Manager. | 
+**FrontendState** | **string** | The campaign state displayed in the Campaign Manager. | 
 **StoresImported** | **bool** | Indicates whether the linked stores were imported via a CSV file. | 
+**RevisionFrontendState** | **string** | The campaign revision state displayed in the Campaign Manager. | [optional] 
 **ActiveRevisionId** | **int** | ID of the revision that was last activated on this campaign.  | [optional] 
 **ActiveRevisionVersionId** | **int** | ID of the revision version that is active on the campaign.  | [optional] 
 **Version** | **int** | Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign.  | [optional] 

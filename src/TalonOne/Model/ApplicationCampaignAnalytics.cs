@@ -66,7 +66,13 @@ namespace TalonOne.Model
             /// Enum Archived for value: archived
             /// </summary>
             [EnumMember(Value = "archived")]
-            Archived = 5
+            Archived = 5,
+
+            /// <summary>
+            /// Enum Staged for value: staged
+            /// </summary>
+            [EnumMember(Value = "staged")]
+            Staged = 6
 
         }
 

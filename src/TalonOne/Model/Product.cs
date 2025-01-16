@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Product" /> class.
         /// </summary>
-        /// <param name="name">The name of the product. (required).</param>
+        /// <param name="name">The product the item belongs to. (required).</param>
         public Product(string name = default(string))
         {
             // to ensure "name" is required (not null)
@@ -47,9 +47,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The name of the product.
+        /// The product the item belongs to.
         /// </summary>
-        /// <value>The name of the product.</value>
+        /// <value>The product the item belongs to.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
