@@ -148,6 +148,13 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, length must be less than 108.", new [] { "NewCardIdentifier" });
             }
 
+            // NewCardIdentifier (string) pattern
+            Regex regexNewCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            if (false == regexNewCardIdentifier.Match(this.NewCardIdentifier).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, must match a pattern of " + regexNewCardIdentifier, new [] { "NewCardIdentifier" });
+            }
+
             yield break;
         }
     }

@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class MessageLogEntry :  IEquatable<MessageLogEntry>, IValidatableObject
     {
         /// <summary>
-        /// The entity type the notification is related to. 
+        /// The entity type the log is related to. 
         /// </summary>
-        /// <value>The entity type the notification is related to. </value>
+        /// <value>The entity type the log is related to. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum EntityTypeEnum
         {
@@ -48,16 +48,22 @@ namespace TalonOne.Model
             /// Enum Loyaltyprogram for value: loyalty_program
             /// </summary>
             [EnumMember(Value = "loyalty_program")]
-            Loyaltyprogram = 2
+            Loyaltyprogram = 2,
+
+            /// <summary>
+            /// Enum Webhook for value: webhook
+            /// </summary>
+            [EnumMember(Value = "webhook")]
+            Webhook = 3
 
         }
 
         /// <summary>
-        /// The entity type the notification is related to. 
+        /// The entity type the log is related to. 
         /// </summary>
-        /// <value>The entity type the notification is related to. </value>
+        /// <value>The entity type the log is related to. </value>
         [DataMember(Name="entityType", EmitDefaultValue=false)]
-        public EntityTypeEnum? EntityType { get; set; }
+        public EntityTypeEnum EntityType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="MessageLogEntry" /> class.
         /// </summary>
@@ -71,27 +77,35 @@ namespace TalonOne.Model
         /// <param name="changeType">Type of change that triggered the notification..</param>
         /// <param name="notificationId">ID of the notification..</param>
         /// <param name="notificationName">The name of the notification..</param>
+        /// <param name="webhookId">ID of the webhook..</param>
+        /// <param name="webhookName">The name of the webhook..</param>
         /// <param name="request">request.</param>
         /// <param name="response">response.</param>
         /// <param name="createdAt">Timestamp when the log entry was created. (required).</param>
-        /// <param name="entityType">The entity type the notification is related to. .</param>
+        /// <param name="entityType">The entity type the log is related to.  (required).</param>
+        /// <param name="url">The target URL of the request..</param>
         /// <param name="applicationId">Identifier of the Application..</param>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program..</param>
-        public MessageLogEntry(string id = default(string), string service = default(string), string changeType = default(string), int notificationId = default(int), string notificationName = default(string), MessageLogRequest request = default(MessageLogRequest), MessageLogResponse response = default(MessageLogResponse), DateTime createdAt = default(DateTime), EntityTypeEnum? entityType = default(EntityTypeEnum?), int applicationId = default(int), int loyaltyProgramId = default(int))
+        /// <param name="campaignId">Identifier of the campaign..</param>
+        public MessageLogEntry(string id = default(string), string service = default(string), string changeType = default(string), int notificationId = default(int), string notificationName = default(string), int webhookId = default(int), string webhookName = default(string), MessageLogRequest request = default(MessageLogRequest), MessageLogResponse response = default(MessageLogResponse), DateTime createdAt = default(DateTime), EntityTypeEnum entityType = default(EntityTypeEnum), string url = default(string), int applicationId = default(int), int loyaltyProgramId = default(int), int campaignId = default(int))
         {
             // to ensure "id" is required (not null)
             this.Id = id ?? throw new ArgumentNullException("id is a required property for MessageLogEntry and cannot be null");
             // to ensure "service" is required (not null)
             this.Service = service ?? throw new ArgumentNullException("service is a required property for MessageLogEntry and cannot be null");
             this.CreatedAt = createdAt;
+            this.EntityType = entityType;
             this.ChangeType = changeType;
             this.NotificationId = notificationId;
             this.NotificationName = notificationName;
+            this.WebhookId = webhookId;
+            this.WebhookName = webhookName;
             this.Request = request;
             this.Response = response;
-            this.EntityType = entityType;
+            this.Url = url;
             this.ApplicationId = applicationId;
             this.LoyaltyProgramId = loyaltyProgramId;
+            this.CampaignId = campaignId;
         }
         
         /// <summary>
@@ -130,6 +144,20 @@ namespace TalonOne.Model
         public string NotificationName { get; set; }
 
         /// <summary>
+        /// ID of the webhook.
+        /// </summary>
+        /// <value>ID of the webhook.</value>
+        [DataMember(Name="webhookId", EmitDefaultValue=false)]
+        public int WebhookId { get; set; }
+
+        /// <summary>
+        /// The name of the webhook.
+        /// </summary>
+        /// <value>The name of the webhook.</value>
+        [DataMember(Name="webhookName", EmitDefaultValue=false)]
+        public string WebhookName { get; set; }
+
+        /// <summary>
         /// Gets or Sets Request
         /// </summary>
         [DataMember(Name="request", EmitDefaultValue=false)]
@@ -149,6 +177,13 @@ namespace TalonOne.Model
         public DateTime CreatedAt { get; set; }
 
         /// <summary>
+        /// The target URL of the request.
+        /// </summary>
+        /// <value>The target URL of the request.</value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
+
+        /// <summary>
         /// Identifier of the Application.
         /// </summary>
         /// <value>Identifier of the Application.</value>
@@ -163,6 +198,13 @@ namespace TalonOne.Model
         public int LoyaltyProgramId { get; set; }
 
         /// <summary>
+        /// Identifier of the campaign.
+        /// </summary>
+        /// <value>Identifier of the campaign.</value>
+        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        public int CampaignId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -175,12 +217,16 @@ namespace TalonOne.Model
             sb.Append("  ChangeType: ").Append(ChangeType).Append("\n");
             sb.Append("  NotificationId: ").Append(NotificationId).Append("\n");
             sb.Append("  NotificationName: ").Append(NotificationName).Append("\n");
+            sb.Append("  WebhookId: ").Append(WebhookId).Append("\n");
+            sb.Append("  WebhookName: ").Append(WebhookName).Append("\n");
             sb.Append("  Request: ").Append(Request).Append("\n");
             sb.Append("  Response: ").Append(Response).Append("\n");
             sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  LoyaltyProgramId: ").Append(LoyaltyProgramId).Append("\n");
+            sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -240,6 +286,15 @@ namespace TalonOne.Model
                     this.NotificationName.Equals(input.NotificationName))
                 ) && 
                 (
+                    this.WebhookId == input.WebhookId ||
+                    this.WebhookId.Equals(input.WebhookId)
+                ) && 
+                (
+                    this.WebhookName == input.WebhookName ||
+                    (this.WebhookName != null &&
+                    this.WebhookName.Equals(input.WebhookName))
+                ) && 
+                (
                     this.Request == input.Request ||
                     (this.Request != null &&
                     this.Request.Equals(input.Request))
@@ -259,12 +314,21 @@ namespace TalonOne.Model
                     this.EntityType.Equals(input.EntityType)
                 ) && 
                 (
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
+                ) && 
+                (
                     this.ApplicationId == input.ApplicationId ||
                     this.ApplicationId.Equals(input.ApplicationId)
                 ) && 
                 (
                     this.LoyaltyProgramId == input.LoyaltyProgramId ||
                     this.LoyaltyProgramId.Equals(input.LoyaltyProgramId)
+                ) && 
+                (
+                    this.CampaignId == input.CampaignId ||
+                    this.CampaignId.Equals(input.CampaignId)
                 );
         }
 
@@ -286,6 +350,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.NotificationId.GetHashCode();
                 if (this.NotificationName != null)
                     hashCode = hashCode * 59 + this.NotificationName.GetHashCode();
+                hashCode = hashCode * 59 + this.WebhookId.GetHashCode();
+                if (this.WebhookName != null)
+                    hashCode = hashCode * 59 + this.WebhookName.GetHashCode();
                 if (this.Request != null)
                     hashCode = hashCode * 59 + this.Request.GetHashCode();
                 if (this.Response != null)
@@ -293,8 +360,11 @@ namespace TalonOne.Model
                 if (this.CreatedAt != null)
                     hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
                 hashCode = hashCode * 59 + this.EntityType.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyProgramId.GetHashCode();
+                hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 return hashCode;
             }
         }
@@ -316,6 +386,12 @@ namespace TalonOne.Model
             if(this.LoyaltyProgramId < (int)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyProgramId, must be a value greater than or equal to 1.", new [] { "LoyaltyProgramId" });
+            }
+
+            // CampaignId (int) minimum
+            if(this.CampaignId < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CampaignId, must be a value greater than or equal to 1.", new [] { "CampaignId" });
             }
 
             yield break;

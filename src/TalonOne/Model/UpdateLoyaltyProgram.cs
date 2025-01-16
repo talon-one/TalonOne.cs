@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// UpdateLoyaltyProgram
+    /// An updated loyalty program.
     /// </summary>
     [DataContract]
     public partial class UpdateLoyaltyProgram :  IEquatable<UpdateLoyaltyProgram>, IValidatableObject
@@ -131,6 +131,33 @@ namespace TalonOne.Model
         [DataMember(Name="tiersDowngradePolicy", EmitDefaultValue=false)]
         public TiersDowngradePolicyEnum? TiersDowngradePolicy { get; set; }
         /// <summary>
+        /// The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - &#x60;only_pending&#x60;: Only pending points can be rolled back. - &#x60;within_balance&#x60;: Available active points can be rolled back if there aren&#39;t enough pending points. The active balance of the customer cannot be negative. 
+        /// </summary>
+        /// <value>The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - &#x60;only_pending&#x60;: Only pending points can be rolled back. - &#x60;within_balance&#x60;: Available active points can be rolled back if there aren&#39;t enough pending points. The active balance of the customer cannot be negative. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ReturnPolicyEnum
+        {
+            /// <summary>
+            /// Enum Onlypending for value: only_pending
+            /// </summary>
+            [EnumMember(Value = "only_pending")]
+            Onlypending = 1,
+
+            /// <summary>
+            /// Enum Withinbalance for value: within_balance
+            /// </summary>
+            [EnumMember(Value = "within_balance")]
+            Withinbalance = 2
+
+        }
+
+        /// <summary>
+        /// The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - &#x60;only_pending&#x60;: Only pending points can be rolled back. - &#x60;within_balance&#x60;: Available active points can be rolled back if there aren&#39;t enough pending points. The active balance of the customer cannot be negative. 
+        /// </summary>
+        /// <value>The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - &#x60;only_pending&#x60;: Only pending points can be rolled back. - &#x60;within_balance&#x60;: Available active points can be rolled back if there aren&#39;t enough pending points. The active balance of the customer cannot be negative. </value>
+        [DataMember(Name="returnPolicy", EmitDefaultValue=false)]
+        public ReturnPolicyEnum? ReturnPolicy { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="UpdateLoyaltyProgram" /> class.
         /// </summary>
         /// <param name="title">The display title for the Loyalty Program..</param>
@@ -147,8 +174,9 @@ namespace TalonOne.Model
         /// <param name="tiersExpireIn">The amount of time after which the tier expires and is reevaluated.  The time format is an **integer** followed by one letter indicating the time unit. Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. .</param>
         /// <param name="tiersDowngradePolicy">The policy that defines how customer tiers are downgraded in the loyalty program after tier reevaluation.  - &#x60;one_down&#x60;: If the customer doesn&#39;t have enough points to stay in the current tier, they are downgraded by one tier.  - &#x60;balance_based&#x60;: The customer&#39;s tier is reevaluated based on the amount of active points they have at the moment. .</param>
         /// <param name="cardCodeSettings">cardCodeSettings.</param>
+        /// <param name="returnPolicy">The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - &#x60;only_pending&#x60;: Only pending points can be rolled back. - &#x60;within_balance&#x60;: Available active points can be rolled back if there aren&#39;t enough pending points. The active balance of the customer cannot be negative. .</param>
         /// <param name="tiers">The tiers in this loyalty program..</param>
-        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), bool sandbox = default(bool), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), DateTime tierCycleStartDate = default(DateTime), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
+        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), bool sandbox = default(bool), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), DateTime tierCycleStartDate = default(DateTime), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings), ReturnPolicyEnum? returnPolicy = default(ReturnPolicyEnum?), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
         {
             this.Title = title;
             this.Description = description;
@@ -164,6 +192,7 @@ namespace TalonOne.Model
             this.TiersExpireIn = tiersExpireIn;
             this.TiersDowngradePolicy = tiersDowngradePolicy;
             this.CardCodeSettings = cardCodeSettings;
+            this.ReturnPolicy = returnPolicy;
             this.Tiers = tiers;
         }
         
@@ -272,6 +301,7 @@ namespace TalonOne.Model
             sb.Append("  TiersExpireIn: ").Append(TiersExpireIn).Append("\n");
             sb.Append("  TiersDowngradePolicy: ").Append(TiersDowngradePolicy).Append("\n");
             sb.Append("  CardCodeSettings: ").Append(CardCodeSettings).Append("\n");
+            sb.Append("  ReturnPolicy: ").Append(ReturnPolicy).Append("\n");
             sb.Append("  Tiers: ").Append(Tiers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -373,6 +403,10 @@ namespace TalonOne.Model
                     this.CardCodeSettings.Equals(input.CardCodeSettings))
                 ) && 
                 (
+                    this.ReturnPolicy == input.ReturnPolicy ||
+                    this.ReturnPolicy.Equals(input.ReturnPolicy)
+                ) && 
+                (
                     this.Tiers == input.Tiers ||
                     this.Tiers != null &&
                     input.Tiers != null &&
@@ -411,6 +445,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.TiersDowngradePolicy.GetHashCode();
                 if (this.CardCodeSettings != null)
                     hashCode = hashCode * 59 + this.CardCodeSettings.GetHashCode();
+                hashCode = hashCode * 59 + this.ReturnPolicy.GetHashCode();
                 if (this.Tiers != null)
                     hashCode = hashCode * 59 + this.Tiers.GetHashCode();
                 return hashCode;

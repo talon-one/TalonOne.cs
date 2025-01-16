@@ -169,6 +169,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'CardCodeSettings'
         }
+        /// <summary>
+        /// Test the property 'ReturnPolicy'
+        /// </summary>
+        [Fact]
+        public void ReturnPolicyTest()
+        {
+            // TODO unit test for the property 'ReturnPolicy'
+        }
 
     }
 

@@ -1,4 +1,5 @@
 # TalonOne.Model.Effect
+A generic effect that is fired by a triggered campaign. The props property will contain information specific to the specific effect type.
 ## Properties
 
 Name | Type | Description | Notes

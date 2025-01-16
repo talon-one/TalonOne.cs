@@ -66,6 +66,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Disabled'
         }
         /// <summary>
+        /// Test the property 'Staged'
+        /// </summary>
+        [Fact]
+        public void StagedTest()
+        {
+            // TODO unit test for the property 'Staged'
+        }
+        /// <summary>
         /// Test the property 'Scheduled'
         /// </summary>
         [Fact]

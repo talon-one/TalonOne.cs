@@ -394,6 +394,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'StoresImported'
         }
         /// <summary>
+        /// Test the property 'RevisionFrontendState'
+        /// </summary>
+        [Fact]
+        public void RevisionFrontendStateTest()
+        {
+            // TODO unit test for the property 'RevisionFrontendState'
+        }
+        /// <summary>
         /// Test the property 'ActiveRevisionId'
         /// </summary>
         [Fact]

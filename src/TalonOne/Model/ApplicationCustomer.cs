@@ -39,11 +39,11 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationCustomer" /> class.
         /// </summary>
-        /// <param name="id">Internal ID of this entity. Internal ID of this entity. (required).</param>
-        /// <param name="created">The time this entity was created. The time this entity was created. The time this entity was created. The time this entity was created. (required).</param>
-        /// <param name="integrationId">The integration ID set by your integration layer. The integration ID set by your integration layer. (required).</param>
+        /// <param name="id">Internal ID of this entity. (required).</param>
+        /// <param name="created">The time this entity was created. (required).</param>
+        /// <param name="integrationId">The integration ID set by your integration layer. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this item. (required).</param>
-        /// <param name="accountId">The ID of the Talon.One account that owns this profile. The ID of the Talon.One account that owns this profile. (required).</param>
+        /// <param name="accountId">The ID of the Talon.One account that owns this profile. (required).</param>
         /// <param name="closedSessions">The total amount of closed sessions by a customer. A closed session is a successful purchase. (required).</param>
         /// <param name="totalSales">The total amount of money spent by the customer **before** discounts are applied.  The total sales amount excludes the following: - Cancelled or reopened sessions. - Returned items.  (required).</param>
         /// <param name="loyaltyMemberships">**DEPRECATED** A list of loyalty programs joined by the customer. .</param>
@@ -70,23 +70,23 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Internal ID of this entity. Internal ID of this entity.
+        /// Internal ID of this entity.
         /// </summary>
-        /// <value>Internal ID of this entity. Internal ID of this entity.</value>
+        /// <value>Internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// The time this entity was created. The time this entity was created. The time this entity was created. The time this entity was created.
+        /// The time this entity was created.
         /// </summary>
-        /// <value>The time this entity was created. The time this entity was created. The time this entity was created. The time this entity was created.</value>
+        /// <value>The time this entity was created.</value>
         [DataMember(Name="created", EmitDefaultValue=false)]
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// The integration ID set by your integration layer. The integration ID set by your integration layer.
+        /// The integration ID set by your integration layer.
         /// </summary>
-        /// <value>The integration ID set by your integration layer. The integration ID set by your integration layer.</value>
+        /// <value>The integration ID set by your integration layer.</value>
         [DataMember(Name="integrationId", EmitDefaultValue=false)]
         public string IntegrationId { get; set; }
 
@@ -98,9 +98,9 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// The ID of the Talon.One account that owns this profile. The ID of the Talon.One account that owns this profile.
+        /// The ID of the Talon.One account that owns this profile.
         /// </summary>
-        /// <value>The ID of the Talon.One account that owns this profile. The ID of the Talon.One account that owns this profile.</value>
+        /// <value>The ID of the Talon.One account that owns this profile.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
         public int AccountId { get; set; }
 

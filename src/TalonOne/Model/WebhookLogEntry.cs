@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="integrationRequestUuid">UUID reference of the integration request linked to this webhook request. (required).</param>
         /// <param name="webhookId">ID of the webhook that triggered the request. (required).</param>
         /// <param name="applicationId">ID of the application that triggered the webhook..</param>
-        /// <param name="url">Target url of request (required).</param>
+        /// <param name="url">The target URL of the request. (required).</param>
         /// <param name="request">Request message (required).</param>
         /// <param name="response">Response message.</param>
         /// <param name="status">HTTP status code of response..</param>
@@ -96,9 +96,9 @@ namespace TalonOne.Model
         public int ApplicationId { get; set; }
 
         /// <summary>
-        /// Target url of request
+        /// The target URL of the request.
         /// </summary>
-        /// <value>Target url of request</value>
+        /// <value>The target URL of the request.</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
 

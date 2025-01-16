@@ -34,15 +34,21 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ScimNewUser" /> class.
         /// </summary>
+        [JsonConstructorAttribute]
+        protected ScimNewUser() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ScimNewUser" /> class.
+        /// </summary>
         /// <param name="active">Status of the user..</param>
         /// <param name="displayName">Display name of the user..</param>
-        /// <param name="userName">Unique identifier of the user. This is usually an email address..</param>
+        /// <param name="userName">Unique identifier of the user. This is usually an email address. (required).</param>
         /// <param name="name">name.</param>
         public ScimNewUser(bool active = default(bool), string displayName = default(string), string userName = default(string), ScimBaseUserName name = default(ScimBaseUserName))
         {
+            // to ensure "userName" is required (not null)
+            this.UserName = userName ?? throw new ArgumentNullException("userName is a required property for ScimNewUser and cannot be null");
             this.Active = active;
             this.DisplayName = displayName;
-            this.UserName = userName;
             this.Name = name;
         }
         

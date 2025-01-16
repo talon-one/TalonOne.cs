@@ -48,7 +48,13 @@ namespace TalonOne.Model
             /// Enum Delete for value: delete
             /// </summary>
             [EnumMember(Value = "delete")]
-            Delete = 2
+            Delete = 2,
+
+            /// <summary>
+            /// Enum Activaterevision for value: activate_revision
+            /// </summary>
+            [EnumMember(Value = "activate_revision")]
+            Activaterevision = 3
 
         }
 
@@ -68,11 +74,13 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="operation">The operation to perform on the specified campaign IDs.  (required).</param>
         /// <param name="campaignIds">The list of campaign IDs on which the operation will be performed. (required).</param>
-        public BulkOperationOnCampaigns(OperationEnum operation = default(OperationEnum), List<int> campaignIds = default(List<int>))
+        /// <param name="activateAt">Timestamp when the revisions are finalized after the &#x60;activate_revision&#x60; operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string. .</param>
+        public BulkOperationOnCampaigns(OperationEnum operation = default(OperationEnum), List<int> campaignIds = default(List<int>), DateTime activateAt = default(DateTime))
         {
             this.Operation = operation;
             // to ensure "campaignIds" is required (not null)
             this.CampaignIds = campaignIds ?? throw new ArgumentNullException("campaignIds is a required property for BulkOperationOnCampaigns and cannot be null");
+            this.ActivateAt = activateAt;
         }
         
         /// <summary>
@@ -81,6 +89,13 @@ namespace TalonOne.Model
         /// <value>The list of campaign IDs on which the operation will be performed.</value>
         [DataMember(Name="campaignIds", EmitDefaultValue=false)]
         public List<int> CampaignIds { get; set; }
+
+        /// <summary>
+        /// Timestamp when the revisions are finalized after the &#x60;activate_revision&#x60; operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string. 
+        /// </summary>
+        /// <value>Timestamp when the revisions are finalized after the &#x60;activate_revision&#x60; operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string. </value>
+        [DataMember(Name="activateAt", EmitDefaultValue=false)]
+        public DateTime ActivateAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,6 +107,7 @@ namespace TalonOne.Model
             sb.Append("class BulkOperationOnCampaigns {\n");
             sb.Append("  Operation: ").Append(Operation).Append("\n");
             sb.Append("  CampaignIds: ").Append(CampaignIds).Append("\n");
+            sb.Append("  ActivateAt: ").Append(ActivateAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,6 +151,11 @@ namespace TalonOne.Model
                     this.CampaignIds != null &&
                     input.CampaignIds != null &&
                     this.CampaignIds.SequenceEqual(input.CampaignIds)
+                ) && 
+                (
+                    this.ActivateAt == input.ActivateAt ||
+                    (this.ActivateAt != null &&
+                    this.ActivateAt.Equals(input.ActivateAt))
                 );
         }
 
@@ -150,6 +171,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Operation.GetHashCode();
                 if (this.CampaignIds != null)
                     hashCode = hashCode * 59 + this.CampaignIds.GetHashCode();
+                if (this.ActivateAt != null)
+                    hashCode = hashCode * 59 + this.ActivateAt.GetHashCode();
                 return hashCode;
             }
         }

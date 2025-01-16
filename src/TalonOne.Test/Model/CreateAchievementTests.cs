@@ -105,6 +105,38 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'PeriodEndOverride'
         }
+        /// <summary>
+        /// Test the property 'RecurrencePolicy'
+        /// </summary>
+        [Fact]
+        public void RecurrencePolicyTest()
+        {
+            // TODO unit test for the property 'RecurrencePolicy'
+        }
+        /// <summary>
+        /// Test the property 'ActivationPolicy'
+        /// </summary>
+        [Fact]
+        public void ActivationPolicyTest()
+        {
+            // TODO unit test for the property 'ActivationPolicy'
+        }
+        /// <summary>
+        /// Test the property 'FixedStartDate'
+        /// </summary>
+        [Fact]
+        public void FixedStartDateTest()
+        {
+            // TODO unit test for the property 'FixedStartDate'
+        }
+        /// <summary>
+        /// Test the property 'EndDate'
+        /// </summary>
+        [Fact]
+        public void EndDateTest()
+        {
+            // TODO unit test for the property 'EndDate'
+        }
 
     }
 

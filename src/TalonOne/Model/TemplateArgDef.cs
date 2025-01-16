@@ -88,9 +88,10 @@ namespace TalonOne.Model
         /// <param name="description">A campaigner-friendly description of the argument, this will also be shown in the rule editor..</param>
         /// <param name="title">A campaigner friendly name for the argument, this will be shown in the rule editor. (required).</param>
         /// <param name="ui">Arbitrary metadata that may be used to render an input for this argument. (required).</param>
+        /// <param name="key">The identifier for the associated value within the JSON object..</param>
         /// <param name="picklistID">ID of the picklist linked to a template..</param>
         /// <param name="restrictedByPicklist">Whether or not this attribute&#39;s value is restricted by picklist (&#x60;picklist&#x60; property).</param>
-        public TemplateArgDef(TypeEnum type = default(TypeEnum), string description = default(string), string title = default(string), Object ui = default(Object), int picklistID = default(int), bool restrictedByPicklist = default(bool))
+        public TemplateArgDef(TypeEnum type = default(TypeEnum), string description = default(string), string title = default(string), Object ui = default(Object), string key = default(string), int picklistID = default(int), bool restrictedByPicklist = default(bool))
         {
             this.Type = type;
             // to ensure "title" is required (not null)
@@ -98,6 +99,7 @@ namespace TalonOne.Model
             // to ensure "ui" is required (not null)
             this.Ui = ui ?? throw new ArgumentNullException("ui is a required property for TemplateArgDef and cannot be null");
             this.Description = description;
+            this.Key = key;
             this.PicklistID = picklistID;
             this.RestrictedByPicklist = restrictedByPicklist;
         }
@@ -122,6 +124,13 @@ namespace TalonOne.Model
         /// <value>Arbitrary metadata that may be used to render an input for this argument.</value>
         [DataMember(Name="ui", EmitDefaultValue=false)]
         public Object Ui { get; set; }
+
+        /// <summary>
+        /// The identifier for the associated value within the JSON object.
+        /// </summary>
+        /// <value>The identifier for the associated value within the JSON object.</value>
+        [DataMember(Name="key", EmitDefaultValue=false)]
+        public string Key { get; set; }
 
         /// <summary>
         /// ID of the picklist linked to a template.
@@ -149,6 +158,7 @@ namespace TalonOne.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Ui: ").Append(Ui).Append("\n");
+            sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  PicklistID: ").Append(PicklistID).Append("\n");
             sb.Append("  RestrictedByPicklist: ").Append(RestrictedByPicklist).Append("\n");
             sb.Append("}\n");
@@ -205,6 +215,11 @@ namespace TalonOne.Model
                     this.Ui.Equals(input.Ui))
                 ) && 
                 (
+                    this.Key == input.Key ||
+                    (this.Key != null &&
+                    this.Key.Equals(input.Key))
+                ) && 
+                (
                     this.PicklistID == input.PicklistID ||
                     this.PicklistID.Equals(input.PicklistID)
                 ) && 
@@ -230,6 +245,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Ui != null)
                     hashCode = hashCode * 59 + this.Ui.GetHashCode();
+                if (this.Key != null)
+                    hashCode = hashCode * 59 + this.Key.GetHashCode();
                 hashCode = hashCode * 59 + this.PicklistID.GetHashCode();
                 hashCode = hashCode * 59 + this.RestrictedByPicklist.GetHashCode();
                 return hashCode;

@@ -43,8 +43,8 @@ namespace TalonOne.Model
         /// <param name="pendingBalance">Sum of pending points. (required).</param>
         /// <param name="expiredBalance">**DEPRECATED** Value is shown as 0.  (required).</param>
         /// <param name="spentBalance">**DEPRECATED** Value is shown as 0.  (required).</param>
-        /// <param name="tentativeCurrentBalance">Sum of the tentative active points (including additions and deductions) inside the currently open session. The &#x60;currentBalance&#x60; is updated to this value when you close the session, and the effects are applied. (required).</param>
-        /// <param name="tentativePendingBalance">Sum of pending points (including additions and deductions) inside the currently open session. The &#x60;pendingBalance&#x60; is updated to this value when you close the session, and the effects are applied..</param>
+        /// <param name="tentativeCurrentBalance">The tentative points balance, reflecting the &#x60;currentBalance&#x60; and all point additions and deductions within the current open customer session. When the session is closed, the effects are applied and the &#x60;currentBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.  (required).</param>
+        /// <param name="tentativePendingBalance">The tentative points balance, reflecting the &#x60;pendingBalance&#x60; and all point additions with a future activation date within the current open customer session. When the session is closed, the effects are applied and the &#x60;pendingBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. .</param>
         public LoyaltyProgramBalance(decimal currentBalance = default(decimal), decimal pendingBalance = default(decimal), decimal expiredBalance = default(decimal), decimal spentBalance = default(decimal), decimal tentativeCurrentBalance = default(decimal), decimal tentativePendingBalance = default(decimal))
         {
             this.CurrentBalance = currentBalance;
@@ -84,16 +84,16 @@ namespace TalonOne.Model
         public decimal SpentBalance { get; set; }
 
         /// <summary>
-        /// Sum of the tentative active points (including additions and deductions) inside the currently open session. The &#x60;currentBalance&#x60; is updated to this value when you close the session, and the effects are applied.
+        /// The tentative points balance, reflecting the &#x60;currentBalance&#x60; and all point additions and deductions within the current open customer session. When the session is closed, the effects are applied and the &#x60;currentBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. 
         /// </summary>
-        /// <value>Sum of the tentative active points (including additions and deductions) inside the currently open session. The &#x60;currentBalance&#x60; is updated to this value when you close the session, and the effects are applied.</value>
+        /// <value>The tentative points balance, reflecting the &#x60;currentBalance&#x60; and all point additions and deductions within the current open customer session. When the session is closed, the effects are applied and the &#x60;currentBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. </value>
         [DataMember(Name="tentativeCurrentBalance", EmitDefaultValue=false)]
         public decimal TentativeCurrentBalance { get; set; }
 
         /// <summary>
-        /// Sum of pending points (including additions and deductions) inside the currently open session. The &#x60;pendingBalance&#x60; is updated to this value when you close the session, and the effects are applied.
+        /// The tentative points balance, reflecting the &#x60;pendingBalance&#x60; and all point additions with a future activation date within the current open customer session. When the session is closed, the effects are applied and the &#x60;pendingBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. 
         /// </summary>
-        /// <value>Sum of pending points (including additions and deductions) inside the currently open session. The &#x60;pendingBalance&#x60; is updated to this value when you close the session, and the effects are applied.</value>
+        /// <value>The tentative points balance, reflecting the &#x60;pendingBalance&#x60; and all point additions with a future activation date within the current open customer session. When the session is closed, the effects are applied and the &#x60;pendingBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. </value>
         [DataMember(Name="tentativePendingBalance", EmitDefaultValue=false)]
         public decimal TentativePendingBalance { get; set; }
 

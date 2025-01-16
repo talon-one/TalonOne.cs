@@ -42,6 +42,8 @@ namespace TalonOne.Model
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="programID">The ID of the loyalty program that owns this entity. (required).</param>
+        /// <param name="programName">The integration name of the loyalty program that owns this entity..</param>
+        /// <param name="programTitle">The Campaign Manager-displayed name of the loyalty program that owns this entity..</param>
         /// <param name="status">Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;.  (required).</param>
         /// <param name="blockReason">Reason for transferring and blocking the loyalty card. .</param>
         /// <param name="identifier">The alphanumeric identifier of the loyalty card.  (required).</param>
@@ -53,7 +55,7 @@ namespace TalonOne.Model
         /// <param name="oldCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
         /// <param name="newCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
         /// <param name="batchId">The ID of the batch in which the loyalty card was created..</param>
-        public LoyaltyCard(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string status = default(string), string blockReason = default(string), string identifier = default(string), int usersPerCardLimit = default(int), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subledgers = default(Dictionary<string, LedgerInfo>), DateTime modified = default(DateTime), string oldCardIdentifier = default(string), string newCardIdentifier = default(string), string batchId = default(string))
+        public LoyaltyCard(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string programName = default(string), string programTitle = default(string), string status = default(string), string blockReason = default(string), string identifier = default(string), int usersPerCardLimit = default(int), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subledgers = default(Dictionary<string, LedgerInfo>), DateTime modified = default(DateTime), string oldCardIdentifier = default(string), string newCardIdentifier = default(string), string batchId = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -63,6 +65,8 @@ namespace TalonOne.Model
             // to ensure "identifier" is required (not null)
             this.Identifier = identifier ?? throw new ArgumentNullException("identifier is a required property for LoyaltyCard and cannot be null");
             this.UsersPerCardLimit = usersPerCardLimit;
+            this.ProgramName = programName;
+            this.ProgramTitle = programTitle;
             this.BlockReason = blockReason;
             this.Profiles = profiles;
             this.Ledger = ledger;
@@ -93,6 +97,20 @@ namespace TalonOne.Model
         /// <value>The ID of the loyalty program that owns this entity.</value>
         [DataMember(Name="programID", EmitDefaultValue=false)]
         public int ProgramID { get; set; }
+
+        /// <summary>
+        /// The integration name of the loyalty program that owns this entity.
+        /// </summary>
+        /// <value>The integration name of the loyalty program that owns this entity.</value>
+        [DataMember(Name="programName", EmitDefaultValue=false)]
+        public string ProgramName { get; set; }
+
+        /// <summary>
+        /// The Campaign Manager-displayed name of the loyalty program that owns this entity.
+        /// </summary>
+        /// <value>The Campaign Manager-displayed name of the loyalty program that owns this entity.</value>
+        [DataMember(Name="programTitle", EmitDefaultValue=false)]
+        public string ProgramTitle { get; set; }
 
         /// <summary>
         /// Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;. 
@@ -181,6 +199,8 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ProgramID: ").Append(ProgramID).Append("\n");
+            sb.Append("  ProgramName: ").Append(ProgramName).Append("\n");
+            sb.Append("  ProgramTitle: ").Append(ProgramTitle).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  BlockReason: ").Append(BlockReason).Append("\n");
             sb.Append("  Identifier: ").Append(Identifier).Append("\n");
@@ -238,6 +258,16 @@ namespace TalonOne.Model
                 (
                     this.ProgramID == input.ProgramID ||
                     this.ProgramID.Equals(input.ProgramID)
+                ) && 
+                (
+                    this.ProgramName == input.ProgramName ||
+                    (this.ProgramName != null &&
+                    this.ProgramName.Equals(input.ProgramName))
+                ) && 
+                (
+                    this.ProgramTitle == input.ProgramTitle ||
+                    (this.ProgramTitle != null &&
+                    this.ProgramTitle.Equals(input.ProgramTitle))
                 ) && 
                 (
                     this.Status == input.Status ||
@@ -310,6 +340,10 @@ namespace TalonOne.Model
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.ProgramID.GetHashCode();
+                if (this.ProgramName != null)
+                    hashCode = hashCode * 59 + this.ProgramName.GetHashCode();
+                if (this.ProgramTitle != null)
+                    hashCode = hashCode * 59 + this.ProgramTitle.GetHashCode();
                 if (this.Status != null)
                     hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.BlockReason != null)
@@ -348,6 +382,13 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Identifier, length must be less than 108.", new [] { "Identifier" });
             }
 
+            // Identifier (string) pattern
+            Regex regexIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            if (false == regexIdentifier.Match(this.Identifier).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Identifier, must match a pattern of " + regexIdentifier, new [] { "Identifier" });
+            }
+
             // UsersPerCardLimit (int) minimum
             if(this.UsersPerCardLimit < (int)0)
             {
@@ -360,10 +401,24 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OldCardIdentifier, length must be less than 108.", new [] { "OldCardIdentifier" });
             }
 
+            // OldCardIdentifier (string) pattern
+            Regex regexOldCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            if (false == regexOldCardIdentifier.Match(this.OldCardIdentifier).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OldCardIdentifier, must match a pattern of " + regexOldCardIdentifier, new [] { "OldCardIdentifier" });
+            }
+
             // NewCardIdentifier (string) maxLength
             if(this.NewCardIdentifier != null && this.NewCardIdentifier.Length > 108)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, length must be less than 108.", new [] { "NewCardIdentifier" });
+            }
+
+            // NewCardIdentifier (string) pattern
+            Regex regexNewCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            if (false == regexNewCardIdentifier.Match(this.NewCardIdentifier).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, must match a pattern of " + regexNewCardIdentifier, new [] { "NewCardIdentifier" });
             }
 
             yield break;

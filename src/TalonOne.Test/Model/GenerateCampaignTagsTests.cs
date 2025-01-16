@@ -58,12 +58,12 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'CampaignID'
+        /// Test the property 'RulesetID'
         /// </summary>
         [Fact]
-        public void CampaignIDTest()
+        public void RulesetIDTest()
         {
-            // TODO unit test for the property 'CampaignID'
+            // TODO unit test for the property 'RulesetID'
         }
 
     }

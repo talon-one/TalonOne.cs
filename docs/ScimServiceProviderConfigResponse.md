@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Filter** | [**ScimServiceProviderConfigResponseFilter**](ScimServiceProviderConfigResponseFilter.md) |  | [optional] 
 **Patch** | [**ScimServiceProviderConfigResponsePatch**](ScimServiceProviderConfigResponsePatch.md) |  | [optional] 
 **Schemas** | **List&lt;string&gt;** | A list of SCIM schemas that define the structure and data types supported by the service provider. | [optional] 
+**Sort** | [**ScimServiceProviderConfigResponseSort**](ScimServiceProviderConfigResponseSort.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

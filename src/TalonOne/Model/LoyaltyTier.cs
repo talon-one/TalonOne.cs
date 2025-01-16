@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// LoyaltyTier
+    /// A tier in a loyalty program.
     /// </summary>
     [DataContract]
     public partial class LoyaltyTier :  IEquatable<LoyaltyTier>, IValidatableObject
@@ -42,9 +42,11 @@ namespace TalonOne.Model
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="programID">The ID of the loyalty program that owns this entity. (required).</param>
-        /// <param name="name">The name of the tier (required).</param>
-        /// <param name="minPoints">The minimum amount of points required to be eligible for the tier. (required).</param>
-        public LoyaltyTier(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string name = default(string), decimal minPoints = default(decimal))
+        /// <param name="programName">The integration name of the loyalty program that owns this entity..</param>
+        /// <param name="programTitle">The Campaign Manager-displayed name of the loyalty program that owns this entity..</param>
+        /// <param name="name">The name of the tier. (required).</param>
+        /// <param name="minPoints">The minimum amount of points required to enter the tier. (required).</param>
+        public LoyaltyTier(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string programName = default(string), string programTitle = default(string), string name = default(string), decimal minPoints = default(decimal))
         {
             this.Id = id;
             this.Created = created;
@@ -52,6 +54,8 @@ namespace TalonOne.Model
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for LoyaltyTier and cannot be null");
             this.MinPoints = minPoints;
+            this.ProgramName = programName;
+            this.ProgramTitle = programTitle;
         }
         
         /// <summary>
@@ -76,16 +80,30 @@ namespace TalonOne.Model
         public int ProgramID { get; set; }
 
         /// <summary>
-        /// The name of the tier
+        /// The integration name of the loyalty program that owns this entity.
         /// </summary>
-        /// <value>The name of the tier</value>
+        /// <value>The integration name of the loyalty program that owns this entity.</value>
+        [DataMember(Name="programName", EmitDefaultValue=false)]
+        public string ProgramName { get; set; }
+
+        /// <summary>
+        /// The Campaign Manager-displayed name of the loyalty program that owns this entity.
+        /// </summary>
+        /// <value>The Campaign Manager-displayed name of the loyalty program that owns this entity.</value>
+        [DataMember(Name="programTitle", EmitDefaultValue=false)]
+        public string ProgramTitle { get; set; }
+
+        /// <summary>
+        /// The name of the tier.
+        /// </summary>
+        /// <value>The name of the tier.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The minimum amount of points required to be eligible for the tier.
+        /// The minimum amount of points required to enter the tier.
         /// </summary>
-        /// <value>The minimum amount of points required to be eligible for the tier.</value>
+        /// <value>The minimum amount of points required to enter the tier.</value>
         [DataMember(Name="minPoints", EmitDefaultValue=false)]
         public decimal MinPoints { get; set; }
 
@@ -100,6 +118,8 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ProgramID: ").Append(ProgramID).Append("\n");
+            sb.Append("  ProgramName: ").Append(ProgramName).Append("\n");
+            sb.Append("  ProgramTitle: ").Append(ProgramTitle).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  MinPoints: ").Append(MinPoints).Append("\n");
             sb.Append("}\n");
@@ -150,6 +170,16 @@ namespace TalonOne.Model
                     this.ProgramID.Equals(input.ProgramID)
                 ) && 
                 (
+                    this.ProgramName == input.ProgramName ||
+                    (this.ProgramName != null &&
+                    this.ProgramName.Equals(input.ProgramName))
+                ) && 
+                (
+                    this.ProgramTitle == input.ProgramTitle ||
+                    (this.ProgramTitle != null &&
+                    this.ProgramTitle.Equals(input.ProgramTitle))
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -173,6 +203,10 @@ namespace TalonOne.Model
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.ProgramID.GetHashCode();
+                if (this.ProgramName != null)
+                    hashCode = hashCode * 59 + this.ProgramName.GetHashCode();
+                if (this.ProgramTitle != null)
+                    hashCode = hashCode * 59 + this.ProgramTitle.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 hashCode = hashCode * 59 + this.MinPoints.GetHashCode();

@@ -35,7 +35,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="IntegrationCustomerSessionResponse" /> class.
         /// </summary>
         /// <param name="customerSession">customerSession.</param>
-        /// <param name="effects">effects.</param>
+        /// <param name="effects">The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed. .</param>
         public IntegrationCustomerSessionResponse(CustomerSessionV2 customerSession = default(CustomerSessionV2), List<Effect> effects = default(List<Effect>))
         {
             this.CustomerSession = customerSession;
@@ -49,8 +49,9 @@ namespace TalonOne.Model
         public CustomerSessionV2 CustomerSession { get; set; }
 
         /// <summary>
-        /// Gets or Sets Effects
+        /// The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed. 
         /// </summary>
+        /// <value>The returned effects.  **Note:** This endpoint returns only the effects that are valid after any rollback effects and their corresponding non-rollback effects are removed. </value>
         [DataMember(Name="effects", EmitDefaultValue=false)]
         public List<Effect> Effects { get; set; }
 

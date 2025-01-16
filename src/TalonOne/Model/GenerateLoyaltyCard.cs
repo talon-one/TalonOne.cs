@@ -63,10 +63,12 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="status">Status of the loyalty card. (default to StatusEnum.Active).</param>
         /// <param name="customerProfileIds">Integration IDs of the customer profiles linked to the card..</param>
-        public GenerateLoyaltyCard(StatusEnum? status = StatusEnum.Active, List<string> customerProfileIds = default(List<string>))
+        /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
+        public GenerateLoyaltyCard(StatusEnum? status = StatusEnum.Active, List<string> customerProfileIds = default(List<string>), string cardIdentifier = default(string))
         {
             this.Status = status;
             this.CustomerProfileIds = customerProfileIds;
+            this.CardIdentifier = cardIdentifier;
         }
         
         /// <summary>
@@ -75,6 +77,13 @@ namespace TalonOne.Model
         /// <value>Integration IDs of the customer profiles linked to the card.</value>
         [DataMember(Name="customerProfileIds", EmitDefaultValue=false)]
         public List<string> CustomerProfileIds { get; set; }
+
+        /// <summary>
+        /// The alphanumeric identifier of the loyalty card. 
+        /// </summary>
+        /// <value>The alphanumeric identifier of the loyalty card. </value>
+        [DataMember(Name="cardIdentifier", EmitDefaultValue=false)]
+        public string CardIdentifier { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -86,6 +95,7 @@ namespace TalonOne.Model
             sb.Append("class GenerateLoyaltyCard {\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  CustomerProfileIds: ").Append(CustomerProfileIds).Append("\n");
+            sb.Append("  CardIdentifier: ").Append(CardIdentifier).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,6 +139,11 @@ namespace TalonOne.Model
                     this.CustomerProfileIds != null &&
                     input.CustomerProfileIds != null &&
                     this.CustomerProfileIds.SequenceEqual(input.CustomerProfileIds)
+                ) && 
+                (
+                    this.CardIdentifier == input.CardIdentifier ||
+                    (this.CardIdentifier != null &&
+                    this.CardIdentifier.Equals(input.CardIdentifier))
                 );
         }
 
@@ -144,6 +159,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.CustomerProfileIds != null)
                     hashCode = hashCode * 59 + this.CustomerProfileIds.GetHashCode();
+                if (this.CardIdentifier != null)
+                    hashCode = hashCode * 59 + this.CardIdentifier.GetHashCode();
                 return hashCode;
             }
         }
@@ -155,6 +172,19 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // CardIdentifier (string) maxLength
+            if(this.CardIdentifier != null && this.CardIdentifier.Length > 108)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be less than 108.", new [] { "CardIdentifier" });
+            }
+
+            // CardIdentifier (string) pattern
+            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            if (false == regexCardIdentifier.Match(this.CardIdentifier).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, must match a pattern of " + regexCardIdentifier, new [] { "CardIdentifier" });
+            }
+
             yield break;
         }
     }

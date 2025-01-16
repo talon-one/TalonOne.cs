@@ -4,7 +4,7 @@ The specific properties of the product this item belongs to, if available.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | The name of the product. | 
+**Name** | **string** | The product the item belongs to. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

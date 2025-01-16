@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="Store" /> class.
         /// </summary>
         /// <param name="id">Internal ID of this entity. (required).</param>
-        /// <param name="created">The time this entity was created. The time this entity was created. (required).</param>
+        /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="name">The name of the store. (required).</param>
         /// <param name="description">The description of the store. (required).</param>
         /// <param name="attributes">The attributes of the store..</param>
@@ -72,9 +72,9 @@ namespace TalonOne.Model
         public int Id { get; set; }
 
         /// <summary>
-        /// The time this entity was created. The time this entity was created.
+        /// The time this entity was created.
         /// </summary>
-        /// <value>The time this entity was created. The time this entity was created.</value>
+        /// <value>The time this entity was created.</value>
         [DataMember(Name="created", EmitDefaultValue=false)]
         public DateTime Created { get; set; }
 

@@ -98,7 +98,19 @@ namespace TalonOne.Model
             /// Enum Identifier for value: Identifier
             /// </summary>
             [EnumMember(Value = "Identifier")]
-            Identifier = 4
+            Identifier = 4,
+
+            /// <summary>
+            /// Enum Store for value: Store
+            /// </summary>
+            [EnumMember(Value = "Store")]
+            Store = 5,
+
+            /// <summary>
+            /// Enum Session for value: Session
+            /// </summary>
+            [EnumMember(Value = "Session")]
+            Session = 6
 
         }
 

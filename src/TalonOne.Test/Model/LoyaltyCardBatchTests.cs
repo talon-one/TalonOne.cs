@@ -81,6 +81,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Status'
         }
+        /// <summary>
+        /// Test the property 'CardCodeSettings'
+        /// </summary>
+        [Fact]
+        public void CardCodeSettingsTest()
+        {
+            // TODO unit test for the property 'CardCodeSettings'
+        }
 
     }
 

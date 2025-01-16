@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Status** | **string** | Status of the loyalty card. | [optional] [default to StatusEnum.Active]
 **CustomerProfileIds** | **List&lt;string&gt;** | Integration IDs of the customer profiles linked to the card. | [optional] 
+**CardIdentifier** | **string** | The alphanumeric identifier of the loyalty card.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -32,16 +32,45 @@ namespace TalonOne.Model
     public partial class CampaignVersions :  IEquatable<CampaignVersions>, IValidatableObject
     {
         /// <summary>
+        /// The campaign revision state displayed in the Campaign Manager.
+        /// </summary>
+        /// <value>The campaign revision state displayed in the Campaign Manager.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum RevisionFrontendStateEnum
+        {
+            /// <summary>
+            /// Enum Revised for value: revised
+            /// </summary>
+            [EnumMember(Value = "revised")]
+            Revised = 1,
+
+            /// <summary>
+            /// Enum Pending for value: pending
+            /// </summary>
+            [EnumMember(Value = "pending")]
+            Pending = 2
+
+        }
+
+        /// <summary>
+        /// The campaign revision state displayed in the Campaign Manager.
+        /// </summary>
+        /// <value>The campaign revision state displayed in the Campaign Manager.</value>
+        [DataMember(Name="revisionFrontendState", EmitDefaultValue=false)]
+        public RevisionFrontendStateEnum? RevisionFrontendState { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CampaignVersions" /> class.
         /// </summary>
+        /// <param name="revisionFrontendState">The campaign revision state displayed in the Campaign Manager..</param>
         /// <param name="activeRevisionId">ID of the revision that was last activated on this campaign. .</param>
         /// <param name="activeRevisionVersionId">ID of the revision version that is active on the campaign. .</param>
         /// <param name="version">Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. .</param>
         /// <param name="currentRevisionId">ID of the revision currently being modified for the campaign. .</param>
         /// <param name="currentRevisionVersionId">ID of the latest version applied on the current revision. .</param>
         /// <param name="stageRevision">Flag for determining whether we use current revision when sending requests with staging API key.  (default to false).</param>
-        public CampaignVersions(int activeRevisionId = default(int), int activeRevisionVersionId = default(int), int version = default(int), int currentRevisionId = default(int), int currentRevisionVersionId = default(int), bool stageRevision = false)
+        public CampaignVersions(RevisionFrontendStateEnum? revisionFrontendState = default(RevisionFrontendStateEnum?), int activeRevisionId = default(int), int activeRevisionVersionId = default(int), int version = default(int), int currentRevisionId = default(int), int currentRevisionVersionId = default(int), bool stageRevision = false)
         {
+            this.RevisionFrontendState = revisionFrontendState;
             this.ActiveRevisionId = activeRevisionId;
             this.ActiveRevisionVersionId = activeRevisionVersionId;
             this.Version = version;
@@ -100,6 +129,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CampaignVersions {\n");
+            sb.Append("  RevisionFrontendState: ").Append(RevisionFrontendState).Append("\n");
             sb.Append("  ActiveRevisionId: ").Append(ActiveRevisionId).Append("\n");
             sb.Append("  ActiveRevisionVersionId: ").Append(ActiveRevisionVersionId).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
@@ -141,6 +171,10 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.RevisionFrontendState == input.RevisionFrontendState ||
+                    this.RevisionFrontendState.Equals(input.RevisionFrontendState)
+                ) && 
+                (
                     this.ActiveRevisionId == input.ActiveRevisionId ||
                     this.ActiveRevisionId.Equals(input.ActiveRevisionId)
                 ) && 
@@ -175,6 +209,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.RevisionFrontendState.GetHashCode();
                 hashCode = hashCode * 59 + this.ActiveRevisionId.GetHashCode();
                 hashCode = hashCode * 59 + this.ActiveRevisionVersionId.GetHashCode();
                 hashCode = hashCode * 59 + this.Version.GetHashCode();
