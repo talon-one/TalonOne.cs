@@ -1,6 +1,5 @@
 BUILD_DIR:=src/TalonOne
 VERSION:=$(shell grep -om1 -E '^\[assembly: AssemblyVersion\("[0-9\.]+"\)\]$$' $(PWD)/$(BUILD_DIR)/Properties/AssemblyInfo.cs | sed 's/\[assembly: AssemblyVersion("\(.*\)")\]/\1/')
-DOCKER_TAG_ARCH:=$(shell [[ $(shell uname -m) == "arm64" ]] && echo "8.0-focal-arm64v8" || echo "sdk:8.0-focal")
 
 default: testenv
 
@@ -17,7 +16,7 @@ endif
 		--rm \
 		-v $(PWD):/tmp/talon-client \
 		-w "/tmp/talon-client/$(BUILD_DIR)" \
-		mcr.microsoft.com/dotnet/sdk:$(DOCKER_TAG_ARCH) \
+		mcr.microsoft.com/dotnet/sdk:8.0 \
 			dotnet pack TalonOne.csproj \
 				-p:PackageVersion=$(VERSION) \
 				--output . \
@@ -37,7 +36,7 @@ endif
 		--rm \
 		-v $(PWD):/tmp/talon-client \
 		-w "/tmp/talon-client/$(BUILD_DIR)" \
-		mcr.microsoft.com/dotnet/sdk:$(DOCKER_TAG_ARCH) \
+		mcr.microsoft.com/dotnet/sdk:8.0 \
 			dotnet nuget push TalonOne.$(VERSION).nupkg \
 				--api-key $(apiKey) \
 				--source https://api.nuget.org/v3/index.json
@@ -48,5 +47,5 @@ testenv:
 		--rm -it \
 		-v $(PWD):/tmp/talon-client \
 		-w /tmp/talon-client \
-		mcr.microsoft.com/dotnet/sdk:$(DOCKER_TAG_ARCH) \
+		mcr.microsoft.com/dotnet/sdk:8.0 \
 		/bin/bash
