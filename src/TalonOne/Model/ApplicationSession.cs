@@ -82,7 +82,7 @@ namespace TalonOne.Model
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="integrationId">The integration ID set by your integration layer. (required).</param>
         /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="profileId">The globally unique Talon.One ID of the customer that created this entity..</param>
         /// <param name="profileintegrationid">Integration ID of the customer for the session..</param>
         /// <param name="coupon">Any coupon code entered. (required).</param>
@@ -90,7 +90,7 @@ namespace TalonOne.Model
         /// <param name="state">Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. &#x60;closed&#x60; → &#x60;cancelled&#x60; or &#x60;partially_returned&#x60; 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  (required).</param>
         /// <param name="cartItems">Serialized JSON representation. (required).</param>
         /// <param name="discounts">**API V1 only.** A map of labeled discount values, in the same currency as the session.  If you are using the V2 endpoints, refer to the &#x60;totalDiscounts&#x60; property instead.  (required).</param>
-        /// <param name="totalDiscounts">The total sum of the discounts applied to this session. (required).</param>
+        /// <param name="totalDiscounts">The total sum of the discounts applied to this session.  **Note:** If more than one session is returned, this value is displayed as &#x60;0&#x60;.  (required).</param>
         /// <param name="total">The total sum of the session before any discounts applied. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
         public ApplicationSession(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), string storeIntegrationId = default(string), int applicationId = default(int), int profileId = default(int), string profileintegrationid = default(string), string coupon = default(string), string referral = default(string), StateEnum state = default(StateEnum), List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), decimal totalDiscounts = default(decimal), decimal total = default(decimal), Object attributes = default(Object))
@@ -146,9 +146,9 @@ namespace TalonOne.Model
         public string StoreIntegrationId { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 
@@ -195,9 +195,9 @@ namespace TalonOne.Model
         public Dictionary<string, decimal> Discounts { get; set; }
 
         /// <summary>
-        /// The total sum of the discounts applied to this session.
+        /// The total sum of the discounts applied to this session.  **Note:** If more than one session is returned, this value is displayed as &#x60;0&#x60;. 
         /// </summary>
-        /// <value>The total sum of the discounts applied to this session.</value>
+        /// <value>The total sum of the discounts applied to this session.  **Note:** If more than one session is returned, this value is displayed as &#x60;0&#x60;. </value>
         [DataMember(Name="totalDiscounts", EmitDefaultValue=false)]
         public decimal TotalDiscounts { get; set; }
 

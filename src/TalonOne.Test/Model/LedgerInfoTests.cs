@@ -74,6 +74,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'PendingBalance'
         }
         /// <summary>
+        /// Test the property 'NegativeBalance'
+        /// </summary>
+        [Fact]
+        public void NegativeBalanceTest()
+        {
+            // TODO unit test for the property 'NegativeBalance'
+        }
+        /// <summary>
         /// Test the property 'ExpiredBalance'
         /// </summary>
         [Fact]
@@ -104,6 +112,14 @@ namespace TalonOne.Test
         public void TentativePendingBalanceTest()
         {
             // TODO unit test for the property 'TentativePendingBalance'
+        }
+        /// <summary>
+        /// Test the property 'TentativeNegativeBalance'
+        /// </summary>
+        [Fact]
+        public void TentativeNegativeBalanceTest()
+        {
+            // TODO unit test for the property 'TentativeNegativeBalance'
         }
         /// <summary>
         /// Test the property 'CurrentTier'

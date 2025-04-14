@@ -32,6 +32,27 @@ namespace TalonOne.Model
     public partial class StrikethroughLabelingNotification :  IEquatable<StrikethroughLabelingNotification>, IValidatableObject
     {
         /// <summary>
+        /// The version of the strikethrough pricing notification.
+        /// </summary>
+        /// <value>The version of the strikethrough pricing notification.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum VersionEnum
+        {
+            /// <summary>
+            /// Enum V2 for value: v2
+            /// </summary>
+            [EnumMember(Value = "v2")]
+            V2 = 1
+
+        }
+
+        /// <summary>
+        /// The version of the strikethrough pricing notification.
+        /// </summary>
+        /// <value>The version of the strikethrough pricing notification.</value>
+        [DataMember(Name="version", EmitDefaultValue=false)]
+        public VersionEnum? Version { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="StrikethroughLabelingNotification" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,12 +60,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StrikethroughLabelingNotification" /> class.
         /// </summary>
-        /// <param name="applicationId">The ID of the application that catalog items labels belongs to. (required).</param>
+        /// <param name="version">The version of the strikethrough pricing notification..</param>
+        /// <param name="applicationId">The ID of the Application to which the catalog items labels belongs. (required).</param>
         /// <param name="currentBatch">The batch number of the notification. Notifications might be sent in different batches. (required).</param>
         /// <param name="totalBatches">The total number of batches for the notification. (required).</param>
         /// <param name="trigger">trigger (required).</param>
         /// <param name="changedItems">changedItems (required).</param>
-        public StrikethroughLabelingNotification(int applicationId = default(int), int currentBatch = default(int), int totalBatches = default(int), StrikethroughTrigger trigger = default(StrikethroughTrigger), List<StrikethroughChangedItem> changedItems = default(List<StrikethroughChangedItem>))
+        public StrikethroughLabelingNotification(VersionEnum? version = default(VersionEnum?), int applicationId = default(int), int currentBatch = default(int), int totalBatches = default(int), StrikethroughTrigger trigger = default(StrikethroughTrigger), List<StrikethroughChangedItem> changedItems = default(List<StrikethroughChangedItem>))
         {
             this.ApplicationId = applicationId;
             this.CurrentBatch = currentBatch;
@@ -53,12 +75,13 @@ namespace TalonOne.Model
             this.Trigger = trigger ?? throw new ArgumentNullException("trigger is a required property for StrikethroughLabelingNotification and cannot be null");
             // to ensure "changedItems" is required (not null)
             this.ChangedItems = changedItems ?? throw new ArgumentNullException("changedItems is a required property for StrikethroughLabelingNotification and cannot be null");
+            this.Version = version;
         }
         
         /// <summary>
-        /// The ID of the application that catalog items labels belongs to.
+        /// The ID of the Application to which the catalog items labels belongs.
         /// </summary>
-        /// <value>The ID of the application that catalog items labels belongs to.</value>
+        /// <value>The ID of the Application to which the catalog items labels belongs.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 
@@ -96,6 +119,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class StrikethroughLabelingNotification {\n");
+            sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  CurrentBatch: ").Append(CurrentBatch).Append("\n");
             sb.Append("  TotalBatches: ").Append(TotalBatches).Append("\n");
@@ -136,6 +160,10 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.Version == input.Version ||
+                    this.Version.Equals(input.Version)
+                ) && 
+                (
                     this.ApplicationId == input.ApplicationId ||
                     this.ApplicationId.Equals(input.ApplicationId)
                 ) && 
@@ -169,6 +197,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.Version.GetHashCode();
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 hashCode = hashCode * 59 + this.CurrentBatch.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalBatches.GetHashCode();

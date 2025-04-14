@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **RuleName** | **string** | The name of the rule that triggered this effect. | 
 **Type** | **string** | The type of this effect. | 
 **Props** | [**Object**](.md) |  | 
+**StartTime** | **DateTime** | The start of the time frame where the effect is active in UTC. | [optional] 
+**EndTime** | **DateTime** | The end of the time frame where the effect is active in UTC. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

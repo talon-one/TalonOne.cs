@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApplicationReferee" /> class.
         /// </summary>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="sessionId">Integration ID of the session in which the customer redeemed the referral. (required).</param>
         /// <param name="advocateIntegrationId">Integration ID of the Advocate&#39;s Profile. (required).</param>
         /// <param name="friendIntegrationId">Integration ID of the Friend&#39;s Profile. (required).</param>
@@ -60,9 +60,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 

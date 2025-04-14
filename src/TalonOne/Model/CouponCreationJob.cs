@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="campaignId">The ID of the campaign that owns this entity. (required).</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="usageLimit">The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply.  (required).</param>
         /// <param name="discountLimit">The total discount value that the code can give. Typically used to represent a gift card value. .</param>
@@ -113,9 +113,9 @@ namespace TalonOne.Model
         public int CampaignId { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 

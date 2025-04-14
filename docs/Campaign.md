@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | Unique ID for this entity. | 
 **Created** | **DateTime** | The exact moment this entity was created. | 
-**ApplicationId** | **int** | The ID of the application that owns this entity. | 
+**ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **UserId** | **int** | The ID of the user associated with this entity. | 
 **Name** | **string** | A user-facing name for this campaign. | 
 **Description** | **string** | A detailed description of the campaign. | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 **CampaignGroups** | **List&lt;int&gt;** | The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to.  | [optional] 
 **Type** | **string** | The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  | [default to TypeEnum.Advanced]
 **LinkedStoreIds** | **List&lt;int&gt;** | A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.  | [optional] 
-**Budgets** | [**List&lt;CampaignBudget&gt;**](CampaignBudget.md) | A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.  | 
+**Budgets** | [**List&lt;CampaignBudget&gt;**](CampaignBudget.md) | A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.  | [optional] 
 **CouponRedemptionCount** | **int** | This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign.  | [optional] 
 **ReferralRedemptionCount** | **int** | This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign.  | [optional] 
 **DiscountCount** | **decimal** | This property is **deprecated**. The count should be available under *budgets* property. Total amount of discounts redeemed in the campaign.  | [optional] 
@@ -45,6 +45,7 @@ Name | Type | Description | Notes
 **TemplateId** | **int** | The ID of the Campaign Template this Campaign was created from. | [optional] 
 **FrontendState** | **string** | The campaign state displayed in the Campaign Manager. | 
 **StoresImported** | **bool** | Indicates whether the linked stores were imported via a CSV file. | 
+**ValueMapsIds** | **List&lt;int&gt;** | A list of value map IDs for the campaign. | [optional] 
 **RevisionFrontendState** | **string** | The campaign revision state displayed in the Campaign Manager. | [optional] 
 **ActiveRevisionId** | **int** | ID of the revision that was last activated on this campaign.  | [optional] 
 **ActiveRevisionVersionId** | **int** | ID of the revision version that is active on the campaign.  | [optional] 

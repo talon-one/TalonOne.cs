@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Id** | **int** | Internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **IntegrationId** | **string** | The integration ID set by your integration layer. | 
-**ApplicationId** | **int** | The ID of the application that owns this entity. | 
+**ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **ProfileId** | **string** | ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;.  | 
 **StoreIntegrationId** | **string** | The integration ID of the store. You choose this ID when you create a store. | [optional] 
 **EvaluableCampaignIds** | **List&lt;int&gt;** | When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them.  | [optional] 
@@ -24,7 +24,6 @@ Name | Type | Description | Notes
 **CartItemTotal** | **decimal** | The total value of cart items, before any discounts are applied. | 
 **AdditionalCostTotal** | **decimal** | The total value of additional costs, before any discounts are applied. | 
 **Updated** | **DateTime** | Timestamp of the most recent event received on this session. | 
-**ClosurePrediction** | **decimal** | The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between &#x60;0&#x60; and &#x60;1&#x60;. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

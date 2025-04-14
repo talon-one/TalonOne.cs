@@ -39,55 +39,27 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductUnitAnalytics" /> class.
         /// </summary>
-        /// <param name="startTime">The start of the aggregation time frame in UTC. (required).</param>
-        /// <param name="endTime">The end of the aggregation time frame in UTC. (required).</param>
-        /// <param name="purchasedUnits">purchasedUnits (required).</param>
-        /// <param name="productId">The ID of the analytics-level product. (required).</param>
-        /// <param name="productName">The name of the analytics-level product. (required).</param>
-        public ProductUnitAnalytics(DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), AnalyticsDataPointWithTrend purchasedUnits = default(AnalyticsDataPointWithTrend), int productId = default(int), string productName = default(string))
+        /// <param name="data">data (required).</param>
+        /// <param name="totals">totals (required).</param>
+        public ProductUnitAnalytics(List<ProductUnitAnalyticsDataPoint> data = default(List<ProductUnitAnalyticsDataPoint>), ProductUnitAnalyticsTotals totals = default(ProductUnitAnalyticsTotals))
         {
-            this.StartTime = startTime;
-            this.EndTime = endTime;
-            // to ensure "purchasedUnits" is required (not null)
-            this.PurchasedUnits = purchasedUnits ?? throw new ArgumentNullException("purchasedUnits is a required property for ProductUnitAnalytics and cannot be null");
-            this.ProductId = productId;
-            // to ensure "productName" is required (not null)
-            this.ProductName = productName ?? throw new ArgumentNullException("productName is a required property for ProductUnitAnalytics and cannot be null");
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for ProductUnitAnalytics and cannot be null");
+            // to ensure "totals" is required (not null)
+            this.Totals = totals ?? throw new ArgumentNullException("totals is a required property for ProductUnitAnalytics and cannot be null");
         }
         
         /// <summary>
-        /// The start of the aggregation time frame in UTC.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The start of the aggregation time frame in UTC.</value>
-        [DataMember(Name="startTime", EmitDefaultValue=false)]
-        public DateTime StartTime { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public List<ProductUnitAnalyticsDataPoint> Data { get; set; }
 
         /// <summary>
-        /// The end of the aggregation time frame in UTC.
+        /// Gets or Sets Totals
         /// </summary>
-        /// <value>The end of the aggregation time frame in UTC.</value>
-        [DataMember(Name="endTime", EmitDefaultValue=false)]
-        public DateTime EndTime { get; set; }
-
-        /// <summary>
-        /// Gets or Sets PurchasedUnits
-        /// </summary>
-        [DataMember(Name="purchasedUnits", EmitDefaultValue=false)]
-        public AnalyticsDataPointWithTrend PurchasedUnits { get; set; }
-
-        /// <summary>
-        /// The ID of the analytics-level product.
-        /// </summary>
-        /// <value>The ID of the analytics-level product.</value>
-        [DataMember(Name="productId", EmitDefaultValue=false)]
-        public int ProductId { get; set; }
-
-        /// <summary>
-        /// The name of the analytics-level product.
-        /// </summary>
-        /// <value>The name of the analytics-level product.</value>
-        [DataMember(Name="productName", EmitDefaultValue=false)]
-        public string ProductName { get; set; }
+        [DataMember(Name="totals", EmitDefaultValue=false)]
+        public ProductUnitAnalyticsTotals Totals { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -97,11 +69,8 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ProductUnitAnalytics {\n");
-            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
-            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
-            sb.Append("  PurchasedUnits: ").Append(PurchasedUnits).Append("\n");
-            sb.Append("  ProductId: ").Append(ProductId).Append("\n");
-            sb.Append("  ProductName: ").Append(ProductName).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Totals: ").Append(Totals).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,28 +106,15 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.StartTime == input.StartTime ||
-                    (this.StartTime != null &&
-                    this.StartTime.Equals(input.StartTime))
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 ) && 
                 (
-                    this.EndTime == input.EndTime ||
-                    (this.EndTime != null &&
-                    this.EndTime.Equals(input.EndTime))
-                ) && 
-                (
-                    this.PurchasedUnits == input.PurchasedUnits ||
-                    (this.PurchasedUnits != null &&
-                    this.PurchasedUnits.Equals(input.PurchasedUnits))
-                ) && 
-                (
-                    this.ProductId == input.ProductId ||
-                    this.ProductId.Equals(input.ProductId)
-                ) && 
-                (
-                    this.ProductName == input.ProductName ||
-                    (this.ProductName != null &&
-                    this.ProductName.Equals(input.ProductName))
+                    this.Totals == input.Totals ||
+                    (this.Totals != null &&
+                    this.Totals.Equals(input.Totals))
                 );
         }
 
@@ -171,15 +127,10 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.StartTime != null)
-                    hashCode = hashCode * 59 + this.StartTime.GetHashCode();
-                if (this.EndTime != null)
-                    hashCode = hashCode * 59 + this.EndTime.GetHashCode();
-                if (this.PurchasedUnits != null)
-                    hashCode = hashCode * 59 + this.PurchasedUnits.GetHashCode();
-                hashCode = hashCode * 59 + this.ProductId.GetHashCode();
-                if (this.ProductName != null)
-                    hashCode = hashCode * 59 + this.ProductName.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Totals != null)
+                    hashCode = hashCode * 59 + this.Totals.GetHashCode();
                 return hashCode;
             }
         }

@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewCampaignSet" /> class.
         /// </summary>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="version">Version of the campaign set. (required).</param>
         /// <param name="set">set (required).</param>
         public NewCampaignSet(int applicationId = default(int), int version = default(int), CampaignSetBranchNode set = default(CampaignSetBranchNode))
@@ -51,9 +51,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 

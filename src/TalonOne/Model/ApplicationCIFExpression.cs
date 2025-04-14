@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="cartItemFilterId">The ID of the Application cart item filter..</param>
         /// <param name="createdBy">The ID of the user who created the Application cart item filter..</param>
         /// <param name="expression">Arbitrary additional JSON data associated with the Application cart item filter..</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         public ApplicationCIFExpression(int id = default(int), DateTime created = default(DateTime), int cartItemFilterId = default(int), int createdBy = default(int), List<Object> expression = default(List<Object>), int applicationId = default(int))
         {
             this.Id = id;
@@ -91,9 +91,9 @@ namespace TalonOne.Model
         public List<Object> Expression { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 

@@ -39,37 +39,30 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalyticsProduct" /> class.
         /// </summary>
-        /// <param name="id">The ID of the analytics-level product. (required).</param>
-        /// <param name="isPreliminary">Indicates whether the analytics-level product is connected to a catalog and also has a product name. (required).</param>
-        /// <param name="name">The name of the analytics-level product. (required).</param>
-        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**. .</param>
-        public AnalyticsProduct(int id = default(int), bool isPreliminary = default(bool), string name = default(string), int catalogId = default(int))
+        /// <param name="id">The ID of the product. (required).</param>
+        /// <param name="name">The name of the product. (required).</param>
+        /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.  (required).</param>
+        /// <param name="unitsSold">unitsSold.</param>
+        public AnalyticsProduct(int id = default(int), string name = default(string), int catalogId = default(int), AnalyticsDataPointWithTrend unitsSold = default(AnalyticsDataPointWithTrend))
         {
             this.Id = id;
-            this.IsPreliminary = isPreliminary;
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for AnalyticsProduct and cannot be null");
             this.CatalogId = catalogId;
+            this.UnitsSold = unitsSold;
         }
         
         /// <summary>
-        /// The ID of the analytics-level product.
+        /// The ID of the product.
         /// </summary>
-        /// <value>The ID of the analytics-level product.</value>
+        /// <value>The ID of the product.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public int Id { get; set; }
 
         /// <summary>
-        /// Indicates whether the analytics-level product is connected to a catalog and also has a product name.
+        /// The name of the product.
         /// </summary>
-        /// <value>Indicates whether the analytics-level product is connected to a catalog and also has a product name.</value>
-        [DataMember(Name="isPreliminary", EmitDefaultValue=false)]
-        public bool IsPreliminary { get; set; }
-
-        /// <summary>
-        /// The name of the analytics-level product.
-        /// </summary>
-        /// <value>The name of the analytics-level product.</value>
+        /// <value>The name of the product.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
@@ -81,6 +74,12 @@ namespace TalonOne.Model
         public int CatalogId { get; set; }
 
         /// <summary>
+        /// Gets or Sets UnitsSold
+        /// </summary>
+        [DataMember(Name="unitsSold", EmitDefaultValue=false)]
+        public AnalyticsDataPointWithTrend UnitsSold { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -89,9 +88,9 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class AnalyticsProduct {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  IsPreliminary: ").Append(IsPreliminary).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  CatalogId: ").Append(CatalogId).Append("\n");
+            sb.Append("  UnitsSold: ").Append(UnitsSold).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,10 +130,6 @@ namespace TalonOne.Model
                     this.Id.Equals(input.Id)
                 ) && 
                 (
-                    this.IsPreliminary == input.IsPreliminary ||
-                    this.IsPreliminary.Equals(input.IsPreliminary)
-                ) && 
-                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -142,6 +137,11 @@ namespace TalonOne.Model
                 (
                     this.CatalogId == input.CatalogId ||
                     this.CatalogId.Equals(input.CatalogId)
+                ) && 
+                (
+                    this.UnitsSold == input.UnitsSold ||
+                    (this.UnitsSold != null &&
+                    this.UnitsSold.Equals(input.UnitsSold))
                 );
         }
 
@@ -155,10 +155,11 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
-                hashCode = hashCode * 59 + this.IsPreliminary.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 hashCode = hashCode * 59 + this.CatalogId.GetHashCode();
+                if (this.UnitsSold != null)
+                    hashCode = hashCode * 59 + this.UnitsSold.GetHashCode();
                 return hashCode;
             }
         }

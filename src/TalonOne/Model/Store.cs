@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="description">The description of the store. (required).</param>
         /// <param name="attributes">The attributes of the store..</param>
         /// <param name="integrationId">The integration ID of the store. You choose this ID when you create a store.  **Note**: You cannot edit the &#x60;integrationId&#x60; after the store has been created.  (required).</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="updated">Timestamp of the most recent update on this entity. (required).</param>
         /// <param name="linkedCampaignIds">A list of IDs of the campaigns that are linked with current store..</param>
         public Store(int id = default(int), DateTime created = default(DateTime), string name = default(string), string description = default(string), Object attributes = default(Object), string integrationId = default(string), int applicationId = default(int), DateTime updated = default(DateTime), List<int> linkedCampaignIds = default(List<int>))
@@ -107,9 +107,9 @@ namespace TalonOne.Model
         public string IntegrationId { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 

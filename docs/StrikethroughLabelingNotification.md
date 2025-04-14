@@ -4,7 +4,8 @@ The strikethrough labels notification for an application.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | **int** | The ID of the application that catalog items labels belongs to. | 
+**Version** | **string** | The version of the strikethrough pricing notification. | [optional] 
+**ApplicationId** | **int** | The ID of the Application to which the catalog items labels belongs. | 
 **CurrentBatch** | **int** | The batch number of the notification. Notifications might be sent in different batches. | 
 **TotalBatches** | **int** | The total number of batches for the notification. | 
 **Trigger** | [**StrikethroughTrigger**](StrikethroughTrigger.md) |  | 

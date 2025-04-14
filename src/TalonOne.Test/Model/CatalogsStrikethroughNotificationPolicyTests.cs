@@ -65,6 +65,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Name'
         }
+        /// <summary>
+        /// Test the property 'AheadOfDaysTrigger'
+        /// </summary>
+        [Fact]
+        public void AheadOfDaysTriggerTest()
+        {
+            // TODO unit test for the property 'AheadOfDaysTrigger'
+        }
 
     }
 

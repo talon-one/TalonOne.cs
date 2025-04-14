@@ -32,6 +32,45 @@ namespace TalonOne.Model
     public partial class AchievementAdditionalProperties :  IEquatable<AchievementAdditionalProperties>, IValidatableObject
     {
         /// <summary>
+        /// The status of the achievement.
+        /// </summary>
+        /// <value>The status of the achievement.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            /// <summary>
+            /// Enum Inprogress for value: inprogress
+            /// </summary>
+            [EnumMember(Value = "inprogress")]
+            Inprogress = 1,
+
+            /// <summary>
+            /// Enum Expired for value: expired
+            /// </summary>
+            [EnumMember(Value = "expired")]
+            Expired = 2,
+
+            /// <summary>
+            /// Enum Notstarted for value: not_started
+            /// </summary>
+            [EnumMember(Value = "not_started")]
+            Notstarted = 3,
+
+            /// <summary>
+            /// Enum Completed for value: completed
+            /// </summary>
+            [EnumMember(Value = "completed")]
+            Completed = 4
+
+        }
+
+        /// <summary>
+        /// The status of the achievement.
+        /// </summary>
+        /// <value>The status of the achievement.</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public StatusEnum? Status { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="AchievementAdditionalProperties" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,23 +78,24 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AchievementAdditionalProperties" /> class.
         /// </summary>
-        /// <param name="campaignId">ID of the campaign, to which the achievement belongs to (required).</param>
+        /// <param name="campaignId">The ID of the campaign the achievement belongs to. (required).</param>
         /// <param name="userId">ID of the user that created this achievement. (required).</param>
-        /// <param name="createdBy">Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted.  (required).</param>
+        /// <param name="createdBy">Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted. .</param>
         /// <param name="hasProgress">Indicates if a customer has made progress in the achievement..</param>
-        public AchievementAdditionalProperties(int campaignId = default(int), int userId = default(int), string createdBy = default(string), bool hasProgress = default(bool))
+        /// <param name="status">The status of the achievement..</param>
+        public AchievementAdditionalProperties(int campaignId = default(int), int userId = default(int), string createdBy = default(string), bool hasProgress = default(bool), StatusEnum? status = default(StatusEnum?))
         {
             this.CampaignId = campaignId;
             this.UserId = userId;
-            // to ensure "createdBy" is required (not null)
-            this.CreatedBy = createdBy ?? throw new ArgumentNullException("createdBy is a required property for AchievementAdditionalProperties and cannot be null");
+            this.CreatedBy = createdBy;
             this.HasProgress = hasProgress;
+            this.Status = status;
         }
         
         /// <summary>
-        /// ID of the campaign, to which the achievement belongs to
+        /// The ID of the campaign the achievement belongs to.
         /// </summary>
-        /// <value>ID of the campaign, to which the achievement belongs to</value>
+        /// <value>The ID of the campaign the achievement belongs to.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
         public int CampaignId { get; set; }
 
@@ -92,6 +132,7 @@ namespace TalonOne.Model
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  HasProgress: ").Append(HasProgress).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +183,10 @@ namespace TalonOne.Model
                 (
                     this.HasProgress == input.HasProgress ||
                     this.HasProgress.Equals(input.HasProgress)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -159,6 +204,7 @@ namespace TalonOne.Model
                 if (this.CreatedBy != null)
                     hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
                 hashCode = hashCode * 59 + this.HasProgress.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }

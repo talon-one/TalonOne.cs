@@ -38,12 +38,14 @@ namespace TalonOne.Model
         /// <param name="pendingPoints">Total amount of points awarded to this customer but not available until their start date..</param>
         /// <param name="spentPoints">Total amount of points already spent by this customer..</param>
         /// <param name="expiredPoints">Total amount of points awarded but never redeemed. They cannot be used anymore..</param>
-        public LoyaltyBalance(decimal activePoints = default(decimal), decimal pendingPoints = default(decimal), decimal spentPoints = default(decimal), decimal expiredPoints = default(decimal))
+        /// <param name="negativePoints">Total amount of negative points. This implies that &#x60;activePoints&#x60; is &#x60;0&#x60;..</param>
+        public LoyaltyBalance(decimal activePoints = default(decimal), decimal pendingPoints = default(decimal), decimal spentPoints = default(decimal), decimal expiredPoints = default(decimal), decimal negativePoints = default(decimal))
         {
             this.ActivePoints = activePoints;
             this.PendingPoints = pendingPoints;
             this.SpentPoints = spentPoints;
             this.ExpiredPoints = expiredPoints;
+            this.NegativePoints = negativePoints;
         }
         
         /// <summary>
@@ -75,6 +77,13 @@ namespace TalonOne.Model
         public decimal ExpiredPoints { get; set; }
 
         /// <summary>
+        /// Total amount of negative points. This implies that &#x60;activePoints&#x60; is &#x60;0&#x60;.
+        /// </summary>
+        /// <value>Total amount of negative points. This implies that &#x60;activePoints&#x60; is &#x60;0&#x60;.</value>
+        [DataMember(Name="negativePoints", EmitDefaultValue=false)]
+        public decimal NegativePoints { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -86,6 +95,7 @@ namespace TalonOne.Model
             sb.Append("  PendingPoints: ").Append(PendingPoints).Append("\n");
             sb.Append("  SpentPoints: ").Append(SpentPoints).Append("\n");
             sb.Append("  ExpiredPoints: ").Append(ExpiredPoints).Append("\n");
+            sb.Append("  NegativePoints: ").Append(NegativePoints).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,6 +145,10 @@ namespace TalonOne.Model
                 (
                     this.ExpiredPoints == input.ExpiredPoints ||
                     this.ExpiredPoints.Equals(input.ExpiredPoints)
+                ) && 
+                (
+                    this.NegativePoints == input.NegativePoints ||
+                    this.NegativePoints.Equals(input.NegativePoints)
                 );
         }
 
@@ -151,6 +165,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.PendingPoints.GetHashCode();
                 hashCode = hashCode * 59 + this.SpentPoints.GetHashCode();
                 hashCode = hashCode * 59 + this.ExpiredPoints.GetHashCode();
+                hashCode = hashCode * 59 + this.NegativePoints.GetHashCode();
                 return hashCode;
             }
         }

@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | Internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
-**ApplicationId** | **int** | The ID of the application that owns this entity. | 
+**ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **Slots** | [**List&lt;SlotDef&gt;**](SlotDef.md) | The slots defined for this application. | 
 **Functions** | [**List&lt;FunctionDef&gt;**](FunctionDef.md) | The functions defined for this application. | 
 **Templates** | [**List&lt;TemplateDef&gt;**](TemplateDef.md) | The templates defined for this application. | 

@@ -40,10 +40,12 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CatalogsStrikethroughNotificationPolicy" /> class.
         /// </summary>
         /// <param name="name">Notification name. (required).</param>
-        public CatalogsStrikethroughNotificationPolicy(string name = default(string))
+        /// <param name="aheadOfDaysTrigger">The number of days in advance that strikethrough pricing updates should be sent..</param>
+        public CatalogsStrikethroughNotificationPolicy(string name = default(string), int aheadOfDaysTrigger = default(int))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CatalogsStrikethroughNotificationPolicy and cannot be null");
+            this.AheadOfDaysTrigger = aheadOfDaysTrigger;
         }
         
         /// <summary>
@@ -54,6 +56,13 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// The number of days in advance that strikethrough pricing updates should be sent.
+        /// </summary>
+        /// <value>The number of days in advance that strikethrough pricing updates should be sent.</value>
+        [DataMember(Name="aheadOfDaysTrigger", EmitDefaultValue=false)]
+        public int AheadOfDaysTrigger { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +71,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class CatalogsStrikethroughNotificationPolicy {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  AheadOfDaysTrigger: ").Append(AheadOfDaysTrigger).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +110,10 @@ namespace TalonOne.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.AheadOfDaysTrigger == input.AheadOfDaysTrigger ||
+                    this.AheadOfDaysTrigger.Equals(input.AheadOfDaysTrigger)
                 );
         }
 
@@ -114,6 +128,7 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                hashCode = hashCode * 59 + this.AheadOfDaysTrigger.GetHashCode();
                 return hashCode;
             }
         }
@@ -129,6 +144,18 @@ namespace TalonOne.Model
             if(this.Name != null && this.Name.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
+            }
+
+            // AheadOfDaysTrigger (int) maximum
+            if(this.AheadOfDaysTrigger > (int)30)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AheadOfDaysTrigger, must be a value less than or equal to 30.", new [] { "AheadOfDaysTrigger" });
+            }
+
+            // AheadOfDaysTrigger (int) minimum
+            if(this.AheadOfDaysTrigger < (int)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AheadOfDaysTrigger, must be a value greater than or equal to 1.", new [] { "AheadOfDaysTrigger" });
             }
 
             yield break;

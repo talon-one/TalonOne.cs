@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **IntegrationId** | **string** | The integration ID set by your integration layer. | 
 **Created** | **DateTime** | The time this entity was created. | 
-**ApplicationId** | **int** | The ID of the application that owns this entity. | 
+**ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **ProfileId** | **string** | ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;.  | 
 **Coupon** | **string** | Any coupon code entered. | 
 **Referral** | **string** | Any referral code entered. | 

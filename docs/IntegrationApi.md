@@ -13,6 +13,8 @@ Method | HTTP request | Description
 [**DeleteCouponReservation**](IntegrationApi.md#deletecouponreservation) | **DELETE** /v1/coupon_reservations/{couponValue} | Delete coupon reservations
 [**DeleteCustomerData**](IntegrationApi.md#deletecustomerdata) | **DELETE** /v1/customer_data/{integrationId} | Delete customer&#39;s personal data
 [**GenerateLoyaltyCard**](IntegrationApi.md#generateloyaltycard) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards | Generate loyalty card
+[**GetCustomerAchievementHistory**](IntegrationApi.md#getcustomerachievementhistory) | **GET** /v1/customer_profiles/{integrationId}/achievements/{achievementId} | List customer&#39;s achievement history
+[**GetCustomerAchievements**](IntegrationApi.md#getcustomerachievements) | **GET** /v1/customer_profiles/{integrationId}/achievements | List customer&#39;s available achievements
 [**GetCustomerInventory**](IntegrationApi.md#getcustomerinventory) | **GET** /v1/customer_profiles/{integrationId}/inventory | List customer data
 [**GetCustomerSession**](IntegrationApi.md#getcustomersession) | **GET** /v2/customer_sessions/{customerSessionId} | Get customer session
 [**GetLoyaltyBalances**](IntegrationApi.md#getloyaltybalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/balances | Get customer&#39;s loyalty balances
@@ -199,7 +201,7 @@ Name | Type | Description  | Notes
 
 Create referral code for an advocate
 
-Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the `campaignId` parameter, and will be associated with the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile. 
+Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the `campaignId` parameter, and will be associated with the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
 
 ### Example
 ```csharp
@@ -276,7 +278,7 @@ Name | Type | Description  | Notes
 
 Create referral codes for multiple advocates
 
-Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the `campaignId` parameter, and one referral code will be associated with one advocate using the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile. 
+Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the `campaignId` parameter, and one referral code will be associated with one advocate using the profile specified in the `advocateProfileIntegrationId` parameter as the advocate's profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
 
 ### Example
 ```csharp
@@ -301,7 +303,7 @@ namespace Example
 
             var apiInstance = new IntegrationApi(config);
             var body = new NewReferralsForMultipleAdvocates(); // NewReferralsForMultipleAdvocates | body
-            var silent = silent_example;  // string | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional)  (default to "yes")
+            var silent = silent_example;  // string | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional)  (default to "yes")
 
             try
             {
@@ -325,7 +327,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**NewReferralsForMultipleAdvocates**](NewReferralsForMultipleAdvocates.md)| body | 
- **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &quot;yes&quot;]
+ **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &quot;yes&quot;]
 
 ### Return type
 
@@ -737,6 +739,186 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getcustomerachievementhistory"></a>
+# **GetCustomerAchievementHistory**
+> InlineResponse2002 GetCustomerAchievementHistory (string integrationId, int achievementId, List<string> progressStatus = null, DateTime? startDate = null, DateTime? endDate = null, int? pageSize = null, int? skip = null)
+
+List customer's achievement history
+
+Retrieve all progress history of a given customer in the given achievement. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetCustomerAchievementHistoryExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(config);
+            var integrationId = integrationId_example;  // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
+            var achievementId = 56;  // int | The achievement identifier. 
+            var progressStatus = progressStatus_example;  // List<string> | Filter by customer progress status in the achievement.  (optional) 
+            var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Timestamp that filters the results to only contain achievements created on or after the start date. (optional) 
+            var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Timestamp that filters the results to only contain achievements created before or on the end date. (optional) 
+            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
+            var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
+
+            try
+            {
+                // List customer's achievement history
+                InlineResponse2002 result = apiInstance.GetCustomerAchievementHistory(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.GetCustomerAchievementHistory: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
+ **achievementId** | **int**| The achievement identifier.  | 
+ **progressStatus** | **List&lt;string&gt;**| Filter by customer progress status in the achievement.  | [optional] 
+ **startDate** | **DateTime?**| Timestamp that filters the results to only contain achievements created on or after the start date. | [optional] 
+ **endDate** | **DateTime?**| Timestamp that filters the results to only contain achievements created before or on the end date. | [optional] 
+ **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
+
+### Return type
+
+[**InlineResponse2002**](InlineResponse2002.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getcustomerachievements"></a>
+# **GetCustomerAchievements**
+> InlineResponse2001 GetCustomerAchievements (string integrationId, List<string> campaignIds = null, List<string> achievementIds = null, List<string> achievementStatus = null, List<string> currentProgressStatus = null, int? pageSize = null, int? skip = null)
+
+List customer's available achievements
+
+Retrieve all the achievements available to a given customer and their progress in them. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetCustomerAchievementsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new IntegrationApi(config);
+            var integrationId = integrationId_example;  // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
+            var campaignIds = new List<string>(); // List<string> | Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional) 
+            var achievementIds = new List<string>(); // List<string> | Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional) 
+            var achievementStatus = achievementStatus_example;  // List<string> | Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional) 
+            var currentProgressStatus = currentProgressStatus_example;  // List<string> | Filter by customer progress status in the achievement.  (optional) 
+            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
+            var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
+
+            try
+            {
+                // List customer's available achievements
+                InlineResponse2001 result = apiInstance.GetCustomerAchievements(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationApi.GetCustomerAchievements: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
+ **campaignIds** | [**List&lt;string&gt;**](string.md)| Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  | [optional] 
+ **achievementIds** | [**List&lt;string&gt;**](string.md)| Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  | [optional] 
+ **achievementStatus** | **List&lt;string&gt;**| Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  | [optional] 
+ **currentProgressStatus** | **List&lt;string&gt;**| Filter by customer progress status in the achievement.  | [optional] 
+ **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
+
+### Return type
+
+[**InlineResponse2001**](InlineResponse2001.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getcustomerinventory"></a>
 # **GetCustomerInventory**
 > CustomerInventory GetCustomerInventory (string integrationId, bool? profile = null, bool? referrals = null, bool? coupons = null, bool? loyalty = null, bool? giveaways = null, bool? achievements = null)
@@ -1077,7 +1259,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltycardpoints"></a>
 # **GetLoyaltyCardPoints**
-> InlineResponse2003 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = null, List<string> subledgerId = null, int? pageSize = null, int? skip = null)
+> InlineResponse2005 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = null, List<string> subledgerId = null, int? pageSize = null, int? skip = null)
 
 List card's unused loyalty points
 
@@ -1115,7 +1297,7 @@ namespace Example
             try
             {
                 // List card's unused loyalty points
-                InlineResponse2003 result = apiInstance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
+                InlineResponse2005 result = apiInstance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1142,7 +1324,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2003**](InlineResponse2003.md)
+[**InlineResponse2005**](InlineResponse2005.md)
 
 ### Authorization
 
@@ -1165,7 +1347,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltycardtransactions"></a>
 # **GetLoyaltyCardTransactions**
-> InlineResponse2001 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, int? pageSize = null, int? skip = null)
+> InlineResponse2003 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, int? pageSize = null, int? skip = null)
 
 List card's transactions
 
@@ -1199,13 +1381,13 @@ namespace Example
             var loyaltyTransactionType = loyaltyTransactionType_example;  // string | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional) 
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
-            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
+            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 50)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
 
             try
             {
                 // List card's transactions
-                InlineResponse2001 result = apiInstance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
+                InlineResponse2003 result = apiInstance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1229,12 +1411,12 @@ Name | Type | Description  | Notes
  **loyaltyTransactionType** | **string**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  | [optional] 
  **startDate** | **DateTime?**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **endDate** | **DateTime?**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
- **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
+ **pageSize** | **int?**| The number of items in the response. | [optional] [default to 50]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
-[**InlineResponse2001**](InlineResponse2001.md)
+[**InlineResponse2003**](InlineResponse2003.md)
 
 ### Authorization
 
@@ -1257,7 +1439,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltyprogramprofilepoints"></a>
 # **GetLoyaltyProgramProfilePoints**
-> InlineResponse2004 GetLoyaltyProgramProfilePoints (int loyaltyProgramId, string integrationId, string status = null, string subledgerId = null, int? pageSize = null, int? skip = null)
+> InlineResponse2006 GetLoyaltyProgramProfilePoints (int loyaltyProgramId, string integrationId, string status = null, string subledgerId = null, int? pageSize = null, int? skip = null)
 
 List customer's unused loyalty points
 
@@ -1295,7 +1477,7 @@ namespace Example
             try
             {
                 // List customer's unused loyalty points
-                InlineResponse2004 result = apiInstance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
+                InlineResponse2006 result = apiInstance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1322,7 +1504,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2004**](InlineResponse2004.md)
+[**InlineResponse2006**](InlineResponse2006.md)
 
 ### Authorization
 
@@ -1345,7 +1527,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltyprogramprofiletransactions"></a>
 # **GetLoyaltyProgramProfileTransactions**
-> InlineResponse2002 GetLoyaltyProgramProfileTransactions (int loyaltyProgramId, string integrationId, string subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, int? pageSize = null, int? skip = null)
+> InlineResponse2004 GetLoyaltyProgramProfileTransactions (int loyaltyProgramId, string integrationId, string subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, int? pageSize = null, int? skip = null)
 
 List customer's loyalty transactions
 
@@ -1385,7 +1567,7 @@ namespace Example
             try
             {
                 // List customer's loyalty transactions
-                InlineResponse2002 result = apiInstance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
+                InlineResponse2004 result = apiInstance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1414,7 +1596,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse2002**](InlineResponse2002.md)
+[**InlineResponse2004**](InlineResponse2004.md)
 
 ### Authorization
 
@@ -1864,7 +2046,7 @@ namespace Example
 
             var apiInstance = new IntegrationApi(config);
             var body = new IntegrationEventV2Request(); // IntegrationEventV2Request | body
-            var silent = silent_example;  // string | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional)  (default to "yes")
+            var silent = silent_example;  // string | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional)  (default to "yes")
             var dry = true;  // bool? | Indicates whether to persist the changes. Changes are ignored when `dry=true`.  (optional) 
 
             try
@@ -1889,7 +2071,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**IntegrationEventV2Request**](IntegrationEventV2Request.md)| body | 
- **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &quot;yes&quot;]
+ **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &quot;yes&quot;]
  **dry** | **bool?**| Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  | [optional] 
 
 ### Return type
@@ -2264,7 +2446,7 @@ namespace Example
 
             var apiInstance = new IntegrationApi(config);
             var body = new MultipleCustomerProfileIntegrationRequest(); // MultipleCustomerProfileIntegrationRequest | body
-            var silent = silent_example;  // string | Possible values: `yes` or `no`. - `yes`: Increases the perfomance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional)  (default to "yes")
+            var silent = silent_example;  // string | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional)  (default to "yes")
 
             try
             {
@@ -2288,7 +2470,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | [**MultipleCustomerProfileIntegrationRequest**](MultipleCustomerProfileIntegrationRequest.md)| body | 
- **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &quot;yes&quot;]
+ **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &quot;yes&quot;]
 
 ### Return type
 

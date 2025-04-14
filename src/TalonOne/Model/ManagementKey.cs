@@ -47,7 +47,8 @@ namespace TalonOne.Model
         /// <param name="createdBy">ID of the user who created it. (required).</param>
         /// <param name="accountID">ID of account the key is used for. (required).</param>
         /// <param name="created">The date the management key was created. (required).</param>
-        public ManagementKey(string name = default(string), DateTime expiryDate = default(DateTime), List<Endpoint> endpoints = default(List<Endpoint>), List<int> allowedApplicationIds = default(List<int>), int id = default(int), int createdBy = default(int), int accountID = default(int), DateTime created = default(DateTime))
+        /// <param name="disabled">The management key is disabled (this property is set to &#x60;true&#x60;) when the user who created the key is disabled or deleted..</param>
+        public ManagementKey(string name = default(string), DateTime expiryDate = default(DateTime), List<Endpoint> endpoints = default(List<Endpoint>), List<int> allowedApplicationIds = default(List<int>), int id = default(int), int createdBy = default(int), int accountID = default(int), DateTime created = default(DateTime), bool disabled = default(bool))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for ManagementKey and cannot be null");
@@ -59,6 +60,7 @@ namespace TalonOne.Model
             this.AccountID = accountID;
             this.Created = created;
             this.AllowedApplicationIds = allowedApplicationIds;
+            this.Disabled = disabled;
         }
         
         /// <summary>
@@ -118,6 +120,13 @@ namespace TalonOne.Model
         public DateTime Created { get; set; }
 
         /// <summary>
+        /// The management key is disabled (this property is set to &#x60;true&#x60;) when the user who created the key is disabled or deleted.
+        /// </summary>
+        /// <value>The management key is disabled (this property is set to &#x60;true&#x60;) when the user who created the key is disabled or deleted.</value>
+        [DataMember(Name="disabled", EmitDefaultValue=false)]
+        public bool Disabled { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,6 +142,7 @@ namespace TalonOne.Model
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  AccountID: ").Append(AccountID).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  Disabled: ").Append(Disabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -205,6 +215,10 @@ namespace TalonOne.Model
                     this.Created == input.Created ||
                     (this.Created != null &&
                     this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.Disabled == input.Disabled ||
+                    this.Disabled.Equals(input.Disabled)
                 );
         }
 
@@ -230,6 +244,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.AccountID.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
+                hashCode = hashCode * 59 + this.Disabled.GetHashCode();
                 return hashCode;
             }
         }

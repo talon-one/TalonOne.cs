@@ -169,6 +169,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Archived'
         }
+        /// <summary>
+        /// Test the property 'Flags'
+        /// </summary>
+        [Fact]
+        public void FlagsTest()
+        {
+            // TODO unit test for the property 'Flags'
+        }
 
     }
 

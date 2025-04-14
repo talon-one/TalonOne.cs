@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="LimitCounter" /> class.
         /// </summary>
         /// <param name="campaignId">The ID of the campaign that owns this entity. (required).</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="action">The limitable action of the limit counter. (required).</param>
@@ -82,9 +82,9 @@ namespace TalonOne.Model
         public int CampaignId { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 

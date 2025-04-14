@@ -66,14 +66,6 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'IsPreliminary'
-        /// </summary>
-        [Fact]
-        public void IsPreliminaryTest()
-        {
-            // TODO unit test for the property 'IsPreliminary'
-        }
-        /// <summary>
         /// Test the property 'Name'
         /// </summary>
         [Fact]
@@ -88,6 +80,14 @@ namespace TalonOne.Test
         public void CatalogIdTest()
         {
             // TODO unit test for the property 'CatalogId'
+        }
+        /// <summary>
+        /// Test the property 'UnitsSold'
+        /// </summary>
+        [Fact]
+        public void UnitsSoldTest()
+        {
+            // TODO unit test for the property 'UnitsSold'
         }
 
     }

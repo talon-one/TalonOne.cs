@@ -39,14 +39,14 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ProductSearchMatch" /> class.
         /// </summary>
-        /// <param name="productId">The ID of the product. (required).</param>
+        /// <param name="productId">The ID of the product..</param>
         /// <param name="value">The string matching the given value. Either a product name or SKU. (required).</param>
-        /// <param name="productSkuId">The ID of the SKU linked to a product. If empty, this is an analytics-level product..</param>
+        /// <param name="productSkuId">The ID of the SKU linked to a product. If empty, this is an product..</param>
         public ProductSearchMatch(int productId = default(int), string value = default(string), int productSkuId = default(int))
         {
-            this.ProductId = productId;
             // to ensure "value" is required (not null)
             this.Value = value ?? throw new ArgumentNullException("value is a required property for ProductSearchMatch and cannot be null");
+            this.ProductId = productId;
             this.ProductSkuId = productSkuId;
         }
         
@@ -65,9 +65,9 @@ namespace TalonOne.Model
         public string Value { get; set; }
 
         /// <summary>
-        /// The ID of the SKU linked to a product. If empty, this is an analytics-level product.
+        /// The ID of the SKU linked to a product. If empty, this is an product.
         /// </summary>
-        /// <value>The ID of the SKU linked to a product. If empty, this is an analytics-level product.</value>
+        /// <value>The ID of the SKU linked to a product. If empty, this is an product.</value>
         [DataMember(Name="productSkuId", EmitDefaultValue=false)]
         public int ProductSkuId { get; set; }
 

@@ -80,13 +80,17 @@ namespace TalonOne.Model
         /// <param name="name">Notification name. (required).</param>
         /// <param name="scopes">scopes (required).</param>
         /// <param name="batchingEnabled">Indicates whether batching is activated. (default to true).</param>
-        public CouponsNotificationPolicy(string name = default(string), List<ScopesEnum> scopes = default(List<ScopesEnum>), bool batchingEnabled = true)
+        /// <param name="includeData">Indicates whether to include all generated coupons. If &#x60;false&#x60;, only the &#x60;batchId&#x60; of the generated coupons is included..</param>
+        /// <param name="batchSize">The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;..</param>
+        public CouponsNotificationPolicy(string name = default(string), List<ScopesEnum> scopes = default(List<ScopesEnum>), bool batchingEnabled = true, bool includeData = default(bool), int batchSize = default(int))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CouponsNotificationPolicy and cannot be null");
             // to ensure "scopes" is required (not null)
             this.Scopes = scopes ?? throw new ArgumentNullException("scopes is a required property for CouponsNotificationPolicy and cannot be null");
             this.BatchingEnabled = batchingEnabled;
+            this.IncludeData = includeData;
+            this.BatchSize = batchSize;
         }
         
         /// <summary>
@@ -104,6 +108,20 @@ namespace TalonOne.Model
         public bool BatchingEnabled { get; set; }
 
         /// <summary>
+        /// Indicates whether to include all generated coupons. If &#x60;false&#x60;, only the &#x60;batchId&#x60; of the generated coupons is included.
+        /// </summary>
+        /// <value>Indicates whether to include all generated coupons. If &#x60;false&#x60;, only the &#x60;batchId&#x60; of the generated coupons is included.</value>
+        [DataMember(Name="includeData", EmitDefaultValue=false)]
+        public bool IncludeData { get; set; }
+
+        /// <summary>
+        /// The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;.
+        /// </summary>
+        /// <value>The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;.</value>
+        [DataMember(Name="batchSize", EmitDefaultValue=false)]
+        public int BatchSize { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -114,6 +132,8 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Scopes: ").Append(Scopes).Append("\n");
             sb.Append("  BatchingEnabled: ").Append(BatchingEnabled).Append("\n");
+            sb.Append("  IncludeData: ").Append(IncludeData).Append("\n");
+            sb.Append("  BatchSize: ").Append(BatchSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,6 +180,14 @@ namespace TalonOne.Model
                 (
                     this.BatchingEnabled == input.BatchingEnabled ||
                     this.BatchingEnabled.Equals(input.BatchingEnabled)
+                ) && 
+                (
+                    this.IncludeData == input.IncludeData ||
+                    this.IncludeData.Equals(input.IncludeData)
+                ) && 
+                (
+                    this.BatchSize == input.BatchSize ||
+                    this.BatchSize.Equals(input.BatchSize)
                 );
         }
 
@@ -176,6 +204,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 hashCode = hashCode * 59 + this.Scopes.GetHashCode();
                 hashCode = hashCode * 59 + this.BatchingEnabled.GetHashCode();
+                hashCode = hashCode * 59 + this.IncludeData.GetHashCode();
+                hashCode = hashCode * 59 + this.BatchSize.GetHashCode();
                 return hashCode;
             }
         }

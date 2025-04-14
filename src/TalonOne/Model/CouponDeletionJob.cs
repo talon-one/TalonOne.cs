@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="filters">filters (required).</param>
         /// <param name="status">The current status of this request. Possible values: - &#x60;not_ready&#x60; - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60;  (required).</param>
@@ -85,9 +85,9 @@ namespace TalonOne.Model
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 

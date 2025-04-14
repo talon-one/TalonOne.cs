@@ -42,13 +42,15 @@ namespace TalonOne.Model
         /// <param name="name">Notification name. (required).</param>
         /// <param name="triggers">triggers (required).</param>
         /// <param name="batchingEnabled">Indicates whether batching is activated. (default to true).</param>
-        public CardExpiringPointsNotificationPolicy(string name = default(string), List<CardExpiringPointsNotificationTrigger> triggers = default(List<CardExpiringPointsNotificationTrigger>), bool batchingEnabled = true)
+        /// <param name="batchSize">The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;..</param>
+        public CardExpiringPointsNotificationPolicy(string name = default(string), List<CardExpiringPointsNotificationTrigger> triggers = default(List<CardExpiringPointsNotificationTrigger>), bool batchingEnabled = true, int batchSize = default(int))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CardExpiringPointsNotificationPolicy and cannot be null");
             // to ensure "triggers" is required (not null)
             this.Triggers = triggers ?? throw new ArgumentNullException("triggers is a required property for CardExpiringPointsNotificationPolicy and cannot be null");
             this.BatchingEnabled = batchingEnabled;
+            this.BatchSize = batchSize;
         }
         
         /// <summary>
@@ -72,6 +74,13 @@ namespace TalonOne.Model
         public bool BatchingEnabled { get; set; }
 
         /// <summary>
+        /// The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;.
+        /// </summary>
+        /// <value>The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;.</value>
+        [DataMember(Name="batchSize", EmitDefaultValue=false)]
+        public int BatchSize { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +91,7 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Triggers: ").Append(Triggers).Append("\n");
             sb.Append("  BatchingEnabled: ").Append(BatchingEnabled).Append("\n");
+            sb.Append("  BatchSize: ").Append(BatchSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -130,6 +140,10 @@ namespace TalonOne.Model
                 (
                     this.BatchingEnabled == input.BatchingEnabled ||
                     this.BatchingEnabled.Equals(input.BatchingEnabled)
+                ) && 
+                (
+                    this.BatchSize == input.BatchSize ||
+                    this.BatchSize.Equals(input.BatchSize)
                 );
         }
 
@@ -147,6 +161,7 @@ namespace TalonOne.Model
                 if (this.Triggers != null)
                     hashCode = hashCode * 59 + this.Triggers.GetHashCode();
                 hashCode = hashCode * 59 + this.BatchingEnabled.GetHashCode();
+                hashCode = hashCode * 59 + this.BatchSize.GetHashCode();
                 return hashCode;
             }
         }

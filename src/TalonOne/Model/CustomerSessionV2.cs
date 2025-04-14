@@ -81,7 +81,7 @@ namespace TalonOne.Model
         /// <param name="id">Internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="integrationId">The integration ID set by your integration layer. (required).</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="profileId">ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;.  (required).</param>
         /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
         /// <param name="evaluableCampaignIds">When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. .</param>
@@ -98,8 +98,7 @@ namespace TalonOne.Model
         /// <param name="cartItemTotal">The total value of cart items, before any discounts are applied. (required).</param>
         /// <param name="additionalCostTotal">The total value of additional costs, before any discounts are applied. (required).</param>
         /// <param name="updated">Timestamp of the most recent event received on this session. (required).</param>
-        /// <param name="closurePrediction">The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between &#x60;0&#x60; and &#x60;1&#x60;..</param>
-        public CustomerSessionV2(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), int applicationId = default(int), string profileId = default(string), string storeIntegrationId = default(string), List<int> evaluableCampaignIds = default(List<int>), List<string> couponCodes = default(List<string>), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object), bool firstSession = default(bool), decimal total = default(decimal), decimal cartItemTotal = default(decimal), decimal additionalCostTotal = default(decimal), DateTime updated = default(DateTime), decimal closurePrediction = default(decimal))
+        public CustomerSessionV2(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), int applicationId = default(int), string profileId = default(string), string storeIntegrationId = default(string), List<int> evaluableCampaignIds = default(List<int>), List<string> couponCodes = default(List<string>), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object), bool firstSession = default(bool), decimal total = default(decimal), decimal cartItemTotal = default(decimal), decimal additionalCostTotal = default(decimal), DateTime updated = default(DateTime))
         {
             this.Id = id;
             this.Created = created;
@@ -125,7 +124,6 @@ namespace TalonOne.Model
             this.LoyaltyCards = loyaltyCards;
             this.AdditionalCosts = additionalCosts;
             this.Identifiers = identifiers;
-            this.ClosurePrediction = closurePrediction;
         }
         
         /// <summary>
@@ -150,9 +148,9 @@ namespace TalonOne.Model
         public string IntegrationId { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 
@@ -262,13 +260,6 @@ namespace TalonOne.Model
         public DateTime Updated { get; set; }
 
         /// <summary>
-        /// The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between &#x60;0&#x60; and &#x60;1&#x60;.
-        /// </summary>
-        /// <value>The likelihood of the customer session closing based on predictive modeling, expressed as a decimal between &#x60;0&#x60; and &#x60;1&#x60;.</value>
-        [DataMember(Name="closurePrediction", EmitDefaultValue=false)]
-        public decimal ClosurePrediction { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -296,7 +287,6 @@ namespace TalonOne.Model
             sb.Append("  CartItemTotal: ").Append(CartItemTotal).Append("\n");
             sb.Append("  AdditionalCostTotal: ").Append(AdditionalCostTotal).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");
-            sb.Append("  ClosurePrediction: ").Append(ClosurePrediction).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -429,10 +419,6 @@ namespace TalonOne.Model
                     this.Updated == input.Updated ||
                     (this.Updated != null &&
                     this.Updated.Equals(input.Updated))
-                ) && 
-                (
-                    this.ClosurePrediction == input.ClosurePrediction ||
-                    this.ClosurePrediction.Equals(input.ClosurePrediction)
                 );
         }
 
@@ -478,7 +464,6 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.AdditionalCostTotal.GetHashCode();
                 if (this.Updated != null)
                     hashCode = hashCode * 59 + this.Updated.GetHashCode();
-                hashCode = hashCode * 59 + this.ClosurePrediction.GetHashCode();
                 return hashCode;
             }
         }

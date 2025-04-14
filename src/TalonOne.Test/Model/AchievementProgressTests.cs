@@ -58,60 +58,12 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'AchievementId'
-        /// </summary>
-        [Fact]
-        public void AchievementIdTest()
-        {
-            // TODO unit test for the property 'AchievementId'
-        }
-        /// <summary>
-        /// Test the property 'Name'
-        /// </summary>
-        [Fact]
-        public void NameTest()
-        {
-            // TODO unit test for the property 'Name'
-        }
-        /// <summary>
-        /// Test the property 'Title'
-        /// </summary>
-        [Fact]
-        public void TitleTest()
-        {
-            // TODO unit test for the property 'Title'
-        }
-        /// <summary>
-        /// Test the property 'Description'
-        /// </summary>
-        [Fact]
-        public void DescriptionTest()
-        {
-            // TODO unit test for the property 'Description'
-        }
-        /// <summary>
-        /// Test the property 'CampaignId'
-        /// </summary>
-        [Fact]
-        public void CampaignIdTest()
-        {
-            // TODO unit test for the property 'CampaignId'
-        }
-        /// <summary>
         /// Test the property 'Status'
         /// </summary>
         [Fact]
         public void StatusTest()
         {
             // TODO unit test for the property 'Status'
-        }
-        /// <summary>
-        /// Test the property 'Target'
-        /// </summary>
-        [Fact]
-        public void TargetTest()
-        {
-            // TODO unit test for the property 'Target'
         }
         /// <summary>
         /// Test the property 'Progress'

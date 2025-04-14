@@ -188,10 +188,12 @@ namespace TalonOne.Model
         /// <param name="action">action (required).</param>
         /// <param name="period">period.</param>
         /// <param name="storeCount">storeCount (required).</param>
-        public SummaryCampaignStoreBudget(ActionEnum action = default(ActionEnum), PeriodEnum? period = default(PeriodEnum?), int storeCount = default(int))
+        /// <param name="imported">imported (required).</param>
+        public SummaryCampaignStoreBudget(ActionEnum action = default(ActionEnum), PeriodEnum? period = default(PeriodEnum?), int storeCount = default(int), bool imported = default(bool))
         {
             this.Action = action;
             this.StoreCount = storeCount;
+            this.Imported = imported;
             this.Period = period;
         }
         
@@ -200,6 +202,12 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="storeCount", EmitDefaultValue=false)]
         public int StoreCount { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Imported
+        /// </summary>
+        [DataMember(Name="imported", EmitDefaultValue=false)]
+        public bool Imported { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -212,6 +220,7 @@ namespace TalonOne.Model
             sb.Append("  Action: ").Append(Action).Append("\n");
             sb.Append("  Period: ").Append(Period).Append("\n");
             sb.Append("  StoreCount: ").Append(StoreCount).Append("\n");
+            sb.Append("  Imported: ").Append(Imported).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -257,6 +266,10 @@ namespace TalonOne.Model
                 (
                     this.StoreCount == input.StoreCount ||
                     this.StoreCount.Equals(input.StoreCount)
+                ) && 
+                (
+                    this.Imported == input.Imported ||
+                    this.Imported.Equals(input.Imported)
                 );
         }
 
@@ -272,6 +285,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Action.GetHashCode();
                 hashCode = hashCode * 59 + this.Period.GetHashCode();
                 hashCode = hashCode * 59 + this.StoreCount.GetHashCode();
+                hashCode = hashCode * 59 + this.Imported.GetHashCode();
                 return hashCode;
             }
         }

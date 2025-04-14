@@ -80,7 +80,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="integrationId">The integration ID set by your integration layer. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="profileId">ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;.  (required).</param>
         /// <param name="coupon">Any coupon code entered. (required).</param>
         /// <param name="referral">Any referral code entered. (required).</param>
@@ -132,9 +132,9 @@ namespace TalonOne.Model
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 

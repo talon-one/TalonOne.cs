@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | **int** | The ID of the application that owns this entity. | 
+**ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **SessionId** | **string** | Integration ID of the session in which the customer redeemed the referral. | 
 **AdvocateIntegrationId** | **string** | Integration ID of the Advocate&#39;s Profile. | 
 **FriendIntegrationId** | **string** | Integration ID of the Friend&#39;s Profile. | 

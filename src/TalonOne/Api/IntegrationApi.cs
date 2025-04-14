@@ -77,7 +77,7 @@ namespace TalonOne.Api
         /// Create referral code for an advocate
         /// </summary>
         /// <remarks>
-        /// Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -88,7 +88,7 @@ namespace TalonOne.Api
         /// Create referral code for an advocate
         /// </summary>
         /// <remarks>
-        /// Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -98,11 +98,11 @@ namespace TalonOne.Api
         /// Create referral codes for multiple advocates
         /// </summary>
         /// <remarks>
-        /// Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>InlineResponse201</returns>
         InlineResponse201 CreateReferralsForMultipleAdvocates (NewReferralsForMultipleAdvocates body, string silent = default(string));
 
@@ -110,11 +110,11 @@ namespace TalonOne.Api
         /// Create referral codes for multiple advocates
         /// </summary>
         /// <remarks>
-        /// Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of InlineResponse201</returns>
         ApiResponse<InlineResponse201> CreateReferralsForMultipleAdvocatesWithHttpInfo (NewReferralsForMultipleAdvocates body, string silent = default(string));
         /// <summary>
@@ -226,6 +226,72 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <returns>ApiResponse of LoyaltyCard</returns>
         ApiResponse<LoyaltyCard> GenerateLoyaltyCardWithHttpInfo (int loyaltyProgramId, GenerateLoyaltyCard body);
+        /// <summary>
+        /// List customer&#39;s achievement history
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all progress history of a given customer in the given achievement. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="achievementId">The achievement identifier. </param>
+        /// <param name="progressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="startDate">Timestamp that filters the results to only contain achievements created on or after the start date. (optional)</param>
+        /// <param name="endDate">Timestamp that filters the results to only contain achievements created before or on the end date. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>InlineResponse2002</returns>
+        InlineResponse2002 GetCustomerAchievementHistory (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+
+        /// <summary>
+        /// List customer&#39;s achievement history
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all progress history of a given customer in the given achievement. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="achievementId">The achievement identifier. </param>
+        /// <param name="progressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="startDate">Timestamp that filters the results to only contain achievements created on or after the start date. (optional)</param>
+        /// <param name="endDate">Timestamp that filters the results to only contain achievements created before or on the end date. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        ApiResponse<InlineResponse2002> GetCustomerAchievementHistoryWithHttpInfo (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        /// <summary>
+        /// List customer&#39;s available achievements
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the achievements available to a given customer and their progress in them. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="campaignIds">Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)</param>
+        /// <param name="achievementIds">Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional)</param>
+        /// <param name="achievementStatus">Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional)</param>
+        /// <param name="currentProgressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>InlineResponse2001</returns>
+        InlineResponse2001 GetCustomerAchievements (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+
+        /// <summary>
+        /// List customer&#39;s available achievements
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the achievements available to a given customer and their progress in them. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="campaignIds">Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)</param>
+        /// <param name="achievementIds">Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional)</param>
+        /// <param name="achievementStatus">Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional)</param>
+        /// <param name="currentProgressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        ApiResponse<InlineResponse2001> GetCustomerAchievementsWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List customer data
         /// </summary>
@@ -351,8 +417,8 @@ namespace TalonOne.Api
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>InlineResponse2005</returns>
+        InlineResponse2005 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List card&#39;s unused loyalty points
@@ -367,8 +433,8 @@ namespace TalonOne.Api
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        ApiResponse<InlineResponse2005> GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List card&#39;s transactions
         /// </summary>
@@ -382,10 +448,10 @@ namespace TalonOne.Api
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>InlineResponse2003</returns>
+        InlineResponse2003 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List card&#39;s transactions
@@ -400,10 +466,10 @@ namespace TalonOne.Api
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List customer&#39;s unused loyalty points
         /// </summary>
@@ -415,61 +481,61 @@ namespace TalonOne.Api
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>InlineResponse2006</returns>
+        InlineResponse2006 GetLoyaltyProgramProfilePoints (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+
+        /// <summary>
+        /// List customer&#39;s unused loyalty points
+        /// </summary>
+        /// <remarks>
+        /// Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        ApiResponse<InlineResponse2006> GetLoyaltyProgramProfilePointsWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <summary>
+        /// List customer&#39;s loyalty transactions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GetLoyaltyProgramProfilePoints (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse2004 GetLoyaltyProgramProfileTransactions (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
-        /// List customer&#39;s unused loyalty points
+        /// List customer&#39;s loyalty transactions
         /// </summary>
         /// <remarks>
-        /// Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GetLoyaltyProgramProfilePointsWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
-        /// <summary>
-        /// List customer&#39;s loyalty transactions
-        /// </summary>
-        /// <remarks>
-        /// Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetLoyaltyProgramProfileTransactions (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
-
-        /// <summary>
-        /// List customer&#39;s loyalty transactions
-        /// </summary>
-        /// <remarks>
-        /// Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetLoyaltyProgramProfileTransactionsWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse2004> GetLoyaltyProgramProfileTransactionsWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List customers that have this coupon reserved
         /// </summary>
@@ -593,7 +659,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
         /// <returns>TrackEventV2Response</returns>
         TrackEventV2Response TrackEventV2 (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?));
@@ -606,7 +672,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
         /// <returns>ApiResponse of TrackEventV2Response</returns>
         ApiResponse<TrackEventV2Response> TrackEventV2WithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?));
@@ -712,7 +778,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>MultipleCustomerProfileIntegrationResponseV2</returns>
         MultipleCustomerProfileIntegrationResponseV2 UpdateCustomerProfilesV2 (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
 
@@ -724,7 +790,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of MultipleCustomerProfileIntegrationResponseV2</returns>
         ApiResponse<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2WithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
         /// <summary>
@@ -811,7 +877,7 @@ namespace TalonOne.Api
         /// Create referral code for an advocate
         /// </summary>
         /// <remarks>
-        /// Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -822,7 +888,7 @@ namespace TalonOne.Api
         /// Create referral code for an advocate
         /// </summary>
         /// <remarks>
-        /// Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -832,11 +898,11 @@ namespace TalonOne.Api
         /// Create referral codes for multiple advocates
         /// </summary>
         /// <remarks>
-        /// Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of InlineResponse201</returns>
         System.Threading.Tasks.Task<InlineResponse201> CreateReferralsForMultipleAdvocatesAsync (NewReferralsForMultipleAdvocates body, string silent = default(string));
 
@@ -844,11 +910,11 @@ namespace TalonOne.Api
         /// Create referral codes for multiple advocates
         /// </summary>
         /// <remarks>
-        /// Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (InlineResponse201)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse201>> CreateReferralsForMultipleAdvocatesAsyncWithHttpInfo (NewReferralsForMultipleAdvocates body, string silent = default(string));
         /// <summary>
@@ -960,6 +1026,72 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (LoyaltyCard)</returns>
         System.Threading.Tasks.Task<ApiResponse<LoyaltyCard>> GenerateLoyaltyCardAsyncWithHttpInfo (int loyaltyProgramId, GenerateLoyaltyCard body);
+        /// <summary>
+        /// List customer&#39;s achievement history
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all progress history of a given customer in the given achievement. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="achievementId">The achievement identifier. </param>
+        /// <param name="progressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="startDate">Timestamp that filters the results to only contain achievements created on or after the start date. (optional)</param>
+        /// <param name="endDate">Timestamp that filters the results to only contain achievements created before or on the end date. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of InlineResponse2002</returns>
+        System.Threading.Tasks.Task<InlineResponse2002> GetCustomerAchievementHistoryAsync (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+
+        /// <summary>
+        /// List customer&#39;s achievement history
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all progress history of a given customer in the given achievement. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="achievementId">The achievement identifier. </param>
+        /// <param name="progressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="startDate">Timestamp that filters the results to only contain achievements created on or after the start date. (optional)</param>
+        /// <param name="endDate">Timestamp that filters the results to only contain achievements created before or on the end date. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCustomerAchievementHistoryAsyncWithHttpInfo (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        /// <summary>
+        /// List customer&#39;s available achievements
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the achievements available to a given customer and their progress in them. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="campaignIds">Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)</param>
+        /// <param name="achievementIds">Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional)</param>
+        /// <param name="achievementStatus">Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional)</param>
+        /// <param name="currentProgressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of InlineResponse2001</returns>
+        System.Threading.Tasks.Task<InlineResponse2001> GetCustomerAchievementsAsync (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+
+        /// <summary>
+        /// List customer&#39;s available achievements
+        /// </summary>
+        /// <remarks>
+        /// Retrieve all the achievements available to a given customer and their progress in them. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="campaignIds">Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)</param>
+        /// <param name="achievementIds">Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional)</param>
+        /// <param name="achievementStatus">Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional)</param>
+        /// <param name="currentProgressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetCustomerAchievementsAsyncWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List customer data
         /// </summary>
@@ -1085,8 +1217,8 @@ namespace TalonOne.Api
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>Task of InlineResponse2005</returns>
+        System.Threading.Tasks.Task<InlineResponse2005> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List card&#39;s unused loyalty points
@@ -1101,8 +1233,8 @@ namespace TalonOne.Api
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List card&#39;s transactions
         /// </summary>
@@ -1116,10 +1248,10 @@ namespace TalonOne.Api
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>Task of InlineResponse2003</returns>
+        System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
         /// List card&#39;s transactions
@@ -1134,10 +1266,10 @@ namespace TalonOne.Api
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List customer&#39;s unused loyalty points
         /// </summary>
@@ -1149,61 +1281,61 @@ namespace TalonOne.Api
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of InlineResponse2006</returns>
+        System.Threading.Tasks.Task<InlineResponse2006> GetLoyaltyProgramProfilePointsAsync (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+
+        /// <summary>
+        /// List customer&#39;s unused loyalty points
+        /// </summary>
+        /// <remarks>
+        /// Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetLoyaltyProgramProfilePointsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        /// <summary>
+        /// List customer&#39;s loyalty transactions
+        /// </summary>
+        /// <remarks>
+        /// Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GetLoyaltyProgramProfilePointsAsync (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse2004> GetLoyaltyProgramProfileTransactionsAsync (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
 
         /// <summary>
-        /// List customer&#39;s unused loyalty points
+        /// List customer&#39;s loyalty transactions
         /// </summary>
         /// <remarks>
-        /// Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetLoyaltyProgramProfilePointsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
-        /// <summary>
-        /// List customer&#39;s loyalty transactions
-        /// </summary>
-        /// <remarks>
-        /// Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetLoyaltyProgramProfileTransactionsAsync (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
-
-        /// <summary>
-        /// List customer&#39;s loyalty transactions
-        /// </summary>
-        /// <remarks>
-        /// Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
         /// <summary>
         /// List customers that have this coupon reserved
         /// </summary>
@@ -1327,7 +1459,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
         /// <returns>Task of TrackEventV2Response</returns>
         System.Threading.Tasks.Task<TrackEventV2Response> TrackEventV2Async (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?));
@@ -1340,7 +1472,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
         /// <returns>Task of ApiResponse (TrackEventV2Response)</returns>
         System.Threading.Tasks.Task<ApiResponse<TrackEventV2Response>> TrackEventV2AsyncWithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?));
@@ -1446,7 +1578,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of MultipleCustomerProfileIntegrationResponseV2</returns>
         System.Threading.Tasks.Task<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2Async (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
 
@@ -1458,7 +1590,7 @@ namespace TalonOne.Api
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (MultipleCustomerProfileIntegrationResponseV2)</returns>
         System.Threading.Tasks.Task<ApiResponse<MultipleCustomerProfileIntegrationResponseV2>> UpdateCustomerProfilesV2AsyncWithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string));
         /// <summary>
@@ -1897,7 +2029,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create referral code for an advocate Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Create referral code for an advocate Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -1909,7 +2041,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create referral code for an advocate Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Create referral code for an advocate Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -1964,7 +2096,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create referral code for an advocate Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Create referral code for an advocate Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -1977,7 +2109,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create referral code for an advocate Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Create referral code for an advocate Creates a referral code for an advocate. The code will be valid for the referral campaign for which is created, indicated in the &#x60;campaignId&#x60; parameter, and will be associated with the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -2034,11 +2166,11 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create referral codes for multiple advocates Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Create referral codes for multiple advocates Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>InlineResponse201</returns>
         public InlineResponse201 CreateReferralsForMultipleAdvocates (NewReferralsForMultipleAdvocates body, string silent = default(string))
         {
@@ -2047,11 +2179,11 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create referral codes for multiple advocates Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Create referral codes for multiple advocates Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of InlineResponse201</returns>
         public TalonOne.Client.ApiResponse< InlineResponse201 > CreateReferralsForMultipleAdvocatesWithHttpInfo (NewReferralsForMultipleAdvocates body, string silent = default(string))
         {
@@ -2107,11 +2239,11 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create referral codes for multiple advocates Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Create referral codes for multiple advocates Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of InlineResponse201</returns>
         public async System.Threading.Tasks.Task<InlineResponse201> CreateReferralsForMultipleAdvocatesAsync (NewReferralsForMultipleAdvocates body, string silent = default(string))
         {
@@ -2121,11 +2253,11 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Create referral codes for multiple advocates Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile. 
+        /// Create referral codes for multiple advocates Creates unique referral codes for multiple advocates. The code will be valid for the referral campaign for which it is created, indicated in the &#x60;campaignId&#x60; parameter, and one referral code will be associated with one advocate using the profile specified in the &#x60;advocateProfileIntegrationId&#x60; parameter as the advocate&#39;s profile.  **Note:** Any [referral limits](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets#referral-limits) set are ignored when you use this endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (InlineResponse201)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse201>> CreateReferralsForMultipleAdvocatesAsyncWithHttpInfo (NewReferralsForMultipleAdvocates body, string silent = default(string))
         {
@@ -2858,6 +2990,414 @@ namespace TalonOne.Api
         }
 
         /// <summary>
+        /// List customer&#39;s achievement history Retrieve all progress history of a given customer in the given achievement. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="achievementId">The achievement identifier. </param>
+        /// <param name="progressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="startDate">Timestamp that filters the results to only contain achievements created on or after the start date. (optional)</param>
+        /// <param name="endDate">Timestamp that filters the results to only contain achievements created before or on the end date. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>InlineResponse2002</returns>
+        public InlineResponse2002 GetCustomerAchievementHistory (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse2002> localVarResponse = GetCustomerAchievementHistoryWithHttpInfo(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List customer&#39;s achievement history Retrieve all progress history of a given customer in the given achievement. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="achievementId">The achievement identifier. </param>
+        /// <param name="progressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="startDate">Timestamp that filters the results to only contain achievements created on or after the start date. (optional)</param>
+        /// <param name="endDate">Timestamp that filters the results to only contain achievements created before or on the end date. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse2002 > GetCustomerAchievementHistoryWithHttpInfo (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        {
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetCustomerAchievementHistory");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
+            if (progressStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "progressStatus", progressStatus));
+            }
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< InlineResponse2002 >("/v1/customer_profiles/{integrationId}/achievements/{achievementId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCustomerAchievementHistory", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List customer&#39;s achievement history Retrieve all progress history of a given customer in the given achievement. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="achievementId">The achievement identifier. </param>
+        /// <param name="progressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="startDate">Timestamp that filters the results to only contain achievements created on or after the start date. (optional)</param>
+        /// <param name="endDate">Timestamp that filters the results to only contain achievements created before or on the end date. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of InlineResponse2002</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2002> GetCustomerAchievementHistoryAsync (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetCustomerAchievementHistoryAsyncWithHttpInfo(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List customer&#39;s achievement history Retrieve all progress history of a given customer in the given achievement. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="achievementId">The achievement identifier. </param>
+        /// <param name="progressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="startDate">Timestamp that filters the results to only contain achievements created on or after the start date. (optional)</param>
+        /// <param name="endDate">Timestamp that filters the results to only contain achievements created before or on the end date. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2002>> GetCustomerAchievementHistoryAsyncWithHttpInfo (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        {
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetCustomerAchievementHistory");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
+            if (progressStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "progressStatus", progressStatus));
+            }
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/v1/customer_profiles/{integrationId}/achievements/{achievementId}", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCustomerAchievementHistory", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List customer&#39;s available achievements Retrieve all the achievements available to a given customer and their progress in them. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="campaignIds">Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)</param>
+        /// <param name="achievementIds">Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional)</param>
+        /// <param name="achievementStatus">Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional)</param>
+        /// <param name="currentProgressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>InlineResponse2001</returns>
+        public InlineResponse2001 GetCustomerAchievements (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse2001> localVarResponse = GetCustomerAchievementsWithHttpInfo(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List customer&#39;s available achievements Retrieve all the achievements available to a given customer and their progress in them. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="campaignIds">Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)</param>
+        /// <param name="achievementIds">Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional)</param>
+        /// <param name="achievementStatus">Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional)</param>
+        /// <param name="currentProgressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse2001 > GetCustomerAchievementsWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        {
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetCustomerAchievements");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
+            if (campaignIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "campaignIds", campaignIds));
+            }
+            if (achievementIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "achievementIds", achievementIds));
+            }
+            if (achievementStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "achievementStatus", achievementStatus));
+            }
+            if (currentProgressStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "currentProgressStatus", currentProgressStatus));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< InlineResponse2001 >("/v1/customer_profiles/{integrationId}/achievements", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCustomerAchievements", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List customer&#39;s available achievements Retrieve all the achievements available to a given customer and their progress in them. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="campaignIds">Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)</param>
+        /// <param name="achievementIds">Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional)</param>
+        /// <param name="achievementStatus">Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional)</param>
+        /// <param name="currentProgressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of InlineResponse2001</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2001> GetCustomerAchievementsAsync (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetCustomerAchievementsAsyncWithHttpInfo(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List customer&#39;s available achievements Retrieve all the achievements available to a given customer and their progress in them. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="campaignIds">Filter by one or more Campaign IDs, separated by a comma.  **Note:** If no campaigns are specified, data for all the campaigns in the Application is returned.  (optional)</param>
+        /// <param name="achievementIds">Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional)</param>
+        /// <param name="achievementStatus">Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional)</param>
+        /// <param name="currentProgressStatus">Filter by customer progress status in the achievement.  (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2001>> GetCustomerAchievementsAsyncWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        {
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetCustomerAchievements");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
+            if (campaignIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "campaignIds", campaignIds));
+            }
+            if (achievementIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "achievementIds", achievementIds));
+            }
+            if (achievementStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "achievementStatus", achievementStatus));
+            }
+            if (currentProgressStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "currentProgressStatus", currentProgressStatus));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/v1/customer_profiles/{integrationId}/achievements", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetCustomerAchievements", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List customer data Return the customer inventory regarding entities referencing this customer profile&#39;s &#x60;integrationId&#x60;.  Typical entities returned are: customer profile information, referral codes, loyalty points, loyalty cards and reserved coupons. Reserved coupons also include redeemed coupons. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3563,10 +4103,10 @@ namespace TalonOne.Api
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        /// <returns>InlineResponse2005</returns>
+        public InlineResponse2005 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse2003> localVarResponse = GetLoyaltyCardPointsWithHttpInfo(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
+             TalonOne.Client.ApiResponse<InlineResponse2005> localVarResponse = GetLoyaltyCardPointsWithHttpInfo(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
              return localVarResponse.Data;
         }
 
@@ -3578,14 +4118,207 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2005</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse2005 > GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        {
+            // verify the required parameter 'loyaltyCardId' is set
+            if (loyaltyCardId == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'loyaltyCardId' when calling IntegrationApi->GetLoyaltyCardPoints");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (subledgerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "subledgerId", subledgerId));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< InlineResponse2005 >("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/points", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetLoyaltyCardPoints", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List card&#39;s unused loyalty points Get paginated results of loyalty points for a given loyalty card identifier in a card-based loyalty program. This endpoint returns only the balances of unused points on a loyalty card.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
+        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of InlineResponse2005</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2005> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse2005> localVarResponse = await GetLoyaltyCardPointsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List card&#39;s unused loyalty points Get paginated results of loyalty points for a given loyalty card identifier in a card-based loyalty program. This endpoint returns only the balances of unused points on a loyalty card.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
+        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2005>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        {
+            // verify the required parameter 'loyaltyCardId' is set
+            if (loyaltyCardId == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'loyaltyCardId' when calling IntegrationApi->GetLoyaltyCardPoints");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (subledgerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "subledgerId", subledgerId));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2005>("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/points", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetLoyaltyCardPoints", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List card&#39;s transactions Retrieve loyalty transaction logs for the given loyalty card in the specified loyalty program with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>InlineResponse2003</returns>
+        public InlineResponse2003 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse2003> localVarResponse = GetLoyaltyCardTransactionsWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List card&#39;s transactions Retrieve loyalty transaction logs for the given loyalty card in the specified loyalty program with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
+        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2003 > GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2003 > GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'loyaltyCardId' when calling IntegrationApi->GetLoyaltyCardPoints");
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'loyaltyCardId' when calling IntegrationApi->GetLoyaltyCardTransactions");
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -3605,13 +4338,21 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
-            if (status != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            }
             if (subledgerId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "subledgerId", subledgerId));
+            }
+            if (loyaltyTransactionType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "loyaltyTransactionType", loyaltyTransactionType));
+            }
+            if (startDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
+            }
+            if (endDate != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
             if (pageSize != null)
             {
@@ -3634,12 +4375,12 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse2003 >("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/points", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse2003 >("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transactions", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetLoyaltyCardPoints", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetLoyaltyCardTransactions", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3647,240 +4388,39 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// List card&#39;s unused loyalty points Get paginated results of loyalty points for a given loyalty card identifier in a card-based loyalty program. This endpoint returns only the balances of unused points on a loyalty card.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// List card&#39;s transactions Retrieve loyalty transaction logs for the given loyalty card in the specified loyalty program with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse2003> localVarResponse = await GetLoyaltyCardPointsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
+             TalonOne.Client.ApiResponse<InlineResponse2003> localVarResponse = await GetLoyaltyCardTransactionsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// List card&#39;s unused loyalty points Get paginated results of loyalty points for a given loyalty card identifier in a card-based loyalty program. This endpoint returns only the balances of unused points on a loyalty card.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// List card&#39;s transactions Retrieve loyalty transaction logs for the given loyalty card in the specified loyalty program with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2003>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
-        {
-            // verify the required parameter 'loyaltyCardId' is set
-            if (loyaltyCardId == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'loyaltyCardId' when calling IntegrationApi->GetLoyaltyCardPoints");
-
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
-            if (status != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            }
-            if (subledgerId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "subledgerId", subledgerId));
-            }
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-
-            // authentication (api_key_v1) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2003>("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/points", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLoyaltyCardPoints", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List card&#39;s transactions Retrieve loyalty transaction logs for the given loyalty card in the specified loyalty program with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse2001> localVarResponse = GetLoyaltyCardTransactionsWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List card&#39;s transactions Retrieve loyalty transaction logs for the given loyalty card in the specified loyalty program with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2001 > GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
-        {
-            // verify the required parameter 'loyaltyCardId' is set
-            if (loyaltyCardId == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'loyaltyCardId' when calling IntegrationApi->GetLoyaltyCardTransactions");
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
-            if (subledgerId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "subledgerId", subledgerId));
-            }
-            if (loyaltyTransactionType != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "loyaltyTransactionType", loyaltyTransactionType));
-            }
-            if (startDate != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
-            }
-            if (endDate != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
-            }
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-
-            // authentication (api_key_v1) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse2001 >("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transactions", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLoyaltyCardTransactions", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List card&#39;s transactions Retrieve loyalty transaction logs for the given loyalty card in the specified loyalty program with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetLoyaltyCardTransactionsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List card&#39;s transactions Retrieve loyalty transaction logs for the given loyalty card in the specified loyalty program with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
-        /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2001>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2003>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -3943,7 +4483,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2001>("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transactions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2003>("/v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transactions", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -3963,220 +4503,220 @@ namespace TalonOne.Api
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
         /// <param name="status">Filter points based on their status. (optional, default to active)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>InlineResponse2006</returns>
+        public InlineResponse2006 GetLoyaltyProgramProfilePoints (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse2006> localVarResponse = GetLoyaltyProgramProfilePointsWithHttpInfo(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List customer&#39;s unused loyalty points Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>ApiResponse of InlineResponse2006</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse2006 > GetLoyaltyProgramProfilePointsWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        {
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetLoyaltyProgramProfilePoints");
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (subledgerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< InlineResponse2006 >("/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/points", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetLoyaltyProgramProfilePoints", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List customer&#39;s unused loyalty points Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of InlineResponse2006</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2006> GetLoyaltyProgramProfilePointsAsync (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse2006> localVarResponse = await GetLoyaltyProgramProfilePointsAsyncWithHttpInfo(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List customer&#39;s unused loyalty points Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2006>> GetLoyaltyProgramProfilePointsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        {
+            // verify the required parameter 'integrationId' is set
+            if (integrationId == null)
+                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetLoyaltyProgramProfilePoints");
+
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
+            if (status != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+            }
+            if (subledgerId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2006>("/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/points", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetLoyaltyProgramProfilePoints", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List customer&#39;s loyalty transactions Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
+        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
+        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 GetLoyaltyProgramProfilePoints (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse2004 GetLoyaltyProgramProfileTransactions (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse2004> localVarResponse = GetLoyaltyProgramProfilePointsWithHttpInfo(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
+             TalonOne.Client.ApiResponse<InlineResponse2004> localVarResponse = GetLoyaltyProgramProfileTransactionsWithHttpInfo(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List customer&#39;s unused loyalty points Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
+        /// List customer&#39;s loyalty transactions Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
+        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
+        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2004 > GetLoyaltyProgramProfilePointsWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
-        {
-            // verify the required parameter 'integrationId' is set
-            if (integrationId == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetLoyaltyProgramProfilePoints");
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
-            if (status != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            }
-            if (subledgerId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
-            }
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-
-            // authentication (api_key_v1) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse2004 >("/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/points", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLoyaltyProgramProfilePoints", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List customer&#39;s unused loyalty points Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> GetLoyaltyProgramProfilePointsAsync (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse2004> localVarResponse = await GetLoyaltyProgramProfilePointsAsyncWithHttpInfo(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List customer&#39;s unused loyalty points Get paginated results of loyalty points for a given Integration ID in the specified profile-based loyalty program. This endpoint returns only the balances of unused points linked to a customer profile.  You can filter points by status: - &#x60;active&#x60;: Points ready to be redeemed. - &#x60;pending&#x60;: Points with a start date in the future. - &#x60;expired&#x60;: Points with an expiration date in the past. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="status">Filter points based on their status. (optional, default to active)</param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2004>> GetLoyaltyProgramProfilePointsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
-        {
-            // verify the required parameter 'integrationId' is set
-            if (integrationId == null)
-                throw new TalonOne.Client.ApiException(400, "Missing required parameter 'integrationId' when calling IntegrationApi->GetLoyaltyProgramProfilePoints");
-
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
-            if (status != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            }
-            if (subledgerId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
-            }
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-
-            // authentication (api_key_v1) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/points", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetLoyaltyProgramProfilePoints", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List customer&#39;s loyalty transactions Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetLoyaltyProgramProfileTransactions (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse2002> localVarResponse = GetLoyaltyProgramProfileTransactionsWithHttpInfo(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List customer&#39;s loyalty transactions Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date. If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  **Note:** To retrieve all loyalty program transaction logs in a given loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loyaltyProgramId">Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
-        /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
-        /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
-        /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
-        /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse2002</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2002 > GetLoyaltyProgramProfileTransactionsWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2004 > GetLoyaltyProgramProfileTransactionsWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -4237,7 +4777,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse2002 >("/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/transactions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse2004 >("/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/transactions", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -4261,10 +4801,10 @@ namespace TalonOne.Api
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetLoyaltyProgramProfileTransactionsAsync (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        /// <returns>Task of InlineResponse2004</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2004> GetLoyaltyProgramProfileTransactionsAsync (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
+             TalonOne.Client.ApiResponse<InlineResponse2004> localVarResponse = await GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
 
         }
@@ -4281,8 +4821,8 @@ namespace TalonOne.Api
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2002>> GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2004>> GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -4345,7 +4885,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2002>("/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/transactions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse2004>("/v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/transactions", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -5095,7 +5635,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
         /// <returns>TrackEventV2Response</returns>
         public TrackEventV2Response TrackEventV2 (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?))
@@ -5109,7 +5649,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
         /// <returns>ApiResponse of TrackEventV2Response</returns>
         public TalonOne.Client.ApiResponse< TrackEventV2Response > TrackEventV2WithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?))
@@ -5174,7 +5714,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
         /// <returns>Task of TrackEventV2Response</returns>
         public async System.Threading.Tasks.Task<TrackEventV2Response> TrackEventV2Async (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?))
@@ -5189,7 +5729,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
         /// <returns>Task of ApiResponse (TrackEventV2Response)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<TrackEventV2Response>> TrackEventV2AsyncWithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?))
@@ -5850,7 +6390,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>MultipleCustomerProfileIntegrationResponseV2</returns>
         public MultipleCustomerProfileIntegrationResponseV2 UpdateCustomerProfilesV2 (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
         {
@@ -5863,7 +6403,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>ApiResponse of MultipleCustomerProfileIntegrationResponseV2</returns>
         public TalonOne.Client.ApiResponse< MultipleCustomerProfileIntegrationResponseV2 > UpdateCustomerProfilesV2WithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
         {
@@ -5923,7 +6463,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of MultipleCustomerProfileIntegrationResponseV2</returns>
         public async System.Threading.Tasks.Task<MultipleCustomerProfileIntegrationResponseV2> UpdateCustomerProfilesV2Async (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
         {
@@ -5937,7 +6477,7 @@ namespace TalonOne.Api
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
-        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the perfomance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
+        /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <returns>Task of ApiResponse (MultipleCustomerProfileIntegrationResponseV2)</returns>
         public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<MultipleCustomerProfileIntegrationResponseV2>> UpdateCustomerProfilesV2AsyncWithHttpInfo (MultipleCustomerProfileIntegrationRequest body, string silent = default(string))
         {

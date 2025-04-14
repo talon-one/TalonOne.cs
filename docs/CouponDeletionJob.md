@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | Internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
-**ApplicationId** | **int** | The ID of the application that owns this entity. | 
+**ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **AccountId** | **int** | The ID of the account that owns this entity. | 
 **Filters** | [**CouponDeletionFilters**](CouponDeletionFilters.md) |  | 
 **Status** | **string** | The current status of this request. Possible values: - &#x60;not_ready&#x60; - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60;  | 

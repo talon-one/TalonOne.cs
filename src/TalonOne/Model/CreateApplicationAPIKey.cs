@@ -63,10 +63,10 @@ namespace TalonOne.Model
             Mparticle = 4,
 
             /// <summary>
-            /// Enum Selligent for value: selligent
+            /// Enum Shopify for value: shopify
             /// </summary>
-            [EnumMember(Value = "selligent")]
-            Selligent = 5,
+            [EnumMember(Value = "shopify")]
+            Shopify = 5,
 
             /// <summary>
             /// Enum Iterable for value: iterable

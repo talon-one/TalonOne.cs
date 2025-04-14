@@ -44,19 +44,21 @@ namespace TalonOne.Model
         /// <param name="totalPendingPoints">Total amount of pending points, which are not active yet but will become active in the future. (required).</param>
         /// <param name="totalSpentPoints">Total amount of points already spent by this customer. (required).</param>
         /// <param name="totalExpiredPoints">Total amount of points, that expired without ever being spent. (required).</param>
+        /// <param name="totalNegativePoints">Total amount of negative points. This implies that &#x60;totalActivePoints&#x60; is &#x60;0&#x60;. (required).</param>
         /// <param name="transactions">List of all events that have happened such as additions, subtractions and expiries..</param>
         /// <param name="expiringPoints">List of all points that will expire..</param>
         /// <param name="activePoints">List of all currently active points..</param>
         /// <param name="pendingPoints">List of all points pending activation..</param>
         /// <param name="expiredPoints">List of expired points..</param>
         /// <param name="currentTier">currentTier.</param>
-        public LoyaltySubLedger(decimal total = default(decimal), decimal totalActivePoints = default(decimal), decimal totalPendingPoints = default(decimal), decimal totalSpentPoints = default(decimal), decimal totalExpiredPoints = default(decimal), List<LoyaltyLedgerEntry> transactions = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> expiringPoints = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> activePoints = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> pendingPoints = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> expiredPoints = default(List<LoyaltyLedgerEntry>), Tier currentTier = default(Tier))
+        public LoyaltySubLedger(decimal total = default(decimal), decimal totalActivePoints = default(decimal), decimal totalPendingPoints = default(decimal), decimal totalSpentPoints = default(decimal), decimal totalExpiredPoints = default(decimal), decimal totalNegativePoints = default(decimal), List<LoyaltyLedgerEntry> transactions = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> expiringPoints = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> activePoints = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> pendingPoints = default(List<LoyaltyLedgerEntry>), List<LoyaltyLedgerEntry> expiredPoints = default(List<LoyaltyLedgerEntry>), Tier currentTier = default(Tier))
         {
             this.Total = total;
             this.TotalActivePoints = totalActivePoints;
             this.TotalPendingPoints = totalPendingPoints;
             this.TotalSpentPoints = totalSpentPoints;
             this.TotalExpiredPoints = totalExpiredPoints;
+            this.TotalNegativePoints = totalNegativePoints;
             this.Transactions = transactions;
             this.ExpiringPoints = expiringPoints;
             this.ActivePoints = activePoints;
@@ -99,6 +101,13 @@ namespace TalonOne.Model
         /// <value>Total amount of points, that expired without ever being spent.</value>
         [DataMember(Name="totalExpiredPoints", EmitDefaultValue=false)]
         public decimal TotalExpiredPoints { get; set; }
+
+        /// <summary>
+        /// Total amount of negative points. This implies that &#x60;totalActivePoints&#x60; is &#x60;0&#x60;.
+        /// </summary>
+        /// <value>Total amount of negative points. This implies that &#x60;totalActivePoints&#x60; is &#x60;0&#x60;.</value>
+        [DataMember(Name="totalNegativePoints", EmitDefaultValue=false)]
+        public decimal TotalNegativePoints { get; set; }
 
         /// <summary>
         /// List of all events that have happened such as additions, subtractions and expiries.
@@ -154,6 +163,7 @@ namespace TalonOne.Model
             sb.Append("  TotalPendingPoints: ").Append(TotalPendingPoints).Append("\n");
             sb.Append("  TotalSpentPoints: ").Append(TotalSpentPoints).Append("\n");
             sb.Append("  TotalExpiredPoints: ").Append(TotalExpiredPoints).Append("\n");
+            sb.Append("  TotalNegativePoints: ").Append(TotalNegativePoints).Append("\n");
             sb.Append("  Transactions: ").Append(Transactions).Append("\n");
             sb.Append("  ExpiringPoints: ").Append(ExpiringPoints).Append("\n");
             sb.Append("  ActivePoints: ").Append(ActivePoints).Append("\n");
@@ -215,6 +225,10 @@ namespace TalonOne.Model
                     this.TotalExpiredPoints.Equals(input.TotalExpiredPoints)
                 ) && 
                 (
+                    this.TotalNegativePoints == input.TotalNegativePoints ||
+                    this.TotalNegativePoints.Equals(input.TotalNegativePoints)
+                ) && 
+                (
                     this.Transactions == input.Transactions ||
                     this.Transactions != null &&
                     input.Transactions != null &&
@@ -265,6 +279,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.TotalPendingPoints.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalSpentPoints.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalExpiredPoints.GetHashCode();
+                hashCode = hashCode * 59 + this.TotalNegativePoints.GetHashCode();
                 if (this.Transactions != null)
                     hashCode = hashCode * 59 + this.Transactions.GetHashCode();
                 if (this.ExpiringPoints != null)

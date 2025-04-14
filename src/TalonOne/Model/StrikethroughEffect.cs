@@ -45,7 +45,9 @@ namespace TalonOne.Model
         /// <param name="ruleName">The name of the rule that triggered this effect. (required).</param>
         /// <param name="type">The type of this effect. (required).</param>
         /// <param name="props">props (required).</param>
-        public StrikethroughEffect(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string type = default(string), Object props = default(Object))
+        /// <param name="startTime">The start of the time frame where the effect is active in UTC..</param>
+        /// <param name="endTime">The end of the time frame where the effect is active in UTC..</param>
+        public StrikethroughEffect(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string type = default(string), Object props = default(Object), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -56,6 +58,8 @@ namespace TalonOne.Model
             this.Type = type ?? throw new ArgumentNullException("type is a required property for StrikethroughEffect and cannot be null");
             // to ensure "props" is required (not null)
             this.Props = props ?? throw new ArgumentNullException("props is a required property for StrikethroughEffect and cannot be null");
+            this.StartTime = startTime;
+            this.EndTime = endTime;
         }
         
         /// <summary>
@@ -100,6 +104,20 @@ namespace TalonOne.Model
         public Object Props { get; set; }
 
         /// <summary>
+        /// The start of the time frame where the effect is active in UTC.
+        /// </summary>
+        /// <value>The start of the time frame where the effect is active in UTC.</value>
+        [DataMember(Name="startTime", EmitDefaultValue=false)]
+        public DateTime StartTime { get; set; }
+
+        /// <summary>
+        /// The end of the time frame where the effect is active in UTC.
+        /// </summary>
+        /// <value>The end of the time frame where the effect is active in UTC.</value>
+        [DataMember(Name="endTime", EmitDefaultValue=false)]
+        public DateTime EndTime { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +131,8 @@ namespace TalonOne.Model
             sb.Append("  RuleName: ").Append(RuleName).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Props: ").Append(Props).Append("\n");
+            sb.Append("  StartTime: ").Append(StartTime).Append("\n");
+            sb.Append("  EndTime: ").Append(EndTime).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,6 +193,16 @@ namespace TalonOne.Model
                     this.Props == input.Props ||
                     (this.Props != null &&
                     this.Props.Equals(input.Props))
+                ) && 
+                (
+                    this.StartTime == input.StartTime ||
+                    (this.StartTime != null &&
+                    this.StartTime.Equals(input.StartTime))
+                ) && 
+                (
+                    this.EndTime == input.EndTime ||
+                    (this.EndTime != null &&
+                    this.EndTime.Equals(input.EndTime))
                 );
         }
 
@@ -194,6 +224,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Props != null)
                     hashCode = hashCode * 59 + this.Props.GetHashCode();
+                if (this.StartTime != null)
+                    hashCode = hashCode * 59 + this.StartTime.GetHashCode();
+                if (this.EndTime != null)
+                    hashCode = hashCode * 59 + this.EndTime.GetHashCode();
                 return hashCode;
             }
         }

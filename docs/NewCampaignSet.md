@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | **int** | The ID of the application that owns this entity. | 
+**ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **Version** | **int** | Version of the campaign set. | 
 **Set** | [**CampaignSetBranchNode**](CampaignSetBranchNode.md) |  | 
 

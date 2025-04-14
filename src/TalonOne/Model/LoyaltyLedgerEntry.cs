@@ -53,7 +53,8 @@ namespace TalonOne.Model
         /// <param name="subLedgerID">This specifies if we are adding loyalty points to the main ledger or a subledger. (required).</param>
         /// <param name="userID">This is the ID of the user who created this entry, if the addition or subtraction was done manually..</param>
         /// <param name="archived">Indicates if the entry belongs to the archived session..</param>
-        public LoyaltyLedgerEntry(DateTime created = default(DateTime), int programID = default(int), string customerProfileID = default(string), int cardID = default(int), string customerSessionID = default(string), int eventID = default(int), string type = default(string), decimal amount = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), int userID = default(int), bool archived = default(bool))
+        /// <param name="flags">flags.</param>
+        public LoyaltyLedgerEntry(DateTime created = default(DateTime), int programID = default(int), string customerProfileID = default(string), int cardID = default(int), string customerSessionID = default(string), int eventID = default(int), string type = default(string), decimal amount = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), int userID = default(int), bool archived = default(bool), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags))
         {
             this.Created = created;
             this.ProgramID = programID;
@@ -72,6 +73,7 @@ namespace TalonOne.Model
             this.ExpiryDate = expiryDate;
             this.UserID = userID;
             this.Archived = archived;
+            this.Flags = flags;
         }
         
         /// <summary>
@@ -164,6 +166,12 @@ namespace TalonOne.Model
         public bool Archived { get; set; }
 
         /// <summary>
+        /// Gets or Sets Flags
+        /// </summary>
+        [DataMember(Name="flags", EmitDefaultValue=false)]
+        public LoyaltyLedgerEntryFlags Flags { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -185,6 +193,7 @@ namespace TalonOne.Model
             sb.Append("  SubLedgerID: ").Append(SubLedgerID).Append("\n");
             sb.Append("  UserID: ").Append(UserID).Append("\n");
             sb.Append("  Archived: ").Append(Archived).Append("\n");
+            sb.Append("  Flags: ").Append(Flags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -282,6 +291,11 @@ namespace TalonOne.Model
                 (
                     this.Archived == input.Archived ||
                     this.Archived.Equals(input.Archived)
+                ) && 
+                (
+                    this.Flags == input.Flags ||
+                    (this.Flags != null &&
+                    this.Flags.Equals(input.Flags))
                 );
         }
 
@@ -316,6 +330,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.SubLedgerID.GetHashCode();
                 hashCode = hashCode * 59 + this.UserID.GetHashCode();
                 hashCode = hashCode * 59 + this.Archived.GetHashCode();
+                if (this.Flags != null)
+                    hashCode = hashCode * 59 + this.Flags.GetHashCode();
                 return hashCode;
             }
         }

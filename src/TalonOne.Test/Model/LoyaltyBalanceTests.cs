@@ -89,6 +89,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ExpiredPoints'
         }
+        /// <summary>
+        /// Test the property 'NegativePoints'
+        /// </summary>
+        [Fact]
+        public void NegativePointsTest()
+        {
+            // TODO unit test for the property 'NegativePoints'
+        }
 
     }
 

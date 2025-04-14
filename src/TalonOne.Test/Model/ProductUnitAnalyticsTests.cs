@@ -58,44 +58,20 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'StartTime'
+        /// Test the property 'Data'
         /// </summary>
         [Fact]
-        public void StartTimeTest()
+        public void DataTest()
         {
-            // TODO unit test for the property 'StartTime'
+            // TODO unit test for the property 'Data'
         }
         /// <summary>
-        /// Test the property 'EndTime'
+        /// Test the property 'Totals'
         /// </summary>
         [Fact]
-        public void EndTimeTest()
+        public void TotalsTest()
         {
-            // TODO unit test for the property 'EndTime'
-        }
-        /// <summary>
-        /// Test the property 'PurchasedUnits'
-        /// </summary>
-        [Fact]
-        public void PurchasedUnitsTest()
-        {
-            // TODO unit test for the property 'PurchasedUnits'
-        }
-        /// <summary>
-        /// Test the property 'ProductId'
-        /// </summary>
-        [Fact]
-        public void ProductIdTest()
-        {
-            // TODO unit test for the property 'ProductId'
-        }
-        /// <summary>
-        /// Test the property 'ProductName'
-        /// </summary>
-        [Fact]
-        public void ProductNameTest()
-        {
-            // TODO unit test for the property 'ProductName'
+            // TODO unit test for the property 'Totals'
         }
 
     }

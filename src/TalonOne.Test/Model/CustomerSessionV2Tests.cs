@@ -217,14 +217,6 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Updated'
         }
-        /// <summary>
-        /// Test the property 'ClosurePrediction'
-        /// </summary>
-        [Fact]
-        public void ClosurePredictionTest()
-        {
-            // TODO unit test for the property 'ClosurePrediction'
-        }
 
     }
 

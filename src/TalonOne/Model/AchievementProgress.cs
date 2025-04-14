@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// AchievementProgress
+    /// The current progress of the customer in the achievement.
     /// </summary>
     [DataContract]
     public partial class AchievementProgress :  IEquatable<AchievementProgress>, IValidatableObject
@@ -54,7 +54,13 @@ namespace TalonOne.Model
             /// Enum Expired for value: expired
             /// </summary>
             [EnumMember(Value = "expired")]
-            Expired = 3
+            Expired = 3,
+
+            /// <summary>
+            /// Enum Notstarted for value: not_started
+            /// </summary>
+            [EnumMember(Value = "not_started")]
+            Notstarted = 4
 
         }
 
@@ -72,77 +78,20 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AchievementProgress" /> class.
         /// </summary>
-        /// <param name="achievementId">The internal ID of the achievement. (required).</param>
-        /// <param name="name">The internal name of the achievement used in API requests.  (required).</param>
-        /// <param name="title">The display name of the achievement in the Campaign Manager. (required).</param>
-        /// <param name="description">The description of the achievement in the Campaign Manager. (required).</param>
-        /// <param name="campaignId">The ID of the campaign the achievement belongs to. (required).</param>
         /// <param name="status">The status of the achievement. (required).</param>
-        /// <param name="target">The required number of actions or the transactional milestone to complete the achievement..</param>
         /// <param name="progress">The current progress of the customer in the achievement. (required).</param>
-        /// <param name="startDate">Timestamp at which the customer started the achievement. (required).</param>
+        /// <param name="startDate">Timestamp at which the customer started the achievement..</param>
         /// <param name="completionDate">Timestamp at which point the customer completed the achievement..</param>
-        /// <param name="endDate">Timestamp at which point the achievement ends and resets for the customer. (required).</param>
-        public AchievementProgress(int achievementId = default(int), string name = default(string), string title = default(string), string description = default(string), int campaignId = default(int), StatusEnum status = default(StatusEnum), decimal target = default(decimal), decimal progress = default(decimal), DateTime startDate = default(DateTime), DateTime completionDate = default(DateTime), DateTime endDate = default(DateTime))
+        /// <param name="endDate">Timestamp at which point the achievement ends and resets for the customer..</param>
+        public AchievementProgress(StatusEnum status = default(StatusEnum), decimal progress = default(decimal), DateTime startDate = default(DateTime), DateTime completionDate = default(DateTime), DateTime endDate = default(DateTime))
         {
-            this.AchievementId = achievementId;
-            // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for AchievementProgress and cannot be null");
-            // to ensure "title" is required (not null)
-            this.Title = title ?? throw new ArgumentNullException("title is a required property for AchievementProgress and cannot be null");
-            // to ensure "description" is required (not null)
-            this.Description = description ?? throw new ArgumentNullException("description is a required property for AchievementProgress and cannot be null");
-            this.CampaignId = campaignId;
             this.Status = status;
             this.Progress = progress;
             this.StartDate = startDate;
-            this.EndDate = endDate;
-            this.Target = target;
             this.CompletionDate = completionDate;
+            this.EndDate = endDate;
         }
         
-        /// <summary>
-        /// The internal ID of the achievement.
-        /// </summary>
-        /// <value>The internal ID of the achievement.</value>
-        [DataMember(Name="achievementId", EmitDefaultValue=false)]
-        public int AchievementId { get; set; }
-
-        /// <summary>
-        /// The internal name of the achievement used in API requests. 
-        /// </summary>
-        /// <value>The internal name of the achievement used in API requests. </value>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// The display name of the achievement in the Campaign Manager.
-        /// </summary>
-        /// <value>The display name of the achievement in the Campaign Manager.</value>
-        [DataMember(Name="title", EmitDefaultValue=false)]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// The description of the achievement in the Campaign Manager.
-        /// </summary>
-        /// <value>The description of the achievement in the Campaign Manager.</value>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// The ID of the campaign the achievement belongs to.
-        /// </summary>
-        /// <value>The ID of the campaign the achievement belongs to.</value>
-        [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
-
-        /// <summary>
-        /// The required number of actions or the transactional milestone to complete the achievement.
-        /// </summary>
-        /// <value>The required number of actions or the transactional milestone to complete the achievement.</value>
-        [DataMember(Name="target", EmitDefaultValue=false)]
-        public decimal Target { get; set; }
-
         /// <summary>
         /// The current progress of the customer in the achievement.
         /// </summary>
@@ -179,13 +128,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class AchievementProgress {\n");
-            sb.Append("  AchievementId: ").Append(AchievementId).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("  Progress: ").Append(Progress).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  CompletionDate: ").Append(CompletionDate).Append("\n");
@@ -225,35 +168,8 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.AchievementId == input.AchievementId ||
-                    this.AchievementId.Equals(input.AchievementId)
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
-                ) && 
-                (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
-                ) && 
-                (
-                    this.CampaignId == input.CampaignId ||
-                    this.CampaignId.Equals(input.CampaignId)
-                ) && 
-                (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
-                ) && 
-                (
-                    this.Target == input.Target ||
-                    this.Target.Equals(input.Target)
                 ) && 
                 (
                     this.Progress == input.Progress ||
@@ -285,16 +201,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.AchievementId.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
-                hashCode = hashCode * 59 + this.Target.GetHashCode();
                 hashCode = hashCode * 59 + this.Progress.GetHashCode();
                 if (this.StartDate != null)
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
@@ -313,25 +220,6 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Name (string) maxLength
-            if(this.Name != null && this.Name.Length > 1000)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 1000.", new [] { "Name" });
-            }
-
-            // Name (string) minLength
-            if(this.Name != null && this.Name.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
-            }
-
-            // Name (string) pattern
-            Regex regexName = new Regex(@"^[a-zA-Z]\\w+$", RegexOptions.CultureInvariant);
-            if (false == regexName.Match(this.Name).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
-            }
-
             yield break;
         }
     }

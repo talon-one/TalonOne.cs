@@ -394,6 +394,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'StoresImported'
         }
         /// <summary>
+        /// Test the property 'ValueMapsIds'
+        /// </summary>
+        [Fact]
+        public void ValueMapsIdsTest()
+        {
+            // TODO unit test for the property 'ValueMapsIds'
+        }
+        /// <summary>
         /// Test the property 'RevisionFrontendState'
         /// </summary>
         [Fact]

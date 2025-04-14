@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// <param name="coupons">The coupons reserved by this profile. This array includes hard and soft reservations. .</param>
         /// <param name="giveaways">giveaways.</param>
         /// <param name="achievements">achievements.</param>
-        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<InventoryReferral> referrals = default(List<InventoryReferral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>), List<AchievementProgress> achievements = default(List<AchievementProgress>))
+        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<InventoryReferral> referrals = default(List<InventoryReferral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>), List<AchievementProgressWithDefinition> achievements = default(List<AchievementProgressWithDefinition>))
         {
             this.Profile = profile;
             this.Loyalty = loyalty;
@@ -85,7 +85,7 @@ namespace TalonOne.Model
         /// Gets or Sets Achievements
         /// </summary>
         [DataMember(Name="achievements", EmitDefaultValue=false)]
-        public List<AchievementProgress> Achievements { get; set; }
+        public List<AchievementProgressWithDefinition> Achievements { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

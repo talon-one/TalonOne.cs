@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="modifiedBy">The ID of the user who last updated the Application cart item filter..</param>
         /// <param name="createdBy">The ID of the user who created the Application cart item filter..</param>
         /// <param name="modified">Timestamp of the most recent update to the Application cart item filter..</param>
-        /// <param name="applicationId">The ID of the application that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         public ApplicationCIF(int id = default(int), DateTime created = default(DateTime), string name = default(string), string description = default(string), int activeExpressionId = default(int), int modifiedBy = default(int), int createdBy = default(int), DateTime modified = default(DateTime), int applicationId = default(int))
         {
             this.Id = id;
@@ -119,9 +119,9 @@ namespace TalonOne.Model
         public DateTime Modified { get; set; }
 
         /// <summary>
-        /// The ID of the application that owns this entity.
+        /// The ID of the Application that owns this entity.
         /// </summary>
-        /// <value>The ID of the application that owns this entity.</value>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public int ApplicationId { get; set; }
 

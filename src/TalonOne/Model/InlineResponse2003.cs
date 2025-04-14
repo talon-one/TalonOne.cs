@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="hasMore">hasMore (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse2003(bool hasMore = default(bool), List<CardLedgerPointsEntryIntegrationAPI> data = default(List<CardLedgerPointsEntryIntegrationAPI>))
+        public InlineResponse2003(bool hasMore = default(bool), List<CardLedgerTransactionLogEntryIntegrationAPI> data = default(List<CardLedgerTransactionLogEntryIntegrationAPI>))
         {
             this.HasMore = hasMore;
             // to ensure "data" is required (not null)
@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<CardLedgerPointsEntryIntegrationAPI> Data { get; set; }
+        public List<CardLedgerTransactionLogEntryIntegrationAPI> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

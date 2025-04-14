@@ -73,6 +73,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'BatchingEnabled'
         }
+        /// <summary>
+        /// Test the property 'BatchSize'
+        /// </summary>
+        [Fact]
+        public void BatchSizeTest()
+        {
+            // TODO unit test for the property 'BatchSize'
+        }
 
     }
 

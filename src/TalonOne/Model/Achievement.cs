@@ -86,6 +86,45 @@ namespace TalonOne.Model
         [DataMember(Name="activationPolicy", EmitDefaultValue=false)]
         public ActivationPolicyEnum? ActivationPolicy { get; set; }
         /// <summary>
+        /// The status of the achievement.
+        /// </summary>
+        /// <value>The status of the achievement.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum StatusEnum
+        {
+            /// <summary>
+            /// Enum Inprogress for value: inprogress
+            /// </summary>
+            [EnumMember(Value = "inprogress")]
+            Inprogress = 1,
+
+            /// <summary>
+            /// Enum Expired for value: expired
+            /// </summary>
+            [EnumMember(Value = "expired")]
+            Expired = 2,
+
+            /// <summary>
+            /// Enum Notstarted for value: not_started
+            /// </summary>
+            [EnumMember(Value = "not_started")]
+            Notstarted = 3,
+
+            /// <summary>
+            /// Enum Completed for value: completed
+            /// </summary>
+            [EnumMember(Value = "completed")]
+            Completed = 4
+
+        }
+
+        /// <summary>
+        /// The status of the achievement.
+        /// </summary>
+        /// <value>The status of the achievement.</value>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public StatusEnum? Status { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Achievement" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -99,17 +138,18 @@ namespace TalonOne.Model
         /// <param name="title">The display name for the achievement in the Campaign Manager. (required).</param>
         /// <param name="description">A description of the achievement. (required).</param>
         /// <param name="target">The required number of actions or the transactional milestone to complete the achievement. (required).</param>
-        /// <param name="period">The relative duration after which the achievement ends and resets for a particular customer profile.  **Note**: The &#x60;period&#x60; does not start when the achievement is created.  The period is a **positive real number** followed by one letter indicating the time unit.  Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can also round certain units down to the beginning of period and up to the end of period.: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. Example: &#x60;30D_D&#x60; - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. Example: &#x60;23W_U&#x60;  **Note**: You can either use the round down and round up option or set an absolute period.  (required).</param>
+        /// <param name="period">The relative duration after which the achievement ends and resets for a particular customer profile.  **Note**: The &#x60;period&#x60; does not start when the achievement is created.  The period is a **positive real number** followed by one letter indicating the time unit.  Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can also round certain units down to the beginning of period and up to the end of period.: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. Example: &#x60;30D_D&#x60; - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. Example: &#x60;23W_U&#x60;  **Note**: You can either use the round down and round up option or set an absolute period. .</param>
         /// <param name="periodEndOverride">periodEndOverride.</param>
         /// <param name="recurrencePolicy">The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. .</param>
         /// <param name="activationPolicy">The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. .</param>
         /// <param name="fixedStartDate">The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="endDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. .</param>
-        /// <param name="campaignId">ID of the campaign, to which the achievement belongs to (required).</param>
+        /// <param name="campaignId">The ID of the campaign the achievement belongs to. (required).</param>
         /// <param name="userId">ID of the user that created this achievement. (required).</param>
-        /// <param name="createdBy">Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted.  (required).</param>
+        /// <param name="createdBy">Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted. .</param>
         /// <param name="hasProgress">Indicates if a customer has made progress in the achievement..</param>
-        public Achievement(int id = default(int), DateTime created = default(DateTime), string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), int campaignId = default(int), int userId = default(int), string createdBy = default(string), bool hasProgress = default(bool))
+        /// <param name="status">The status of the achievement..</param>
+        public Achievement(int id = default(int), DateTime created = default(DateTime), string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), int campaignId = default(int), int userId = default(int), string createdBy = default(string), bool hasProgress = default(bool), StatusEnum? status = default(StatusEnum?))
         {
             this.Id = id;
             this.Created = created;
@@ -120,18 +160,17 @@ namespace TalonOne.Model
             // to ensure "description" is required (not null)
             this.Description = description ?? throw new ArgumentNullException("description is a required property for Achievement and cannot be null");
             this.Target = target;
-            // to ensure "period" is required (not null)
-            this.Period = period ?? throw new ArgumentNullException("period is a required property for Achievement and cannot be null");
             this.CampaignId = campaignId;
             this.UserId = userId;
-            // to ensure "createdBy" is required (not null)
-            this.CreatedBy = createdBy ?? throw new ArgumentNullException("createdBy is a required property for Achievement and cannot be null");
+            this.Period = period;
             this.PeriodEndOverride = periodEndOverride;
             this.RecurrencePolicy = recurrencePolicy;
             this.ActivationPolicy = activationPolicy;
             this.FixedStartDate = fixedStartDate;
             this.EndDate = endDate;
+            this.CreatedBy = createdBy;
             this.HasProgress = hasProgress;
+            this.Status = status;
         }
         
         /// <summary>
@@ -204,9 +243,9 @@ namespace TalonOne.Model
         public DateTime EndDate { get; set; }
 
         /// <summary>
-        /// ID of the campaign, to which the achievement belongs to
+        /// The ID of the campaign the achievement belongs to.
         /// </summary>
-        /// <value>ID of the campaign, to which the achievement belongs to</value>
+        /// <value>The ID of the campaign the achievement belongs to.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
         public int CampaignId { get; set; }
 
@@ -255,6 +294,7 @@ namespace TalonOne.Model
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
             sb.Append("  HasProgress: ").Append(HasProgress).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -361,6 +401,10 @@ namespace TalonOne.Model
                 (
                     this.HasProgress == input.HasProgress ||
                     this.HasProgress.Equals(input.HasProgress)
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    this.Status.Equals(input.Status)
                 );
         }
 
@@ -398,6 +442,7 @@ namespace TalonOne.Model
                 if (this.CreatedBy != null)
                     hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
                 hashCode = hashCode * 59 + this.HasProgress.GetHashCode();
+                hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }
         }

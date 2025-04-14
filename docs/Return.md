@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int** | Internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
-**ApplicationId** | **int** | The ID of the application that owns this entity. | 
+**ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **AccountId** | **int** | The ID of the account that owns this entity. | 
 **ReturnedCartItems** | [**List&lt;ReturnedCartItem&gt;**](ReturnedCartItem.md) | List of cart items to be returned. | 
 **EventId** | **int** | The event ID of that was generated for this return. | 

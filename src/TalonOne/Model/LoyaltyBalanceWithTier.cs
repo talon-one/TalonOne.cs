@@ -38,16 +38,18 @@ namespace TalonOne.Model
         /// <param name="pendingPoints">Total amount of points awarded to this customer but not available until their start date..</param>
         /// <param name="spentPoints">Total amount of points already spent by this customer..</param>
         /// <param name="expiredPoints">Total amount of points awarded but never redeemed. They cannot be used anymore..</param>
+        /// <param name="negativePoints">Total amount of negative points. This implies that &#x60;activePoints&#x60; is &#x60;0&#x60;..</param>
         /// <param name="currentTier">currentTier.</param>
         /// <param name="projectedTier">projectedTier.</param>
         /// <param name="pointsToNextTier">The number of points required to move up a tier..</param>
         /// <param name="nextTierName">The name of the tier consecutive to the current tier..</param>
-        public LoyaltyBalanceWithTier(decimal activePoints = default(decimal), decimal pendingPoints = default(decimal), decimal spentPoints = default(decimal), decimal expiredPoints = default(decimal), Tier currentTier = default(Tier), ProjectedTier projectedTier = default(ProjectedTier), decimal pointsToNextTier = default(decimal), string nextTierName = default(string))
+        public LoyaltyBalanceWithTier(decimal activePoints = default(decimal), decimal pendingPoints = default(decimal), decimal spentPoints = default(decimal), decimal expiredPoints = default(decimal), decimal negativePoints = default(decimal), Tier currentTier = default(Tier), ProjectedTier projectedTier = default(ProjectedTier), decimal pointsToNextTier = default(decimal), string nextTierName = default(string))
         {
             this.ActivePoints = activePoints;
             this.PendingPoints = pendingPoints;
             this.SpentPoints = spentPoints;
             this.ExpiredPoints = expiredPoints;
+            this.NegativePoints = negativePoints;
             this.CurrentTier = currentTier;
             this.ProjectedTier = projectedTier;
             this.PointsToNextTier = pointsToNextTier;
@@ -81,6 +83,13 @@ namespace TalonOne.Model
         /// <value>Total amount of points awarded but never redeemed. They cannot be used anymore.</value>
         [DataMember(Name="expiredPoints", EmitDefaultValue=false)]
         public decimal ExpiredPoints { get; set; }
+
+        /// <summary>
+        /// Total amount of negative points. This implies that &#x60;activePoints&#x60; is &#x60;0&#x60;.
+        /// </summary>
+        /// <value>Total amount of negative points. This implies that &#x60;activePoints&#x60; is &#x60;0&#x60;.</value>
+        [DataMember(Name="negativePoints", EmitDefaultValue=false)]
+        public decimal NegativePoints { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentTier
@@ -120,6 +129,7 @@ namespace TalonOne.Model
             sb.Append("  PendingPoints: ").Append(PendingPoints).Append("\n");
             sb.Append("  SpentPoints: ").Append(SpentPoints).Append("\n");
             sb.Append("  ExpiredPoints: ").Append(ExpiredPoints).Append("\n");
+            sb.Append("  NegativePoints: ").Append(NegativePoints).Append("\n");
             sb.Append("  CurrentTier: ").Append(CurrentTier).Append("\n");
             sb.Append("  ProjectedTier: ").Append(ProjectedTier).Append("\n");
             sb.Append("  PointsToNextTier: ").Append(PointsToNextTier).Append("\n");
@@ -175,6 +185,10 @@ namespace TalonOne.Model
                     this.ExpiredPoints.Equals(input.ExpiredPoints)
                 ) && 
                 (
+                    this.NegativePoints == input.NegativePoints ||
+                    this.NegativePoints.Equals(input.NegativePoints)
+                ) && 
+                (
                     this.CurrentTier == input.CurrentTier ||
                     (this.CurrentTier != null &&
                     this.CurrentTier.Equals(input.CurrentTier))
@@ -208,6 +222,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.PendingPoints.GetHashCode();
                 hashCode = hashCode * 59 + this.SpentPoints.GetHashCode();
                 hashCode = hashCode * 59 + this.ExpiredPoints.GetHashCode();
+                hashCode = hashCode * 59 + this.NegativePoints.GetHashCode();
                 if (this.CurrentTier != null)
                     hashCode = hashCode * 59 + this.CurrentTier.GetHashCode();
                 if (this.ProjectedTier != null)

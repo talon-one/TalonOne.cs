@@ -81,6 +81,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'StoreCount'
         }
+        /// <summary>
+        /// Test the property 'Imported'
+        /// </summary>
+        [Fact]
+        public void ImportedTest()
+        {
+            // TODO unit test for the property 'Imported'
+        }
 
     }
 

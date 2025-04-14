@@ -89,6 +89,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'HasProgress'
         }
+        /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Fact]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
 
     }
 

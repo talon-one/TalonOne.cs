@@ -41,12 +41,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="sku">SKU of the item that needs to be added. (required).</param>
         /// <param name="name">The name / description of the effect (required).</param>
-        public AddFreeItemEffectProps(string sku = default(string), string name = default(string))
+        /// <param name="desiredQuantity">The original quantity in case a partial reward was applied..</param>
+        public AddFreeItemEffectProps(string sku = default(string), string name = default(string), int desiredQuantity = default(int))
         {
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for AddFreeItemEffectProps and cannot be null");
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for AddFreeItemEffectProps and cannot be null");
+            this.DesiredQuantity = desiredQuantity;
         }
         
         /// <summary>
@@ -64,6 +66,13 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// The original quantity in case a partial reward was applied.
+        /// </summary>
+        /// <value>The original quantity in case a partial reward was applied.</value>
+        [DataMember(Name="desiredQuantity", EmitDefaultValue=false)]
+        public int DesiredQuantity { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +82,7 @@ namespace TalonOne.Model
             sb.Append("class AddFreeItemEffectProps {\n");
             sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DesiredQuantity: ").Append(DesiredQuantity).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,6 +126,10 @@ namespace TalonOne.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.DesiredQuantity == input.DesiredQuantity ||
+                    this.DesiredQuantity.Equals(input.DesiredQuantity)
                 );
         }
 
@@ -132,6 +146,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Sku.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                hashCode = hashCode * 59 + this.DesiredQuantity.GetHashCode();
                 return hashCode;
             }
         }

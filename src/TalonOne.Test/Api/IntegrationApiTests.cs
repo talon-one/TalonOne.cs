@@ -168,6 +168,42 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test GetCustomerAchievementHistory
+        /// </summary>
+        [Fact]
+        public void GetCustomerAchievementHistoryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string integrationId = null;
+            //int achievementId = null;
+            //List<string> progressStatus = null;
+            //DateTime? startDate = null;
+            //DateTime? endDate = null;
+            //int? pageSize = null;
+            //int? skip = null;
+            //var response = instance.GetCustomerAchievementHistory(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip);
+            //Assert.IsType<InlineResponse2002> (response, "response is InlineResponse2002");
+        }
+        
+        /// <summary>
+        /// Test GetCustomerAchievements
+        /// </summary>
+        [Fact]
+        public void GetCustomerAchievementsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string integrationId = null;
+            //List<string> campaignIds = null;
+            //List<string> achievementIds = null;
+            //List<string> achievementStatus = null;
+            //List<string> currentProgressStatus = null;
+            //int? pageSize = null;
+            //int? skip = null;
+            //var response = instance.GetCustomerAchievements(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip);
+            //Assert.IsType<InlineResponse2001> (response, "response is InlineResponse2001");
+        }
+        
+        /// <summary>
         /// Test GetCustomerInventory
         /// </summary>
         [Fact]
@@ -243,7 +279,7 @@ namespace TalonOne.Test
             //int? pageSize = null;
             //int? skip = null;
             //var response = instance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
-            //Assert.IsType<InlineResponse2003> (response, "response is InlineResponse2003");
+            //Assert.IsType<InlineResponse2005> (response, "response is InlineResponse2005");
         }
         
         /// <summary>
@@ -262,7 +298,7 @@ namespace TalonOne.Test
             //int? pageSize = null;
             //int? skip = null;
             //var response = instance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
-            //Assert.IsType<InlineResponse2001> (response, "response is InlineResponse2001");
+            //Assert.IsType<InlineResponse2003> (response, "response is InlineResponse2003");
         }
         
         /// <summary>
@@ -279,7 +315,7 @@ namespace TalonOne.Test
             //int? pageSize = null;
             //int? skip = null;
             //var response = instance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
-            //Assert.IsType<InlineResponse2004> (response, "response is InlineResponse2004");
+            //Assert.IsType<InlineResponse2006> (response, "response is InlineResponse2006");
         }
         
         /// <summary>
@@ -298,7 +334,7 @@ namespace TalonOne.Test
             //int? pageSize = null;
             //int? skip = null;
             //var response = instance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
-            //Assert.IsType<InlineResponse2002> (response, "response is InlineResponse2002");
+            //Assert.IsType<InlineResponse2004> (response, "response is InlineResponse2004");
         }
         
         /// <summary>

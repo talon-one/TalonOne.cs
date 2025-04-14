@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **TotalPendingPoints** | **decimal** | Total amount of pending points, which are not active yet but will become active in the future. | 
 **TotalSpentPoints** | **decimal** | Total amount of points already spent by this customer. | 
 **TotalExpiredPoints** | **decimal** | Total amount of points, that expired without ever being spent. | 
+**TotalNegativePoints** | **decimal** | Total amount of negative points. This implies that &#x60;totalActivePoints&#x60; is &#x60;0&#x60;. | 
 **Transactions** | [**List&lt;LoyaltyLedgerEntry&gt;**](LoyaltyLedgerEntry.md) | List of all events that have happened such as additions, subtractions and expiries. | [optional] 
 **ExpiringPoints** | [**List&lt;LoyaltyLedgerEntry&gt;**](LoyaltyLedgerEntry.md) | List of all points that will expire. | [optional] 
 **ActivePoints** | [**List&lt;LoyaltyLedgerEntry&gt;**](LoyaltyLedgerEntry.md) | List of all currently active points. | [optional] 
