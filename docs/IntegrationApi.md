@@ -2017,7 +2017,7 @@ Name | Type | Description  | Notes
 
 <a name="trackeventv2"></a>
 # **TrackEventV2**
-> TrackEventV2Response TrackEventV2 (IntegrationEventV2Request body, string silent = null, bool? dry = null)
+> TrackEventV2Response TrackEventV2 (IntegrationEventV2Request body, string silent = null, bool? dry = null, bool? forceCompleteEvaluation = null)
 
 Track event
 
@@ -2048,11 +2048,12 @@ namespace Example
             var body = new IntegrationEventV2Request(); // IntegrationEventV2Request | body
             var silent = silent_example;  // string | Possible values: `yes` or `no`. - `yes`: Increases the performance of the API call by returning a 204 response. - `no`: Returns a 200 response that contains the updated customer profiles.  (optional)  (default to "yes")
             var dry = true;  // bool? | Indicates whether to persist the changes. Changes are ignored when `dry=true`.  (optional) 
+            var forceCompleteEvaluation = true;  // bool? | Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires `dry=true`.  (optional)  (default to false)
 
             try
             {
                 // Track event
-                TrackEventV2Response result = apiInstance.TrackEventV2(body, silent, dry);
+                TrackEventV2Response result = apiInstance.TrackEventV2(body, silent, dry, forceCompleteEvaluation);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2073,6 +2074,7 @@ Name | Type | Description  | Notes
  **body** | [**IntegrationEventV2Request**](IntegrationEventV2Request.md)| body | 
  **silent** | **string**| Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  | [optional] [default to &quot;yes&quot;]
  **dry** | **bool?**| Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  | [optional] 
+ **forceCompleteEvaluation** | **bool?**| Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  | [optional] [default to false]
 
 ### Return type
 

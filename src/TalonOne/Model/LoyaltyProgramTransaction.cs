@@ -84,7 +84,8 @@ namespace TalonOne.Model
         /// <param name="userEmail">The email of the Campaign Manager account that manually added or deducted points. Applies only to manual transactions..</param>
         /// <param name="rulesetId">ID of the ruleset containing the rule that triggered the effect. Applies only for transactions that resulted from a customer session..</param>
         /// <param name="ruleName">Name of the rule that triggered the effect. Applies only for transactions that resulted from a customer session..</param>
-        public LoyaltyProgramTransaction(int id = default(int), int programId = default(int), int campaignId = default(int), DateTime created = default(DateTime), TypeEnum type = default(TypeEnum), decimal amount = default(decimal), string name = default(string), string startDate = default(string), string expiryDate = default(string), string customerProfileId = default(string), string cardIdentifier = default(string), string subledgerId = default(string), string customerSessionId = default(string), int importId = default(int), int userId = default(int), string userEmail = default(string), int rulesetId = default(int), string ruleName = default(string))
+        /// <param name="flags">flags.</param>
+        public LoyaltyProgramTransaction(int id = default(int), int programId = default(int), int campaignId = default(int), DateTime created = default(DateTime), TypeEnum type = default(TypeEnum), decimal amount = default(decimal), string name = default(string), string startDate = default(string), string expiryDate = default(string), string customerProfileId = default(string), string cardIdentifier = default(string), string subledgerId = default(string), string customerSessionId = default(string), int importId = default(int), int userId = default(int), string userEmail = default(string), int rulesetId = default(int), string ruleName = default(string), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags))
         {
             this.Id = id;
             this.ProgramId = programId;
@@ -108,6 +109,7 @@ namespace TalonOne.Model
             this.UserEmail = userEmail;
             this.RulesetId = rulesetId;
             this.RuleName = ruleName;
+            this.Flags = flags;
         }
         
         /// <summary>
@@ -230,6 +232,12 @@ namespace TalonOne.Model
         public string RuleName { get; set; }
 
         /// <summary>
+        /// Gets or Sets Flags
+        /// </summary>
+        [DataMember(Name="flags", EmitDefaultValue=false)]
+        public LoyaltyLedgerEntryFlags Flags { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -255,6 +263,7 @@ namespace TalonOne.Model
             sb.Append("  UserEmail: ").Append(UserEmail).Append("\n");
             sb.Append("  RulesetId: ").Append(RulesetId).Append("\n");
             sb.Append("  RuleName: ").Append(RuleName).Append("\n");
+            sb.Append("  Flags: ").Append(Flags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -370,6 +379,11 @@ namespace TalonOne.Model
                     this.RuleName == input.RuleName ||
                     (this.RuleName != null &&
                     this.RuleName.Equals(input.RuleName))
+                ) && 
+                (
+                    this.Flags == input.Flags ||
+                    (this.Flags != null &&
+                    this.Flags.Equals(input.Flags))
                 );
         }
 
@@ -410,6 +424,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.RulesetId.GetHashCode();
                 if (this.RuleName != null)
                     hashCode = hashCode * 59 + this.RuleName.GetHashCode();
+                if (this.Flags != null)
+                    hashCode = hashCode * 59 + this.Flags.GetHashCode();
                 return hashCode;
             }
         }

@@ -66,6 +66,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Version'
         }
         /// <summary>
+        /// Test the property 'ValidFrom'
+        /// </summary>
+        [Fact]
+        public void ValidFromTest()
+        {
+            // TODO unit test for the property 'ValidFrom'
+        }
+        /// <summary>
         /// Test the property 'ApplicationId'
         /// </summary>
         [Fact]

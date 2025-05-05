@@ -62,7 +62,7 @@ namespace TalonOne.Test
         public void ActivateUserByEmailTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //DeactivateUserRequest body = null;
+            //DeleteUserRequest body = null;
             //instance.ActivateUserByEmail(body);
             
         }
@@ -325,7 +325,7 @@ namespace TalonOne.Test
         public void DeactivateUserByEmailTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //DeactivateUserRequest body = null;
+            //DeleteUserRequest body = null;
             //instance.DeactivateUserByEmail(body);
             
         }
@@ -496,7 +496,7 @@ namespace TalonOne.Test
         public void DeleteUserByEmailTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //DeactivateUserRequest body = null;
+            //DeleteUserRequest body = null;
             //instance.DeleteUserByEmail(body);
             
         }
@@ -1594,6 +1594,31 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test GetMessageLogs
+        /// </summary>
+        [Fact]
+        public void GetMessageLogsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string entityType = null;
+            //string messageID = null;
+            //string changeType = null;
+            //string notificationIDs = null;
+            //DateTime? createdBefore = null;
+            //DateTime? createdAfter = null;
+            //byte[] cursor = null;
+            //string period = null;
+            //bool? isSuccessful = null;
+            //decimal? applicationId = null;
+            //decimal? campaignId = null;
+            //int? loyaltyProgramId = null;
+            //int? responseCode = null;
+            //string webhookIDs = null;
+            //var response = instance.GetMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
+            //Assert.IsType<MessageLogEntries> (response, "response is MessageLogEntries");
+        }
+        
+        /// <summary>
         /// Test GetReferralsWithoutTotalCount
         /// </summary>
         [Fact]
@@ -2045,19 +2070,6 @@ namespace TalonOne.Test
         }
         
         /// <summary>
-        /// Test NotificationActivation
-        /// </summary>
-        [Fact]
-        public void NotificationActivationTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int notificationId = null;
-            //NotificationActivation body = null;
-            //instance.NotificationActivation(notificationId, body);
-            
-        }
-        
-        /// <summary>
         /// Test OktaEventHandlerChallenge
         /// </summary>
         [Fact]
@@ -2066,45 +2078,6 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //instance.OktaEventHandlerChallenge();
             
-        }
-        
-        /// <summary>
-        /// Test PostAddedDeductedPointsNotification
-        /// </summary>
-        [Fact]
-        public void PostAddedDeductedPointsNotificationTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
-            //NewBaseNotification body = null;
-            //var response = instance.PostAddedDeductedPointsNotification(loyaltyProgramId, body);
-            //Assert.IsType<BaseNotification> (response, "response is BaseNotification");
-        }
-        
-        /// <summary>
-        /// Test PostCatalogsStrikethroughNotification
-        /// </summary>
-        [Fact]
-        public void PostCatalogsStrikethroughNotificationTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int applicationId = null;
-            //NewBaseNotification body = null;
-            //var response = instance.PostCatalogsStrikethroughNotification(applicationId, body);
-            //Assert.IsType<BaseNotification> (response, "response is BaseNotification");
-        }
-        
-        /// <summary>
-        /// Test PostPendingPointsNotification
-        /// </summary>
-        [Fact]
-        public void PostPendingPointsNotificationTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
-            //NewBaseNotification body = null;
-            //var response = instance.PostPendingPointsNotification(loyaltyProgramId, body);
-            //Assert.IsType<BaseNotification> (response, "response is BaseNotification");
         }
         
         /// <summary>

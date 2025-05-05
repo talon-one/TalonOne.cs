@@ -661,8 +661,9 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
+        /// <param name="forceCompleteEvaluation">Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)</param>
         /// <returns>TrackEventV2Response</returns>
-        TrackEventV2Response TrackEventV2 (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?));
+        TrackEventV2Response TrackEventV2 (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?), bool? forceCompleteEvaluation = default(bool?));
 
         /// <summary>
         /// Track event
@@ -674,8 +675,9 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
+        /// <param name="forceCompleteEvaluation">Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)</param>
         /// <returns>ApiResponse of TrackEventV2Response</returns>
-        ApiResponse<TrackEventV2Response> TrackEventV2WithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?));
+        ApiResponse<TrackEventV2Response> TrackEventV2WithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?), bool? forceCompleteEvaluation = default(bool?));
         /// <summary>
         /// Update profile attributes for all customers in audience
         /// </summary>
@@ -1461,8 +1463,9 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
+        /// <param name="forceCompleteEvaluation">Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)</param>
         /// <returns>Task of TrackEventV2Response</returns>
-        System.Threading.Tasks.Task<TrackEventV2Response> TrackEventV2Async (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?));
+        System.Threading.Tasks.Task<TrackEventV2Response> TrackEventV2Async (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?), bool? forceCompleteEvaluation = default(bool?));
 
         /// <summary>
         /// Track event
@@ -1474,8 +1477,9 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
+        /// <param name="forceCompleteEvaluation">Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (TrackEventV2Response)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TrackEventV2Response>> TrackEventV2AsyncWithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?));
+        System.Threading.Tasks.Task<ApiResponse<TrackEventV2Response>> TrackEventV2AsyncWithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?), bool? forceCompleteEvaluation = default(bool?));
         /// <summary>
         /// Update profile attributes for all customers in audience
         /// </summary>
@@ -5637,10 +5641,11 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
+        /// <param name="forceCompleteEvaluation">Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)</param>
         /// <returns>TrackEventV2Response</returns>
-        public TrackEventV2Response TrackEventV2 (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?))
+        public TrackEventV2Response TrackEventV2 (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?), bool? forceCompleteEvaluation = default(bool?))
         {
-             TalonOne.Client.ApiResponse<TrackEventV2Response> localVarResponse = TrackEventV2WithHttpInfo(body, silent, dry);
+             TalonOne.Client.ApiResponse<TrackEventV2Response> localVarResponse = TrackEventV2WithHttpInfo(body, silent, dry, forceCompleteEvaluation);
              return localVarResponse.Data;
         }
 
@@ -5651,8 +5656,9 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
+        /// <param name="forceCompleteEvaluation">Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)</param>
         /// <returns>ApiResponse of TrackEventV2Response</returns>
-        public TalonOne.Client.ApiResponse< TrackEventV2Response > TrackEventV2WithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?))
+        public TalonOne.Client.ApiResponse< TrackEventV2Response > TrackEventV2WithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?), bool? forceCompleteEvaluation = default(bool?))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -5682,6 +5688,10 @@ namespace TalonOne.Api
             if (dry != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dry", dry));
+            }
+            if (forceCompleteEvaluation != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "forceCompleteEvaluation", forceCompleteEvaluation));
             }
             localVarRequestOptions.Data = body;
 
@@ -5716,10 +5726,11 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
+        /// <param name="forceCompleteEvaluation">Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)</param>
         /// <returns>Task of TrackEventV2Response</returns>
-        public async System.Threading.Tasks.Task<TrackEventV2Response> TrackEventV2Async (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?))
+        public async System.Threading.Tasks.Task<TrackEventV2Response> TrackEventV2Async (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?), bool? forceCompleteEvaluation = default(bool?))
         {
-             TalonOne.Client.ApiResponse<TrackEventV2Response> localVarResponse = await TrackEventV2AsyncWithHttpInfo(body, silent, dry);
+             TalonOne.Client.ApiResponse<TrackEventV2Response> localVarResponse = await TrackEventV2AsyncWithHttpInfo(body, silent, dry, forceCompleteEvaluation);
              return localVarResponse.Data;
 
         }
@@ -5731,8 +5742,9 @@ namespace TalonOne.Api
         /// <param name="body">body</param>
         /// <param name="silent">Possible values: &#x60;yes&#x60; or &#x60;no&#x60;. - &#x60;yes&#x60;: Increases the performance of the API call by returning a 204 response. - &#x60;no&#x60;: Returns a 200 response that contains the updated customer profiles.  (optional, default to &quot;yes&quot;)</param>
         /// <param name="dry">Indicates whether to persist the changes. Changes are ignored when &#x60;dry&#x3D;true&#x60;.  (optional)</param>
+        /// <param name="forceCompleteEvaluation">Forces evaluation for all matching campaigns regardless of the [campaign evaluation mode](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation#setting-campaign-evaluation-mode). Requires &#x60;dry&#x3D;true&#x60;.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (TrackEventV2Response)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<TrackEventV2Response>> TrackEventV2AsyncWithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<TrackEventV2Response>> TrackEventV2AsyncWithHttpInfo (IntegrationEventV2Request body, string silent = default(string), bool? dry = default(bool?), bool? forceCompleteEvaluation = default(bool?))
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -5763,6 +5775,10 @@ namespace TalonOne.Api
             if (dry != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dry", dry));
+            }
+            if (forceCompleteEvaluation != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "forceCompleteEvaluation", forceCompleteEvaluation));
             }
             localVarRequestOptions.Data = body;
 

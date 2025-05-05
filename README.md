@@ -348,6 +348,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**GetLoyaltyProgramTransactions**](docs/ManagementApi.md#getloyaltyprogramtransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 *ManagementApi* | [**GetLoyaltyPrograms**](docs/ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List loyalty programs
 *ManagementApi* | [**GetLoyaltyStatistics**](docs/ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
+*ManagementApi* | [**GetMessageLogs**](docs/ManagementApi.md#getmessagelogs) | **GET** /v1/message_logs | List message log entries
 *ManagementApi* | [**GetReferralsWithoutTotalCount**](docs/ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 *ManagementApi* | [**GetRoleV2**](docs/ManagementApi.md#getrolev2) | **GET** /v2/roles/{roleId} | Get role
 *ManagementApi* | [**GetRuleset**](docs/ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
@@ -378,11 +379,7 @@ Class | Method | HTTP request | Description
 *ManagementApi* | [**ListCollections**](docs/ManagementApi.md#listcollections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections in campaign
 *ManagementApi* | [**ListCollectionsInApplication**](docs/ManagementApi.md#listcollectionsinapplication) | **GET** /v1/applications/{applicationId}/collections | List collections in Application
 *ManagementApi* | [**ListStores**](docs/ManagementApi.md#liststores) | **GET** /v1/applications/{applicationId}/stores | List stores
-*ManagementApi* | [**NotificationActivation**](docs/ManagementApi.md#notificationactivation) | **PUT** /v1/notifications/{notificationId}/activation | Activate or deactivate notification
 *ManagementApi* | [**OktaEventHandlerChallenge**](docs/ManagementApi.md#oktaeventhandlerchallenge) | **GET** /v1/provisioning/okta | Validate Okta API ownership
-*ManagementApi* | [**PostAddedDeductedPointsNotification**](docs/ManagementApi.md#postaddeddeductedpointsnotification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/added_deducted_points | Create notification about added or deducted loyalty points
-*ManagementApi* | [**PostCatalogsStrikethroughNotification**](docs/ManagementApi.md#postcatalogsstrikethroughnotification) | **POST** /v1/applications/{applicationId}/catalogs/notifications/strikethrough | Create strikethrough notification
-*ManagementApi* | [**PostPendingPointsNotification**](docs/ManagementApi.md#postpendingpointsnotification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/pending_points | Create notification about pending loyalty points
 *ManagementApi* | [**RemoveLoyaltyPoints**](docs/ManagementApi.md#removeloyaltypoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/deduct_points | Deduct points from customer profile
 *ManagementApi* | [**ResetPassword**](docs/ManagementApi.md#resetpassword) | **POST** /v1/reset_password | Reset password
 *ManagementApi* | [**ScimCreateUser**](docs/ManagementApi.md#scimcreateuser) | **POST** /v1/provisioning/scim/Users | Create SCIM user
@@ -573,9 +570,9 @@ Class | Method | HTTP request | Description
 - [Model.CustomerProfileUpdateV2Response](docs/CustomerProfileUpdateV2Response.md)
 - [Model.CustomerSession](docs/CustomerSession.md)
 - [Model.CustomerSessionV2](docs/CustomerSessionV2.md)
-- [Model.DeactivateUserRequest](docs/DeactivateUserRequest.md)
 - [Model.DeductLoyaltyPoints](docs/DeductLoyaltyPoints.md)
 - [Model.DeductLoyaltyPointsEffectProps](docs/DeductLoyaltyPointsEffectProps.md)
+- [Model.DeleteUserRequest](docs/DeleteUserRequest.md)
 - [Model.Effect](docs/Effect.md)
 - [Model.EffectEntity](docs/EffectEntity.md)
 - [Model.EmailEntity](docs/EmailEntity.md)
@@ -835,6 +832,7 @@ Class | Method | HTTP request | Description
 - [Model.ReturnedCartItem](docs/ReturnedCartItem.md)
 - [Model.Revision](docs/Revision.md)
 - [Model.RevisionActivation](docs/RevisionActivation.md)
+- [Model.RevisionActivationRequest](docs/RevisionActivationRequest.md)
 - [Model.RevisionVersion](docs/RevisionVersion.md)
 - [Model.Role](docs/Role.md)
 - [Model.RoleAssign](docs/RoleAssign.md)

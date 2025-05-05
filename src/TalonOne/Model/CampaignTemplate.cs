@@ -175,7 +175,8 @@ namespace TalonOne.Model
         /// <param name="updated">Timestamp of the most recent update to the campaign template or any of its elements..</param>
         /// <param name="updatedBy">Name of the user who last updated this campaign template, if available..</param>
         /// <param name="validApplicationIds">The IDs of the Applications that are related to this entity. (required).</param>
-        public CampaignTemplate(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CampaignTemplateCouponReservationSettings couponReservationSettings = default(CampaignTemplateCouponReservationSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<int> applicationsIds = default(List<int>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced, DateTime updated = default(DateTime), string updatedBy = default(string), List<int> validApplicationIds = default(List<int>))
+        /// <param name="isUserFavorite">A flag indicating whether the user marked the template as a favorite. (default to false).</param>
+        public CampaignTemplate(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CampaignTemplateCouponReservationSettings couponReservationSettings = default(CampaignTemplateCouponReservationSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<int> applicationsIds = default(List<int>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced, DateTime updated = default(DateTime), string updatedBy = default(string), List<int> validApplicationIds = default(List<int>), bool isUserFavorite = false)
         {
             this.Id = id;
             this.Created = created;
@@ -207,6 +208,7 @@ namespace TalonOne.Model
             this.DefaultCampaignGroupId = defaultCampaignGroupId;
             this.Updated = updated;
             this.UpdatedBy = updatedBy;
+            this.IsUserFavorite = isUserFavorite;
         }
         
         /// <summary>
@@ -361,6 +363,13 @@ namespace TalonOne.Model
         public List<int> ValidApplicationIds { get; set; }
 
         /// <summary>
+        /// A flag indicating whether the user marked the template as a favorite.
+        /// </summary>
+        /// <value>A flag indicating whether the user marked the template as a favorite.</value>
+        [DataMember(Name="isUserFavorite", EmitDefaultValue=false)]
+        public bool IsUserFavorite { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -393,6 +402,7 @@ namespace TalonOne.Model
             sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("  UpdatedBy: ").Append(UpdatedBy).Append("\n");
             sb.Append("  ValidApplicationIds: ").Append(ValidApplicationIds).Append("\n");
+            sb.Append("  IsUserFavorite: ").Append(IsUserFavorite).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -549,6 +559,10 @@ namespace TalonOne.Model
                     this.ValidApplicationIds != null &&
                     input.ValidApplicationIds != null &&
                     this.ValidApplicationIds.SequenceEqual(input.ValidApplicationIds)
+                ) && 
+                (
+                    this.IsUserFavorite == input.IsUserFavorite ||
+                    this.IsUserFavorite.Equals(input.IsUserFavorite)
                 );
         }
 
@@ -603,6 +617,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.UpdatedBy.GetHashCode();
                 if (this.ValidApplicationIds != null)
                     hashCode = hashCode * 59 + this.ValidApplicationIds.GetHashCode();
+                hashCode = hashCode * 59 + this.IsUserFavorite.GetHashCode();
                 return hashCode;
             }
         }

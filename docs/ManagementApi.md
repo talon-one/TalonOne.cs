@@ -108,6 +108,7 @@ Method | HTTP request | Description
 [**GetLoyaltyProgramTransactions**](ManagementApi.md#getloyaltyprogramtransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 [**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List loyalty programs
 [**GetLoyaltyStatistics**](ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
+[**GetMessageLogs**](ManagementApi.md#getmessagelogs) | **GET** /v1/message_logs | List message log entries
 [**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**GetRoleV2**](ManagementApi.md#getrolev2) | **GET** /v2/roles/{roleId} | Get role
 [**GetRuleset**](ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
@@ -138,11 +139,7 @@ Method | HTTP request | Description
 [**ListCollections**](ManagementApi.md#listcollections) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/collections | List collections in campaign
 [**ListCollectionsInApplication**](ManagementApi.md#listcollectionsinapplication) | **GET** /v1/applications/{applicationId}/collections | List collections in Application
 [**ListStores**](ManagementApi.md#liststores) | **GET** /v1/applications/{applicationId}/stores | List stores
-[**NotificationActivation**](ManagementApi.md#notificationactivation) | **PUT** /v1/notifications/{notificationId}/activation | Activate or deactivate notification
 [**OktaEventHandlerChallenge**](ManagementApi.md#oktaeventhandlerchallenge) | **GET** /v1/provisioning/okta | Validate Okta API ownership
-[**PostAddedDeductedPointsNotification**](ManagementApi.md#postaddeddeductedpointsnotification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/added_deducted_points | Create notification about added or deducted loyalty points
-[**PostCatalogsStrikethroughNotification**](ManagementApi.md#postcatalogsstrikethroughnotification) | **POST** /v1/applications/{applicationId}/catalogs/notifications/strikethrough | Create strikethrough notification
-[**PostPendingPointsNotification**](ManagementApi.md#postpendingpointsnotification) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/notifications/pending_points | Create notification about pending loyalty points
 [**RemoveLoyaltyPoints**](ManagementApi.md#removeloyaltypoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/deduct_points | Deduct points from customer profile
 [**ResetPassword**](ManagementApi.md#resetpassword) | **POST** /v1/reset_password | Reset password
 [**ScimCreateUser**](ManagementApi.md#scimcreateuser) | **POST** /v1/provisioning/scim/Users | Create SCIM user
@@ -174,7 +171,7 @@ Method | HTTP request | Description
 
 <a name="activateuserbyemail"></a>
 # **ActivateUserByEmail**
-> void ActivateUserByEmail (DeactivateUserRequest body)
+> void ActivateUserByEmail (DeleteUserRequest body)
 
 Enable user by email address
 
@@ -206,7 +203,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(config);
-            var body = ;  // DeactivateUserRequest | body
+            var body = ;  // DeleteUserRequest | body
 
             try
             {
@@ -228,7 +225,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **DeactivateUserRequest**| body | 
+ **body** | **DeleteUserRequest**| body | 
 
 ### Return type
 
@@ -1816,7 +1813,7 @@ Name | Type | Description  | Notes
 
 <a name="deactivateuserbyemail"></a>
 # **DeactivateUserByEmail**
-> void DeactivateUserByEmail (DeactivateUserRequest body)
+> void DeactivateUserByEmail (DeleteUserRequest body)
 
 Disable user by email address
 
@@ -1848,7 +1845,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(config);
-            var body = new DeactivateUserRequest(); // DeactivateUserRequest | body
+            var body = ;  // DeleteUserRequest | body
 
             try
             {
@@ -1870,7 +1867,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**DeactivateUserRequest**](DeactivateUserRequest.md)| body | 
+ **body** | **DeleteUserRequest**| body | 
 
 ### Return type
 
@@ -2816,7 +2813,7 @@ void (empty response body)
 
 <a name="deleteuserbyemail"></a>
 # **DeleteUserByEmail**
-> void DeleteUserByEmail (DeactivateUserRequest body)
+> void DeleteUserByEmail (DeleteUserRequest body)
 
 Delete user by email address
 
@@ -2848,7 +2845,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(config);
-            var body = ;  // DeactivateUserRequest | body
+            var body = new DeleteUserRequest(); // DeleteUserRequest | body
 
             try
             {
@@ -2870,7 +2867,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | **DeactivateUserRequest**| body | 
+ **body** | [**DeleteUserRequest**](DeleteUserRequest.md)| body | 
 
 ### Return type
 
@@ -3503,7 +3500,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var applicationId = 56;  // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var campaignId = 8.14;  // decimal? | Filter results by campaign ID. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
@@ -3540,7 +3537,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaignId** | **decimal?**| Filter results by campaign ID. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -4262,7 +4259,7 @@ Name | Type | Description  | Notes
 
 Export customer's transaction logs
 
-Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. 
+Download a CSV file containing a customer's transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - `customerprofileid`: The ID of the profile. - `customersessionid`: The ID of the customer session. - `rulesetid`: The ID of the rule set. - `rulename`: The name of the rule. - `programid`: The ID of the loyalty program. - `type`: The transaction type, such as `addition` or `subtraction`. - `name`: The reason for the transaction. - `subledgerid`: The ID of the subledger, when applicable. - `startdate`: The start date of the program. - `expirydate`: The expiration date of the program. - `id`: The ID of the transaction. - `created`: The timestamp of the creation of the loyalty program. - `amount`: The number of points in that transaction. - `archived`: Whether the session related to the transaction is archived. - `campaignid`: The ID of the campaign. - `flags`: The flags of the transaction, when applicable. The `createsNegativeBalance` flag indicates whether the transaction results in a negative balance. 
 
 ### Example
 ```csharp
@@ -4562,7 +4559,7 @@ namespace Example
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -4593,7 +4590,7 @@ Name | Type | Description  | Notes
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -5053,7 +5050,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -5078,7 +5075,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -5377,7 +5374,7 @@ namespace Example
             var integrationId = integrationId_example;  // string | The Integration ID of the Advocate's Profile.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional) 
 
             try
@@ -5405,7 +5402,7 @@ Name | Type | Description  | Notes
  **integrationId** | **string**| The Integration ID of the Advocate&#39;s Profile. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
 
 ### Return type
@@ -5639,7 +5636,7 @@ namespace Example
             var applicationId = 56;  // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -5665,7 +5662,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -5724,7 +5721,7 @@ namespace Example
             var applicationId = 56;  // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var type = type_example;  // string | Comma-separated list of types by which to filter events. Must be exact match(es). (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
@@ -5761,7 +5758,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **type** | **string**| Comma-separated list of types by which to filter events. Must be exact match(es). | [optional] 
  **createdBefore** | **DateTime?**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -5912,7 +5909,7 @@ namespace Example
             var applicationId = 56;  // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var profile = profile_example;  // string | Profile integration ID filter for sessions. Must be exact match. (optional) 
             var state = state_example;  // string | Filter by sessions with this state. Must be exact match. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
@@ -5946,7 +5943,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **profile** | **string**| Profile integration ID filter for sessions. Must be exact match. | [optional] 
  **state** | **string**| Filter by sessions with this state. Must be exact match. | [optional] 
  **createdBefore** | **DateTime?**| Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -6012,7 +6009,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -6037,7 +6034,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -6174,7 +6171,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var entity = entity_example;  // string | Returned attributes will be filtered by supplied entity. (optional) 
 
             try
@@ -6200,7 +6197,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **entity** | **string**| Returned attributes will be filtered by supplied entity. | [optional] 
 
 ### Return type
@@ -6260,7 +6257,7 @@ namespace Example
             var audienceId = 56;  // int | The ID of the audience.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var profileQuery = profileQuery_example;  // string | The filter to select a profile. (optional) 
 
             try
@@ -6287,7 +6284,7 @@ Name | Type | Description  | Notes
  **audienceId** | **int**| The ID of the audience. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **profileQuery** | **string**| The filter to select a profile. | [optional] 
 
 ### Return type
@@ -6347,7 +6344,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional) 
 
             try
@@ -6373,7 +6370,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
 
 ### Return type
@@ -6431,7 +6428,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var audienceIds = audienceIds_example;  // string | The IDs of one or more audiences, separated by commas, by which to filter results.
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -6455,7 +6452,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audienceIds** | **string**| The IDs of one or more audiences, separated by commas, by which to filter results. | 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -6683,7 +6680,7 @@ namespace Example
             var body = new CampaignSearch(); // CampaignSearch | body
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional) 
 
             try
@@ -6711,7 +6708,7 @@ Name | Type | Description  | Notes
  **body** | [**CampaignSearch**](CampaignSearch.md)| body | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **campaignState** | **string**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] 
 
 ### Return type
@@ -6849,7 +6846,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -6874,7 +6871,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -6932,7 +6929,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var state = state_example;  // string | Filter results by the state of the campaign template. (optional) 
             var name = name_example;  // string | Filter results performing case-insensitive matching against the name of the campaign template. (optional) 
             var tags = tags_example;  // string | Filter results performing case-insensitive matching against the tags of the campaign template. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values.  (optional) 
@@ -6961,7 +6958,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **state** | **string**| Filter results by the state of the campaign template. | [optional] 
  **name** | **string**| Filter results performing case-insensitive matching against the name of the campaign template. | [optional] 
  **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign template. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values.  | [optional] 
@@ -7024,7 +7021,7 @@ namespace Example
             var applicationId = 56;  // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional) 
             var name = name_example;  // string | Filter results performing case-insensitive matching against the name of the campaign. (optional) 
             var tags = tags_example;  // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional) 
@@ -7058,7 +7055,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **campaignState** | **string**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] 
  **name** | **string**| Filter results performing case-insensitive matching against the name of the campaign. | [optional] 
  **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
@@ -7125,7 +7122,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var applicationId = 8.14;  // decimal? | Filter results by Application ID. (optional) 
             var entityPath = entityPath_example;  // string | Filter results on a case insensitive matching of the url path of the entity (optional) 
             var userId = 56;  // int? | Filter results by user ID. (optional) 
@@ -7158,7 +7155,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **applicationId** | **decimal?**| Filter results by Application ID. | [optional] 
  **entityPath** | **string**| Filter results on a case insensitive matching of the url path of the entity | [optional] 
  **userId** | **int?**| Filter results by user ID. | [optional] 
@@ -7394,7 +7391,7 @@ namespace Example
             var campaignId = 56;  // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
@@ -7436,7 +7433,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -7601,7 +7598,7 @@ namespace Example
             var applicationId = 56;  // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var name = name_example;  // string | Only return reports matching the customer name. (optional) 
             var integrationId = integrationId_example;  // string | Filter results performing an exact matching against the profile integration identifier. (optional) 
             var campaignName = campaignName_example;  // string | Only return reports matching the campaign name. (optional) 
@@ -7633,7 +7630,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **name** | **string**| Only return reports matching the customer name. | [optional] 
  **integrationId** | **string**| Filter results performing an exact matching against the profile integration identifier. | [optional] 
  **campaignName** | **string**| Only return reports matching the campaign name. | [optional] 
@@ -7697,7 +7694,7 @@ namespace Example
             var customerId = 56;  // int | The value of the `id` property of a customer profile. Get it with the [List Application's customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint. 
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -7724,7 +7721,7 @@ Name | Type | Description  | Notes
  **customerId** | **int**| The value of the &#x60;id&#x60; property of a customer profile. Get it with the [List Application&#39;s customers](https://docs.talon.one/management-api#operation/getApplicationCustomers) endpoint.  | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -8207,7 +8204,7 @@ namespace Example
             var includeOldVersions = true;  // bool? | Include all versions of every event type. (optional)  (default to false)
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -8234,7 +8231,7 @@ Name | Type | Description  | Notes
  **includeOldVersions** | **bool?**| Include all versions of every event type. | [optional] [default to false]
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -8557,7 +8554,7 @@ namespace Example
             var loyaltyProgramId = 56;  // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var identifier = identifier_example;  // string | The card code by which to filter loyalty cards in the response. (optional) 
             var profileId = 56;  // int? | Filter results by customer profile ID. (optional) 
             var batchId = batchId_example;  // string | Filter results by loyalty card batch ID. (optional) 
@@ -8586,7 +8583,7 @@ Name | Type | Description  | Notes
  **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **identifier** | **string**| The card code by which to filter loyalty cards in the response. | [optional] 
  **profileId** | **int?**| Filter results by customer profile ID. | [optional] 
  **batchId** | **string**| Filter results by loyalty card batch ID. | [optional] 
@@ -9021,6 +9018,111 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getmessagelogs"></a>
+# **GetMessageLogs**
+> MessageLogEntries GetMessageLogs (string entityType, string messageID = null, string changeType = null, string notificationIDs = null, DateTime? createdBefore = null, DateTime? createdAfter = null, byte[] cursor = null, string period = null, bool? isSuccessful = null, decimal? applicationId = null, decimal? campaignId = null, int? loyaltyProgramId = null, int? responseCode = null, string webhookIDs = null)
+
+List message log entries
+
+Retrieve all message log entries.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetMessageLogsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var entityType = entityType_example;  // string | The entity type the log is related to. 
+            var messageID = messageID_example;  // string | Filter results by message ID. (optional) 
+            var changeType = changeType_example;  // string | Filter results by change type. (optional) 
+            var notificationIDs = notificationIDs_example;  // string | Filter results by notification ID (include up to 30 values, separated by a comma). (optional) 
+            var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
+            var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
+            var cursor = BYTE_ARRAY_DATA_HERE;  // byte[] | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional) 
+            var period = period_example;  // string | Filter results by time period. Choose between the available relative time frames.  (optional) 
+            var isSuccessful = true;  // bool? | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional) 
+            var applicationId = 8.14;  // decimal? | Filter results by Application ID. (optional) 
+            var campaignId = 8.14;  // decimal? | Filter results by campaign ID. (optional) 
+            var loyaltyProgramId = 56;  // int? | Identifier of the loyalty program. (optional) 
+            var responseCode = 56;  // int? | Filter results by response status code. (optional) 
+            var webhookIDs = webhookIDs_example;  // string | Filter results by webhook ID (include up to 30 values, separated by a comma). (optional) 
+
+            try
+            {
+                // List message log entries
+                MessageLogEntries result = apiInstance.GetMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetMessageLogs: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **entityType** | **string**| The entity type the log is related to.  | 
+ **messageID** | **string**| Filter results by message ID. | [optional] 
+ **changeType** | **string**| Filter results by change type. | [optional] 
+ **notificationIDs** | **string**| Filter results by notification ID (include up to 30 values, separated by a comma). | [optional] 
+ **createdBefore** | **DateTime?**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **createdAfter** | **DateTime?**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
+ **cursor** | **byte[]**| A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  | [optional] 
+ **period** | **string**| Filter results by time period. Choose between the available relative time frames.  | [optional] 
+ **isSuccessful** | **bool?**| Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  | [optional] 
+ **applicationId** | **decimal?**| Filter results by Application ID. | [optional] 
+ **campaignId** | **decimal?**| Filter results by campaign ID. | [optional] 
+ **loyaltyProgramId** | **int?**| Identifier of the loyalty program. | [optional] 
+ **responseCode** | **int?**| Filter results by response status code. | [optional] 
+ **webhookIDs** | **string**| Filter results by webhook ID (include up to 30 values, separated by a comma). | [optional] 
+
+### Return type
+
+[**MessageLogEntries**](MessageLogEntries.md)
+
+### Authorization
+
+[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getreferralswithouttotalcount"></a>
 # **GetReferralsWithoutTotalCount**
 > InlineResponse20012 GetReferralsWithoutTotalCount (int applicationId, int campaignId, int? pageSize = null, int? skip = null, string sort = null, string code = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, string advocate = null)
@@ -9059,7 +9161,7 @@ namespace Example
             var campaignId = 56;  // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var code = code_example;  // string | Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
@@ -9092,7 +9194,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **code** | **string**| Filter results performing case-insensitive matching against the referral code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the referral creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -9320,7 +9422,7 @@ namespace Example
             var campaignId = 56;  // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -9347,7 +9449,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -9566,7 +9668,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
@@ -9591,7 +9693,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
@@ -9728,7 +9830,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var integrationRequestUuid = integrationRequestUuid_example;  // string | Filter results by integration request UUID. (optional) 
             var webhookId = 8.14;  // decimal? | Filter results by webhook id. (optional) 
             var applicationId = 8.14;  // decimal? | Filter results by Application ID. (optional) 
@@ -9759,7 +9861,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **integrationRequestUuid** | **string**| Filter results by integration request UUID. | [optional] 
  **webhookId** | **decimal?**| Filter results by webhook id. | [optional] 
  **applicationId** | **decimal?**| Filter results by Application ID. | [optional] 
@@ -9823,7 +9925,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var status = status_example;  // string | Filter results by HTTP status codes. (optional) 
             var webhookId = 8.14;  // decimal? | Filter results by webhook id. (optional) 
             var applicationId = 8.14;  // decimal? | Filter results by Application ID. (optional) 
@@ -9855,7 +9957,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **status** | **string**| Filter results by HTTP status codes. | [optional] 
  **webhookId** | **decimal?**| Filter results by webhook id. | [optional] 
  **applicationId** | **decimal?**| Filter results by Application ID. | [optional] 
@@ -9919,7 +10021,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var applicationIds = applicationIds_example;  // string | Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
             var creationType = creationType_example;  // string | Filter results by creation type. (optional) 
@@ -9949,7 +10051,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationIds** | **string**| Checks if the given catalog or its attributes are referenced in the specified Application ID.  **Note**: If no Application ID is provided, we check for all connected Applications.  | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
  **creationType** | **string**| Filter results by creation type. | [optional] 
@@ -11011,7 +11113,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional) 
             var name = name_example;  // string | Filter by collection name. (optional) 
 
@@ -11038,7 +11140,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
  **name** | **string**| Filter by collection name. | [optional] 
 
@@ -11354,7 +11456,7 @@ namespace Example
             var campaignId = 56;  // int | The ID of the campaign. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional) 
             var name = name_example;  // string | Filter by collection name. (optional) 
 
@@ -11383,7 +11485,7 @@ Name | Type | Description  | Notes
  **campaignId** | **int**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
  **name** | **string**| Filter by collection name. | [optional] 
 
@@ -11445,7 +11547,7 @@ namespace Example
             var applicationId = 56;  // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional) 
             var name = name_example;  // string | Filter by collection name. (optional) 
 
@@ -11473,7 +11575,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
  **name** | **string**| Filter by collection name. | [optional] 
 
@@ -11535,7 +11637,7 @@ namespace Example
             var applicationId = 56;  // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When `true`: `hasMore` is true when there is a next page. `totalResultSize` is always zero. - When `false`: `hasMore` is always false. `totalResultSize` contains the total number of results for this query.  (optional) 
             var campaignId = 8.14;  // decimal? | Filter results by campaign ID. (optional) 
             var name = name_example;  // string | The name of the store. (optional) 
@@ -11566,7 +11668,7 @@ Name | Type | Description  | Notes
  **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  | [optional] 
  **campaignId** | **decimal?**| Filter results by campaign ID. | [optional] 
  **name** | **string**| The name of the store. | [optional] 
@@ -11590,86 +11692,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="notificationactivation"></a>
-# **NotificationActivation**
-> void NotificationActivation (int notificationId, NotificationActivation body)
-
-Activate or deactivate notification
-
-Activate or deactivate the given notification. When `enabled` is false, updates will no longer be sent for the given notification. 
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class NotificationActivationExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://yourbaseurl.talon.one";
-            // Configure API key authorization: management_key
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure API key authorization: manager_auth
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(config);
-            var notificationId = 56;  // int | The ID of the notification. Get it with the appropriate _List notifications_ endpoint.
-            var body = new NotificationActivation(); // NotificationActivation | body
-
-            try
-            {
-                // Activate or deactivate notification
-                apiInstance.NotificationActivation(notificationId, body);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling ManagementApi.NotificationActivation: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **notificationId** | **int**| The ID of the notification. Get it with the appropriate _List notifications_ endpoint. | 
- **body** | [**NotificationActivation**](NotificationActivation.md)| body | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: Not defined
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **204** | No Content |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -11744,258 +11766,6 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="postaddeddeductedpointsnotification"></a>
-# **PostAddedDeductedPointsNotification**
-> BaseNotification PostAddedDeductedPointsNotification (int loyaltyProgramId, NewBaseNotification body)
-
-Create notification about added or deducted loyalty points
-
-Create a notification about added or deducted loyalty points in a given profile-based loyalty program. A notification for added or deducted loyalty points is different from regular webhooks in that it is loyalty program-scoped and has a predefined payload.  For more information, see [Loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/loyalty-notifications/overview). 
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class PostAddedDeductedPointsNotificationExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://yourbaseurl.talon.one";
-            // Configure API key authorization: management_key
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure API key authorization: manager_auth
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-            var body = new NewBaseNotification(); // NewBaseNotification | body
-
-            try
-            {
-                // Create notification about added or deducted loyalty points
-                BaseNotification result = apiInstance.PostAddedDeductedPointsNotification(loyaltyProgramId, body);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling ManagementApi.PostAddedDeductedPointsNotification: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **body** | [**NewBaseNotification**](NewBaseNotification.md)| body | 
-
-### Return type
-
-[**BaseNotification**](BaseNotification.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad request |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="postcatalogsstrikethroughnotification"></a>
-# **PostCatalogsStrikethroughNotification**
-> BaseNotification PostCatalogsStrikethroughNotification (int applicationId, NewBaseNotification body)
-
-Create strikethrough notification
-
-Create a notification for the in the given Application. For more information, see [Application notifications](https://docs.talon.one/docs/product/applications/application-notifications/overview).  See the [payload](https://docs.talon.one/outbound-notifications) you will receive. 
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class PostCatalogsStrikethroughNotificationExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://yourbaseurl.talon.one";
-            // Configure API key authorization: management_key
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure API key authorization: manager_auth
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(config);
-            var applicationId = 56;  // int | The ID of the Application. It is displayed in your Talon.One deployment URL.
-            var body = new NewBaseNotification(); // NewBaseNotification | body
-
-            try
-            {
-                // Create strikethrough notification
-                BaseNotification result = apiInstance.PostCatalogsStrikethroughNotification(applicationId, body);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling ManagementApi.PostCatalogsStrikethroughNotification: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **applicationId** | **int**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
- **body** | [**NewBaseNotification**](NewBaseNotification.md)| body | 
-
-### Return type
-
-[**BaseNotification**](BaseNotification.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad request |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-<a name="postpendingpointsnotification"></a>
-# **PostPendingPointsNotification**
-> BaseNotification PostPendingPointsNotification (int loyaltyProgramId, NewBaseNotification body)
-
-Create notification about pending loyalty points
-
-Create a notification about pending loyalty points for a given profile-based loyalty program. For more information, see [Loyalty notifications](https://docs.talon.one/docs/product/loyalty-programs/loyalty-notifications/overview). 
-
-### Example
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using TalonOne.Api;
-using TalonOne.Client;
-using TalonOne.Model;
-
-namespace Example
-{
-    public class PostPendingPointsNotificationExample
-    {
-        public static void Main()
-        {
-            Configuration config = new Configuration();
-            config.BasePath = "https://yourbaseurl.talon.one";
-            // Configure API key authorization: management_key
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure API key authorization: manager_auth
-            config.AddApiKey("Authorization", "YOUR_API_KEY");
-            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-            // config.AddApiKeyPrefix("Authorization", "Bearer");
-
-            var apiInstance = new ManagementApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-            var body = new NewBaseNotification(); // NewBaseNotification | body
-
-            try
-            {
-                // Create notification about pending loyalty points
-                BaseNotification result = apiInstance.PostPendingPointsNotification(loyaltyProgramId, body);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException  e)
-            {
-                Debug.Print("Exception when calling ManagementApi.PostPendingPointsNotification: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **body** | [**NewBaseNotification**](NewBaseNotification.md)| body | 
-
-### Return type
-
-[**BaseNotification**](BaseNotification.md)
-
-### Authorization
-
-[management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | OK |  -  |
-| **400** | Bad request |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -12899,7 +12669,7 @@ namespace Example
             var body = ;  // Object | body
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
@@ -12936,7 +12706,7 @@ Name | Type | Description  | Notes
  **body** | **Object**| body | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -13007,7 +12777,7 @@ namespace Example
             var body = ;  // Object | body
             var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
             var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
-            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** This parameter works only with numeric fields.  (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var value = value_example;  // string | Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
@@ -13044,7 +12814,7 @@ Name | Type | Description  | Notes
  **body** | **Object**| body | 
  **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
  **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
- **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** This parameter works only with numeric fields.  | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **value** | **string**| Filter results performing case-insensitive matching against the coupon code. Both the code and the query are folded to remove all non-alpha-numeric characters. | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -14036,7 +13806,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var roleId = 56;  // int | The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. 
-            var body = ;  // RoleV2Base | body
+            var body = new RoleV2Base(); // RoleV2Base | body
 
             try
             {
@@ -14060,7 +13830,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleId** | **int**| The ID of role.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint.  | 
- **body** | **RoleV2Base**| body | 
+ **body** | [**RoleV2Base**](RoleV2Base.md)| body | 
 
 ### Return type
 

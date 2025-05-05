@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Headers** | **Dictionary&lt;string, string&gt;** | List of API HTTP headers for the given message. | [optional] 
 **Verb** | **string** | API method for this message. | 
 **Url** | **string** | API URL for the given message. | 
-**Payload** | **string** | API payload of this message. | 
+**Payload** | **string** | API payload of this message. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

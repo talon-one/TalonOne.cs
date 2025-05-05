@@ -61,12 +61,13 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="StrikethroughLabelingNotification" /> class.
         /// </summary>
         /// <param name="version">The version of the strikethrough pricing notification..</param>
+        /// <param name="validFrom">Timestamp at which the strikethrough pricing update becomes valid. Set for **scheduled** strikethrough pricing updates (version: v2) only. .</param>
         /// <param name="applicationId">The ID of the Application to which the catalog items labels belongs. (required).</param>
         /// <param name="currentBatch">The batch number of the notification. Notifications might be sent in different batches. (required).</param>
         /// <param name="totalBatches">The total number of batches for the notification. (required).</param>
         /// <param name="trigger">trigger (required).</param>
         /// <param name="changedItems">changedItems (required).</param>
-        public StrikethroughLabelingNotification(VersionEnum? version = default(VersionEnum?), int applicationId = default(int), int currentBatch = default(int), int totalBatches = default(int), StrikethroughTrigger trigger = default(StrikethroughTrigger), List<StrikethroughChangedItem> changedItems = default(List<StrikethroughChangedItem>))
+        public StrikethroughLabelingNotification(VersionEnum? version = default(VersionEnum?), DateTime validFrom = default(DateTime), int applicationId = default(int), int currentBatch = default(int), int totalBatches = default(int), StrikethroughTrigger trigger = default(StrikethroughTrigger), List<StrikethroughChangedItem> changedItems = default(List<StrikethroughChangedItem>))
         {
             this.ApplicationId = applicationId;
             this.CurrentBatch = currentBatch;
@@ -76,8 +77,16 @@ namespace TalonOne.Model
             // to ensure "changedItems" is required (not null)
             this.ChangedItems = changedItems ?? throw new ArgumentNullException("changedItems is a required property for StrikethroughLabelingNotification and cannot be null");
             this.Version = version;
+            this.ValidFrom = validFrom;
         }
         
+        /// <summary>
+        /// Timestamp at which the strikethrough pricing update becomes valid. Set for **scheduled** strikethrough pricing updates (version: v2) only. 
+        /// </summary>
+        /// <value>Timestamp at which the strikethrough pricing update becomes valid. Set for **scheduled** strikethrough pricing updates (version: v2) only. </value>
+        [DataMember(Name="validFrom", EmitDefaultValue=false)]
+        public DateTime ValidFrom { get; set; }
+
         /// <summary>
         /// The ID of the Application to which the catalog items labels belongs.
         /// </summary>
@@ -120,6 +129,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class StrikethroughLabelingNotification {\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  ValidFrom: ").Append(ValidFrom).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  CurrentBatch: ").Append(CurrentBatch).Append("\n");
             sb.Append("  TotalBatches: ").Append(TotalBatches).Append("\n");
@@ -164,6 +174,11 @@ namespace TalonOne.Model
                     this.Version.Equals(input.Version)
                 ) && 
                 (
+                    this.ValidFrom == input.ValidFrom ||
+                    (this.ValidFrom != null &&
+                    this.ValidFrom.Equals(input.ValidFrom))
+                ) && 
+                (
                     this.ApplicationId == input.ApplicationId ||
                     this.ApplicationId.Equals(input.ApplicationId)
                 ) && 
@@ -198,6 +213,8 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this.ValidFrom != null)
+                    hashCode = hashCode * 59 + this.ValidFrom.GetHashCode();
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 hashCode = hashCode * 59 + this.CurrentBatch.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalBatches.GetHashCode();

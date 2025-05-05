@@ -412,7 +412,8 @@ namespace TalonOne.Test
             //IntegrationEventV2Request body = null;
             //string silent = null;
             //bool? dry = null;
-            //var response = instance.TrackEventV2(body, silent, dry);
+            //bool? forceCompleteEvaluation = null;
+            //var response = instance.TrackEventV2(body, silent, dry, forceCompleteEvaluation);
             //Assert.IsType<TrackEventV2Response> (response, "response is TrackEventV2Response");
         }
         

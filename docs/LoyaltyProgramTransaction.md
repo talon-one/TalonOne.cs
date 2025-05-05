@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **UserEmail** | **string** | The email of the Campaign Manager account that manually added or deducted points. Applies only to manual transactions. | [optional] 
 **RulesetId** | **int** | ID of the ruleset containing the rule that triggered the effect. Applies only for transactions that resulted from a customer session. | [optional] 
 **RuleName** | **string** | Name of the rule that triggered the effect. Applies only for transactions that resulted from a customer session. | [optional] 
+**Flags** | [**LoyaltyLedgerEntryFlags**](LoyaltyLedgerEntryFlags.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

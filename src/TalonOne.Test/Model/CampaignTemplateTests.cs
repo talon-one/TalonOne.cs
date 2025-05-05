@@ -257,6 +257,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ValidApplicationIds'
         }
+        /// <summary>
+        /// Test the property 'IsUserFavorite'
+        /// </summary>
+        [Fact]
+        public void IsUserFavoriteTest()
+        {
+            // TODO unit test for the property 'IsUserFavorite'
+        }
 
     }
 

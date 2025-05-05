@@ -78,7 +78,8 @@ namespace TalonOne.Model
         /// <param name="id">ID of the loyalty ledger transaction. (required).</param>
         /// <param name="rulesetId">The ID of the ruleset containing the rule that triggered this effect..</param>
         /// <param name="ruleName">The name of the rule that triggered this effect..</param>
-        public LedgerTransactionLogEntryIntegrationAPI(DateTime created = default(DateTime), int programId = default(int), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), int id = default(int), int rulesetId = default(int), string ruleName = default(string))
+        /// <param name="flags">flags.</param>
+        public LedgerTransactionLogEntryIntegrationAPI(DateTime created = default(DateTime), int programId = default(int), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), int id = default(int), int rulesetId = default(int), string ruleName = default(string), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags))
         {
             this.Created = created;
             this.ProgramId = programId;
@@ -96,6 +97,7 @@ namespace TalonOne.Model
             this.CustomerSessionId = customerSessionId;
             this.RulesetId = rulesetId;
             this.RuleName = ruleName;
+            this.Flags = flags;
         }
         
         /// <summary>
@@ -176,6 +178,12 @@ namespace TalonOne.Model
         public string RuleName { get; set; }
 
         /// <summary>
+        /// Gets or Sets Flags
+        /// </summary>
+        [DataMember(Name="flags", EmitDefaultValue=false)]
+        public LoyaltyLedgerEntryFlags Flags { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -195,6 +203,7 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  RulesetId: ").Append(RulesetId).Append("\n");
             sb.Append("  RuleName: ").Append(RuleName).Append("\n");
+            sb.Append("  Flags: ").Append(Flags).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -283,6 +292,11 @@ namespace TalonOne.Model
                     this.RuleName == input.RuleName ||
                     (this.RuleName != null &&
                     this.RuleName.Equals(input.RuleName))
+                ) && 
+                (
+                    this.Flags == input.Flags ||
+                    (this.Flags != null &&
+                    this.Flags.Equals(input.Flags))
                 );
         }
 
@@ -314,6 +328,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.RulesetId.GetHashCode();
                 if (this.RuleName != null)
                     hashCode = hashCode * 59 + this.RuleName.GetHashCode();
+                if (this.Flags != null)
+                    hashCode = hashCode * 59 + this.Flags.GetHashCode();
                 return hashCode;
             }
         }

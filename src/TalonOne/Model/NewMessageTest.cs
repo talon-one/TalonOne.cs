@@ -182,17 +182,16 @@ namespace TalonOne.Model
         /// <param name="headers">List of API HTTP headers for the given message..</param>
         /// <param name="verb">API method for this message. (required).</param>
         /// <param name="url">API URL for the given message. (required).</param>
-        /// <param name="payload">API payload of this message. (required).</param>
+        /// <param name="payload">API payload of this message..</param>
         public NewMessageTest(TypeEnum type = default(TypeEnum), Dictionary<string, string> queryParams = default(Dictionary<string, string>), Dictionary<string, string> headers = default(Dictionary<string, string>), VerbEnum verb = default(VerbEnum), string url = default(string), string payload = default(string))
         {
             this.Type = type;
             this.Verb = verb;
             // to ensure "url" is required (not null)
             this.Url = url ?? throw new ArgumentNullException("url is a required property for NewMessageTest and cannot be null");
-            // to ensure "payload" is required (not null)
-            this.Payload = payload ?? throw new ArgumentNullException("payload is a required property for NewMessageTest and cannot be null");
             this.QueryParams = queryParams;
             this.Headers = headers;
+            this.Payload = payload;
         }
         
         /// <summary>
