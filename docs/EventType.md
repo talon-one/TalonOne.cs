@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Internal ID of this entity. | 
+**Id** | **int** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **Title** | **string** | The human-friendly name for this event type. | 
 **Name** | **string** | The integration name for this event type. This will be used in URLs and cannot be changed after an event type has been created. | 

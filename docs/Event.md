@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Internal ID of this entity. | 
+**Id** | **int** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **ProfileId** | **string** | ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;.  | [optional] 

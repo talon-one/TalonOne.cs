@@ -41,22 +41,22 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="currentBalance">Sum of currently active points. (required).</param>
         /// <param name="pendingBalance">Sum of pending points. (required).</param>
-        /// <param name="negativeBalance">Sum of negative points. This implies that &#x60;currentBalance&#x60; is &#x60;0&#x60;. (required).</param>
+        /// <param name="negativeBalance">Sum of negative points. This implies that &#x60;currentBalance&#x60; is &#x60;0&#x60;..</param>
         /// <param name="expiredBalance">**DEPRECATED** Value is shown as 0.  (required).</param>
         /// <param name="spentBalance">**DEPRECATED** Value is shown as 0.  (required).</param>
         /// <param name="tentativeCurrentBalance">The tentative points balance, reflecting the &#x60;currentBalance&#x60; and all point additions and deductions within the current open customer session. When the session is closed, the effects are applied and the &#x60;currentBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.  (required).</param>
         /// <param name="tentativePendingBalance">The tentative points balance, reflecting the &#x60;pendingBalance&#x60; and all point additions with a future activation date within the current open customer session. When the session is closed, the effects are applied and the &#x60;pendingBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. .</param>
-        /// <param name="tentativeNegativeBalance">The tentative negative balance after all additions and deductions from the current customer session are applied to &#x60;negativeBalance&#x60;. When the session is closed, the tentative effects are applied and &#x60;negativeBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer.  (required).</param>
+        /// <param name="tentativeNegativeBalance">The tentative negative balance after all additions and deductions from the current customer session are applied to &#x60;negativeBalance&#x60;. When the session is closed, the tentative effects are applied and &#x60;negativeBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. .</param>
         public LoyaltyProgramBalance(decimal currentBalance = default(decimal), decimal pendingBalance = default(decimal), decimal negativeBalance = default(decimal), decimal expiredBalance = default(decimal), decimal spentBalance = default(decimal), decimal tentativeCurrentBalance = default(decimal), decimal tentativePendingBalance = default(decimal), decimal tentativeNegativeBalance = default(decimal))
         {
             this.CurrentBalance = currentBalance;
             this.PendingBalance = pendingBalance;
-            this.NegativeBalance = negativeBalance;
             this.ExpiredBalance = expiredBalance;
             this.SpentBalance = spentBalance;
             this.TentativeCurrentBalance = tentativeCurrentBalance;
-            this.TentativeNegativeBalance = tentativeNegativeBalance;
+            this.NegativeBalance = negativeBalance;
             this.TentativePendingBalance = tentativePendingBalance;
+            this.TentativeNegativeBalance = tentativeNegativeBalance;
         }
         
         /// <summary>

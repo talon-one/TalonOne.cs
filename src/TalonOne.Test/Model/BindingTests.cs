@@ -89,6 +89,38 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ValueType'
         }
+        /// <summary>
+        /// Test the property 'MinValue'
+        /// </summary>
+        [Fact]
+        public void MinValueTest()
+        {
+            // TODO unit test for the property 'MinValue'
+        }
+        /// <summary>
+        /// Test the property 'MaxValue'
+        /// </summary>
+        [Fact]
+        public void MaxValueTest()
+        {
+            // TODO unit test for the property 'MaxValue'
+        }
+        /// <summary>
+        /// Test the property 'AttributeId'
+        /// </summary>
+        [Fact]
+        public void AttributeIdTest()
+        {
+            // TODO unit test for the property 'AttributeId'
+        }
+        /// <summary>
+        /// Test the property 'Description'
+        /// </summary>
+        [Fact]
+        public void DescriptionTest()
+        {
+            // TODO unit test for the property 'Description'
+        }
 
     }
 

@@ -95,8 +95,9 @@ namespace TalonOne.Model
         /// <param name="evaluableCampaignIds">When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. .</param>
         /// <param name="type">A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager.  (required).</param>
         /// <param name="attributes">Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute)..</param>
+        /// <param name="loyaltyCards">Identifier of the loyalty card used during this event..</param>
         /// <param name="responseContent">Optional list of requested information to be present on the response related to the tracking custom event. .</param>
-        public IntegrationEventV2Request(string profileId = default(string), string storeIntegrationId = default(string), List<int> evaluableCampaignIds = default(List<int>), string type = default(string), Object attributes = default(Object), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
+        public IntegrationEventV2Request(string profileId = default(string), string storeIntegrationId = default(string), List<int> evaluableCampaignIds = default(List<int>), string type = default(string), Object attributes = default(Object), List<string> loyaltyCards = default(List<string>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IntegrationEventV2Request and cannot be null");
@@ -104,6 +105,7 @@ namespace TalonOne.Model
             this.StoreIntegrationId = storeIntegrationId;
             this.EvaluableCampaignIds = evaluableCampaignIds;
             this.Attributes = attributes;
+            this.LoyaltyCards = loyaltyCards;
             this.ResponseContent = responseContent;
         }
         
@@ -143,6 +145,13 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
+        /// Identifier of the loyalty card used during this event.
+        /// </summary>
+        /// <value>Identifier of the loyalty card used during this event.</value>
+        [DataMember(Name="loyaltyCards", EmitDefaultValue=false)]
+        public List<string> LoyaltyCards { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -155,6 +164,7 @@ namespace TalonOne.Model
             sb.Append("  EvaluableCampaignIds: ").Append(EvaluableCampaignIds).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  LoyaltyCards: ").Append(LoyaltyCards).Append("\n");
             sb.Append("  ResponseContent: ").Append(ResponseContent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -217,6 +227,12 @@ namespace TalonOne.Model
                     this.Attributes.Equals(input.Attributes))
                 ) && 
                 (
+                    this.LoyaltyCards == input.LoyaltyCards ||
+                    this.LoyaltyCards != null &&
+                    input.LoyaltyCards != null &&
+                    this.LoyaltyCards.SequenceEqual(input.LoyaltyCards)
+                ) && 
+                (
                     this.ResponseContent == input.ResponseContent ||
                     this.ResponseContent.SequenceEqual(input.ResponseContent)
                 );
@@ -241,6 +257,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                if (this.LoyaltyCards != null)
+                    hashCode = hashCode * 59 + this.LoyaltyCards.GetHashCode();
                 hashCode = hashCode * 59 + this.ResponseContent.GetHashCode();
                 return hashCode;
             }

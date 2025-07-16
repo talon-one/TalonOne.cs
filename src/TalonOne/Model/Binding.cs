@@ -43,7 +43,11 @@ namespace TalonOne.Model
         /// <param name="type">The kind of binding. Possible values are: - &#x60;bundle&#x60; - &#x60;cartItemFilter&#x60; - &#x60;subledgerBalance&#x60; - &#x60;templateParameter&#x60; .</param>
         /// <param name="expression">A Talang expression that will be evaluated and its result attached to the name of the binding. (required).</param>
         /// <param name="valueType">Can be one of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; .</param>
-        public Binding(string name = default(string), string type = default(string), List<Object> expression = default(List<Object>), string valueType = default(string))
+        /// <param name="minValue">The minimum value allowed for this placeholder..</param>
+        /// <param name="maxValue">The maximum value allowed for this placeholder..</param>
+        /// <param name="attributeId">Id of the attribute attached to the placeholder..</param>
+        /// <param name="description">Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template..</param>
+        public Binding(string name = default(string), string type = default(string), List<Object> expression = default(List<Object>), string valueType = default(string), decimal minValue = default(decimal), decimal maxValue = default(decimal), int attributeId = default(int), string description = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Binding and cannot be null");
@@ -51,6 +55,10 @@ namespace TalonOne.Model
             this.Expression = expression ?? throw new ArgumentNullException("expression is a required property for Binding and cannot be null");
             this.Type = type;
             this.ValueType = valueType;
+            this.MinValue = minValue;
+            this.MaxValue = maxValue;
+            this.AttributeId = attributeId;
+            this.Description = description;
         }
         
         /// <summary>
@@ -82,6 +90,34 @@ namespace TalonOne.Model
         public string ValueType { get; set; }
 
         /// <summary>
+        /// The minimum value allowed for this placeholder.
+        /// </summary>
+        /// <value>The minimum value allowed for this placeholder.</value>
+        [DataMember(Name="minValue", EmitDefaultValue=false)]
+        public decimal MinValue { get; set; }
+
+        /// <summary>
+        /// The maximum value allowed for this placeholder.
+        /// </summary>
+        /// <value>The maximum value allowed for this placeholder.</value>
+        [DataMember(Name="maxValue", EmitDefaultValue=false)]
+        public decimal MaxValue { get; set; }
+
+        /// <summary>
+        /// Id of the attribute attached to the placeholder.
+        /// </summary>
+        /// <value>Id of the attribute attached to the placeholder.</value>
+        [DataMember(Name="attributeId", EmitDefaultValue=false)]
+        public int AttributeId { get; set; }
+
+        /// <summary>
+        /// Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.
+        /// </summary>
+        /// <value>Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.</value>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,6 +129,10 @@ namespace TalonOne.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Expression: ").Append(Expression).Append("\n");
             sb.Append("  ValueType: ").Append(ValueType).Append("\n");
+            sb.Append("  MinValue: ").Append(MinValue).Append("\n");
+            sb.Append("  MaxValue: ").Append(MaxValue).Append("\n");
+            sb.Append("  AttributeId: ").Append(AttributeId).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -147,6 +187,23 @@ namespace TalonOne.Model
                     this.ValueType == input.ValueType ||
                     (this.ValueType != null &&
                     this.ValueType.Equals(input.ValueType))
+                ) && 
+                (
+                    this.MinValue == input.MinValue ||
+                    this.MinValue.Equals(input.MinValue)
+                ) && 
+                (
+                    this.MaxValue == input.MaxValue ||
+                    this.MaxValue.Equals(input.MaxValue)
+                ) && 
+                (
+                    this.AttributeId == input.AttributeId ||
+                    this.AttributeId.Equals(input.AttributeId)
+                ) && 
+                (
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 );
         }
 
@@ -167,6 +224,11 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Expression.GetHashCode();
                 if (this.ValueType != null)
                     hashCode = hashCode * 59 + this.ValueType.GetHashCode();
+                hashCode = hashCode * 59 + this.MinValue.GetHashCode();
+                hashCode = hashCode * 59 + this.MaxValue.GetHashCode();
+                hashCode = hashCode * 59 + this.AttributeId.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 return hashCode;
             }
         }

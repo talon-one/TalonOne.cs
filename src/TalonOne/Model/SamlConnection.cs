@@ -48,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="signOutURL">Single Sign-Out URL..</param>
         /// <param name="metadataURL">Metadata URL..</param>
         /// <param name="audienceURI">The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.  (required).</param>
-        /// <param name="id">Internal ID of this entity. (required).</param>
+        /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         public SamlConnection(string assertionConsumerServiceURL = default(string), int accountId = default(int), string name = default(string), bool enabled = default(bool), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string), int id = default(int), DateTime created = default(DateTime))
         {
@@ -134,9 +134,9 @@ namespace TalonOne.Model
         public string AudienceURI { get; set; }
 
         /// <summary>
-        /// Internal ID of this entity.
+        /// The internal ID of this entity.
         /// </summary>
-        /// <value>Internal ID of this entity.</value>
+        /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public int Id { get; set; }
 

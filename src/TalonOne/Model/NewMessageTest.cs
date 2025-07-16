@@ -57,64 +57,76 @@ namespace TalonOne.Model
             Cardaddeddeductedpoints = 3,
 
             /// <summary>
+            /// Enum Loyaltyaddeddeductedpointsbalances for value: loyalty_added_deducted_points_balances
+            /// </summary>
+            [EnumMember(Value = "loyalty_added_deducted_points_balances")]
+            Loyaltyaddeddeductedpointsbalances = 4,
+
+            /// <summary>
+            /// Enum Loyaltycardaddeddeductedpointsbalances for value: loyalty_card_added_deducted_points_balances
+            /// </summary>
+            [EnumMember(Value = "loyalty_card_added_deducted_points_balances")]
+            Loyaltycardaddeddeductedpointsbalances = 5,
+
+            /// <summary>
             /// Enum Coupon for value: coupon
             /// </summary>
             [EnumMember(Value = "coupon")]
-            Coupon = 4,
+            Coupon = 6,
 
             /// <summary>
             /// Enum Expiringcoupons for value: expiring_coupons
             /// </summary>
             [EnumMember(Value = "expiring_coupons")]
-            Expiringcoupons = 5,
+            Expiringcoupons = 7,
 
             /// <summary>
             /// Enum Expiringpoints for value: expiring_points
             /// </summary>
             [EnumMember(Value = "expiring_points")]
-            Expiringpoints = 6,
+            Expiringpoints = 8,
 
             /// <summary>
             /// Enum Pendingtoactivepoints for value: pending_to_active_points
             /// </summary>
             [EnumMember(Value = "pending_to_active_points")]
-            Pendingtoactivepoints = 7,
+            Pendingtoactivepoints = 9,
 
             /// <summary>
             /// Enum Strikethroughpricing for value: strikethrough_pricing
             /// </summary>
             [EnumMember(Value = "strikethrough_pricing")]
-            Strikethroughpricing = 8,
+            Strikethroughpricing = 10,
 
             /// <summary>
             /// Enum Tierdowngrade for value: tier_downgrade
             /// </summary>
             [EnumMember(Value = "tier_downgrade")]
-            Tierdowngrade = 9,
+            Tierdowngrade = 11,
 
             /// <summary>
             /// Enum Tierupgrade for value: tier_upgrade
             /// </summary>
             [EnumMember(Value = "tier_upgrade")]
-            Tierupgrade = 10,
+            Tierupgrade = 12,
 
             /// <summary>
             /// Enum Tierwilldowngrade for value: tier_will_downgrade
             /// </summary>
             [EnumMember(Value = "tier_will_downgrade")]
-            Tierwilldowngrade = 11,
+            Tierwilldowngrade = 13,
 
             /// <summary>
             /// Enum Cardexpiringpoints for value: card_expiring_points
             /// </summary>
             [EnumMember(Value = "card_expiring_points")]
-            Cardexpiringpoints = 12,
+            Cardexpiringpoints = 14,
 
             /// <summary>
             /// Enum Ruleenginewebhook for value: rule_engine_webhook
             /// </summary>
             [EnumMember(Value = "rule_engine_webhook")]
-            Ruleenginewebhook = 13
+            Ruleenginewebhook = 15
 
         }
 

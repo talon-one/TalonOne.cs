@@ -54,8 +54,13 @@ namespace TalonOne.Model
         /// <param name="position">Position of the Cart Item in the Cart (calculated internally)..</param>
         /// <param name="attributes">Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.  **Note:** Any previously defined attributes that you do not include in the array will be removed. .</param>
         /// <param name="additionalCosts">Use this property to set a value for the additional costs of this item, such as a shipping cost. They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs). .</param>
-        /// <param name="catalogItemID">The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog)..</param>
-        public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), int returnedQuantity = default(int), int remainingQuantity = default(int), decimal price = default(decimal), string category = default(string), Product product = default(Product), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), int catalogItemID = default(int))
+        /// <param name="catalogItemID">The catalog item ID..</param>
+        /// <param name="selectedPriceType">The selected price type for this cart item (e.g. the price for members only)..</param>
+        /// <param name="adjustmentReferenceId">The reference ID of the selected price adjustment for this cart item. Only returned if the selected price resulted from a price adjustment..</param>
+        /// <param name="adjustmentEffectiveFrom">The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field..</param>
+        /// <param name="adjustmentEffectiveUntil">The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field..</param>
+        /// <param name="prices">A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the &#x60;priceType&#x60; names. .</param>
+        public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), int returnedQuantity = default(int), int remainingQuantity = default(int), decimal price = default(decimal), string category = default(string), Product product = default(Product), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), int catalogItemID = default(int), string selectedPriceType = default(string), Guid adjustmentReferenceId = default(Guid), DateTime adjustmentEffectiveFrom = default(DateTime), DateTime adjustmentEffectiveUntil = default(DateTime), Dictionary<string, PriceDetail> prices = default(Dictionary<string, PriceDetail>))
         {
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for CartItem and cannot be null");
@@ -74,6 +79,11 @@ namespace TalonOne.Model
             this.Attributes = attributes;
             this.AdditionalCosts = additionalCosts;
             this.CatalogItemID = catalogItemID;
+            this.SelectedPriceType = selectedPriceType;
+            this.AdjustmentReferenceId = adjustmentReferenceId;
+            this.AdjustmentEffectiveFrom = adjustmentEffectiveFrom;
+            this.AdjustmentEffectiveUntil = adjustmentEffectiveUntil;
+            this.Prices = prices;
         }
         
         /// <summary>
@@ -163,7 +173,7 @@ namespace TalonOne.Model
         /// Position of the Cart Item in the Cart (calculated internally).
         /// </summary>
         /// <value>Position of the Cart Item in the Cart (calculated internally).</value>
-        [DataMember(Name="position", EmitDefaultValue=false)]
+        [DataMember(Name="position", EmitDefaultValue=true)]
         public decimal Position { get; set; }
 
         /// <summary>
@@ -181,11 +191,46 @@ namespace TalonOne.Model
         public Dictionary<string, AdditionalCost> AdditionalCosts { get; set; }
 
         /// <summary>
-        /// The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).
+        /// The catalog item ID.
         /// </summary>
-        /// <value>The [catalog item ID](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs/#synchronizing-a-cart-item-catalog).</value>
+        /// <value>The catalog item ID.</value>
         [DataMember(Name="catalogItemID", EmitDefaultValue=false)]
         public int CatalogItemID { get; set; }
+
+        /// <summary>
+        /// The selected price type for this cart item (e.g. the price for members only).
+        /// </summary>
+        /// <value>The selected price type for this cart item (e.g. the price for members only).</value>
+        [DataMember(Name="selectedPriceType", EmitDefaultValue=false)]
+        public string SelectedPriceType { get; set; }
+
+        /// <summary>
+        /// The reference ID of the selected price adjustment for this cart item. Only returned if the selected price resulted from a price adjustment.
+        /// </summary>
+        /// <value>The reference ID of the selected price adjustment for this cart item. Only returned if the selected price resulted from a price adjustment.</value>
+        [DataMember(Name="adjustmentReferenceId", EmitDefaultValue=false)]
+        public Guid AdjustmentReferenceId { get; set; }
+
+        /// <summary>
+        /// The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.
+        /// </summary>
+        /// <value>The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.</value>
+        [DataMember(Name="adjustmentEffectiveFrom", EmitDefaultValue=false)]
+        public DateTime AdjustmentEffectiveFrom { get; set; }
+
+        /// <summary>
+        /// The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.
+        /// </summary>
+        /// <value>The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.</value>
+        [DataMember(Name="adjustmentEffectiveUntil", EmitDefaultValue=false)]
+        public DateTime AdjustmentEffectiveUntil { get; set; }
+
+        /// <summary>
+        /// A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the &#x60;priceType&#x60; names. 
+        /// </summary>
+        /// <value>A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the &#x60;priceType&#x60; names. </value>
+        [DataMember(Name="prices", EmitDefaultValue=false)]
+        public Dictionary<string, PriceDetail> Prices { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -211,6 +256,11 @@ namespace TalonOne.Model
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  AdditionalCosts: ").Append(AdditionalCosts).Append("\n");
             sb.Append("  CatalogItemID: ").Append(CatalogItemID).Append("\n");
+            sb.Append("  SelectedPriceType: ").Append(SelectedPriceType).Append("\n");
+            sb.Append("  AdjustmentReferenceId: ").Append(AdjustmentReferenceId).Append("\n");
+            sb.Append("  AdjustmentEffectiveFrom: ").Append(AdjustmentEffectiveFrom).Append("\n");
+            sb.Append("  AdjustmentEffectiveUntil: ").Append(AdjustmentEffectiveUntil).Append("\n");
+            sb.Append("  Prices: ").Append(Prices).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -315,6 +365,32 @@ namespace TalonOne.Model
                 (
                     this.CatalogItemID == input.CatalogItemID ||
                     this.CatalogItemID.Equals(input.CatalogItemID)
+                ) && 
+                (
+                    this.SelectedPriceType == input.SelectedPriceType ||
+                    (this.SelectedPriceType != null &&
+                    this.SelectedPriceType.Equals(input.SelectedPriceType))
+                ) && 
+                (
+                    this.AdjustmentReferenceId == input.AdjustmentReferenceId ||
+                    (this.AdjustmentReferenceId != null &&
+                    this.AdjustmentReferenceId.Equals(input.AdjustmentReferenceId))
+                ) && 
+                (
+                    this.AdjustmentEffectiveFrom == input.AdjustmentEffectiveFrom ||
+                    (this.AdjustmentEffectiveFrom != null &&
+                    this.AdjustmentEffectiveFrom.Equals(input.AdjustmentEffectiveFrom))
+                ) && 
+                (
+                    this.AdjustmentEffectiveUntil == input.AdjustmentEffectiveUntil ||
+                    (this.AdjustmentEffectiveUntil != null &&
+                    this.AdjustmentEffectiveUntil.Equals(input.AdjustmentEffectiveUntil))
+                ) && 
+                (
+                    this.Prices == input.Prices ||
+                    this.Prices != null &&
+                    input.Prices != null &&
+                    this.Prices.SequenceEqual(input.Prices)
                 );
         }
 
@@ -349,6 +425,16 @@ namespace TalonOne.Model
                 if (this.AdditionalCosts != null)
                     hashCode = hashCode * 59 + this.AdditionalCosts.GetHashCode();
                 hashCode = hashCode * 59 + this.CatalogItemID.GetHashCode();
+                if (this.SelectedPriceType != null)
+                    hashCode = hashCode * 59 + this.SelectedPriceType.GetHashCode();
+                if (this.AdjustmentReferenceId != null)
+                    hashCode = hashCode * 59 + this.AdjustmentReferenceId.GetHashCode();
+                if (this.AdjustmentEffectiveFrom != null)
+                    hashCode = hashCode * 59 + this.AdjustmentEffectiveFrom.GetHashCode();
+                if (this.AdjustmentEffectiveUntil != null)
+                    hashCode = hashCode * 59 + this.AdjustmentEffectiveUntil.GetHashCode();
+                if (this.Prices != null)
+                    hashCode = hashCode * 59 + this.Prices.GetHashCode();
                 return hashCode;
             }
         }

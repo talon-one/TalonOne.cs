@@ -106,6 +106,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Description'
         }
         /// <summary>
+        /// Test the property 'Draft'
+        /// </summary>
+        [Fact]
+        public void DraftTest()
+        {
+            // TODO unit test for the property 'Draft'
+        }
+        /// <summary>
         /// Test the property 'Verb'
         /// </summary>
         [Fact]

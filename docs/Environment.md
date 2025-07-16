@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Internal ID of this entity. | 
+**Id** | **int** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **ApplicationId** | **int** | The ID of the Application that owns this entity. | 
 **Slots** | [**List&lt;SlotDef&gt;**](SlotDef.md) | The slots defined for this application. | 
@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **Audiences** | [**List&lt;Audience&gt;**](Audience.md) | The audiences contained in the account which the application belongs to. | [optional] 
 **Collections** | **List&lt;Collection&gt;** | The account-level collections that the application is subscribed to. | [optional] 
 **ApplicationCartItemFilters** | [**List&lt;ApplicationCIF&gt;**](ApplicationCIF.md) | The cart item filters belonging to the Application. | [optional] 
+**PriceTypes** | [**List&lt;PriceType&gt;**](PriceType.md) | The price types that this Application can use. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

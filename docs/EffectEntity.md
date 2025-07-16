@@ -16,6 +16,9 @@ Name | Type | Description | Notes
 **EvaluationGroupMode** | **string** | The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation). | [optional] 
 **CampaignRevisionId** | **int** | The revision ID of the campaign that was used when triggering the effect. | [optional] 
 **CampaignRevisionVersionId** | **int** | The revision version ID of the campaign that was used when triggering the effect. | [optional] 
+**SelectedPriceType** | **string** | The selected price type for the SKU targeted by this effect. | [optional] 
+**SelectedPrice** | **decimal** | The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied. | [optional] 
+**AdjustmentReferenceId** | **Guid** | The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

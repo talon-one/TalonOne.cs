@@ -87,18 +87,20 @@ namespace TalonOne.Model
         /// <param name="applicationIds">The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;.  (required).</param>
         /// <param name="title">Name or title for this webhook. (required).</param>
         /// <param name="description">A description of the webhook..</param>
+        /// <param name="draft">Indicates if the webhook is a draft. (required).</param>
         /// <param name="verb">API method for this webhook. (required).</param>
         /// <param name="url">API URL (supports templating using parameters) for this webhook. (required).</param>
         /// <param name="headers">List of API HTTP headers for this webhook. (required).</param>
         /// <param name="payload">API payload (supports templating using parameters) for this webhook..</param>
         /// <param name="_params">Array of template argument definitions. (required).</param>
         /// <param name="enabled">Enables or disables webhook from showing in the Rule Builder. (required).</param>
-        public NewWebhook(List<int> applicationIds = default(List<int>), string title = default(string), string description = default(string), VerbEnum verb = default(VerbEnum), string url = default(string), List<string> headers = default(List<string>), string payload = default(string), List<TemplateArgDef> _params = default(List<TemplateArgDef>), bool enabled = default(bool))
+        public NewWebhook(List<int> applicationIds = default(List<int>), string title = default(string), string description = default(string), bool draft = default(bool), VerbEnum verb = default(VerbEnum), string url = default(string), List<string> headers = default(List<string>), string payload = default(string), List<TemplateArgDef> _params = default(List<TemplateArgDef>), bool enabled = default(bool))
         {
             // to ensure "applicationIds" is required (not null)
             this.ApplicationIds = applicationIds ?? throw new ArgumentNullException("applicationIds is a required property for NewWebhook and cannot be null");
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for NewWebhook and cannot be null");
+            this.Draft = draft;
             this.Verb = verb;
             // to ensure "url" is required (not null)
             this.Url = url ?? throw new ArgumentNullException("url is a required property for NewWebhook and cannot be null");
@@ -131,6 +133,13 @@ namespace TalonOne.Model
         /// <value>A description of the webhook.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Indicates if the webhook is a draft.
+        /// </summary>
+        /// <value>Indicates if the webhook is a draft.</value>
+        [DataMember(Name="draft", EmitDefaultValue=false)]
+        public bool Draft { get; set; }
 
         /// <summary>
         /// API URL (supports templating using parameters) for this webhook.
@@ -178,6 +187,7 @@ namespace TalonOne.Model
             sb.Append("  ApplicationIds: ").Append(ApplicationIds).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Draft: ").Append(Draft).Append("\n");
             sb.Append("  Verb: ").Append(Verb).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Headers: ").Append(Headers).Append("\n");
@@ -235,6 +245,10 @@ namespace TalonOne.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.Draft == input.Draft ||
+                    this.Draft.Equals(input.Draft)
+                ) && 
+                (
                     this.Verb == input.Verb ||
                     this.Verb.Equals(input.Verb)
                 ) && 
@@ -281,6 +295,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
+                hashCode = hashCode * 59 + this.Draft.GetHashCode();
                 hashCode = hashCode * 59 + this.Verb.GetHashCode();
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();

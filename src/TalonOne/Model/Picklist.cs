@@ -78,7 +78,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Picklist" /> class.
         /// </summary>
-        /// <param name="id">Internal ID of this entity. (required).</param>
+        /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="type">The type of allowed values in the picklist. If the type &#x60;time&#x60; is chosen, it must be an RFC3339 timestamp string. (required).</param>
         /// <param name="values">The list of allowed values provided by this picklist. (required).</param>
@@ -100,9 +100,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Internal ID of this entity.
+        /// The internal ID of this entity.
         /// </summary>
-        /// <value>Internal ID of this entity.</value>
+        /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public int Id { get; set; }
 

@@ -66,7 +66,13 @@ namespace TalonOne.Model
             /// Enum REMOVEMANY for value: REMOVE_MANY
             /// </summary>
             [EnumMember(Value = "REMOVE_MANY")]
-            REMOVEMANY = 5
+            REMOVEMANY = 5,
+
+            /// <summary>
+            /// Enum ADDPRICEADJUSTMENT for value: ADD_PRICE_ADJUSTMENT
+            /// </summary>
+            [EnumMember(Value = "ADD_PRICE_ADJUSTMENT")]
+            ADDPRICEADJUSTMENT = 6
 
         }
 

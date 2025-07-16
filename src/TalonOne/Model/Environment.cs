@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Environment" /> class.
         /// </summary>
-        /// <param name="id">Internal ID of this entity. (required).</param>
+        /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="slots">The slots defined for this application. (required).</param>
@@ -54,7 +54,8 @@ namespace TalonOne.Model
         /// <param name="audiences">The audiences contained in the account which the application belongs to..</param>
         /// <param name="collections">The account-level collections that the application is subscribed to..</param>
         /// <param name="applicationCartItemFilters">The cart item filters belonging to the Application..</param>
-        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Achievement> achievements = default(List<Achievement>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), List<Collection> collections = default(List<Collection>), List<ApplicationCIF> applicationCartItemFilters = default(List<ApplicationCIF>))
+        /// <param name="priceTypes">The price types that this Application can use..</param>
+        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Achievement> achievements = default(List<Achievement>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), List<Collection> collections = default(List<Collection>), List<ApplicationCIF> applicationCartItemFilters = default(List<ApplicationCIF>), List<PriceType> priceTypes = default(List<PriceType>))
         {
             this.Id = id;
             this.Created = created;
@@ -75,12 +76,13 @@ namespace TalonOne.Model
             this.Audiences = audiences;
             this.Collections = collections;
             this.ApplicationCartItemFilters = applicationCartItemFilters;
+            this.PriceTypes = priceTypes;
         }
         
         /// <summary>
-        /// Internal ID of this entity.
+        /// The internal ID of this entity.
         /// </summary>
-        /// <value>Internal ID of this entity.</value>
+        /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public int Id { get; set; }
 
@@ -183,6 +185,13 @@ namespace TalonOne.Model
         public List<ApplicationCIF> ApplicationCartItemFilters { get; set; }
 
         /// <summary>
+        /// The price types that this Application can use.
+        /// </summary>
+        /// <value>The price types that this Application can use.</value>
+        [DataMember(Name="priceTypes", EmitDefaultValue=false)]
+        public List<PriceType> PriceTypes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -205,6 +214,7 @@ namespace TalonOne.Model
             sb.Append("  Audiences: ").Append(Audiences).Append("\n");
             sb.Append("  Collections: ").Append(Collections).Append("\n");
             sb.Append("  ApplicationCartItemFilters: ").Append(ApplicationCartItemFilters).Append("\n");
+            sb.Append("  PriceTypes: ").Append(PriceTypes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -322,6 +332,12 @@ namespace TalonOne.Model
                     this.ApplicationCartItemFilters != null &&
                     input.ApplicationCartItemFilters != null &&
                     this.ApplicationCartItemFilters.SequenceEqual(input.ApplicationCartItemFilters)
+                ) && 
+                (
+                    this.PriceTypes == input.PriceTypes ||
+                    this.PriceTypes != null &&
+                    input.PriceTypes != null &&
+                    this.PriceTypes.SequenceEqual(input.PriceTypes)
                 );
         }
 
@@ -362,6 +378,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Collections.GetHashCode();
                 if (this.ApplicationCartItemFilters != null)
                     hashCode = hashCode * 59 + this.ApplicationCartItemFilters.GetHashCode();
+                if (this.PriceTypes != null)
+                    hashCode = hashCode * 59 + this.PriceTypes.GetHashCode();
                 return hashCode;
             }
         }

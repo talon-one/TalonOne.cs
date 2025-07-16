@@ -4,7 +4,7 @@ Giveaways pools is an entity for managing multiple similar giveaways.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Internal ID of this entity. | 
+**Id** | **int** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **AccountId** | **int** | The ID of the account that owns this entity. | 
 **Name** | **string** | The name of this giveaways pool. | 

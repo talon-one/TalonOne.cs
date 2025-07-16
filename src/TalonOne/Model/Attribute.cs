@@ -210,7 +210,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Attribute" /> class.
         /// </summary>
-        /// <param name="id">Internal ID of this entity. (required).</param>
+        /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="entity">The name of the entity that can have this attribute. When creating or updating the entities of a given type, you can include an &#x60;attributes&#x60; object with keys corresponding to the &#x60;name&#x60; of the custom attributes for that type. (required).</param>
@@ -253,9 +253,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Internal ID of this entity.
+        /// The internal ID of this entity.
         /// </summary>
-        /// <value>Internal ID of this entity.</value>
+        /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public int Id { get; set; }
 
