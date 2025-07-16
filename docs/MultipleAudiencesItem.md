@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Internal ID of this entity. | 
+**Id** | **int** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **Name** | **string** | The human-friendly display name for this audience. | 
 **IntegrationId** | **string** | The ID of this audience in the third-party integration. | 

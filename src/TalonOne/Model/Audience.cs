@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="Audience" /> class.
         /// </summary>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
-        /// <param name="id">Internal ID of this entity. (required).</param>
+        /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="name">The human-friendly display name for this audience. (required).</param>
         /// <param name="sandbox">Indicates if this is a live or sandbox Application..</param>
@@ -72,9 +72,9 @@ namespace TalonOne.Model
         public int AccountId { get; set; }
 
         /// <summary>
-        /// Internal ID of this entity.
+        /// The internal ID of this entity.
         /// </summary>
-        /// <value>Internal ID of this entity.</value>
+        /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public int Id { get; set; }
 

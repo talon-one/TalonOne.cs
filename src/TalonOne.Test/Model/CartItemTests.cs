@@ -185,6 +185,46 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'CatalogItemID'
         }
+        /// <summary>
+        /// Test the property 'SelectedPriceType'
+        /// </summary>
+        [Fact]
+        public void SelectedPriceTypeTest()
+        {
+            // TODO unit test for the property 'SelectedPriceType'
+        }
+        /// <summary>
+        /// Test the property 'AdjustmentReferenceId'
+        /// </summary>
+        [Fact]
+        public void AdjustmentReferenceIdTest()
+        {
+            // TODO unit test for the property 'AdjustmentReferenceId'
+        }
+        /// <summary>
+        /// Test the property 'AdjustmentEffectiveFrom'
+        /// </summary>
+        [Fact]
+        public void AdjustmentEffectiveFromTest()
+        {
+            // TODO unit test for the property 'AdjustmentEffectiveFrom'
+        }
+        /// <summary>
+        /// Test the property 'AdjustmentEffectiveUntil'
+        /// </summary>
+        [Fact]
+        public void AdjustmentEffectiveUntilTest()
+        {
+            // TODO unit test for the property 'AdjustmentEffectiveUntil'
+        }
+        /// <summary>
+        /// Test the property 'Prices'
+        /// </summary>
+        [Fact]
+        public void PricesTest()
+        {
+            // TODO unit test for the property 'Prices'
+        }
 
     }
 

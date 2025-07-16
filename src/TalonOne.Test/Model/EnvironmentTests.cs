@@ -177,6 +177,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ApplicationCartItemFilters'
         }
+        /// <summary>
+        /// Test the property 'PriceTypes'
+        /// </summary>
+        [Fact]
+        public void PriceTypesTest()
+        {
+            // TODO unit test for the property 'PriceTypes'
+        }
 
     }
 

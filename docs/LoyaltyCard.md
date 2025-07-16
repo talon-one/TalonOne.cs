@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Internal ID of this entity. | 
+**Id** | **int** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **ProgramID** | **int** | The ID of the loyalty program that owns this entity. | 
 **ProgramName** | **string** | The integration name of the loyalty program that owns this entity. | [optional] 

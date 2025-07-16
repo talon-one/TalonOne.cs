@@ -39,12 +39,12 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CustomerProfile" /> class.
         /// </summary>
-        /// <param name="id">Internal ID of this entity. (required).</param>
+        /// <param name="id">The internal ID of the customer profile. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="integrationId">The integration ID set by your integration layer. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this item. (required).</param>
         /// <param name="accountId">The ID of the Talon.One account that owns this profile. (required).</param>
-        /// <param name="closedSessions">The total amount of closed sessions by a customer. A closed session is a successful purchase. (required).</param>
+        /// <param name="closedSessions">The total number of closed sessions. Does not include closed sessions that have been cancelled or reopened. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states). (required).</param>
         /// <param name="totalSales">The total amount of money spent by the customer **before** discounts are applied.  The total sales amount excludes the following: - Cancelled or reopened sessions. - Returned items.  (required).</param>
         /// <param name="loyaltyMemberships">**DEPRECATED** A list of loyalty programs joined by the customer. .</param>
         /// <param name="audienceMemberships">The audiences the customer belongs to..</param>
@@ -68,9 +68,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// Internal ID of this entity.
+        /// The internal ID of the customer profile.
         /// </summary>
-        /// <value>Internal ID of this entity.</value>
+        /// <value>The internal ID of the customer profile.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public int Id { get; set; }
 
@@ -103,9 +103,9 @@ namespace TalonOne.Model
         public int AccountId { get; set; }
 
         /// <summary>
-        /// The total amount of closed sessions by a customer. A closed session is a successful purchase.
+        /// The total number of closed sessions. Does not include closed sessions that have been cancelled or reopened. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).
         /// </summary>
-        /// <value>The total amount of closed sessions by a customer. A closed session is a successful purchase.</value>
+        /// <value>The total number of closed sessions. Does not include closed sessions that have been cancelled or reopened. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).</value>
         [DataMember(Name="closedSessions", EmitDefaultValue=false)]
         public int ClosedSessions { get; set; }
 

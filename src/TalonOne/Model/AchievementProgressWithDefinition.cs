@@ -71,9 +71,9 @@ namespace TalonOne.Model
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum Status { get; set; }
         /// <summary>
-        /// The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. 
+        /// The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. - &#x60;on_completion&#x60;: When the customer progress status reaches &#x60;completed&#x60;, the achievement resets and becomes available again. 
         /// </summary>
-        /// <value>The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. </value>
+        /// <value>The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. - &#x60;on_completion&#x60;: When the customer progress status reaches &#x60;completed&#x60;, the achievement resets and becomes available again. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AchievementRecurrencePolicyEnum
         {
@@ -87,14 +87,20 @@ namespace TalonOne.Model
             /// Enum Onexpiration for value: on_expiration
             /// </summary>
             [EnumMember(Value = "on_expiration")]
-            Onexpiration = 2
+            Onexpiration = 2,
+
+            /// <summary>
+            /// Enum Oncompletion for value: on_completion
+            /// </summary>
+            [EnumMember(Value = "on_completion")]
+            Oncompletion = 3
 
         }
 
         /// <summary>
-        /// The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. 
+        /// The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. - &#x60;on_completion&#x60;: When the customer progress status reaches &#x60;completed&#x60;, the achievement resets and becomes available again. 
         /// </summary>
-        /// <value>The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. </value>
+        /// <value>The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. - &#x60;on_completion&#x60;: When the customer progress status reaches &#x60;completed&#x60;, the achievement resets and becomes available again. </value>
         [DataMember(Name="achievementRecurrencePolicy", EmitDefaultValue=false)]
         public AchievementRecurrencePolicyEnum AchievementRecurrencePolicy { get; set; }
         /// <summary>
@@ -143,7 +149,7 @@ namespace TalonOne.Model
         /// <param name="description">The description of the achievement in the Campaign Manager. (required).</param>
         /// <param name="campaignId">The ID of the campaign the achievement belongs to. (required).</param>
         /// <param name="target">The required number of actions or the transactional milestone to complete the achievement..</param>
-        /// <param name="achievementRecurrencePolicy">The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again.  (required).</param>
+        /// <param name="achievementRecurrencePolicy">The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. - &#x60;on_completion&#x60;: When the customer progress status reaches &#x60;completed&#x60;, the achievement resets and becomes available again.  (required).</param>
         /// <param name="achievementActivationPolicy">The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule.  (required).</param>
         /// <param name="achievementFixedStartDate">The achievement&#39;s start date when &#x60;achievementActivationPolicy&#x60; is equal to &#x60;fixed_schedule&#x60;.  **Note:** It is an RFC3339 timestamp string. .</param>
         /// <param name="achievementEndDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It is an RFC3339 timestamp string. .</param>

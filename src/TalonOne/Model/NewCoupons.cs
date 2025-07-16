@@ -348,9 +348,9 @@ namespace TalonOne.Model
             }
 
             // DiscountLimit (decimal) maximum
-            if(this.DiscountLimit > (decimal)999999)
+            if(this.DiscountLimit > (decimal)1E+15)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value less than or equal to 999999.", new [] { "DiscountLimit" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value less than or equal to 1E+15.", new [] { "DiscountLimit" });
             }
 
             // DiscountLimit (decimal) minimum

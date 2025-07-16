@@ -126,7 +126,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns></returns>
-        void DeleteAudienceMembershipsV2 (int audienceId);
+        void DeleteAudienceMembershipsV2 (long audienceId);
 
         /// <summary>
         /// Delete audience memberships
@@ -137,7 +137,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteAudienceMembershipsV2WithHttpInfo (int audienceId);
+        ApiResponse<Object> DeleteAudienceMembershipsV2WithHttpInfo (long audienceId);
         /// <summary>
         /// Delete audience
         /// </summary>
@@ -147,7 +147,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns></returns>
-        void DeleteAudienceV2 (int audienceId);
+        void DeleteAudienceV2 (long audienceId);
 
         /// <summary>
         /// Delete audience
@@ -158,7 +158,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteAudienceV2WithHttpInfo (int audienceId);
+        ApiResponse<Object> DeleteAudienceV2WithHttpInfo (long audienceId);
         /// <summary>
         /// Delete coupon reservations
         /// </summary>
@@ -213,7 +213,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>LoyaltyCard</returns>
-        LoyaltyCard GenerateLoyaltyCard (int loyaltyProgramId, GenerateLoyaltyCard body);
+        LoyaltyCard GenerateLoyaltyCard (long loyaltyProgramId, GenerateLoyaltyCard body);
 
         /// <summary>
         /// Generate loyalty card
@@ -225,7 +225,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of LoyaltyCard</returns>
-        ApiResponse<LoyaltyCard> GenerateLoyaltyCardWithHttpInfo (int loyaltyProgramId, GenerateLoyaltyCard body);
+        ApiResponse<LoyaltyCard> GenerateLoyaltyCardWithHttpInfo (long loyaltyProgramId, GenerateLoyaltyCard body);
         /// <summary>
         /// List customer&#39;s achievement history
         /// </summary>
@@ -241,7 +241,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 GetCustomerAchievementHistory (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse2002 GetCustomerAchievementHistory (string integrationId, long achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List customer&#39;s achievement history
@@ -258,7 +258,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> GetCustomerAchievementHistoryWithHttpInfo (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse2002> GetCustomerAchievementHistoryWithHttpInfo (string integrationId, long achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customer&#39;s available achievements
         /// </summary>
@@ -274,7 +274,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 GetCustomerAchievements (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse2001 GetCustomerAchievements (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List customer&#39;s available achievements
@@ -291,7 +291,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> GetCustomerAchievementsWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse2001> GetCustomerAchievementsWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customer data
         /// </summary>
@@ -360,7 +360,7 @@ namespace TalonOne.Api
         /// <param name="includeTiers">Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier.  (optional, default to false)</param>
         /// <param name="includeProjectedTier">Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance.  (optional, default to false)</param>
         /// <returns>LoyaltyBalancesWithTiers</returns>
-        LoyaltyBalancesWithTiers GetLoyaltyBalances (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?));
+        LoyaltyBalancesWithTiers GetLoyaltyBalances (long loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?));
 
         /// <summary>
         /// Get customer&#39;s loyalty balances
@@ -376,7 +376,7 @@ namespace TalonOne.Api
         /// <param name="includeTiers">Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier.  (optional, default to false)</param>
         /// <param name="includeProjectedTier">Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance.  (optional, default to false)</param>
         /// <returns>ApiResponse of LoyaltyBalancesWithTiers</returns>
-        ApiResponse<LoyaltyBalancesWithTiers> GetLoyaltyBalancesWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?));
+        ApiResponse<LoyaltyBalancesWithTiers> GetLoyaltyBalancesWithHttpInfo (long loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?));
         /// <summary>
         /// Get card&#39;s point balances
         /// </summary>
@@ -389,7 +389,7 @@ namespace TalonOne.Api
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <returns>LoyaltyCardBalances</returns>
-        LoyaltyCardBalances GetLoyaltyCardBalances (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        LoyaltyCardBalances GetLoyaltyCardBalances (long loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
 
         /// <summary>
         /// Get card&#39;s point balances
@@ -403,7 +403,7 @@ namespace TalonOne.Api
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <returns>ApiResponse of LoyaltyCardBalances</returns>
-        ApiResponse<LoyaltyCardBalances> GetLoyaltyCardBalancesWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        ApiResponse<LoyaltyCardBalances> GetLoyaltyCardBalancesWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
         /// <summary>
         /// List card&#39;s unused loyalty points
         /// </summary>
@@ -418,7 +418,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2005</returns>
-        InlineResponse2005 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse2005 GetLoyaltyCardPoints (long loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List card&#39;s unused loyalty points
@@ -434,7 +434,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        ApiResponse<InlineResponse2005> GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse2005> GetLoyaltyCardPointsWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List card&#39;s transactions
         /// </summary>
@@ -451,7 +451,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse2003 GetLoyaltyCardTransactions (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List card&#39;s transactions
@@ -469,7 +469,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse2003> GetLoyaltyCardTransactionsWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customer&#39;s unused loyalty points
         /// </summary>
@@ -484,7 +484,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2006</returns>
-        InlineResponse2006 GetLoyaltyProgramProfilePoints (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse2006 GetLoyaltyProgramProfilePoints (long loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List customer&#39;s unused loyalty points
@@ -500,7 +500,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        ApiResponse<InlineResponse2006> GetLoyaltyProgramProfilePointsWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse2006> GetLoyaltyProgramProfilePointsWithHttpInfo (long loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customer&#39;s loyalty transactions
         /// </summary>
@@ -517,7 +517,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        InlineResponse2004 GetLoyaltyProgramProfileTransactions (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        InlineResponse2004 GetLoyaltyProgramProfileTransactions (long loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List customer&#39;s loyalty transactions
@@ -535,7 +535,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        ApiResponse<InlineResponse2004> GetLoyaltyProgramProfileTransactionsWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        ApiResponse<InlineResponse2004> GetLoyaltyProgramProfileTransactionsWithHttpInfo (long loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customers that have this coupon reserved
         /// </summary>
@@ -568,7 +568,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>LoyaltyCard</returns>
-        LoyaltyCard LinkLoyaltyCardToProfile (int loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body);
+        LoyaltyCard LinkLoyaltyCardToProfile (long loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body);
 
         /// <summary>
         /// Link customer profile to card
@@ -581,7 +581,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of LoyaltyCard</returns>
-        ApiResponse<LoyaltyCard> LinkLoyaltyCardToProfileWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body);
+        ApiResponse<LoyaltyCard> LinkLoyaltyCardToProfileWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body);
         /// <summary>
         /// Reopen customer session
         /// </summary>
@@ -638,7 +638,7 @@ namespace TalonOne.Api
         /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
         /// <param name="body">body</param>
         /// <returns>Catalog</returns>
-        Catalog SyncCatalog (int catalogId, CatalogSyncRequest body);
+        Catalog SyncCatalog (long catalogId, CatalogSyncRequest body);
 
         /// <summary>
         /// Sync cart item catalog
@@ -650,12 +650,12 @@ namespace TalonOne.Api
         /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of Catalog</returns>
-        ApiResponse<Catalog> SyncCatalogWithHttpInfo (int catalogId, CatalogSyncRequest body);
+        ApiResponse<Catalog> SyncCatalogWithHttpInfo (long catalogId, CatalogSyncRequest body);
         /// <summary>
         /// Track event
         /// </summary>
         /// <remarks>
-        /// Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not say it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  &lt;/div&gt; 
+        /// Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not specify it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).   1. [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.  &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -669,7 +669,7 @@ namespace TalonOne.Api
         /// Track event
         /// </summary>
         /// <remarks>
-        /// Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not say it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  &lt;/div&gt; 
+        /// Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not specify it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).   1. [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.  &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -688,7 +688,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns></returns>
-        void UpdateAudienceCustomersAttributes (int audienceId, Object body);
+        void UpdateAudienceCustomersAttributes (long audienceId, Object body);
 
         /// <summary>
         /// Update profile attributes for all customers in audience
@@ -700,7 +700,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateAudienceCustomersAttributesWithHttpInfo (int audienceId, Object body);
+        ApiResponse<Object> UpdateAudienceCustomersAttributesWithHttpInfo (long audienceId, Object body);
         /// <summary>
         /// Update audience name
         /// </summary>
@@ -711,7 +711,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Audience</returns>
-        Audience UpdateAudienceV2 (int audienceId, UpdateAudience body);
+        Audience UpdateAudienceV2 (long audienceId, UpdateAudience body);
 
         /// <summary>
         /// Update audience name
@@ -723,7 +723,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of Audience</returns>
-        ApiResponse<Audience> UpdateAudienceV2WithHttpInfo (int audienceId, UpdateAudience body);
+        ApiResponse<Audience> UpdateAudienceV2WithHttpInfo (long audienceId, UpdateAudience body);
         /// <summary>
         /// Update multiple customer profiles&#39; audiences
         /// </summary>
@@ -749,7 +749,7 @@ namespace TalonOne.Api
         /// Update customer profile
         /// </summary>
         /// <remarks>
-        /// Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
+        /// Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of. **Note:** [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;. &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
@@ -763,7 +763,7 @@ namespace TalonOne.Api
         /// Update customer profile
         /// </summary>
         /// <remarks>
-        /// Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
+        /// Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of. **Note:** [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;. &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
@@ -799,7 +799,7 @@ namespace TalonOne.Api
         /// Update customer session
         /// </summary>
         /// <remarks>
-        /// Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:** The currency for the session and the cart items in the session is the currency set for the Application that owns this session.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+        /// Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:**  - The currency for the session and the cart items in it is the currency set for the Application linked to this session. - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. </param>
@@ -813,7 +813,7 @@ namespace TalonOne.Api
         /// Update customer session
         /// </summary>
         /// <remarks>
-        /// Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:** The currency for the session and the cart items in the session is the currency set for the Application that owns this session.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+        /// Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:**  - The currency for the session and the cart items in it is the currency set for the Application linked to this session. - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. </param>
@@ -928,7 +928,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteAudienceMembershipsV2Async (int audienceId);
+        System.Threading.Tasks.Task DeleteAudienceMembershipsV2Async (long audienceId);
 
         /// <summary>
         /// Delete audience memberships
@@ -939,7 +939,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAudienceMembershipsV2AsyncWithHttpInfo (int audienceId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAudienceMembershipsV2AsyncWithHttpInfo (long audienceId);
         /// <summary>
         /// Delete audience
         /// </summary>
@@ -949,7 +949,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task DeleteAudienceV2Async (int audienceId);
+        System.Threading.Tasks.Task DeleteAudienceV2Async (long audienceId);
 
         /// <summary>
         /// Delete audience
@@ -960,7 +960,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAudienceV2AsyncWithHttpInfo (int audienceId);
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAudienceV2AsyncWithHttpInfo (long audienceId);
         /// <summary>
         /// Delete coupon reservations
         /// </summary>
@@ -1015,7 +1015,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of LoyaltyCard</returns>
-        System.Threading.Tasks.Task<LoyaltyCard> GenerateLoyaltyCardAsync (int loyaltyProgramId, GenerateLoyaltyCard body);
+        System.Threading.Tasks.Task<LoyaltyCard> GenerateLoyaltyCardAsync (long loyaltyProgramId, GenerateLoyaltyCard body);
 
         /// <summary>
         /// Generate loyalty card
@@ -1027,7 +1027,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (LoyaltyCard)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltyCard>> GenerateLoyaltyCardAsyncWithHttpInfo (int loyaltyProgramId, GenerateLoyaltyCard body);
+        System.Threading.Tasks.Task<ApiResponse<LoyaltyCard>> GenerateLoyaltyCardAsyncWithHttpInfo (long loyaltyProgramId, GenerateLoyaltyCard body);
         /// <summary>
         /// List customer&#39;s achievement history
         /// </summary>
@@ -1043,7 +1043,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> GetCustomerAchievementHistoryAsync (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse2002> GetCustomerAchievementHistoryAsync (string integrationId, long achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List customer&#39;s achievement history
@@ -1060,7 +1060,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCustomerAchievementHistoryAsyncWithHttpInfo (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> GetCustomerAchievementHistoryAsyncWithHttpInfo (string integrationId, long achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customer&#39;s available achievements
         /// </summary>
@@ -1076,7 +1076,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> GetCustomerAchievementsAsync (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse2001> GetCustomerAchievementsAsync (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List customer&#39;s available achievements
@@ -1093,7 +1093,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetCustomerAchievementsAsyncWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> GetCustomerAchievementsAsyncWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customer data
         /// </summary>
@@ -1162,7 +1162,7 @@ namespace TalonOne.Api
         /// <param name="includeTiers">Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier.  (optional, default to false)</param>
         /// <param name="includeProjectedTier">Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance.  (optional, default to false)</param>
         /// <returns>Task of LoyaltyBalancesWithTiers</returns>
-        System.Threading.Tasks.Task<LoyaltyBalancesWithTiers> GetLoyaltyBalancesAsync (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?));
+        System.Threading.Tasks.Task<LoyaltyBalancesWithTiers> GetLoyaltyBalancesAsync (long loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?));
 
         /// <summary>
         /// Get customer&#39;s loyalty balances
@@ -1178,7 +1178,7 @@ namespace TalonOne.Api
         /// <param name="includeTiers">Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier.  (optional, default to false)</param>
         /// <param name="includeProjectedTier">Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (LoyaltyBalancesWithTiers)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltyBalancesWithTiers>> GetLoyaltyBalancesAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltyBalancesWithTiers>> GetLoyaltyBalancesAsyncWithHttpInfo (long loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?));
         /// <summary>
         /// Get card&#39;s point balances
         /// </summary>
@@ -1191,7 +1191,7 @@ namespace TalonOne.Api
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <returns>Task of LoyaltyCardBalances</returns>
-        System.Threading.Tasks.Task<LoyaltyCardBalances> GetLoyaltyCardBalancesAsync (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        System.Threading.Tasks.Task<LoyaltyCardBalances> GetLoyaltyCardBalancesAsync (long loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
 
         /// <summary>
         /// Get card&#39;s point balances
@@ -1205,7 +1205,7 @@ namespace TalonOne.Api
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <returns>Task of ApiResponse (LoyaltyCardBalances)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltyCardBalances>> GetLoyaltyCardBalancesAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
+        System.Threading.Tasks.Task<ApiResponse<LoyaltyCardBalances>> GetLoyaltyCardBalancesAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>));
         /// <summary>
         /// List card&#39;s unused loyalty points
         /// </summary>
@@ -1220,7 +1220,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2005</returns>
-        System.Threading.Tasks.Task<InlineResponse2005> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse2005> GetLoyaltyCardPointsAsync (long loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List card&#39;s unused loyalty points
@@ -1236,7 +1236,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2005>> GetLoyaltyCardPointsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List card&#39;s transactions
         /// </summary>
@@ -1253,7 +1253,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardTransactionsAsync (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List card&#39;s transactions
@@ -1271,7 +1271,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customer&#39;s unused loyalty points
         /// </summary>
@@ -1286,7 +1286,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2006</returns>
-        System.Threading.Tasks.Task<InlineResponse2006> GetLoyaltyProgramProfilePointsAsync (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse2006> GetLoyaltyProgramProfilePointsAsync (long loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List customer&#39;s unused loyalty points
@@ -1302,7 +1302,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetLoyaltyProgramProfilePointsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2006>> GetLoyaltyProgramProfilePointsAsyncWithHttpInfo (long loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customer&#39;s loyalty transactions
         /// </summary>
@@ -1319,7 +1319,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        System.Threading.Tasks.Task<InlineResponse2004> GetLoyaltyProgramProfileTransactionsAsync (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<InlineResponse2004> GetLoyaltyProgramProfileTransactionsAsync (long loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List customer&#39;s loyalty transactions
@@ -1337,7 +1337,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2004>> GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo (long loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List customers that have this coupon reserved
         /// </summary>
@@ -1370,7 +1370,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of LoyaltyCard</returns>
-        System.Threading.Tasks.Task<LoyaltyCard> LinkLoyaltyCardToProfileAsync (int loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body);
+        System.Threading.Tasks.Task<LoyaltyCard> LinkLoyaltyCardToProfileAsync (long loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body);
 
         /// <summary>
         /// Link customer profile to card
@@ -1383,7 +1383,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (LoyaltyCard)</returns>
-        System.Threading.Tasks.Task<ApiResponse<LoyaltyCard>> LinkLoyaltyCardToProfileAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body);
+        System.Threading.Tasks.Task<ApiResponse<LoyaltyCard>> LinkLoyaltyCardToProfileAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body);
         /// <summary>
         /// Reopen customer session
         /// </summary>
@@ -1440,7 +1440,7 @@ namespace TalonOne.Api
         /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
         /// <param name="body">body</param>
         /// <returns>Task of Catalog</returns>
-        System.Threading.Tasks.Task<Catalog> SyncCatalogAsync (int catalogId, CatalogSyncRequest body);
+        System.Threading.Tasks.Task<Catalog> SyncCatalogAsync (long catalogId, CatalogSyncRequest body);
 
         /// <summary>
         /// Sync cart item catalog
@@ -1452,12 +1452,12 @@ namespace TalonOne.Api
         /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (Catalog)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Catalog>> SyncCatalogAsyncWithHttpInfo (int catalogId, CatalogSyncRequest body);
+        System.Threading.Tasks.Task<ApiResponse<Catalog>> SyncCatalogAsyncWithHttpInfo (long catalogId, CatalogSyncRequest body);
         /// <summary>
         /// Track event
         /// </summary>
         /// <remarks>
-        /// Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not say it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  &lt;/div&gt; 
+        /// Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not specify it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).   1. [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.  &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -1471,7 +1471,7 @@ namespace TalonOne.Api
         /// Track event
         /// </summary>
         /// <remarks>
-        /// Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not say it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  &lt;/div&gt; 
+        /// Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not specify it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).   1. [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.  &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -1490,7 +1490,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateAudienceCustomersAttributesAsync (int audienceId, Object body);
+        System.Threading.Tasks.Task UpdateAudienceCustomersAttributesAsync (long audienceId, Object body);
 
         /// <summary>
         /// Update profile attributes for all customers in audience
@@ -1502,7 +1502,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAudienceCustomersAttributesAsyncWithHttpInfo (int audienceId, Object body);
+        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateAudienceCustomersAttributesAsyncWithHttpInfo (long audienceId, Object body);
         /// <summary>
         /// Update audience name
         /// </summary>
@@ -1513,7 +1513,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Task of Audience</returns>
-        System.Threading.Tasks.Task<Audience> UpdateAudienceV2Async (int audienceId, UpdateAudience body);
+        System.Threading.Tasks.Task<Audience> UpdateAudienceV2Async (long audienceId, UpdateAudience body);
 
         /// <summary>
         /// Update audience name
@@ -1525,7 +1525,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (Audience)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Audience>> UpdateAudienceV2AsyncWithHttpInfo (int audienceId, UpdateAudience body);
+        System.Threading.Tasks.Task<ApiResponse<Audience>> UpdateAudienceV2AsyncWithHttpInfo (long audienceId, UpdateAudience body);
         /// <summary>
         /// Update multiple customer profiles&#39; audiences
         /// </summary>
@@ -1551,7 +1551,7 @@ namespace TalonOne.Api
         /// Update customer profile
         /// </summary>
         /// <remarks>
-        /// Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
+        /// Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of. **Note:** [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;. &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
@@ -1565,7 +1565,7 @@ namespace TalonOne.Api
         /// Update customer profile
         /// </summary>
         /// <remarks>
-        /// Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
+        /// Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of. **Note:** [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;. &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
@@ -1601,7 +1601,7 @@ namespace TalonOne.Api
         /// Update customer session
         /// </summary>
         /// <remarks>
-        /// Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:** The currency for the session and the cart items in the session is the currency set for the Application that owns this session.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+        /// Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:**  - The currency for the session and the cart items in it is the currency set for the Application linked to this session. - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. </param>
@@ -1615,7 +1615,7 @@ namespace TalonOne.Api
         /// Update customer session
         /// </summary>
         /// <remarks>
-        /// Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:** The currency for the session and the cart items in the session is the currency set for the Application that owns this session.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+        /// Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:**  - The currency for the session and the cart items in it is the currency set for the Application linked to this session. - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. </param>
@@ -2324,7 +2324,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns></returns>
-        public void DeleteAudienceMembershipsV2 (int audienceId)
+        public void DeleteAudienceMembershipsV2 (long audienceId)
         {
              DeleteAudienceMembershipsV2WithHttpInfo(audienceId);
         }
@@ -2335,7 +2335,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public TalonOne.Client.ApiResponse<Object> DeleteAudienceMembershipsV2WithHttpInfo (int audienceId)
+        public TalonOne.Client.ApiResponse<Object> DeleteAudienceMembershipsV2WithHttpInfo (long audienceId)
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -2385,7 +2385,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteAudienceMembershipsV2Async (int audienceId)
+        public async System.Threading.Tasks.Task DeleteAudienceMembershipsV2Async (long audienceId)
         {
              await DeleteAudienceMembershipsV2AsyncWithHttpInfo(audienceId);
 
@@ -2397,7 +2397,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> DeleteAudienceMembershipsV2AsyncWithHttpInfo (int audienceId)
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> DeleteAudienceMembershipsV2AsyncWithHttpInfo (long audienceId)
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -2449,7 +2449,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns></returns>
-        public void DeleteAudienceV2 (int audienceId)
+        public void DeleteAudienceV2 (long audienceId)
         {
              DeleteAudienceV2WithHttpInfo(audienceId);
         }
@@ -2460,7 +2460,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public TalonOne.Client.ApiResponse<Object> DeleteAudienceV2WithHttpInfo (int audienceId)
+        public TalonOne.Client.ApiResponse<Object> DeleteAudienceV2WithHttpInfo (long audienceId)
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -2510,7 +2510,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task DeleteAudienceV2Async (int audienceId)
+        public async System.Threading.Tasks.Task DeleteAudienceV2Async (long audienceId)
         {
              await DeleteAudienceV2AsyncWithHttpInfo(audienceId);
 
@@ -2522,7 +2522,7 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audienceId">The ID of the audience.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> DeleteAudienceV2AsyncWithHttpInfo (int audienceId)
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> DeleteAudienceV2AsyncWithHttpInfo (long audienceId)
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -2857,7 +2857,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>LoyaltyCard</returns>
-        public LoyaltyCard GenerateLoyaltyCard (int loyaltyProgramId, GenerateLoyaltyCard body)
+        public LoyaltyCard GenerateLoyaltyCard (long loyaltyProgramId, GenerateLoyaltyCard body)
         {
              TalonOne.Client.ApiResponse<LoyaltyCard> localVarResponse = GenerateLoyaltyCardWithHttpInfo(loyaltyProgramId, body);
              return localVarResponse.Data;
@@ -2870,7 +2870,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of LoyaltyCard</returns>
-        public TalonOne.Client.ApiResponse< LoyaltyCard > GenerateLoyaltyCardWithHttpInfo (int loyaltyProgramId, GenerateLoyaltyCard body)
+        public TalonOne.Client.ApiResponse< LoyaltyCard > GenerateLoyaltyCardWithHttpInfo (long loyaltyProgramId, GenerateLoyaltyCard body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -2927,7 +2927,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of LoyaltyCard</returns>
-        public async System.Threading.Tasks.Task<LoyaltyCard> GenerateLoyaltyCardAsync (int loyaltyProgramId, GenerateLoyaltyCard body)
+        public async System.Threading.Tasks.Task<LoyaltyCard> GenerateLoyaltyCardAsync (long loyaltyProgramId, GenerateLoyaltyCard body)
         {
              TalonOne.Client.ApiResponse<LoyaltyCard> localVarResponse = await GenerateLoyaltyCardAsyncWithHttpInfo(loyaltyProgramId, body);
              return localVarResponse.Data;
@@ -2941,7 +2941,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (LoyaltyCard)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyCard>> GenerateLoyaltyCardAsyncWithHttpInfo (int loyaltyProgramId, GenerateLoyaltyCard body)
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyCard>> GenerateLoyaltyCardAsyncWithHttpInfo (long loyaltyProgramId, GenerateLoyaltyCard body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -3005,7 +3005,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 GetCustomerAchievementHistory (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse2002 GetCustomerAchievementHistory (string integrationId, long achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2002> localVarResponse = GetCustomerAchievementHistoryWithHttpInfo(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
@@ -3023,7 +3023,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2002 > GetCustomerAchievementHistoryWithHttpInfo (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2002 > GetCustomerAchievementHistoryWithHttpInfo (string integrationId, long achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -3104,7 +3104,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> GetCustomerAchievementHistoryAsync (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse2002> GetCustomerAchievementHistoryAsync (string integrationId, long achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2002> localVarResponse = await GetCustomerAchievementHistoryAsyncWithHttpInfo(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
@@ -3123,7 +3123,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2002>> GetCustomerAchievementHistoryAsyncWithHttpInfo (string integrationId, int achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2002>> GetCustomerAchievementHistoryAsyncWithHttpInfo (string integrationId, long achievementId, List<string> progressStatus = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -3206,7 +3206,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 GetCustomerAchievements (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse2001 GetCustomerAchievements (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2001> localVarResponse = GetCustomerAchievementsWithHttpInfo(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip);
              return localVarResponse.Data;
@@ -3224,7 +3224,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2001 > GetCustomerAchievementsWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2001 > GetCustomerAchievementsWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -3308,7 +3308,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> GetCustomerAchievementsAsync (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse2001> GetCustomerAchievementsAsync (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2001> localVarResponse = await GetCustomerAchievementsAsyncWithHttpInfo(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip);
              return localVarResponse.Data;
@@ -3327,7 +3327,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2001>> GetCustomerAchievementsAsyncWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2001>> GetCustomerAchievementsAsyncWithHttpInfo (string integrationId, List<string> campaignIds = default(List<string>), List<string> achievementIds = default(List<string>), List<string> achievementStatus = default(List<string>), List<string> currentProgressStatus = default(List<string>), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -3754,7 +3754,7 @@ namespace TalonOne.Api
         /// <param name="includeTiers">Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier.  (optional, default to false)</param>
         /// <param name="includeProjectedTier">Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance.  (optional, default to false)</param>
         /// <returns>LoyaltyBalancesWithTiers</returns>
-        public LoyaltyBalancesWithTiers GetLoyaltyBalances (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?))
+        public LoyaltyBalancesWithTiers GetLoyaltyBalances (long loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?))
         {
              TalonOne.Client.ApiResponse<LoyaltyBalancesWithTiers> localVarResponse = GetLoyaltyBalancesWithHttpInfo(loyaltyProgramId, integrationId, endDate, subledgerId, includeTiers, includeProjectedTier);
              return localVarResponse.Data;
@@ -3771,7 +3771,7 @@ namespace TalonOne.Api
         /// <param name="includeTiers">Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier.  (optional, default to false)</param>
         /// <param name="includeProjectedTier">Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance.  (optional, default to false)</param>
         /// <returns>ApiResponse of LoyaltyBalancesWithTiers</returns>
-        public TalonOne.Client.ApiResponse< LoyaltyBalancesWithTiers > GetLoyaltyBalancesWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?))
+        public TalonOne.Client.ApiResponse< LoyaltyBalancesWithTiers > GetLoyaltyBalancesWithHttpInfo (long loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -3847,7 +3847,7 @@ namespace TalonOne.Api
         /// <param name="includeTiers">Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier.  (optional, default to false)</param>
         /// <param name="includeProjectedTier">Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance.  (optional, default to false)</param>
         /// <returns>Task of LoyaltyBalancesWithTiers</returns>
-        public async System.Threading.Tasks.Task<LoyaltyBalancesWithTiers> GetLoyaltyBalancesAsync (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?))
+        public async System.Threading.Tasks.Task<LoyaltyBalancesWithTiers> GetLoyaltyBalancesAsync (long loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?))
         {
              TalonOne.Client.ApiResponse<LoyaltyBalancesWithTiers> localVarResponse = await GetLoyaltyBalancesAsyncWithHttpInfo(loyaltyProgramId, integrationId, endDate, subledgerId, includeTiers, includeProjectedTier);
              return localVarResponse.Data;
@@ -3865,7 +3865,7 @@ namespace TalonOne.Api
         /// <param name="includeTiers">Indicates whether tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the current tier and the number of points required to move to next tier.  (optional, default to false)</param>
         /// <param name="includeProjectedTier">Indicates whether the customer&#39;s projected tier information is included in the response.  When set to &#x60;true&#x60;, the response includes information about the customer&#39;s active points and the name of the projected tier.  **Note** We recommend filtering by &#x60;subledgerId&#x60; for better performance.  (optional, default to false)</param>
         /// <returns>Task of ApiResponse (LoyaltyBalancesWithTiers)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyBalancesWithTiers>> GetLoyaltyBalancesAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyBalancesWithTiers>> GetLoyaltyBalancesAsyncWithHttpInfo (long loyaltyProgramId, string integrationId, DateTime? endDate = default(DateTime?), string subledgerId = default(string), bool? includeTiers = default(bool?), bool? includeProjectedTier = default(bool?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -3941,7 +3941,7 @@ namespace TalonOne.Api
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <returns>LoyaltyCardBalances</returns>
-        public LoyaltyCardBalances GetLoyaltyCardBalances (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        public LoyaltyCardBalances GetLoyaltyCardBalances (long loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
         {
              TalonOne.Client.ApiResponse<LoyaltyCardBalances> localVarResponse = GetLoyaltyCardBalancesWithHttpInfo(loyaltyProgramId, loyaltyCardId, endDate, subledgerId);
              return localVarResponse.Data;
@@ -3956,7 +3956,7 @@ namespace TalonOne.Api
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <returns>ApiResponse of LoyaltyCardBalances</returns>
-        public TalonOne.Client.ApiResponse< LoyaltyCardBalances > GetLoyaltyCardBalancesWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        public TalonOne.Client.ApiResponse< LoyaltyCardBalances > GetLoyaltyCardBalancesWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -4022,7 +4022,7 @@ namespace TalonOne.Api
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <returns>Task of LoyaltyCardBalances</returns>
-        public async System.Threading.Tasks.Task<LoyaltyCardBalances> GetLoyaltyCardBalancesAsync (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        public async System.Threading.Tasks.Task<LoyaltyCardBalances> GetLoyaltyCardBalancesAsync (long loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
         {
              TalonOne.Client.ApiResponse<LoyaltyCardBalances> localVarResponse = await GetLoyaltyCardBalancesAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, endDate, subledgerId);
              return localVarResponse.Data;
@@ -4038,7 +4038,7 @@ namespace TalonOne.Api
         /// <param name="endDate">Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="subledgerId">Filter results by one or more subledger IDs. Must be exact match. (optional)</param>
         /// <returns>Task of ApiResponse (LoyaltyCardBalances)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyCardBalances>> GetLoyaltyCardBalancesAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyCardBalances>> GetLoyaltyCardBalancesAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? endDate = default(DateTime?), List<string> subledgerId = default(List<string>))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -4108,7 +4108,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2005</returns>
-        public InlineResponse2005 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse2005 GetLoyaltyCardPoints (long loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2005> localVarResponse = GetLoyaltyCardPointsWithHttpInfo(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
              return localVarResponse.Data;
@@ -4125,7 +4125,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2005</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2005 > GetLoyaltyCardPointsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2005 > GetLoyaltyCardPointsWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -4201,7 +4201,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2005</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2005> GetLoyaltyCardPointsAsync (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse2005> GetLoyaltyCardPointsAsync (long loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2005> localVarResponse = await GetLoyaltyCardPointsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
              return localVarResponse.Data;
@@ -4219,7 +4219,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2005)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2005>> GetLoyaltyCardPointsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2005>> GetLoyaltyCardPointsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, string status = default(string), List<string> subledgerId = default(List<string>), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -4299,7 +4299,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse2003 GetLoyaltyCardTransactions (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2003> localVarResponse = GetLoyaltyCardTransactionsWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
@@ -4318,7 +4318,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2003</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2003 > GetLoyaltyCardTransactionsWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2003 > GetLoyaltyCardTransactionsWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -4404,7 +4404,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardTransactionsAsync (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse2003> GetLoyaltyCardTransactionsAsync (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2003> localVarResponse = await GetLoyaltyCardTransactionsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
@@ -4424,7 +4424,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2003>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2003>> GetLoyaltyCardTransactionsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = default(List<string>), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -4510,7 +4510,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2006</returns>
-        public InlineResponse2006 GetLoyaltyProgramProfilePoints (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse2006 GetLoyaltyProgramProfilePoints (long loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2006> localVarResponse = GetLoyaltyProgramProfilePointsWithHttpInfo(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
              return localVarResponse.Data;
@@ -4527,7 +4527,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2006</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2006 > GetLoyaltyProgramProfilePointsWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2006 > GetLoyaltyProgramProfilePointsWithHttpInfo (long loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -4603,7 +4603,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2006</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2006> GetLoyaltyProgramProfilePointsAsync (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse2006> GetLoyaltyProgramProfilePointsAsync (long loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2006> localVarResponse = await GetLoyaltyProgramProfilePointsAsyncWithHttpInfo(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
              return localVarResponse.Data;
@@ -4621,7 +4621,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2006)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2006>> GetLoyaltyProgramProfilePointsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2006>> GetLoyaltyProgramProfilePointsAsyncWithHttpInfo (long loyaltyProgramId, string integrationId, string status = default(string), string subledgerId = default(string), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -4701,7 +4701,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse2004</returns>
-        public InlineResponse2004 GetLoyaltyProgramProfileTransactions (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public InlineResponse2004 GetLoyaltyProgramProfileTransactions (long loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2004> localVarResponse = GetLoyaltyProgramProfileTransactionsWithHttpInfo(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
@@ -4720,7 +4720,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse2004</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse2004 > GetLoyaltyProgramProfileTransactionsWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public TalonOne.Client.ApiResponse< InlineResponse2004 > GetLoyaltyProgramProfileTransactionsWithHttpInfo (long loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -4806,7 +4806,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse2004</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2004> GetLoyaltyProgramProfileTransactionsAsync (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<InlineResponse2004> GetLoyaltyProgramProfileTransactionsAsync (long loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
              TalonOne.Client.ApiResponse<InlineResponse2004> localVarResponse = await GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
@@ -4826,7 +4826,7 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse2004)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2004>> GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo (int loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), int? pageSize = default(int?), int? skip = default(int?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse2004>> GetLoyaltyProgramProfileTransactionsAsyncWithHttpInfo (long loyaltyProgramId, string integrationId, string subledgerId = default(string), string loyaltyTransactionType = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -5044,7 +5044,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>LoyaltyCard</returns>
-        public LoyaltyCard LinkLoyaltyCardToProfile (int loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
+        public LoyaltyCard LinkLoyaltyCardToProfile (long loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
         {
              TalonOne.Client.ApiResponse<LoyaltyCard> localVarResponse = LinkLoyaltyCardToProfileWithHttpInfo(loyaltyProgramId, loyaltyCardId, body);
              return localVarResponse.Data;
@@ -5058,7 +5058,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of LoyaltyCard</returns>
-        public TalonOne.Client.ApiResponse< LoyaltyCard > LinkLoyaltyCardToProfileWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
+        public TalonOne.Client.ApiResponse< LoyaltyCard > LinkLoyaltyCardToProfileWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -5121,7 +5121,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of LoyaltyCard</returns>
-        public async System.Threading.Tasks.Task<LoyaltyCard> LinkLoyaltyCardToProfileAsync (int loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
+        public async System.Threading.Tasks.Task<LoyaltyCard> LinkLoyaltyCardToProfileAsync (long loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
         {
              TalonOne.Client.ApiResponse<LoyaltyCard> localVarResponse = await LinkLoyaltyCardToProfileAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, body);
              return localVarResponse.Data;
@@ -5136,7 +5136,7 @@ namespace TalonOne.Api
         /// <param name="loyaltyCardId">Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. </param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (LoyaltyCard)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyCard>> LinkLoyaltyCardToProfileAsyncWithHttpInfo (int loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<LoyaltyCard>> LinkLoyaltyCardToProfileAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -5498,7 +5498,7 @@ namespace TalonOne.Api
         /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
         /// <param name="body">body</param>
         /// <returns>Catalog</returns>
-        public Catalog SyncCatalog (int catalogId, CatalogSyncRequest body)
+        public Catalog SyncCatalog (long catalogId, CatalogSyncRequest body)
         {
              TalonOne.Client.ApiResponse<Catalog> localVarResponse = SyncCatalogWithHttpInfo(catalogId, body);
              return localVarResponse.Data;
@@ -5511,7 +5511,7 @@ namespace TalonOne.Api
         /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of Catalog</returns>
-        public TalonOne.Client.ApiResponse< Catalog > SyncCatalogWithHttpInfo (int catalogId, CatalogSyncRequest body)
+        public TalonOne.Client.ApiResponse< Catalog > SyncCatalogWithHttpInfo (long catalogId, CatalogSyncRequest body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -5568,7 +5568,7 @@ namespace TalonOne.Api
         /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
         /// <param name="body">body</param>
         /// <returns>Task of Catalog</returns>
-        public async System.Threading.Tasks.Task<Catalog> SyncCatalogAsync (int catalogId, CatalogSyncRequest body)
+        public async System.Threading.Tasks.Task<Catalog> SyncCatalogAsync (long catalogId, CatalogSyncRequest body)
         {
              TalonOne.Client.ApiResponse<Catalog> localVarResponse = await SyncCatalogAsyncWithHttpInfo(catalogId, body);
              return localVarResponse.Data;
@@ -5582,7 +5582,7 @@ namespace TalonOne.Api
         /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.</param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (Catalog)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Catalog>> SyncCatalogAsyncWithHttpInfo (int catalogId, CatalogSyncRequest body)
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Catalog>> SyncCatalogAsyncWithHttpInfo (long catalogId, CatalogSyncRequest body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -5635,7 +5635,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Track event Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not say it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  &lt;/div&gt; 
+        /// Track event Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not specify it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).   1. [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.  &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -5650,7 +5650,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Track event Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not say it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  &lt;/div&gt; 
+        /// Track event Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not specify it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).   1. [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.  &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -5720,7 +5720,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Track event Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not say it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  &lt;/div&gt; 
+        /// Track event Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not specify it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).   1. [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.  &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -5736,7 +5736,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Track event Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not say it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  &lt;/div&gt; 
+        /// Track event Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;    &lt;p class&#x3D;\&quot;title\&quot;&gt;Important&lt;/p&gt;    1. &#x60;profileId&#x60; is required even though the schema does not specify it.   1. If the customer profile ID is new, a new profile is automatically created but the &#x60;customer_profile_created&#x60; [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).   1. [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.  &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="body">body</param>
@@ -5814,7 +5814,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns></returns>
-        public void UpdateAudienceCustomersAttributes (int audienceId, Object body)
+        public void UpdateAudienceCustomersAttributes (long audienceId, Object body)
         {
              UpdateAudienceCustomersAttributesWithHttpInfo(audienceId, body);
         }
@@ -5826,7 +5826,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public TalonOne.Client.ApiResponse<Object> UpdateAudienceCustomersAttributesWithHttpInfo (int audienceId, Object body)
+        public TalonOne.Client.ApiResponse<Object> UpdateAudienceCustomersAttributesWithHttpInfo (long audienceId, Object body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -5883,7 +5883,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateAudienceCustomersAttributesAsync (int audienceId, Object body)
+        public async System.Threading.Tasks.Task UpdateAudienceCustomersAttributesAsync (long audienceId, Object body)
         {
              await UpdateAudienceCustomersAttributesAsyncWithHttpInfo(audienceId, body);
 
@@ -5896,7 +5896,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> UpdateAudienceCustomersAttributesAsyncWithHttpInfo (int audienceId, Object body)
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Object>> UpdateAudienceCustomersAttributesAsyncWithHttpInfo (long audienceId, Object body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -5955,7 +5955,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Audience</returns>
-        public Audience UpdateAudienceV2 (int audienceId, UpdateAudience body)
+        public Audience UpdateAudienceV2 (long audienceId, UpdateAudience body)
         {
              TalonOne.Client.ApiResponse<Audience> localVarResponse = UpdateAudienceV2WithHttpInfo(audienceId, body);
              return localVarResponse.Data;
@@ -5968,7 +5968,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>ApiResponse of Audience</returns>
-        public TalonOne.Client.ApiResponse< Audience > UpdateAudienceV2WithHttpInfo (int audienceId, UpdateAudience body)
+        public TalonOne.Client.ApiResponse< Audience > UpdateAudienceV2WithHttpInfo (long audienceId, UpdateAudience body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -6025,7 +6025,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Task of Audience</returns>
-        public async System.Threading.Tasks.Task<Audience> UpdateAudienceV2Async (int audienceId, UpdateAudience body)
+        public async System.Threading.Tasks.Task<Audience> UpdateAudienceV2Async (long audienceId, UpdateAudience body)
         {
              TalonOne.Client.ApiResponse<Audience> localVarResponse = await UpdateAudienceV2AsyncWithHttpInfo(audienceId, body);
              return localVarResponse.Data;
@@ -6039,7 +6039,7 @@ namespace TalonOne.Api
         /// <param name="audienceId">The ID of the audience.</param>
         /// <param name="body">body</param>
         /// <returns>Task of ApiResponse (Audience)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Audience>> UpdateAudienceV2AsyncWithHttpInfo (int audienceId, UpdateAudience body)
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<Audience>> UpdateAudienceV2AsyncWithHttpInfo (long audienceId, UpdateAudience body)
         {
             // verify the required parameter 'body' is set
             if (body == null)
@@ -6227,7 +6227,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer profile Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
+        /// Update customer profile Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of. **Note:** [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;. &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
@@ -6242,7 +6242,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer profile Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
+        /// Update customer profile Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of. **Note:** [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;. &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
@@ -6313,7 +6313,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer profile Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
+        /// Update customer profile Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of. **Note:** [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;. &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
@@ -6329,7 +6329,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer profile Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
+        /// Update customer profile Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of. **Note:** [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when &#x60;runRuleEngine&#x60; is &#x60;true&#x60;. &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer profile returns a response with the requested integration state.   - You can use the &#x60;responseContent&#x60; property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt; 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integrationId">The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. </param>
@@ -6551,7 +6551,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer session Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:** The currency for the session and the cart items in the session is the currency set for the Application that owns this session.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+        /// Update customer session Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:**  - The currency for the session and the cart items in it is the currency set for the Application linked to this session. - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. </param>
@@ -6566,7 +6566,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer session Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:** The currency for the session and the cart items in the session is the currency set for the Application that owns this session.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+        /// Update customer session Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:**  - The currency for the session and the cart items in it is the currency set for the Application linked to this session. - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. </param>
@@ -6637,7 +6637,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer session Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:** The currency for the session and the cart items in the session is the currency set for the Application that owns this session.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+        /// Update customer session Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:**  - The currency for the session and the cart items in it is the currency set for the Application linked to this session. - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. </param>
@@ -6653,7 +6653,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Update customer session Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:** The currency for the session and the cart items in the session is the currency set for the Application that owns this session.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+        /// Update customer session Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer&#39;s cart with Talon.One.  **Note:**  - The currency for the session and the cart items in it is the currency set for the Application linked to this session. - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the &#x60;state&#x60; parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the &#x60;profileId&#x60; parameter in the request body to a customer profile&#39;s &#x60;integrationId&#x60;. - While you can create an anonymous session with &#x60;profileId&#x3D;\&quot;\&quot;&#x60;, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  &lt;div class&#x3D;\&quot;redoc-section\&quot;&gt;   &lt;p class&#x3D;\&quot;title\&quot;&gt;Performance tips&lt;/p&gt;    - Updating a customer session returns a response with the new integration state. Use the &#x60;responseContent&#x60; property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). &lt;/div&gt;  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="customerSessionId">The &#x60;integration ID&#x60; of the customer session. You set this ID when you create a customer session.  You can see existing customer session integration IDs in the Campaign Manager&#39;s **Sessions** menu, or via the [List Application session](https://docs.talon.one/management-api#operation/getApplicationSessions) endpoint. </param>

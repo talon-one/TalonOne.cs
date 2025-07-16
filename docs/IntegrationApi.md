@@ -354,7 +354,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteaudiencemembershipsv2"></a>
 # **DeleteAudienceMembershipsV2**
-> void DeleteAudienceMembershipsV2 (int audienceId)
+> void DeleteAudienceMembershipsV2 (long audienceId)
 
 Delete audience memberships
 
@@ -382,7 +382,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var audienceId = 56;  // int | The ID of the audience.
+            var audienceId = 789;  // long | The ID of the audience.
 
             try
             {
@@ -404,7 +404,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audienceId** | **int**| The ID of the audience. | 
+ **audienceId** | **long**| The ID of the audience. | 
 
 ### Return type
 
@@ -430,7 +430,7 @@ void (empty response body)
 
 <a name="deleteaudiencev2"></a>
 # **DeleteAudienceV2**
-> void DeleteAudienceV2 (int audienceId)
+> void DeleteAudienceV2 (long audienceId)
 
 Delete audience
 
@@ -458,7 +458,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var audienceId = 56;  // int | The ID of the audience.
+            var audienceId = 789;  // long | The ID of the audience.
 
             try
             {
@@ -480,7 +480,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audienceId** | **int**| The ID of the audience. | 
+ **audienceId** | **long**| The ID of the audience. | 
 
 ### Return type
 
@@ -662,7 +662,7 @@ void (empty response body)
 
 <a name="generateloyaltycard"></a>
 # **GenerateLoyaltyCard**
-> LoyaltyCard GenerateLoyaltyCard (int loyaltyProgramId, GenerateLoyaltyCard body)
+> LoyaltyCard GenerateLoyaltyCard (long loyaltyProgramId, GenerateLoyaltyCard body)
 
 Generate loyalty card
 
@@ -690,7 +690,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+            var loyaltyProgramId = 789;  // long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var body = new GenerateLoyaltyCard(); // GenerateLoyaltyCard | body
 
             try
@@ -714,7 +714,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyaltyProgramId** | **long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **body** | [**GenerateLoyaltyCard**](GenerateLoyaltyCard.md)| body | 
 
 ### Return type
@@ -741,7 +741,7 @@ Name | Type | Description  | Notes
 
 <a name="getcustomerachievementhistory"></a>
 # **GetCustomerAchievementHistory**
-> InlineResponse2002 GetCustomerAchievementHistory (string integrationId, int achievementId, List<string> progressStatus = null, DateTime? startDate = null, DateTime? endDate = null, int? pageSize = null, int? skip = null)
+> InlineResponse2002 GetCustomerAchievementHistory (string integrationId, long achievementId, List<string> progressStatus = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null)
 
 List customer's achievement history
 
@@ -770,12 +770,12 @@ namespace Example
 
             var apiInstance = new IntegrationApi(config);
             var integrationId = integrationId_example;  // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
-            var achievementId = 56;  // int | The achievement identifier. 
+            var achievementId = 789;  // long | The achievement identifier. 
             var progressStatus = progressStatus_example;  // List<string> | Filter by customer progress status in the achievement.  (optional) 
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Timestamp that filters the results to only contain achievements created on or after the start date. (optional) 
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Timestamp that filters the results to only contain achievements created before or on the end date. (optional) 
-            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
-            var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 1000)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
 
             try
             {
@@ -799,12 +799,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
- **achievementId** | **int**| The achievement identifier.  | 
+ **achievementId** | **long**| The achievement identifier.  | 
  **progressStatus** | **List&lt;string&gt;**| Filter by customer progress status in the achievement.  | [optional] 
  **startDate** | **DateTime?**| Timestamp that filters the results to only contain achievements created on or after the start date. | [optional] 
  **endDate** | **DateTime?**| Timestamp that filters the results to only contain achievements created before or on the end date. | [optional] 
- **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
- **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
 
 <a name="getcustomerachievements"></a>
 # **GetCustomerAchievements**
-> InlineResponse2001 GetCustomerAchievements (string integrationId, List<string> campaignIds = null, List<string> achievementIds = null, List<string> achievementStatus = null, List<string> currentProgressStatus = null, int? pageSize = null, int? skip = null)
+> InlineResponse2001 GetCustomerAchievements (string integrationId, List<string> campaignIds = null, List<string> achievementIds = null, List<string> achievementStatus = null, List<string> currentProgressStatus = null, long? pageSize = null, long? skip = null)
 
 List customer's available achievements
 
@@ -864,8 +864,8 @@ namespace Example
             var achievementIds = new List<string>(); // List<string> | Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  (optional) 
             var achievementStatus = achievementStatus_example;  // List<string> | Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  (optional) 
             var currentProgressStatus = currentProgressStatus_example;  // List<string> | Filter by customer progress status in the achievement.  (optional) 
-            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 1000)
-            var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 1000)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
 
             try
             {
@@ -893,8 +893,8 @@ Name | Type | Description  | Notes
  **achievementIds** | [**List&lt;string&gt;**](string.md)| Filter by one or more Achievement IDs, separated by a comma.  **Note:** If no achievements are specified, data for all the achievements in the Application is returned.  | [optional] 
  **achievementStatus** | **List&lt;string&gt;**| Filter by status of the achievement.  **Note:** If the achievement status is not specified, only data for all active achievements in the Application is returned.  | [optional] 
  **currentProgressStatus** | **List&lt;string&gt;**| Filter by customer progress status in the achievement.  | [optional] 
- **pageSize** | **int?**| The number of items in the response. | [optional] [default to 1000]
- **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -1087,7 +1087,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltybalances"></a>
 # **GetLoyaltyBalances**
-> LoyaltyBalancesWithTiers GetLoyaltyBalances (int loyaltyProgramId, string integrationId, DateTime? endDate = null, string subledgerId = null, bool? includeTiers = null, bool? includeProjectedTier = null)
+> LoyaltyBalancesWithTiers GetLoyaltyBalances (long loyaltyProgramId, string integrationId, DateTime? endDate = null, string subledgerId = null, bool? includeTiers = null, bool? includeProjectedTier = null)
 
 Get customer's loyalty balances
 
@@ -1115,7 +1115,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+            var loyaltyProgramId = 789;  // long | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var integrationId = integrationId_example;  // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
             var subledgerId = subledgerId_example;  // string | The ID of the subledger by which we filter the data. (optional) 
@@ -1143,7 +1143,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyaltyProgramId** | **long**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
  **endDate** | **DateTime?**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **subledgerId** | **string**| The ID of the subledger by which we filter the data. | [optional] 
@@ -1175,7 +1175,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltycardbalances"></a>
 # **GetLoyaltyCardBalances**
-> LoyaltyCardBalances GetLoyaltyCardBalances (int loyaltyProgramId, string loyaltyCardId, DateTime? endDate = null, List<string> subledgerId = null)
+> LoyaltyCardBalances GetLoyaltyCardBalances (long loyaltyProgramId, string loyaltyCardId, DateTime? endDate = null, List<string> subledgerId = null)
 
 Get card's point balances
 
@@ -1203,7 +1203,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+            var loyaltyProgramId = 789;  // long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var loyaltyCardId = loyaltyCardId_example;  // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
             var subledgerId = new List<string>(); // List<string> | Filter results by one or more subledger IDs. Must be exact match. (optional) 
@@ -1229,7 +1229,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyaltyProgramId** | **long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  | 
  **endDate** | **DateTime?**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **subledgerId** | [**List&lt;string&gt;**](string.md)| Filter results by one or more subledger IDs. Must be exact match. | [optional] 
@@ -1259,7 +1259,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltycardpoints"></a>
 # **GetLoyaltyCardPoints**
-> InlineResponse2005 GetLoyaltyCardPoints (int loyaltyProgramId, string loyaltyCardId, string status = null, List<string> subledgerId = null, int? pageSize = null, int? skip = null)
+> InlineResponse2005 GetLoyaltyCardPoints (long loyaltyProgramId, string loyaltyCardId, string status = null, List<string> subledgerId = null, long? pageSize = null, long? skip = null)
 
 List card's unused loyalty points
 
@@ -1287,12 +1287,12 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+            var loyaltyProgramId = 789;  // long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var loyaltyCardId = loyaltyCardId_example;  // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
             var status = status_example;  // string | Filter points based on their status. (optional)  (default to active)
             var subledgerId = new List<string>(); // List<string> | Filter results by one or more subledger IDs. Must be exact match. (optional) 
-            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 50)
-            var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 50)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
 
             try
             {
@@ -1315,12 +1315,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyaltyProgramId** | **long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  | 
  **status** | **string**| Filter points based on their status. | [optional] [default to active]
  **subledgerId** | [**List&lt;string&gt;**](string.md)| Filter results by one or more subledger IDs. Must be exact match. | [optional] 
- **pageSize** | **int?**| The number of items in the response. | [optional] [default to 50]
- **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -1347,7 +1347,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltycardtransactions"></a>
 # **GetLoyaltyCardTransactions**
-> InlineResponse2003 GetLoyaltyCardTransactions (int loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, int? pageSize = null, int? skip = null)
+> InlineResponse2003 GetLoyaltyCardTransactions (long loyaltyProgramId, string loyaltyCardId, List<string> subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null)
 
 List card's transactions
 
@@ -1375,14 +1375,14 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+            var loyaltyProgramId = 789;  // long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var loyaltyCardId = loyaltyCardId_example;  // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
             var subledgerId = new List<string>(); // List<string> | Filter results by one or more subledger IDs. Must be exact match. (optional) 
             var loyaltyTransactionType = loyaltyTransactionType_example;  // string | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional) 
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
-            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 50)
-            var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 50)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
 
             try
             {
@@ -1405,14 +1405,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyaltyProgramId** | **long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  | 
  **subledgerId** | [**List&lt;string&gt;**](string.md)| Filter results by one or more subledger IDs. Must be exact match. | [optional] 
  **loyaltyTransactionType** | **string**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  | [optional] 
  **startDate** | **DateTime?**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **endDate** | **DateTime?**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
- **pageSize** | **int?**| The number of items in the response. | [optional] [default to 50]
- **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -1439,7 +1439,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltyprogramprofilepoints"></a>
 # **GetLoyaltyProgramProfilePoints**
-> InlineResponse2006 GetLoyaltyProgramProfilePoints (int loyaltyProgramId, string integrationId, string status = null, string subledgerId = null, int? pageSize = null, int? skip = null)
+> InlineResponse2006 GetLoyaltyProgramProfilePoints (long loyaltyProgramId, string integrationId, string status = null, string subledgerId = null, long? pageSize = null, long? skip = null)
 
 List customer's unused loyalty points
 
@@ -1467,12 +1467,12 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+            var loyaltyProgramId = 789;  // long | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var integrationId = integrationId_example;  // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
             var status = status_example;  // string | Filter points based on their status. (optional)  (default to active)
             var subledgerId = subledgerId_example;  // string | The ID of the subledger by which we filter the data. (optional) 
-            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 50)
-            var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 50)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
 
             try
             {
@@ -1495,12 +1495,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyaltyProgramId** | **long**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
  **status** | **string**| Filter points based on their status. | [optional] [default to active]
  **subledgerId** | **string**| The ID of the subledger by which we filter the data. | [optional] 
- **pageSize** | **int?**| The number of items in the response. | [optional] [default to 50]
- **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -1527,7 +1527,7 @@ Name | Type | Description  | Notes
 
 <a name="getloyaltyprogramprofiletransactions"></a>
 # **GetLoyaltyProgramProfileTransactions**
-> InlineResponse2004 GetLoyaltyProgramProfileTransactions (int loyaltyProgramId, string integrationId, string subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, int? pageSize = null, int? skip = null)
+> InlineResponse2004 GetLoyaltyProgramProfileTransactions (long loyaltyProgramId, string integrationId, string subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null)
 
 List customer's loyalty transactions
 
@@ -1555,14 +1555,14 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+            var loyaltyProgramId = 789;  // long | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var integrationId = integrationId_example;  // string | The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier. 
             var subledgerId = subledgerId_example;  // string | The ID of the subledger by which we filter the data. (optional) 
             var loyaltyTransactionType = loyaltyTransactionType_example;  // string | Filter results by loyalty transaction type: - `manual`: Loyalty transaction that was done manually. - `session`: Loyalty transaction that resulted from a customer session. - `import`: Loyalty transaction that was imported from a CSV file.  (optional) 
             var startDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
-            var pageSize = 56;  // int? | The number of items in the response. (optional)  (default to 50)
-            var skip = 56;  // int? | The number of items to skip when paging through large result sets. (optional) 
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 50)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
 
             try
             {
@@ -1585,14 +1585,14 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyaltyProgramId** | **long**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **integrationId** | **string**| The integration identifier for this customer profile. Must be: - Unique within the deployment. - Stable for the customer. Do not use an ID that the customer can update themselves. For example, you can use a database ID.  Once set, you cannot update this identifier.  | 
  **subledgerId** | **string**| The ID of the subledger by which we filter the data. | [optional] 
  **loyaltyTransactionType** | **string**| Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  | [optional] 
  **startDate** | **DateTime?**| Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
  **endDate** | **DateTime?**| Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
- **pageSize** | **int?**| The number of items in the response. | [optional] [default to 50]
- **skip** | **int?**| The number of items to skip when paging through large result sets. | [optional] 
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
 
 ### Return type
 
@@ -1697,7 +1697,7 @@ Name | Type | Description  | Notes
 
 <a name="linkloyaltycardtoprofile"></a>
 # **LinkLoyaltyCardToProfile**
-> LoyaltyCard LinkLoyaltyCardToProfile (int loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
+> LoyaltyCard LinkLoyaltyCardToProfile (long loyaltyProgramId, string loyaltyCardId, LoyaltyCardRegistration body)
 
 Link customer profile to card
 
@@ -1725,7 +1725,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var loyaltyProgramId = 56;  // int | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+            var loyaltyProgramId = 789;  // long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var loyaltyCardId = loyaltyCardId_example;  // string | Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint. 
             var body = new LoyaltyCardRegistration(); // LoyaltyCardRegistration | body
 
@@ -1750,7 +1750,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **loyaltyProgramId** | **int**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **loyaltyProgramId** | **long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **loyaltyCardId** | **string**| Identifier of the loyalty card. You can get the identifier with the [List loyalty cards](https://docs.talon.one/management-api#tag/Loyalty-cards/operation/getLoyaltyCards) endpoint.  | 
  **body** | [**LoyaltyCardRegistration**](LoyaltyCardRegistration.md)| body | 
 
@@ -1937,7 +1937,7 @@ Name | Type | Description  | Notes
 
 <a name="synccatalog"></a>
 # **SyncCatalog**
-> Catalog SyncCatalog (int catalogId, CatalogSyncRequest body)
+> Catalog SyncCatalog (long catalogId, CatalogSyncRequest body)
 
 Sync cart item catalog
 
@@ -1965,7 +1965,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var catalogId = 56;  // int | The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**.
+            var catalogId = 789;  // long | The ID of the catalog. You can find the ID in the Campaign Manager in **Account** > **Tools** > **Cart item catalogs**.
             var body = new CatalogSyncRequest(); // CatalogSyncRequest | body
 
             try
@@ -1989,7 +1989,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **catalogId** | **int**| The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**. | 
+ **catalogId** | **long**| The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**. | 
  **body** | [**CatalogSyncRequest**](CatalogSyncRequest.md)| body | 
 
 ### Return type
@@ -2021,7 +2021,7 @@ Name | Type | Description  | Notes
 
 Track event
 
-Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  <div class=\"redoc-section\">    <p class=\"title\">Important</p>    1. `profileId` is required even though the schema does not say it.   1. If the customer profile ID is new, a new profile is automatically created but the `customer_profile_created` [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).  </div> 
+Triggers a custom event.  To use this endpoint: 1. Define a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) in the Campaign Manager. 1. Update or create a rule to check for this event. 1. Trigger the event with this endpoint. After you have successfully sent an event to Talon.One, you can list the received events in the **Events** view in the Campaign Manager.  Talon.One also offers a set of [built-in events](https://docs.talon.one/docs/dev/concepts/entities/events). Ensure you do not create a custom event when you can use a built-in event.  For example, use this endpoint to trigger an event when a customer shares a link to a product. See the [tutorial](https://docs.talon.one/docs/product/tutorials/referrals/incentivizing-product-link-sharing).  <div class=\"redoc-section\">    <p class=\"title\">Important</p>    1. `profileId` is required even though the schema does not specify it.   1. If the customer profile ID is new, a new profile is automatically created but the `customer_profile_created` [built-in event ](https://docs.talon.one/docs/dev/concepts/entities/events) is **not** triggered.   1. We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests).   1. [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation.  </div> 
 
 ### Example
 ```csharp
@@ -2101,7 +2101,7 @@ Name | Type | Description  | Notes
 
 <a name="updateaudiencecustomersattributes"></a>
 # **UpdateAudienceCustomersAttributes**
-> void UpdateAudienceCustomersAttributes (int audienceId, Object body)
+> void UpdateAudienceCustomersAttributes (long audienceId, Object body)
 
 Update profile attributes for all customers in audience
 
@@ -2129,7 +2129,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var audienceId = 56;  // int | The ID of the audience.
+            var audienceId = 789;  // long | The ID of the audience.
             var body = ;  // Object | body
 
             try
@@ -2152,7 +2152,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audienceId** | **int**| The ID of the audience. | 
+ **audienceId** | **long**| The ID of the audience. | 
  **body** | **Object**| body | 
 
 ### Return type
@@ -2179,7 +2179,7 @@ void (empty response body)
 
 <a name="updateaudiencev2"></a>
 # **UpdateAudienceV2**
-> Audience UpdateAudienceV2 (int audienceId, UpdateAudience body)
+> Audience UpdateAudienceV2 (long audienceId, UpdateAudience body)
 
 Update audience name
 
@@ -2207,7 +2207,7 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new IntegrationApi(config);
-            var audienceId = 56;  // int | The ID of the audience.
+            var audienceId = 789;  // long | The ID of the audience.
             var body = new UpdateAudience(); // UpdateAudience | body
 
             try
@@ -2231,7 +2231,7 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audienceId** | **int**| The ID of the audience. | 
+ **audienceId** | **long**| The ID of the audience. | 
  **body** | [**UpdateAudience**](UpdateAudience.md)| body | 
 
 ### Return type
@@ -2339,7 +2339,7 @@ void (empty response body)
 
 Update customer profile
 
-Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of.  <div class=\"redoc-section\">   <p class=\"title\">Performance tips</p>    - Updating a customer profile returns a response with the requested integration state.   - You can use the `responseContent` property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). </div> 
+Update or create a [Customer Profile](https://docs.talon.one/docs/dev/concepts/entities/customer-profiles). This endpoint triggers the Rule Builder.  You can use this endpoint to: - Set attributes on the given customer profile. Ensure you create the attributes in the Campaign Manager, first. - Modify the audience the customer profile is a member of. **Note:** [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered in rule evaluation when `runRuleEngine` is `true`. <div class=\"redoc-section\">   <p class=\"title\">Performance tips</p>    - Updating a customer profile returns a response with the requested integration state.   - You can use the `responseContent` property to save yourself extra API calls. For example, you can get     the customer profile details directly without extra requests.   - We recommend sending requests sequentially.     See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). </div> 
 
 ### Example
 ```csharp
@@ -2502,7 +2502,7 @@ Name | Type | Description  | Notes
 
 Update customer session
 
-Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer's cart with Talon.One.  **Note:** The currency for the session and the cart items in the session is the currency set for the Application that owns this session.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the `state` parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the `profileId` parameter in the request body to a customer profile's `integrationId`. - While you can create an anonymous session with `profileId=\"\"`, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  <div class=\"redoc-section\">   <p class=\"title\">Performance tips</p>    - Updating a customer session returns a response with the new integration state. Use the `responseContent` property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). </div>  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
+Update or create a [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). The endpoint responds with the potential promotion rule [effects](https://docs.talon.one/docs/dev/integration-api/api-effects) that match the current cart. For example, use this endpoint to share the contents of a customer's cart with Talon.One.  **Note:**  - The currency for the session and the cart items in it is the currency set for the Application linked to this session. - [Archived campaigns](https://docs.talon.one/docs/product/campaigns/managing-campaigns#archiving-a-campaign) are not considered for rule evaluation.  ### Session management  To use this endpoint, start by learning about [customer sessions](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions) and their states and refer to the `state` parameter documentation the request body schema docs below.  ### Sessions and customer profiles  - To link a session to a customer profile, set the `profileId` parameter in the request body to a customer profile's `integrationId`. - While you can create an anonymous session with `profileId=\"\"`, we recommend you use a guest ID instead. - A profile can be linked to simultaneous sessions in different Applications. Either:   - Use unique session integration IDs or,   - Use the same session integration ID across all of the Applications.  **Note:** If the specified profile does not exist, an empty profile is **created automatically**.   You can update it with [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2).  <div class=\"redoc-section\">   <p class=\"title\">Performance tips</p>    - Updating a customer session returns a response with the new integration state. Use the `responseContent` property to save yourself extra API calls.     For example, you can get the customer profile details directly without extra requests.   - We recommend sending requests sequentially. See [Managing parallel requests](https://docs.talon.one/docs/dev/getting-started/integration-tutorial#managing-parallel-requests). </div>  For more information, see: - The introductory video in [Getting started](https://docs.talon.one/docs/dev/getting-started/overview). - The [integration tutorial](https://docs.talon.one/docs/dev/tutorials/integrating-talon-one). 
 
 ### Example
 ```csharp

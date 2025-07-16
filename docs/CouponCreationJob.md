@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Internal ID of this entity. | 
+**Id** | **int** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **CampaignId** | **int** | The ID of the campaign that owns this entity. | 
 **ApplicationId** | **int** | The ID of the Application that owns this entity. | 

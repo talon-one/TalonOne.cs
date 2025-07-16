@@ -112,7 +112,7 @@ namespace TalonOne.Test
         public void DeleteAudienceMembershipsV2Test()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int audienceId = null;
+            //long audienceId = null;
             //instance.DeleteAudienceMembershipsV2(audienceId);
             
         }
@@ -124,7 +124,7 @@ namespace TalonOne.Test
         public void DeleteAudienceV2Test()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int audienceId = null;
+            //long audienceId = null;
             //instance.DeleteAudienceV2(audienceId);
             
         }
@@ -161,7 +161,7 @@ namespace TalonOne.Test
         public void GenerateLoyaltyCardTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
+            //long loyaltyProgramId = null;
             //GenerateLoyaltyCard body = null;
             //var response = instance.GenerateLoyaltyCard(loyaltyProgramId, body);
             //Assert.IsType<LoyaltyCard> (response, "response is LoyaltyCard");
@@ -175,12 +175,12 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string integrationId = null;
-            //int achievementId = null;
+            //long achievementId = null;
             //List<string> progressStatus = null;
             //DateTime? startDate = null;
             //DateTime? endDate = null;
-            //int? pageSize = null;
-            //int? skip = null;
+            //long? pageSize = null;
+            //long? skip = null;
             //var response = instance.GetCustomerAchievementHistory(integrationId, achievementId, progressStatus, startDate, endDate, pageSize, skip);
             //Assert.IsType<InlineResponse2002> (response, "response is InlineResponse2002");
         }
@@ -197,8 +197,8 @@ namespace TalonOne.Test
             //List<string> achievementIds = null;
             //List<string> achievementStatus = null;
             //List<string> currentProgressStatus = null;
-            //int? pageSize = null;
-            //int? skip = null;
+            //long? pageSize = null;
+            //long? skip = null;
             //var response = instance.GetCustomerAchievements(integrationId, campaignIds, achievementIds, achievementStatus, currentProgressStatus, pageSize, skip);
             //Assert.IsType<InlineResponse2001> (response, "response is InlineResponse2001");
         }
@@ -240,7 +240,7 @@ namespace TalonOne.Test
         public void GetLoyaltyBalancesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
+            //long loyaltyProgramId = null;
             //string integrationId = null;
             //DateTime? endDate = null;
             //string subledgerId = null;
@@ -257,7 +257,7 @@ namespace TalonOne.Test
         public void GetLoyaltyCardBalancesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
+            //long loyaltyProgramId = null;
             //string loyaltyCardId = null;
             //DateTime? endDate = null;
             //List<string> subledgerId = null;
@@ -272,12 +272,12 @@ namespace TalonOne.Test
         public void GetLoyaltyCardPointsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
+            //long loyaltyProgramId = null;
             //string loyaltyCardId = null;
             //string status = null;
             //List<string> subledgerId = null;
-            //int? pageSize = null;
-            //int? skip = null;
+            //long? pageSize = null;
+            //long? skip = null;
             //var response = instance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
             //Assert.IsType<InlineResponse2005> (response, "response is InlineResponse2005");
         }
@@ -289,14 +289,14 @@ namespace TalonOne.Test
         public void GetLoyaltyCardTransactionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
+            //long loyaltyProgramId = null;
             //string loyaltyCardId = null;
             //List<string> subledgerId = null;
             //string loyaltyTransactionType = null;
             //DateTime? startDate = null;
             //DateTime? endDate = null;
-            //int? pageSize = null;
-            //int? skip = null;
+            //long? pageSize = null;
+            //long? skip = null;
             //var response = instance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
             //Assert.IsType<InlineResponse2003> (response, "response is InlineResponse2003");
         }
@@ -308,12 +308,12 @@ namespace TalonOne.Test
         public void GetLoyaltyProgramProfilePointsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
+            //long loyaltyProgramId = null;
             //string integrationId = null;
             //string status = null;
             //string subledgerId = null;
-            //int? pageSize = null;
-            //int? skip = null;
+            //long? pageSize = null;
+            //long? skip = null;
             //var response = instance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
             //Assert.IsType<InlineResponse2006> (response, "response is InlineResponse2006");
         }
@@ -325,14 +325,14 @@ namespace TalonOne.Test
         public void GetLoyaltyProgramProfileTransactionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
+            //long loyaltyProgramId = null;
             //string integrationId = null;
             //string subledgerId = null;
             //string loyaltyTransactionType = null;
             //DateTime? startDate = null;
             //DateTime? endDate = null;
-            //int? pageSize = null;
-            //int? skip = null;
+            //long? pageSize = null;
+            //long? skip = null;
             //var response = instance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
             //Assert.IsType<InlineResponse2004> (response, "response is InlineResponse2004");
         }
@@ -356,7 +356,7 @@ namespace TalonOne.Test
         public void LinkLoyaltyCardToProfileTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int loyaltyProgramId = null;
+            //long loyaltyProgramId = null;
             //string loyaltyCardId = null;
             //LoyaltyCardRegistration body = null;
             //var response = instance.LinkLoyaltyCardToProfile(loyaltyProgramId, loyaltyCardId, body);
@@ -396,7 +396,7 @@ namespace TalonOne.Test
         public void SyncCatalogTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int catalogId = null;
+            //long catalogId = null;
             //CatalogSyncRequest body = null;
             //var response = instance.SyncCatalog(catalogId, body);
             //Assert.IsType<Catalog> (response, "response is Catalog");
@@ -424,7 +424,7 @@ namespace TalonOne.Test
         public void UpdateAudienceCustomersAttributesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int audienceId = null;
+            //long audienceId = null;
             //Object body = null;
             //instance.UpdateAudienceCustomersAttributes(audienceId, body);
             
@@ -437,7 +437,7 @@ namespace TalonOne.Test
         public void UpdateAudienceV2Test()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //int audienceId = null;
+            //long audienceId = null;
             //UpdateAudience body = null;
             //var response = instance.UpdateAudienceV2(audienceId, body);
             //Assert.IsType<Audience> (response, "response is Audience");

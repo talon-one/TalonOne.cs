@@ -51,7 +51,10 @@ namespace TalonOne.Model
         /// <param name="evaluationGroupMode">The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
         /// <param name="campaignRevisionId">The revision ID of the campaign that was used when triggering the effect..</param>
         /// <param name="campaignRevisionVersionId">The revision version ID of the campaign that was used when triggering the effect..</param>
-        public EffectEntity(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int), int triggeredForCatalogItem = default(int), int conditionIndex = default(int), int evaluationGroupID = default(int), string evaluationGroupMode = default(string), int campaignRevisionId = default(int), int campaignRevisionVersionId = default(int))
+        /// <param name="selectedPriceType">The selected price type for the SKU targeted by this effect..</param>
+        /// <param name="selectedPrice">The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied..</param>
+        /// <param name="adjustmentReferenceId">The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment..</param>
+        public EffectEntity(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int), int triggeredForCatalogItem = default(int), int conditionIndex = default(int), int evaluationGroupID = default(int), string evaluationGroupMode = default(string), int campaignRevisionId = default(int), int campaignRevisionVersionId = default(int), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), Guid adjustmentReferenceId = default(Guid))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -67,6 +70,9 @@ namespace TalonOne.Model
             this.EvaluationGroupMode = evaluationGroupMode;
             this.CampaignRevisionId = campaignRevisionId;
             this.CampaignRevisionVersionId = campaignRevisionVersionId;
+            this.SelectedPriceType = selectedPriceType;
+            this.SelectedPrice = selectedPrice;
+            this.AdjustmentReferenceId = adjustmentReferenceId;
         }
         
         /// <summary>
@@ -154,6 +160,27 @@ namespace TalonOne.Model
         public int CampaignRevisionVersionId { get; set; }
 
         /// <summary>
+        /// The selected price type for the SKU targeted by this effect.
+        /// </summary>
+        /// <value>The selected price type for the SKU targeted by this effect.</value>
+        [DataMember(Name="selectedPriceType", EmitDefaultValue=false)]
+        public string SelectedPriceType { get; set; }
+
+        /// <summary>
+        /// The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.
+        /// </summary>
+        /// <value>The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.</value>
+        [DataMember(Name="selectedPrice", EmitDefaultValue=false)]
+        public decimal SelectedPrice { get; set; }
+
+        /// <summary>
+        /// The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment.
+        /// </summary>
+        /// <value>The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment.</value>
+        [DataMember(Name="adjustmentReferenceId", EmitDefaultValue=false)]
+        public Guid AdjustmentReferenceId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -173,6 +200,9 @@ namespace TalonOne.Model
             sb.Append("  EvaluationGroupMode: ").Append(EvaluationGroupMode).Append("\n");
             sb.Append("  CampaignRevisionId: ").Append(CampaignRevisionId).Append("\n");
             sb.Append("  CampaignRevisionVersionId: ").Append(CampaignRevisionVersionId).Append("\n");
+            sb.Append("  SelectedPriceType: ").Append(SelectedPriceType).Append("\n");
+            sb.Append("  SelectedPrice: ").Append(SelectedPrice).Append("\n");
+            sb.Append("  AdjustmentReferenceId: ").Append(AdjustmentReferenceId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -257,6 +287,20 @@ namespace TalonOne.Model
                 (
                     this.CampaignRevisionVersionId == input.CampaignRevisionVersionId ||
                     this.CampaignRevisionVersionId.Equals(input.CampaignRevisionVersionId)
+                ) && 
+                (
+                    this.SelectedPriceType == input.SelectedPriceType ||
+                    (this.SelectedPriceType != null &&
+                    this.SelectedPriceType.Equals(input.SelectedPriceType))
+                ) && 
+                (
+                    this.SelectedPrice == input.SelectedPrice ||
+                    this.SelectedPrice.Equals(input.SelectedPrice)
+                ) && 
+                (
+                    this.AdjustmentReferenceId == input.AdjustmentReferenceId ||
+                    (this.AdjustmentReferenceId != null &&
+                    this.AdjustmentReferenceId.Equals(input.AdjustmentReferenceId))
                 );
         }
 
@@ -284,6 +328,11 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.EvaluationGroupMode.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignRevisionId.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignRevisionVersionId.GetHashCode();
+                if (this.SelectedPriceType != null)
+                    hashCode = hashCode * 59 + this.SelectedPriceType.GetHashCode();
+                hashCode = hashCode * 59 + this.SelectedPrice.GetHashCode();
+                if (this.AdjustmentReferenceId != null)
+                    hashCode = hashCode * 59 + this.AdjustmentReferenceId.GetHashCode();
                 return hashCode;
             }
         }

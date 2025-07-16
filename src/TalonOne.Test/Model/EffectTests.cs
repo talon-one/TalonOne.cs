@@ -154,6 +154,30 @@ namespace TalonOne.Test
             // TODO unit test for the property 'CampaignRevisionVersionId'
         }
         /// <summary>
+        /// Test the property 'SelectedPriceType'
+        /// </summary>
+        [Fact]
+        public void SelectedPriceTypeTest()
+        {
+            // TODO unit test for the property 'SelectedPriceType'
+        }
+        /// <summary>
+        /// Test the property 'SelectedPrice'
+        /// </summary>
+        [Fact]
+        public void SelectedPriceTest()
+        {
+            // TODO unit test for the property 'SelectedPrice'
+        }
+        /// <summary>
+        /// Test the property 'AdjustmentReferenceId'
+        /// </summary>
+        [Fact]
+        public void AdjustmentReferenceIdTest()
+        {
+            // TODO unit test for the property 'AdjustmentReferenceId'
+        }
+        /// <summary>
         /// Test the property 'Props'
         /// </summary>
         [Fact]
