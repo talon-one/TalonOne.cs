@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="additionalCost">The name of the additional cost. (required).</param>
         /// <param name="value">The total monetary value of the discount. (required).</param>
         /// <param name="desiredValue">The original value of the discount..</param>
-        public SetDiscountPerAdditionalCostEffectProps(string name = default(string), int additionalCostId = default(int), string additionalCost = default(string), decimal value = default(decimal), decimal desiredValue = default(decimal))
+        public SetDiscountPerAdditionalCostEffectProps(string name = default(string), long additionalCostId = default(long), string additionalCost = default(string), decimal value = default(decimal), decimal desiredValue = default(decimal))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SetDiscountPerAdditionalCostEffectProps and cannot be null");
@@ -67,7 +67,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the additional cost.</value>
         [DataMember(Name="additionalCostId", EmitDefaultValue=false)]
-        public int AdditionalCostId { get; set; }
+        public long AdditionalCostId { get; set; }
 
         /// <summary>
         /// The name of the additional cost.

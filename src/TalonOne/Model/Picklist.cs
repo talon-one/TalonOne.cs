@@ -86,7 +86,7 @@ namespace TalonOne.Model
         /// <param name="createdBy">ID of the user who created this effect. (required).</param>
         /// <param name="accountId">The ID of the account that owns this entity..</param>
         /// <param name="imported">Imported flag shows that a picklist is imported by a CSV file or not.</param>
-        public Picklist(int id = default(int), DateTime created = default(DateTime), TypeEnum type = default(TypeEnum), List<string> values = default(List<string>), int modifiedBy = default(int), int createdBy = default(int), int accountId = default(int), bool imported = default(bool))
+        public Picklist(long id = default(long), DateTime created = default(DateTime), TypeEnum type = default(TypeEnum), List<string> values = default(List<string>), long modifiedBy = default(long), long createdBy = default(long), long accountId = default(long), bool imported = default(bool))
         {
             this.Id = id;
             this.Created = created;
@@ -104,7 +104,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -125,21 +125,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the user who last updated this effect if available.</value>
         [DataMember(Name="modifiedBy", EmitDefaultValue=false)]
-        public int ModifiedBy { get; set; }
+        public long ModifiedBy { get; set; }
 
         /// <summary>
         /// ID of the user who created this effect.
         /// </summary>
         /// <value>ID of the user who created this effect.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Imported flag shows that a picklist is imported by a CSV file or not

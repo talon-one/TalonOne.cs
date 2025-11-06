@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="campaignsIDs">The campaign IDs that got fetched for the evaluation process..</param>
         /// <param name="effects">The strikethrough effects that are returned from the evaluation process..</param>
-        public StrikethroughDebugResponse(List<int> campaignsIDs = default(List<int>), List<StrikethroughEffect> effects = default(List<StrikethroughEffect>))
+        public StrikethroughDebugResponse(List<long> campaignsIDs = default(List<long>), List<StrikethroughEffect> effects = default(List<StrikethroughEffect>))
         {
             this.CampaignsIDs = campaignsIDs;
             this.Effects = effects;
@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The campaign IDs that got fetched for the evaluation process.</value>
         [DataMember(Name="campaignsIDs", EmitDefaultValue=false)]
-        public List<int> CampaignsIDs { get; set; }
+        public List<long> CampaignsIDs { get; set; }
 
         /// <summary>
         /// The strikethrough effects that are returned from the evaluation process.

@@ -5,7 +5,7 @@ Log of application accesses.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Uuid** | **string** | UUID reference of request. | 
-**Status** | **int** | HTTP status code of response. | 
+**Status** | **long** | HTTP status code of response. | 
 **Method** | **string** | HTTP method of request. | 
 **RequestUri** | **string** | target URI of request | 
 **Time** | **DateTime** | timestamp of request | 

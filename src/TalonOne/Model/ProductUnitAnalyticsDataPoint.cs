@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="unitsSold">unitsSold (required).</param>
         /// <param name="productId">The ID of the product. (required).</param>
         /// <param name="productName">The name of the product. (required).</param>
-        public ProductUnitAnalyticsDataPoint(DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), AnalyticsDataPointWithTrend unitsSold = default(AnalyticsDataPointWithTrend), int productId = default(int), string productName = default(string))
+        public ProductUnitAnalyticsDataPoint(DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), AnalyticsDataPointWithTrend unitsSold = default(AnalyticsDataPointWithTrend), long productId = default(long), string productName = default(string))
         {
             this.StartTime = startTime;
             this.EndTime = endTime;
@@ -80,7 +80,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the product.</value>
         [DataMember(Name="productId", EmitDefaultValue=false)]
-        public int ProductId { get; set; }
+        public long ProductId { get; set; }
 
         /// <summary>
         /// The name of the product.

@@ -102,7 +102,7 @@ namespace TalonOne.Model
         /// <param name="userId">The ID of the user associated with this entity. (required).</param>
         /// <param name="entity">The name of the entity that was exported. (required).</param>
         /// <param name="filter">Map of keys and values that were used to filter the exported rows. (required).</param>
-        public Export(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), EntityEnum entity = default(EntityEnum), Object filter = default(Object))
+        public Export(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), long userId = default(long), EntityEnum entity = default(EntityEnum), Object filter = default(Object))
         {
             this.Id = id;
             this.Created = created;
@@ -118,7 +118,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -132,14 +132,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The ID of the user associated with this entity.
         /// </summary>
         /// <value>The ID of the user associated with this entity.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Map of keys and values that were used to filter the exported rows.

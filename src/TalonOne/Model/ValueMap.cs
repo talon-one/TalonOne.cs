@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="created">created.</param>
         /// <param name="createdBy">The ID of the user who created the value map..</param>
         /// <param name="campaignId">campaignId (required).</param>
-        public ValueMap(int id = default(int), DateTime created = default(DateTime), int createdBy = default(int), int campaignId = default(int))
+        public ValueMap(long id = default(long), DateTime created = default(DateTime), long createdBy = default(long), long campaignId = default(long))
         {
             this.Id = id;
             this.CampaignId = campaignId;
@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
@@ -69,13 +69,13 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the user who created the value map.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Gets or Sets CampaignId
         /// </summary>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

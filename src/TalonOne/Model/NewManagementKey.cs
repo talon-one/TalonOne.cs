@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// <param name="created">The date the management key was created. (required).</param>
         /// <param name="disabled">The management key is disabled (this property is set to &#x60;true&#x60;) when the user who created the key is disabled or deleted..</param>
         /// <param name="key">The management key. (required).</param>
-        public NewManagementKey(string name = default(string), DateTime expiryDate = default(DateTime), List<Endpoint> endpoints = default(List<Endpoint>), List<int> allowedApplicationIds = default(List<int>), int id = default(int), int createdBy = default(int), int accountID = default(int), DateTime created = default(DateTime), bool disabled = default(bool), string key = default(string))
+        public NewManagementKey(string name = default(string), DateTime expiryDate = default(DateTime), List<Endpoint> endpoints = default(List<Endpoint>), List<long> allowedApplicationIds = default(List<long>), long id = default(long), long createdBy = default(long), long accountID = default(long), DateTime created = default(DateTime), bool disabled = default(bool), string key = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewManagementKey and cannot be null");
@@ -92,28 +92,28 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of Application IDs that you can access with the management key. An empty or missing list means the management key can be used for all Applications in the account. </value>
         [DataMember(Name="allowedApplicationIds", EmitDefaultValue=false)]
-        public List<int> AllowedApplicationIds { get; set; }
+        public List<long> AllowedApplicationIds { get; set; }
 
         /// <summary>
         /// ID of the management key.
         /// </summary>
         /// <value>ID of the management key.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// ID of the user who created it.
         /// </summary>
         /// <value>ID of the user who created it.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// ID of account the key is used for.
         /// </summary>
         /// <value>ID of account the key is used for.</value>
         [DataMember(Name="accountID", EmitDefaultValue=false)]
-        public int AccountID { get; set; }
+        public long AccountID { get; set; }
 
         /// <summary>
         /// The date the management key was created.

@@ -55,7 +55,7 @@ namespace TalonOne.Model
         /// <param name="collections">The account-level collections that the application is subscribed to..</param>
         /// <param name="applicationCartItemFilters">The cart item filters belonging to the Application..</param>
         /// <param name="priceTypes">The price types that this Application can use..</param>
-        public Environment(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Achievement> achievements = default(List<Achievement>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), List<Collection> collections = default(List<Collection>), List<ApplicationCIF> applicationCartItemFilters = default(List<ApplicationCIF>), List<PriceType> priceTypes = default(List<PriceType>))
+        public Environment(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), List<SlotDef> slots = default(List<SlotDef>), List<FunctionDef> functions = default(List<FunctionDef>), List<TemplateDef> templates = default(List<TemplateDef>), string variables = default(string), List<GiveawaysPool> giveawaysPools = default(List<GiveawaysPool>), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>), List<Achievement> achievements = default(List<Achievement>), List<Attribute> attributes = default(List<Attribute>), List<AccountAdditionalCost> additionalCosts = default(List<AccountAdditionalCost>), List<Audience> audiences = default(List<Audience>), List<Collection> collections = default(List<Collection>), List<ApplicationCIF> applicationCartItemFilters = default(List<ApplicationCIF>), List<PriceType> priceTypes = default(List<PriceType>))
         {
             this.Id = id;
             this.Created = created;
@@ -84,7 +84,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -98,7 +98,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The slots defined for this application.

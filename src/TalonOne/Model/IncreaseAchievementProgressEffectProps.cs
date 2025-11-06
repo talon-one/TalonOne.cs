@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="value">The current progress of the customer in the achievement. (required).</param>
         /// <param name="target">The target value to complete the achievement. (required).</param>
         /// <param name="isJustCompleted">Indicates if the customer has completed the achievement in the current session. (required).</param>
-        public IncreaseAchievementProgressEffectProps(int achievementId = default(int), string achievementName = default(string), int progressTrackerId = default(int), decimal delta = default(decimal), decimal value = default(decimal), decimal target = default(decimal), bool isJustCompleted = default(bool))
+        public IncreaseAchievementProgressEffectProps(long achievementId = default(long), string achievementName = default(string), long progressTrackerId = default(long), decimal delta = default(decimal), decimal value = default(decimal), decimal target = default(decimal), bool isJustCompleted = default(bool))
         {
             this.AchievementId = achievementId;
             // to ensure "achievementName" is required (not null)
@@ -63,7 +63,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the achievement.</value>
         [DataMember(Name="achievementId", EmitDefaultValue=false)]
-        public int AchievementId { get; set; }
+        public long AchievementId { get; set; }
 
         /// <summary>
         /// The name of the achievement.
@@ -77,7 +77,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the achievement progress tracker.</value>
         [DataMember(Name="progressTrackerId", EmitDefaultValue=false)]
-        public int ProgressTrackerId { get; set; }
+        public long ProgressTrackerId { get; set; }
 
         /// <summary>
         /// The value by which the customer&#39;s current progress in the achievement is increased.

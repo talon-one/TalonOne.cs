@@ -105,6 +105,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'EffectiveUntil'
         }
+        /// <summary>
+        /// Test the property 'ContextId'
+        /// </summary>
+        [Fact]
+        public void ContextIdTest()
+        {
+            // TODO unit test for the property 'ContextId'
+        }
 
     }
 

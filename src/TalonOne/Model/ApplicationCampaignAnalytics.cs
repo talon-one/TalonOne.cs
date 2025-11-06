@@ -102,7 +102,7 @@ namespace TalonOne.Model
         /// <param name="avgSessionValue">avgSessionValue.</param>
         /// <param name="totalDiscounts">totalDiscounts.</param>
         /// <param name="couponsCount">couponsCount.</param>
-        public ApplicationCampaignAnalytics(DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), int campaignId = default(int), string campaignName = default(string), List<string> campaignTags = default(List<string>), CampaignStateEnum campaignState = default(CampaignStateEnum), AnalyticsDataPointWithTrendAndInfluencedRate totalRevenue = default(AnalyticsDataPointWithTrendAndInfluencedRate), AnalyticsDataPointWithTrendAndInfluencedRate sessionsCount = default(AnalyticsDataPointWithTrendAndInfluencedRate), AnalyticsDataPointWithTrendAndUplift avgItemsPerSession = default(AnalyticsDataPointWithTrendAndUplift), AnalyticsDataPointWithTrendAndUplift avgSessionValue = default(AnalyticsDataPointWithTrendAndUplift), AnalyticsDataPointWithTrend totalDiscounts = default(AnalyticsDataPointWithTrend), AnalyticsDataPointWithTrend couponsCount = default(AnalyticsDataPointWithTrend))
+        public ApplicationCampaignAnalytics(DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), long campaignId = default(long), string campaignName = default(string), List<string> campaignTags = default(List<string>), CampaignStateEnum campaignState = default(CampaignStateEnum), AnalyticsDataPointWithTrendAndInfluencedRate totalRevenue = default(AnalyticsDataPointWithTrendAndInfluencedRate), AnalyticsDataPointWithTrendAndInfluencedRate sessionsCount = default(AnalyticsDataPointWithTrendAndInfluencedRate), AnalyticsDataPointWithTrendAndUplift avgItemsPerSession = default(AnalyticsDataPointWithTrendAndUplift), AnalyticsDataPointWithTrendAndUplift avgSessionValue = default(AnalyticsDataPointWithTrendAndUplift), AnalyticsDataPointWithTrend totalDiscounts = default(AnalyticsDataPointWithTrend), AnalyticsDataPointWithTrend couponsCount = default(AnalyticsDataPointWithTrend))
         {
             this.StartTime = startTime;
             this.EndTime = endTime;
@@ -139,7 +139,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The name of the campaign.

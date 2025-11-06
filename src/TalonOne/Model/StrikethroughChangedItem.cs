@@ -44,9 +44,10 @@ namespace TalonOne.Model
         /// <param name="sku">The unique SKU of the changed item. (required).</param>
         /// <param name="version">The version of the changed item. (required).</param>
         /// <param name="price">The price of the changed item. (required).</param>
+        /// <param name="prices">A map of keys and values representing the price types and related price adjustment details for this cart item.       The keys correspond to the &#x60;priceType&#x60; names. .</param>
         /// <param name="evaluatedAt">The evaluation time of the changed item. (required).</param>
         /// <param name="effects">effects.</param>
-        public StrikethroughChangedItem(int id = default(int), int catalogId = default(int), string sku = default(string), int version = default(int), decimal price = default(decimal), DateTime evaluatedAt = default(DateTime), List<StrikethroughEffect> effects = default(List<StrikethroughEffect>))
+        public StrikethroughChangedItem(long id = default(long), long catalogId = default(long), string sku = default(string), long version = default(long), decimal price = default(decimal), Dictionary<string, PriceDetail> prices = default(Dictionary<string, PriceDetail>), DateTime evaluatedAt = default(DateTime), List<StrikethroughEffect> effects = default(List<StrikethroughEffect>))
         {
             this.Id = id;
             this.CatalogId = catalogId;
@@ -55,6 +56,7 @@ namespace TalonOne.Model
             this.Version = version;
             this.Price = price;
             this.EvaluatedAt = evaluatedAt;
+            this.Prices = prices;
             this.Effects = effects;
         }
         
@@ -63,14 +65,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the event that triggered the strikethrough labeling.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The ID of the catalog that the changed item belongs to.
         /// </summary>
         /// <value>The ID of the catalog that the changed item belongs to.</value>
         [DataMember(Name="catalogId", EmitDefaultValue=false)]
-        public int CatalogId { get; set; }
+        public long CatalogId { get; set; }
 
         /// <summary>
         /// The unique SKU of the changed item.
@@ -84,7 +86,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The version of the changed item.</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int Version { get; set; }
+        public long Version { get; set; }
 
         /// <summary>
         /// The price of the changed item.
@@ -92,6 +94,13 @@ namespace TalonOne.Model
         /// <value>The price of the changed item.</value>
         [DataMember(Name="price", EmitDefaultValue=true)]
         public decimal Price { get; set; }
+
+        /// <summary>
+        /// A map of keys and values representing the price types and related price adjustment details for this cart item.       The keys correspond to the &#x60;priceType&#x60; names. 
+        /// </summary>
+        /// <value>A map of keys and values representing the price types and related price adjustment details for this cart item.       The keys correspond to the &#x60;priceType&#x60; names. </value>
+        [DataMember(Name="prices", EmitDefaultValue=false)]
+        public Dictionary<string, PriceDetail> Prices { get; set; }
 
         /// <summary>
         /// The evaluation time of the changed item.
@@ -119,6 +128,7 @@ namespace TalonOne.Model
             sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  Prices: ").Append(Prices).Append("\n");
             sb.Append("  EvaluatedAt: ").Append(EvaluatedAt).Append("\n");
             sb.Append("  Effects: ").Append(Effects).Append("\n");
             sb.Append("}\n");
@@ -177,6 +187,12 @@ namespace TalonOne.Model
                     this.Price.Equals(input.Price)
                 ) && 
                 (
+                    this.Prices == input.Prices ||
+                    this.Prices != null &&
+                    input.Prices != null &&
+                    this.Prices.SequenceEqual(input.Prices)
+                ) && 
+                (
                     this.EvaluatedAt == input.EvaluatedAt ||
                     (this.EvaluatedAt != null &&
                     this.EvaluatedAt.Equals(input.EvaluatedAt))
@@ -204,6 +220,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Sku.GetHashCode();
                 hashCode = hashCode * 59 + this.Version.GetHashCode();
                 hashCode = hashCode * 59 + this.Price.GetHashCode();
+                if (this.Prices != null)
+                    hashCode = hashCode * 59 + this.Prices.GetHashCode();
                 if (this.EvaluatedAt != null)
                     hashCode = hashCode * 59 + this.EvaluatedAt.GetHashCode();
                 if (this.Effects != null)
@@ -219,8 +237,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Version (int) minimum
-            if(this.Version < (int)1)
+            // Version (long) minimum
+            if(this.Version < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 1.", new [] { "Version" });
             }

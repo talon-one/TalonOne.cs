@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="UserEntity" /> class.
         /// </summary>
         /// <param name="userId">The ID of the user associated with this entity. (required).</param>
-        public UserEntity(int userId = default(int))
+        public UserEntity(long userId = default(long))
         {
             this.UserId = userId;
         }
@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the user associated with this entity.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

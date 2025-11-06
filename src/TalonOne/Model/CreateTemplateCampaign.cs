@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// <param name="tags">A list of tags for the campaign. If the campaign template has tags, they will be overridden by this list..</param>
         /// <param name="evaluationGroupId">The ID of the campaign evaluation group the campaign belongs to..</param>
         /// <param name="linkedStoreIds">A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. .</param>
-        public CreateTemplateCampaign(string name = default(string), string description = default(string), int templateId = default(int), Object campaignAttributesOverrides = default(Object), List<Binding> templateParamValues = default(List<Binding>), List<LimitConfig> limitOverrides = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), List<string> tags = default(List<string>), int evaluationGroupId = default(int), List<int> linkedStoreIds = default(List<int>))
+        public CreateTemplateCampaign(string name = default(string), string description = default(string), long templateId = default(long), Object campaignAttributesOverrides = default(Object), List<Binding> templateParamValues = default(List<Binding>), List<LimitConfig> limitOverrides = default(List<LimitConfig>), List<long> campaignGroups = default(List<long>), List<string> tags = default(List<string>), long evaluationGroupId = default(long), List<long> linkedStoreIds = default(List<long>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CreateTemplateCampaign and cannot be null");
@@ -83,7 +83,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Campaign Template which will be used in order to create the Campaign.</value>
         [DataMember(Name="templateId", EmitDefaultValue=false)]
-        public int TemplateId { get; set; }
+        public long TemplateId { get; set; }
 
         /// <summary>
         /// Custom Campaign Attributes. If the Campaign Template defines the same values, they will be overridden.
@@ -111,7 +111,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. </value>
         [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
-        public List<int> CampaignGroups { get; set; }
+        public List<long> CampaignGroups { get; set; }
 
         /// <summary>
         /// A list of tags for the campaign. If the campaign template has tags, they will be overridden by this list.
@@ -125,14 +125,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign evaluation group the campaign belongs to.</value>
         [DataMember(Name="evaluationGroupId", EmitDefaultValue=false)]
-        public int EvaluationGroupId { get; set; }
+        public long EvaluationGroupId { get; set; }
 
         /// <summary>
         /// A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. 
         /// </summary>
         /// <value>A list of store IDs that are linked to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. </value>
         [DataMember(Name="linkedStoreIds", EmitDefaultValue=false)]
-        public List<int> LinkedStoreIds { get; set; }
+        public List<long> LinkedStoreIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

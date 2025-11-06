@@ -51,7 +51,9 @@ namespace TalonOne.Model
         /// <param name="users">Total number of allowed users in the account. (required).</param>
         /// <param name="apiVolume">Allowed volume of API requests to the account. (required).</param>
         /// <param name="promotionTypes">Array of promotion types that are employed in the account. (required).</param>
-        public AccountLimits(int liveApplications = default(int), int sandboxApplications = default(int), int activeCampaigns = default(int), int coupons = default(int), int referralCodes = default(int), int activeRules = default(int), int liveLoyaltyPrograms = default(int), int sandboxLoyaltyPrograms = default(int), int webhooks = default(int), int users = default(int), int apiVolume = default(int), List<string> promotionTypes = default(List<string>))
+        /// <param name="secondaryDeploymentPrice">The price for a secondary deployment according to contractual agreements. (required).</param>
+        /// <param name="currencyCode">The currency of the contract. (required).</param>
+        public AccountLimits(long liveApplications = default(long), long sandboxApplications = default(long), long activeCampaigns = default(long), long coupons = default(long), long referralCodes = default(long), long activeRules = default(long), long liveLoyaltyPrograms = default(long), long sandboxLoyaltyPrograms = default(long), long webhooks = default(long), long users = default(long), long apiVolume = default(long), List<string> promotionTypes = default(List<string>), long secondaryDeploymentPrice = default(long), string currencyCode = default(string))
         {
             this.LiveApplications = liveApplications;
             this.SandboxApplications = sandboxApplications;
@@ -66,6 +68,9 @@ namespace TalonOne.Model
             this.ApiVolume = apiVolume;
             // to ensure "promotionTypes" is required (not null)
             this.PromotionTypes = promotionTypes ?? throw new ArgumentNullException("promotionTypes is a required property for AccountLimits and cannot be null");
+            this.SecondaryDeploymentPrice = secondaryDeploymentPrice;
+            // to ensure "currencyCode" is required (not null)
+            this.CurrencyCode = currencyCode ?? throw new ArgumentNullException("currencyCode is a required property for AccountLimits and cannot be null");
         }
         
         /// <summary>
@@ -73,77 +78,77 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Total number of allowed live applications in the account.</value>
         [DataMember(Name="liveApplications", EmitDefaultValue=false)]
-        public int LiveApplications { get; set; }
+        public long LiveApplications { get; set; }
 
         /// <summary>
         /// Total number of allowed sandbox applications in the account.
         /// </summary>
         /// <value>Total number of allowed sandbox applications in the account.</value>
         [DataMember(Name="sandboxApplications", EmitDefaultValue=false)]
-        public int SandboxApplications { get; set; }
+        public long SandboxApplications { get; set; }
 
         /// <summary>
         /// Total number of allowed active campaigns in live applications in the account.
         /// </summary>
         /// <value>Total number of allowed active campaigns in live applications in the account.</value>
         [DataMember(Name="activeCampaigns", EmitDefaultValue=false)]
-        public int ActiveCampaigns { get; set; }
+        public long ActiveCampaigns { get; set; }
 
         /// <summary>
         /// Total number of allowed coupons in the account.
         /// </summary>
         /// <value>Total number of allowed coupons in the account.</value>
         [DataMember(Name="coupons", EmitDefaultValue=false)]
-        public int Coupons { get; set; }
+        public long Coupons { get; set; }
 
         /// <summary>
         /// Total number of allowed referral codes in the account.
         /// </summary>
         /// <value>Total number of allowed referral codes in the account.</value>
         [DataMember(Name="referralCodes", EmitDefaultValue=false)]
-        public int ReferralCodes { get; set; }
+        public long ReferralCodes { get; set; }
 
         /// <summary>
         /// Total number of allowed active rulesets in the account.
         /// </summary>
         /// <value>Total number of allowed active rulesets in the account.</value>
         [DataMember(Name="activeRules", EmitDefaultValue=false)]
-        public int ActiveRules { get; set; }
+        public long ActiveRules { get; set; }
 
         /// <summary>
         /// Total number of allowed live loyalty programs in the account.
         /// </summary>
         /// <value>Total number of allowed live loyalty programs in the account.</value>
         [DataMember(Name="liveLoyaltyPrograms", EmitDefaultValue=false)]
-        public int LiveLoyaltyPrograms { get; set; }
+        public long LiveLoyaltyPrograms { get; set; }
 
         /// <summary>
         /// Total number of allowed sandbox loyalty programs in the account.
         /// </summary>
         /// <value>Total number of allowed sandbox loyalty programs in the account.</value>
         [DataMember(Name="sandboxLoyaltyPrograms", EmitDefaultValue=false)]
-        public int SandboxLoyaltyPrograms { get; set; }
+        public long SandboxLoyaltyPrograms { get; set; }
 
         /// <summary>
         /// Total number of allowed webhooks in the account.
         /// </summary>
         /// <value>Total number of allowed webhooks in the account.</value>
         [DataMember(Name="webhooks", EmitDefaultValue=false)]
-        public int Webhooks { get; set; }
+        public long Webhooks { get; set; }
 
         /// <summary>
         /// Total number of allowed users in the account.
         /// </summary>
         /// <value>Total number of allowed users in the account.</value>
         [DataMember(Name="users", EmitDefaultValue=false)]
-        public int Users { get; set; }
+        public long Users { get; set; }
 
         /// <summary>
         /// Allowed volume of API requests to the account.
         /// </summary>
         /// <value>Allowed volume of API requests to the account.</value>
         [DataMember(Name="apiVolume", EmitDefaultValue=false)]
-        public int ApiVolume { get; set; }
+        public long ApiVolume { get; set; }
 
         /// <summary>
         /// Array of promotion types that are employed in the account.
@@ -151,6 +156,20 @@ namespace TalonOne.Model
         /// <value>Array of promotion types that are employed in the account.</value>
         [DataMember(Name="promotionTypes", EmitDefaultValue=false)]
         public List<string> PromotionTypes { get; set; }
+
+        /// <summary>
+        /// The price for a secondary deployment according to contractual agreements.
+        /// </summary>
+        /// <value>The price for a secondary deployment according to contractual agreements.</value>
+        [DataMember(Name="SecondaryDeploymentPrice", EmitDefaultValue=false)]
+        public long SecondaryDeploymentPrice { get; set; }
+
+        /// <summary>
+        /// The currency of the contract.
+        /// </summary>
+        /// <value>The currency of the contract.</value>
+        [DataMember(Name="currencyCode", EmitDefaultValue=false)]
+        public string CurrencyCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -172,6 +191,8 @@ namespace TalonOne.Model
             sb.Append("  Users: ").Append(Users).Append("\n");
             sb.Append("  ApiVolume: ").Append(ApiVolume).Append("\n");
             sb.Append("  PromotionTypes: ").Append(PromotionTypes).Append("\n");
+            sb.Append("  SecondaryDeploymentPrice: ").Append(SecondaryDeploymentPrice).Append("\n");
+            sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -255,6 +276,15 @@ namespace TalonOne.Model
                     this.PromotionTypes != null &&
                     input.PromotionTypes != null &&
                     this.PromotionTypes.SequenceEqual(input.PromotionTypes)
+                ) && 
+                (
+                    this.SecondaryDeploymentPrice == input.SecondaryDeploymentPrice ||
+                    this.SecondaryDeploymentPrice.Equals(input.SecondaryDeploymentPrice)
+                ) && 
+                (
+                    this.CurrencyCode == input.CurrencyCode ||
+                    (this.CurrencyCode != null &&
+                    this.CurrencyCode.Equals(input.CurrencyCode))
                 );
         }
 
@@ -280,6 +310,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ApiVolume.GetHashCode();
                 if (this.PromotionTypes != null)
                     hashCode = hashCode * 59 + this.PromotionTypes.GetHashCode();
+                hashCode = hashCode * 59 + this.SecondaryDeploymentPrice.GetHashCode();
+                if (this.CurrencyCode != null)
+                    hashCode = hashCode * 59 + this.CurrencyCode.GetHashCode();
                 return hashCode;
             }
         }

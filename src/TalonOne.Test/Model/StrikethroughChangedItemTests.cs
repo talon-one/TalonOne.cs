@@ -98,6 +98,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Price'
         }
         /// <summary>
+        /// Test the property 'Prices'
+        /// </summary>
+        [Fact]
+        public void PricesTest()
+        {
+            // TODO unit test for the property 'Prices'
+        }
+        /// <summary>
         /// Test the property 'EvaluatedAt'
         /// </summary>
         [Fact]

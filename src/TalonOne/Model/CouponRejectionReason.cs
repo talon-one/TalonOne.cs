@@ -127,7 +127,7 @@ namespace TalonOne.Model
         /// <param name="campaignId">campaignId (required).</param>
         /// <param name="couponId">couponId (required).</param>
         /// <param name="reason">reason (required).</param>
-        public CouponRejectionReason(int campaignId = default(int), int couponId = default(int), ReasonEnum reason = default(ReasonEnum))
+        public CouponRejectionReason(long campaignId = default(long), long couponId = default(long), ReasonEnum reason = default(ReasonEnum))
         {
             this.CampaignId = campaignId;
             this.CouponId = couponId;
@@ -138,13 +138,13 @@ namespace TalonOne.Model
         /// Gets or Sets CampaignId
         /// </summary>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// Gets or Sets CouponId
         /// </summary>
         [DataMember(Name="couponId", EmitDefaultValue=false)]
-        public int CouponId { get; set; }
+        public long CouponId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

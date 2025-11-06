@@ -83,7 +83,7 @@ namespace TalonOne.Model
         /// <param name="createdBy">Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted. .</param>
         /// <param name="hasProgress">Indicates if a customer has made progress in the achievement..</param>
         /// <param name="status">The status of the achievement..</param>
-        public AchievementAdditionalProperties(int campaignId = default(int), int userId = default(int), string createdBy = default(string), bool hasProgress = default(bool), StatusEnum? status = default(StatusEnum?))
+        public AchievementAdditionalProperties(long campaignId = default(long), long userId = default(long), string createdBy = default(string), bool hasProgress = default(bool), StatusEnum? status = default(StatusEnum?))
         {
             this.CampaignId = campaignId;
             this.UserId = userId;
@@ -97,14 +97,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign the achievement belongs to.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// ID of the user that created this achievement.
         /// </summary>
         /// <value>ID of the user that created this achievement.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted. 

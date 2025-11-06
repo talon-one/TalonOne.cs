@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="limit">limit (required).</param>
         /// <param name="action">action (required).</param>
         /// <param name="period">period.</param>
-        public ListCampaignStoreBudgets(ListCampaignStoreBudgetsStore store = default(ListCampaignStoreBudgetsStore), int limit = default(int), string action = default(string), string period = default(string))
+        public ListCampaignStoreBudgets(ListCampaignStoreBudgetsStore store = default(ListCampaignStoreBudgetsStore), long limit = default(long), string action = default(string), string period = default(string))
         {
             // to ensure "store" is required (not null)
             this.Store = store ?? throw new ArgumentNullException("store is a required property for ListCampaignStoreBudgets and cannot be null");
@@ -63,7 +63,7 @@ namespace TalonOne.Model
         /// Gets or Sets Limit
         /// </summary>
         [DataMember(Name="limit", EmitDefaultValue=false)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
         /// Gets or Sets Action

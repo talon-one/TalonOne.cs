@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="groupId">The ID of the campaign evaluation group the campaign belongs to. (required).</param>
         /// <param name="groupName">The name of the campaign evaluation group the campaign belongs to. (required).</param>
         /// <param name="position">The position of the campaign node in its parent group. (required).</param>
-        public CampaignEvaluationPosition(int groupId = default(int), string groupName = default(string), int position = default(int))
+        public CampaignEvaluationPosition(long groupId = default(long), string groupName = default(string), long position = default(long))
         {
             this.GroupId = groupId;
             // to ensure "groupName" is required (not null)
@@ -55,7 +55,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign evaluation group the campaign belongs to.</value>
         [DataMember(Name="groupId", EmitDefaultValue=false)]
-        public int GroupId { get; set; }
+        public long GroupId { get; set; }
 
         /// <summary>
         /// The name of the campaign evaluation group the campaign belongs to.
@@ -69,7 +69,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The position of the campaign node in its parent group.</value>
         [DataMember(Name="position", EmitDefaultValue=false)]
-        public int Position { get; set; }
+        public long Position { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

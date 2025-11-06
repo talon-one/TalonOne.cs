@@ -97,7 +97,7 @@ namespace TalonOne.Model
         /// <param name="attributes">Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute)..</param>
         /// <param name="loyaltyCards">Identifier of the loyalty card used during this event..</param>
         /// <param name="responseContent">Optional list of requested information to be present on the response related to the tracking custom event. .</param>
-        public IntegrationEventV2Request(string profileId = default(string), string storeIntegrationId = default(string), List<int> evaluableCampaignIds = default(List<int>), string type = default(string), Object attributes = default(Object), List<string> loyaltyCards = default(List<string>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
+        public IntegrationEventV2Request(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), string type = default(string), Object attributes = default(Object), List<string> loyaltyCards = default(List<string>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IntegrationEventV2Request and cannot be null");
@@ -128,7 +128,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. </value>
         [DataMember(Name="evaluableCampaignIds", EmitDefaultValue=false)]
-        public List<int> EvaluableCampaignIds { get; set; }
+        public List<long> EvaluableCampaignIds { get; set; }
 
         /// <summary>
         /// A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. 

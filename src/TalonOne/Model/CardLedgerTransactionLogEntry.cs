@@ -66,6 +66,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CardLedgerTransactionLogEntry" /> class.
         /// </summary>
+        /// <param name="transactionUUID">Unique identifier of the transaction in the UUID format. (required).</param>
         /// <param name="created">Date and time the loyalty card transaction occurred. (required).</param>
         /// <param name="programId">ID of the loyalty program. (required).</param>
         /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card.  (required).</param>
@@ -79,8 +80,10 @@ namespace TalonOne.Model
         /// <param name="subledgerId">ID of the subledger. (required).</param>
         /// <param name="amount">Amount of loyalty points added or deducted in the transaction. (required).</param>
         /// <param name="id">ID of the loyalty ledger entry. (required).</param>
-        public CardLedgerTransactionLogEntry(DateTime created = default(DateTime), int programId = default(int), string cardIdentifier = default(string), int applicationId = default(int), int sessionId = default(int), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), int id = default(int))
+        public CardLedgerTransactionLogEntry(string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string cardIdentifier = default(string), long applicationId = default(long), long sessionId = default(long), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), long id = default(long))
         {
+            // to ensure "transactionUUID" is required (not null)
+            this.TransactionUUID = transactionUUID ?? throw new ArgumentNullException("transactionUUID is a required property for CardLedgerTransactionLogEntry and cannot be null");
             this.Created = created;
             this.ProgramId = programId;
             // to ensure "cardIdentifier" is required (not null)
@@ -102,6 +105,13 @@ namespace TalonOne.Model
         }
         
         /// <summary>
+        /// Unique identifier of the transaction in the UUID format.
+        /// </summary>
+        /// <value>Unique identifier of the transaction in the UUID format.</value>
+        [DataMember(Name="transactionUUID", EmitDefaultValue=false)]
+        public string TransactionUUID { get; set; }
+
+        /// <summary>
         /// Date and time the loyalty card transaction occurred.
         /// </summary>
         /// <value>Date and time the loyalty card transaction occurred.</value>
@@ -113,7 +123,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the loyalty program.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
-        public int ProgramId { get; set; }
+        public long ProgramId { get; set; }
 
         /// <summary>
         /// The alphanumeric identifier of the loyalty card. 
@@ -127,14 +137,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The **internal** ID of the session. 
         /// </summary>
         /// <value>The **internal** ID of the session. </value>
         [DataMember(Name="sessionId", EmitDefaultValue=false)]
-        public int SessionId { get; set; }
+        public long SessionId { get; set; }
 
         /// <summary>
         /// ID of the customer session where the transaction occurred.
@@ -183,7 +193,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the loyalty ledger entry.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -193,6 +203,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardLedgerTransactionLogEntry {\n");
+            sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ProgramId: ").Append(ProgramId).Append("\n");
             sb.Append("  CardIdentifier: ").Append(CardIdentifier).Append("\n");
@@ -240,6 +251,11 @@ namespace TalonOne.Model
                 return false;
 
             return 
+                (
+                    this.TransactionUUID == input.TransactionUUID ||
+                    (this.TransactionUUID != null &&
+                    this.TransactionUUID.Equals(input.TransactionUUID))
+                ) && 
                 (
                     this.Created == input.Created ||
                     (this.Created != null &&
@@ -310,6 +326,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.TransactionUUID != null)
+                    hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.ProgramId.GetHashCode();

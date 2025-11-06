@@ -52,7 +52,7 @@ namespace TalonOne.Model
         /// <param name="totalOrders">Number of orders in all customer campaigns. (required).</param>
         /// <param name="totalOrdersNoCoupon">Number of orders without coupon used in all customer campaigns. (required).</param>
         /// <param name="campaignName">The name of the campaign this customer belongs to. (required).</param>
-        public CustomerActivityReport(string integrationId = default(string), DateTime created = default(DateTime), string name = default(string), int customerId = default(int), DateTime lastActivity = default(DateTime), int couponRedemptions = default(int), int couponUseAttempts = default(int), int couponFailedAttempts = default(int), decimal accruedDiscounts = default(decimal), decimal accruedRevenue = default(decimal), int totalOrders = default(int), int totalOrdersNoCoupon = default(int), string campaignName = default(string))
+        public CustomerActivityReport(string integrationId = default(string), DateTime created = default(DateTime), string name = default(string), long customerId = default(long), DateTime lastActivity = default(DateTime), long couponRedemptions = default(long), long couponUseAttempts = default(long), long couponFailedAttempts = default(long), decimal accruedDiscounts = default(decimal), decimal accruedRevenue = default(decimal), long totalOrders = default(long), long totalOrdersNoCoupon = default(long), string campaignName = default(string))
         {
             // to ensure "integrationId" is required (not null)
             this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for CustomerActivityReport and cannot be null");
@@ -98,7 +98,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal Talon.One ID of the customer.</value>
         [DataMember(Name="customerId", EmitDefaultValue=false)]
-        public int CustomerId { get; set; }
+        public long CustomerId { get; set; }
 
         /// <summary>
         /// The last activity of the customer.
@@ -112,21 +112,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Number of coupon redemptions in all customer campaigns.</value>
         [DataMember(Name="couponRedemptions", EmitDefaultValue=false)]
-        public int CouponRedemptions { get; set; }
+        public long CouponRedemptions { get; set; }
 
         /// <summary>
         /// Number of coupon use attempts in all customer campaigns.
         /// </summary>
         /// <value>Number of coupon use attempts in all customer campaigns.</value>
         [DataMember(Name="couponUseAttempts", EmitDefaultValue=false)]
-        public int CouponUseAttempts { get; set; }
+        public long CouponUseAttempts { get; set; }
 
         /// <summary>
         /// Number of failed coupon use attempts in all customer campaigns.
         /// </summary>
         /// <value>Number of failed coupon use attempts in all customer campaigns.</value>
         [DataMember(Name="couponFailedAttempts", EmitDefaultValue=false)]
-        public int CouponFailedAttempts { get; set; }
+        public long CouponFailedAttempts { get; set; }
 
         /// <summary>
         /// Number of accrued discounts in all customer campaigns.
@@ -147,14 +147,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Number of orders in all customer campaigns.</value>
         [DataMember(Name="totalOrders", EmitDefaultValue=false)]
-        public int TotalOrders { get; set; }
+        public long TotalOrders { get; set; }
 
         /// <summary>
         /// Number of orders without coupon used in all customer campaigns.
         /// </summary>
         /// <value>Number of orders without coupon used in all customer campaigns.</value>
         [DataMember(Name="totalOrdersNoCoupon", EmitDefaultValue=false)]
-        public int TotalOrdersNoCoupon { get; set; }
+        public long TotalOrdersNoCoupon { get; set; }
 
         /// <summary>
         /// The name of the campaign this customer belongs to.

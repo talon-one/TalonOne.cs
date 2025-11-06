@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="IdentifiableEntity" /> class.
         /// </summary>
         /// <param name="id">Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. (required).</param>
-        public IdentifiableEntity(int id = default(int))
+        public IdentifiableEntity(long id = default(long))
         {
             this.Id = id;
         }
@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

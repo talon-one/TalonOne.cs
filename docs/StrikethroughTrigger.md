@@ -4,7 +4,7 @@ Information about the event that triggered the strikethrough labeling.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The ID of the event that triggered the strikethrough labeling. | 
+**Id** | **long** | The ID of the event that triggered the strikethrough labeling. | 
 **Type** | **string** | The type of event that triggered the strikethrough labeling. | 
 **TriggeredAt** | **DateTime** | The creation time of the event that triggered the strikethrough labeling. | 
 **TotalAffectedItems** | **int** | The total number of items affected by the event that triggered the strikethrough labeling. | 

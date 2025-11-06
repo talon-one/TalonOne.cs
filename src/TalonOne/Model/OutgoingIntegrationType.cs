@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="description">Description of the outgoing integration..</param>
         /// <param name="category">Category of the outgoing integration..</param>
         /// <param name="documentationLink">Http link to the outgoing integration&#39;s documentation..</param>
-        public OutgoingIntegrationType(int id = default(int), string name = default(string), string description = default(string), string category = default(string), string documentationLink = default(string))
+        public OutgoingIntegrationType(long id = default(long), string name = default(string), string description = default(string), string category = default(string), string documentationLink = default(string))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -59,7 +59,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Unique ID for this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Name of the outgoing integration.

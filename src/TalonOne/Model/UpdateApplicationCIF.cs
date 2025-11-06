@@ -38,7 +38,7 @@ namespace TalonOne.Model
         /// <param name="activeExpressionId">The ID of the expression that the Application cart item filter uses..</param>
         /// <param name="modifiedBy">The ID of the user who last updated the Application cart item filter..</param>
         /// <param name="modified">Timestamp of the most recent update to the Application cart item filter..</param>
-        public UpdateApplicationCIF(string description = default(string), int activeExpressionId = default(int), int modifiedBy = default(int), DateTime modified = default(DateTime))
+        public UpdateApplicationCIF(string description = default(string), long activeExpressionId = default(long), long modifiedBy = default(long), DateTime modified = default(DateTime))
         {
             this.Description = description;
             this.ActiveExpressionId = activeExpressionId;
@@ -58,14 +58,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the expression that the Application cart item filter uses.</value>
         [DataMember(Name="activeExpressionId", EmitDefaultValue=false)]
-        public int ActiveExpressionId { get; set; }
+        public long ActiveExpressionId { get; set; }
 
         /// <summary>
         /// The ID of the user who last updated the Application cart item filter.
         /// </summary>
         /// <value>The ID of the user who last updated the Application cart item filter.</value>
         [DataMember(Name="modifiedBy", EmitDefaultValue=false)]
-        public int ModifiedBy { get; set; }
+        public long ModifiedBy { get; set; }
 
         /// <summary>
         /// Timestamp of the most recent update to the Application cart item filter.

@@ -6,8 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Value** | **string** | The referral code that was rejected. | 
 **RejectionReason** | **string** | The reason why this referral code was rejected. | 
-**ConditionIndex** | **int** | The index of the condition that caused the rejection of the referral. | [optional] 
-**EffectIndex** | **int** | The index of the effect that caused the rejection of the referral. | [optional] 
+**ConditionIndex** | **long** | The index of the condition that caused the rejection of the referral. | [optional] 
+**EffectIndex** | **long** | The index of the effect that caused the rejection of the referral. | [optional] 
 **Details** | **string** | More details about the failure. | [optional] 
 **CampaignExclusionReason** | **string** | The reason why the campaign was not applied. | [optional] 
 

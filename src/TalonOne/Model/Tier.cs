@@ -71,7 +71,7 @@ namespace TalonOne.Model
         /// <param name="startDate">Date and time when the customer moved to this tier. This value uses the loyalty program&#39;s time zone setting..</param>
         /// <param name="expiryDate">Date when tier level expires in the RFC3339 format (in the Loyalty Program&#39;s timezone)..</param>
         /// <param name="downgradePolicy">The policy that defines how customer tiers are downgraded in the loyalty program after tier reevaluation.  - &#x60;one_down&#x60;: If the customer doesn&#39;t have enough points to stay in the current tier, they are downgraded by one tier.  - &#x60;balance_based&#x60;: The customer&#39;s tier is reevaluated based on the amount of active points they have at the moment. .</param>
-        public Tier(int id = default(int), string name = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), DowngradePolicyEnum? downgradePolicy = default(DowngradePolicyEnum?))
+        public Tier(long id = default(long), string name = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), DowngradePolicyEnum? downgradePolicy = default(DowngradePolicyEnum?))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -86,7 +86,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the tier.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The name of the tier.

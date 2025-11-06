@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Description** | **string** | A description of the attribute. | [optional] 
 **Visible** | **bool** | Indicates whether the attribute is visible in the UI or not. | [default to true]
 **Kind** | **string** | Indicate the kind of the attribute. | 
-**CampaignsCount** | **int** | The number of campaigns that refer to the attribute. | 
+**CampaignsCount** | **long** | The number of campaigns that refer to the attribute. | 
 **ExampleValue** | **List&lt;string&gt;** | Examples of values that can be assigned to the attribute. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

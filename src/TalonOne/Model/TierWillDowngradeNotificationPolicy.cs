@@ -41,9 +41,9 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">The name of the notification. (required).</param>
         /// <param name="batchingEnabled">Indicates whether batching is activated. (default to true).</param>
-        /// <param name="batchSize">The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;..</param>
+        /// <param name="batchSize">The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;. (default to 1000).</param>
         /// <param name="triggers">triggers (required).</param>
-        public TierWillDowngradeNotificationPolicy(string name = default(string), bool batchingEnabled = true, int batchSize = default(int), List<TierWillDowngradeNotificationTrigger> triggers = default(List<TierWillDowngradeNotificationTrigger>))
+        public TierWillDowngradeNotificationPolicy(string name = default(string), bool batchingEnabled = true, long batchSize = 1000, List<TierWillDowngradeNotificationTrigger> triggers = default(List<TierWillDowngradeNotificationTrigger>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for TierWillDowngradeNotificationPolicy and cannot be null");
@@ -72,7 +72,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;.</value>
         [DataMember(Name="batchSize", EmitDefaultValue=false)]
-        public int BatchSize { get; set; }
+        public long BatchSize { get; set; }
 
         /// <summary>
         /// Gets or Sets Triggers

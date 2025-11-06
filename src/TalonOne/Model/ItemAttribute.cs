@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="attributeid">The ID of the attribute of the item. (required).</param>
         /// <param name="name">The name of the attribute. (required).</param>
         /// <param name="value">The value of the attribute. (required).</param>
-        public ItemAttribute(int attributeid = default(int), string name = default(string), Object value = default(Object))
+        public ItemAttribute(long attributeid = default(long), string name = default(string), Object value = default(Object))
         {
             this.Attributeid = attributeid;
             // to ensure "name" is required (not null)
@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the attribute of the item.</value>
         [DataMember(Name="attributeid", EmitDefaultValue=false)]
-        public int Attributeid { get; set; }
+        public long Attributeid { get; set; }
 
         /// <summary>
         /// The name of the attribute.

@@ -40,10 +40,10 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="NewPriceType" /> class.
         /// </summary>
         /// <param name="name">The API name of the price type. This is an immutable value. (required).</param>
-        /// <param name="title">The title of the price type. (required).</param>
-        /// <param name="description">The description of the price type..</param>
-        /// <param name="targetedAudiencesIds">A list of the IDs of the audiences that are targeted by this price type..</param>
-        public NewPriceType(string name = default(string), string title = default(string), string description = default(string), List<int> targetedAudiencesIds = default(List<int>))
+        /// <param name="title">The name displayed in the Campaign Manager for the price type. (required).</param>
+        /// <param name="description">A description of the price type..</param>
+        /// <param name="targetedAudiencesIds">A list of the IDs of the audiences targeted by this price type..</param>
+        public NewPriceType(string name = default(string), string title = default(string), string description = default(string), List<long> targetedAudiencesIds = default(List<long>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewPriceType and cannot be null");
@@ -61,25 +61,25 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The title of the price type.
+        /// The name displayed in the Campaign Manager for the price type.
         /// </summary>
-        /// <value>The title of the price type.</value>
+        /// <value>The name displayed in the Campaign Manager for the price type.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The description of the price type.
+        /// A description of the price type.
         /// </summary>
-        /// <value>The description of the price type.</value>
+        /// <value>A description of the price type.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// A list of the IDs of the audiences that are targeted by this price type.
+        /// A list of the IDs of the audiences targeted by this price type.
         /// </summary>
-        /// <value>A list of the IDs of the audiences that are targeted by this price type.</value>
+        /// <value>A list of the IDs of the audiences targeted by this price type.</value>
         [DataMember(Name="targetedAudiencesIds", EmitDefaultValue=false)]
-        public List<int> TargetedAudiencesIds { get; set; }
+        public List<long> TargetedAudiencesIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

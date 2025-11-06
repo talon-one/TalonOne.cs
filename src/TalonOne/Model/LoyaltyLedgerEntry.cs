@@ -54,7 +54,7 @@ namespace TalonOne.Model
         /// <param name="userID">This is the ID of the user who created this entry, if the addition or subtraction was done manually..</param>
         /// <param name="archived">Indicates if the entry belongs to the archived session..</param>
         /// <param name="flags">flags.</param>
-        public LoyaltyLedgerEntry(DateTime created = default(DateTime), int programID = default(int), string customerProfileID = default(string), int cardID = default(int), string customerSessionID = default(string), int eventID = default(int), string type = default(string), decimal amount = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), int userID = default(int), bool archived = default(bool), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags))
+        public LoyaltyLedgerEntry(DateTime created = default(DateTime), long programID = default(long), string customerProfileID = default(string), long cardID = default(long), string customerSessionID = default(string), long eventID = default(long), string type = default(string), decimal amount = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), long userID = default(long), bool archived = default(bool), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags))
         {
             this.Created = created;
             this.ProgramID = programID;
@@ -86,7 +86,7 @@ namespace TalonOne.Model
         /// Gets or Sets ProgramID
         /// </summary>
         [DataMember(Name="programID", EmitDefaultValue=false)]
-        public int ProgramID { get; set; }
+        public long ProgramID { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerProfileID
@@ -98,7 +98,7 @@ namespace TalonOne.Model
         /// Gets or Sets CardID
         /// </summary>
         [DataMember(Name="cardID", EmitDefaultValue=false)]
-        public int CardID { get; set; }
+        public long CardID { get; set; }
 
         /// <summary>
         /// Gets or Sets CustomerSessionID
@@ -110,7 +110,7 @@ namespace TalonOne.Model
         /// Gets or Sets EventID
         /// </summary>
         [DataMember(Name="eventID", EmitDefaultValue=false)]
-        public int EventID { get; set; }
+        public long EventID { get; set; }
 
         /// <summary>
         /// The type of the ledger transaction. Possible values are: - &#x60;addition&#x60; - &#x60;subtraction&#x60; - &#x60;expire&#x60; - &#x60;expiring&#x60; (for expiring points ledgers) 
@@ -156,7 +156,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>This is the ID of the user who created this entry, if the addition or subtraction was done manually.</value>
         [DataMember(Name="userID", EmitDefaultValue=false)]
-        public int UserID { get; set; }
+        public long UserID { get; set; }
 
         /// <summary>
         /// Indicates if the entry belongs to the archived session.

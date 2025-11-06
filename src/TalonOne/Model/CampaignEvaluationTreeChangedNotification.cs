@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="applicationId">The ID of the Application whose campaign evaluation tree changed. (required).</param>
         /// <param name="oldEvaluationTree">oldEvaluationTree.</param>
         /// <param name="evaluationTree">evaluationTree (required).</param>
-        public CampaignEvaluationTreeChangedNotification(int applicationId = default(int), CampaignSet oldEvaluationTree = default(CampaignSet), CampaignSet evaluationTree = default(CampaignSet))
+        public CampaignEvaluationTreeChangedNotification(long applicationId = default(long), CampaignSet oldEvaluationTree = default(CampaignSet), CampaignSet evaluationTree = default(CampaignSet))
         {
             this.ApplicationId = applicationId;
             // to ensure "evaluationTree" is required (not null)
@@ -55,7 +55,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application whose campaign evaluation tree changed.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Gets or Sets OldEvaluationTree

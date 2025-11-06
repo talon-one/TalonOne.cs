@@ -48,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="signOutURL">Single Sign-Out URL..</param>
         /// <param name="metadataURL">Metadata URL..</param>
         /// <param name="audienceURI">The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. .</param>
-        public NewSamlConnection(string x509certificate = default(string), int accountId = default(int), string name = default(string), bool enabled = default(bool), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string))
+        public NewSamlConnection(string x509certificate = default(string), long accountId = default(long), string name = default(string), bool enabled = default(bool), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string))
         {
             // to ensure "x509certificate" is required (not null)
             this.X509certificate = x509certificate ?? throw new ArgumentNullException("x509certificate is a required property for NewSamlConnection and cannot be null");
@@ -77,7 +77,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// ID of the SAML service.

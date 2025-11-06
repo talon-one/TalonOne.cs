@@ -45,7 +45,8 @@ namespace TalonOne.Model
         /// <param name="calculatedAt">The time at which this price was calculated. If provided, this is used to determine the most recent price adjustment to choose if price adjustments overlap. Defaults to internal creation time if not provided..</param>
         /// <param name="effectiveFrom">The date and time from which the price adjustment is effective..</param>
         /// <param name="effectiveUntil">The date and time until which the price adjustment is effective..</param>
-        public NewPriceAdjustment(string priceType = default(string), decimal? price = default(decimal?), string referenceId = default(string), DateTime calculatedAt = default(DateTime), DateTime effectiveFrom = default(DateTime), DateTime effectiveUntil = default(DateTime))
+        /// <param name="contextId">Identifier of the context of this price adjustment (e.g. summer sale)..</param>
+        public NewPriceAdjustment(string priceType = default(string), decimal? price = default(decimal?), string referenceId = default(string), DateTime calculatedAt = default(DateTime), DateTime effectiveFrom = default(DateTime), DateTime effectiveUntil = default(DateTime), string contextId = default(string))
         {
             // to ensure "priceType" is required (not null)
             this.PriceType = priceType ?? throw new ArgumentNullException("priceType is a required property for NewPriceAdjustment and cannot be null");
@@ -55,6 +56,7 @@ namespace TalonOne.Model
             this.CalculatedAt = calculatedAt;
             this.EffectiveFrom = effectiveFrom;
             this.EffectiveUntil = effectiveUntil;
+            this.ContextId = contextId;
         }
         
         /// <summary>
@@ -100,6 +102,13 @@ namespace TalonOne.Model
         public DateTime EffectiveUntil { get; set; }
 
         /// <summary>
+        /// Identifier of the context of this price adjustment (e.g. summer sale).
+        /// </summary>
+        /// <value>Identifier of the context of this price adjustment (e.g. summer sale).</value>
+        [DataMember(Name="contextId", EmitDefaultValue=false)]
+        public string ContextId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +122,7 @@ namespace TalonOne.Model
             sb.Append("  CalculatedAt: ").Append(CalculatedAt).Append("\n");
             sb.Append("  EffectiveFrom: ").Append(EffectiveFrom).Append("\n");
             sb.Append("  EffectiveUntil: ").Append(EffectiveUntil).Append("\n");
+            sb.Append("  ContextId: ").Append(ContextId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -176,6 +186,11 @@ namespace TalonOne.Model
                     this.EffectiveUntil == input.EffectiveUntil ||
                     (this.EffectiveUntil != null &&
                     this.EffectiveUntil.Equals(input.EffectiveUntil))
+                ) && 
+                (
+                    this.ContextId == input.ContextId ||
+                    (this.ContextId != null &&
+                    this.ContextId.Equals(input.ContextId))
                 );
         }
 
@@ -200,6 +215,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.EffectiveFrom.GetHashCode();
                 if (this.EffectiveUntil != null)
                     hashCode = hashCode * 59 + this.EffectiveUntil.GetHashCode();
+                if (this.ContextId != null)
+                    hashCode = hashCode * 59 + this.ContextId.GetHashCode();
                 return hashCode;
             }
         }
@@ -211,6 +228,12 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // ReferenceId (string) minLength
+            if(this.ReferenceId != null && this.ReferenceId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferenceId, length must be greater than 1.", new [] { "ReferenceId" });
+            }
+
             yield break;
         }
     }

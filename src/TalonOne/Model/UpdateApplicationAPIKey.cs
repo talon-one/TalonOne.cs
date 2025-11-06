@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="UpdateApplicationAPIKey" /> class.
         /// </summary>
         /// <param name="timeOffset">A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date.  (required).</param>
-        public UpdateApplicationAPIKey(int timeOffset = default(int))
+        public UpdateApplicationAPIKey(long timeOffset = default(long))
         {
             this.TimeOffset = timeOffset;
         }
@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date. </value>
         [DataMember(Name="timeOffset", EmitDefaultValue=false)]
-        public int TimeOffset { get; set; }
+        public long TimeOffset { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

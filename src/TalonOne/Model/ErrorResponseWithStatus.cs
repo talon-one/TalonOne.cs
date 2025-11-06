@@ -37,7 +37,7 @@ namespace TalonOne.Model
         /// <param name="message">message.</param>
         /// <param name="errors">An array of individual problems encountered during the request..</param>
         /// <param name="statusCode">The error code.</param>
-        public ErrorResponseWithStatus(string message = default(string), List<APIError> errors = default(List<APIError>), int statusCode = default(int))
+        public ErrorResponseWithStatus(string message = default(string), List<APIError> errors = default(List<APIError>), long statusCode = default(long))
         {
             this.Message = message;
             this.Errors = errors;
@@ -62,7 +62,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The error code</value>
         [DataMember(Name="StatusCode", EmitDefaultValue=false)]
-        public int StatusCode { get; set; }
+        public long StatusCode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

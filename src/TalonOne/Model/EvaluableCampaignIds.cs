@@ -35,7 +35,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="EvaluableCampaignIds" /> class.
         /// </summary>
         /// <param name="evaluableCampaignIds">When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. .</param>
-        public EvaluableCampaignIds(List<int> evaluableCampaignIds = default(List<int>))
+        public EvaluableCampaignIds(List<long> evaluableCampaignIds = default(List<long>))
         {
             this._EvaluableCampaignIds = evaluableCampaignIds;
         }
@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. </value>
         [DataMember(Name="evaluableCampaignIds", EmitDefaultValue=false)]
-        public List<int> _EvaluableCampaignIds { get; set; }
+        public List<long> _EvaluableCampaignIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -98,7 +98,7 @@ namespace TalonOne.Model
         /// <param name="cartItemTotal">The total value of cart items, before any discounts are applied. (required).</param>
         /// <param name="additionalCostTotal">The total value of additional costs, before any discounts are applied. (required).</param>
         /// <param name="updated">Timestamp of the most recent event received on this session. (required).</param>
-        public CustomerSessionV2(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), int applicationId = default(int), string profileId = default(string), string storeIntegrationId = default(string), List<int> evaluableCampaignIds = default(List<int>), List<string> couponCodes = default(List<string>), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object), bool firstSession = default(bool), decimal total = default(decimal), decimal cartItemTotal = default(decimal), decimal additionalCostTotal = default(decimal), DateTime updated = default(DateTime))
+        public CustomerSessionV2(long id = default(long), DateTime created = default(DateTime), string integrationId = default(string), long applicationId = default(long), string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), List<string> couponCodes = default(List<string>), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object), bool firstSession = default(bool), decimal total = default(decimal), decimal cartItemTotal = default(decimal), decimal additionalCostTotal = default(decimal), DateTime updated = default(DateTime))
         {
             this.Id = id;
             this.Created = created;
@@ -131,7 +131,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -152,7 +152,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. 
@@ -173,7 +173,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. </value>
         [DataMember(Name="evaluableCampaignIds", EmitDefaultValue=false)]
-        public List<int> EvaluableCampaignIds { get; set; }
+        public List<long> EvaluableCampaignIds { get; set; }
 
         /// <summary>
         /// Any coupon codes entered.  **Important - for requests only**:  - If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it. - In requests where &#x60;dry&#x3D;false&#x60;, providing an empty array discards any previous coupons. To avoid this, omit the parameter entirely. 

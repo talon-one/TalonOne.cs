@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ManagerConfig" /> class.
         /// </summary>
         /// <param name="schemaVersion">schemaVersion (required).</param>
-        public ManagerConfig(int schemaVersion = default(int))
+        public ManagerConfig(long schemaVersion = default(long))
         {
             this.SchemaVersion = schemaVersion;
         }
@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// Gets or Sets SchemaVersion
         /// </summary>
         [DataMember(Name="schemaVersion", EmitDefaultValue=false)]
-        public int SchemaVersion { get; set; }
+        public long SchemaVersion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

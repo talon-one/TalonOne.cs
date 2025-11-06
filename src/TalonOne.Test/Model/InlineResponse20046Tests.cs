@@ -58,14 +58,6 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'TotalResultSize'
-        /// </summary>
-        [Fact]
-        public void TotalResultSizeTest()
-        {
-            // TODO unit test for the property 'TotalResultSize'
-        }
-        /// <summary>
         /// Test the property 'Data'
         /// </summary>
         [Fact]

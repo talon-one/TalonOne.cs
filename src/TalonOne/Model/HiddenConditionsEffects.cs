@@ -38,7 +38,7 @@ namespace TalonOne.Model
         /// <param name="conditions">List of hidden conditions..</param>
         /// <param name="customEffects">List of the IDs of hidden custom effects..</param>
         /// <param name="webhooks">List of the IDs of hidden webhooks..</param>
-        public HiddenConditionsEffects(List<string> builtInEffects = default(List<string>), List<string> conditions = default(List<string>), List<int> customEffects = default(List<int>), List<int> webhooks = default(List<int>))
+        public HiddenConditionsEffects(List<string> builtInEffects = default(List<string>), List<string> conditions = default(List<string>), List<long> customEffects = default(List<long>), List<long> webhooks = default(List<long>))
         {
             this.BuiltInEffects = builtInEffects;
             this.Conditions = conditions;
@@ -65,14 +65,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>List of the IDs of hidden custom effects.</value>
         [DataMember(Name="customEffects", EmitDefaultValue=false)]
-        public List<int> CustomEffects { get; set; }
+        public List<long> CustomEffects { get; set; }
 
         /// <summary>
         /// List of the IDs of hidden webhooks.
         /// </summary>
         /// <value>List of the IDs of hidden webhooks.</value>
         [DataMember(Name="webhooks", EmitDefaultValue=false)]
-        public List<int> Webhooks { get; set; }
+        public List<long> Webhooks { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

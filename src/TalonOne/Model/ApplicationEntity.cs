@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ApplicationEntity" /> class.
         /// </summary>
         /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
-        public ApplicationEntity(int applicationId = default(int))
+        public ApplicationEntity(long applicationId = default(long))
         {
             this.ApplicationId = applicationId;
         }
@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

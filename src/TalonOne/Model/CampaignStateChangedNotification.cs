@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// A notification regarding a campaign whose state changed.
+    /// CampaignStateChangedNotification
     /// </summary>
     [DataContract]
     public partial class CampaignStateChangedNotification :  IEquatable<CampaignStateChangedNotification>, IValidatableObject
@@ -39,46 +39,37 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignStateChangedNotification" /> class.
         /// </summary>
-        /// <param name="campaign">campaign (required).</param>
-        /// <param name="oldState">The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;]  (required).</param>
-        /// <param name="newState">The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;]  (required).</param>
-        /// <param name="ruleset">ruleset.</param>
-        public CampaignStateChangedNotification(Campaign campaign = default(Campaign), string oldState = default(string), string newState = default(string), Ruleset ruleset = default(Ruleset))
+        /// <param name="notificationType">The type of the notification (required).</param>
+        /// <param name="totalResultSize">The total size of the result set. (required).</param>
+        /// <param name="data">A list of campaign notification data..</param>
+        public CampaignStateChangedNotification(string notificationType = default(string), long totalResultSize = default(long), List<CampaignStateChangedNotificationItem> data = default(List<CampaignStateChangedNotificationItem>))
         {
-            // to ensure "campaign" is required (not null)
-            this.Campaign = campaign ?? throw new ArgumentNullException("campaign is a required property for CampaignStateChangedNotification and cannot be null");
-            // to ensure "oldState" is required (not null)
-            this.OldState = oldState ?? throw new ArgumentNullException("oldState is a required property for CampaignStateChangedNotification and cannot be null");
-            // to ensure "newState" is required (not null)
-            this.NewState = newState ?? throw new ArgumentNullException("newState is a required property for CampaignStateChangedNotification and cannot be null");
-            this.Ruleset = ruleset;
+            // to ensure "notificationType" is required (not null)
+            this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for CampaignStateChangedNotification and cannot be null");
+            this.TotalResultSize = totalResultSize;
+            this.Data = data;
         }
         
         /// <summary>
-        /// Gets or Sets Campaign
+        /// The type of the notification
         /// </summary>
-        [DataMember(Name="campaign", EmitDefaultValue=false)]
-        public Campaign Campaign { get; set; }
+        /// <value>The type of the notification</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public string NotificationType { get; set; }
 
         /// <summary>
-        /// The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;] 
+        /// The total size of the result set.
         /// </summary>
-        /// <value>The campaign&#39;s old state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;] </value>
-        [DataMember(Name="oldState", EmitDefaultValue=false)]
-        public string OldState { get; set; }
+        /// <value>The total size of the result set.</value>
+        [DataMember(Name="TotalResultSize", EmitDefaultValue=false)]
+        public long TotalResultSize { get; set; }
 
         /// <summary>
-        /// The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;] 
+        /// A list of campaign notification data.
         /// </summary>
-        /// <value>The campaign&#39;s new state. Can be one of the following: [&#39;running&#39;, &#39;disabled&#39;, &#39;scheduled&#39;, &#39;expired&#39;, &#39;archived&#39;] </value>
-        [DataMember(Name="newState", EmitDefaultValue=false)]
-        public string NewState { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Ruleset
-        /// </summary>
-        [DataMember(Name="ruleset", EmitDefaultValue=false)]
-        public Ruleset Ruleset { get; set; }
+        /// <value>A list of campaign notification data.</value>
+        [DataMember(Name="Data", EmitDefaultValue=false)]
+        public List<CampaignStateChangedNotificationItem> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -88,10 +79,9 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CampaignStateChangedNotification {\n");
-            sb.Append("  Campaign: ").Append(Campaign).Append("\n");
-            sb.Append("  OldState: ").Append(OldState).Append("\n");
-            sb.Append("  NewState: ").Append(NewState).Append("\n");
-            sb.Append("  Ruleset: ").Append(Ruleset).Append("\n");
+            sb.Append("  NotificationType: ").Append(NotificationType).Append("\n");
+            sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,24 +117,19 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Campaign == input.Campaign ||
-                    (this.Campaign != null &&
-                    this.Campaign.Equals(input.Campaign))
+                    this.NotificationType == input.NotificationType ||
+                    (this.NotificationType != null &&
+                    this.NotificationType.Equals(input.NotificationType))
                 ) && 
                 (
-                    this.OldState == input.OldState ||
-                    (this.OldState != null &&
-                    this.OldState.Equals(input.OldState))
+                    this.TotalResultSize == input.TotalResultSize ||
+                    this.TotalResultSize.Equals(input.TotalResultSize)
                 ) && 
                 (
-                    this.NewState == input.NewState ||
-                    (this.NewState != null &&
-                    this.NewState.Equals(input.NewState))
-                ) && 
-                (
-                    this.Ruleset == input.Ruleset ||
-                    (this.Ruleset != null &&
-                    this.Ruleset.Equals(input.Ruleset))
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 
@@ -157,14 +142,11 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Campaign != null)
-                    hashCode = hashCode * 59 + this.Campaign.GetHashCode();
-                if (this.OldState != null)
-                    hashCode = hashCode * 59 + this.OldState.GetHashCode();
-                if (this.NewState != null)
-                    hashCode = hashCode * 59 + this.NewState.GetHashCode();
-                if (this.Ruleset != null)
-                    hashCode = hashCode * 59 + this.Ruleset.GetHashCode();
+                if (this.NotificationType != null)
+                    hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

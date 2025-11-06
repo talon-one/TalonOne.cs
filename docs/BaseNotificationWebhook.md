@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The internal ID of this entity. | 
+**Id** | **long** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **Modified** | **DateTime** | The time this entity was last modified. | 
 **Url** | **string** | API URL for the given webhook-based notification. | 

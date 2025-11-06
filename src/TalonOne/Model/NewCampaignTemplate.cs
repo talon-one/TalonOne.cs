@@ -166,7 +166,7 @@ namespace TalonOne.Model
         /// <param name="campaignCollections">The campaign collections from the blueprint campaign for the template..</param>
         /// <param name="defaultCampaignGroupId">The default campaign group ID..</param>
         /// <param name="campaignType">The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  (required) (default to CampaignTypeEnum.Advanced).</param>
-        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CampaignTemplateCouponReservationSettings couponReservationSettings = default(CampaignTemplateCouponReservationSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced)
+        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CampaignTemplateCouponReservationSettings couponReservationSettings = default(CampaignTemplateCouponReservationSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), long defaultCampaignGroupId = default(long), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCampaignTemplate and cannot be null");
@@ -275,7 +275,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The default campaign group ID.</value>
         [DataMember(Name="defaultCampaignGroupId", EmitDefaultValue=false)]
-        public int DefaultCampaignGroupId { get; set; }
+        public long DefaultCampaignGroupId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

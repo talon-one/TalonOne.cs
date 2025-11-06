@@ -73,7 +73,7 @@ namespace TalonOne.Model
         /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="modified">The time this entity was last modified. (required).</param>
-        public WebhookAuthentication(string createdBy = default(string), string modifiedBy = default(string), List<WebhookAuthenticationWebhookRef> webhooks = default(List<WebhookAuthenticationWebhookRef>), string name = default(string), TypeEnum type = default(TypeEnum), Object data = default(Object), int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime))
+        public WebhookAuthentication(string createdBy = default(string), string modifiedBy = default(string), List<WebhookAuthenticationWebhookRef> webhooks = default(List<WebhookAuthenticationWebhookRef>), string name = default(string), TypeEnum type = default(TypeEnum), Object data = default(Object), long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime))
         {
             // to ensure "createdBy" is required (not null)
             this.CreatedBy = createdBy ?? throw new ArgumentNullException("createdBy is a required property for WebhookAuthentication and cannot be null");
@@ -129,7 +129,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.

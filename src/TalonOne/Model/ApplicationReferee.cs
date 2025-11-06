@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="friendIntegrationId">Integration ID of the Friend&#39;s Profile. (required).</param>
         /// <param name="code">Advocate&#39;s referral code. (required).</param>
         /// <param name="created">Timestamp of the moment the customer redeemed the referral. (required).</param>
-        public ApplicationReferee(int applicationId = default(int), string sessionId = default(string), string advocateIntegrationId = default(string), string friendIntegrationId = default(string), string code = default(string), DateTime created = default(DateTime))
+        public ApplicationReferee(long applicationId = default(long), string sessionId = default(string), string advocateIntegrationId = default(string), string friendIntegrationId = default(string), string code = default(string), DateTime created = default(DateTime))
         {
             this.ApplicationId = applicationId;
             // to ensure "sessionId" is required (not null)
@@ -64,7 +64,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Integration ID of the session in which the customer redeemed the referral.

@@ -48,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that are subscribed to this catalog..</param>
         /// <param name="version">The current version of this catalog. (required).</param>
         /// <param name="createdBy">The ID of user who created this catalog. (required).</param>
-        public Catalog(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), DateTime modified = default(DateTime), string name = default(string), string description = default(string), List<int> subscribedApplicationsIds = default(List<int>), int version = default(int), int createdBy = default(int))
+        public Catalog(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), DateTime modified = default(DateTime), string name = default(string), string description = default(string), List<long> subscribedApplicationsIds = default(List<long>), long version = default(long), long createdBy = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -68,7 +68,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -82,7 +82,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The time this entity was last modified.
@@ -110,21 +110,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the applications that are subscribed to this catalog.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// The current version of this catalog.
         /// </summary>
         /// <value>The current version of this catalog.</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int Version { get; set; }
+        public long Version { get; set; }
 
         /// <summary>
         /// The ID of user who created this catalog.
         /// </summary>
         /// <value>The ID of user who created this catalog.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

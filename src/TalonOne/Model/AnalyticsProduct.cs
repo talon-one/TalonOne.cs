@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="name">The name of the product. (required).</param>
         /// <param name="catalogId">The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**.  (required).</param>
         /// <param name="unitsSold">unitsSold.</param>
-        public AnalyticsProduct(int id = default(int), string name = default(string), int catalogId = default(int), AnalyticsDataPointWithTrend unitsSold = default(AnalyticsDataPointWithTrend))
+        public AnalyticsProduct(long id = default(long), string name = default(string), long catalogId = default(long), AnalyticsDataPointWithTrend unitsSold = default(AnalyticsDataPointWithTrend))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the product.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The name of the product.
@@ -71,7 +71,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the catalog. You can find the ID in the Campaign Manager in **Account** &gt; **Tools** &gt; **Cart item catalogs**. </value>
         [DataMember(Name="catalogId", EmitDefaultValue=false)]
-        public int CatalogId { get; set; }
+        public long CatalogId { get; set; }
 
         /// <summary>
         /// Gets or Sets UnitsSold

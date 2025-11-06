@@ -54,8 +54,8 @@ namespace TalonOne.Model
         /// <param name="selectedPriceType">The selected price type for the SKU targeted by this effect..</param>
         /// <param name="selectedPrice">The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied..</param>
         /// <param name="adjustmentReferenceId">The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment..</param>
-        /// <param name="props">The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (required).</param>
-        public Effect(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string effectType = default(string), int triggeredByCoupon = default(int), int triggeredForCatalogItem = default(int), int conditionIndex = default(int), int evaluationGroupID = default(int), string evaluationGroupMode = default(string), int campaignRevisionId = default(int), int campaignRevisionVersionId = default(int), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), Guid adjustmentReferenceId = default(Guid), Object props = default(Object))
+        /// <param name="props">props (required).</param>
+        public Effect(long campaignId = default(long), long rulesetId = default(long), long ruleIndex = default(long), string ruleName = default(string), string effectType = default(string), long triggeredByCoupon = default(long), long triggeredForCatalogItem = default(long), long conditionIndex = default(long), long evaluationGroupID = default(long), string evaluationGroupMode = default(string), long campaignRevisionId = default(long), long campaignRevisionVersionId = default(long), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), Guid adjustmentReferenceId = default(Guid), Object props = default(Object))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -83,21 +83,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that triggered this effect.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The ID of the ruleset that was active in the campaign when this effect was triggered.
         /// </summary>
         /// <value>The ID of the ruleset that was active in the campaign when this effect was triggered.</value>
         [DataMember(Name="rulesetId", EmitDefaultValue=false)]
-        public int RulesetId { get; set; }
+        public long RulesetId { get; set; }
 
         /// <summary>
         /// The position of the rule that triggered this effect within the ruleset.
         /// </summary>
         /// <value>The position of the rule that triggered this effect within the ruleset.</value>
         [DataMember(Name="ruleIndex", EmitDefaultValue=false)]
-        public int RuleIndex { get; set; }
+        public long RuleIndex { get; set; }
 
         /// <summary>
         /// The name of the rule that triggered this effect.
@@ -118,28 +118,28 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the coupon that was being evaluated when this effect was triggered.</value>
         [DataMember(Name="triggeredByCoupon", EmitDefaultValue=false)]
-        public int TriggeredByCoupon { get; set; }
+        public long TriggeredByCoupon { get; set; }
 
         /// <summary>
         /// The ID of the catalog item that was being evaluated when this effect was triggered.
         /// </summary>
         /// <value>The ID of the catalog item that was being evaluated when this effect was triggered.</value>
         [DataMember(Name="triggeredForCatalogItem", EmitDefaultValue=false)]
-        public int TriggeredForCatalogItem { get; set; }
+        public long TriggeredForCatalogItem { get; set; }
 
         /// <summary>
         /// The index of the condition that was triggered.
         /// </summary>
         /// <value>The index of the condition that was triggered.</value>
         [DataMember(Name="conditionIndex", EmitDefaultValue=false)]
-        public int ConditionIndex { get; set; }
+        public long ConditionIndex { get; set; }
 
         /// <summary>
         /// The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
         /// </summary>
         /// <value>The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).</value>
         [DataMember(Name="evaluationGroupID", EmitDefaultValue=false)]
-        public int EvaluationGroupID { get; set; }
+        public long EvaluationGroupID { get; set; }
 
         /// <summary>
         /// The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
@@ -153,14 +153,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The revision ID of the campaign that was used when triggering the effect.</value>
         [DataMember(Name="campaignRevisionId", EmitDefaultValue=false)]
-        public int CampaignRevisionId { get; set; }
+        public long CampaignRevisionId { get; set; }
 
         /// <summary>
         /// The revision version ID of the campaign that was used when triggering the effect.
         /// </summary>
         /// <value>The revision version ID of the campaign that was used when triggering the effect.</value>
         [DataMember(Name="campaignRevisionVersionId", EmitDefaultValue=false)]
-        public int CampaignRevisionVersionId { get; set; }
+        public long CampaignRevisionVersionId { get; set; }
 
         /// <summary>
         /// The selected price type for the SKU targeted by this effect.
@@ -184,9 +184,8 @@ namespace TalonOne.Model
         public Guid AdjustmentReferenceId { get; set; }
 
         /// <summary>
-        /// The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).
+        /// Gets or Sets Props
         /// </summary>
-        /// <value>The properties of the effect. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects).</value>
         [DataMember(Name="props", EmitDefaultValue=false)]
         public Object Props { get; set; }
 

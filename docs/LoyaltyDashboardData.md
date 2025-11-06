@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **TotalPendingPoints** | **decimal** | Total of pending points for this loyalty program. | 
 **TotalSpentPoints** | **decimal** | Total of spent points for this loyalty program. | 
 **TotalExpiredPoints** | **decimal** | Total of expired points for this loyalty program. | 
+**TotalNegativePoints** | **decimal** | Total of negative points for this loyalty program. | 
 **TotalMembers** | **decimal** | Number of loyalty program members. | 
 **NewMembers** | **decimal** | Number of members who joined on this day. | 
 **SpentPoints** | [**LoyaltyDashboardPointsBreakdown**](LoyaltyDashboardPointsBreakdown.md) |  | 

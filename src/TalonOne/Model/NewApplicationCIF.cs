@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="modifiedBy">The ID of the user who last updated the Application cart item filter..</param>
         /// <param name="createdBy">The ID of the user who created the Application cart item filter..</param>
         /// <param name="modified">Timestamp of the most recent update to the Application cart item filter..</param>
-        public NewApplicationCIF(string name = default(string), string description = default(string), int activeExpressionId = default(int), int modifiedBy = default(int), int createdBy = default(int), DateTime modified = default(DateTime))
+        public NewApplicationCIF(string name = default(string), string description = default(string), long activeExpressionId = default(long), long modifiedBy = default(long), long createdBy = default(long), DateTime modified = default(DateTime))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewApplicationCIF and cannot be null");
@@ -75,21 +75,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the expression that the Application cart item filter uses.</value>
         [DataMember(Name="activeExpressionId", EmitDefaultValue=false)]
-        public int ActiveExpressionId { get; set; }
+        public long ActiveExpressionId { get; set; }
 
         /// <summary>
         /// The ID of the user who last updated the Application cart item filter.
         /// </summary>
         /// <value>The ID of the user who last updated the Application cart item filter.</value>
         [DataMember(Name="modifiedBy", EmitDefaultValue=false)]
-        public int ModifiedBy { get; set; }
+        public long ModifiedBy { get; set; }
 
         /// <summary>
         /// The ID of the user who created the Application cart item filter.
         /// </summary>
         /// <value>The ID of the user who created the Application cart item filter.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Timestamp of the most recent update to the Application cart item filter.

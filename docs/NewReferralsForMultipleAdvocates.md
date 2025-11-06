@@ -5,8 +5,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartDate** | **DateTime** | Timestamp at which point the referral code becomes valid. | [optional] 
 **ExpiryDate** | **DateTime** | Expiration date of the referral code. Referral never expires if this is omitted. | [optional] 
-**UsageLimit** | **int** | The number of times a referral code can be used. &#x60;0&#x60; means no limit but any campaign usage limits will still apply.  | 
-**CampaignId** | **int** | The ID of the campaign from which the referral received the referral code. | 
+**UsageLimit** | **long** | The number of times a referral code can be used. &#x60;0&#x60; means no limit but any campaign usage limits will still apply.  | 
+**CampaignId** | **long** | The ID of the campaign from which the referral received the referral code. | 
 **AdvocateProfileIntegrationIds** | **List&lt;string&gt;** | An array containing all the respective advocate profiles. | 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this referral code. | [optional] 
 **ValidCharacters** | **List&lt;string&gt;** | List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression.  | [optional] 

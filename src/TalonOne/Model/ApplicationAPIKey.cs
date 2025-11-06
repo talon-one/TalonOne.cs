@@ -145,7 +145,7 @@ namespace TalonOne.Model
         /// <param name="accountID">ID of account the key is used for. (required).</param>
         /// <param name="applicationID">ID of application the key is used for. (required).</param>
         /// <param name="created">The date the API key was created. (required).</param>
-        public ApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime), PlatformEnum? platform = default(PlatformEnum?), TypeEnum? type = default(TypeEnum?), int timeOffset = default(int), int id = default(int), int createdBy = default(int), int accountID = default(int), int applicationID = default(int), DateTime created = default(DateTime))
+        public ApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime), PlatformEnum? platform = default(PlatformEnum?), TypeEnum? type = default(TypeEnum?), long timeOffset = default(long), long id = default(long), long createdBy = default(long), long accountID = default(long), long applicationID = default(long), DateTime created = default(DateTime))
         {
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for ApplicationAPIKey and cannot be null");
@@ -179,35 +179,35 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date. </value>
         [DataMember(Name="timeOffset", EmitDefaultValue=false)]
-        public int TimeOffset { get; set; }
+        public long TimeOffset { get; set; }
 
         /// <summary>
         /// ID of the API Key.
         /// </summary>
         /// <value>ID of the API Key.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// ID of user who created.
         /// </summary>
         /// <value>ID of user who created.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// ID of account the key is used for.
         /// </summary>
         /// <value>ID of account the key is used for.</value>
         [DataMember(Name="accountID", EmitDefaultValue=false)]
-        public int AccountID { get; set; }
+        public long AccountID { get; set; }
 
         /// <summary>
         /// ID of application the key is used for.
         /// </summary>
         /// <value>ID of application the key is used for.</value>
         [DataMember(Name="applicationID", EmitDefaultValue=false)]
-        public int ApplicationID { get; set; }
+        public long ApplicationID { get; set; }
 
         /// <summary>
         /// The date the API key was created.

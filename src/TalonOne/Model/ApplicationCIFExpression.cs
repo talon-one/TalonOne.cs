@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="createdBy">The ID of the user who created the Application cart item filter..</param>
         /// <param name="expression">Arbitrary additional JSON data associated with the Application cart item filter..</param>
         /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
-        public ApplicationCIFExpression(int id = default(int), DateTime created = default(DateTime), int cartItemFilterId = default(int), int createdBy = default(int), List<Object> expression = default(List<Object>), int applicationId = default(int))
+        public ApplicationCIFExpression(long id = default(long), DateTime created = default(DateTime), long cartItemFilterId = default(long), long createdBy = default(long), List<Object> expression = default(List<Object>), long applicationId = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -60,7 +60,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -74,14 +74,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application cart item filter.</value>
         [DataMember(Name="cartItemFilterId", EmitDefaultValue=false)]
-        public int CartItemFilterId { get; set; }
+        public long CartItemFilterId { get; set; }
 
         /// <summary>
         /// The ID of the user who created the Application cart item filter.
         /// </summary>
         /// <value>The ID of the user who created the Application cart item filter.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Arbitrary additional JSON data associated with the Application cart item filter.
@@ -95,7 +95,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

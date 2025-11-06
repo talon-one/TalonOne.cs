@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// <param name="audienceURI">The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.  (required).</param>
         /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
-        public SamlConnection(string assertionConsumerServiceURL = default(string), int accountId = default(int), string name = default(string), bool enabled = default(bool), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string), int id = default(int), DateTime created = default(DateTime))
+        public SamlConnection(string assertionConsumerServiceURL = default(string), long accountId = default(long), string name = default(string), bool enabled = default(bool), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string), long id = default(long), DateTime created = default(DateTime))
         {
             // to ensure "assertionConsumerServiceURL" is required (not null)
             this.AssertionConsumerServiceURL = assertionConsumerServiceURL ?? throw new ArgumentNullException("assertionConsumerServiceURL is a required property for SamlConnection and cannot be null");
@@ -82,7 +82,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// ID of the SAML service.
@@ -138,7 +138,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.

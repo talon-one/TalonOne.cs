@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="maxResults">The maximum number of resources that can be returned in a single filtered query response..</param>
         /// <param name="supported">Indicates whether the SCIM service provider supports filtering operations..</param>
-        public ScimServiceProviderConfigResponseFilter(int maxResults = default(int), bool supported = default(bool))
+        public ScimServiceProviderConfigResponseFilter(long maxResults = default(long), bool supported = default(bool))
         {
             this.MaxResults = maxResults;
             this.Supported = supported;
@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The maximum number of resources that can be returned in a single filtered query response.</value>
         [DataMember(Name="maxResults", EmitDefaultValue=false)]
-        public int MaxResults { get; set; }
+        public long MaxResults { get; set; }
 
         /// <summary>
         /// Indicates whether the SCIM service provider supports filtering operations.

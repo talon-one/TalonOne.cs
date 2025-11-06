@@ -94,7 +94,7 @@ namespace TalonOne.Model
         /// <param name="type">Defines the type of parameter value. (required).</param>
         /// <param name="description">Explains the meaning of this template parameter and the placeholder value that will define it. It is used on campaign creation from this template. (required).</param>
         /// <param name="attributeId">ID of the corresponding attribute..</param>
-        public CampaignTemplateParams(string name = default(string), TypeEnum type = default(TypeEnum), string description = default(string), int attributeId = default(int))
+        public CampaignTemplateParams(string name = default(string), TypeEnum type = default(TypeEnum), string description = default(string), long attributeId = default(long))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CampaignTemplateParams and cannot be null");
@@ -123,7 +123,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the corresponding attribute.</value>
         [DataMember(Name="attributeId", EmitDefaultValue=false)]
-        public int AttributeId { get; set; }
+        public long AttributeId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

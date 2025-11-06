@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="name">The cart item catalog name. (required).</param>
         /// <param name="description">A description of this cart item catalog. (required).</param>
         /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that are subscribed to this catalog..</param>
-        public NewCatalog(string name = default(string), string description = default(string), List<int> subscribedApplicationsIds = default(List<int>))
+        public NewCatalog(string name = default(string), string description = default(string), List<long> subscribedApplicationsIds = default(List<long>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCatalog and cannot be null");
@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the applications that are subscribed to this catalog.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -140,7 +140,7 @@ namespace TalonOne.Model
         /// <param name="platform">The third-party platform the API key is valid for. Use &#x60;none&#x60; for a generic API key to be used from your own integration layer. .</param>
         /// <param name="type">The API key type. Can be empty or &#x60;staging&#x60;.  Staging API keys can only be used for dry requests with the [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint, [Update customer profile](https://docs.talon.one/integration-api#tag/Customer-profiles/operation/updateCustomerProfileV2) endpoint, and [Track event](https://docs.talon.one/integration-api#tag/Events/operation/trackEventV2) endpoint.  When using the _Update customer profile_ endpoint with a staging API key, the query parameter &#x60;runRuleEngine&#x60; must be &#x60;true&#x60;. .</param>
         /// <param name="timeOffset">A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date. .</param>
-        public CreateApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime), PlatformEnum? platform = default(PlatformEnum?), TypeEnum? type = default(TypeEnum?), int timeOffset = default(int))
+        public CreateApplicationAPIKey(string title = default(string), DateTime expires = default(DateTime), PlatformEnum? platform = default(PlatformEnum?), TypeEnum? type = default(TypeEnum?), long timeOffset = default(long))
         {
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for CreateApplicationAPIKey and cannot be null");
@@ -169,7 +169,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A time offset in nanoseconds associated with the API key. When making a request using the API key, rule evaluation is based on a date that is calculated by adding the offset to the current date. </value>
         [DataMember(Name="timeOffset", EmitDefaultValue=false)]
-        public int TimeOffset { get; set; }
+        public long TimeOffset { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

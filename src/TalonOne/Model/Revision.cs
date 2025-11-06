@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// <param name="activatedAt">activatedAt.</param>
         /// <param name="activatedBy">activatedBy.</param>
         /// <param name="currentVersion">currentVersion.</param>
-        public Revision(int id = default(int), DateTime activateAt = default(DateTime), int accountId = default(int), int applicationId = default(int), int campaignId = default(int), DateTime created = default(DateTime), int createdBy = default(int), DateTime activatedAt = default(DateTime), int activatedBy = default(int), RevisionVersion currentVersion = default(RevisionVersion))
+        public Revision(long id = default(long), DateTime activateAt = default(DateTime), long accountId = default(long), long applicationId = default(long), long campaignId = default(long), DateTime created = default(DateTime), long createdBy = default(long), DateTime activatedAt = default(DateTime), long activatedBy = default(long), RevisionVersion currentVersion = default(RevisionVersion))
         {
             this.Id = id;
             this.AccountId = accountId;
@@ -68,7 +68,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets ActivateAt
@@ -80,19 +80,19 @@ namespace TalonOne.Model
         /// Gets or Sets AccountId
         /// </summary>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets ApplicationId
         /// </summary>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Gets or Sets CampaignId
         /// </summary>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
@@ -104,7 +104,7 @@ namespace TalonOne.Model
         /// Gets or Sets CreatedBy
         /// </summary>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Gets or Sets ActivatedAt
@@ -116,7 +116,7 @@ namespace TalonOne.Model
         /// Gets or Sets ActivatedBy
         /// </summary>
         [DataMember(Name="activatedBy", EmitDefaultValue=false)]
-        public int ActivatedBy { get; set; }
+        public long ActivatedBy { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentVersion

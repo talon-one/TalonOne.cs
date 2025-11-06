@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// <param name="details">More details about the failure..</param>
         /// <param name="evaluationGroupID">The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
         /// <param name="evaluationGroupMode">The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-.</param>
-        public RuleFailureReason(int campaignID = default(int), string campaignName = default(string), int rulesetID = default(int), int couponID = default(int), string couponValue = default(string), int referralID = default(int), string referralValue = default(string), int ruleIndex = default(int), string ruleName = default(string), int conditionIndex = default(int), int effectIndex = default(int), string details = default(string), int evaluationGroupID = default(int), string evaluationGroupMode = default(string))
+        public RuleFailureReason(long campaignID = default(long), string campaignName = default(string), long rulesetID = default(long), long couponID = default(long), string couponValue = default(string), long referralID = default(long), string referralValue = default(string), long ruleIndex = default(long), string ruleName = default(string), long conditionIndex = default(long), long effectIndex = default(long), string details = default(string), long evaluationGroupID = default(long), string evaluationGroupMode = default(string))
         {
             this.CampaignID = campaignID;
             // to ensure "campaignName" is required (not null)
@@ -78,7 +78,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that contains the rule that failed.</value>
         [DataMember(Name="campaignID", EmitDefaultValue=false)]
-        public int CampaignID { get; set; }
+        public long CampaignID { get; set; }
 
         /// <summary>
         /// The name of the campaign that contains the rule that failed.
@@ -92,14 +92,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the ruleset that contains the rule that failed.</value>
         [DataMember(Name="rulesetID", EmitDefaultValue=false)]
-        public int RulesetID { get; set; }
+        public long RulesetID { get; set; }
 
         /// <summary>
         /// The ID of the coupon that was being evaluated at the time of the rule failure.
         /// </summary>
         /// <value>The ID of the coupon that was being evaluated at the time of the rule failure.</value>
         [DataMember(Name="couponID", EmitDefaultValue=false)]
-        public int CouponID { get; set; }
+        public long CouponID { get; set; }
 
         /// <summary>
         /// The code of the coupon that was being evaluated at the time of the rule failure.
@@ -113,7 +113,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the referral that was being evaluated at the time of the rule failure.</value>
         [DataMember(Name="referralID", EmitDefaultValue=false)]
-        public int ReferralID { get; set; }
+        public long ReferralID { get; set; }
 
         /// <summary>
         /// The code of the referral that was being evaluated at the time of the rule failure.
@@ -127,7 +127,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The index of the rule that failed within the ruleset.</value>
         [DataMember(Name="ruleIndex", EmitDefaultValue=false)]
-        public int RuleIndex { get; set; }
+        public long RuleIndex { get; set; }
 
         /// <summary>
         /// The name of the rule that failed within the ruleset.
@@ -141,14 +141,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The index of the condition that failed.</value>
         [DataMember(Name="conditionIndex", EmitDefaultValue=false)]
-        public int ConditionIndex { get; set; }
+        public long ConditionIndex { get; set; }
 
         /// <summary>
         /// The index of the effect that failed.
         /// </summary>
         /// <value>The index of the effect that failed.</value>
         [DataMember(Name="effectIndex", EmitDefaultValue=false)]
-        public int EffectIndex { get; set; }
+        public long EffectIndex { get; set; }
 
         /// <summary>
         /// More details about the failure.
@@ -162,7 +162,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).</value>
         [DataMember(Name="evaluationGroupID", EmitDefaultValue=false)]
-        public int EvaluationGroupID { get; set; }
+        public long EvaluationGroupID { get; set; }
 
         /// <summary>
         /// The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-

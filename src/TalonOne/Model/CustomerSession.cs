@@ -92,7 +92,7 @@ namespace TalonOne.Model
         /// <param name="firstSession">Indicates whether this is the first session for the customer&#39;s profile. Will always be true for anonymous sessions. (required).</param>
         /// <param name="discounts">A map of labelled discount values, values will be in the same currency as the application associated with the session. (required).</param>
         /// <param name="updated">Timestamp of the most recent event received on this session. (required).</param>
-        public CustomerSession(string integrationId = default(string), DateTime created = default(DateTime), int applicationId = default(int), string profileId = default(string), string coupon = default(string), string referral = default(string), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), List<string> identifiers = default(List<string>), decimal total = default(decimal), Object attributes = default(Object), bool firstSession = default(bool), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), DateTime updated = default(DateTime))
+        public CustomerSession(string integrationId = default(string), DateTime created = default(DateTime), long applicationId = default(long), string profileId = default(string), string coupon = default(string), string referral = default(string), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), List<string> identifiers = default(List<string>), decimal total = default(decimal), Object attributes = default(Object), bool firstSession = default(bool), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), DateTime updated = default(DateTime))
         {
             // to ensure "integrationId" is required (not null)
             this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for CustomerSession and cannot be null");
@@ -136,7 +136,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. 

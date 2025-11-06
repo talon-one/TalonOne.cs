@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="signOutURL">Single Sign-Out URL..</param>
         /// <param name="metadataURL">Metadata URL..</param>
         /// <param name="audienceURI">The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used. .</param>
-        public BaseSamlConnection(int accountId = default(int), string name = default(string), bool enabled = default(bool), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string))
+        public BaseSamlConnection(long accountId = default(long), string name = default(string), bool enabled = default(bool), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string))
         {
             this.AccountId = accountId;
             // to ensure "name" is required (not null)
@@ -67,7 +67,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// ID of the SAML service.

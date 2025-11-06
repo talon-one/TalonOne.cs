@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="bundleIndex">The position of the bundle in a list of item bundles created from the same bundle definition..</param>
         /// <param name="bundleName">The name of the bundle definition..</param>
         /// <param name="payload">The JSON payload of the custom effect. (required).</param>
-        public CustomEffectProps(int effectId = default(int), string name = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), int bundleIndex = default(int), string bundleName = default(string), Object payload = default(Object))
+        public CustomEffectProps(long effectId = default(long), string name = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), long bundleIndex = default(long), string bundleName = default(string), Object payload = default(Object))
         {
             this.EffectId = effectId;
             // to ensure "name" is required (not null)
@@ -64,7 +64,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the custom effect that was triggered.</value>
         [DataMember(Name="effectId", EmitDefaultValue=false)]
-        public int EffectId { get; set; }
+        public long EffectId { get; set; }
 
         /// <summary>
         /// The type of the custom effect.
@@ -92,7 +92,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The position of the bundle in a list of item bundles created from the same bundle definition.</value>
         [DataMember(Name="bundleIndex", EmitDefaultValue=false)]
-        public int BundleIndex { get; set; }
+        public long BundleIndex { get; set; }
 
         /// <summary>
         /// The name of the bundle definition.

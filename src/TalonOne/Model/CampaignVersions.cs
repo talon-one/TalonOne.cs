@@ -68,7 +68,7 @@ namespace TalonOne.Model
         /// <param name="currentRevisionId">ID of the revision currently being modified for the campaign. .</param>
         /// <param name="currentRevisionVersionId">ID of the latest version applied on the current revision. .</param>
         /// <param name="stageRevision">Flag for determining whether we use current revision when sending requests with staging API key.  (default to false).</param>
-        public CampaignVersions(RevisionFrontendStateEnum? revisionFrontendState = default(RevisionFrontendStateEnum?), int activeRevisionId = default(int), int activeRevisionVersionId = default(int), int version = default(int), int currentRevisionId = default(int), int currentRevisionVersionId = default(int), bool stageRevision = false)
+        public CampaignVersions(RevisionFrontendStateEnum? revisionFrontendState = default(RevisionFrontendStateEnum?), long activeRevisionId = default(long), long activeRevisionVersionId = default(long), long version = default(long), long currentRevisionId = default(long), long currentRevisionVersionId = default(long), bool stageRevision = false)
         {
             this.RevisionFrontendState = revisionFrontendState;
             this.ActiveRevisionId = activeRevisionId;
@@ -84,35 +84,35 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the revision that was last activated on this campaign. </value>
         [DataMember(Name="activeRevisionId", EmitDefaultValue=false)]
-        public int ActiveRevisionId { get; set; }
+        public long ActiveRevisionId { get; set; }
 
         /// <summary>
         /// ID of the revision version that is active on the campaign. 
         /// </summary>
         /// <value>ID of the revision version that is active on the campaign. </value>
         [DataMember(Name="activeRevisionVersionId", EmitDefaultValue=false)]
-        public int ActiveRevisionVersionId { get; set; }
+        public long ActiveRevisionVersionId { get; set; }
 
         /// <summary>
         /// Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. 
         /// </summary>
         /// <value>Incrementing number representing how many revisions have been activated on this campaign, starts from 0 for a new campaign. </value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int Version { get; set; }
+        public long Version { get; set; }
 
         /// <summary>
         /// ID of the revision currently being modified for the campaign. 
         /// </summary>
         /// <value>ID of the revision currently being modified for the campaign. </value>
         [DataMember(Name="currentRevisionId", EmitDefaultValue=false)]
-        public int CurrentRevisionId { get; set; }
+        public long CurrentRevisionId { get; set; }
 
         /// <summary>
         /// ID of the latest version applied on the current revision. 
         /// </summary>
         /// <value>ID of the latest version applied on the current revision. </value>
         [DataMember(Name="currentRevisionVersionId", EmitDefaultValue=false)]
-        public int CurrentRevisionVersionId { get; set; }
+        public long CurrentRevisionVersionId { get; set; }
 
         /// <summary>
         /// Flag for determining whether we use current revision when sending requests with staging API key. 

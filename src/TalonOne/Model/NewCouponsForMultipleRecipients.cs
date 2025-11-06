@@ -48,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="recipientsIntegrationIds">The integration IDs for recipients. (required).</param>
         /// <param name="validCharacters">List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. .</param>
         /// <param name="couponPattern">The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set. .</param>
-        public NewCouponsForMultipleRecipients(int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), Object attributes = default(Object), List<string> recipientsIntegrationIds = default(List<string>), List<string> validCharacters = default(List<string>), string couponPattern = default(string))
+        public NewCouponsForMultipleRecipients(long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), Object attributes = default(Object), List<string> recipientsIntegrationIds = default(List<string>), List<string> validCharacters = default(List<string>), string couponPattern = default(string))
         {
             this.UsageLimit = usageLimit;
             // to ensure "recipientsIntegrationIds" is required (not null)
@@ -67,7 +67,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply. </value>
         [DataMember(Name="usageLimit", EmitDefaultValue=false)]
-        public int UsageLimit { get; set; }
+        public long UsageLimit { get; set; }
 
         /// <summary>
         /// The total discount value that the code can give. Typically used to represent a gift card value. 
@@ -81,7 +81,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of reservations that can be made with this coupon code. </value>
         [DataMember(Name="reservationLimit", EmitDefaultValue=false)]
-        public int ReservationLimit { get; set; }
+        public long ReservationLimit { get; set; }
 
         /// <summary>
         /// Timestamp at which point the coupon becomes valid.
@@ -257,14 +257,14 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // UsageLimit (int) maximum
-            if(this.UsageLimit > (int)999999)
+            // UsageLimit (long) maximum
+            if(this.UsageLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value less than or equal to 999999.", new [] { "UsageLimit" });
             }
 
-            // UsageLimit (int) minimum
-            if(this.UsageLimit < (int)0)
+            // UsageLimit (long) minimum
+            if(this.UsageLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }
@@ -281,14 +281,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value greater than or equal to 0.", new [] { "DiscountLimit" });
             }
 
-            // ReservationLimit (int) maximum
-            if(this.ReservationLimit > (int)999999)
+            // ReservationLimit (long) maximum
+            if(this.ReservationLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReservationLimit, must be a value less than or equal to 999999.", new [] { "ReservationLimit" });
             }
 
-            // ReservationLimit (int) minimum
-            if(this.ReservationLimit < (int)0)
+            // ReservationLimit (long) minimum
+            if(this.ReservationLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReservationLimit, must be a value greater than or equal to 0.", new [] { "ReservationLimit" });
             }

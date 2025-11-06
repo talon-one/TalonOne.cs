@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Unique ID for this entity. | 
-**IntegrationType** | **int** | Unique ID of outgoing integration type. | 
+**Id** | **long** | Unique ID for this entity. | 
+**IntegrationType** | **long** | Unique ID of outgoing integration type. | 
 **Title** | **string** | The title of the integration template. | 
 **Description** | **string** | The description of the specific outgoing integration template. | 
 **Payload** | **string** | The API payload (supports templating using parameters) for this integration template. | 

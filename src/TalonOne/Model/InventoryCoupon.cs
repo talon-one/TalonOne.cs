@@ -63,7 +63,7 @@ namespace TalonOne.Model
         /// <param name="implicitlyReserved">An indication of whether the coupon is implicitly reserved for all customers..</param>
         /// <param name="profileRedemptionCount">The number of times the coupon was redeemed by the profile. (required).</param>
         /// <param name="state">Can be:  - &#x60;active&#x60;: The coupon can be used. It is a reserved coupon that is not pending, used, or expired, and it has a non-exhausted limit counter.    **Note:** This coupon state is returned for [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule), but the coupon cannot be used until the campaign is **running**. - &#x60;used&#x60;: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - &#x60;expired&#x60;: The coupon was never redeemed, and it is now expired. It is non-pending, non-active, and non-used by the profile. - &#x60;pending&#x60;: The coupon will be usable in the future. - &#x60;disabled&#x60;: The coupon is part of a non-active campaign.  (required).</param>
-        public InventoryCoupon(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), string value = default(string), int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), int usageCounter = default(int), decimal discountCounter = default(decimal), decimal discountRemainder = default(decimal), decimal reservationCounter = default(decimal), Object attributes = default(Object), int referralId = default(int), string recipientIntegrationId = default(string), int importId = default(int), bool reservation = true, string batchId = default(string), bool isReservationMandatory = false, bool implicitlyReserved = default(bool), int profileRedemptionCount = default(int), string state = default(string))
+        public InventoryCoupon(long id = default(long), DateTime created = default(DateTime), long campaignId = default(long), string value = default(string), long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), long usageCounter = default(long), decimal discountCounter = default(decimal), decimal discountRemainder = default(decimal), decimal reservationCounter = default(decimal), Object attributes = default(Object), long referralId = default(long), string recipientIntegrationId = default(string), long importId = default(long), bool reservation = true, string batchId = default(string), bool isReservationMandatory = false, bool implicitlyReserved = default(bool), long profileRedemptionCount = default(long), string state = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -98,7 +98,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the coupon.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time the coupon was created.
@@ -112,7 +112,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that owns this entity.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The coupon code.
@@ -126,7 +126,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply. </value>
         [DataMember(Name="usageLimit", EmitDefaultValue=false)]
-        public int UsageLimit { get; set; }
+        public long UsageLimit { get; set; }
 
         /// <summary>
         /// The total discount value that the code can give. Typically used to represent a gift card value. 
@@ -140,7 +140,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of reservations that can be made with this coupon code. </value>
         [DataMember(Name="reservationLimit", EmitDefaultValue=false)]
-        public int ReservationLimit { get; set; }
+        public long ReservationLimit { get; set; }
 
         /// <summary>
         /// Timestamp at which point the coupon becomes valid.
@@ -168,7 +168,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times the coupon has been successfully redeemed.</value>
         [DataMember(Name="usageCounter", EmitDefaultValue=false)]
-        public int UsageCounter { get; set; }
+        public long UsageCounter { get; set; }
 
         /// <summary>
         /// The amount of discounts given on rules redeeming this coupon. Only usable if a coupon discount budget was set for this coupon.
@@ -203,7 +203,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The integration ID of the referring customer (if any) for whom this coupon was created as an effect.</value>
         [DataMember(Name="referralId", EmitDefaultValue=false)]
-        public int ReferralId { get; set; }
+        public long ReferralId { get; set; }
 
         /// <summary>
         /// The Integration ID of the customer that is allowed to redeem this coupon.
@@ -217,7 +217,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Import which created this coupon.</value>
         [DataMember(Name="importId", EmitDefaultValue=false)]
-        public int ImportId { get; set; }
+        public long ImportId { get; set; }
 
         /// <summary>
         /// Defines the reservation type: - &#x60;true&#x60;: The coupon can be reserved for multiple customers. - &#x60;false&#x60;: The coupon can be reserved only for one customer. It is a personal code. 
@@ -252,7 +252,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times the coupon was redeemed by the profile.</value>
         [DataMember(Name="profileRedemptionCount", EmitDefaultValue=false)]
-        public int ProfileRedemptionCount { get; set; }
+        public long ProfileRedemptionCount { get; set; }
 
         /// <summary>
         /// Can be:  - &#x60;active&#x60;: The coupon can be used. It is a reserved coupon that is not pending, used, or expired, and it has a non-exhausted limit counter.    **Note:** This coupon state is returned for [scheduled campaigns](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-schedule), but the coupon cannot be used until the campaign is **running**. - &#x60;used&#x60;: The coupon has been redeemed and cannot be used again. It is not pending and has reached its redemption limit or was redeemed by the profile before expiration. - &#x60;expired&#x60;: The coupon was never redeemed, and it is now expired. It is non-pending, non-active, and non-used by the profile. - &#x60;pending&#x60;: The coupon will be usable in the future. - &#x60;disabled&#x60;: The coupon is part of a non-active campaign. 
@@ -494,14 +494,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be greater than 4.", new [] { "Value" });
             }
 
-            // UsageLimit (int) maximum
-            if(this.UsageLimit > (int)999999)
+            // UsageLimit (long) maximum
+            if(this.UsageLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value less than or equal to 999999.", new [] { "UsageLimit" });
             }
 
-            // UsageLimit (int) minimum
-            if(this.UsageLimit < (int)0)
+            // UsageLimit (long) minimum
+            if(this.UsageLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }
@@ -518,14 +518,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value greater than or equal to 0.", new [] { "DiscountLimit" });
             }
 
-            // ReservationLimit (int) maximum
-            if(this.ReservationLimit > (int)999999)
+            // ReservationLimit (long) maximum
+            if(this.ReservationLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReservationLimit, must be a value less than or equal to 999999.", new [] { "ReservationLimit" });
             }
 
-            // ReservationLimit (int) minimum
-            if(this.ReservationLimit < (int)0)
+            // ReservationLimit (long) minimum
+            if(this.ReservationLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReservationLimit, must be a value greater than or equal to 0.", new [] { "ReservationLimit" });
             }

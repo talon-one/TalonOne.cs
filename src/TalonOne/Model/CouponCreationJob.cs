@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// <param name="communicated">Whether or not the user that created this job was notified of its final state. (required).</param>
         /// <param name="chunkExecutionCount">The number of times an attempt to create a chunk of coupons was made during the processing of the job. (required).</param>
         /// <param name="chunkSize">The number of coupons that will be created in a single transactions. Coupons will be created in chunks until arriving at the requested amount..</param>
-        public CouponCreationJob(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), int applicationId = default(int), int accountId = default(int), int usageLimit = default(int), decimal discountLimit = default(decimal), int reservationLimit = default(int), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int numberOfCoupons = default(int), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), Object attributes = default(Object), string batchId = default(string), string status = default(string), int createdAmount = default(int), int failCount = default(int), List<string> errors = default(List<string>), int createdBy = default(int), bool communicated = default(bool), int chunkExecutionCount = default(int), int chunkSize = default(int))
+        public CouponCreationJob(long id = default(long), DateTime created = default(DateTime), long campaignId = default(long), long applicationId = default(long), long accountId = default(long), long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long numberOfCoupons = default(long), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), Object attributes = default(Object), string batchId = default(string), string status = default(string), long createdAmount = default(long), long failCount = default(long), List<string> errors = default(List<string>), long createdBy = default(long), bool communicated = default(bool), long chunkExecutionCount = default(long), long chunkSize = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -96,7 +96,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -110,28 +110,28 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that owns this entity.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The ID of the Application that owns this entity.
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply. 
         /// </summary>
         /// <value>The number of times the coupon code can be redeemed. &#x60;0&#x60; means unlimited redemptions but any campaign usage limits will still apply. </value>
         [DataMember(Name="usageLimit", EmitDefaultValue=false)]
-        public int UsageLimit { get; set; }
+        public long UsageLimit { get; set; }
 
         /// <summary>
         /// The total discount value that the code can give. Typically used to represent a gift card value. 
@@ -145,7 +145,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of reservations that can be made with this coupon code. </value>
         [DataMember(Name="reservationLimit", EmitDefaultValue=false)]
-        public int ReservationLimit { get; set; }
+        public long ReservationLimit { get; set; }
 
         /// <summary>
         /// Timestamp at which point the coupon becomes valid.
@@ -166,7 +166,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of new coupon codes to generate for the campaign.</value>
         [DataMember(Name="numberOfCoupons", EmitDefaultValue=false)]
-        public int NumberOfCoupons { get; set; }
+        public long NumberOfCoupons { get; set; }
 
         /// <summary>
         /// Gets or Sets CouponSettings
@@ -200,14 +200,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of coupon codes that were already created for this request.</value>
         [DataMember(Name="createdAmount", EmitDefaultValue=false)]
-        public int CreatedAmount { get; set; }
+        public long CreatedAmount { get; set; }
 
         /// <summary>
         /// The number of times this job failed.
         /// </summary>
         /// <value>The number of times this job failed.</value>
         [DataMember(Name="failCount", EmitDefaultValue=false)]
-        public int FailCount { get; set; }
+        public long FailCount { get; set; }
 
         /// <summary>
         /// An array of individual problems encountered during the request.
@@ -221,7 +221,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the user who created this effect.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Whether or not the user that created this job was notified of its final state.
@@ -235,14 +235,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times an attempt to create a chunk of coupons was made during the processing of the job.</value>
         [DataMember(Name="chunkExecutionCount", EmitDefaultValue=false)]
-        public int ChunkExecutionCount { get; set; }
+        public long ChunkExecutionCount { get; set; }
 
         /// <summary>
         /// The number of coupons that will be created in a single transactions. Coupons will be created in chunks until arriving at the requested amount.
         /// </summary>
         /// <value>The number of coupons that will be created in a single transactions. Coupons will be created in chunks until arriving at the requested amount.</value>
         [DataMember(Name="chunkSize", EmitDefaultValue=false)]
-        public int ChunkSize { get; set; }
+        public long ChunkSize { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -457,14 +457,14 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // UsageLimit (int) maximum
-            if(this.UsageLimit > (int)999999)
+            // UsageLimit (long) maximum
+            if(this.UsageLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value less than or equal to 999999.", new [] { "UsageLimit" });
             }
 
-            // UsageLimit (int) minimum
-            if(this.UsageLimit < (int)0)
+            // UsageLimit (long) minimum
+            if(this.UsageLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }
@@ -481,26 +481,26 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DiscountLimit, must be a value greater than or equal to 0.", new [] { "DiscountLimit" });
             }
 
-            // ReservationLimit (int) maximum
-            if(this.ReservationLimit > (int)999999)
+            // ReservationLimit (long) maximum
+            if(this.ReservationLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReservationLimit, must be a value less than or equal to 999999.", new [] { "ReservationLimit" });
             }
 
-            // ReservationLimit (int) minimum
-            if(this.ReservationLimit < (int)0)
+            // ReservationLimit (long) minimum
+            if(this.ReservationLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReservationLimit, must be a value greater than or equal to 0.", new [] { "ReservationLimit" });
             }
 
-            // NumberOfCoupons (int) maximum
-            if(this.NumberOfCoupons > (int)5000000)
+            // NumberOfCoupons (long) maximum
+            if(this.NumberOfCoupons > (long)5000000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfCoupons, must be a value less than or equal to 5000000.", new [] { "NumberOfCoupons" });
             }
 
-            // NumberOfCoupons (int) minimum
-            if(this.NumberOfCoupons < (int)1)
+            // NumberOfCoupons (long) minimum
+            if(this.NumberOfCoupons < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfCoupons, must be a value greater than or equal to 1.", new [] { "NumberOfCoupons" });
             }

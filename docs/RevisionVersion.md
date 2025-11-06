@@ -3,14 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
-**AccountId** | **int** |  | 
-**ApplicationId** | **int** |  | 
-**CampaignId** | **int** |  | 
+**Id** | **long** | Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. | 
+**AccountId** | **long** |  | 
+**ApplicationId** | **long** |  | 
+**CampaignId** | **long** |  | 
 **Created** | **DateTime** |  | 
-**CreatedBy** | **int** |  | 
-**RevisionId** | **int** |  | 
-**Version** | **int** |  | 
+**CreatedBy** | **long** |  | 
+**RevisionId** | **long** |  | 
+**Version** | **long** |  | 
 **Name** | **string** | A user-facing name for this campaign. | [optional] 
 **StartTime** | **DateTime?** | Timestamp when the campaign will become active. | [optional] 
 **EndTime** | **DateTime?** | Timestamp when the campaign will become inactive. | [optional] 

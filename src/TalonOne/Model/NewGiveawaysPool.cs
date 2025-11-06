@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="description">The description of this giveaways pool..</param>
         /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that this giveaways pool is enabled for..</param>
         /// <param name="sandbox">Indicates if this program is a live or sandbox program. Programs of a given type can only be connected to Applications of the same type. (required).</param>
-        public NewGiveawaysPool(string name = default(string), string description = default(string), List<int> subscribedApplicationsIds = default(List<int>), bool sandbox = default(bool))
+        public NewGiveawaysPool(string name = default(string), string description = default(string), List<long> subscribedApplicationsIds = default(List<long>), bool sandbox = default(bool))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewGiveawaysPool and cannot be null");
@@ -71,7 +71,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the applications that this giveaways pool is enabled for.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// Indicates if this program is a live or sandbox program. Programs of a given type can only be connected to Applications of the same type.

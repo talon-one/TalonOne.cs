@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
         /// <param name="bundleIndex">The position of the bundle in a list of item bundles created from the same bundle definition..</param>
         /// <param name="bundleName">The name of the bundle definition..</param>
-        public AddLoyaltyPointsEffectProps(string name = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), decimal desiredValue = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), string cardIdentifier = default(string), int bundleIndex = default(int), string bundleName = default(string))
+        public AddLoyaltyPointsEffectProps(string name = default(string), long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), decimal desiredValue = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), string cardIdentifier = default(string), long bundleIndex = default(long), string bundleName = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for AddLoyaltyPointsEffectProps and cannot be null");
@@ -87,7 +87,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the loyalty program where these points were added.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
-        public int ProgramId { get; set; }
+        public long ProgramId { get; set; }
 
         /// <summary>
         /// The ID of the subledger within the loyalty program where these points were added.
@@ -164,7 +164,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The position of the bundle in a list of item bundles created from the same bundle definition.</value>
         [DataMember(Name="bundleIndex", EmitDefaultValue=false)]
-        public int BundleIndex { get; set; }
+        public long BundleIndex { get; set; }
 
         /// <summary>
         /// The name of the bundle definition.

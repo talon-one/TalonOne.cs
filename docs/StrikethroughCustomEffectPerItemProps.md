@@ -4,7 +4,7 @@ customEffectPerItem effect in strikethrough pricing payload.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**EffectId** | **int** | ID of the effect. | 
+**EffectId** | **long** | ID of the effect. | 
 **Name** | **string** | The type of the custom effect. | 
 **Payload** | [**Object**](.md) | The JSON payload of the custom effect. | 
 

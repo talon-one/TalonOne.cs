@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **StartTime** | **DateTime** | The start of the aggregation time frame in UTC. | 
 **EndTime** | **DateTime** | The end of the aggregation time frame in UTC. | 
-**CampaignId** | **int** | The ID of the campaign. | 
+**CampaignId** | **long** | The ID of the campaign. | 
 **CampaignName** | **string** | The name of the campaign. | 
 **CampaignTags** | **List&lt;string&gt;** | A list of tags for the campaign. | 
 **CampaignState** | **string** | The state of the campaign.  **Note:** A disabled or archived campaign is not evaluated for rules or coupons.  | 

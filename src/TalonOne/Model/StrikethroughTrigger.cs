@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="triggeredAt">The creation time of the event that triggered the strikethrough labeling. (required).</param>
         /// <param name="totalAffectedItems">The total number of items affected by the event that triggered the strikethrough labeling. (required).</param>
         /// <param name="payload">The arbitrary properties associated with this trigger type. (required).</param>
-        public StrikethroughTrigger(int id = default(int), string type = default(string), DateTime triggeredAt = default(DateTime), int totalAffectedItems = default(int), Object payload = default(Object))
+        public StrikethroughTrigger(long id = default(long), string type = default(string), DateTime triggeredAt = default(DateTime), int totalAffectedItems = default(int), Object payload = default(Object))
         {
             this.Id = id;
             // to ensure "type" is required (not null)
@@ -60,7 +60,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the event that triggered the strikethrough labeling.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The type of event that triggered the strikethrough labeling.

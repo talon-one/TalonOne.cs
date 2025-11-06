@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="additionalCostId">The ID of the additional cost that was rolled back..</param>
         /// <param name="additionalCost">The name of the additional cost that was rolled back..</param>
         /// <param name="scope">The scope of the rolled back discount - For a discount per session, it can be one of &#x60;cartItems&#x60;, &#x60;additionalCosts&#x60; or &#x60;sessionTotal&#x60; - For a discount per item, it can be one of &#x60;price&#x60;, &#x60;additionalCosts&#x60; or &#x60;itemTotal&#x60; .</param>
-        public RollbackDiscountEffectProps(string name = default(string), decimal value = default(decimal), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), int additionalCostId = default(int), string additionalCost = default(string), string scope = default(string))
+        public RollbackDiscountEffectProps(string name = default(string), decimal value = default(decimal), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), long additionalCostId = default(long), string additionalCost = default(string), string scope = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for RollbackDiscountEffectProps and cannot be null");
@@ -91,7 +91,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the additional cost that was rolled back.</value>
         [DataMember(Name="additionalCostId", EmitDefaultValue=false)]
-        public int AdditionalCostId { get; set; }
+        public long AdditionalCostId { get; set; }
 
         /// <summary>
         /// The name of the additional cost that was rolled back.

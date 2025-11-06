@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | ID of the SAML login endpoint. | 
+**Id** | **long** | ID of the SAML login endpoint. | 
 **Name** | **string** | ID of the SAML service. | 
 **LoginURL** | **string** | The single sign-on URL. | 
 

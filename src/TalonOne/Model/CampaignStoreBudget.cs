@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="campaignId">The ID of the campaign that owns this entity. (required).</param>
         /// <param name="storeId">The ID of the store. (required).</param>
         /// <param name="limits">The set of budget limits for stores linked to the campaign. (required).</param>
-        public CampaignStoreBudget(int id = default(int), DateTime created = default(DateTime), int campaignId = default(int), int storeId = default(int), List<CampaignStoreBudgetLimitConfig> limits = default(List<CampaignStoreBudgetLimitConfig>))
+        public CampaignStoreBudget(long id = default(long), DateTime created = default(DateTime), long campaignId = default(long), long storeId = default(long), List<CampaignStoreBudgetLimitConfig> limits = default(List<CampaignStoreBudgetLimitConfig>))
         {
             this.Id = id;
             this.Created = created;
@@ -59,7 +59,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -73,14 +73,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that owns this entity.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The ID of the store.
         /// </summary>
         /// <value>The ID of the store.</value>
         [DataMember(Name="storeId", EmitDefaultValue=false)]
-        public int StoreId { get; set; }
+        public long StoreId { get; set; }
 
         /// <summary>
         /// The set of budget limits for stores linked to the campaign.

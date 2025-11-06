@@ -58,22 +58,6 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'Type'
-        /// </summary>
-        [Fact]
-        public void TypeTest()
-        {
-            // TODO unit test for the property 'Type'
-        }
-        /// <summary>
-        /// Test the property 'QueryParams'
-        /// </summary>
-        [Fact]
-        public void QueryParamsTest()
-        {
-            // TODO unit test for the property 'QueryParams'
-        }
-        /// <summary>
         /// Test the property 'Headers'
         /// </summary>
         [Fact]
@@ -104,6 +88,22 @@ namespace TalonOne.Test
         public void PayloadTest()
         {
             // TODO unit test for the property 'Payload'
+        }
+        /// <summary>
+        /// Test the property 'Params'
+        /// </summary>
+        [Fact]
+        public void ParamsTest()
+        {
+            // TODO unit test for the property 'Params'
+        }
+        /// <summary>
+        /// Test the property 'ApplicationIds'
+        /// </summary>
+        [Fact]
+        public void ApplicationIdsTest()
+        {
+            // TODO unit test for the property 'ApplicationIds'
         }
 
     }

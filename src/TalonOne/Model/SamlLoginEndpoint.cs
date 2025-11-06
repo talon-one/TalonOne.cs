@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="id">ID of the SAML login endpoint. (required).</param>
         /// <param name="name">ID of the SAML service. (required).</param>
         /// <param name="loginURL">The single sign-on URL. (required).</param>
-        public SamlLoginEndpoint(int id = default(int), string name = default(string), string loginURL = default(string))
+        public SamlLoginEndpoint(long id = default(long), string name = default(string), string loginURL = default(string))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the SAML login endpoint.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// ID of the SAML service.

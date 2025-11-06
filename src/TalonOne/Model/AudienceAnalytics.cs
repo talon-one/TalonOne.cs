@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="audienceId">The ID of the audience..</param>
         /// <param name="membersCount">The member count of the audience..</param>
-        public AudienceAnalytics(int audienceId = default(int), int membersCount = default(int))
+        public AudienceAnalytics(long audienceId = default(long), long membersCount = default(long))
         {
             this.AudienceId = audienceId;
             this.MembersCount = membersCount;
@@ -47,14 +47,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the audience.</value>
         [DataMember(Name="audienceId", EmitDefaultValue=false)]
-        public int AudienceId { get; set; }
+        public long AudienceId { get; set; }
 
         /// <summary>
         /// The member count of the audience.
         /// </summary>
         /// <value>The member count of the audience.</value>
         [DataMember(Name="membersCount", EmitDefaultValue=false)]
-        public int MembersCount { get; set; }
+        public long MembersCount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

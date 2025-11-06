@@ -56,6 +56,18 @@ namespace TalonOne.Test
 
         
         /// <summary>
+        /// Test BestPriorPrice
+        /// </summary>
+        [Fact]
+        public void BestPriorPriceTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //BestPriorPriceRequest body = null;
+            //var response = instance.BestPriorPrice(body);
+            //Assert.IsType<List<BestPriorPrice>> (response, "response is List<BestPriorPrice>");
+        }
+        
+        /// <summary>
         /// Test CreateAudienceV2
         /// </summary>
         [Fact]
@@ -276,9 +288,12 @@ namespace TalonOne.Test
             //string loyaltyCardId = null;
             //string status = null;
             //List<string> subledgerId = null;
+            //List<string> customerSessionIDs = null;
+            //List<string> transactionUUIDs = null;
             //long? pageSize = null;
             //long? skip = null;
-            //var response = instance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, pageSize, skip);
+            //string sort = null;
+            //var response = instance.GetLoyaltyCardPoints(loyaltyProgramId, loyaltyCardId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
             //Assert.IsType<InlineResponse2005> (response, "response is InlineResponse2005");
         }
         
@@ -295,9 +310,11 @@ namespace TalonOne.Test
             //string loyaltyTransactionType = null;
             //DateTime? startDate = null;
             //DateTime? endDate = null;
+            //List<string> customerSessionIDs = null;
+            //List<string> transactionUUIDs = null;
             //long? pageSize = null;
             //long? skip = null;
-            //var response = instance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
+            //var response = instance.GetLoyaltyCardTransactions(loyaltyProgramId, loyaltyCardId, subledgerId, loyaltyTransactionType, startDate, endDate, customerSessionIDs, transactionUUIDs, pageSize, skip);
             //Assert.IsType<InlineResponse2003> (response, "response is InlineResponse2003");
         }
         
@@ -312,9 +329,12 @@ namespace TalonOne.Test
             //string integrationId = null;
             //string status = null;
             //string subledgerId = null;
+            //List<string> customerSessionIDs = null;
+            //List<string> transactionUUIDs = null;
             //long? pageSize = null;
             //long? skip = null;
-            //var response = instance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, pageSize, skip);
+            //string sort = null;
+            //var response = instance.GetLoyaltyProgramProfilePoints(loyaltyProgramId, integrationId, status, subledgerId, customerSessionIDs, transactionUUIDs, pageSize, skip, sort);
             //Assert.IsType<InlineResponse2006> (response, "response is InlineResponse2006");
         }
         
@@ -327,13 +347,15 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //long loyaltyProgramId = null;
             //string integrationId = null;
+            //List<string> customerSessionIDs = null;
+            //List<string> transactionUUIDs = null;
             //string subledgerId = null;
             //string loyaltyTransactionType = null;
             //DateTime? startDate = null;
             //DateTime? endDate = null;
             //long? pageSize = null;
             //long? skip = null;
-            //var response = instance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
+            //var response = instance.GetLoyaltyProgramProfileTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip);
             //Assert.IsType<InlineResponse2004> (response, "response is InlineResponse2004");
         }
         

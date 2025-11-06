@@ -84,7 +84,7 @@ namespace TalonOne.Model
         /// <param name="campaignsActiveCount">The current number of active Campaigns in your account. (required).</param>
         /// <param name="campaignsInactiveCount">The current number of inactive Campaigns in your account. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign..</param>
-        public Account(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string companyName = default(string), string domainName = default(string), StateEnum state = default(StateEnum), string billingEmail = default(string), string planName = default(string), DateTime planExpires = default(DateTime), int applicationLimit = default(int), int userLimit = default(int), int campaignLimit = default(int), int apiLimit = default(int), int applicationCount = default(int), int userCount = default(int), int campaignsActiveCount = default(int), int campaignsInactiveCount = default(int), Object attributes = default(Object))
+        public Account(long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime), string companyName = default(string), string domainName = default(string), StateEnum state = default(StateEnum), string billingEmail = default(string), string planName = default(string), DateTime planExpires = default(DateTime), long applicationLimit = default(long), long userLimit = default(long), long campaignLimit = default(long), long apiLimit = default(long), long applicationCount = default(long), long userCount = default(long), long campaignsActiveCount = default(long), long campaignsInactiveCount = default(long), Object attributes = default(Object))
         {
             this.Id = id;
             this.Created = created;
@@ -114,7 +114,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -169,56 +169,56 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The maximum number of Applications covered by your plan.</value>
         [DataMember(Name="applicationLimit", EmitDefaultValue=false)]
-        public int ApplicationLimit { get; set; }
+        public long ApplicationLimit { get; set; }
 
         /// <summary>
         /// The maximum number of Campaign Manager Users covered by your plan.
         /// </summary>
         /// <value>The maximum number of Campaign Manager Users covered by your plan.</value>
         [DataMember(Name="userLimit", EmitDefaultValue=false)]
-        public int UserLimit { get; set; }
+        public long UserLimit { get; set; }
 
         /// <summary>
         /// The maximum number of Campaigns covered by your plan.
         /// </summary>
         /// <value>The maximum number of Campaigns covered by your plan.</value>
         [DataMember(Name="campaignLimit", EmitDefaultValue=false)]
-        public int CampaignLimit { get; set; }
+        public long CampaignLimit { get; set; }
 
         /// <summary>
         /// The maximum number of Integration API calls covered by your plan per billing period.
         /// </summary>
         /// <value>The maximum number of Integration API calls covered by your plan per billing period.</value>
         [DataMember(Name="apiLimit", EmitDefaultValue=false)]
-        public int ApiLimit { get; set; }
+        public long ApiLimit { get; set; }
 
         /// <summary>
         /// The current number of Applications in your account.
         /// </summary>
         /// <value>The current number of Applications in your account.</value>
         [DataMember(Name="applicationCount", EmitDefaultValue=false)]
-        public int ApplicationCount { get; set; }
+        public long ApplicationCount { get; set; }
 
         /// <summary>
         /// The current number of Campaign Manager Users in your account.
         /// </summary>
         /// <value>The current number of Campaign Manager Users in your account.</value>
         [DataMember(Name="userCount", EmitDefaultValue=false)]
-        public int UserCount { get; set; }
+        public long UserCount { get; set; }
 
         /// <summary>
         /// The current number of active Campaigns in your account.
         /// </summary>
         /// <value>The current number of active Campaigns in your account.</value>
         [DataMember(Name="campaignsActiveCount", EmitDefaultValue=false)]
-        public int CampaignsActiveCount { get; set; }
+        public long CampaignsActiveCount { get; set; }
 
         /// <summary>
         /// The current number of inactive Campaigns in your account.
         /// </summary>
         /// <value>The current number of inactive Campaigns in your account.</value>
         [DataMember(Name="campaignsInactiveCount", EmitDefaultValue=false)]
-        public int CampaignsInactiveCount { get; set; }
+        public long CampaignsInactiveCount { get; set; }
 
         /// <summary>
         /// Arbitrary properties associated with this campaign.

@@ -93,7 +93,7 @@ namespace TalonOne.Model
         /// <param name="totalDiscounts">The total sum of the discounts applied to this session.  **Note:** If more than one session is returned, this value is displayed as &#x60;0&#x60;.  (required).</param>
         /// <param name="total">The total sum of the session before any discounts applied. (required).</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
-        public ApplicationSession(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), string storeIntegrationId = default(string), int applicationId = default(int), int profileId = default(int), string profileintegrationid = default(string), string coupon = default(string), string referral = default(string), StateEnum state = default(StateEnum), List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), decimal totalDiscounts = default(decimal), decimal total = default(decimal), Object attributes = default(Object))
+        public ApplicationSession(long id = default(long), DateTime created = default(DateTime), string integrationId = default(string), string storeIntegrationId = default(string), long applicationId = default(long), long profileId = default(long), string profileintegrationid = default(string), string coupon = default(string), string referral = default(string), StateEnum state = default(StateEnum), List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), decimal totalDiscounts = default(decimal), decimal total = default(decimal), Object attributes = default(Object))
         {
             this.Id = id;
             this.Created = created;
@@ -122,7 +122,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -150,14 +150,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The globally unique Talon.One ID of the customer that created this entity.
         /// </summary>
         /// <value>The globally unique Talon.One ID of the customer that created this entity.</value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
-        public int ProfileId { get; set; }
+        public long ProfileId { get; set; }
 
         /// <summary>
         /// Integration ID of the customer for the session.

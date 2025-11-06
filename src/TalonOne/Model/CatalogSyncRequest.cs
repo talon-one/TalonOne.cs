@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="actions">actions (required).</param>
         /// <param name="version">The version number of the catalog to apply the actions on..</param>
-        public CatalogSyncRequest(List<CatalogAction> actions = default(List<CatalogAction>), int version = default(int))
+        public CatalogSyncRequest(List<CatalogAction> actions = default(List<CatalogAction>), long version = default(long))
         {
             // to ensure "actions" is required (not null)
             this.Actions = actions ?? throw new ArgumentNullException("actions is a required property for CatalogSyncRequest and cannot be null");
@@ -59,7 +59,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The version number of the catalog to apply the actions on.</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int Version { get; set; }
+        public long Version { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -140,8 +140,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Version (int) minimum
-            if(this.Version < (int)1)
+            // Version (long) minimum
+            if(this.Version < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 1.", new [] { "Version" });
             }

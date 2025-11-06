@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="reservationLimit">The number of reservations that can be made with this coupon code. .</param>
         /// <param name="isReservationMandatory">An indication of whether the code can be redeemed only if it has been reserved first. (default to false).</param>
-        public CampaignTemplateCouponReservationSettings(int reservationLimit = default(int), bool isReservationMandatory = false)
+        public CampaignTemplateCouponReservationSettings(long reservationLimit = default(long), bool isReservationMandatory = false)
         {
             this.ReservationLimit = reservationLimit;
             this.IsReservationMandatory = isReservationMandatory;
@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of reservations that can be made with this coupon code. </value>
         [DataMember(Name="reservationLimit", EmitDefaultValue=false)]
-        public int ReservationLimit { get; set; }
+        public long ReservationLimit { get; set; }
 
         /// <summary>
         /// An indication of whether the code can be redeemed only if it has been reserved first.
@@ -132,14 +132,14 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ReservationLimit (int) maximum
-            if(this.ReservationLimit > (int)999999)
+            // ReservationLimit (long) maximum
+            if(this.ReservationLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReservationLimit, must be a value less than or equal to 999999.", new [] { "ReservationLimit" });
             }
 
-            // ReservationLimit (int) minimum
-            if(this.ReservationLimit < (int)0)
+            // ReservationLimit (long) minimum
+            if(this.ReservationLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReservationLimit, must be a value greater than or equal to 0.", new [] { "ReservationLimit" });
             }

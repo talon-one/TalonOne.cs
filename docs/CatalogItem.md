@@ -3,12 +3,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The internal ID of this entity. | 
+**Id** | **long** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **Sku** | **string** | The stock keeping unit of the item. | 
 **Price** | **decimal** | Price of the item. | [optional] 
-**Catalogid** | **int** | The ID of the catalog the item belongs to. | 
-**Version** | **int** | The version of the catalog item. | 
+**Catalogid** | **long** | The ID of the catalog the item belongs to. | 
+**Version** | **long** | The version of the catalog item. | 
 **Attributes** | [**List&lt;ItemAttribute&gt;**](ItemAttribute.md) |  | [optional] 
 **Product** | [**Product**](Product.md) |  | [optional] 
 

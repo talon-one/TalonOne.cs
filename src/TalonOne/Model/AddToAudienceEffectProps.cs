@@ -38,7 +38,7 @@ namespace TalonOne.Model
         /// <param name="audienceName">The name of the audience..</param>
         /// <param name="profileIntegrationId">The ID of the customer profile in the third-party integration platform..</param>
         /// <param name="profileId">The internal ID of the customer profile..</param>
-        public AddToAudienceEffectProps(int audienceId = default(int), string audienceName = default(string), string profileIntegrationId = default(string), int profileId = default(int))
+        public AddToAudienceEffectProps(long audienceId = default(long), string audienceName = default(string), string profileIntegrationId = default(string), long profileId = default(long))
         {
             this.AudienceId = audienceId;
             this.AudienceName = audienceName;
@@ -51,7 +51,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the audience.</value>
         [DataMember(Name="audienceId", EmitDefaultValue=false)]
-        public int AudienceId { get; set; }
+        public long AudienceId { get; set; }
 
         /// <summary>
         /// The name of the audience.
@@ -72,7 +72,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the customer profile.</value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
-        public int ProfileId { get; set; }
+        public long ProfileId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

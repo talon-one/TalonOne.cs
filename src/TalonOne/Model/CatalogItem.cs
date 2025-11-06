@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="version">The version of the catalog item. (required).</param>
         /// <param name="attributes">attributes.</param>
         /// <param name="product">product.</param>
-        public CatalogItem(int id = default(int), DateTime created = default(DateTime), string sku = default(string), decimal price = default(decimal), int catalogid = default(int), int version = default(int), List<ItemAttribute> attributes = default(List<ItemAttribute>), Product product = default(Product))
+        public CatalogItem(long id = default(long), DateTime created = default(DateTime), string sku = default(string), decimal price = default(decimal), long catalogid = default(long), long version = default(long), List<ItemAttribute> attributes = default(List<ItemAttribute>), Product product = default(Product))
         {
             this.Id = id;
             this.Created = created;
@@ -65,7 +65,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -93,14 +93,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the catalog the item belongs to.</value>
         [DataMember(Name="catalogid", EmitDefaultValue=false)]
-        public int Catalogid { get; set; }
+        public long Catalogid { get; set; }
 
         /// <summary>
         /// The version of the catalog item.
         /// </summary>
         /// <value>The version of the catalog item.</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int Version { get; set; }
+        public long Version { get; set; }
 
         /// <summary>
         /// Gets or Sets Attributes
@@ -235,8 +235,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Version (int) minimum
-            if(this.Version < (int)1)
+            // Version (long) minimum
+            if(this.Version < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 1.", new [] { "Version" });
             }

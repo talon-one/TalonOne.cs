@@ -4,7 +4,7 @@ The properties specific to the \"rollbackDeductedLoyaltyPoints\" effect. This ef
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProgramId** | **int** | The ID of the loyalty program where these points were reimbursed. | 
+**ProgramId** | **long** | The ID of the loyalty program where these points were reimbursed. | 
 **SubLedgerId** | **string** | The ID of the subledger within the loyalty program where these points were reimbursed. | 
 **Value** | **decimal** | The amount of reimbursed points that were added. | 
 **RecipientIntegrationId** | **string** | The user for whom these points were reimbursed. | 

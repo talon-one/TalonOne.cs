@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="id">The internal ID of the tier. (required).</param>
         /// <param name="name">The name of the tier..</param>
         /// <param name="minPoints">The minimum amount of points required to enter the tier..</param>
-        public UpdateLoyaltyProgramTier(int id = default(int), string name = default(string), decimal minPoints = default(decimal))
+        public UpdateLoyaltyProgramTier(long id = default(long), string name = default(string), decimal minPoints = default(decimal))
         {
             this.Id = id;
             this.Name = name;
@@ -54,7 +54,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the tier.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The name of the tier.

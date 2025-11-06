@@ -92,7 +92,7 @@ namespace TalonOne.Model
         /// <param name="method">API method for this webhook. (required).</param>
         /// <param name="relativeUrl">The relative URL corresponding to each integration template. (required).</param>
         /// <param name="headers">The list of HTTP headers for this integration template. (required).</param>
-        public OutgoingIntegrationTemplate(int id = default(int), int integrationType = default(int), string title = default(string), string description = default(string), string payload = default(string), MethodEnum method = default(MethodEnum), string relativeUrl = default(string), List<string> headers = default(List<string>))
+        public OutgoingIntegrationTemplate(long id = default(long), long integrationType = default(long), string title = default(string), string description = default(string), string payload = default(string), MethodEnum method = default(MethodEnum), string relativeUrl = default(string), List<string> headers = default(List<string>))
         {
             this.Id = id;
             this.IntegrationType = integrationType;
@@ -114,14 +114,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Unique ID for this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Unique ID of outgoing integration type.
         /// </summary>
         /// <value>Unique ID of outgoing integration type.</value>
         [DataMember(Name="integrationType", EmitDefaultValue=false)]
-        public int IntegrationType { get; set; }
+        public long IntegrationType { get; set; }
 
         /// <summary>
         /// The title of the integration template.

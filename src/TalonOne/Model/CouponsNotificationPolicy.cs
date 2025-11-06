@@ -81,8 +81,8 @@ namespace TalonOne.Model
         /// <param name="scopes">scopes (required).</param>
         /// <param name="batchingEnabled">Indicates whether batching is activated. (default to true).</param>
         /// <param name="includeData">Indicates whether to include all generated coupons. If &#x60;false&#x60;, only the &#x60;batchId&#x60; of the generated coupons is included..</param>
-        /// <param name="batchSize">The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;..</param>
-        public CouponsNotificationPolicy(string name = default(string), List<ScopesEnum> scopes = default(List<ScopesEnum>), bool batchingEnabled = true, bool includeData = default(bool), int batchSize = default(int))
+        /// <param name="batchSize">The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;. (default to 1000).</param>
+        public CouponsNotificationPolicy(string name = default(string), List<ScopesEnum> scopes = default(List<ScopesEnum>), bool batchingEnabled = true, bool includeData = default(bool), long batchSize = 1000)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CouponsNotificationPolicy and cannot be null");
@@ -119,7 +119,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;.</value>
         [DataMember(Name="batchSize", EmitDefaultValue=false)]
-        public int BatchSize { get; set; }
+        public long BatchSize { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -137,6 +137,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'EndDate'
         }
+        /// <summary>
+        /// Test the property 'AllowRollbackAfterCompletion'
+        /// </summary>
+        [Fact]
+        public void AllowRollbackAfterCompletionTest()
+        {
+            // TODO unit test for the property 'AllowRollbackAfterCompletion'
+        }
 
     }
 

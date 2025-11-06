@@ -67,7 +67,8 @@ namespace TalonOne.Model
         /// <param name="totalBatches">The total number of batches for the notification. (required).</param>
         /// <param name="trigger">trigger (required).</param>
         /// <param name="changedItems">changedItems (required).</param>
-        public StrikethroughLabelingNotification(VersionEnum? version = default(VersionEnum?), DateTime validFrom = default(DateTime), int applicationId = default(int), int currentBatch = default(int), int totalBatches = default(int), StrikethroughTrigger trigger = default(StrikethroughTrigger), List<StrikethroughChangedItem> changedItems = default(List<StrikethroughChangedItem>))
+        /// <param name="notificationType">The type of the notification (required).</param>
+        public StrikethroughLabelingNotification(VersionEnum? version = default(VersionEnum?), DateTime validFrom = default(DateTime), long applicationId = default(long), long currentBatch = default(long), long totalBatches = default(long), StrikethroughTrigger trigger = default(StrikethroughTrigger), List<StrikethroughChangedItem> changedItems = default(List<StrikethroughChangedItem>), string notificationType = default(string))
         {
             this.ApplicationId = applicationId;
             this.CurrentBatch = currentBatch;
@@ -76,6 +77,8 @@ namespace TalonOne.Model
             this.Trigger = trigger ?? throw new ArgumentNullException("trigger is a required property for StrikethroughLabelingNotification and cannot be null");
             // to ensure "changedItems" is required (not null)
             this.ChangedItems = changedItems ?? throw new ArgumentNullException("changedItems is a required property for StrikethroughLabelingNotification and cannot be null");
+            // to ensure "notificationType" is required (not null)
+            this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for StrikethroughLabelingNotification and cannot be null");
             this.Version = version;
             this.ValidFrom = validFrom;
         }
@@ -92,21 +95,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application to which the catalog items labels belongs.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The batch number of the notification. Notifications might be sent in different batches.
         /// </summary>
         /// <value>The batch number of the notification. Notifications might be sent in different batches.</value>
         [DataMember(Name="currentBatch", EmitDefaultValue=false)]
-        public int CurrentBatch { get; set; }
+        public long CurrentBatch { get; set; }
 
         /// <summary>
         /// The total number of batches for the notification.
         /// </summary>
         /// <value>The total number of batches for the notification.</value>
         [DataMember(Name="totalBatches", EmitDefaultValue=false)]
-        public int TotalBatches { get; set; }
+        public long TotalBatches { get; set; }
 
         /// <summary>
         /// Gets or Sets Trigger
@@ -119,6 +122,13 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="changedItems", EmitDefaultValue=false)]
         public List<StrikethroughChangedItem> ChangedItems { get; set; }
+
+        /// <summary>
+        /// The type of the notification
+        /// </summary>
+        /// <value>The type of the notification</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public string NotificationType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -135,6 +145,7 @@ namespace TalonOne.Model
             sb.Append("  TotalBatches: ").Append(TotalBatches).Append("\n");
             sb.Append("  Trigger: ").Append(Trigger).Append("\n");
             sb.Append("  ChangedItems: ").Append(ChangedItems).Append("\n");
+            sb.Append("  NotificationType: ").Append(NotificationType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +211,11 @@ namespace TalonOne.Model
                     this.ChangedItems != null &&
                     input.ChangedItems != null &&
                     this.ChangedItems.SequenceEqual(input.ChangedItems)
+                ) && 
+                (
+                    this.NotificationType == input.NotificationType ||
+                    (this.NotificationType != null &&
+                    this.NotificationType.Equals(input.NotificationType))
                 );
         }
 
@@ -222,6 +238,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Trigger.GetHashCode();
                 if (this.ChangedItems != null)
                     hashCode = hashCode * 59 + this.ChangedItems.GetHashCode();
+                if (this.NotificationType != null)
+                    hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
                 return hashCode;
             }
         }

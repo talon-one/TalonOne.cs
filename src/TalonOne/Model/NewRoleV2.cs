@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="description">Description of the role. (required).</param>
         /// <param name="permissions">permissions.</param>
         /// <param name="members">A list of user IDs the role is assigned to..</param>
-        public NewRoleV2(string name = default(string), string description = default(string), RoleV2Permissions permissions = default(RoleV2Permissions), List<int> members = default(List<int>))
+        public NewRoleV2(string name = default(string), string description = default(string), RoleV2Permissions permissions = default(RoleV2Permissions), List<long> members = default(List<long>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewRoleV2 and cannot be null");
@@ -78,7 +78,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of user IDs the role is assigned to.</value>
         [DataMember(Name="members", EmitDefaultValue=false)]
-        public List<int> Members { get; set; }
+        public List<long> Members { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

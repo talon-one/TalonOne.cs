@@ -43,12 +43,12 @@ namespace TalonOne.Model
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="accountId">The ID of the account that owns this price type..</param>
         /// <param name="name">The API name of the price type. This is an immutable value. (required).</param>
-        /// <param name="title">The title of the price type. (required).</param>
-        /// <param name="description">The description of the price type..</param>
+        /// <param name="title">The name displayed in the Campaign Manager for the price type. (required).</param>
+        /// <param name="description">A description of the price type..</param>
         /// <param name="modified">The date and time when the price type was last modified. (required).</param>
         /// <param name="subscribedCatalogsIds">A list of the IDs of the catalogs that are subscribed to this price type. (required).</param>
-        /// <param name="targetedAudiencesIds">A list of the IDs of the audiences that are targeted by this price type. (required).</param>
-        public PriceType(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), string name = default(string), string title = default(string), string description = default(string), DateTime modified = default(DateTime), List<int> subscribedCatalogsIds = default(List<int>), List<int> targetedAudiencesIds = default(List<int>))
+        /// <param name="targetedAudiencesIds">A list of the IDs of the audiences targeted by this price type. (required).</param>
+        public PriceType(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), string name = default(string), string title = default(string), string description = default(string), DateTime modified = default(DateTime), List<long> subscribedCatalogsIds = default(List<long>), List<long> targetedAudiencesIds = default(List<long>))
         {
             this.Id = id;
             this.Created = created;
@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -84,7 +84,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this price type.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The API name of the price type. This is an immutable value.
@@ -94,16 +94,16 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The title of the price type.
+        /// The name displayed in the Campaign Manager for the price type.
         /// </summary>
-        /// <value>The title of the price type.</value>
+        /// <value>The name displayed in the Campaign Manager for the price type.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// The description of the price type.
+        /// A description of the price type.
         /// </summary>
-        /// <value>The description of the price type.</value>
+        /// <value>A description of the price type.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
@@ -119,14 +119,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the catalogs that are subscribed to this price type.</value>
         [DataMember(Name="subscribedCatalogsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedCatalogsIds { get; set; }
+        public List<long> SubscribedCatalogsIds { get; set; }
 
         /// <summary>
-        /// A list of the IDs of the audiences that are targeted by this price type.
+        /// A list of the IDs of the audiences targeted by this price type.
         /// </summary>
-        /// <value>A list of the IDs of the audiences that are targeted by this price type.</value>
+        /// <value>A list of the IDs of the audiences targeted by this price type.</value>
         [DataMember(Name="targetedAudiencesIds", EmitDefaultValue=false)]
-        public List<int> TargetedAudiencesIds { get; set; }
+        public List<long> TargetedAudiencesIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

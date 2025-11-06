@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// <param name="applicationId">The ID of the Application that owns this entity..</param>
         /// <param name="campaignId">The ID of the campaign that owns this entity..</param>
         /// <param name="payload">The content of the collection..</param>
-        public CampaignCollection(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), DateTime modified = default(DateTime), string description = default(string), string name = default(string), int modifiedBy = default(int), int createdBy = default(int), int applicationId = default(int), int campaignId = default(int), List<string> payload = default(List<string>))
+        public CampaignCollection(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), DateTime modified = default(DateTime), string description = default(string), string name = default(string), long modifiedBy = default(long), long createdBy = default(long), long applicationId = default(long), long campaignId = default(long), List<string> payload = default(List<string>))
         {
             this.Id = id;
             this.Created = created;
@@ -71,7 +71,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -85,7 +85,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The time this entity was last modified.
@@ -113,28 +113,28 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the user who last updated this effect if available.</value>
         [DataMember(Name="modifiedBy", EmitDefaultValue=false)]
-        public int ModifiedBy { get; set; }
+        public long ModifiedBy { get; set; }
 
         /// <summary>
         /// ID of the user who created this effect.
         /// </summary>
         /// <value>ID of the user who created this effect.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// The ID of the Application that owns this entity.
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The ID of the campaign that owns this entity.
         /// </summary>
         /// <value>The ID of the campaign that owns this entity.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The content of the collection.

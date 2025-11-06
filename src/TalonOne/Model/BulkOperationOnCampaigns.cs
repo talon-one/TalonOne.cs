@@ -75,7 +75,7 @@ namespace TalonOne.Model
         /// <param name="operation">The operation to perform on the specified campaign IDs.  (required).</param>
         /// <param name="campaignIds">The list of campaign IDs on which the operation will be performed. (required).</param>
         /// <param name="activateAt">Timestamp when the revisions are finalized after the &#x60;activate_revision&#x60; operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string. .</param>
-        public BulkOperationOnCampaigns(OperationEnum operation = default(OperationEnum), List<int> campaignIds = default(List<int>), DateTime activateAt = default(DateTime))
+        public BulkOperationOnCampaigns(OperationEnum operation = default(OperationEnum), List<long> campaignIds = default(List<long>), DateTime activateAt = default(DateTime))
         {
             this.Operation = operation;
             // to ensure "campaignIds" is required (not null)
@@ -88,7 +88,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The list of campaign IDs on which the operation will be performed.</value>
         [DataMember(Name="campaignIds", EmitDefaultValue=false)]
-        public List<int> CampaignIds { get; set; }
+        public List<long> CampaignIds { get; set; }
 
         /// <summary>
         /// Timestamp when the revisions are finalized after the &#x60;activate_revision&#x60; operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string. 

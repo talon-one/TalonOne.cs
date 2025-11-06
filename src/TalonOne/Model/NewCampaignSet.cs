@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="version">Version of the campaign set. (required).</param>
         /// <param name="set">set (required).</param>
-        public NewCampaignSet(int applicationId = default(int), int version = default(int), CampaignSetBranchNode set = default(CampaignSetBranchNode))
+        public NewCampaignSet(long applicationId = default(long), long version = default(long), CampaignSetBranchNode set = default(CampaignSetBranchNode))
         {
             this.ApplicationId = applicationId;
             this.Version = version;
@@ -55,14 +55,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Version of the campaign set.
         /// </summary>
         /// <value>Version of the campaign set.</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int Version { get; set; }
+        public long Version { get; set; }
 
         /// <summary>
         /// Gets or Sets Set
@@ -154,8 +154,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Version (int) minimum
-            if(this.Version < (int)1)
+            // Version (long) minimum
+            if(this.Version < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 1.", new [] { "Version" });
             }

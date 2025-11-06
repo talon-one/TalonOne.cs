@@ -98,6 +98,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'TotalExpiredPoints'
         }
         /// <summary>
+        /// Test the property 'TotalNegativePoints'
+        /// </summary>
+        [Fact]
+        public void TotalNegativePointsTest()
+        {
+            // TODO unit test for the property 'TotalNegativePoints'
+        }
+        /// <summary>
         /// Test the property 'TotalMembers'
         /// </summary>
         [Fact]

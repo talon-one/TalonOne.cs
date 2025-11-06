@@ -48,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="description">Description of the role..</param>
         /// <param name="members">A list of user identifiers assigned to this role..</param>
         /// <param name="acl">The &#x60;Access Control List&#x60; json defining the role of the user. This represents the access control on the user level. (required).</param>
-        public Role(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), int campaignGroupID = default(int), string name = default(string), string description = default(string), List<int> members = default(List<int>), Object acl = default(Object))
+        public Role(long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime), long accountId = default(long), long campaignGroupID = default(long), string name = default(string), string description = default(string), List<long> members = default(List<long>), Object acl = default(Object))
         {
             this.Id = id;
             this.Created = created;
@@ -68,7 +68,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -89,14 +89,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this role was created for. 
         /// </summary>
         /// <value>The ID of the [Campaign Group](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this role was created for. </value>
         [DataMember(Name="campaignGroupID", EmitDefaultValue=false)]
-        public int CampaignGroupID { get; set; }
+        public long CampaignGroupID { get; set; }
 
         /// <summary>
         /// Name of the role.
@@ -117,7 +117,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of user identifiers assigned to this role.</value>
         [DataMember(Name="members", EmitDefaultValue=false)]
-        public List<int> Members { get; set; }
+        public List<long> Members { get; set; }
 
         /// <summary>
         /// The &#x60;Access Control List&#x60; json defining the role of the user. This represents the access control on the user level.

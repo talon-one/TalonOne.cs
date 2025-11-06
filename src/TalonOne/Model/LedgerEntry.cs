@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// <param name="reason">reason for awarding/deducting points. (required).</param>
         /// <param name="expiryDate">Expiration date of the points. (required).</param>
         /// <param name="referenceId">The ID of the balancing ledgerEntry..</param>
-        public LedgerEntry(int id = default(int), DateTime created = default(DateTime), string profileId = default(string), int accountId = default(int), int loyaltyProgramId = default(int), int eventId = default(int), int amount = default(int), string reason = default(string), DateTime expiryDate = default(DateTime), int referenceId = default(int))
+        public LedgerEntry(long id = default(long), DateTime created = default(DateTime), string profileId = default(string), long accountId = default(long), long loyaltyProgramId = default(long), long eventId = default(long), long amount = default(long), string reason = default(string), DateTime expiryDate = default(DateTime), long referenceId = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -91,28 +91,28 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Talon.One account that owns this profile.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// ID of the ledger.
         /// </summary>
         /// <value>ID of the ledger.</value>
         [DataMember(Name="loyaltyProgramId", EmitDefaultValue=false)]
-        public int LoyaltyProgramId { get; set; }
+        public long LoyaltyProgramId { get; set; }
 
         /// <summary>
         /// ID of the related event.
         /// </summary>
         /// <value>ID of the related event.</value>
         [DataMember(Name="eventId", EmitDefaultValue=false)]
-        public int EventId { get; set; }
+        public long EventId { get; set; }
 
         /// <summary>
         /// Amount of loyalty points.
         /// </summary>
         /// <value>Amount of loyalty points.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public int Amount { get; set; }
+        public long Amount { get; set; }
 
         /// <summary>
         /// reason for awarding/deducting points.
@@ -133,7 +133,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the balancing ledgerEntry.</value>
         [DataMember(Name="referenceId", EmitDefaultValue=false)]
-        public int ReferenceId { get; set; }
+        public long ReferenceId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

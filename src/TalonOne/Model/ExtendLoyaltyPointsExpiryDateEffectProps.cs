@@ -42,17 +42,15 @@ namespace TalonOne.Model
         /// <param name="programId">ID of the loyalty program that contains these points. (required).</param>
         /// <param name="subLedgerId">API name of the loyalty program subledger that contains these points. added. (required).</param>
         /// <param name="extensionDuration">Time frame by which the expiry date extends.  The time format is either: - immediate, or - an **integer** followed by a letter indicating the time unit.  Examples: &#x60;immediate&#x60;, &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.  (required).</param>
-        /// <param name="transactionUUIDs">The list of identifiers of transactions affected affected by the extension..</param>
-        /// <param name="previousExpirationDate">Expiry date before applying the extension. (required).</param>
-        public ExtendLoyaltyPointsExpiryDateEffectProps(int programId = default(int), string subLedgerId = default(string), string extensionDuration = default(string), List<string> transactionUUIDs = default(List<string>), DateTime previousExpirationDate = default(DateTime))
+        /// <param name="affectedTransactions">List of transactions affected by the expiry date update..</param>
+        public ExtendLoyaltyPointsExpiryDateEffectProps(long programId = default(long), string subLedgerId = default(string), string extensionDuration = default(string), List<LoyaltyLedgerEntryExpiryDateChange> affectedTransactions = default(List<LoyaltyLedgerEntryExpiryDateChange>))
         {
             this.ProgramId = programId;
             // to ensure "subLedgerId" is required (not null)
             this.SubLedgerId = subLedgerId ?? throw new ArgumentNullException("subLedgerId is a required property for ExtendLoyaltyPointsExpiryDateEffectProps and cannot be null");
             // to ensure "extensionDuration" is required (not null)
             this.ExtensionDuration = extensionDuration ?? throw new ArgumentNullException("extensionDuration is a required property for ExtendLoyaltyPointsExpiryDateEffectProps and cannot be null");
-            this.PreviousExpirationDate = previousExpirationDate;
-            this.TransactionUUIDs = transactionUUIDs;
+            this.AffectedTransactions = affectedTransactions;
         }
         
         /// <summary>
@@ -60,7 +58,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the loyalty program that contains these points.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
-        public int ProgramId { get; set; }
+        public long ProgramId { get; set; }
 
         /// <summary>
         /// API name of the loyalty program subledger that contains these points. added.
@@ -77,18 +75,11 @@ namespace TalonOne.Model
         public string ExtensionDuration { get; set; }
 
         /// <summary>
-        /// The list of identifiers of transactions affected affected by the extension.
+        /// List of transactions affected by the expiry date update.
         /// </summary>
-        /// <value>The list of identifiers of transactions affected affected by the extension.</value>
-        [DataMember(Name="transactionUUIDs", EmitDefaultValue=false)]
-        public List<string> TransactionUUIDs { get; set; }
-
-        /// <summary>
-        /// Expiry date before applying the extension.
-        /// </summary>
-        /// <value>Expiry date before applying the extension.</value>
-        [DataMember(Name="previousExpirationDate", EmitDefaultValue=false)]
-        public DateTime PreviousExpirationDate { get; set; }
+        /// <value>List of transactions affected by the expiry date update.</value>
+        [DataMember(Name="affectedTransactions", EmitDefaultValue=false)]
+        public List<LoyaltyLedgerEntryExpiryDateChange> AffectedTransactions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -101,8 +92,7 @@ namespace TalonOne.Model
             sb.Append("  ProgramId: ").Append(ProgramId).Append("\n");
             sb.Append("  SubLedgerId: ").Append(SubLedgerId).Append("\n");
             sb.Append("  ExtensionDuration: ").Append(ExtensionDuration).Append("\n");
-            sb.Append("  TransactionUUIDs: ").Append(TransactionUUIDs).Append("\n");
-            sb.Append("  PreviousExpirationDate: ").Append(PreviousExpirationDate).Append("\n");
+            sb.Append("  AffectedTransactions: ").Append(AffectedTransactions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -152,15 +142,10 @@ namespace TalonOne.Model
                     this.ExtensionDuration.Equals(input.ExtensionDuration))
                 ) && 
                 (
-                    this.TransactionUUIDs == input.TransactionUUIDs ||
-                    this.TransactionUUIDs != null &&
-                    input.TransactionUUIDs != null &&
-                    this.TransactionUUIDs.SequenceEqual(input.TransactionUUIDs)
-                ) && 
-                (
-                    this.PreviousExpirationDate == input.PreviousExpirationDate ||
-                    (this.PreviousExpirationDate != null &&
-                    this.PreviousExpirationDate.Equals(input.PreviousExpirationDate))
+                    this.AffectedTransactions == input.AffectedTransactions ||
+                    this.AffectedTransactions != null &&
+                    input.AffectedTransactions != null &&
+                    this.AffectedTransactions.SequenceEqual(input.AffectedTransactions)
                 );
         }
 
@@ -178,10 +163,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.SubLedgerId.GetHashCode();
                 if (this.ExtensionDuration != null)
                     hashCode = hashCode * 59 + this.ExtensionDuration.GetHashCode();
-                if (this.TransactionUUIDs != null)
-                    hashCode = hashCode * 59 + this.TransactionUUIDs.GetHashCode();
-                if (this.PreviousExpirationDate != null)
-                    hashCode = hashCode * 59 + this.PreviousExpirationDate.GetHashCode();
+                if (this.AffectedTransactions != null)
+                    hashCode = hashCode * 59 + this.AffectedTransactions.GetHashCode();
                 return hashCode;
             }
         }

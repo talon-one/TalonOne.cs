@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="attributes">Arbitrary properties associated with this referral code..</param>
         /// <param name="validCharacters">List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. .</param>
         /// <param name="referralPattern">The pattern used to generate referrals. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set. .</param>
-        public NewReferralsForMultipleAdvocates(DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageLimit = default(int), int campaignId = default(int), List<string> advocateProfileIntegrationIds = default(List<string>), Object attributes = default(Object), List<string> validCharacters = default(List<string>), string referralPattern = default(string))
+        public NewReferralsForMultipleAdvocates(DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long usageLimit = default(long), long campaignId = default(long), List<string> advocateProfileIntegrationIds = default(List<string>), Object attributes = default(Object), List<string> validCharacters = default(List<string>), string referralPattern = default(string))
         {
             this.UsageLimit = usageLimit;
             this.CampaignId = campaignId;
@@ -79,14 +79,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times a referral code can be used. &#x60;0&#x60; means no limit but any campaign usage limits will still apply. </value>
         [DataMember(Name="usageLimit", EmitDefaultValue=false)]
-        public int UsageLimit { get; set; }
+        public long UsageLimit { get; set; }
 
         /// <summary>
         /// The ID of the campaign from which the referral received the referral code.
         /// </summary>
         /// <value>The ID of the campaign from which the referral received the referral code.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// An array containing all the respective advocate profiles.
@@ -242,14 +242,14 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // UsageLimit (int) maximum
-            if(this.UsageLimit > (int)999999)
+            // UsageLimit (long) maximum
+            if(this.UsageLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value less than or equal to 999999.", new [] { "UsageLimit" });
             }
 
-            // UsageLimit (int) minimum
-            if(this.UsageLimit < (int)0)
+            // UsageLimit (long) minimum
+            if(this.UsageLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }

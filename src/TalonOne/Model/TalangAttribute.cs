@@ -204,7 +204,7 @@ namespace TalonOne.Model
         /// <param name="kind">Indicate the kind of the attribute. (required).</param>
         /// <param name="campaignsCount">The number of campaigns that refer to the attribute. (required).</param>
         /// <param name="exampleValue">Examples of values that can be assigned to the attribute..</param>
-        public TalangAttribute(EntityEnum? entity = default(EntityEnum?), string name = default(string), string title = default(string), string type = default(string), string description = default(string), bool visible = true, KindEnum kind = default(KindEnum), int campaignsCount = default(int), List<string> exampleValue = default(List<string>))
+        public TalangAttribute(EntityEnum? entity = default(EntityEnum?), string name = default(string), string title = default(string), string type = default(string), string description = default(string), bool visible = true, KindEnum kind = default(KindEnum), long campaignsCount = default(long), List<string> exampleValue = default(List<string>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for TalangAttribute and cannot be null");
@@ -259,7 +259,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of campaigns that refer to the attribute.</value>
         [DataMember(Name="campaignsCount", EmitDefaultValue=false)]
-        public int CampaignsCount { get; set; }
+        public long CampaignsCount { get; set; }
 
         /// <summary>
         /// Examples of values that can be assigned to the attribute.

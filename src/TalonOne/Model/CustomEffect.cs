@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// <param name="_params">Array of template argument definitions..</param>
         /// <param name="modifiedBy">ID of the user who last updated this effect if available..</param>
         /// <param name="createdBy">ID of the user who created this effect. (required).</param>
-        public CustomEffect(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), DateTime modified = default(DateTime), List<int> applicationIds = default(List<int>), bool isPerItem = default(bool), string name = default(string), string title = default(string), string payload = default(string), string description = default(string), bool enabled = default(bool), List<TemplateArgDef> _params = default(List<TemplateArgDef>), int modifiedBy = default(int), int createdBy = default(int))
+        public CustomEffect(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), DateTime modified = default(DateTime), List<long> applicationIds = default(List<long>), bool isPerItem = default(bool), string name = default(string), string title = default(string), string payload = default(string), string description = default(string), bool enabled = default(bool), List<TemplateArgDef> _params = default(List<TemplateArgDef>), long modifiedBy = default(long), long createdBy = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -80,7 +80,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -94,7 +94,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The time this entity was last modified.
@@ -108,7 +108,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The IDs of the Applications that are related to this entity.</value>
         [DataMember(Name="applicationIds", EmitDefaultValue=false)]
-        public List<int> ApplicationIds { get; set; }
+        public List<long> ApplicationIds { get; set; }
 
         /// <summary>
         /// Indicates if this effect is per item or not.
@@ -164,14 +164,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the user who last updated this effect if available.</value>
         [DataMember(Name="modifiedBy", EmitDefaultValue=false)]
-        public int ModifiedBy { get; set; }
+        public long ModifiedBy { get; set; }
 
         /// <summary>
         /// ID of the user who created this effect.
         /// </summary>
         /// <value>ID of the user who created this effect.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

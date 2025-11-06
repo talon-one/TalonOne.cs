@@ -37,7 +37,7 @@ namespace TalonOne.Model
         /// <param name="maxOperations">The maximum number of individual operations that can be included in a single bulk request..</param>
         /// <param name="maxPayloadSize">The maximum size, in bytes, of the entire payload for a bulk operation request..</param>
         /// <param name="supported">Indicates whether the SCIM service provider supports bulk operations..</param>
-        public ScimServiceProviderConfigResponseBulk(int maxOperations = default(int), int maxPayloadSize = default(int), bool supported = default(bool))
+        public ScimServiceProviderConfigResponseBulk(long maxOperations = default(long), long maxPayloadSize = default(long), bool supported = default(bool))
         {
             this.MaxOperations = maxOperations;
             this.MaxPayloadSize = maxPayloadSize;
@@ -49,14 +49,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The maximum number of individual operations that can be included in a single bulk request.</value>
         [DataMember(Name="maxOperations", EmitDefaultValue=false)]
-        public int MaxOperations { get; set; }
+        public long MaxOperations { get; set; }
 
         /// <summary>
         /// The maximum size, in bytes, of the entire payload for a bulk operation request.
         /// </summary>
         /// <value>The maximum size, in bytes, of the entire payload for a bulk operation request.</value>
         [DataMember(Name="maxPayloadSize", EmitDefaultValue=false)]
-        public int MaxPayloadSize { get; set; }
+        public long MaxPayloadSize { get; set; }
 
         /// <summary>
         /// Indicates whether the SCIM service provider supports bulk operations.

@@ -91,7 +91,7 @@ namespace TalonOne.Model
         /// <param name="key">The identifier for the associated value within the JSON object..</param>
         /// <param name="picklistID">ID of the picklist linked to a template..</param>
         /// <param name="restrictedByPicklist">Whether or not this attribute&#39;s value is restricted by picklist (&#x60;picklist&#x60; property).</param>
-        public TemplateArgDef(TypeEnum type = default(TypeEnum), string description = default(string), string title = default(string), Object ui = default(Object), string key = default(string), int picklistID = default(int), bool restrictedByPicklist = default(bool))
+        public TemplateArgDef(TypeEnum type = default(TypeEnum), string description = default(string), string title = default(string), Object ui = default(Object), string key = default(string), long picklistID = default(long), bool restrictedByPicklist = default(bool))
         {
             this.Type = type;
             // to ensure "title" is required (not null)
@@ -137,7 +137,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the picklist linked to a template.</value>
         [DataMember(Name="picklistID", EmitDefaultValue=false)]
-        public int PicklistID { get; set; }
+        public long PicklistID { get; set; }
 
         /// <summary>
         /// Whether or not this attribute&#39;s value is restricted by picklist (&#x60;picklist&#x60; property)

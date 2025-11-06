@@ -55,7 +55,7 @@ namespace TalonOne.Model
         /// <param name="oldCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
         /// <param name="newCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
         /// <param name="batchId">The ID of the batch in which the loyalty card was created..</param>
-        public LoyaltyCard(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string programName = default(string), string programTitle = default(string), string status = default(string), string blockReason = default(string), string identifier = default(string), int usersPerCardLimit = default(int), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subledgers = default(Dictionary<string, LedgerInfo>), DateTime modified = default(DateTime), string oldCardIdentifier = default(string), string newCardIdentifier = default(string), string batchId = default(string))
+        public LoyaltyCard(long id = default(long), DateTime created = default(DateTime), long programID = default(long), string programName = default(string), string programTitle = default(string), string status = default(string), string blockReason = default(string), string identifier = default(string), long usersPerCardLimit = default(long), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subledgers = default(Dictionary<string, LedgerInfo>), DateTime modified = default(DateTime), string oldCardIdentifier = default(string), string newCardIdentifier = default(string), string batchId = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -82,7 +82,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -96,7 +96,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the loyalty program that owns this entity.</value>
         [DataMember(Name="programID", EmitDefaultValue=false)]
-        public int ProgramID { get; set; }
+        public long ProgramID { get; set; }
 
         /// <summary>
         /// The integration name of the loyalty program that owns this entity.
@@ -138,7 +138,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The max amount of customer profiles that can be linked to the card. 0 means unlimited. </value>
         [DataMember(Name="usersPerCardLimit", EmitDefaultValue=false)]
-        public int UsersPerCardLimit { get; set; }
+        public long UsersPerCardLimit { get; set; }
 
         /// <summary>
         /// Integration IDs of the customers profiles linked to the card.
@@ -389,8 +389,8 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Identifier, must match a pattern of " + regexIdentifier, new [] { "Identifier" });
             }
 
-            // UsersPerCardLimit (int) minimum
-            if(this.UsersPerCardLimit < (int)0)
+            // UsersPerCardLimit (long) minimum
+            if(this.UsersPerCardLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsersPerCardLimit, must be a value greater than or equal to 0.", new [] { "UsersPerCardLimit" });
             }

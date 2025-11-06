@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="endTime">Timestamp when the campaign will become inactive..</param>
         /// <param name="tags">A list of tags for the campaign..</param>
         /// <param name="evaluationGroupId">The ID of the campaign evaluation group the campaign belongs to..</param>
-        public CampaignCopy(string name = default(string), List<int> applicationIds = default(List<int>), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), List<string> tags = default(List<string>), int evaluationGroupId = default(int))
+        public CampaignCopy(string name = default(string), List<long> applicationIds = default(List<long>), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), List<string> tags = default(List<string>), long evaluationGroupId = default(long))
         {
             // to ensure "applicationIds" is required (not null)
             this.ApplicationIds = applicationIds ?? throw new ArgumentNullException("applicationIds is a required property for CampaignCopy and cannot be null");
@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Application IDs of the applications to which a campaign should be copied to.</value>
         [DataMember(Name="applicationIds", EmitDefaultValue=false)]
-        public List<int> ApplicationIds { get; set; }
+        public List<long> ApplicationIds { get; set; }
 
         /// <summary>
         /// A detailed description of the campaign.
@@ -105,7 +105,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign evaluation group the campaign belongs to.</value>
         [DataMember(Name="evaluationGroupId", EmitDefaultValue=false)]
-        public int EvaluationGroupId { get; set; }
+        public long EvaluationGroupId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

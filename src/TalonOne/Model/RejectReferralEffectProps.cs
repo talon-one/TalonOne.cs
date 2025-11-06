@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="effectIndex">The index of the effect that caused the rejection of the referral..</param>
         /// <param name="details">More details about the failure..</param>
         /// <param name="campaignExclusionReason">The reason why the campaign was not applied..</param>
-        public RejectReferralEffectProps(string value = default(string), string rejectionReason = default(string), int conditionIndex = default(int), int effectIndex = default(int), string details = default(string), string campaignExclusionReason = default(string))
+        public RejectReferralEffectProps(string value = default(string), string rejectionReason = default(string), long conditionIndex = default(long), long effectIndex = default(long), string details = default(string), string campaignExclusionReason = default(string))
         {
             // to ensure "value" is required (not null)
             this.Value = value ?? throw new ArgumentNullException("value is a required property for RejectReferralEffectProps and cannot be null");
@@ -76,14 +76,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The index of the condition that caused the rejection of the referral.</value>
         [DataMember(Name="conditionIndex", EmitDefaultValue=false)]
-        public int ConditionIndex { get; set; }
+        public long ConditionIndex { get; set; }
 
         /// <summary>
         /// The index of the effect that caused the rejection of the referral.
         /// </summary>
         /// <value>The index of the effect that caused the rejection of the referral.</value>
         [DataMember(Name="effectIndex", EmitDefaultValue=false)]
-        public int EffectIndex { get; set; }
+        public long EffectIndex { get; set; }
 
         /// <summary>
         /// More details about the failure.

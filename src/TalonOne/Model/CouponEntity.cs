@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">The internal ID of the coupon. (required).</param>
         /// <param name="created">The time the coupon was created. (required).</param>
-        public CouponEntity(int id = default(int), DateTime created = default(DateTime))
+        public CouponEntity(long id = default(long), DateTime created = default(DateTime))
         {
             this.Id = id;
             this.Created = created;
@@ -52,7 +52,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the coupon.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time the coupon was created.

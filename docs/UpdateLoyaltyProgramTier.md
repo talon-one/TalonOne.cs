@@ -4,7 +4,7 @@ Update a tier in a specified loyalty program.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The internal ID of the tier. | 
+**Id** | **long** | The internal ID of the tier. | 
 **Name** | **string** | The name of the tier. | [optional] 
 **MinPoints** | **decimal** | The minimum amount of points required to enter the tier. | [optional] 
 

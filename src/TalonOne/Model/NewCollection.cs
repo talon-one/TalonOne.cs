@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="description">A short description of the purpose of this collection..</param>
         /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications where this collection is enabled..</param>
         /// <param name="name">The name of this collection. (required).</param>
-        public NewCollection(string description = default(string), List<int> subscribedApplicationsIds = default(List<int>), string name = default(string))
+        public NewCollection(string description = default(string), List<long> subscribedApplicationsIds = default(List<long>), string name = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCollection and cannot be null");
@@ -62,7 +62,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the Applications where this collection is enabled.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// The name of this collection.

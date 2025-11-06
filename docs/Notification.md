@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | id of the notification. | 
+**Id** | **long** | id of the notification. | 
 **Name** | **string** | name of the notification. | 
 **Description** | **string** | description of the notification. | 
 

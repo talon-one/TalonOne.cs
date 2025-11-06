@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="numberOfCardsGenerated">Number of loyalty cards in the batch. (required).</param>
         /// <param name="batchId">ID of the loyalty card batch. (required).</param>
-        public LoyaltyCardBatchResponse(int numberOfCardsGenerated = default(int), string batchId = default(string))
+        public LoyaltyCardBatchResponse(long numberOfCardsGenerated = default(long), string batchId = default(string))
         {
             this.NumberOfCardsGenerated = numberOfCardsGenerated;
             // to ensure "batchId" is required (not null)
@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Number of loyalty cards in the batch.</value>
         [DataMember(Name="numberOfCardsGenerated", EmitDefaultValue=false)]
-        public int NumberOfCardsGenerated { get; set; }
+        public long NumberOfCardsGenerated { get; set; }
 
         /// <summary>
         /// ID of the loyalty card batch.

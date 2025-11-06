@@ -68,7 +68,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="amount">The amount of period. (required).</param>
         /// <param name="period">Notification period indicated by a letter; \&quot;w\&quot; means week, \&quot;d\&quot; means day. (required).</param>
-        public ExpiringCouponsNotificationTrigger(int amount = default(int), PeriodEnum period = default(PeriodEnum))
+        public ExpiringCouponsNotificationTrigger(long amount = default(long), PeriodEnum period = default(PeriodEnum))
         {
             this.Amount = amount;
             this.Period = period;
@@ -79,7 +79,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The amount of period.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public int Amount { get; set; }
+        public long Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -157,8 +157,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Amount (int) minimum
-            if(this.Amount < (int)0)
+            // Amount (long) minimum
+            if(this.Amount < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to 0.", new [] { "Amount" });
             }

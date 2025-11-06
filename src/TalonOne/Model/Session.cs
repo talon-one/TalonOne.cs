@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="userId">The ID of the user of this session. (required).</param>
         /// <param name="token">The token to use as a bearer token to query Management API endpoints. (required).</param>
         /// <param name="created">Unix timestamp indicating when the session was first created. (required).</param>
-        public Session(int userId = default(int), string token = default(string), DateTime created = default(DateTime))
+        public Session(long userId = default(long), string token = default(string), DateTime created = default(DateTime))
         {
             this.UserId = userId;
             // to ensure "token" is required (not null)
@@ -55,7 +55,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the user of this session.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The token to use as a bearer token to query Management API endpoints.

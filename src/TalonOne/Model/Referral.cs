@@ -52,7 +52,7 @@ namespace TalonOne.Model
         /// <param name="code">The referral code. (required).</param>
         /// <param name="usageCounter">The number of times this referral code has been successfully used. (required).</param>
         /// <param name="batchId">The ID of the batch the referrals belong to..</param>
-        public Referral(int id = default(int), DateTime created = default(DateTime), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageLimit = default(int), int campaignId = default(int), string advocateProfileIntegrationId = default(string), string friendProfileIntegrationId = default(string), Object attributes = default(Object), int importId = default(int), string code = default(string), int usageCounter = default(int), string batchId = default(string))
+        public Referral(long id = default(long), DateTime created = default(DateTime), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long usageLimit = default(long), long campaignId = default(long), string advocateProfileIntegrationId = default(string), string friendProfileIntegrationId = default(string), Object attributes = default(Object), long importId = default(long), string code = default(string), long usageCounter = default(long), string batchId = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -76,7 +76,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -104,14 +104,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times a referral code can be used. &#x60;0&#x60; means no limit but any campaign usage limits will still apply. </value>
         [DataMember(Name="usageLimit", EmitDefaultValue=false)]
-        public int UsageLimit { get; set; }
+        public long UsageLimit { get; set; }
 
         /// <summary>
         /// ID of the campaign from which the referral received the referral code.
         /// </summary>
         /// <value>ID of the campaign from which the referral received the referral code.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The Integration ID of the Advocate&#39;s Profile.
@@ -139,7 +139,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Import which created this referral.</value>
         [DataMember(Name="importId", EmitDefaultValue=false)]
-        public int ImportId { get; set; }
+        public long ImportId { get; set; }
 
         /// <summary>
         /// The referral code.
@@ -153,7 +153,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times this referral code has been successfully used.</value>
         [DataMember(Name="usageCounter", EmitDefaultValue=false)]
-        public int UsageCounter { get; set; }
+        public long UsageCounter { get; set; }
 
         /// <summary>
         /// The ID of the batch the referrals belong to.
@@ -320,14 +320,14 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // UsageLimit (int) maximum
-            if(this.UsageLimit > (int)999999)
+            // UsageLimit (long) maximum
+            if(this.UsageLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value less than or equal to 999999.", new [] { "UsageLimit" });
             }
 
-            // UsageLimit (int) minimum
-            if(this.UsageLimit < (int)0)
+            // UsageLimit (long) minimum
+            if(this.UsageLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }

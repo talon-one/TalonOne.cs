@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="id">id (required).</param>
         /// <param name="integrationId">integrationId (required).</param>
         /// <param name="name">name (required).</param>
-        public ListCampaignStoreBudgetsStore(int id = default(int), string integrationId = default(string), string name = default(string))
+        public ListCampaignStoreBudgetsStore(long id = default(long), string integrationId = default(string), string name = default(string))
         {
             this.Id = id;
             // to ensure "integrationId" is required (not null)
@@ -55,7 +55,7 @@ namespace TalonOne.Model
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets IntegrationId

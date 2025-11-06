@@ -40,6 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="LedgerPointsEntryIntegrationAPI" /> class.
         /// </summary>
         /// <param name="id">ID of the transaction that adds loyalty points. (required).</param>
+        /// <param name="transactionUUID">Unique identifier of the transaction in the UUID format. (required).</param>
         /// <param name="created">Date and time the loyalty points were added. (required).</param>
         /// <param name="programId">ID of the loyalty program. (required).</param>
         /// <param name="customerSessionId">ID of the customer session where points were added..</param>
@@ -48,9 +49,11 @@ namespace TalonOne.Model
         /// <param name="expiryDate">Date when points expire. Possible values are:   - &#x60;unlimited&#x60;: Points have no expiration date.   - &#x60;timestamp value&#x60;: Points expire on the given date and time.  (required).</param>
         /// <param name="subledgerId">ID of the subledger. (required).</param>
         /// <param name="amount">Amount of loyalty points added in the transaction. (required).</param>
-        public LedgerPointsEntryIntegrationAPI(int id = default(int), DateTime created = default(DateTime), int programId = default(int), string customerSessionId = default(string), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal))
+        public LedgerPointsEntryIntegrationAPI(long id = default(long), string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string customerSessionId = default(string), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal))
         {
             this.Id = id;
+            // to ensure "transactionUUID" is required (not null)
+            this.TransactionUUID = transactionUUID ?? throw new ArgumentNullException("transactionUUID is a required property for LedgerPointsEntryIntegrationAPI and cannot be null");
             this.Created = created;
             this.ProgramId = programId;
             // to ensure "name" is required (not null)
@@ -70,7 +73,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the transaction that adds loyalty points.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
+
+        /// <summary>
+        /// Unique identifier of the transaction in the UUID format.
+        /// </summary>
+        /// <value>Unique identifier of the transaction in the UUID format.</value>
+        [DataMember(Name="transactionUUID", EmitDefaultValue=false)]
+        public string TransactionUUID { get; set; }
 
         /// <summary>
         /// Date and time the loyalty points were added.
@@ -84,7 +94,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the loyalty program.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
-        public int ProgramId { get; set; }
+        public long ProgramId { get; set; }
 
         /// <summary>
         /// ID of the customer session where points were added.
@@ -137,6 +147,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class LedgerPointsEntryIntegrationAPI {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ProgramId: ").Append(ProgramId).Append("\n");
             sb.Append("  CustomerSessionId: ").Append(CustomerSessionId).Append("\n");
@@ -182,6 +193,11 @@ namespace TalonOne.Model
                 (
                     this.Id == input.Id ||
                     this.Id.Equals(input.Id)
+                ) && 
+                (
+                    this.TransactionUUID == input.TransactionUUID ||
+                    (this.TransactionUUID != null &&
+                    this.TransactionUUID.Equals(input.TransactionUUID))
                 ) && 
                 (
                     this.Created == input.Created ||
@@ -233,6 +249,8 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.TransactionUUID != null)
+                    hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.ProgramId.GetHashCode();

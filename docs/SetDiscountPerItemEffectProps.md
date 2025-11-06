@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Scope** | **string** | The scope of the discount: - &#x60;additionalCosts&#x60;: The discount applies to all the additional costs of the item. - &#x60;itemTotal&#x60;: The discount applies to the price of the item + the additional costs of the item. - &#x60;price&#x60;: The discount applies to the price of the item.  | [optional] 
 **TotalDiscount** | **decimal** | The total discount given if this effect is a result of a prorated discount. | [optional] 
 **DesiredTotalDiscount** | **decimal** | The original total discount to give if this effect is a result of a prorated discount. | [optional] 
-**BundleIndex** | **int** | The position of the bundle in a list of item bundles created from the same bundle definition. | [optional] 
+**BundleIndex** | **long** | The position of the bundle in a list of item bundles created from the same bundle definition. | [optional] 
 **BundleName** | **string** | The name of the bundle definition. | [optional] 
 **TargetedItemPosition** | **decimal** | The index of the targeted bundle item on which the applied discount is based. | [optional] 
 **TargetedItemSubPosition** | **decimal** | The sub-position of the targeted bundle item on which the applied discount is based.  | [optional] 

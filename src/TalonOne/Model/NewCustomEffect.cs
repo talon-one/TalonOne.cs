@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="description">The description of this effect..</param>
         /// <param name="enabled">Determines if this effect is active. (required).</param>
         /// <param name="_params">Array of template argument definitions..</param>
-        public NewCustomEffect(List<int> applicationIds = default(List<int>), bool isPerItem = default(bool), string name = default(string), string title = default(string), string payload = default(string), string description = default(string), bool enabled = default(bool), List<TemplateArgDef> _params = default(List<TemplateArgDef>))
+        public NewCustomEffect(List<long> applicationIds = default(List<long>), bool isPerItem = default(bool), string name = default(string), string title = default(string), string payload = default(string), string description = default(string), bool enabled = default(bool), List<TemplateArgDef> _params = default(List<TemplateArgDef>))
         {
             // to ensure "applicationIds" is required (not null)
             this.ApplicationIds = applicationIds ?? throw new ArgumentNullException("applicationIds is a required property for NewCustomEffect and cannot be null");
@@ -68,7 +68,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The IDs of the Applications that are related to this entity.</value>
         [DataMember(Name="applicationIds", EmitDefaultValue=false)]
-        public List<int> ApplicationIds { get; set; }
+        public List<long> ApplicationIds { get; set; }
 
         /// <summary>
         /// Indicates if this effect is per item or not.

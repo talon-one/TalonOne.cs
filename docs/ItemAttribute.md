@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Attributeid** | **int** | The ID of the attribute of the item. | 
+**Attributeid** | **long** | The ID of the attribute of the item. | 
 **Name** | **string** | The name of the attribute. | 
 **Value** | [**Object**](.md) | The value of the attribute. | 
 

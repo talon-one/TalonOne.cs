@@ -162,7 +162,7 @@ namespace TalonOne.Model
         /// <param name="description">A description of the campaign set..</param>
         /// <param name="evaluationMode">The mode by which campaigns in the campaign evaluation group are evaluated. (required).</param>
         /// <param name="evaluationScope">The evaluation scope of the campaign evaluation group. (required).</param>
-        public CampaignSetBranchNode(TypeEnum type = default(TypeEnum), string name = default(string), OperatorEnum _operator = default(OperatorEnum), List<CampaignSetNode> elements = default(List<CampaignSetNode>), int groupId = default(int), bool locked = default(bool), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum), EvaluationScopeEnum evaluationScope = default(EvaluationScopeEnum))
+        public CampaignSetBranchNode(TypeEnum type = default(TypeEnum), string name = default(string), OperatorEnum _operator = default(OperatorEnum), List<CampaignSetNode> elements = default(List<CampaignSetNode>), long groupId = default(long), bool locked = default(bool), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum), EvaluationScopeEnum evaluationScope = default(EvaluationScopeEnum))
         {
             this.Type = type;
             // to ensure "name" is required (not null)
@@ -196,7 +196,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign set.</value>
         [DataMember(Name="groupId", EmitDefaultValue=false)]
-        public int GroupId { get; set; }
+        public long GroupId { get; set; }
 
         /// <summary>
         /// An indicator of whether the campaign set is locked for modification.

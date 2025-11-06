@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="time">timestamp of request (required).</param>
         /// <param name="requestPayload">payload of request (required).</param>
         /// <param name="responsePayload">payload of response (required).</param>
-        public AccessLogEntry(string uuid = default(string), int status = default(int), string method = default(string), string requestUri = default(string), DateTime time = default(DateTime), string requestPayload = default(string), string responsePayload = default(string))
+        public AccessLogEntry(string uuid = default(string), long status = default(long), string method = default(string), string requestUri = default(string), DateTime time = default(DateTime), string requestPayload = default(string), string responsePayload = default(string))
         {
             // to ensure "uuid" is required (not null)
             this.Uuid = uuid ?? throw new ArgumentNullException("uuid is a required property for AccessLogEntry and cannot be null");
@@ -74,7 +74,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>HTTP status code of response.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// HTTP method of request.

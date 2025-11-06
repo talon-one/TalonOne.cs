@@ -37,7 +37,7 @@ namespace TalonOne.Model
         /// <param name="attributes">Properties to match against a customer profile. All provided attributes will be exactly matched against profile attributes..</param>
         /// <param name="integrationIDs">integrationIDs.</param>
         /// <param name="profileIDs">profileIDs.</param>
-        public CustomerProfileSearchQuery(Object attributes = default(Object), List<string> integrationIDs = default(List<string>), List<int> profileIDs = default(List<int>))
+        public CustomerProfileSearchQuery(Object attributes = default(Object), List<string> integrationIDs = default(List<string>), List<long> profileIDs = default(List<long>))
         {
             this.Attributes = attributes;
             this.IntegrationIDs = integrationIDs;
@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// Gets or Sets ProfileIDs
         /// </summary>
         [DataMember(Name="profileIDs", EmitDefaultValue=false)]
-        public List<int> ProfileIDs { get; set; }
+        public List<long> ProfileIDs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

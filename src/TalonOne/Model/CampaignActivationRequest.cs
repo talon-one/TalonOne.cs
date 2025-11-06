@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CampaignActivationRequest" /> class.
         /// </summary>
         /// <param name="userIds">The list of IDs of the users who will receive the activation request. (required).</param>
-        public CampaignActivationRequest(List<int> userIds = default(List<int>))
+        public CampaignActivationRequest(List<long> userIds = default(List<long>))
         {
             // to ensure "userIds" is required (not null)
             this.UserIds = userIds ?? throw new ArgumentNullException("userIds is a required property for CampaignActivationRequest and cannot be null");
@@ -51,7 +51,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The list of IDs of the users who will receive the activation request.</value>
         [DataMember(Name="userIds", EmitDefaultValue=false)]
-        public List<int> UserIds { get; set; }
+        public List<long> UserIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

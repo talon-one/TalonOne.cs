@@ -189,7 +189,7 @@ namespace TalonOne.Model
         /// <param name="period">period.</param>
         /// <param name="storeCount">storeCount (required).</param>
         /// <param name="imported">imported (required).</param>
-        public SummaryCampaignStoreBudget(ActionEnum action = default(ActionEnum), PeriodEnum? period = default(PeriodEnum?), int storeCount = default(int), bool imported = default(bool))
+        public SummaryCampaignStoreBudget(ActionEnum action = default(ActionEnum), PeriodEnum? period = default(PeriodEnum?), long storeCount = default(long), bool imported = default(bool))
         {
             this.Action = action;
             this.StoreCount = storeCount;
@@ -201,7 +201,7 @@ namespace TalonOne.Model
         /// Gets or Sets StoreCount
         /// </summary>
         [DataMember(Name="storeCount", EmitDefaultValue=false)]
-        public int StoreCount { get; set; }
+        public long StoreCount { get; set; }
 
         /// <summary>
         /// Gets or Sets Imported

@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="joined">The moment in which the loyalty program was joined..</param>
         /// <param name="loyaltyProgramId">The ID of the loyalty program belonging to this entity. (required).</param>
-        public LoyaltyMembership(DateTime joined = default(DateTime), int loyaltyProgramId = default(int))
+        public LoyaltyMembership(DateTime joined = default(DateTime), long loyaltyProgramId = default(long))
         {
             this.LoyaltyProgramId = loyaltyProgramId;
             this.Joined = joined;
@@ -59,7 +59,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the loyalty program belonging to this entity.</value>
         [DataMember(Name="loyaltyProgramId", EmitDefaultValue=false)]
-        public int LoyaltyProgramId { get; set; }
+        public long LoyaltyProgramId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

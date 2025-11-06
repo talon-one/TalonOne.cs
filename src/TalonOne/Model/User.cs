@@ -89,7 +89,7 @@ namespace TalonOne.Model
         /// <param name="lastAccessed">Timestamp of the user&#39;s last activity after signing in to Talon.One..</param>
         /// <param name="latestFeedTimestamp">Timestamp when the user was notified for feed..</param>
         /// <param name="additionalAttributes">Additional user attributes, created and used by external identity providers..</param>
-        public User(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), int accountId = default(int), string name = default(string), StateEnum state = default(StateEnum), string inviteToken = default(string), bool isAdmin = default(bool), Object policy = default(Object), List<int> roles = default(List<int>), string authMethod = default(string), Object applicationNotificationSubscriptions = default(Object), DateTime lastSignedIn = default(DateTime), DateTime lastAccessed = default(DateTime), DateTime latestFeedTimestamp = default(DateTime), Object additionalAttributes = default(Object))
+        public User(long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime), string email = default(string), long accountId = default(long), string name = default(string), StateEnum state = default(StateEnum), string inviteToken = default(string), bool isAdmin = default(bool), Object policy = default(Object), List<long> roles = default(List<long>), string authMethod = default(string), Object applicationNotificationSubscriptions = default(Object), DateTime lastSignedIn = default(DateTime), DateTime lastAccessed = default(DateTime), DateTime latestFeedTimestamp = default(DateTime), Object additionalAttributes = default(Object))
         {
             this.Id = id;
             this.Created = created;
@@ -119,7 +119,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -147,7 +147,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Name of the user.
@@ -182,7 +182,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the roles assigned to the user.</value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
-        public List<int> Roles { get; set; }
+        public List<long> Roles { get; set; }
 
         /// <summary>
         /// Authentication method for this user.

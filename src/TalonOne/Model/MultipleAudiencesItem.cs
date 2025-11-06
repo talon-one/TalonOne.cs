@@ -77,7 +77,7 @@ namespace TalonOne.Model
         /// <param name="name">The human-friendly display name for this audience. (required).</param>
         /// <param name="integrationId">The ID of this audience in the third-party integration. (required).</param>
         /// <param name="status">Indicates whether the audience is new, updated or unmodified by the request.  (required).</param>
-        public MultipleAudiencesItem(int id = default(int), DateTime created = default(DateTime), string name = default(string), string integrationId = default(string), StatusEnum status = default(StatusEnum))
+        public MultipleAudiencesItem(long id = default(long), DateTime created = default(DateTime), string name = default(string), string integrationId = default(string), StatusEnum status = default(StatusEnum))
         {
             this.Id = id;
             this.Created = created;
@@ -93,7 +93,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.

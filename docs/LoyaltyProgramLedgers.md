@@ -4,7 +4,7 @@ Customer-specific information about loyalty points.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The internal ID of loyalty program. | 
+**Id** | **long** | The internal ID of loyalty program. | 
 **Title** | **string** | Visible name of loyalty program. | 
 **Name** | **string** | Internal name of loyalty program. | 
 **JoinDate** | **DateTime** | The date on which the customer joined the loyalty program in RFC3339.  **Note**: This is in the loyalty program&#39;s time zone.  | [optional] 

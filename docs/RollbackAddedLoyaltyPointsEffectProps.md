@@ -4,7 +4,7 @@ The properties specific to the \"rollbackAddedLoyaltyPoints\" effect. This gets 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ProgramId** | **int** | The ID of the loyalty program where the points were originally added. | 
+**ProgramId** | **long** | The ID of the loyalty program where the points were originally added. | 
 **SubLedgerId** | **string** | The ID of the subledger within the loyalty program where these points were originally added. | 
 **Value** | **decimal** | The amount of points that were rolled back. | 
 **RecipientIntegrationId** | **string** | The user for whom these points were originally added. | 

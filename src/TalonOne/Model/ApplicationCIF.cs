@@ -48,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="createdBy">The ID of the user who created the Application cart item filter..</param>
         /// <param name="modified">Timestamp of the most recent update to the Application cart item filter..</param>
         /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
-        public ApplicationCIF(int id = default(int), DateTime created = default(DateTime), string name = default(string), string description = default(string), int activeExpressionId = default(int), int modifiedBy = default(int), int createdBy = default(int), DateTime modified = default(DateTime), int applicationId = default(int))
+        public ApplicationCIF(long id = default(long), DateTime created = default(DateTime), string name = default(string), string description = default(string), long activeExpressionId = default(long), long modifiedBy = default(long), long createdBy = default(long), DateTime modified = default(DateTime), long applicationId = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -67,7 +67,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -95,21 +95,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the expression that the Application cart item filter uses.</value>
         [DataMember(Name="activeExpressionId", EmitDefaultValue=false)]
-        public int ActiveExpressionId { get; set; }
+        public long ActiveExpressionId { get; set; }
 
         /// <summary>
         /// The ID of the user who last updated the Application cart item filter.
         /// </summary>
         /// <value>The ID of the user who last updated the Application cart item filter.</value>
         [DataMember(Name="modifiedBy", EmitDefaultValue=false)]
-        public int ModifiedBy { get; set; }
+        public long ModifiedBy { get; set; }
 
         /// <summary>
         /// The ID of the user who created the Application cart item filter.
         /// </summary>
         /// <value>The ID of the user who created the Application cart item filter.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Timestamp of the most recent update to the Application cart item filter.
@@ -123,7 +123,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -38,7 +38,7 @@ namespace TalonOne.Model
         /// <param name="description">Description of the role..</param>
         /// <param name="permissions">permissions.</param>
         /// <param name="members">A list of user IDs the role is assigned to..</param>
-        public RoleV2Base(string name = default(string), string description = default(string), RoleV2Permissions permissions = default(RoleV2Permissions), List<int> members = default(List<int>))
+        public RoleV2Base(string name = default(string), string description = default(string), RoleV2Permissions permissions = default(RoleV2Permissions), List<long> members = default(List<long>))
         {
             this.Name = name;
             this.Description = description;
@@ -71,7 +71,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of user IDs the role is assigned to.</value>
         [DataMember(Name="members", EmitDefaultValue=false)]
-        public List<int> Members { get; set; }
+        public List<long> Members { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

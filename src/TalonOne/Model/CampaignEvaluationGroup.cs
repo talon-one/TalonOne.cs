@@ -113,7 +113,7 @@ namespace TalonOne.Model
         /// <param name="evaluationScope">The evaluation scope of the campaign evaluation group. (required).</param>
         /// <param name="locked">An indicator of whether the campaign evaluation group is locked for modification. (required).</param>
         /// <param name="id">Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. (required).</param>
-        public CampaignEvaluationGroup(int applicationId = default(int), string name = default(string), int parentId = default(int), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum), EvaluationScopeEnum evaluationScope = default(EvaluationScopeEnum), bool locked = default(bool), int id = default(int))
+        public CampaignEvaluationGroup(long applicationId = default(long), string name = default(string), long parentId = default(long), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum), EvaluationScopeEnum evaluationScope = default(EvaluationScopeEnum), bool locked = default(bool), long id = default(long))
         {
             this.ApplicationId = applicationId;
             // to ensure "name" is required (not null)
@@ -131,7 +131,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The name of the campaign evaluation group.
@@ -145,7 +145,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the parent group that contains the campaign evaluation group.</value>
         [DataMember(Name="parentId", EmitDefaultValue=false)]
-        public int ParentId { get; set; }
+        public long ParentId { get; set; }
 
         /// <summary>
         /// A description of the campaign evaluation group.
@@ -166,7 +166,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -284,8 +284,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ParentId (int) minimum
-            if(this.ParentId < (int)1)
+            // ParentId (long) minimum
+            if(this.ParentId < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ParentId, must be a value greater than or equal to 1.", new [] { "ParentId" });
             }

@@ -3,8 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalResultSize** | **int** |  | 
-**Data** | [**List&lt;Export&gt;**](Export.md) |  | 
+**HasMore** | **bool** |  | [optional] 
+**TotalResultSize** | **long** |  | [optional] 
+**Data** | [**List&lt;Store&gt;**](Store.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

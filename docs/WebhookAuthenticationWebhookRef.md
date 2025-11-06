@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The internal ID of this entity. | 
+**Id** | **long** | The internal ID of this entity. | 
 **Title** | **string** | The title of the webhook authentication. | 
 **Description** | **string** | A description of the webhook authentication. | [optional] 
 

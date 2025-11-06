@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="httpResponse">The returned http response. (required).</param>
         /// <param name="httpStatus">The returned http status code. (required).</param>
-        public MessageTest(string httpResponse = default(string), int httpStatus = default(int))
+        public MessageTest(string httpResponse = default(string), long httpStatus = default(long))
         {
             // to ensure "httpResponse" is required (not null)
             this.HttpResponse = httpResponse ?? throw new ArgumentNullException("httpResponse is a required property for MessageTest and cannot be null");
@@ -60,7 +60,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The returned http status code.</value>
         [DataMember(Name="httpStatus", EmitDefaultValue=false)]
-        public int HttpStatus { get; set; }
+        public long HttpStatus { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

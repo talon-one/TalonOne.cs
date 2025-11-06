@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="totalDiscountedOrders">Total orders made by this customer that had a discount. (required).</param>
         /// <param name="totalRevenue">Total Revenue across all closed sessions. (required).</param>
         /// <param name="totalDiscounts">The sum of discounts that were given across all closed sessions. (required).</param>
-        public CustomerAnalytics(int acceptedCoupons = default(int), int createdCoupons = default(int), int freeItems = default(int), int totalOrders = default(int), int totalDiscountedOrders = default(int), decimal totalRevenue = default(decimal), decimal totalDiscounts = default(decimal))
+        public CustomerAnalytics(long acceptedCoupons = default(long), long createdCoupons = default(long), long freeItems = default(long), long totalOrders = default(long), long totalDiscountedOrders = default(long), decimal totalRevenue = default(decimal), decimal totalDiscounts = default(decimal))
         {
             this.AcceptedCoupons = acceptedCoupons;
             this.CreatedCoupons = createdCoupons;
@@ -62,35 +62,35 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Total accepted coupons for this customer.</value>
         [DataMember(Name="acceptedCoupons", EmitDefaultValue=false)]
-        public int AcceptedCoupons { get; set; }
+        public long AcceptedCoupons { get; set; }
 
         /// <summary>
         /// Total created coupons for this customer.
         /// </summary>
         /// <value>Total created coupons for this customer.</value>
         [DataMember(Name="createdCoupons", EmitDefaultValue=false)]
-        public int CreatedCoupons { get; set; }
+        public long CreatedCoupons { get; set; }
 
         /// <summary>
         /// Total free items given to this customer.
         /// </summary>
         /// <value>Total free items given to this customer.</value>
         [DataMember(Name="freeItems", EmitDefaultValue=false)]
-        public int FreeItems { get; set; }
+        public long FreeItems { get; set; }
 
         /// <summary>
         /// Total orders made by this customer.
         /// </summary>
         /// <value>Total orders made by this customer.</value>
         [DataMember(Name="totalOrders", EmitDefaultValue=false)]
-        public int TotalOrders { get; set; }
+        public long TotalOrders { get; set; }
 
         /// <summary>
         /// Total orders made by this customer that had a discount.
         /// </summary>
         /// <value>Total orders made by this customer that had a discount.</value>
         [DataMember(Name="totalDiscountedOrders", EmitDefaultValue=false)]
-        public int TotalDiscountedOrders { get; set; }
+        public long TotalDiscountedOrders { get; set; }
 
         /// <summary>
         /// Total Revenue across all closed sessions.

@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="id">id of the notification. (required).</param>
         /// <param name="name">name of the notification. (required).</param>
         /// <param name="description">description of the notification. (required).</param>
-        public Notification(int id = default(int), string name = default(string), string description = default(string))
+        public Notification(long id = default(long), string name = default(string), string description = default(string))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>id of the notification.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// name of the notification.

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalResultSize** | **int** |  | [optional] 
+**TotalResultSize** | **long** |  | [optional] 
 **HasMore** | **bool** |  | [optional] 
 **Data** | [**List&lt;ApplicationCustomer&gt;**](ApplicationCustomer.md) |  | 
 

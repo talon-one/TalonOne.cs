@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">The ID of the audience belonging to this entity. (required).</param>
         /// <param name="name">The Name of the audience belonging to this entity. (required).</param>
-        public AudienceMembership(int id = default(int), string name = default(string))
+        public AudienceMembership(long id = default(long), string name = default(string))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the audience belonging to this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The Name of the audience belonging to this entity.

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Log entry for a given loyalty card transaction.
+    /// Log entry for a given loyalty profile transaction.
     /// </summary>
     [DataContract]
     public partial class LedgerTransactionLogEntryIntegrationAPI :  IEquatable<LedgerTransactionLogEntryIntegrationAPI>, IValidatableObject
@@ -66,6 +66,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LedgerTransactionLogEntryIntegrationAPI" /> class.
         /// </summary>
+        /// <param name="transactionUUID">Unique identifier of the transaction in the UUID format. (required).</param>
         /// <param name="created">Date and time the loyalty transaction occurred. (required).</param>
         /// <param name="programId">ID of the loyalty program. (required).</param>
         /// <param name="customerSessionId">ID of the customer session where the transaction occurred..</param>
@@ -79,8 +80,10 @@ namespace TalonOne.Model
         /// <param name="rulesetId">The ID of the ruleset containing the rule that triggered this effect..</param>
         /// <param name="ruleName">The name of the rule that triggered this effect..</param>
         /// <param name="flags">flags.</param>
-        public LedgerTransactionLogEntryIntegrationAPI(DateTime created = default(DateTime), int programId = default(int), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), int id = default(int), int rulesetId = default(int), string ruleName = default(string), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags))
+        public LedgerTransactionLogEntryIntegrationAPI(string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), long id = default(long), long rulesetId = default(long), string ruleName = default(string), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags))
         {
+            // to ensure "transactionUUID" is required (not null)
+            this.TransactionUUID = transactionUUID ?? throw new ArgumentNullException("transactionUUID is a required property for LedgerTransactionLogEntryIntegrationAPI and cannot be null");
             this.Created = created;
             this.ProgramId = programId;
             this.Type = type;
@@ -101,6 +104,13 @@ namespace TalonOne.Model
         }
         
         /// <summary>
+        /// Unique identifier of the transaction in the UUID format.
+        /// </summary>
+        /// <value>Unique identifier of the transaction in the UUID format.</value>
+        [DataMember(Name="transactionUUID", EmitDefaultValue=false)]
+        public string TransactionUUID { get; set; }
+
+        /// <summary>
         /// Date and time the loyalty transaction occurred.
         /// </summary>
         /// <value>Date and time the loyalty transaction occurred.</value>
@@ -112,7 +122,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the loyalty program.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
-        public int ProgramId { get; set; }
+        public long ProgramId { get; set; }
 
         /// <summary>
         /// ID of the customer session where the transaction occurred.
@@ -161,14 +171,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the loyalty ledger transaction.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The ID of the ruleset containing the rule that triggered this effect.
         /// </summary>
         /// <value>The ID of the ruleset containing the rule that triggered this effect.</value>
         [DataMember(Name="rulesetId", EmitDefaultValue=false)]
-        public int RulesetId { get; set; }
+        public long RulesetId { get; set; }
 
         /// <summary>
         /// The name of the rule that triggered this effect.
@@ -191,6 +201,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class LedgerTransactionLogEntryIntegrationAPI {\n");
+            sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ProgramId: ").Append(ProgramId).Append("\n");
             sb.Append("  CustomerSessionId: ").Append(CustomerSessionId).Append("\n");
@@ -238,6 +249,11 @@ namespace TalonOne.Model
                 return false;
 
             return 
+                (
+                    this.TransactionUUID == input.TransactionUUID ||
+                    (this.TransactionUUID != null &&
+                    this.TransactionUUID.Equals(input.TransactionUUID))
+                ) && 
                 (
                     this.Created == input.Created ||
                     (this.Created != null &&
@@ -309,6 +325,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.TransactionUUID != null)
+                    hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.ProgramId.GetHashCode();

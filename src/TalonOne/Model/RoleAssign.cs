@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="users">An array of user IDs. (required).</param>
         /// <param name="roles">An array of role IDs. (required).</param>
-        public RoleAssign(List<int> users = default(List<int>), List<int> roles = default(List<int>))
+        public RoleAssign(List<long> users = default(List<long>), List<long> roles = default(List<long>))
         {
             // to ensure "users" is required (not null)
             this.Users = users ?? throw new ArgumentNullException("users is a required property for RoleAssign and cannot be null");
@@ -54,14 +54,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>An array of user IDs.</value>
         [DataMember(Name="users", EmitDefaultValue=false)]
-        public List<int> Users { get; set; }
+        public List<long> Users { get; set; }
 
         /// <summary>
         /// An array of role IDs.
         /// </summary>
         /// <value>An array of role IDs.</value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
-        public List<int> Roles { get; set; }
+        public List<long> Roles { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

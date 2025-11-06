@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="storeId">The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint.  (required).</param>
         /// <param name="limit">The value to set for the limit. (required).</param>
-        public NewCampaignStoreBudgetStoreLimit(int storeId = default(int), decimal limit = default(decimal))
+        public NewCampaignStoreBudgetStoreLimit(long storeId = default(long), decimal limit = default(decimal))
         {
             this.StoreId = storeId;
             this.Limit = limit;
@@ -52,7 +52,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the store. You can get this ID with the [List stores](#tag/Stores/operation/listStores) endpoint. </value>
         [DataMember(Name="storeId", EmitDefaultValue=false)]
-        public int StoreId { get; set; }
+        public long StoreId { get; set; }
 
         /// <summary>
         /// The value to set for the limit.

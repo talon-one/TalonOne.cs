@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="isAdmin">Indicates whether the user is an &#x60;admin&#x60;..</param>
         /// <param name="roles">A list of the IDs of the roles assigned to the user..</param>
         /// <param name="acl">Indicates the access level of the user..</param>
-        public NewInvitation(string name = default(string), string email = default(string), bool isAdmin = default(bool), List<int> roles = default(List<int>), string acl = default(string))
+        public NewInvitation(string name = default(string), string email = default(string), bool isAdmin = default(bool), List<long> roles = default(List<long>), string acl = default(string))
         {
             // to ensure "email" is required (not null)
             this.Email = email ?? throw new ArgumentNullException("email is a required property for NewInvitation and cannot be null");
@@ -80,7 +80,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the roles assigned to the user.</value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
-        public List<int> Roles { get; set; }
+        public List<long> Roles { get; set; }
 
         /// <summary>
         /// Indicates the access level of the user.

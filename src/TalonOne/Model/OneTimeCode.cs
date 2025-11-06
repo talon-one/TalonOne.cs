@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="accountId">The ID of the account. (required).</param>
         /// <param name="token">The two-factor authentication token created during sign-in. This token is used to ensure that the correct user is trying to sign in with a given one-time security code. (required).</param>
         /// <param name="code">The one-time security code used for signing in..</param>
-        public OneTimeCode(int userId = default(int), int accountId = default(int), string token = default(string), string code = default(string))
+        public OneTimeCode(long userId = default(long), long accountId = default(long), string token = default(string), string code = default(string))
         {
             this.UserId = userId;
             this.AccountId = accountId;
@@ -57,14 +57,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the user.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The ID of the account.
         /// </summary>
         /// <value>The ID of the account.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The two-factor authentication token created during sign-in. This token is used to ensure that the correct user is trying to sign in with a given one-time security code.

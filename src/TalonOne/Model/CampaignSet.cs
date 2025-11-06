@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="version">Version of the campaign set. (required).</param>
         /// <param name="set">set (required).</param>
         /// <param name="updatedBy">Name of the user who last updated this campaign set, if available..</param>
-        public CampaignSet(int applicationId = default(int), int id = default(int), int version = default(int), CampaignSetBranchNode set = default(CampaignSetBranchNode), string updatedBy = default(string))
+        public CampaignSet(long applicationId = default(long), long id = default(long), long version = default(long), CampaignSetBranchNode set = default(CampaignSetBranchNode), string updatedBy = default(string))
         {
             this.ApplicationId = applicationId;
             this.Id = id;
@@ -59,21 +59,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The internal ID of this entity.
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Version of the campaign set.
         /// </summary>
         /// <value>Version of the campaign set.</value>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int Version { get; set; }
+        public long Version { get; set; }
 
         /// <summary>
         /// Gets or Sets Set
@@ -186,8 +186,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Version (int) minimum
-            if(this.Version < (int)1)
+            // Version (long) minimum
+            if(this.Version < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Version, must be a value greater than or equal to 1.", new [] { "Version" });
             }

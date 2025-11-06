@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="transactionUUID">The identifier of this deduction in the loyalty ledger. (required).</param>
         /// <param name="name">The name property gets one of the following two values. It can be the loyalty program name or it can represent a reason for the respective deduction of loyalty points. The latter is an optional value defined in a deduction rule.  (required).</param>
         /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
-        public DeductLoyaltyPointsEffectProps(string ruleTitle = default(string), int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string transactionUUID = default(string), string name = default(string), string cardIdentifier = default(string))
+        public DeductLoyaltyPointsEffectProps(string ruleTitle = default(string), long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), string transactionUUID = default(string), string name = default(string), string cardIdentifier = default(string))
         {
             // to ensure "ruleTitle" is required (not null)
             this.RuleTitle = ruleTitle ?? throw new ArgumentNullException("ruleTitle is a required property for DeductLoyaltyPointsEffectProps and cannot be null");
@@ -73,7 +73,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the loyalty program where these points were added.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
-        public int ProgramId { get; set; }
+        public long ProgramId { get; set; }
 
         /// <summary>
         /// The ID of the subledger within the loyalty program where these points were added.

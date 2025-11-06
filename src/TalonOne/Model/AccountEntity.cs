@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="AccountEntity" /> class.
         /// </summary>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
-        public AccountEntity(int accountId = default(int))
+        public AccountEntity(long accountId = default(long))
         {
             this.AccountId = accountId;
         }
@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

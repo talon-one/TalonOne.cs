@@ -153,6 +153,22 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'PromotionTypes'
         }
+        /// <summary>
+        /// Test the property 'SecondaryDeploymentPrice'
+        /// </summary>
+        [Fact]
+        public void SecondaryDeploymentPriceTest()
+        {
+            // TODO unit test for the property 'SecondaryDeploymentPrice'
+        }
+        /// <summary>
+        /// Test the property 'CurrencyCode'
+        /// </summary>
+        [Fact]
+        public void CurrencyCodeTest()
+        {
+            // TODO unit test for the property 'CurrencyCode'
+        }
 
     }
 

@@ -89,7 +89,7 @@ namespace TalonOne.Model
         /// <param name="evaluableCampaignIds">When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. .</param>
         /// <param name="audiencesChanges">audiencesChanges.</param>
         /// <param name="responseContent">Extends the response with the chosen data entities. Use this property to get as much data as you need in one _Update customer profile_ request instead of sending extra requests to other endpoints. .</param>
-        public CustomerProfileIntegrationRequestV2(Object attributes = default(Object), List<int> evaluableCampaignIds = default(List<int>), ProfileAudiencesChanges audiencesChanges = default(ProfileAudiencesChanges), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
+        public CustomerProfileIntegrationRequestV2(Object attributes = default(Object), List<long> evaluableCampaignIds = default(List<long>), ProfileAudiencesChanges audiencesChanges = default(ProfileAudiencesChanges), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             this.Attributes = attributes;
             this.EvaluableCampaignIds = evaluableCampaignIds;
@@ -109,7 +109,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. </value>
         [DataMember(Name="evaluableCampaignIds", EmitDefaultValue=false)]
-        public List<int> EvaluableCampaignIds { get; set; }
+        public List<long> EvaluableCampaignIds { get; set; }
 
         /// <summary>
         /// Gets or Sets AudiencesChanges

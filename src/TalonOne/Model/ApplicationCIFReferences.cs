@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="applicationCartItemFilterId">The ID of the Application Cart Item Filter that is referenced by a campaign..</param>
         /// <param name="campaigns">Campaigns that reference a speciifc Application Cart Item Filter..</param>
-        public ApplicationCIFReferences(int applicationCartItemFilterId = default(int), List<CampaignDetail> campaigns = default(List<CampaignDetail>))
+        public ApplicationCIFReferences(long applicationCartItemFilterId = default(long), List<CampaignDetail> campaigns = default(List<CampaignDetail>))
         {
             this.ApplicationCartItemFilterId = applicationCartItemFilterId;
             this.Campaigns = campaigns;
@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application Cart Item Filter that is referenced by a campaign.</value>
         [DataMember(Name="applicationCartItemFilterId", EmitDefaultValue=false)]
-        public int ApplicationCartItemFilterId { get; set; }
+        public long ApplicationCartItemFilterId { get; set; }
 
         /// <summary>
         /// Campaigns that reference a speciifc Application Cart Item Filter.

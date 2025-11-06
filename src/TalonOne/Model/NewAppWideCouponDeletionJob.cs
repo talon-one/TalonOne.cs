@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="filters">filters (required).</param>
         /// <param name="campaignids">campaignids (required).</param>
-        public NewAppWideCouponDeletionJob(CouponDeletionFilters filters = default(CouponDeletionFilters), List<int> campaignids = default(List<int>))
+        public NewAppWideCouponDeletionJob(CouponDeletionFilters filters = default(CouponDeletionFilters), List<long> campaignids = default(List<long>))
         {
             // to ensure "filters" is required (not null)
             this.Filters = filters ?? throw new ArgumentNullException("filters is a required property for NewAppWideCouponDeletionJob and cannot be null");
@@ -59,7 +59,7 @@ namespace TalonOne.Model
         /// Gets or Sets Campaignids
         /// </summary>
         [DataMember(Name="campaignids", EmitDefaultValue=false)]
-        public List<int> Campaignids { get; set; }
+        public List<long> Campaignids { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

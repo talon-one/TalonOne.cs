@@ -177,6 +177,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'AchievementEndDate'
         }
+        /// <summary>
+        /// Test the property 'AchievementAllowRollbackAfterCompletion'
+        /// </summary>
+        [Fact]
+        public void AchievementAllowRollbackAfterCompletionTest()
+        {
+            // TODO unit test for the property 'AchievementAllowRollbackAfterCompletion'
+        }
 
     }
 

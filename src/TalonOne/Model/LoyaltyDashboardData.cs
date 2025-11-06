@@ -44,17 +44,19 @@ namespace TalonOne.Model
         /// <param name="totalPendingPoints">Total of pending points for this loyalty program. (required).</param>
         /// <param name="totalSpentPoints">Total of spent points for this loyalty program. (required).</param>
         /// <param name="totalExpiredPoints">Total of expired points for this loyalty program. (required).</param>
+        /// <param name="totalNegativePoints">Total of negative points for this loyalty program. (required).</param>
         /// <param name="totalMembers">Number of loyalty program members. (required).</param>
         /// <param name="newMembers">Number of members who joined on this day. (required).</param>
         /// <param name="spentPoints">spentPoints (required).</param>
         /// <param name="earnedPoints">earnedPoints (required).</param>
-        public LoyaltyDashboardData(DateTime date = default(DateTime), decimal totalActivePoints = default(decimal), decimal totalPendingPoints = default(decimal), decimal totalSpentPoints = default(decimal), decimal totalExpiredPoints = default(decimal), decimal totalMembers = default(decimal), decimal newMembers = default(decimal), LoyaltyDashboardPointsBreakdown spentPoints = default(LoyaltyDashboardPointsBreakdown), LoyaltyDashboardPointsBreakdown earnedPoints = default(LoyaltyDashboardPointsBreakdown))
+        public LoyaltyDashboardData(DateTime date = default(DateTime), decimal totalActivePoints = default(decimal), decimal totalPendingPoints = default(decimal), decimal totalSpentPoints = default(decimal), decimal totalExpiredPoints = default(decimal), decimal totalNegativePoints = default(decimal), decimal totalMembers = default(decimal), decimal newMembers = default(decimal), LoyaltyDashboardPointsBreakdown spentPoints = default(LoyaltyDashboardPointsBreakdown), LoyaltyDashboardPointsBreakdown earnedPoints = default(LoyaltyDashboardPointsBreakdown))
         {
             this.Date = date;
             this.TotalActivePoints = totalActivePoints;
             this.TotalPendingPoints = totalPendingPoints;
             this.TotalSpentPoints = totalSpentPoints;
             this.TotalExpiredPoints = totalExpiredPoints;
+            this.TotalNegativePoints = totalNegativePoints;
             this.TotalMembers = totalMembers;
             this.NewMembers = newMembers;
             // to ensure "spentPoints" is required (not null)
@@ -99,6 +101,13 @@ namespace TalonOne.Model
         public decimal TotalExpiredPoints { get; set; }
 
         /// <summary>
+        /// Total of negative points for this loyalty program.
+        /// </summary>
+        /// <value>Total of negative points for this loyalty program.</value>
+        [DataMember(Name="totalNegativePoints", EmitDefaultValue=false)]
+        public decimal TotalNegativePoints { get; set; }
+
+        /// <summary>
         /// Number of loyalty program members.
         /// </summary>
         /// <value>Number of loyalty program members.</value>
@@ -137,6 +146,7 @@ namespace TalonOne.Model
             sb.Append("  TotalPendingPoints: ").Append(TotalPendingPoints).Append("\n");
             sb.Append("  TotalSpentPoints: ").Append(TotalSpentPoints).Append("\n");
             sb.Append("  TotalExpiredPoints: ").Append(TotalExpiredPoints).Append("\n");
+            sb.Append("  TotalNegativePoints: ").Append(TotalNegativePoints).Append("\n");
             sb.Append("  TotalMembers: ").Append(TotalMembers).Append("\n");
             sb.Append("  NewMembers: ").Append(NewMembers).Append("\n");
             sb.Append("  SpentPoints: ").Append(SpentPoints).Append("\n");
@@ -197,6 +207,10 @@ namespace TalonOne.Model
                     this.TotalExpiredPoints.Equals(input.TotalExpiredPoints)
                 ) && 
                 (
+                    this.TotalNegativePoints == input.TotalNegativePoints ||
+                    this.TotalNegativePoints.Equals(input.TotalNegativePoints)
+                ) && 
+                (
                     this.TotalMembers == input.TotalMembers ||
                     this.TotalMembers.Equals(input.TotalMembers)
                 ) && 
@@ -231,6 +245,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.TotalPendingPoints.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalSpentPoints.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalExpiredPoints.GetHashCode();
+                hashCode = hashCode * 59 + this.TotalNegativePoints.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalMembers.GetHashCode();
                 hashCode = hashCode * 59 + this.NewMembers.GetHashCode();
                 if (this.SpentPoints != null)

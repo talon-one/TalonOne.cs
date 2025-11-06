@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="poolId">The ID of the giveaways pool the code will be taken from. (required).</param>
         /// <param name="poolName">The name of the giveaways pool the code will be taken from. (required).</param>
         /// <param name="recipientIntegrationId">The integration ID of the profile that will be awarded the giveaway. (required).</param>
-        public WillAwardGiveawayEffectProps(int poolId = default(int), string poolName = default(string), string recipientIntegrationId = default(string))
+        public WillAwardGiveawayEffectProps(long poolId = default(long), string poolName = default(string), string recipientIntegrationId = default(string))
         {
             this.PoolId = poolId;
             // to ensure "poolName" is required (not null)
@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the giveaways pool the code will be taken from.</value>
         [DataMember(Name="poolId", EmitDefaultValue=false)]
-        public int PoolId { get; set; }
+        public long PoolId { get; set; }
 
         /// <summary>
         /// The name of the giveaways pool the code will be taken from.

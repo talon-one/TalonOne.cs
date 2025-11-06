@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | **int** | The ID of the account that owns this entity. | 
-**Id** | **int** | The internal ID of this entity. | 
+**AccountId** | **long** | The ID of the account that owns this entity. | 
+**Id** | **long** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **Name** | **string** | The human-friendly display name for this audience. | 
 **Sandbox** | **bool** | Indicates if this is a live or sandbox Application. | [optional] 

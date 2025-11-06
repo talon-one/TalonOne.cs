@@ -227,7 +227,7 @@ namespace TalonOne.Model
         /// <param name="subscribedCatalogsIds">A list of the IDs of the catalogs where this attribute is available..</param>
         /// <param name="allowedSubscriptions">A list of allowed subscription types for this attribute.  **Note:** This only applies to attributes associated with the &#x60;CartItem&#x60; entity. .</param>
         /// <param name="eventTypeId">eventTypeId.</param>
-        public Attribute(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), EntityEnum entity = default(EntityEnum), string eventType = default(string), string name = default(string), string title = default(string), TypeEnum type = default(TypeEnum), string description = default(string), List<string> suggestions = default(List<string>), bool hasAllowedList = false, bool restrictedBySuggestions = false, bool editable = default(bool), List<int> subscribedApplicationsIds = default(List<int>), List<int> subscribedCatalogsIds = default(List<int>), List<AllowedSubscriptionsEnum> allowedSubscriptions = default(List<AllowedSubscriptionsEnum>), int eventTypeId = default(int))
+        public Attribute(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), EntityEnum entity = default(EntityEnum), string eventType = default(string), string name = default(string), string title = default(string), TypeEnum type = default(TypeEnum), string description = default(string), List<string> suggestions = default(List<string>), bool hasAllowedList = false, bool restrictedBySuggestions = false, bool editable = default(bool), List<long> subscribedApplicationsIds = default(List<long>), List<long> subscribedCatalogsIds = default(List<long>), List<AllowedSubscriptionsEnum> allowedSubscriptions = default(List<AllowedSubscriptionsEnum>), long eventTypeId = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -257,7 +257,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -271,7 +271,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets EventType
@@ -333,20 +333,20 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the applications where this attribute is available.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// A list of the IDs of the catalogs where this attribute is available.
         /// </summary>
         /// <value>A list of the IDs of the catalogs where this attribute is available.</value>
         [DataMember(Name="subscribedCatalogsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedCatalogsIds { get; set; }
+        public List<long> SubscribedCatalogsIds { get; set; }
 
         /// <summary>
         /// Gets or Sets EventTypeId
         /// </summary>
         [DataMember(Name="eventTypeId", EmitDefaultValue=false)]
-        public int EventTypeId { get; set; }
+        public long EventTypeId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

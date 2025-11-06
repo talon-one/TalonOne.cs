@@ -64,7 +64,7 @@ namespace TalonOne.Model
         /// <param name="totalAddedLoyaltyPoints">Number of added loyalty points in the campaign since it began. (required).</param>
         /// <param name="deductedLoyaltyPoints">Number of deducted loyalty points in the campaign in a specific interval. (required).</param>
         /// <param name="totalDeductedLoyaltyPoints">Number of deducted loyalty points in the campaign since it began. (required).</param>
-        public CampaignAnalytics(DateTime date = default(DateTime), decimal campaignRevenue = default(decimal), decimal totalCampaignRevenue = default(decimal), decimal campaignRefund = default(decimal), decimal totalCampaignRefund = default(decimal), decimal campaignDiscountCosts = default(decimal), decimal totalCampaignDiscountCosts = default(decimal), decimal campaignRefundedDiscounts = default(decimal), decimal totalCampaignRefundedDiscounts = default(decimal), int campaignFreeItems = default(int), int totalCampaignFreeItems = default(int), int couponRedemptions = default(int), int totalCouponRedemptions = default(int), int couponRolledbackRedemptions = default(int), int totalCouponRolledbackRedemptions = default(int), int referralRedemptions = default(int), int totalReferralRedemptions = default(int), int couponsCreated = default(int), int totalCouponsCreated = default(int), int referralsCreated = default(int), int totalReferralsCreated = default(int), decimal addedLoyaltyPoints = default(decimal), decimal totalAddedLoyaltyPoints = default(decimal), decimal deductedLoyaltyPoints = default(decimal), decimal totalDeductedLoyaltyPoints = default(decimal))
+        public CampaignAnalytics(DateTime date = default(DateTime), decimal campaignRevenue = default(decimal), decimal totalCampaignRevenue = default(decimal), decimal campaignRefund = default(decimal), decimal totalCampaignRefund = default(decimal), decimal campaignDiscountCosts = default(decimal), decimal totalCampaignDiscountCosts = default(decimal), decimal campaignRefundedDiscounts = default(decimal), decimal totalCampaignRefundedDiscounts = default(decimal), long campaignFreeItems = default(long), long totalCampaignFreeItems = default(long), long couponRedemptions = default(long), long totalCouponRedemptions = default(long), long couponRolledbackRedemptions = default(long), long totalCouponRolledbackRedemptions = default(long), long referralRedemptions = default(long), long totalReferralRedemptions = default(long), long couponsCreated = default(long), long totalCouponsCreated = default(long), long referralsCreated = default(long), long totalReferralsCreated = default(long), decimal addedLoyaltyPoints = default(decimal), decimal totalAddedLoyaltyPoints = default(decimal), decimal deductedLoyaltyPoints = default(decimal), decimal totalDeductedLoyaltyPoints = default(decimal))
         {
             this.Date = date;
             this.CampaignRevenue = campaignRevenue;
@@ -160,84 +160,84 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Amount of free items given in the campaign.</value>
         [DataMember(Name="campaignFreeItems", EmitDefaultValue=false)]
-        public int CampaignFreeItems { get; set; }
+        public long CampaignFreeItems { get; set; }
 
         /// <summary>
         /// Amount of free items given in the campaign since it began.
         /// </summary>
         /// <value>Amount of free items given in the campaign since it began.</value>
         [DataMember(Name="totalCampaignFreeItems", EmitDefaultValue=false)]
-        public int TotalCampaignFreeItems { get; set; }
+        public long TotalCampaignFreeItems { get; set; }
 
         /// <summary>
         /// Number of coupon redemptions in the campaign.
         /// </summary>
         /// <value>Number of coupon redemptions in the campaign.</value>
         [DataMember(Name="couponRedemptions", EmitDefaultValue=false)]
-        public int CouponRedemptions { get; set; }
+        public long CouponRedemptions { get; set; }
 
         /// <summary>
         /// Number of coupon redemptions in the campaign since it began.
         /// </summary>
         /// <value>Number of coupon redemptions in the campaign since it began.</value>
         [DataMember(Name="totalCouponRedemptions", EmitDefaultValue=false)]
-        public int TotalCouponRedemptions { get; set; }
+        public long TotalCouponRedemptions { get; set; }
 
         /// <summary>
         /// Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign.
         /// </summary>
         /// <value>Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign.</value>
         [DataMember(Name="couponRolledbackRedemptions", EmitDefaultValue=false)]
-        public int CouponRolledbackRedemptions { get; set; }
+        public long CouponRolledbackRedemptions { get; set; }
 
         /// <summary>
         /// Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign since it began.
         /// </summary>
         /// <value>Number of coupon redemptions that have been rolled back (due to canceling closed session) in the campaign since it began.</value>
         [DataMember(Name="totalCouponRolledbackRedemptions", EmitDefaultValue=false)]
-        public int TotalCouponRolledbackRedemptions { get; set; }
+        public long TotalCouponRolledbackRedemptions { get; set; }
 
         /// <summary>
         /// Number of referral redemptions in the campaign.
         /// </summary>
         /// <value>Number of referral redemptions in the campaign.</value>
         [DataMember(Name="referralRedemptions", EmitDefaultValue=false)]
-        public int ReferralRedemptions { get; set; }
+        public long ReferralRedemptions { get; set; }
 
         /// <summary>
         /// Number of referral redemptions in the campaign since it began.
         /// </summary>
         /// <value>Number of referral redemptions in the campaign since it began.</value>
         [DataMember(Name="totalReferralRedemptions", EmitDefaultValue=false)]
-        public int TotalReferralRedemptions { get; set; }
+        public long TotalReferralRedemptions { get; set; }
 
         /// <summary>
         /// Number of coupons created in the campaign by the rule engine.
         /// </summary>
         /// <value>Number of coupons created in the campaign by the rule engine.</value>
         [DataMember(Name="couponsCreated", EmitDefaultValue=false)]
-        public int CouponsCreated { get; set; }
+        public long CouponsCreated { get; set; }
 
         /// <summary>
         /// Number of coupons created in the campaign by the rule engine since it began.
         /// </summary>
         /// <value>Number of coupons created in the campaign by the rule engine since it began.</value>
         [DataMember(Name="totalCouponsCreated", EmitDefaultValue=false)]
-        public int TotalCouponsCreated { get; set; }
+        public long TotalCouponsCreated { get; set; }
 
         /// <summary>
         /// Number of referrals created in the campaign by the rule engine.
         /// </summary>
         /// <value>Number of referrals created in the campaign by the rule engine.</value>
         [DataMember(Name="referralsCreated", EmitDefaultValue=false)]
-        public int ReferralsCreated { get; set; }
+        public long ReferralsCreated { get; set; }
 
         /// <summary>
         /// Number of referrals created in the campaign by the rule engine since it began.
         /// </summary>
         /// <value>Number of referrals created in the campaign by the rule engine since it began.</value>
         [DataMember(Name="totalReferralsCreated", EmitDefaultValue=false)]
-        public int TotalReferralsCreated { get; set; }
+        public long TotalReferralsCreated { get; set; }
 
         /// <summary>
         /// Number of added loyalty points in the campaign in a specific interval.

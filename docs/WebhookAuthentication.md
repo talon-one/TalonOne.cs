@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Name** | **string** | The name of the webhook authentication. | 
 **Type** | **string** |  | 
 **Data** | [**Object**](.md) |  | 
-**Id** | **int** | The internal ID of this entity. | 
+**Id** | **long** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **Modified** | **DateTime** | The time this entity was last modified. | 
 

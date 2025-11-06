@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">The id of the referral code that was redeemed. (required).</param>
         /// <param name="value">The referral code that was redeemed. (required).</param>
-        public RedeemReferralEffectProps(int id = default(int), string value = default(string))
+        public RedeemReferralEffectProps(long id = default(long), string value = default(string))
         {
             this.Id = id;
             // to ensure "value" is required (not null)
@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The id of the referral code that was redeemed.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The referral code that was redeemed.
