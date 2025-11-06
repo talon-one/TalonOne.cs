@@ -2,7 +2,7 @@ name: Auto-release on master
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 permissions:
   contents: write
@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0   # get full history so we can diff
+          fetch-depth: 0 # get full history so we can diff
 
       - name: Extract version from commit message
         id: get_version
@@ -87,6 +87,7 @@ jobs:
           echo "notes_file=release-notes.md" >> "$GITHUB_OUTPUT"
 
       - name: pack and publish
+        if: ${{ steps.get_version.outputs.version != '' }}
         run: |
           make pack
           make publish apiKey=${{ secrets.NUGET_PUBLISHING_KEY }}
@@ -97,7 +98,7 @@ jobs:
           ver="${{ steps.get_version.outputs.version }}"
           git tag -f "$ver" "$GITHUB_SHA"
           git push -f origin "refs/tags/$ver"
-      
+
       - name: Create GitHub release
         if: ${{ steps.get_version.outputs.version != '' }}
         env:
@@ -105,13 +106,12 @@ jobs:
         run: |
           ver="${{ steps.get_version.outputs.version }}"
           notes_file="${{ steps.relnotes.outputs.notes_file }}"
-      
+
           if gh release view "$ver" &>/dev/null; then
             gh release delete "$ver" --yes
           fi
-      
+
           gh release create "$ver" \
             --title "$ver" \
             --notes-file "$notes_file" \
             --target "$GITHUB_SHA"
-      
