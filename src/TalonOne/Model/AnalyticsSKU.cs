@@ -39,30 +39,34 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AnalyticsSKU" /> class.
         /// </summary>
-        /// <param name="id">The ID of the SKU linked to the application. (required).</param>
-        /// <param name="sku">The SKU linked to the application. (required).</param>
+        /// <param name="id">The ID of the SKU linked to the Application. (required).</param>
+        /// <param name="sku">The SKU linked to the Application. (required).</param>
         /// <param name="lastUpdated">Values in UTC for the date the SKU linked to the product was last updated..</param>
+        /// <param name="catalogId">The ID of the catalog that contains the SKU..</param>
+        /// <param name="productId">The ID of the product that the SKU belongs to..</param>
         /// <param name="unitsSold">unitsSold.</param>
-        public AnalyticsSKU(int id = default(int), string sku = default(string), DateTime lastUpdated = default(DateTime), AnalyticsDataPointWithTrend unitsSold = default(AnalyticsDataPointWithTrend))
+        public AnalyticsSKU(long id = default(long), string sku = default(string), DateTime lastUpdated = default(DateTime), long catalogId = default(long), long productId = default(long), AnalyticsDataPointWithTrend unitsSold = default(AnalyticsDataPointWithTrend))
         {
             this.Id = id;
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for AnalyticsSKU and cannot be null");
             this.LastUpdated = lastUpdated;
+            this.CatalogId = catalogId;
+            this.ProductId = productId;
             this.UnitsSold = unitsSold;
         }
         
         /// <summary>
-        /// The ID of the SKU linked to the application.
+        /// The ID of the SKU linked to the Application.
         /// </summary>
-        /// <value>The ID of the SKU linked to the application.</value>
+        /// <value>The ID of the SKU linked to the Application.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
-        /// The SKU linked to the application.
+        /// The SKU linked to the Application.
         /// </summary>
-        /// <value>The SKU linked to the application.</value>
+        /// <value>The SKU linked to the Application.</value>
         [DataMember(Name="sku", EmitDefaultValue=false)]
         public string Sku { get; set; }
 
@@ -72,6 +76,20 @@ namespace TalonOne.Model
         /// <value>Values in UTC for the date the SKU linked to the product was last updated.</value>
         [DataMember(Name="lastUpdated", EmitDefaultValue=false)]
         public DateTime LastUpdated { get; set; }
+
+        /// <summary>
+        /// The ID of the catalog that contains the SKU.
+        /// </summary>
+        /// <value>The ID of the catalog that contains the SKU.</value>
+        [DataMember(Name="catalogId", EmitDefaultValue=false)]
+        public long CatalogId { get; set; }
+
+        /// <summary>
+        /// The ID of the product that the SKU belongs to.
+        /// </summary>
+        /// <value>The ID of the product that the SKU belongs to.</value>
+        [DataMember(Name="productId", EmitDefaultValue=false)]
+        public long ProductId { get; set; }
 
         /// <summary>
         /// Gets or Sets UnitsSold
@@ -90,6 +108,8 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
+            sb.Append("  CatalogId: ").Append(CatalogId).Append("\n");
+            sb.Append("  ProductId: ").Append(ProductId).Append("\n");
             sb.Append("  UnitsSold: ").Append(UnitsSold).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -140,6 +160,14 @@ namespace TalonOne.Model
                     this.LastUpdated.Equals(input.LastUpdated))
                 ) && 
                 (
+                    this.CatalogId == input.CatalogId ||
+                    this.CatalogId.Equals(input.CatalogId)
+                ) && 
+                (
+                    this.ProductId == input.ProductId ||
+                    this.ProductId.Equals(input.ProductId)
+                ) && 
+                (
                     this.UnitsSold == input.UnitsSold ||
                     (this.UnitsSold != null &&
                     this.UnitsSold.Equals(input.UnitsSold))
@@ -160,6 +188,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Sku.GetHashCode();
                 if (this.LastUpdated != null)
                     hashCode = hashCode * 59 + this.LastUpdated.GetHashCode();
+                hashCode = hashCode * 59 + this.CatalogId.GetHashCode();
+                hashCode = hashCode * 59 + this.ProductId.GetHashCode();
                 if (this.UnitsSold != null)
                     hashCode = hashCode * 59 + this.UnitsSold.GetHashCode();
                 return hashCode;

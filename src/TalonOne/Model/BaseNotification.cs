@@ -143,7 +143,7 @@ namespace TalonOne.Model
         /// <param name="webhook">webhook (required).</param>
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="type">The notification type. (required).</param>
-        public BaseNotification(Object policy = default(Object), bool enabled = true, BaseNotificationWebhook webhook = default(BaseNotificationWebhook), int id = default(int), TypeEnum type = default(TypeEnum))
+        public BaseNotification(Object policy = default(Object), bool enabled = true, BaseNotificationWebhook webhook = default(BaseNotificationWebhook), long id = default(long), TypeEnum type = default(TypeEnum))
         {
             // to ensure "policy" is required (not null)
             this.Policy = policy ?? throw new ArgumentNullException("policy is a required property for BaseNotification and cannot be null");
@@ -179,7 +179,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Unique ID for this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -279,8 +279,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (int) minimum
-            if(this.Id < (int)1)
+            // Id (long) minimum
+            if(this.Id < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, must be a value greater than or equal to 1.", new [] { "Id" });
             }

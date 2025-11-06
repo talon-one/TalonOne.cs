@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="productId">The ID of the product..</param>
         /// <param name="value">The string matching the given value. Either a product name or SKU. (required).</param>
         /// <param name="productSkuId">The ID of the SKU linked to a product. If empty, this is an product..</param>
-        public ProductSearchMatch(int productId = default(int), string value = default(string), int productSkuId = default(int))
+        public ProductSearchMatch(long productId = default(long), string value = default(string), long productSkuId = default(long))
         {
             // to ensure "value" is required (not null)
             this.Value = value ?? throw new ArgumentNullException("value is a required property for ProductSearchMatch and cannot be null");
@@ -55,7 +55,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the product.</value>
         [DataMember(Name="productId", EmitDefaultValue=false)]
-        public int ProductId { get; set; }
+        public long ProductId { get; set; }
 
         /// <summary>
         /// The string matching the given value. Either a product name or SKU.
@@ -69,7 +69,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the SKU linked to a product. If empty, this is an product.</value>
         [DataMember(Name="productSkuId", EmitDefaultValue=false)]
-        public int ProductSkuId { get; set; }
+        public long ProductSkuId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

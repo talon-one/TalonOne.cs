@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **ExactMatch** | **bool** | Filter results to an exact case-insensitive matching against the coupon code | [optional] [default to false]
 **Value** | **string** | Filter results by the coupon code | [optional] 
 **BatchId** | **string** | Filter results by batches of coupons | [optional] 
-**ReferralId** | **int** | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
+**ReferralId** | **long** | Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code. | [optional] 
 **ExpiresAfter** | **DateTime** | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
 **ExpiresBefore** | **DateTime** | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
 

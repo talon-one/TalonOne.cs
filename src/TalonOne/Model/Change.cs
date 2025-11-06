@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="old">Resource before the change occurred..</param>
         /// <param name="_new">Resource after the change occurred..</param>
         /// <param name="managementKeyId">ID of management key used to perform changes..</param>
-        public Change(int id = default(int), DateTime created = default(DateTime), int userId = default(int), int applicationId = default(int), string entity = default(string), Object old = default(Object), Object _new = default(Object), int managementKeyId = default(int))
+        public Change(long id = default(long), DateTime created = default(DateTime), long userId = default(long), long applicationId = default(long), string entity = default(string), Object old = default(Object), Object _new = default(Object), long managementKeyId = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -65,7 +65,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -79,14 +79,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the user associated with this entity.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// ID of application associated with change.
         /// </summary>
         /// <value>ID of application associated with change.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// API endpoint on which the change was initiated.
@@ -114,7 +114,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of management key used to perform changes.</value>
         [DataMember(Name="managementKeyId", EmitDefaultValue=false)]
-        public int ManagementKeyId { get; set; }
+        public long ManagementKeyId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -49,7 +49,7 @@ namespace TalonOne.Model
         /// <param name="integrationId">The ID of this audience in the third-party integration.  **Note:** To create an audience that doesn&#39;t come from a 3rd party platform, do not use this property. .</param>
         /// <param name="createdIn3rdParty">Determines if this audience is a 3rd party audience or not..</param>
         /// <param name="lastUpdate">The last time that the audience memberships changed..</param>
-        public Audience(int accountId = default(int), int id = default(int), DateTime created = default(DateTime), string name = default(string), bool sandbox = default(bool), string description = default(string), string integration = default(string), string integrationId = default(string), bool createdIn3rdParty = default(bool), DateTime lastUpdate = default(DateTime))
+        public Audience(long accountId = default(long), long id = default(long), DateTime created = default(DateTime), string name = default(string), bool sandbox = default(bool), string description = default(string), string integration = default(string), string integrationId = default(string), bool createdIn3rdParty = default(bool), DateTime lastUpdate = default(DateTime))
         {
             this.AccountId = accountId;
             this.Id = id;
@@ -69,14 +69,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The internal ID of this entity.
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.

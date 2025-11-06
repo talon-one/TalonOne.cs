@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Title** | **string** | A campaigner friendly name for the argument, this will be shown in the rule editor. | 
 **Ui** | [**Object**](.md) | Arbitrary metadata that may be used to render an input for this argument. | 
 **Key** | **string** | The identifier for the associated value within the JSON object. | [optional] 
-**PicklistID** | **int** | ID of the picklist linked to a template. | [optional] 
+**PicklistID** | **long** | ID of the picklist linked to a template. | [optional] 
 **RestrictedByPicklist** | **bool** | Whether or not this attribute&#39;s value is restricted by picklist (&#x60;picklist&#x60; property) | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

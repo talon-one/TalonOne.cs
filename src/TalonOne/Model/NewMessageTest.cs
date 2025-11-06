@@ -32,111 +32,6 @@ namespace TalonOne.Model
     public partial class NewMessageTest :  IEquatable<NewMessageTest>, IValidatableObject
     {
         /// <summary>
-        /// The message type.
-        /// </summary>
-        /// <value>The message type.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TypeEnum
-        {
-            /// <summary>
-            /// Enum Campaign for value: campaign
-            /// </summary>
-            [EnumMember(Value = "campaign")]
-            Campaign = 1,
-
-            /// <summary>
-            /// Enum Loyaltyaddeddeductedpoints for value: loyalty_added_deducted_points
-            /// </summary>
-            [EnumMember(Value = "loyalty_added_deducted_points")]
-            Loyaltyaddeddeductedpoints = 2,
-
-            /// <summary>
-            /// Enum Cardaddeddeductedpoints for value: card_added_deducted_points
-            /// </summary>
-            [EnumMember(Value = "card_added_deducted_points")]
-            Cardaddeddeductedpoints = 3,
-
-            /// <summary>
-            /// Enum Loyaltyaddeddeductedpointsbalances for value: loyalty_added_deducted_points_balances
-            /// </summary>
-            [EnumMember(Value = "loyalty_added_deducted_points_balances")]
-            Loyaltyaddeddeductedpointsbalances = 4,
-
-            /// <summary>
-            /// Enum Loyaltycardaddeddeductedpointsbalances for value: loyalty_card_added_deducted_points_balances
-            /// </summary>
-            [EnumMember(Value = "loyalty_card_added_deducted_points_balances")]
-            Loyaltycardaddeddeductedpointsbalances = 5,
-
-            /// <summary>
-            /// Enum Coupon for value: coupon
-            /// </summary>
-            [EnumMember(Value = "coupon")]
-            Coupon = 6,
-
-            /// <summary>
-            /// Enum Expiringcoupons for value: expiring_coupons
-            /// </summary>
-            [EnumMember(Value = "expiring_coupons")]
-            Expiringcoupons = 7,
-
-            /// <summary>
-            /// Enum Expiringpoints for value: expiring_points
-            /// </summary>
-            [EnumMember(Value = "expiring_points")]
-            Expiringpoints = 8,
-
-            /// <summary>
-            /// Enum Pendingtoactivepoints for value: pending_to_active_points
-            /// </summary>
-            [EnumMember(Value = "pending_to_active_points")]
-            Pendingtoactivepoints = 9,
-
-            /// <summary>
-            /// Enum Strikethroughpricing for value: strikethrough_pricing
-            /// </summary>
-            [EnumMember(Value = "strikethrough_pricing")]
-            Strikethroughpricing = 10,
-
-            /// <summary>
-            /// Enum Tierdowngrade for value: tier_downgrade
-            /// </summary>
-            [EnumMember(Value = "tier_downgrade")]
-            Tierdowngrade = 11,
-
-            /// <summary>
-            /// Enum Tierupgrade for value: tier_upgrade
-            /// </summary>
-            [EnumMember(Value = "tier_upgrade")]
-            Tierupgrade = 12,
-
-            /// <summary>
-            /// Enum Tierwilldowngrade for value: tier_will_downgrade
-            /// </summary>
-            [EnumMember(Value = "tier_will_downgrade")]
-            Tierwilldowngrade = 13,
-
-            /// <summary>
-            /// Enum Cardexpiringpoints for value: card_expiring_points
-            /// </summary>
-            [EnumMember(Value = "card_expiring_points")]
-            Cardexpiringpoints = 14,
-
-            /// <summary>
-            /// Enum Ruleenginewebhook for value: rule_engine_webhook
-            /// </summary>
-            [EnumMember(Value = "rule_engine_webhook")]
-            Ruleenginewebhook = 15
-
-        }
-
-        /// <summary>
-        /// The message type.
-        /// </summary>
-        /// <value>The message type.</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum Type { get; set; }
-        /// <summary>
         /// API method for this message.
         /// </summary>
         /// <value>API method for this message.</value>
@@ -189,30 +84,23 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewMessageTest" /> class.
         /// </summary>
-        /// <param name="type">The message type. (required).</param>
-        /// <param name="queryParams">Array of query parameters..</param>
         /// <param name="headers">List of API HTTP headers for the given message..</param>
         /// <param name="verb">API method for this message. (required).</param>
         /// <param name="url">API URL for the given message. (required).</param>
         /// <param name="payload">API payload of this message..</param>
-        public NewMessageTest(TypeEnum type = default(TypeEnum), Dictionary<string, string> queryParams = default(Dictionary<string, string>), Dictionary<string, string> headers = default(Dictionary<string, string>), VerbEnum verb = default(VerbEnum), string url = default(string), string payload = default(string))
+        /// <param name="_params">Array of template argument definitions..</param>
+        /// <param name="applicationIds">The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;. .</param>
+        public NewMessageTest(Dictionary<string, string> headers = default(Dictionary<string, string>), VerbEnum verb = default(VerbEnum), string url = default(string), string payload = default(string), List<TemplateArgDef> _params = default(List<TemplateArgDef>), List<long> applicationIds = default(List<long>))
         {
-            this.Type = type;
             this.Verb = verb;
             // to ensure "url" is required (not null)
             this.Url = url ?? throw new ArgumentNullException("url is a required property for NewMessageTest and cannot be null");
-            this.QueryParams = queryParams;
             this.Headers = headers;
             this.Payload = payload;
+            this.Params = _params;
+            this.ApplicationIds = applicationIds;
         }
         
-        /// <summary>
-        /// Array of query parameters.
-        /// </summary>
-        /// <value>Array of query parameters.</value>
-        [DataMember(Name="queryParams", EmitDefaultValue=false)]
-        public Dictionary<string, string> QueryParams { get; set; }
-
         /// <summary>
         /// List of API HTTP headers for the given message.
         /// </summary>
@@ -235,6 +123,20 @@ namespace TalonOne.Model
         public string Payload { get; set; }
 
         /// <summary>
+        /// Array of template argument definitions.
+        /// </summary>
+        /// <value>Array of template argument definitions.</value>
+        [DataMember(Name="params", EmitDefaultValue=false)]
+        public List<TemplateArgDef> Params { get; set; }
+
+        /// <summary>
+        /// The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;. 
+        /// </summary>
+        /// <value>The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;. </value>
+        [DataMember(Name="applicationIds", EmitDefaultValue=false)]
+        public List<long> ApplicationIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -242,12 +144,12 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class NewMessageTest {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  QueryParams: ").Append(QueryParams).Append("\n");
             sb.Append("  Headers: ").Append(Headers).Append("\n");
             sb.Append("  Verb: ").Append(Verb).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  Payload: ").Append(Payload).Append("\n");
+            sb.Append("  Params: ").Append(Params).Append("\n");
+            sb.Append("  ApplicationIds: ").Append(ApplicationIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -283,16 +185,6 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                ) && 
-                (
-                    this.QueryParams == input.QueryParams ||
-                    this.QueryParams != null &&
-                    input.QueryParams != null &&
-                    this.QueryParams.SequenceEqual(input.QueryParams)
-                ) && 
-                (
                     this.Headers == input.Headers ||
                     this.Headers != null &&
                     input.Headers != null &&
@@ -311,6 +203,18 @@ namespace TalonOne.Model
                     this.Payload == input.Payload ||
                     (this.Payload != null &&
                     this.Payload.Equals(input.Payload))
+                ) && 
+                (
+                    this.Params == input.Params ||
+                    this.Params != null &&
+                    input.Params != null &&
+                    this.Params.SequenceEqual(input.Params)
+                ) && 
+                (
+                    this.ApplicationIds == input.ApplicationIds ||
+                    this.ApplicationIds != null &&
+                    input.ApplicationIds != null &&
+                    this.ApplicationIds.SequenceEqual(input.ApplicationIds)
                 );
         }
 
@@ -323,9 +227,6 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.QueryParams != null)
-                    hashCode = hashCode * 59 + this.QueryParams.GetHashCode();
                 if (this.Headers != null)
                     hashCode = hashCode * 59 + this.Headers.GetHashCode();
                 hashCode = hashCode * 59 + this.Verb.GetHashCode();
@@ -333,6 +234,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
                 if (this.Payload != null)
                     hashCode = hashCode * 59 + this.Payload.GetHashCode();
+                if (this.Params != null)
+                    hashCode = hashCode * 59 + this.Params.GetHashCode();
+                if (this.ApplicationIds != null)
+                    hashCode = hashCode * 59 + this.ApplicationIds.GetHashCode();
                 return hashCode;
             }
         }

@@ -138,10 +138,11 @@ namespace TalonOne.Model
         /// <param name="activationPolicy">The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. .</param>
         /// <param name="fixedStartDate">The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="endDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. .</param>
+        /// <param name="allowRollbackAfterCompletion">When &#x60;true&#x60;, customer progress can be rolled back in completed achievements..</param>
         /// <param name="campaignId">The ID of the campaign the achievement belongs to..</param>
         /// <param name="status">The status of the achievement..</param>
         /// <param name="currentProgress">currentProgress.</param>
-        public AchievementStatusEntry(int id = default(int), DateTime created = default(DateTime), string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), int campaignId = default(int), StatusEnum? status = default(StatusEnum?), AchievementProgress currentProgress = default(AchievementProgress))
+        public AchievementStatusEntry(long id = default(long), DateTime created = default(DateTime), string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool), long campaignId = default(long), StatusEnum? status = default(StatusEnum?), AchievementProgress currentProgress = default(AchievementProgress))
         {
             this.Id = id;
             this.Created = created;
@@ -158,6 +159,7 @@ namespace TalonOne.Model
             this.ActivationPolicy = activationPolicy;
             this.FixedStartDate = fixedStartDate;
             this.EndDate = endDate;
+            this.AllowRollbackAfterCompletion = allowRollbackAfterCompletion;
             this.CampaignId = campaignId;
             this.Status = status;
             this.CurrentProgress = currentProgress;
@@ -168,7 +170,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -233,11 +235,18 @@ namespace TalonOne.Model
         public DateTime EndDate { get; set; }
 
         /// <summary>
+        /// When &#x60;true&#x60;, customer progress can be rolled back in completed achievements.
+        /// </summary>
+        /// <value>When &#x60;true&#x60;, customer progress can be rolled back in completed achievements.</value>
+        [DataMember(Name="allowRollbackAfterCompletion", EmitDefaultValue=false)]
+        public bool AllowRollbackAfterCompletion { get; set; }
+
+        /// <summary>
         /// The ID of the campaign the achievement belongs to.
         /// </summary>
         /// <value>The ID of the campaign the achievement belongs to.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentProgress
@@ -265,6 +274,7 @@ namespace TalonOne.Model
             sb.Append("  ActivationPolicy: ").Append(ActivationPolicy).Append("\n");
             sb.Append("  FixedStartDate: ").Append(FixedStartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            sb.Append("  AllowRollbackAfterCompletion: ").Append(AllowRollbackAfterCompletion).Append("\n");
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  CurrentProgress: ").Append(CurrentProgress).Append("\n");
@@ -359,6 +369,10 @@ namespace TalonOne.Model
                     this.EndDate.Equals(input.EndDate))
                 ) && 
                 (
+                    this.AllowRollbackAfterCompletion == input.AllowRollbackAfterCompletion ||
+                    this.AllowRollbackAfterCompletion.Equals(input.AllowRollbackAfterCompletion)
+                ) && 
+                (
                     this.CampaignId == input.CampaignId ||
                     this.CampaignId.Equals(input.CampaignId)
                 ) && 
@@ -402,6 +416,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.FixedStartDate.GetHashCode();
                 if (this.EndDate != null)
                     hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                hashCode = hashCode * 59 + this.AllowRollbackAfterCompletion.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.CurrentProgress != null)

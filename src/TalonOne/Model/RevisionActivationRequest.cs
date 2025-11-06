@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="userIds">The list of IDs of the users who will receive the activation request. (required).</param>
         /// <param name="activateAt">Time when the revisions are finalized after the &#x60;activate_revision&#x60; operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string. .</param>
-        public RevisionActivationRequest(List<int> userIds = default(List<int>), DateTime activateAt = default(DateTime))
+        public RevisionActivationRequest(List<long> userIds = default(List<long>), DateTime activateAt = default(DateTime))
         {
             // to ensure "userIds" is required (not null)
             this.UserIds = userIds ?? throw new ArgumentNullException("userIds is a required property for RevisionActivationRequest and cannot be null");
@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The list of IDs of the users who will receive the activation request.</value>
         [DataMember(Name="userIds", EmitDefaultValue=false)]
-        public List<int> UserIds { get; set; }
+        public List<long> UserIds { get; set; }
 
         /// <summary>
         /// Time when the revisions are finalized after the &#x60;activate_revision&#x60; operation. The current time is used when left blank.  **Note:** It must be an RFC3339 timestamp string. 

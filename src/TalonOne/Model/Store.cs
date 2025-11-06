@@ -48,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="updated">Timestamp of the most recent update on this entity. (required).</param>
         /// <param name="linkedCampaignIds">A list of IDs of the campaigns that are linked with current store..</param>
-        public Store(int id = default(int), DateTime created = default(DateTime), string name = default(string), string description = default(string), Object attributes = default(Object), string integrationId = default(string), int applicationId = default(int), DateTime updated = default(DateTime), List<int> linkedCampaignIds = default(List<int>))
+        public Store(long id = default(long), DateTime created = default(DateTime), string name = default(string), string description = default(string), Object attributes = default(Object), string integrationId = default(string), long applicationId = default(long), DateTime updated = default(DateTime), List<long> linkedCampaignIds = default(List<long>))
         {
             this.Id = id;
             this.Created = created;
@@ -69,7 +69,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -111,7 +111,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Timestamp of the most recent update on this entity.
@@ -125,7 +125,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of IDs of the campaigns that are linked with current store.</value>
         [DataMember(Name="linkedCampaignIds", EmitDefaultValue=false)]
-        public List<int> LinkedCampaignIds { get; set; }
+        public List<long> LinkedCampaignIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

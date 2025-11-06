@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="cartItemPosition">The index of the item in the cart items for which the loyalty points were rolled back..</param>
         /// <param name="cartItemSubPosition">For cart items with &#x60;quantity&#x60; &gt; 1, the sub-position indicates to which item the loyalty points were rolled back. .</param>
         /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
-        public RollbackAddedLoyaltyPointsEffectProps(int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), string cardIdentifier = default(string))
+        public RollbackAddedLoyaltyPointsEffectProps(long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), string cardIdentifier = default(string))
         {
             this.ProgramId = programId;
             // to ensure "subLedgerId" is required (not null)
@@ -67,7 +67,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the loyalty program where the points were originally added.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
-        public int ProgramId { get; set; }
+        public long ProgramId { get; set; }
 
         /// <summary>
         /// The ID of the subledger within the loyalty program where these points were originally added.

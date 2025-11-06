@@ -67,7 +67,7 @@ namespace TalonOne.Model
         /// <param name="policy">Indicates the access level of the user..</param>
         /// <param name="roles">A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. .</param>
         /// <param name="applicationNotificationSubscriptions">Application notifications that the user is subscribed to..</param>
-        public UpdateUser(string name = default(string), StateEnum? state = default(StateEnum?), bool isAdmin = default(bool), string policy = default(string), List<int> roles = default(List<int>), Object applicationNotificationSubscriptions = default(Object))
+        public UpdateUser(string name = default(string), StateEnum? state = default(StateEnum?), bool isAdmin = default(bool), string policy = default(string), List<long> roles = default(List<long>), Object applicationNotificationSubscriptions = default(Object))
         {
             this.Name = name;
             this.State = state;
@@ -103,7 +103,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the roles assigned to the user.  **Note**: To find the ID of a role, use the [List roles](/management-api#tag/Roles/operation/listAllRolesV2) endpoint. </value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
-        public List<int> Roles { get; set; }
+        public List<long> Roles { get; set; }
 
         /// <summary>
         /// Application notifications that the user is subscribed to.

@@ -51,7 +51,7 @@ namespace TalonOne.Model
         /// <param name="bundleName">The name of the bundle definition..</param>
         /// <param name="targetedItemPosition">The index of the targeted bundle item on which the applied discount is based..</param>
         /// <param name="targetedItemSubPosition">The sub-position of the targeted bundle item on which the applied discount is based. .</param>
-        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), decimal desiredValue = default(decimal), string scope = default(string), decimal totalDiscount = default(decimal), decimal desiredTotalDiscount = default(decimal), int bundleIndex = default(int), string bundleName = default(string), decimal targetedItemPosition = default(decimal), decimal targetedItemSubPosition = default(decimal))
+        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), decimal desiredValue = default(decimal), string scope = default(string), decimal totalDiscount = default(decimal), decimal desiredTotalDiscount = default(decimal), long bundleIndex = default(long), string bundleName = default(string), decimal targetedItemPosition = default(decimal), decimal targetedItemSubPosition = default(decimal))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SetDiscountPerItemEffectProps and cannot be null");
@@ -129,7 +129,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The position of the bundle in a list of item bundles created from the same bundle definition.</value>
         [DataMember(Name="bundleIndex", EmitDefaultValue=false)]
-        public int BundleIndex { get; set; }
+        public long BundleIndex { get; set; }
 
         /// <summary>
         /// The name of the bundle definition.

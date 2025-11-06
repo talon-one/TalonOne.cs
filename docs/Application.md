@@ -3,10 +3,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The internal ID of this entity. | 
+**Id** | **long** | The internal ID of this entity. | 
 **Created** | **DateTime** | The time this entity was created. | 
 **Modified** | **DateTime** | The time this entity was last modified. | 
-**AccountId** | **int** | The ID of the account that owns this entity. | 
+**AccountId** | **long** | The ID of the account that owns this entity. | 
 **Name** | **string** | The name of this application. | 
 **Description** | **string** | A longer description of the application. | [optional] 
 **Timezone** | **string** | A string containing an IANA timezone descriptor. | 
@@ -21,8 +21,8 @@ Name | Type | Description | Notes
 **Sandbox** | **bool** | Indicates if this is a live or sandbox Application. | [optional] 
 **EnablePartialDiscounts** | **bool** | Indicates if this Application supports partial discounts. | [optional] 
 **DefaultDiscountAdditionalCostPerItemScope** | **string** | The default scope to apply &#x60;setDiscountPerItem&#x60; effects on if no scope was provided with the effect.  | [optional] 
-**DefaultEvaluationGroupId** | **int** | The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign. | [optional] 
-**DefaultCartItemFilterId** | **int** | The ID of the default Cart-Item-Filter for this application. | [optional] 
+**DefaultEvaluationGroupId** | **long** | The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign. | [optional] 
+**DefaultCartItemFilterId** | **long** | The ID of the default Cart-Item-Filter for this application. | [optional] 
 **EnableCampaignStateManagement** | **bool** | Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled.  | [optional] 
 **LoyaltyPrograms** | [**List&lt;LoyaltyProgram&gt;**](LoyaltyProgram.md) | An array containing all the loyalty programs to which this application is subscribed. | 
 

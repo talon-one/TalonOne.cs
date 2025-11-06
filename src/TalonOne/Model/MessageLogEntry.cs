@@ -87,7 +87,7 @@ namespace TalonOne.Model
         /// <param name="applicationId">Identifier of the Application..</param>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program..</param>
         /// <param name="campaignId">Identifier of the campaign..</param>
-        public MessageLogEntry(string id = default(string), string service = default(string), string changeType = default(string), int notificationId = default(int), string notificationName = default(string), int webhookId = default(int), string webhookName = default(string), MessageLogRequest request = default(MessageLogRequest), MessageLogResponse response = default(MessageLogResponse), DateTime createdAt = default(DateTime), EntityTypeEnum entityType = default(EntityTypeEnum), string url = default(string), int applicationId = default(int), int loyaltyProgramId = default(int), int campaignId = default(int))
+        public MessageLogEntry(string id = default(string), string service = default(string), string changeType = default(string), long notificationId = default(long), string notificationName = default(string), long webhookId = default(long), string webhookName = default(string), MessageLogRequest request = default(MessageLogRequest), MessageLogResponse response = default(MessageLogResponse), DateTime createdAt = default(DateTime), EntityTypeEnum entityType = default(EntityTypeEnum), string url = default(string), long applicationId = default(long), long loyaltyProgramId = default(long), long campaignId = default(long))
         {
             // to ensure "id" is required (not null)
             this.Id = id ?? throw new ArgumentNullException("id is a required property for MessageLogEntry and cannot be null");
@@ -134,7 +134,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the notification.</value>
         [DataMember(Name="notificationId", EmitDefaultValue=false)]
-        public int NotificationId { get; set; }
+        public long NotificationId { get; set; }
 
         /// <summary>
         /// The name of the notification.
@@ -148,7 +148,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the webhook.</value>
         [DataMember(Name="webhookId", EmitDefaultValue=false)]
-        public int WebhookId { get; set; }
+        public long WebhookId { get; set; }
 
         /// <summary>
         /// The name of the webhook.
@@ -188,21 +188,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Identifier of the Application.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Identifier of the loyalty program.
         /// </summary>
         /// <value>Identifier of the loyalty program.</value>
         [DataMember(Name="loyaltyProgramId", EmitDefaultValue=false)]
-        public int LoyaltyProgramId { get; set; }
+        public long LoyaltyProgramId { get; set; }
 
         /// <summary>
         /// Identifier of the campaign.
         /// </summary>
         /// <value>Identifier of the campaign.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -376,20 +376,20 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ApplicationId (int) minimum
-            if(this.ApplicationId < (int)1)
+            // ApplicationId (long) minimum
+            if(this.ApplicationId < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ApplicationId, must be a value greater than or equal to 1.", new [] { "ApplicationId" });
             }
 
-            // LoyaltyProgramId (int) minimum
-            if(this.LoyaltyProgramId < (int)1)
+            // LoyaltyProgramId (long) minimum
+            if(this.LoyaltyProgramId < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyProgramId, must be a value greater than or equal to 1.", new [] { "LoyaltyProgramId" });
             }
 
-            // CampaignId (int) minimum
-            if(this.CampaignId < (int)1)
+            // CampaignId (long) minimum
+            if(this.CampaignId < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CampaignId, must be a value greater than or equal to 1.", new [] { "CampaignId" });
             }

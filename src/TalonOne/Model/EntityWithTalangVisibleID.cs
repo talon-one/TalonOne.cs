@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="id">Unique ID for this entity. (required).</param>
         /// <param name="created">The exact moment this entity was created. (required).</param>
-        public EntityWithTalangVisibleID(int id = default(int), DateTime created = default(DateTime))
+        public EntityWithTalangVisibleID(long id = default(long), DateTime created = default(DateTime))
         {
             this.Id = id;
             this.Created = created;
@@ -52,7 +52,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Unique ID for this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The exact moment this entity was created.

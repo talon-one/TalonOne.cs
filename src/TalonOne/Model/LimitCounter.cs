@@ -54,7 +54,7 @@ namespace TalonOne.Model
         /// <param name="period">The time period for which this limit counter is used..</param>
         /// <param name="limit">The highest possible value for this limit counter. (required).</param>
         /// <param name="counter">The current value for this limit counter. (required).</param>
-        public LimitCounter(int campaignId = default(int), int applicationId = default(int), int accountId = default(int), int id = default(int), string action = default(string), int profileId = default(int), string profileIntegrationId = default(string), int couponId = default(int), string couponValue = default(string), int referralId = default(int), string referralValue = default(string), string identifier = default(string), string period = default(string), decimal limit = default(decimal), decimal counter = default(decimal))
+        public LimitCounter(long campaignId = default(long), long applicationId = default(long), long accountId = default(long), long id = default(long), string action = default(string), long profileId = default(long), string profileIntegrationId = default(string), long couponId = default(long), string couponValue = default(string), long referralId = default(long), string referralValue = default(string), string identifier = default(string), string period = default(string), decimal limit = default(decimal), decimal counter = default(decimal))
         {
             this.CampaignId = campaignId;
             this.ApplicationId = applicationId;
@@ -79,28 +79,28 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that owns this entity.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The ID of the Application that owns this entity.
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Unique ID for this entity.
         /// </summary>
         /// <value>Unique ID for this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The limitable action of the limit counter.
@@ -114,7 +114,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The profile ID for which this limit counter is used.</value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
-        public int ProfileId { get; set; }
+        public long ProfileId { get; set; }
 
         /// <summary>
         /// The profile integration ID for which this limit counter is used.
@@ -128,7 +128,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal coupon ID for which this limit counter is used.</value>
         [DataMember(Name="couponId", EmitDefaultValue=false)]
-        public int CouponId { get; set; }
+        public long CouponId { get; set; }
 
         /// <summary>
         /// The coupon value for which this limit counter is used.
@@ -142,7 +142,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The referral ID for which this limit counter is used.</value>
         [DataMember(Name="referralId", EmitDefaultValue=false)]
-        public int ReferralId { get; set; }
+        public long ReferralId { get; set; }
 
         /// <summary>
         /// The referral value for which this limit counter is used.

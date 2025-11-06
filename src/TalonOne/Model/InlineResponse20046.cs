@@ -34,31 +34,17 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20046" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InlineResponse20046() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse20046" /> class.
-        /// </summary>
-        /// <param name="totalResultSize">totalResultSize (required).</param>
-        /// <param name="data">data (required).</param>
-        public InlineResponse20046(int totalResultSize = default(int), List<RoleV2> data = default(List<RoleV2>))
+        /// <param name="data">data.</param>
+        public InlineResponse20046(List<ListCampaignStoreBudgets> data = default(List<ListCampaignStoreBudgets>))
         {
-            this.TotalResultSize = totalResultSize;
-            // to ensure "data" is required (not null)
-            this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20046 and cannot be null");
+            this.Data = data;
         }
         
-        /// <summary>
-        /// Gets or Sets TotalResultSize
-        /// </summary>
-        [DataMember(Name="totalResultSize", EmitDefaultValue=false)]
-        public int TotalResultSize { get; set; }
-
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<RoleV2> Data { get; set; }
+        public List<ListCampaignStoreBudgets> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,7 +54,6 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20046 {\n");
-            sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,10 +90,6 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.TotalResultSize == input.TotalResultSize ||
-                    this.TotalResultSize.Equals(input.TotalResultSize)
-                ) && 
-                (
                     this.Data == input.Data ||
                     this.Data != null &&
                     input.Data != null &&
@@ -125,7 +106,6 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;

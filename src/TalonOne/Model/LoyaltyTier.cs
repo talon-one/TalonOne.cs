@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="programTitle">The Campaign Manager-displayed name of the loyalty program that owns this entity..</param>
         /// <param name="name">The name of the tier. (required).</param>
         /// <param name="minPoints">The minimum amount of points required to enter the tier. (required).</param>
-        public LoyaltyTier(int id = default(int), DateTime created = default(DateTime), int programID = default(int), string programName = default(string), string programTitle = default(string), string name = default(string), decimal minPoints = default(decimal))
+        public LoyaltyTier(long id = default(long), DateTime created = default(DateTime), long programID = default(long), string programName = default(string), string programTitle = default(string), string name = default(string), decimal minPoints = default(decimal))
         {
             this.Id = id;
             this.Created = created;
@@ -63,7 +63,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -77,7 +77,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the loyalty program that owns this entity.</value>
         [DataMember(Name="programID", EmitDefaultValue=false)]
-        public int ProgramID { get; set; }
+        public long ProgramID { get; set; }
 
         /// <summary>
         /// The integration name of the loyalty program that owns this entity.

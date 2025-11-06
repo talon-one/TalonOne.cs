@@ -111,7 +111,7 @@ namespace TalonOne.Model
         /// <param name="evaluationMode">The mode by which campaigns in the campaign evaluation group are evaluated. (required).</param>
         /// <param name="evaluationScope">The evaluation scope of the campaign evaluation group. (required).</param>
         /// <param name="locked">An indicator of whether the campaign evaluation group is locked for modification. (required).</param>
-        public UpdateCampaignEvaluationGroup(string name = default(string), int parentId = default(int), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum), EvaluationScopeEnum evaluationScope = default(EvaluationScopeEnum), bool locked = default(bool))
+        public UpdateCampaignEvaluationGroup(string name = default(string), long parentId = default(long), string description = default(string), EvaluationModeEnum evaluationMode = default(EvaluationModeEnum), EvaluationScopeEnum evaluationScope = default(EvaluationScopeEnum), bool locked = default(bool))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateCampaignEvaluationGroup and cannot be null");
@@ -134,7 +134,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the parent group that contains the campaign evaluation group.</value>
         [DataMember(Name="parentId", EmitDefaultValue=false)]
-        public int ParentId { get; set; }
+        public long ParentId { get; set; }
 
         /// <summary>
         /// A description of the campaign evaluation group.
@@ -254,8 +254,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // ParentId (int) minimum
-            if(this.ParentId < (int)1)
+            // ParentId (long) minimum
+            if(this.ParentId < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ParentId, must be a value greater than or equal to 1.", new [] { "ParentId" });
             }

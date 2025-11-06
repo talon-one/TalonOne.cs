@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// <param name="args">An array of argument definitions. (required).</param>
         /// <param name="expose">A flag to control exposure in Rule Builder. (default to false).</param>
         /// <param name="name">The template name used in Talang. (required).</param>
-        public TemplateDef(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), string title = default(string), string description = default(string), string help = default(string), string category = default(string), List<Object> expr = default(List<Object>), List<TemplateArgDef> args = default(List<TemplateArgDef>), bool expose = false, string name = default(string))
+        public TemplateDef(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), string title = default(string), string description = default(string), string help = default(string), string category = default(string), List<Object> expr = default(List<Object>), List<TemplateArgDef> args = default(List<TemplateArgDef>), bool expose = false, string name = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -77,7 +77,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -91,7 +91,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Campaigner-friendly name for the template that will be shown in the rule editor.

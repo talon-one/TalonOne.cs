@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationIds** | **List&lt;int&gt;** | The IDs of the Applications that are related to this entity. | 
+**ApplicationIds** | **List&lt;long&gt;** | The IDs of the Applications that are related to this entity. | 
 **IsPerItem** | **bool** | Indicates if this effect is per item or not. | [optional] 
 **Name** | **string** | The name of this effect. | 
 **Title** | **string** | The title of this effect. | 

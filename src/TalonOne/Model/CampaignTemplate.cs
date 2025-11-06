@@ -176,7 +176,7 @@ namespace TalonOne.Model
         /// <param name="updatedBy">Name of the user who last updated this campaign template, if available..</param>
         /// <param name="validApplicationIds">The IDs of the Applications that are related to this entity. (required).</param>
         /// <param name="isUserFavorite">A flag indicating whether the user marked the template as a favorite. (default to false).</param>
-        public CampaignTemplate(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CampaignTemplateCouponReservationSettings couponReservationSettings = default(CampaignTemplateCouponReservationSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<int> applicationsIds = default(List<int>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), int defaultCampaignGroupId = default(int), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced, DateTime updated = default(DateTime), string updatedBy = default(string), List<int> validApplicationIds = default(List<int>), bool isUserFavorite = false)
+        public CampaignTemplate(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), long userId = default(long), string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), long activeRulesetId = default(long), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CampaignTemplateCouponReservationSettings couponReservationSettings = default(CampaignTemplateCouponReservationSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<long> applicationsIds = default(List<long>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), long defaultCampaignGroupId = default(long), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced, DateTime updated = default(DateTime), string updatedBy = default(string), List<long> validApplicationIds = default(List<long>), bool isUserFavorite = false)
         {
             this.Id = id;
             this.Created = created;
@@ -216,7 +216,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -230,14 +230,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The ID of the user associated with this entity.
         /// </summary>
         /// <value>The ID of the user associated with this entity.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The campaign template name.
@@ -279,7 +279,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the ruleset this campaign template will use.</value>
         [DataMember(Name="activeRulesetId", EmitDefaultValue=false)]
-        public int ActiveRulesetId { get; set; }
+        public long ActiveRulesetId { get; set; }
 
         /// <summary>
         /// A list of tags for the campaign template.
@@ -325,7 +325,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of IDs of the Applications that are subscribed to this campaign template.</value>
         [DataMember(Name="applicationsIds", EmitDefaultValue=false)]
-        public List<int> ApplicationsIds { get; set; }
+        public List<long> ApplicationsIds { get; set; }
 
         /// <summary>
         /// The campaign collections from the blueprint campaign for the template.
@@ -339,7 +339,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The default campaign group ID.</value>
         [DataMember(Name="defaultCampaignGroupId", EmitDefaultValue=false)]
-        public int DefaultCampaignGroupId { get; set; }
+        public long DefaultCampaignGroupId { get; set; }
 
         /// <summary>
         /// Timestamp of the most recent update to the campaign template or any of its elements.
@@ -360,7 +360,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The IDs of the Applications that are related to this entity.</value>
         [DataMember(Name="validApplicationIds", EmitDefaultValue=false)]
-        public List<int> ValidApplicationIds { get; set; }
+        public List<long> ValidApplicationIds { get; set; }
 
         /// <summary>
         /// A flag indicating whether the user marked the template as a favorite.

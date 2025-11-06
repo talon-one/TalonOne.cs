@@ -113,6 +113,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ChangedItems'
         }
+        /// <summary>
+        /// Test the property 'NotificationType'
+        /// </summary>
+        [Fact]
+        public void NotificationTypeTest()
+        {
+            // TODO unit test for the property 'NotificationType'
+        }
 
     }
 

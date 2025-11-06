@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="description">A longer description of the campaign access group..</param>
         /// <param name="subscribedApplicationsIds">A list of IDs of the Applications that this campaign access group is enabled for..</param>
         /// <param name="campaignIds">A list of IDs of the campaigns that are part of the campaign access group..</param>
-        public UpdateCampaignGroup(string name = default(string), string description = default(string), List<int> subscribedApplicationsIds = default(List<int>), List<int> campaignIds = default(List<int>))
+        public UpdateCampaignGroup(string name = default(string), string description = default(string), List<long> subscribedApplicationsIds = default(List<long>), List<long> campaignIds = default(List<long>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateCampaignGroup and cannot be null");
@@ -71,14 +71,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of IDs of the Applications that this campaign access group is enabled for.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// A list of IDs of the campaigns that are part of the campaign access group.
         /// </summary>
         /// <value>A list of IDs of the campaigns that are part of the campaign access group.</value>
         [DataMember(Name="campaignIds", EmitDefaultValue=false)]
-        public List<int> CampaignIds { get; set; }
+        public List<long> CampaignIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

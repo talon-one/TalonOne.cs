@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AccountId** | **int** | The ID of the account that owns this entity. | 
+**AccountId** | **long** | The ID of the account that owns this entity. | 
 **Name** | **string** | ID of the SAML service. | 
 **Enabled** | **bool** | Determines if this SAML connection active. | 
 **Issuer** | **string** | Identity Provider Entity ID. | 

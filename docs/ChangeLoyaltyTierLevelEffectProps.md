@@ -5,7 +5,7 @@ The properties specific to the \"changeLoyaltyTierLevel\" effect. This is trigge
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RuleTitle** | **string** | The title of the rule that triggered the tier upgrade. | 
-**ProgramId** | **int** | The ID of the loyalty program where these points were added. | 
+**ProgramId** | **long** | The ID of the loyalty program where these points were added. | 
 **SubLedgerId** | **string** | The ID of the subledger within the loyalty program where these points were added. | 
 **PreviousTierName** | **string** | The name of the tier from which the user was upgraded. | [optional] 
 **NewTierName** | **string** | The name of the tier to which the user has been upgraded. | 

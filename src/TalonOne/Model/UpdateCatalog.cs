@@ -37,7 +37,7 @@ namespace TalonOne.Model
         /// <param name="description">A description of this cart item catalog..</param>
         /// <param name="name">Name of this cart item catalog..</param>
         /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that are subscribed to this catalog..</param>
-        public UpdateCatalog(string description = default(string), string name = default(string), List<int> subscribedApplicationsIds = default(List<int>))
+        public UpdateCatalog(string description = default(string), string name = default(string), List<long> subscribedApplicationsIds = default(List<long>))
         {
             this.Description = description;
             this.Name = name;
@@ -63,7 +63,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the applications that are subscribed to this catalog.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

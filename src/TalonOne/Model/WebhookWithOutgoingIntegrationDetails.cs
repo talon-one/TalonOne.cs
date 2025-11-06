@@ -97,10 +97,11 @@ namespace TalonOne.Model
         /// <param name="payload">API payload (supports templating using parameters) for this webhook..</param>
         /// <param name="_params">Array of template argument definitions. (required).</param>
         /// <param name="enabled">Enables or disables webhook from showing in the Rule Builder. (required).</param>
+        /// <param name="authenticationId">The ID of the credential that this webhook is using..</param>
         /// <param name="outgoingIntegrationTemplateId">Identifier of the outgoing integration template..</param>
         /// <param name="outgoingIntegrationTypeId">Identifier of the outgoing integration type..</param>
         /// <param name="outgoingIntegrationTypeName">Name of the outgoing integration..</param>
-        public WebhookWithOutgoingIntegrationDetails(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), List<int> applicationIds = default(List<int>), string title = default(string), string description = default(string), bool draft = default(bool), VerbEnum verb = default(VerbEnum), string url = default(string), List<string> headers = default(List<string>), string payload = default(string), List<TemplateArgDef> _params = default(List<TemplateArgDef>), bool enabled = default(bool), int outgoingIntegrationTemplateId = default(int), int outgoingIntegrationTypeId = default(int), string outgoingIntegrationTypeName = default(string))
+        public WebhookWithOutgoingIntegrationDetails(long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime), List<long> applicationIds = default(List<long>), string title = default(string), string description = default(string), bool draft = default(bool), VerbEnum verb = default(VerbEnum), string url = default(string), List<string> headers = default(List<string>), string payload = default(string), List<TemplateArgDef> _params = default(List<TemplateArgDef>), bool enabled = default(bool), long authenticationId = default(long), long outgoingIntegrationTemplateId = default(long), long outgoingIntegrationTypeId = default(long), string outgoingIntegrationTypeName = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -120,6 +121,7 @@ namespace TalonOne.Model
             this.Enabled = enabled;
             this.Description = description;
             this.Payload = payload;
+            this.AuthenticationId = authenticationId;
             this.OutgoingIntegrationTemplateId = outgoingIntegrationTemplateId;
             this.OutgoingIntegrationTypeId = outgoingIntegrationTypeId;
             this.OutgoingIntegrationTypeName = outgoingIntegrationTypeName;
@@ -130,7 +132,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -151,7 +153,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;. </value>
         [DataMember(Name="applicationIds", EmitDefaultValue=false)]
-        public List<int> ApplicationIds { get; set; }
+        public List<long> ApplicationIds { get; set; }
 
         /// <summary>
         /// Name or title for this webhook.
@@ -210,18 +212,25 @@ namespace TalonOne.Model
         public bool Enabled { get; set; }
 
         /// <summary>
+        /// The ID of the credential that this webhook is using.
+        /// </summary>
+        /// <value>The ID of the credential that this webhook is using.</value>
+        [DataMember(Name="authenticationId", EmitDefaultValue=false)]
+        public long AuthenticationId { get; set; }
+
+        /// <summary>
         /// Identifier of the outgoing integration template.
         /// </summary>
         /// <value>Identifier of the outgoing integration template.</value>
         [DataMember(Name="outgoingIntegrationTemplateId", EmitDefaultValue=false)]
-        public int OutgoingIntegrationTemplateId { get; set; }
+        public long OutgoingIntegrationTemplateId { get; set; }
 
         /// <summary>
         /// Identifier of the outgoing integration type.
         /// </summary>
         /// <value>Identifier of the outgoing integration type.</value>
         [DataMember(Name="outgoingIntegrationTypeId", EmitDefaultValue=false)]
-        public int OutgoingIntegrationTypeId { get; set; }
+        public long OutgoingIntegrationTypeId { get; set; }
 
         /// <summary>
         /// Name of the outgoing integration.
@@ -251,6 +260,7 @@ namespace TalonOne.Model
             sb.Append("  Payload: ").Append(Payload).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
+            sb.Append("  AuthenticationId: ").Append(AuthenticationId).Append("\n");
             sb.Append("  OutgoingIntegrationTemplateId: ").Append(OutgoingIntegrationTemplateId).Append("\n");
             sb.Append("  OutgoingIntegrationTypeId: ").Append(OutgoingIntegrationTypeId).Append("\n");
             sb.Append("  OutgoingIntegrationTypeName: ").Append(OutgoingIntegrationTypeName).Append("\n");
@@ -353,6 +363,10 @@ namespace TalonOne.Model
                     this.Enabled.Equals(input.Enabled)
                 ) && 
                 (
+                    this.AuthenticationId == input.AuthenticationId ||
+                    this.AuthenticationId.Equals(input.AuthenticationId)
+                ) && 
+                (
                     this.OutgoingIntegrationTemplateId == input.OutgoingIntegrationTemplateId ||
                     this.OutgoingIntegrationTemplateId.Equals(input.OutgoingIntegrationTemplateId)
                 ) && 
@@ -398,6 +412,7 @@ namespace TalonOne.Model
                 if (this.Params != null)
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 hashCode = hashCode * 59 + this.Enabled.GetHashCode();
+                hashCode = hashCode * 59 + this.AuthenticationId.GetHashCode();
                 hashCode = hashCode * 59 + this.OutgoingIntegrationTemplateId.GetHashCode();
                 hashCode = hashCode * 59 + this.OutgoingIntegrationTypeId.GetHashCode();
                 if (this.OutgoingIntegrationTypeName != null)

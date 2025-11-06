@@ -62,7 +62,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="type">Indicates the node type. (required).</param>
         /// <param name="campaignId">ID of the campaign (required).</param>
-        public CampaignSetLeafNode(TypeEnum type = default(TypeEnum), int campaignId = default(int))
+        public CampaignSetLeafNode(TypeEnum type = default(TypeEnum), long campaignId = default(long))
         {
             this.Type = type;
             this.CampaignId = campaignId;
@@ -73,7 +73,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the campaign</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

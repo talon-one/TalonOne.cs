@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="maxValue">The maximum value allowed for this placeholder..</param>
         /// <param name="attributeId">Id of the attribute attached to the placeholder..</param>
         /// <param name="description">Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template..</param>
-        public Binding(string name = default(string), string type = default(string), List<Object> expression = default(List<Object>), string valueType = default(string), decimal minValue = default(decimal), decimal maxValue = default(decimal), int attributeId = default(int), string description = default(string))
+        public Binding(string name = default(string), string type = default(string), List<Object> expression = default(List<Object>), string valueType = default(string), decimal minValue = default(decimal), decimal maxValue = default(decimal), long attributeId = default(long), string description = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Binding and cannot be null");
@@ -108,7 +108,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Id of the attribute attached to the placeholder.</value>
         [DataMember(Name="attributeId", EmitDefaultValue=false)]
-        public int AttributeId { get; set; }
+        public long AttributeId { get; set; }
 
         /// <summary>
         /// Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.

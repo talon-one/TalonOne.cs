@@ -60,7 +60,7 @@ namespace TalonOne.Model
         /// <param name="adjustmentEffectiveFrom">The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field..</param>
         /// <param name="adjustmentEffectiveUntil">The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field..</param>
         /// <param name="prices">A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the &#x60;priceType&#x60; names. .</param>
-        public CartItem(string name = default(string), string sku = default(string), int quantity = default(int), int returnedQuantity = default(int), int remainingQuantity = default(int), decimal price = default(decimal), string category = default(string), Product product = default(Product), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), int catalogItemID = default(int), string selectedPriceType = default(string), Guid adjustmentReferenceId = default(Guid), DateTime adjustmentEffectiveFrom = default(DateTime), DateTime adjustmentEffectiveUntil = default(DateTime), Dictionary<string, PriceDetail> prices = default(Dictionary<string, PriceDetail>))
+        public CartItem(string name = default(string), string sku = default(string), long quantity = default(long), long returnedQuantity = default(long), long remainingQuantity = default(long), decimal price = default(decimal), string category = default(string), Product product = default(Product), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), long catalogItemID = default(long), string selectedPriceType = default(string), Guid adjustmentReferenceId = default(Guid), DateTime adjustmentEffectiveFrom = default(DateTime), DateTime adjustmentEffectiveUntil = default(DateTime), Dictionary<string, PriceDetail> prices = default(Dictionary<string, PriceDetail>))
         {
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for CartItem and cannot be null");
@@ -105,21 +105,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Number of units of this item. Due to [cart item flattening](https://docs.talon.one/docs/product/rules/understanding-cart-item-flattening), if you provide a quantity greater than 1, the item will be split in as many items as the provided quantity. This will impact the number of **per-item** effects triggered from your campaigns. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Number of returned items, calculated internally based on returns of this item.
         /// </summary>
         /// <value>Number of returned items, calculated internally based on returns of this item.</value>
         [DataMember(Name="returnedQuantity", EmitDefaultValue=false)]
-        public int ReturnedQuantity { get; set; }
+        public long ReturnedQuantity { get; set; }
 
         /// <summary>
         /// Remaining quantity of the item, calculated internally based on returns of this item.
         /// </summary>
         /// <value>Remaining quantity of the item, calculated internally based on returns of this item.</value>
         [DataMember(Name="remainingQuantity", EmitDefaultValue=false)]
-        public int RemainingQuantity { get; set; }
+        public long RemainingQuantity { get; set; }
 
         /// <summary>
         /// Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs). If it is part of a catalog, setting a price here overrides the price from the catalog. 
@@ -195,7 +195,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The catalog item ID.</value>
         [DataMember(Name="catalogItemID", EmitDefaultValue=false)]
-        public int CatalogItemID { get; set; }
+        public long CatalogItemID { get; set; }
 
         /// <summary>
         /// The selected price type for this cart item (e.g. the price for members only).
@@ -452,8 +452,8 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sku, length must be greater than 1.", new [] { "Sku" });
             }
 
-            // Quantity (int) minimum
-            if(this.Quantity < (int)1)
+            // Quantity (long) minimum
+            if(this.Quantity < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Quantity, must be a value greater than or equal to 1.", new [] { "Quantity" });
             }

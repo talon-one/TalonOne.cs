@@ -47,7 +47,11 @@ namespace TalonOne.Model
         /// <param name="props">props (required).</param>
         /// <param name="startTime">The start of the time frame where the effect is active in UTC..</param>
         /// <param name="endTime">The end of the time frame where the effect is active in UTC..</param>
-        public StrikethroughEffect(int campaignId = default(int), int rulesetId = default(int), int ruleIndex = default(int), string ruleName = default(string), string type = default(string), Object props = default(Object), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime))
+        /// <param name="selectedPriceType">The selected price type for this cart item (e.g. the price for members only)..</param>
+        /// <param name="selectedPrice">The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied..</param>
+        /// <param name="adjustmentReferenceId">The reference identifier of the selected price adjustment for this cart item..</param>
+        /// <param name="targets">A list of entities (e.g. audiences) targeted by this effect..</param>
+        public StrikethroughEffect(long campaignId = default(long), long rulesetId = default(long), long ruleIndex = default(long), string ruleName = default(string), string type = default(string), Object props = default(Object), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), string adjustmentReferenceId = default(string), List<Object> targets = default(List<Object>))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -60,6 +64,10 @@ namespace TalonOne.Model
             this.Props = props ?? throw new ArgumentNullException("props is a required property for StrikethroughEffect and cannot be null");
             this.StartTime = startTime;
             this.EndTime = endTime;
+            this.SelectedPriceType = selectedPriceType;
+            this.SelectedPrice = selectedPrice;
+            this.AdjustmentReferenceId = adjustmentReferenceId;
+            this.Targets = targets;
         }
         
         /// <summary>
@@ -67,21 +75,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that effect belongs to.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The ID of the ruleset containing the rule that triggered this effect.
         /// </summary>
         /// <value>The ID of the ruleset containing the rule that triggered this effect.</value>
         [DataMember(Name="rulesetId", EmitDefaultValue=false)]
-        public int RulesetId { get; set; }
+        public long RulesetId { get; set; }
 
         /// <summary>
         /// The position of the rule that triggered this effect within the ruleset.
         /// </summary>
         /// <value>The position of the rule that triggered this effect within the ruleset.</value>
         [DataMember(Name="ruleIndex", EmitDefaultValue=false)]
-        public int RuleIndex { get; set; }
+        public long RuleIndex { get; set; }
 
         /// <summary>
         /// The name of the rule that triggered this effect.
@@ -118,6 +126,34 @@ namespace TalonOne.Model
         public DateTime EndTime { get; set; }
 
         /// <summary>
+        /// The selected price type for this cart item (e.g. the price for members only).
+        /// </summary>
+        /// <value>The selected price type for this cart item (e.g. the price for members only).</value>
+        [DataMember(Name="selectedPriceType", EmitDefaultValue=false)]
+        public string SelectedPriceType { get; set; }
+
+        /// <summary>
+        /// The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.
+        /// </summary>
+        /// <value>The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied.</value>
+        [DataMember(Name="selectedPrice", EmitDefaultValue=false)]
+        public decimal SelectedPrice { get; set; }
+
+        /// <summary>
+        /// The reference identifier of the selected price adjustment for this cart item.
+        /// </summary>
+        /// <value>The reference identifier of the selected price adjustment for this cart item.</value>
+        [DataMember(Name="adjustmentReferenceId", EmitDefaultValue=false)]
+        public string AdjustmentReferenceId { get; set; }
+
+        /// <summary>
+        /// A list of entities (e.g. audiences) targeted by this effect.
+        /// </summary>
+        /// <value>A list of entities (e.g. audiences) targeted by this effect.</value>
+        [DataMember(Name="targets", EmitDefaultValue=false)]
+        public List<Object> Targets { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -133,6 +169,10 @@ namespace TalonOne.Model
             sb.Append("  Props: ").Append(Props).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
             sb.Append("  EndTime: ").Append(EndTime).Append("\n");
+            sb.Append("  SelectedPriceType: ").Append(SelectedPriceType).Append("\n");
+            sb.Append("  SelectedPrice: ").Append(SelectedPrice).Append("\n");
+            sb.Append("  AdjustmentReferenceId: ").Append(AdjustmentReferenceId).Append("\n");
+            sb.Append("  Targets: ").Append(Targets).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -203,6 +243,26 @@ namespace TalonOne.Model
                     this.EndTime == input.EndTime ||
                     (this.EndTime != null &&
                     this.EndTime.Equals(input.EndTime))
+                ) && 
+                (
+                    this.SelectedPriceType == input.SelectedPriceType ||
+                    (this.SelectedPriceType != null &&
+                    this.SelectedPriceType.Equals(input.SelectedPriceType))
+                ) && 
+                (
+                    this.SelectedPrice == input.SelectedPrice ||
+                    this.SelectedPrice.Equals(input.SelectedPrice)
+                ) && 
+                (
+                    this.AdjustmentReferenceId == input.AdjustmentReferenceId ||
+                    (this.AdjustmentReferenceId != null &&
+                    this.AdjustmentReferenceId.Equals(input.AdjustmentReferenceId))
+                ) && 
+                (
+                    this.Targets == input.Targets ||
+                    this.Targets != null &&
+                    input.Targets != null &&
+                    this.Targets.SequenceEqual(input.Targets)
                 );
         }
 
@@ -228,6 +288,13 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.StartTime.GetHashCode();
                 if (this.EndTime != null)
                     hashCode = hashCode * 59 + this.EndTime.GetHashCode();
+                if (this.SelectedPriceType != null)
+                    hashCode = hashCode * 59 + this.SelectedPriceType.GetHashCode();
+                hashCode = hashCode * 59 + this.SelectedPrice.GetHashCode();
+                if (this.AdjustmentReferenceId != null)
+                    hashCode = hashCode * 59 + this.AdjustmentReferenceId.GetHashCode();
+                if (this.Targets != null)
+                    hashCode = hashCode * 59 + this.Targets.GetHashCode();
                 return hashCode;
             }
         }

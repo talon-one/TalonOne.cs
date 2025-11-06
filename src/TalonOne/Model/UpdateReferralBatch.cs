@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="startDate">Timestamp at which point the referral code becomes valid..</param>
         /// <param name="expiryDate">Expiration date of the referral code. Referral never expires if this is omitted..</param>
         /// <param name="usageLimit">The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. .</param>
-        public UpdateReferralBatch(Object attributes = default(Object), string batchID = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageLimit = default(int))
+        public UpdateReferralBatch(Object attributes = default(Object), string batchID = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long usageLimit = default(long))
         {
             // to ensure "batchID" is required (not null)
             this.BatchID = batchID ?? throw new ArgumentNullException("batchID is a required property for UpdateReferralBatch and cannot be null");
@@ -87,7 +87,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times a referral code can be used. This can be set to 0 for no limit, but any campaign usage limits will still apply. </value>
         [DataMember(Name="usageLimit", EmitDefaultValue=false)]
-        public int UsageLimit { get; set; }
+        public long UsageLimit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -191,14 +191,14 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // UsageLimit (int) maximum
-            if(this.UsageLimit > (int)999999)
+            // UsageLimit (long) maximum
+            if(this.UsageLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value less than or equal to 999999.", new [] { "UsageLimit" });
             }
 
-            // UsageLimit (int) minimum
-            if(this.UsageLimit < (int)0)
+            // UsageLimit (long) minimum
+            if(this.UsageLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }

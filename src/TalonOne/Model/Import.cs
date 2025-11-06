@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="userId">The ID of the user associated with this entity. (required).</param>
         /// <param name="entity">The name of the entity that was imported.  (required).</param>
         /// <param name="amount">The number of values that were imported. (required).</param>
-        public Import(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), int userId = default(int), string entity = default(string), int amount = default(int))
+        public Import(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), long userId = default(long), string entity = default(string), long amount = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -75,14 +75,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The ID of the user associated with this entity.
         /// </summary>
         /// <value>The ID of the user associated with this entity.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// The name of the entity that was imported. 
@@ -96,7 +96,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of values that were imported.</value>
         [DataMember(Name="amount", EmitDefaultValue=false)]
-        public int Amount { get; set; }
+        public long Amount { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -202,8 +202,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Amount (int) minimum
-            if(this.Amount < (int)0)
+            // Amount (long) minimum
+            if(this.Amount < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Amount, must be a value greater than or equal to 0.", new [] { "Amount" });
             }

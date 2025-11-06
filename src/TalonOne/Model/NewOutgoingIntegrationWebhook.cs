@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="title">Webhook title. (required).</param>
         /// <param name="description">A description of the webhook..</param>
         /// <param name="applicationIds">IDs of the Applications to which a webhook must be linked. (required).</param>
-        public NewOutgoingIntegrationWebhook(string title = default(string), string description = default(string), List<int> applicationIds = default(List<int>))
+        public NewOutgoingIntegrationWebhook(string title = default(string), string description = default(string), List<long> applicationIds = default(List<long>))
         {
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for NewOutgoingIntegrationWebhook and cannot be null");
@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>IDs of the Applications to which a webhook must be linked.</value>
         [DataMember(Name="applicationIds", EmitDefaultValue=false)]
-        public List<int> ApplicationIds { get; set; }
+        public List<long> ApplicationIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

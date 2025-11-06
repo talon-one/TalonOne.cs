@@ -4,7 +4,7 @@ Notification about an Application whose campaign evaluation tree changed.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationId** | **int** | The ID of the Application whose campaign evaluation tree changed. | 
+**ApplicationId** | **long** | The ID of the Application whose campaign evaluation tree changed. | 
 **OldEvaluationTree** | [**CampaignSet**](CampaignSet.md) |  | [optional] 
 **EvaluationTree** | [**CampaignSet**](CampaignSet.md) |  | 
 

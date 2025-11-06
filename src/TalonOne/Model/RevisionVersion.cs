@@ -109,7 +109,7 @@ namespace TalonOne.Model
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of limits that will operate for this campaign version..</param>
         /// <param name="features">A list of features for the campaign template..</param>
-        public RevisionVersion(int id = default(int), int accountId = default(int), int applicationId = default(int), int campaignId = default(int), DateTime created = default(DateTime), int createdBy = default(int), int revisionId = default(int), int version = default(int), string name = default(string), DateTime? startTime = default(DateTime?), DateTime? endTime = default(DateTime?), Object attributes = default(Object), string description = default(string), int? activeRulesetId = default(int?), List<string> tags = default(List<string>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<FeaturesEnum> features = default(List<FeaturesEnum>))
+        public RevisionVersion(long id = default(long), long accountId = default(long), long applicationId = default(long), long campaignId = default(long), DateTime created = default(DateTime), long createdBy = default(long), long revisionId = default(long), long version = default(long), string name = default(string), DateTime? startTime = default(DateTime?), DateTime? endTime = default(DateTime?), Object attributes = default(Object), string description = default(string), int? activeRulesetId = default(int?), List<string> tags = default(List<string>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<FeaturesEnum> features = default(List<FeaturesEnum>))
         {
             this.Id = id;
             this.AccountId = accountId;
@@ -137,25 +137,25 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// Gets or Sets AccountId
         /// </summary>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets ApplicationId
         /// </summary>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Gets or Sets CampaignId
         /// </summary>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// Gets or Sets Created
@@ -167,19 +167,19 @@ namespace TalonOne.Model
         /// Gets or Sets CreatedBy
         /// </summary>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Gets or Sets RevisionId
         /// </summary>
         [DataMember(Name="revisionId", EmitDefaultValue=false)]
-        public int RevisionId { get; set; }
+        public long RevisionId { get; set; }
 
         /// <summary>
         /// Gets or Sets Version
         /// </summary>
         [DataMember(Name="version", EmitDefaultValue=false)]
-        public int Version { get; set; }
+        public long Version { get; set; }
 
         /// <summary>
         /// A user-facing name for this campaign.

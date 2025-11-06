@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="recipientIntegrationId">The integration ID of the profile that was awarded the giveaway. (required).</param>
         /// <param name="giveawayId">The internal ID for the giveaway that was awarded. (required).</param>
         /// <param name="code">The giveaway code that was awarded. (required).</param>
-        public AwardGiveawayEffectProps(int poolId = default(int), string poolName = default(string), string recipientIntegrationId = default(string), int giveawayId = default(int), string code = default(string))
+        public AwardGiveawayEffectProps(long poolId = default(long), string poolName = default(string), string recipientIntegrationId = default(string), long giveawayId = default(long), string code = default(string))
         {
             this.PoolId = poolId;
             // to ensure "poolName" is required (not null)
@@ -61,7 +61,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the giveaways pool the code was taken from.</value>
         [DataMember(Name="poolId", EmitDefaultValue=false)]
-        public int PoolId { get; set; }
+        public long PoolId { get; set; }
 
         /// <summary>
         /// The name of the giveaways pool the code was taken from.
@@ -82,7 +82,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID for the giveaway that was awarded.</value>
         [DataMember(Name="giveawayId", EmitDefaultValue=false)]
-        public int GiveawayId { get; set; }
+        public long GiveawayId { get; set; }
 
         /// <summary>
         /// The giveaway code that was awarded.

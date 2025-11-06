@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="resources">resources (required).</param>
         /// <param name="schemas">SCIM schema for the given resource..</param>
         /// <param name="totalResults">Number of results in the response..</param>
-        public ScimGroupsListResponse(List<ScimGroup> resources = default(List<ScimGroup>), List<string> schemas = default(List<string>), int totalResults = default(int))
+        public ScimGroupsListResponse(List<ScimGroup> resources = default(List<ScimGroup>), List<string> schemas = default(List<string>), long totalResults = default(long))
         {
             // to ensure "resources" is required (not null)
             this.Resources = resources ?? throw new ArgumentNullException("resources is a required property for ScimGroupsListResponse and cannot be null");
@@ -68,7 +68,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Number of results in the response.</value>
         [DataMember(Name="totalResults", EmitDefaultValue=false)]
-        public int TotalResults { get; set; }
+        public long TotalResults { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

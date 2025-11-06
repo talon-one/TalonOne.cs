@@ -40,8 +40,8 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="GetIntegrationCouponRequest" /> class.
         /// </summary>
         /// <param name="campaignIds">A list of IDs of the campaigns to get coupons from. (required).</param>
-        /// <param name="limit">The maximum number of coupons included in the response. (required).</param>
-        public GetIntegrationCouponRequest(List<int> campaignIds = default(List<int>), int limit = default(int))
+        /// <param name="limit">The maximum number of coupons included in the response. (required) (default to 10).</param>
+        public GetIntegrationCouponRequest(List<long> campaignIds = default(List<long>), long limit = 10)
         {
             // to ensure "campaignIds" is required (not null)
             this.CampaignIds = campaignIds ?? throw new ArgumentNullException("campaignIds is a required property for GetIntegrationCouponRequest and cannot be null");
@@ -53,14 +53,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of IDs of the campaigns to get coupons from.</value>
         [DataMember(Name="campaignIds", EmitDefaultValue=false)]
-        public List<int> CampaignIds { get; set; }
+        public List<long> CampaignIds { get; set; }
 
         /// <summary>
         /// The maximum number of coupons included in the response.
         /// </summary>
         /// <value>The maximum number of coupons included in the response.</value>
         [DataMember(Name="limit", EmitDefaultValue=false)]
-        public int Limit { get; set; }
+        public long Limit { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -141,14 +141,14 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Limit (int) maximum
-            if(this.Limit > (int)1000)
+            // Limit (long) maximum
+            if(this.Limit > (long)1000)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value less than or equal to 1000.", new [] { "Limit" });
             }
 
-            // Limit (int) minimum
-            if(this.Limit < (int)1)
+            // Limit (long) minimum
+            if(this.Limit < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Limit, must be a value greater than or equal to 1.", new [] { "Limit" });
             }

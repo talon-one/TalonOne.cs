@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CampaignEntity" /> class.
         /// </summary>
         /// <param name="campaignId">The ID of the campaign that owns this entity. (required).</param>
-        public CampaignEntity(int campaignId = default(int))
+        public CampaignEntity(long campaignId = default(long))
         {
             this.CampaignId = campaignId;
         }
@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that owns this entity.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**NumberOfCards** | **int** | Number of loyalty cards in the batch. | 
+**NumberOfCards** | **long** | Number of loyalty cards in the batch. | 
 **BatchId** | **string** | ID of the loyalty card batch. | [optional] 
 **Status** | **string** | Status of the loyalty cards in the batch. | [optional] [default to StatusEnum.Active]
 **CardCodeSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 

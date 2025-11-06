@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="campaignId">The ID of the campaign that references the application cart item filter..</param>
         /// <param name="campaignName">A user-facing name for this campaign..</param>
-        public CampaignDetail(int campaignId = default(int), string campaignName = default(string))
+        public CampaignDetail(long campaignId = default(long), string campaignName = default(string))
         {
             this.CampaignId = campaignId;
             this.CampaignName = campaignName;
@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that references the application cart item filter.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// A user-facing name for this campaign.

@@ -82,20 +82,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ExtensionDuration'
         }
         /// <summary>
-        /// Test the property 'TransactionUUIDs'
+        /// Test the property 'AffectedTransactions'
         /// </summary>
         [Fact]
-        public void TransactionUUIDsTest()
+        public void AffectedTransactionsTest()
         {
-            // TODO unit test for the property 'TransactionUUIDs'
-        }
-        /// <summary>
-        /// Test the property 'PreviousExpirationDate'
-        /// </summary>
-        [Fact]
-        public void PreviousExpirationDateTest()
-        {
-            // TODO unit test for the property 'PreviousExpirationDate'
+            // TODO unit test for the property 'AffectedTransactions'
         }
 
     }

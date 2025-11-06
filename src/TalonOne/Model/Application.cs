@@ -160,7 +160,7 @@ namespace TalonOne.Model
         /// <param name="defaultCartItemFilterId">The ID of the default Cart-Item-Filter for this application..</param>
         /// <param name="enableCampaignStateManagement">Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. .</param>
         /// <param name="loyaltyPrograms">An array containing all the loyalty programs to which this application is subscribed. (required).</param>
-        public Application(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), int defaultEvaluationGroupId = default(int), int defaultCartItemFilterId = default(int), bool enableCampaignStateManagement = default(bool), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>))
+        public Application(long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime), long accountId = default(long), string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), long defaultEvaluationGroupId = default(long), long defaultCartItemFilterId = default(long), bool enableCampaignStateManagement = default(bool), List<LoyaltyProgram> loyaltyPrograms = default(List<LoyaltyProgram>))
         {
             this.Id = id;
             this.Created = created;
@@ -195,7 +195,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -216,7 +216,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The name of this application.
@@ -299,14 +299,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign.</value>
         [DataMember(Name="defaultEvaluationGroupId", EmitDefaultValue=false)]
-        public int DefaultEvaluationGroupId { get; set; }
+        public long DefaultEvaluationGroupId { get; set; }
 
         /// <summary>
         /// The ID of the default Cart-Item-Filter for this application.
         /// </summary>
         /// <value>The ID of the default Cart-Item-Filter for this application.</value>
         [DataMember(Name="defaultCartItemFilterId", EmitDefaultValue=false)]
-        public int DefaultCartItemFilterId { get; set; }
+        public long DefaultCartItemFilterId { get; set; }
 
         /// <summary>
         /// Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. 

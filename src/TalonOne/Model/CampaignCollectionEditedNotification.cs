@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// A notification regarding a collection that was edited.
+    /// CampaignCollectionEditedNotification
     /// </summary>
     [DataContract]
     public partial class CampaignCollectionEditedNotification :  IEquatable<CampaignCollectionEditedNotification>, IValidatableObject
@@ -39,35 +39,37 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignCollectionEditedNotification" /> class.
         /// </summary>
-        /// <param name="campaign">campaign (required).</param>
-        /// <param name="ruleset">ruleset.</param>
-        /// <param name="collection">collection (required).</param>
-        public CampaignCollectionEditedNotification(Campaign campaign = default(Campaign), Ruleset ruleset = default(Ruleset), CollectionWithoutPayload collection = default(CollectionWithoutPayload))
+        /// <param name="notificationType">The type of the notification (required).</param>
+        /// <param name="totalResultSize">The total size of the result set. (required).</param>
+        /// <param name="data">A list of campaign notification data..</param>
+        public CampaignCollectionEditedNotification(string notificationType = default(string), long totalResultSize = default(long), List<CampaignCollectionEditedNotificationItem> data = default(List<CampaignCollectionEditedNotificationItem>))
         {
-            // to ensure "campaign" is required (not null)
-            this.Campaign = campaign ?? throw new ArgumentNullException("campaign is a required property for CampaignCollectionEditedNotification and cannot be null");
-            // to ensure "collection" is required (not null)
-            this.Collection = collection ?? throw new ArgumentNullException("collection is a required property for CampaignCollectionEditedNotification and cannot be null");
-            this.Ruleset = ruleset;
+            // to ensure "notificationType" is required (not null)
+            this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for CampaignCollectionEditedNotification and cannot be null");
+            this.TotalResultSize = totalResultSize;
+            this.Data = data;
         }
         
         /// <summary>
-        /// Gets or Sets Campaign
+        /// The type of the notification
         /// </summary>
-        [DataMember(Name="campaign", EmitDefaultValue=false)]
-        public Campaign Campaign { get; set; }
+        /// <value>The type of the notification</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public string NotificationType { get; set; }
 
         /// <summary>
-        /// Gets or Sets Ruleset
+        /// The total size of the result set.
         /// </summary>
-        [DataMember(Name="ruleset", EmitDefaultValue=false)]
-        public Ruleset Ruleset { get; set; }
+        /// <value>The total size of the result set.</value>
+        [DataMember(Name="TotalResultSize", EmitDefaultValue=false)]
+        public long TotalResultSize { get; set; }
 
         /// <summary>
-        /// Gets or Sets Collection
+        /// A list of campaign notification data.
         /// </summary>
-        [DataMember(Name="collection", EmitDefaultValue=false)]
-        public CollectionWithoutPayload Collection { get; set; }
+        /// <value>A list of campaign notification data.</value>
+        [DataMember(Name="Data", EmitDefaultValue=false)]
+        public List<CampaignCollectionEditedNotificationItem> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,9 +79,9 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CampaignCollectionEditedNotification {\n");
-            sb.Append("  Campaign: ").Append(Campaign).Append("\n");
-            sb.Append("  Ruleset: ").Append(Ruleset).Append("\n");
-            sb.Append("  Collection: ").Append(Collection).Append("\n");
+            sb.Append("  NotificationType: ").Append(NotificationType).Append("\n");
+            sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,19 +117,19 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Campaign == input.Campaign ||
-                    (this.Campaign != null &&
-                    this.Campaign.Equals(input.Campaign))
+                    this.NotificationType == input.NotificationType ||
+                    (this.NotificationType != null &&
+                    this.NotificationType.Equals(input.NotificationType))
                 ) && 
                 (
-                    this.Ruleset == input.Ruleset ||
-                    (this.Ruleset != null &&
-                    this.Ruleset.Equals(input.Ruleset))
+                    this.TotalResultSize == input.TotalResultSize ||
+                    this.TotalResultSize.Equals(input.TotalResultSize)
                 ) && 
                 (
-                    this.Collection == input.Collection ||
-                    (this.Collection != null &&
-                    this.Collection.Equals(input.Collection))
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 
@@ -140,12 +142,11 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Campaign != null)
-                    hashCode = hashCode * 59 + this.Campaign.GetHashCode();
-                if (this.Ruleset != null)
-                    hashCode = hashCode * 59 + this.Ruleset.GetHashCode();
-                if (this.Collection != null)
-                    hashCode = hashCode * 59 + this.Collection.GetHashCode();
+                if (this.NotificationType != null)
+                    hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

@@ -166,7 +166,7 @@ namespace TalonOne.Model
         /// <param name="evaluationGroupId">The ID of the campaign evaluation group the campaign belongs to..</param>
         /// <param name="type">The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  (default to TypeEnum.Advanced).</param>
         /// <param name="linkedStoreIds">A list of store IDs that you want to link to the campaign.  **Note:** - Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. - If you linked stores to the campaign by uploading a CSV file, you cannot use this property and it should be empty. - Use of this property is limited to 50 stores. To link more than 50 stores, upload them via a CSV file. .</param>
-        public UpdateCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum? state = StateEnum.Enabled, int activeRulesetId = default(int), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<int> campaignGroups = default(List<int>), int evaluationGroupId = default(int), TypeEnum? type = TypeEnum.Advanced, List<int> linkedStoreIds = default(List<int>))
+        public UpdateCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum? state = StateEnum.Enabled, long activeRulesetId = default(long), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<long> campaignGroups = default(List<long>), long evaluationGroupId = default(long), TypeEnum? type = TypeEnum.Advanced, List<long> linkedStoreIds = default(List<long>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateCampaign and cannot be null");
@@ -230,7 +230,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>[ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. </value>
         [DataMember(Name="activeRulesetId", EmitDefaultValue=false)]
-        public int ActiveRulesetId { get; set; }
+        public long ActiveRulesetId { get; set; }
 
         /// <summary>
         /// A list of tags for the campaign.
@@ -263,21 +263,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/account-settings/managing-campaign-groups) this campaign belongs to. </value>
         [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
-        public List<int> CampaignGroups { get; set; }
+        public List<long> CampaignGroups { get; set; }
 
         /// <summary>
         /// The ID of the campaign evaluation group the campaign belongs to.
         /// </summary>
         /// <value>The ID of the campaign evaluation group the campaign belongs to.</value>
         [DataMember(Name="evaluationGroupId", EmitDefaultValue=false)]
-        public int EvaluationGroupId { get; set; }
+        public long EvaluationGroupId { get; set; }
 
         /// <summary>
         /// A list of store IDs that you want to link to the campaign.  **Note:** - Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. - If you linked stores to the campaign by uploading a CSV file, you cannot use this property and it should be empty. - Use of this property is limited to 50 stores. To link more than 50 stores, upload them via a CSV file. 
         /// </summary>
         /// <value>A list of store IDs that you want to link to the campaign.  **Note:** - Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. - If you linked stores to the campaign by uploading a CSV file, you cannot use this property and it should be empty. - Use of this property is limited to 50 stores. To link more than 50 stores, upload them via a CSV file. </value>
         [DataMember(Name="linkedStoreIds", EmitDefaultValue=false)]
-        public List<int> LinkedStoreIds { get; set; }
+        public List<long> LinkedStoreIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="previousTierName">The name of the tier from which the user was upgraded..</param>
         /// <param name="newTierName">The name of the tier to which the user has been upgraded. (required).</param>
         /// <param name="expiryDate">The expiration date of the new tier..</param>
-        public ChangeLoyaltyTierLevelEffectProps(string ruleTitle = default(string), int programId = default(int), string subLedgerId = default(string), string previousTierName = default(string), string newTierName = default(string), DateTime expiryDate = default(DateTime))
+        public ChangeLoyaltyTierLevelEffectProps(string ruleTitle = default(string), long programId = default(long), string subLedgerId = default(string), string previousTierName = default(string), string newTierName = default(string), DateTime expiryDate = default(DateTime))
         {
             // to ensure "ruleTitle" is required (not null)
             this.RuleTitle = ruleTitle ?? throw new ArgumentNullException("ruleTitle is a required property for ChangeLoyaltyTierLevelEffectProps and cannot be null");
@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the loyalty program where these points were added.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
-        public int ProgramId { get; set; }
+        public long ProgramId { get; set; }
 
         /// <summary>
         /// The ID of the subledger within the loyalty program where these points were added.

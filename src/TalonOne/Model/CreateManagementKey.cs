@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="expiryDate">The date the management key expires. (required).</param>
         /// <param name="endpoints">The list of endpoints that can be accessed with the key (required).</param>
         /// <param name="allowedApplicationIds">A list of Application IDs that you can access with the management key. An empty or missing list means the management key can be used for all Applications in the account. .</param>
-        public CreateManagementKey(string name = default(string), DateTime expiryDate = default(DateTime), List<Endpoint> endpoints = default(List<Endpoint>), List<int> allowedApplicationIds = default(List<int>))
+        public CreateManagementKey(string name = default(string), DateTime expiryDate = default(DateTime), List<Endpoint> endpoints = default(List<Endpoint>), List<long> allowedApplicationIds = default(List<long>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CreateManagementKey and cannot be null");
@@ -79,7 +79,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of Application IDs that you can access with the management key. An empty or missing list means the management key can be used for all Applications in the account. </value>
         [DataMember(Name="allowedApplicationIds", EmitDefaultValue=false)]
-        public List<int> AllowedApplicationIds { get; set; }
+        public List<long> AllowedApplicationIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

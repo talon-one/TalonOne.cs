@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="audiences">audiences (required).</param>
-        public MultipleAudiences(int accountId = default(int), List<MultipleAudiencesItem> audiences = default(List<MultipleAudiencesItem>))
+        public MultipleAudiences(long accountId = default(long), List<MultipleAudiencesItem> audiences = default(List<MultipleAudiencesItem>))
         {
             this.AccountId = accountId;
             // to ensure "audiences" is required (not null)
@@ -53,7 +53,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets Audiences

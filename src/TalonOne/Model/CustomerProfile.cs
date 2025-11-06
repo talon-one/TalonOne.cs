@@ -46,11 +46,11 @@ namespace TalonOne.Model
         /// <param name="accountId">The ID of the Talon.One account that owns this profile. (required).</param>
         /// <param name="closedSessions">The total number of closed sessions. Does not include closed sessions that have been cancelled or reopened. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states). (required).</param>
         /// <param name="totalSales">The total amount of money spent by the customer **before** discounts are applied.  The total sales amount excludes the following: - Cancelled or reopened sessions. - Returned items.  (required).</param>
-        /// <param name="loyaltyMemberships">**DEPRECATED** A list of loyalty programs joined by the customer. .</param>
+        /// <param name="loyaltyMemberships">**DEPRECATED. Always returns &#x60;null&#x60;.** A list of loyalty programs joined by the customer. .</param>
         /// <param name="audienceMemberships">The audiences the customer belongs to..</param>
         /// <param name="lastActivity">Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field.  (required).</param>
         /// <param name="sandbox">An indicator of whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments). .</param>
-        public CustomerProfile(int id = default(int), DateTime created = default(DateTime), string integrationId = default(string), Object attributes = default(Object), int accountId = default(int), int closedSessions = default(int), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime), bool sandbox = default(bool))
+        public CustomerProfile(long id = default(long), DateTime created = default(DateTime), string integrationId = default(string), Object attributes = default(Object), long accountId = default(long), long closedSessions = default(long), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime), bool sandbox = default(bool))
         {
             this.Id = id;
             this.Created = created;
@@ -72,7 +72,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the customer profile.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -100,14 +100,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Talon.One account that owns this profile.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The total number of closed sessions. Does not include closed sessions that have been cancelled or reopened. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).
         /// </summary>
         /// <value>The total number of closed sessions. Does not include closed sessions that have been cancelled or reopened. See the [docs](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).</value>
         [DataMember(Name="closedSessions", EmitDefaultValue=false)]
-        public int ClosedSessions { get; set; }
+        public long ClosedSessions { get; set; }
 
         /// <summary>
         /// The total amount of money spent by the customer **before** discounts are applied.  The total sales amount excludes the following: - Cancelled or reopened sessions. - Returned items. 
@@ -117,9 +117,9 @@ namespace TalonOne.Model
         public decimal TotalSales { get; set; }
 
         /// <summary>
-        /// **DEPRECATED** A list of loyalty programs joined by the customer. 
+        /// **DEPRECATED. Always returns &#x60;null&#x60;.** A list of loyalty programs joined by the customer. 
         /// </summary>
-        /// <value>**DEPRECATED** A list of loyalty programs joined by the customer. </value>
+        /// <value>**DEPRECATED. Always returns &#x60;null&#x60;.** A list of loyalty programs joined by the customer. </value>
         [DataMember(Name="loyaltyMemberships", EmitDefaultValue=false)]
         public List<LoyaltyMembership> LoyaltyMemberships { get; set; }
 

@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="sku">SKU of the item that needs to be added. (required).</param>
         /// <param name="name">The name / description of the effect (required).</param>
         /// <param name="desiredQuantity">The original quantity in case a partial reward was applied..</param>
-        public AddFreeItemEffectProps(string sku = default(string), string name = default(string), int desiredQuantity = default(int))
+        public AddFreeItemEffectProps(string sku = default(string), string name = default(string), long desiredQuantity = default(long))
         {
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for AddFreeItemEffectProps and cannot be null");
@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The original quantity in case a partial reward was applied.</value>
         [DataMember(Name="desiredQuantity", EmitDefaultValue=false)]
-        public int DesiredQuantity { get; set; }
+        public long DesiredQuantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

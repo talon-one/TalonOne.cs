@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="title">The human-friendly name for this event type. (required).</param>
         /// <param name="name">The integration name for this event type. This will be used in URLs and cannot be changed after an event type has been created. (required).</param>
         /// <param name="description">A description of what the event represents. .</param>
-        public EventType(int id = default(int), DateTime created = default(DateTime), string title = default(string), string name = default(string), string description = default(string))
+        public EventType(long id = default(long), DateTime created = default(DateTime), string title = default(string), string name = default(string), string description = default(string))
         {
             this.Id = id;
             this.Created = created;
@@ -60,7 +60,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.

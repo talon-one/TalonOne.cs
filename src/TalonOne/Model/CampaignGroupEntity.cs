@@ -35,7 +35,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CampaignGroupEntity" /> class.
         /// </summary>
         /// <param name="campaignGroups">The IDs of the campaign groups that own this entity..</param>
-        public CampaignGroupEntity(List<int> campaignGroups = default(List<int>))
+        public CampaignGroupEntity(List<long> campaignGroups = default(List<long>))
         {
             this.CampaignGroups = campaignGroups;
         }
@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The IDs of the campaign groups that own this entity.</value>
         [DataMember(Name="campaignGroups", EmitDefaultValue=false)]
-        public List<int> CampaignGroups { get; set; }
+        public List<long> CampaignGroups { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

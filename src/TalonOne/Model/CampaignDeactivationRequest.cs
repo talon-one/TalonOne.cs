@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CampaignDeactivationRequest" /> class.
         /// </summary>
         /// <param name="userIds">The list of IDs of the users receiving the deactivation request emails. (required).</param>
-        public CampaignDeactivationRequest(List<int> userIds = default(List<int>))
+        public CampaignDeactivationRequest(List<long> userIds = default(List<long>))
         {
             // to ensure "userIds" is required (not null)
             this.UserIds = userIds ?? throw new ArgumentNullException("userIds is a required property for CampaignDeactivationRequest and cannot be null");
@@ -51,7 +51,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The list of IDs of the users receiving the deactivation request emails.</value>
         [DataMember(Name="userIds", EmitDefaultValue=false)]
-        public List<int> UserIds { get; set; }
+        public List<long> UserIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

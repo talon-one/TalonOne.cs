@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="MultiApplicationEntity" /> class.
         /// </summary>
         /// <param name="applicationIds">The IDs of the Applications that are related to this entity. (required).</param>
-        public MultiApplicationEntity(List<int> applicationIds = default(List<int>))
+        public MultiApplicationEntity(List<long> applicationIds = default(List<long>))
         {
             // to ensure "applicationIds" is required (not null)
             this.ApplicationIds = applicationIds ?? throw new ArgumentNullException("applicationIds is a required property for MultiApplicationEntity and cannot be null");
@@ -51,7 +51,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The IDs of the Applications that are related to this entity.</value>
         [DataMember(Name="applicationIds", EmitDefaultValue=false)]
-        public List<int> ApplicationIds { get; set; }
+        public List<long> ApplicationIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -104,7 +104,8 @@ namespace TalonOne.Model
         /// <param name="activationPolicy">The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. .</param>
         /// <param name="fixedStartDate">The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="endDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. .</param>
-        public UpdateAchievement(string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime))
+        /// <param name="allowRollbackAfterCompletion">When &#x60;true&#x60;, customer progress can be rolled back in completed achievements..</param>
+        public UpdateAchievement(string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool))
         {
             this.Name = name;
             this.Title = title;
@@ -116,6 +117,7 @@ namespace TalonOne.Model
             this.ActivationPolicy = activationPolicy;
             this.FixedStartDate = fixedStartDate;
             this.EndDate = endDate;
+            this.AllowRollbackAfterCompletion = allowRollbackAfterCompletion;
         }
         
         /// <summary>
@@ -174,6 +176,13 @@ namespace TalonOne.Model
         public DateTime EndDate { get; set; }
 
         /// <summary>
+        /// When &#x60;true&#x60;, customer progress can be rolled back in completed achievements.
+        /// </summary>
+        /// <value>When &#x60;true&#x60;, customer progress can be rolled back in completed achievements.</value>
+        [DataMember(Name="allowRollbackAfterCompletion", EmitDefaultValue=false)]
+        public bool AllowRollbackAfterCompletion { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -191,6 +200,7 @@ namespace TalonOne.Model
             sb.Append("  ActivationPolicy: ").Append(ActivationPolicy).Append("\n");
             sb.Append("  FixedStartDate: ").Append(FixedStartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
+            sb.Append("  AllowRollbackAfterCompletion: ").Append(AllowRollbackAfterCompletion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -271,6 +281,10 @@ namespace TalonOne.Model
                     this.EndDate == input.EndDate ||
                     (this.EndDate != null &&
                     this.EndDate.Equals(input.EndDate))
+                ) && 
+                (
+                    this.AllowRollbackAfterCompletion == input.AllowRollbackAfterCompletion ||
+                    this.AllowRollbackAfterCompletion.Equals(input.AllowRollbackAfterCompletion)
                 );
         }
 
@@ -300,6 +314,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.FixedStartDate.GetHashCode();
                 if (this.EndDate != null)
                     hashCode = hashCode * 59 + this.EndDate.GetHashCode();
+                hashCode = hashCode * 59 + this.AllowRollbackAfterCompletion.GetHashCode();
                 return hashCode;
             }
         }

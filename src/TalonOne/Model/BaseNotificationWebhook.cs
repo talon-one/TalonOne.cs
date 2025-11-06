@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="url">API URL for the given webhook-based notification. (required).</param>
         /// <param name="headers">List of API HTTP headers for the given webhook-based notification. (required).</param>
         /// <param name="enabled">Indicates whether the notification is activated. (default to true).</param>
-        public BaseNotificationWebhook(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), string url = default(string), List<string> headers = default(List<string>), bool enabled = true)
+        public BaseNotificationWebhook(long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime), string url = default(string), List<string> headers = default(List<string>), bool enabled = true)
         {
             this.Id = id;
             this.Created = created;
@@ -62,7 +62,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.

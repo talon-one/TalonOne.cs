@@ -35,7 +35,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ImportEntity" /> class.
         /// </summary>
         /// <param name="importId">The ID of the Import which created this referral..</param>
-        public ImportEntity(int importId = default(int))
+        public ImportEntity(long importId = default(long))
         {
             this.ImportId = importId;
         }
@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Import which created this referral.</value>
         [DataMember(Name="importId", EmitDefaultValue=false)]
-        public int ImportId { get; set; }
+        public long ImportId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

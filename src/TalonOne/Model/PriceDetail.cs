@@ -35,12 +35,14 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="PriceDetail" /> class.
         /// </summary>
         /// <param name="price">The value of this price type..</param>
+        /// <param name="adjustmentContextId">The context identifier of the selected price adjustment..</param>
         /// <param name="adjustmentReferenceId">The reference identifier of the selected price adjustment for this SKU..</param>
         /// <param name="adjustmentEffectiveFrom">The date and time from which the price adjustment is effective..</param>
         /// <param name="adjustmentEffectiveUntil">The date and time until which the price adjustment is effective..</param>
-        public PriceDetail(float price = default(float), Guid adjustmentReferenceId = default(Guid), DateTime adjustmentEffectiveFrom = default(DateTime), DateTime adjustmentEffectiveUntil = default(DateTime))
+        public PriceDetail(float price = default(float), string adjustmentContextId = default(string), Guid adjustmentReferenceId = default(Guid), DateTime adjustmentEffectiveFrom = default(DateTime), DateTime adjustmentEffectiveUntil = default(DateTime))
         {
             this.Price = price;
+            this.AdjustmentContextId = adjustmentContextId;
             this.AdjustmentReferenceId = adjustmentReferenceId;
             this.AdjustmentEffectiveFrom = adjustmentEffectiveFrom;
             this.AdjustmentEffectiveUntil = adjustmentEffectiveUntil;
@@ -52,6 +54,13 @@ namespace TalonOne.Model
         /// <value>The value of this price type.</value>
         [DataMember(Name="price", EmitDefaultValue=false)]
         public float Price { get; set; }
+
+        /// <summary>
+        /// The context identifier of the selected price adjustment.
+        /// </summary>
+        /// <value>The context identifier of the selected price adjustment.</value>
+        [DataMember(Name="adjustmentContextId", EmitDefaultValue=false)]
+        public string AdjustmentContextId { get; set; }
 
         /// <summary>
         /// The reference identifier of the selected price adjustment for this SKU.
@@ -83,6 +92,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class PriceDetail {\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
+            sb.Append("  AdjustmentContextId: ").Append(AdjustmentContextId).Append("\n");
             sb.Append("  AdjustmentReferenceId: ").Append(AdjustmentReferenceId).Append("\n");
             sb.Append("  AdjustmentEffectiveFrom: ").Append(AdjustmentEffectiveFrom).Append("\n");
             sb.Append("  AdjustmentEffectiveUntil: ").Append(AdjustmentEffectiveUntil).Append("\n");
@@ -125,6 +135,11 @@ namespace TalonOne.Model
                     this.Price.Equals(input.Price)
                 ) && 
                 (
+                    this.AdjustmentContextId == input.AdjustmentContextId ||
+                    (this.AdjustmentContextId != null &&
+                    this.AdjustmentContextId.Equals(input.AdjustmentContextId))
+                ) && 
+                (
                     this.AdjustmentReferenceId == input.AdjustmentReferenceId ||
                     (this.AdjustmentReferenceId != null &&
                     this.AdjustmentReferenceId.Equals(input.AdjustmentReferenceId))
@@ -151,6 +166,8 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Price.GetHashCode();
+                if (this.AdjustmentContextId != null)
+                    hashCode = hashCode * 59 + this.AdjustmentContextId.GetHashCode();
                 if (this.AdjustmentReferenceId != null)
                     hashCode = hashCode * 59 + this.AdjustmentReferenceId.GetHashCode();
                 if (this.AdjustmentEffectiveFrom != null)

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Name** | **string** | The name of the campaign evaluation group. | 
-**ParentId** | **int** | The ID of the parent group that contains the campaign evaluation group. | 
+**ParentId** | **long** | The ID of the parent group that contains the campaign evaluation group. | 
 **Description** | **string** | A description of the campaign evaluation group. | [optional] 
 **EvaluationMode** | **string** | The mode by which campaigns in the campaign evaluation group are evaluated. | 
 **EvaluationScope** | **string** | The evaluation scope of the campaign evaluation group. | 

@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="subPosition">For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates which item the discount applies to. .</param>
         /// <param name="additionalCost">The name of the additional cost. (required).</param>
         /// <param name="desiredValue">Only with [partial discounts enabled](https://docs.talon.one/docs/product/campaigns/campaign-evaluation/#partial-discounts). Represents the monetary value of the discount to be applied to additional discount without considering budget limitations. .</param>
-        public SetDiscountPerAdditionalCostPerItemEffectProps(string name = default(string), int additionalCostId = default(int), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), string additionalCost = default(string), decimal desiredValue = default(decimal))
+        public SetDiscountPerAdditionalCostPerItemEffectProps(string name = default(string), long additionalCostId = default(long), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), string additionalCost = default(string), decimal desiredValue = default(decimal))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SetDiscountPerAdditionalCostPerItemEffectProps and cannot be null");
@@ -71,7 +71,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the additional cost.</value>
         [DataMember(Name="additionalCostId", EmitDefaultValue=false)]
-        public int AdditionalCostId { get; set; }
+        public long AdditionalCostId { get; set; }
 
         /// <summary>
         /// The total monetary value of the discount.

@@ -4,7 +4,7 @@ This effect is **deprecated**. The properties specific to the \"redeemReferral\"
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | The id of the referral code that was redeemed. | 
+**Id** | **long** | The id of the referral code that was redeemed. | 
 **Value** | **string** | The referral code that was redeemed. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

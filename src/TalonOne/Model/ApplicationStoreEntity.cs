@@ -35,7 +35,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ApplicationStoreEntity" /> class.
         /// </summary>
         /// <param name="storeId">The ID of the store..</param>
-        public ApplicationStoreEntity(int storeId = default(int))
+        public ApplicationStoreEntity(long storeId = default(long))
         {
             this.StoreId = storeId;
         }
@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the store.</value>
         [DataMember(Name="storeId", EmitDefaultValue=false)]
-        public int StoreId { get; set; }
+        public long StoreId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

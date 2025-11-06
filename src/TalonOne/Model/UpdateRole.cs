@@ -38,7 +38,7 @@ namespace TalonOne.Model
         /// <param name="description">Description of the role..</param>
         /// <param name="acl">The &#x60;Access Control List&#x60; json defining the role of the user. This represents the access control on the user level..</param>
         /// <param name="members">An array of user identifiers..</param>
-        public UpdateRole(string name = default(string), string description = default(string), string acl = default(string), List<int> members = default(List<int>))
+        public UpdateRole(string name = default(string), string description = default(string), string acl = default(string), List<long> members = default(List<long>))
         {
             this.Name = name;
             this.Description = description;
@@ -72,7 +72,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>An array of user identifiers.</value>
         [DataMember(Name="members", EmitDefaultValue=false)]
-        public List<int> Members { get; set; }
+        public List<long> Members { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -4,9 +4,9 @@ The properties specific to the \"increaseAchievementProgress\" effect. This gets
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AchievementId** | **int** | The internal ID of the achievement. | 
+**AchievementId** | **long** | The internal ID of the achievement. | 
 **AchievementName** | **string** | The name of the achievement. | 
-**ProgressTrackerId** | **int** | The internal ID of the achievement progress tracker. | [optional] 
+**ProgressTrackerId** | **long** | The internal ID of the achievement progress tracker. | [optional] 
 **Delta** | **decimal** | The value by which the customer&#39;s current progress in the achievement is increased. | 
 **Value** | **decimal** | The current progress of the customer in the achievement. | 
 **Target** | **decimal** | The target value to complete the achievement. | 

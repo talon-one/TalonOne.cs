@@ -37,7 +37,7 @@ namespace TalonOne.Model
         /// <param name="createdAt">Timestamp when the response was received..</param>
         /// <param name="response">Raw response data..</param>
         /// <param name="status">HTTP status code of the response..</param>
-        public MessageLogResponse(DateTime createdAt = default(DateTime), byte[] response = default(byte[]), int status = default(int))
+        public MessageLogResponse(DateTime createdAt = default(DateTime), byte[] response = default(byte[]), long status = default(long))
         {
             this.CreatedAt = createdAt;
             this.Response = response;
@@ -63,7 +63,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>HTTP status code of the response.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
-        public int Status { get; set; }
+        public long Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

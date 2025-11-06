@@ -51,7 +51,7 @@ namespace TalonOne.Model
         /// <param name="createdBy">ID of the user who created this effect. (required).</param>
         /// <param name="communicated">Indicates whether the user that created this job was notified of its final state. (required).</param>
         /// <param name="campaignIDs">campaignIDs.</param>
-        public CouponDeletionJob(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int accountId = default(int), CouponDeletionFilters filters = default(CouponDeletionFilters), string status = default(string), int deletedAmount = default(int), int failCount = default(int), List<string> errors = default(List<string>), int createdBy = default(int), bool communicated = default(bool), List<int> campaignIDs = default(List<int>))
+        public CouponDeletionJob(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), long accountId = default(long), CouponDeletionFilters filters = default(CouponDeletionFilters), string status = default(string), long deletedAmount = default(long), long failCount = default(long), List<string> errors = default(List<string>), long createdBy = default(long), bool communicated = default(bool), List<long> campaignIDs = default(List<long>))
         {
             this.Id = id;
             this.Created = created;
@@ -75,7 +75,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -89,14 +89,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Gets or Sets Filters
@@ -116,14 +116,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of coupon codes that were already deleted for this request.</value>
         [DataMember(Name="deletedAmount", EmitDefaultValue=false)]
-        public int DeletedAmount { get; set; }
+        public long DeletedAmount { get; set; }
 
         /// <summary>
         /// The number of times this job failed.
         /// </summary>
         /// <value>The number of times this job failed.</value>
         [DataMember(Name="failCount", EmitDefaultValue=false)]
-        public int FailCount { get; set; }
+        public long FailCount { get; set; }
 
         /// <summary>
         /// An array of individual problems encountered during the request.
@@ -137,7 +137,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the user who created this effect.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Indicates whether the user that created this job was notified of its final state.
@@ -150,7 +150,7 @@ namespace TalonOne.Model
         /// Gets or Sets CampaignIDs
         /// </summary>
         [DataMember(Name="campaignIDs", EmitDefaultValue=false)]
-        public List<int> CampaignIDs { get; set; }
+        public List<long> CampaignIDs { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

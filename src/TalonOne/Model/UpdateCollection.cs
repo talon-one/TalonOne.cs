@@ -36,7 +36,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="description">A short description of the purpose of this collection..</param>
         /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications where this collection is enabled..</param>
-        public UpdateCollection(string description = default(string), List<int> subscribedApplicationsIds = default(List<int>))
+        public UpdateCollection(string description = default(string), List<long> subscribedApplicationsIds = default(List<long>))
         {
             this.Description = description;
             this.SubscribedApplicationsIds = subscribedApplicationsIds;
@@ -54,7 +54,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the Applications where this collection is enabled.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// A notification regarding a campaign that was deleted.
+    /// CampaignDeletedNotification
     /// </summary>
     [DataContract]
     public partial class CampaignDeletedNotification :  IEquatable<CampaignDeletedNotification>, IValidatableObject
@@ -39,27 +39,37 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CampaignDeletedNotification" /> class.
         /// </summary>
-        /// <param name="campaign">campaign (required).</param>
-        /// <param name="deletedAt">Time when the campaign was deleted. (required).</param>
-        public CampaignDeletedNotification(Campaign campaign = default(Campaign), DateTime deletedAt = default(DateTime))
+        /// <param name="notificationType">The type of the notification (required).</param>
+        /// <param name="totalResultSize">The total size of the result set. (required).</param>
+        /// <param name="data">A list of campaign notification data..</param>
+        public CampaignDeletedNotification(string notificationType = default(string), long totalResultSize = default(long), List<CampaignDeletedNotificationItem> data = default(List<CampaignDeletedNotificationItem>))
         {
-            // to ensure "campaign" is required (not null)
-            this.Campaign = campaign ?? throw new ArgumentNullException("campaign is a required property for CampaignDeletedNotification and cannot be null");
-            this.DeletedAt = deletedAt;
+            // to ensure "notificationType" is required (not null)
+            this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for CampaignDeletedNotification and cannot be null");
+            this.TotalResultSize = totalResultSize;
+            this.Data = data;
         }
         
         /// <summary>
-        /// Gets or Sets Campaign
+        /// The type of the notification
         /// </summary>
-        [DataMember(Name="campaign", EmitDefaultValue=false)]
-        public Campaign Campaign { get; set; }
+        /// <value>The type of the notification</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public string NotificationType { get; set; }
 
         /// <summary>
-        /// Time when the campaign was deleted.
+        /// The total size of the result set.
         /// </summary>
-        /// <value>Time when the campaign was deleted.</value>
-        [DataMember(Name="deletedAt", EmitDefaultValue=false)]
-        public DateTime DeletedAt { get; set; }
+        /// <value>The total size of the result set.</value>
+        [DataMember(Name="TotalResultSize", EmitDefaultValue=false)]
+        public long TotalResultSize { get; set; }
+
+        /// <summary>
+        /// A list of campaign notification data.
+        /// </summary>
+        /// <value>A list of campaign notification data.</value>
+        [DataMember(Name="Data", EmitDefaultValue=false)]
+        public List<CampaignDeletedNotificationItem> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,8 +79,9 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CampaignDeletedNotification {\n");
-            sb.Append("  Campaign: ").Append(Campaign).Append("\n");
-            sb.Append("  DeletedAt: ").Append(DeletedAt).Append("\n");
+            sb.Append("  NotificationType: ").Append(NotificationType).Append("\n");
+            sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,14 +117,19 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Campaign == input.Campaign ||
-                    (this.Campaign != null &&
-                    this.Campaign.Equals(input.Campaign))
+                    this.NotificationType == input.NotificationType ||
+                    (this.NotificationType != null &&
+                    this.NotificationType.Equals(input.NotificationType))
                 ) && 
                 (
-                    this.DeletedAt == input.DeletedAt ||
-                    (this.DeletedAt != null &&
-                    this.DeletedAt.Equals(input.DeletedAt))
+                    this.TotalResultSize == input.TotalResultSize ||
+                    this.TotalResultSize.Equals(input.TotalResultSize)
+                ) && 
+                (
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 
@@ -126,10 +142,11 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Campaign != null)
-                    hashCode = hashCode * 59 + this.Campaign.GetHashCode();
-                if (this.DeletedAt != null)
-                    hashCode = hashCode * 59 + this.DeletedAt.GetHashCode();
+                if (this.NotificationType != null)
+                    hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

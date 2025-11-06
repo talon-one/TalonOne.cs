@@ -81,7 +81,7 @@ namespace TalonOne.Model
         /// <param name="referralId">Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code..</param>
         /// <param name="expiresAfter">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally..</param>
         /// <param name="expiresBefore">Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally..</param>
-        public CouponDeletionFilters(DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), ValidEnum? valid = default(ValidEnum?), bool usable = default(bool), bool redeemed = default(bool), string recipientIntegrationId = default(string), bool exactMatch = false, string value = default(string), string batchId = default(string), int referralId = default(int), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime))
+        public CouponDeletionFilters(DateTime createdBefore = default(DateTime), DateTime createdAfter = default(DateTime), DateTime startsAfter = default(DateTime), DateTime startsBefore = default(DateTime), ValidEnum? valid = default(ValidEnum?), bool usable = default(bool), bool redeemed = default(bool), string recipientIntegrationId = default(string), bool exactMatch = false, string value = default(string), string batchId = default(string), long referralId = default(long), DateTime expiresAfter = default(DateTime), DateTime expiresBefore = default(DateTime))
         {
             this.CreatedBefore = createdBefore;
             this.CreatedAfter = createdAfter;
@@ -174,7 +174,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Filter the results by matching them with the ID of a referral. This filter shows the coupons created by redeeming a referral code.</value>
         [DataMember(Name="referralId", EmitDefaultValue=false)]
-        public int ReferralId { get; set; }
+        public long ReferralId { get; set; }
 
         /// <summary>
         /// Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the coupon creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally.

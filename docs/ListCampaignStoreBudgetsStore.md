@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** |  | 
+**Id** | **long** |  | 
 **IntegrationId** | **string** |  | 
 **Name** | **string** |  | 
 

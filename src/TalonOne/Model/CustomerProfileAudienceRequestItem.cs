@@ -69,7 +69,7 @@ namespace TalonOne.Model
         /// <param name="action">Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience.    **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - &#x60;delete&#x60;: Removes the customer profile from the audience.  (required).</param>
         /// <param name="profileIntegrationId">The ID of this customer profile in the third-party integration. (required).</param>
         /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required).</param>
-        public CustomerProfileAudienceRequestItem(ActionEnum action = default(ActionEnum), string profileIntegrationId = default(string), int audienceId = default(int))
+        public CustomerProfileAudienceRequestItem(ActionEnum action = default(ActionEnum), string profileIntegrationId = default(string), long audienceId = default(long))
         {
             this.Action = action;
             // to ensure "profileIntegrationId" is required (not null)
@@ -89,7 +89,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</value>
         [DataMember(Name="audienceId", EmitDefaultValue=false)]
-        public int AudienceId { get; set; }
+        public long AudienceId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

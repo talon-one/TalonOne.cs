@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="position">The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property. (required).</param>
         /// <param name="quantity">Number of cart items to return. .</param>
-        public ReturnedCartItem(int position = default(int), int quantity = default(int))
+        public ReturnedCartItem(long position = default(long), long quantity = default(long))
         {
             this.Position = position;
             this.Quantity = quantity;
@@ -52,14 +52,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property.</value>
         [DataMember(Name="position", EmitDefaultValue=true)]
-        public int Position { get; set; }
+        public long Position { get; set; }
 
         /// <summary>
         /// Number of cart items to return. 
         /// </summary>
         /// <value>Number of cart items to return. </value>
         [DataMember(Name="quantity", EmitDefaultValue=false)]
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

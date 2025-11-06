@@ -80,7 +80,7 @@ namespace TalonOne.Model
         /// <param name="description">A description of this additional cost. (required).</param>
         /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that are subscribed to this additional cost..</param>
         /// <param name="type">The type of additional cost. Possible value: - &#x60;session&#x60;: Additional cost will be added per session. - &#x60;item&#x60;: Additional cost will be added per item. - &#x60;both&#x60;: Additional cost will be added per item and session.  (default to TypeEnum.Session).</param>
-        public AccountAdditionalCost(int id = default(int), DateTime created = default(DateTime), int accountId = default(int), string name = default(string), string title = default(string), string description = default(string), List<int> subscribedApplicationsIds = default(List<int>), TypeEnum? type = TypeEnum.Session)
+        public AccountAdditionalCost(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), string name = default(string), string title = default(string), string description = default(string), List<long> subscribedApplicationsIds = default(List<long>), TypeEnum? type = TypeEnum.Session)
         {
             this.Id = id;
             this.Created = created;
@@ -100,7 +100,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -114,7 +114,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// The internal name used in API requests.
@@ -142,7 +142,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of the IDs of the applications that are subscribed to this additional cost.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
-        public List<int> SubscribedApplicationsIds { get; set; }
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

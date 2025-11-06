@@ -41,11 +41,13 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">Notification name. (required).</param>
         /// <param name="aheadOfDaysTrigger">The number of days in advance that strikethrough pricing updates should be sent..</param>
-        public CatalogsStrikethroughNotificationPolicy(string name = default(string), int aheadOfDaysTrigger = default(int))
+        /// <param name="batchSize">The required size of each batch of data. (default to 1000).</param>
+        public CatalogsStrikethroughNotificationPolicy(string name = default(string), long aheadOfDaysTrigger = default(long), long batchSize = 1000)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CatalogsStrikethroughNotificationPolicy and cannot be null");
             this.AheadOfDaysTrigger = aheadOfDaysTrigger;
+            this.BatchSize = batchSize;
         }
         
         /// <summary>
@@ -60,7 +62,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of days in advance that strikethrough pricing updates should be sent.</value>
         [DataMember(Name="aheadOfDaysTrigger", EmitDefaultValue=false)]
-        public int AheadOfDaysTrigger { get; set; }
+        public long AheadOfDaysTrigger { get; set; }
+
+        /// <summary>
+        /// The required size of each batch of data.
+        /// </summary>
+        /// <value>The required size of each batch of data.</value>
+        [DataMember(Name="batchSize", EmitDefaultValue=false)]
+        public long BatchSize { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,6 +81,7 @@ namespace TalonOne.Model
             sb.Append("class CatalogsStrikethroughNotificationPolicy {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  AheadOfDaysTrigger: ").Append(AheadOfDaysTrigger).Append("\n");
+            sb.Append("  BatchSize: ").Append(BatchSize).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -114,6 +124,10 @@ namespace TalonOne.Model
                 (
                     this.AheadOfDaysTrigger == input.AheadOfDaysTrigger ||
                     this.AheadOfDaysTrigger.Equals(input.AheadOfDaysTrigger)
+                ) && 
+                (
+                    this.BatchSize == input.BatchSize ||
+                    this.BatchSize.Equals(input.BatchSize)
                 );
         }
 
@@ -129,6 +143,7 @@ namespace TalonOne.Model
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 hashCode = hashCode * 59 + this.AheadOfDaysTrigger.GetHashCode();
+                hashCode = hashCode * 59 + this.BatchSize.GetHashCode();
                 return hashCode;
             }
         }
@@ -146,14 +161,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 1.", new [] { "Name" });
             }
 
-            // AheadOfDaysTrigger (int) maximum
-            if(this.AheadOfDaysTrigger > (int)30)
+            // AheadOfDaysTrigger (long) maximum
+            if(this.AheadOfDaysTrigger > (long)30)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AheadOfDaysTrigger, must be a value less than or equal to 30.", new [] { "AheadOfDaysTrigger" });
             }
 
-            // AheadOfDaysTrigger (int) minimum
-            if(this.AheadOfDaysTrigger < (int)1)
+            // AheadOfDaysTrigger (long) minimum
+            if(this.AheadOfDaysTrigger < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AheadOfDaysTrigger, must be a value greater than or equal to 1.", new [] { "AheadOfDaysTrigger" });
             }

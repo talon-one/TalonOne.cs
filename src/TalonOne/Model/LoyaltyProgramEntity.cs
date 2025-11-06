@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="programID">The ID of the loyalty program that owns this entity. (required).</param>
         /// <param name="programName">The integration name of the loyalty program that owns this entity..</param>
         /// <param name="programTitle">The Campaign Manager-displayed name of the loyalty program that owns this entity..</param>
-        public LoyaltyProgramEntity(int programID = default(int), string programName = default(string), string programTitle = default(string))
+        public LoyaltyProgramEntity(long programID = default(long), string programName = default(string), string programTitle = default(string))
         {
             this.ProgramID = programID;
             this.ProgramName = programName;
@@ -54,7 +54,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the loyalty program that owns this entity.</value>
         [DataMember(Name="programID", EmitDefaultValue=false)]
-        public int ProgramID { get; set; }
+        public long ProgramID { get; set; }
 
         /// <summary>
         /// The integration name of the loyalty program that owns this entity.

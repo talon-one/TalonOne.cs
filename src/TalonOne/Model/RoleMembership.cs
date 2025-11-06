@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="roleID">ID of role. (required).</param>
         /// <param name="userID">ID of User. (required).</param>
-        public RoleMembership(int roleID = default(int), int userID = default(int))
+        public RoleMembership(long roleID = default(long), long userID = default(long))
         {
             this.RoleID = roleID;
             this.UserID = userID;
@@ -52,14 +52,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of role.</value>
         [DataMember(Name="RoleID", EmitDefaultValue=false)]
-        public int RoleID { get; set; }
+        public long RoleID { get; set; }
 
         /// <summary>
         /// ID of User.
         /// </summary>
         /// <value>ID of User.</value>
         [DataMember(Name="UserID", EmitDefaultValue=false)]
-        public int UserID { get; set; }
+        public long UserID { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -127,7 +127,7 @@ namespace TalonOne.Model
         /// <param name="campaignId">campaignId (required).</param>
         /// <param name="referralId">referralId (required).</param>
         /// <param name="reason">reason (required).</param>
-        public ReferralRejectionReason(int campaignId = default(int), int referralId = default(int), ReasonEnum reason = default(ReasonEnum))
+        public ReferralRejectionReason(long campaignId = default(long), long referralId = default(long), ReasonEnum reason = default(ReasonEnum))
         {
             this.CampaignId = campaignId;
             this.ReferralId = referralId;
@@ -138,13 +138,13 @@ namespace TalonOne.Model
         /// Gets or Sets CampaignId
         /// </summary>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// Gets or Sets ReferralId
         /// </summary>
         [DataMember(Name="referralId", EmitDefaultValue=false)]
-        public int ReferralId { get; set; }
+        public long ReferralId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

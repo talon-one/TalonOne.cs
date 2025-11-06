@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="live">Number of campaigns that are active and live (across all Applications). (required).</param>
         /// <param name="endingSoon">Campaigns scheduled to expire sometime in the next 7 days. (required).</param>
         /// <param name="lowOnBudget">Campaigns with less than 10% of budget left. (required).</param>
-        public AccountDashboardStatisticCampaigns(int live = default(int), int endingSoon = default(int), int lowOnBudget = default(int))
+        public AccountDashboardStatisticCampaigns(long live = default(long), long endingSoon = default(long), long lowOnBudget = default(long))
         {
             this.Live = live;
             this.EndingSoon = endingSoon;
@@ -54,21 +54,21 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Number of campaigns that are active and live (across all Applications).</value>
         [DataMember(Name="live", EmitDefaultValue=false)]
-        public int Live { get; set; }
+        public long Live { get; set; }
 
         /// <summary>
         /// Campaigns scheduled to expire sometime in the next 7 days.
         /// </summary>
         /// <value>Campaigns scheduled to expire sometime in the next 7 days.</value>
         [DataMember(Name="endingSoon", EmitDefaultValue=false)]
-        public int EndingSoon { get; set; }
+        public long EndingSoon { get; set; }
 
         /// <summary>
         /// Campaigns with less than 10% of budget left.
         /// </summary>
         /// <value>Campaigns with less than 10% of budget left.</value>
         [DataMember(Name="lowOnBudget", EmitDefaultValue=false)]
-        public int LowOnBudget { get; set; }
+        public long LowOnBudget { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ApplicationSessionEntity" /> class.
         /// </summary>
         /// <param name="sessionId">The globally unique Talon.One ID of the session where this entity was created. (required).</param>
-        public ApplicationSessionEntity(int sessionId = default(int))
+        public ApplicationSessionEntity(long sessionId = default(long))
         {
             this.SessionId = sessionId;
         }
@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The globally unique Talon.One ID of the session where this entity was created.</value>
         [DataMember(Name="sessionId", EmitDefaultValue=false)]
-        public int SessionId { get; set; }
+        public long SessionId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

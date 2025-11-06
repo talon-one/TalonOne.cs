@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// <param name="profileId">The internal ID of the profile this return was requested on..</param>
         /// <param name="profileIntegrationId">The integration ID of the profile this return was requested on..</param>
         /// <param name="createdBy">ID of the user who requested this return..</param>
-        public Return(int id = default(int), DateTime created = default(DateTime), int applicationId = default(int), int accountId = default(int), List<ReturnedCartItem> returnedCartItems = default(List<ReturnedCartItem>), int eventId = default(int), int sessionId = default(int), string sessionIntegrationId = default(string), int profileId = default(int), string profileIntegrationId = default(string), int createdBy = default(int))
+        public Return(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), long accountId = default(long), List<ReturnedCartItem> returnedCartItems = default(List<ReturnedCartItem>), long eventId = default(long), long sessionId = default(long), string sessionIntegrationId = default(string), long profileId = default(long), string profileIntegrationId = default(string), long createdBy = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -72,7 +72,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -86,14 +86,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// List of cart items to be returned.
@@ -107,14 +107,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The event ID of that was generated for this return.</value>
         [DataMember(Name="eventId", EmitDefaultValue=false)]
-        public int EventId { get; set; }
+        public long EventId { get; set; }
 
         /// <summary>
         /// The internal ID of the session this return was requested on.
         /// </summary>
         /// <value>The internal ID of the session this return was requested on.</value>
         [DataMember(Name="sessionId", EmitDefaultValue=false)]
-        public int SessionId { get; set; }
+        public long SessionId { get; set; }
 
         /// <summary>
         /// The integration ID of the session this return was requested on.
@@ -128,7 +128,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the profile this return was requested on.</value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
-        public int ProfileId { get; set; }
+        public long ProfileId { get; set; }
 
         /// <summary>
         /// The integration ID of the profile this return was requested on.
@@ -142,7 +142,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the user who requested this return.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
-        public int CreatedBy { get; set; }
+        public long CreatedBy { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

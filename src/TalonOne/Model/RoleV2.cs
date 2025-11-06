@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="description">Description of the role..</param>
         /// <param name="permissions">permissions.</param>
         /// <param name="members">A list of user IDs the role is assigned to..</param>
-        public RoleV2(int id = default(int), DateTime created = default(DateTime), DateTime modified = default(DateTime), int accountId = default(int), string name = default(string), string description = default(string), RoleV2Permissions permissions = default(RoleV2Permissions), List<int> members = default(List<int>))
+        public RoleV2(long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime), long accountId = default(long), string name = default(string), string description = default(string), RoleV2Permissions permissions = default(RoleV2Permissions), List<long> members = default(List<long>))
         {
             this.Id = id;
             this.Created = created;
@@ -64,7 +64,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -85,7 +85,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
-        public int AccountId { get; set; }
+        public long AccountId { get; set; }
 
         /// <summary>
         /// Name of the role.
@@ -112,7 +112,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list of user IDs the role is assigned to.</value>
         [DataMember(Name="members", EmitDefaultValue=false)]
-        public List<int> Members { get; set; }
+        public List<long> Members { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

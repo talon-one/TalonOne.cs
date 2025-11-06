@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="advocateProfileIntegrationId">The Integration ID of the Advocate&#39;s Profile. (required).</param>
         /// <param name="friendProfileIntegrationId">An optional Integration ID of the Friend&#39;s Profile..</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
-        public NewReferral(DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), int usageLimit = default(int), int campaignId = default(int), string advocateProfileIntegrationId = default(string), string friendProfileIntegrationId = default(string), Object attributes = default(Object))
+        public NewReferral(DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long usageLimit = default(long), long campaignId = default(long), string advocateProfileIntegrationId = default(string), string friendProfileIntegrationId = default(string), Object attributes = default(Object))
         {
             this.CampaignId = campaignId;
             // to ensure "advocateProfileIntegrationId" is required (not null)
@@ -77,14 +77,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The number of times a referral code can be used. &#x60;0&#x60; means no limit but any campaign usage limits will still apply. </value>
         [DataMember(Name="usageLimit", EmitDefaultValue=false)]
-        public int UsageLimit { get; set; }
+        public long UsageLimit { get; set; }
 
         /// <summary>
         /// ID of the campaign from which the referral received the referral code.
         /// </summary>
         /// <value>ID of the campaign from which the referral received the referral code.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The Integration ID of the Advocate&#39;s Profile.
@@ -223,14 +223,14 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // UsageLimit (int) maximum
-            if(this.UsageLimit > (int)999999)
+            // UsageLimit (long) maximum
+            if(this.UsageLimit > (long)999999)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value less than or equal to 999999.", new [] { "UsageLimit" });
             }
 
-            // UsageLimit (int) minimum
-            if(this.UsageLimit < (int)0)
+            // UsageLimit (long) minimum
+            if(this.UsageLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsageLimit, must be a value greater than or equal to 0.", new [] { "UsageLimit" });
             }

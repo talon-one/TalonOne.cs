@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="GenerateCampaignTags" /> class.
         /// </summary>
         /// <param name="rulesetID">ID of a ruleset. (required).</param>
-        public GenerateCampaignTags(int rulesetID = default(int))
+        public GenerateCampaignTags(long rulesetID = default(long))
         {
             this.RulesetID = rulesetID;
         }
@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of a ruleset.</value>
         [DataMember(Name="rulesetID", EmitDefaultValue=false)]
-        public int RulesetID { get; set; }
+        public long RulesetID { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="name">Name / reason for the point deduction..</param>
         /// <param name="subledgerId">ID of the subledger the points are deducted from..</param>
         /// <param name="applicationId">ID of the Application that is connected to the loyalty program..</param>
-        public DeductLoyaltyPoints(decimal points = default(decimal), string name = default(string), string subledgerId = default(string), int applicationId = default(int))
+        public DeductLoyaltyPoints(decimal points = default(decimal), string name = default(string), string subledgerId = default(string), long applicationId = default(long))
         {
             this.Points = points;
             this.Name = name;
@@ -77,7 +77,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the Application that is connected to the loyalty program.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
-        public int ApplicationId { get; set; }
+        public long ApplicationId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -175,12 +175,6 @@ namespace TalonOne.Model
             if(this.Points > (decimal)999999999999.99)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Points, must be a value less than or equal to 999999999999.99.", new [] { "Points" });
-            }
-
-            // Points (decimal) minimum
-            if(this.Points < (decimal)0)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Points, must be a value greater than or equal to 0.", new [] { "Points" });
             }
 
             yield break;

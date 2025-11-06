@@ -35,7 +35,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ApplicationCustomerEntity" /> class.
         /// </summary>
         /// <param name="profileId">The globally unique Talon.One ID of the customer that created this entity..</param>
-        public ApplicationCustomerEntity(int profileId = default(int))
+        public ApplicationCustomerEntity(long profileId = default(long))
         {
             this.ProfileId = profileId;
         }
@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The globally unique Talon.One ID of the customer that created this entity.</value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
-        public int ProfileId { get; set; }
+        public long ProfileId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

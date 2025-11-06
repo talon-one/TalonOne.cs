@@ -42,8 +42,8 @@ namespace TalonOne.Model
         /// <param name="name">Notification name. (required).</param>
         /// <param name="triggers">triggers (required).</param>
         /// <param name="batchingEnabled">Indicates whether batching is activated. (default to true).</param>
-        /// <param name="batchSize">The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;..</param>
-        public CardExpiringPointsNotificationPolicy(string name = default(string), List<CardExpiringPointsNotificationTrigger> triggers = default(List<CardExpiringPointsNotificationTrigger>), bool batchingEnabled = true, int batchSize = default(int))
+        /// <param name="batchSize">The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;. (default to 1000).</param>
+        public CardExpiringPointsNotificationPolicy(string name = default(string), List<CardExpiringPointsNotificationTrigger> triggers = default(List<CardExpiringPointsNotificationTrigger>), bool batchingEnabled = true, long batchSize = 1000)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CardExpiringPointsNotificationPolicy and cannot be null");
@@ -78,7 +78,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The required size of each batch of data. This value applies only when &#x60;batchingEnabled&#x60; is &#x60;true&#x60;.</value>
         [DataMember(Name="batchSize", EmitDefaultValue=false)]
-        public int BatchSize { get; set; }
+        public long BatchSize { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

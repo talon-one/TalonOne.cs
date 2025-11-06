@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Resources** | [**List&lt;ScimGroup&gt;**](ScimGroup.md) |  | 
 **Schemas** | **List&lt;string&gt;** | SCIM schema for the given resource. | [optional] 
-**TotalResults** | **int** | Number of results in the response. | [optional] 
+**TotalResults** | **long** | Number of results in the response. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

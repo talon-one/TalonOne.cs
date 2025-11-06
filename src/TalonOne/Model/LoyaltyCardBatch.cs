@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// <param name="batchId">ID of the loyalty card batch..</param>
         /// <param name="status">Status of the loyalty cards in the batch. (default to StatusEnum.Active).</param>
         /// <param name="cardCodeSettings">cardCodeSettings.</param>
-        public LoyaltyCardBatch(int numberOfCards = default(int), string batchId = default(string), StatusEnum? status = StatusEnum.Active, CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings))
+        public LoyaltyCardBatch(long numberOfCards = default(long), string batchId = default(string), StatusEnum? status = StatusEnum.Active, CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings))
         {
             this.NumberOfCards = numberOfCards;
             this.BatchId = batchId;
@@ -83,7 +83,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Number of loyalty cards in the batch.</value>
         [DataMember(Name="numberOfCards", EmitDefaultValue=false)]
-        public int NumberOfCards { get; set; }
+        public long NumberOfCards { get; set; }
 
         /// <summary>
         /// ID of the loyalty card batch.

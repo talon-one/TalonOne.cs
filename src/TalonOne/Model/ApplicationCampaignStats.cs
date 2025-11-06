@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="running">Number of running campaigns. (required).</param>
         /// <param name="expired">Number of expired campaigns. (required).</param>
         /// <param name="archived">Number of archived campaigns. (required).</param>
-        public ApplicationCampaignStats(int disabled = default(int), int staged = default(int), int scheduled = default(int), int running = default(int), int expired = default(int), int archived = default(int))
+        public ApplicationCampaignStats(long disabled = default(long), long staged = default(long), long scheduled = default(long), long running = default(long), long expired = default(long), long archived = default(long))
         {
             this.Disabled = disabled;
             this.Staged = staged;
@@ -60,42 +60,42 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Number of disabled campaigns.</value>
         [DataMember(Name="disabled", EmitDefaultValue=false)]
-        public int Disabled { get; set; }
+        public long Disabled { get; set; }
 
         /// <summary>
         /// Number of staged campaigns.
         /// </summary>
         /// <value>Number of staged campaigns.</value>
         [DataMember(Name="staged", EmitDefaultValue=false)]
-        public int Staged { get; set; }
+        public long Staged { get; set; }
 
         /// <summary>
         /// Number of scheduled campaigns.
         /// </summary>
         /// <value>Number of scheduled campaigns.</value>
         [DataMember(Name="scheduled", EmitDefaultValue=false)]
-        public int Scheduled { get; set; }
+        public long Scheduled { get; set; }
 
         /// <summary>
         /// Number of running campaigns.
         /// </summary>
         /// <value>Number of running campaigns.</value>
         [DataMember(Name="running", EmitDefaultValue=false)]
-        public int Running { get; set; }
+        public long Running { get; set; }
 
         /// <summary>
         /// Number of expired campaigns.
         /// </summary>
         /// <value>Number of expired campaigns.</value>
         [DataMember(Name="expired", EmitDefaultValue=false)]
-        public int Expired { get; set; }
+        public long Expired { get; set; }
 
         /// <summary>
         /// Number of archived campaigns.
         /// </summary>
         /// <value>Number of archived campaigns.</value>
         [DataMember(Name="archived", EmitDefaultValue=false)]
-        public int Archived { get; set; }
+        public long Archived { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

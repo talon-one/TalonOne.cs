@@ -3,7 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | Unique ID for this entity. | 
+**Id** | **long** | Unique ID for this entity. | 
 **Name** | **string** | Name of the outgoing integration. | 
 **Description** | **string** | Description of the outgoing integration. | [optional] 
 **Category** | **string** | Category of the outgoing integration. | [optional] 

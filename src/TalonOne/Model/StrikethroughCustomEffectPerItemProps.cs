@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="effectId">ID of the effect. (required).</param>
         /// <param name="name">The type of the custom effect. (required).</param>
         /// <param name="payload">The JSON payload of the custom effect. (required).</param>
-        public StrikethroughCustomEffectPerItemProps(int effectId = default(int), string name = default(string), Object payload = default(Object))
+        public StrikethroughCustomEffectPerItemProps(long effectId = default(long), string name = default(string), Object payload = default(Object))
         {
             this.EffectId = effectId;
             // to ensure "name" is required (not null)
@@ -56,7 +56,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>ID of the effect.</value>
         [DataMember(Name="effectId", EmitDefaultValue=false)]
-        public int EffectId { get; set; }
+        public long EffectId { get; set; }
 
         /// <summary>
         /// The type of the custom effect.

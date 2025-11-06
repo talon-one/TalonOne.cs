@@ -37,11 +37,13 @@ namespace TalonOne.Model
         /// <param name="applications">A map of the link between the Application, campaign, or draft campaign-related permission set and the Application ID the permissions apply to..</param>
         /// <param name="loyaltyPrograms">A map of the link between the loyalty program-related permission set and the Application ID the permissions apply to..</param>
         /// <param name="campaignAccessGroups">A map of the link between the campaign access group-related permission set and the Application ID the permissions apply to..</param>
-        public RoleV2RolesGroup(Dictionary<string, RoleV2ApplicationDetails> applications = default(Dictionary<string, RoleV2ApplicationDetails>), Dictionary<string, string> loyaltyPrograms = default(Dictionary<string, string>), Dictionary<string, string> campaignAccessGroups = default(Dictionary<string, string>))
+        /// <param name="account">Name of the account-level permission set.</param>
+        public RoleV2RolesGroup(Dictionary<string, RoleV2ApplicationDetails> applications = default(Dictionary<string, RoleV2ApplicationDetails>), Dictionary<string, string> loyaltyPrograms = default(Dictionary<string, string>), Dictionary<string, string> campaignAccessGroups = default(Dictionary<string, string>), string account = default(string))
         {
             this.Applications = applications;
             this.LoyaltyPrograms = loyaltyPrograms;
             this.CampaignAccessGroups = campaignAccessGroups;
+            this.Account = account;
         }
         
         /// <summary>
@@ -66,6 +68,13 @@ namespace TalonOne.Model
         public Dictionary<string, string> CampaignAccessGroups { get; set; }
 
         /// <summary>
+        /// Name of the account-level permission set
+        /// </summary>
+        /// <value>Name of the account-level permission set</value>
+        [DataMember(Name="account", EmitDefaultValue=false)]
+        public string Account { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +85,7 @@ namespace TalonOne.Model
             sb.Append("  Applications: ").Append(Applications).Append("\n");
             sb.Append("  LoyaltyPrograms: ").Append(LoyaltyPrograms).Append("\n");
             sb.Append("  CampaignAccessGroups: ").Append(CampaignAccessGroups).Append("\n");
+            sb.Append("  Account: ").Append(Account).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,6 +137,11 @@ namespace TalonOne.Model
                     this.CampaignAccessGroups != null &&
                     input.CampaignAccessGroups != null &&
                     this.CampaignAccessGroups.SequenceEqual(input.CampaignAccessGroups)
+                ) && 
+                (
+                    this.Account == input.Account ||
+                    (this.Account != null &&
+                    this.Account.Equals(input.Account))
                 );
         }
 
@@ -145,6 +160,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.LoyaltyPrograms.GetHashCode();
                 if (this.CampaignAccessGroups != null)
                     hashCode = hashCode * 59 + this.CampaignAccessGroups.GetHashCode();
+                if (this.Account != null)
+                    hashCode = hashCode * 59 + this.Account.GetHashCode();
                 return hashCode;
             }
         }

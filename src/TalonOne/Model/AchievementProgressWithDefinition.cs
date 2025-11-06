@@ -153,7 +153,8 @@ namespace TalonOne.Model
         /// <param name="achievementActivationPolicy">The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule.  (required).</param>
         /// <param name="achievementFixedStartDate">The achievement&#39;s start date when &#x60;achievementActivationPolicy&#x60; is equal to &#x60;fixed_schedule&#x60;.  **Note:** It is an RFC3339 timestamp string. .</param>
         /// <param name="achievementEndDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It is an RFC3339 timestamp string. .</param>
-        public AchievementProgressWithDefinition(StatusEnum status = default(StatusEnum), decimal progress = default(decimal), DateTime startDate = default(DateTime), DateTime completionDate = default(DateTime), DateTime endDate = default(DateTime), int achievementId = default(int), string name = default(string), string title = default(string), string description = default(string), int campaignId = default(int), decimal target = default(decimal), AchievementRecurrencePolicyEnum achievementRecurrencePolicy = default(AchievementRecurrencePolicyEnum), AchievementActivationPolicyEnum achievementActivationPolicy = default(AchievementActivationPolicyEnum), DateTime achievementFixedStartDate = default(DateTime), DateTime achievementEndDate = default(DateTime))
+        /// <param name="achievementAllowRollbackAfterCompletion">When &#x60;true&#x60;, customer progress can be rolled back in completed achievements..</param>
+        public AchievementProgressWithDefinition(StatusEnum status = default(StatusEnum), decimal progress = default(decimal), DateTime startDate = default(DateTime), DateTime completionDate = default(DateTime), DateTime endDate = default(DateTime), long achievementId = default(long), string name = default(string), string title = default(string), string description = default(string), long campaignId = default(long), decimal target = default(decimal), AchievementRecurrencePolicyEnum achievementRecurrencePolicy = default(AchievementRecurrencePolicyEnum), AchievementActivationPolicyEnum achievementActivationPolicy = default(AchievementActivationPolicyEnum), DateTime achievementFixedStartDate = default(DateTime), DateTime achievementEndDate = default(DateTime), bool achievementAllowRollbackAfterCompletion = default(bool))
         {
             this.Status = status;
             this.Progress = progress;
@@ -173,6 +174,7 @@ namespace TalonOne.Model
             this.Target = target;
             this.AchievementFixedStartDate = achievementFixedStartDate;
             this.AchievementEndDate = achievementEndDate;
+            this.AchievementAllowRollbackAfterCompletion = achievementAllowRollbackAfterCompletion;
         }
         
         /// <summary>
@@ -208,7 +210,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the achievement.</value>
         [DataMember(Name="achievementId", EmitDefaultValue=false)]
-        public int AchievementId { get; set; }
+        public long AchievementId { get; set; }
 
         /// <summary>
         /// The internal name of the achievement used in API requests. 
@@ -236,7 +238,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign the achievement belongs to.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The required number of actions or the transactional milestone to complete the achievement.
@@ -258,6 +260,13 @@ namespace TalonOne.Model
         /// <value>The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It is an RFC3339 timestamp string. </value>
         [DataMember(Name="achievementEndDate", EmitDefaultValue=false)]
         public DateTime AchievementEndDate { get; set; }
+
+        /// <summary>
+        /// When &#x60;true&#x60;, customer progress can be rolled back in completed achievements.
+        /// </summary>
+        /// <value>When &#x60;true&#x60;, customer progress can be rolled back in completed achievements.</value>
+        [DataMember(Name="achievementAllowRollbackAfterCompletion", EmitDefaultValue=false)]
+        public bool AchievementAllowRollbackAfterCompletion { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -282,6 +291,7 @@ namespace TalonOne.Model
             sb.Append("  AchievementActivationPolicy: ").Append(AchievementActivationPolicy).Append("\n");
             sb.Append("  AchievementFixedStartDate: ").Append(AchievementFixedStartDate).Append("\n");
             sb.Append("  AchievementEndDate: ").Append(AchievementEndDate).Append("\n");
+            sb.Append("  AchievementAllowRollbackAfterCompletion: ").Append(AchievementAllowRollbackAfterCompletion).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -383,6 +393,10 @@ namespace TalonOne.Model
                     this.AchievementEndDate == input.AchievementEndDate ||
                     (this.AchievementEndDate != null &&
                     this.AchievementEndDate.Equals(input.AchievementEndDate))
+                ) && 
+                (
+                    this.AchievementAllowRollbackAfterCompletion == input.AchievementAllowRollbackAfterCompletion ||
+                    this.AchievementAllowRollbackAfterCompletion.Equals(input.AchievementAllowRollbackAfterCompletion)
                 );
         }
 
@@ -418,6 +432,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.AchievementFixedStartDate.GetHashCode();
                 if (this.AchievementEndDate != null)
                     hashCode = hashCode * 59 + this.AchievementEndDate.GetHashCode();
+                hashCode = hashCode * 59 + this.AchievementAllowRollbackAfterCompletion.GetHashCode();
                 return hashCode;
             }
         }

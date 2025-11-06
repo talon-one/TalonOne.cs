@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="title">The title of the webhook authentication. (required).</param>
         /// <param name="description">A description of the webhook authentication..</param>
-        public WebhookAuthenticationWebhookRef(int id = default(int), string title = default(string), string description = default(string))
+        public WebhookAuthenticationWebhookRef(long id = default(long), string title = default(string), string description = default(string))
         {
             this.Id = id;
             // to ensure "title" is required (not null)
@@ -55,7 +55,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The title of the webhook authentication.

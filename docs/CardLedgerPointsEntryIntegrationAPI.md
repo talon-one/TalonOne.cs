@@ -4,9 +4,10 @@ Loyalty card points with start and expiry dates.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **int** | ID of the transaction that adds loyalty points. | 
+**Id** | **long** | ID of the transaction that adds loyalty points. | 
+**TransactionUUID** | **string** | Unique identifier of the transaction in the UUID format. | 
 **Created** | **DateTime** | Date and time the loyalty card points were added. | 
-**ProgramId** | **int** | ID of the loyalty program. | 
+**ProgramId** | **long** | ID of the loyalty program. | 
 **CustomerProfileID** | **string** | Integration ID of the customer profile linked to the card. | [optional] 
 **CustomerSessionId** | **string** | ID of the customer session where points were added. | [optional] 
 **Name** | **string** | Name or reason of the transaction that adds loyalty points. | 

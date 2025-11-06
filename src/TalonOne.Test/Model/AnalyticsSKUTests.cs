@@ -82,6 +82,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'LastUpdated'
         }
         /// <summary>
+        /// Test the property 'CatalogId'
+        /// </summary>
+        [Fact]
+        public void CatalogIdTest()
+        {
+            // TODO unit test for the property 'CatalogId'
+        }
+        /// <summary>
+        /// Test the property 'ProductId'
+        /// </summary>
+        [Fact]
+        public void ProductIdTest()
+        {
+            // TODO unit test for the property 'ProductId'
+        }
+        /// <summary>
         /// Test the property 'UnitsSold'
         /// </summary>
         [Fact]

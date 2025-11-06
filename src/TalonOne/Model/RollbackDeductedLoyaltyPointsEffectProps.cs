@@ -47,7 +47,7 @@ namespace TalonOne.Model
         /// <param name="expiryDate">Date after which the reimbursed points will expire..</param>
         /// <param name="transactionUUID">The identifier of &#39;addition&#39; entries added to the ledger as the &#x60;deductLoyaltyPoints&#x60; effect is rolled back. (required).</param>
         /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
-        public RollbackDeductedLoyaltyPointsEffectProps(int programId = default(int), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string), string cardIdentifier = default(string))
+        public RollbackDeductedLoyaltyPointsEffectProps(long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string), string cardIdentifier = default(string))
         {
             this.ProgramId = programId;
             // to ensure "subLedgerId" is required (not null)
@@ -67,7 +67,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the loyalty program where these points were reimbursed.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
-        public int ProgramId { get; set; }
+        public long ProgramId { get; set; }
 
         /// <summary>
         /// The ID of the subledger within the loyalty program where these points were reimbursed.

@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// <param name="campaignId">The ID of the campaign that owns this entity..</param>
         /// <param name="templateId">The ID of the campaign template that owns this entity..</param>
         /// <param name="activatedAt">Timestamp indicating when this Ruleset was activated..</param>
-        public Ruleset(int id = default(int), DateTime created = default(DateTime), int userId = default(int), List<Rule> rules = default(List<Rule>), List<Rule> strikethroughRules = default(List<Rule>), List<Binding> bindings = default(List<Binding>), string rbVersion = default(string), bool activate = default(bool), int campaignId = default(int), int templateId = default(int), DateTime activatedAt = default(DateTime))
+        public Ruleset(long id = default(long), DateTime created = default(DateTime), long userId = default(long), List<Rule> rules = default(List<Rule>), List<Rule> strikethroughRules = default(List<Rule>), List<Binding> bindings = default(List<Binding>), string rbVersion = default(string), bool activate = default(bool), long campaignId = default(long), long templateId = default(long), DateTime activatedAt = default(DateTime))
         {
             this.Id = id;
             this.Created = created;
@@ -72,7 +72,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -86,7 +86,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the user associated with this entity.</value>
         [DataMember(Name="userId", EmitDefaultValue=false)]
-        public int UserId { get; set; }
+        public long UserId { get; set; }
 
         /// <summary>
         /// Set of rules to apply.
@@ -128,14 +128,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the campaign that owns this entity.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
-        public int CampaignId { get; set; }
+        public long CampaignId { get; set; }
 
         /// <summary>
         /// The ID of the campaign template that owns this entity.
         /// </summary>
         /// <value>The ID of the campaign template that owns this entity.</value>
         [DataMember(Name="templateId", EmitDefaultValue=false)]
-        public int TemplateId { get; set; }
+        public long TemplateId { get; set; }
 
         /// <summary>
         /// Timestamp indicating when this Ruleset was activated.

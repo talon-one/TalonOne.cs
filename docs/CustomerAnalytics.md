@@ -4,11 +4,11 @@ A summary report of customer activity for a given time range.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AcceptedCoupons** | **int** | Total accepted coupons for this customer. | 
-**CreatedCoupons** | **int** | Total created coupons for this customer. | 
-**FreeItems** | **int** | Total free items given to this customer. | 
-**TotalOrders** | **int** | Total orders made by this customer. | 
-**TotalDiscountedOrders** | **int** | Total orders made by this customer that had a discount. | 
+**AcceptedCoupons** | **long** | Total accepted coupons for this customer. | 
+**CreatedCoupons** | **long** | Total created coupons for this customer. | 
+**FreeItems** | **long** | Total free items given to this customer. | 
+**TotalOrders** | **long** | Total orders made by this customer. | 
+**TotalDiscountedOrders** | **long** | Total orders made by this customer that had a discount. | 
 **TotalRevenue** | **decimal** | Total Revenue across all closed sessions. | 
 **TotalDiscounts** | **decimal** | The sum of discounts that were given across all closed sessions. | 
 

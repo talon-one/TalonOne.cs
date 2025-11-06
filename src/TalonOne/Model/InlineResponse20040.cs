@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="totalResultSize">totalResultSize (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20040(int totalResultSize = default(int), List<WebhookActivationLogEntry> data = default(List<WebhookActivationLogEntry>))
+        public InlineResponse20040(long totalResultSize = default(long), List<EventType> data = default(List<EventType>))
         {
             this.TotalResultSize = totalResultSize;
             // to ensure "data" is required (not null)
@@ -52,13 +52,13 @@ namespace TalonOne.Model
         /// Gets or Sets TotalResultSize
         /// </summary>
         [DataMember(Name="totalResultSize", EmitDefaultValue=false)]
-        public int TotalResultSize { get; set; }
+        public long TotalResultSize { get; set; }
 
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<WebhookActivationLogEntry> Data { get; set; }
+        public List<EventType> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

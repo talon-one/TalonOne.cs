@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="notificationName">The name of the notification. (required).</param>
         /// <param name="entityId">The ID of the entity to which this notification belongs. For example, in case of a loyalty notification, this value is the ID of the loyalty program.  (required).</param>
         /// <param name="enabled">Indicates whether the notification is activated. (required).</param>
-        public NotificationListItem(int notificationId = default(int), string notificationName = default(string), int entityId = default(int), bool enabled = default(bool))
+        public NotificationListItem(long notificationId = default(long), string notificationName = default(string), long entityId = default(long), bool enabled = default(bool))
         {
             this.NotificationId = notificationId;
             // to ensure "notificationName" is required (not null)
@@ -57,7 +57,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the notification.</value>
         [DataMember(Name="notificationId", EmitDefaultValue=false)]
-        public int NotificationId { get; set; }
+        public long NotificationId { get; set; }
 
         /// <summary>
         /// The name of the notification.
@@ -71,7 +71,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the entity to which this notification belongs. For example, in case of a loyalty notification, this value is the ID of the loyalty program. </value>
         [DataMember(Name="entityId", EmitDefaultValue=false)]
-        public int EntityId { get; set; }
+        public long EntityId { get; set; }
 
         /// <summary>
         /// Indicates whether the notification is activated.

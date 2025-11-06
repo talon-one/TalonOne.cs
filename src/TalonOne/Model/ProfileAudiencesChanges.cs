@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="adds">The IDs of the audiences for the customer to join. (required).</param>
         /// <param name="deletes">The IDs of the audiences for the customer to leave. (required).</param>
-        public ProfileAudiencesChanges(List<int> adds = default(List<int>), List<int> deletes = default(List<int>))
+        public ProfileAudiencesChanges(List<long> adds = default(List<long>), List<long> deletes = default(List<long>))
         {
             // to ensure "adds" is required (not null)
             this.Adds = adds ?? throw new ArgumentNullException("adds is a required property for ProfileAudiencesChanges and cannot be null");
@@ -54,14 +54,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The IDs of the audiences for the customer to join.</value>
         [DataMember(Name="adds", EmitDefaultValue=false)]
-        public List<int> Adds { get; set; }
+        public List<long> Adds { get; set; }
 
         /// <summary>
         /// The IDs of the audiences for the customer to leave.
         /// </summary>
         /// <value>The IDs of the audiences for the customer to leave.</value>
         [DataMember(Name="deletes", EmitDefaultValue=false)]
-        public List<int> Deletes { get; set; }
+        public List<long> Deletes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

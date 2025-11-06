@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="hour">The achievement ends and resets at this hour. (required).</param>
         /// <param name="minute">The achievement ends and resets at this minute. (required).</param>
         /// <param name="second">The achievement ends and resets at this second. (required).</param>
-        public TimePoint(int month = default(int), int dayOfMonth = default(int), int dayOfWeek = default(int), int hour = default(int), int minute = default(int), int second = default(int))
+        public TimePoint(long month = default(long), long dayOfMonth = default(long), long dayOfWeek = default(long), long hour = default(long), long minute = default(long), long second = default(long))
         {
             this.Hour = hour;
             this.Minute = minute;
@@ -60,42 +60,42 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The achievement ends and resets in this month.  **Note**: Only applicable if the period is set to &#x60;Y&#x60;. </value>
         [DataMember(Name="month", EmitDefaultValue=false)]
-        public int Month { get; set; }
+        public long Month { get; set; }
 
         /// <summary>
         /// The achievement ends and resets on this day of the month.  **Note**: Only applicable if the period is set to &#x60;Y&#x60; or &#x60;M&#x60;. 
         /// </summary>
         /// <value>The achievement ends and resets on this day of the month.  **Note**: Only applicable if the period is set to &#x60;Y&#x60; or &#x60;M&#x60;. </value>
         [DataMember(Name="dayOfMonth", EmitDefaultValue=false)]
-        public int DayOfMonth { get; set; }
+        public long DayOfMonth { get; set; }
 
         /// <summary>
         /// The achievement ends and resets on this day of the week. &#x60;1&#x60; represents &#x60;Monday&#x60; and &#x60;7&#x60; represents &#x60;Sunday&#x60;.  **Note**: Only applicable if the period is set to &#x60;W&#x60;. 
         /// </summary>
         /// <value>The achievement ends and resets on this day of the week. &#x60;1&#x60; represents &#x60;Monday&#x60; and &#x60;7&#x60; represents &#x60;Sunday&#x60;.  **Note**: Only applicable if the period is set to &#x60;W&#x60;. </value>
         [DataMember(Name="dayOfWeek", EmitDefaultValue=false)]
-        public int DayOfWeek { get; set; }
+        public long DayOfWeek { get; set; }
 
         /// <summary>
         /// The achievement ends and resets at this hour.
         /// </summary>
         /// <value>The achievement ends and resets at this hour.</value>
         [DataMember(Name="hour", EmitDefaultValue=false)]
-        public int Hour { get; set; }
+        public long Hour { get; set; }
 
         /// <summary>
         /// The achievement ends and resets at this minute.
         /// </summary>
         /// <value>The achievement ends and resets at this minute.</value>
         [DataMember(Name="minute", EmitDefaultValue=false)]
-        public int Minute { get; set; }
+        public long Minute { get; set; }
 
         /// <summary>
         /// The achievement ends and resets at this second.
         /// </summary>
         /// <value>The achievement ends and resets at this second.</value>
         [DataMember(Name="second", EmitDefaultValue=false)]
-        public int Second { get; set; }
+        public long Second { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -197,38 +197,38 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Month (int) maximum
-            if(this.Month > (int)12)
+            // Month (long) maximum
+            if(this.Month > (long)12)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Month, must be a value less than or equal to 12.", new [] { "Month" });
             }
 
-            // Month (int) minimum
-            if(this.Month < (int)1)
+            // Month (long) minimum
+            if(this.Month < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Month, must be a value greater than or equal to 1.", new [] { "Month" });
             }
 
-            // DayOfMonth (int) maximum
-            if(this.DayOfMonth > (int)31)
+            // DayOfMonth (long) maximum
+            if(this.DayOfMonth > (long)31)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayOfMonth, must be a value less than or equal to 31.", new [] { "DayOfMonth" });
             }
 
-            // DayOfMonth (int) minimum
-            if(this.DayOfMonth < (int)1)
+            // DayOfMonth (long) minimum
+            if(this.DayOfMonth < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayOfMonth, must be a value greater than or equal to 1.", new [] { "DayOfMonth" });
             }
 
-            // DayOfWeek (int) maximum
-            if(this.DayOfWeek > (int)7)
+            // DayOfWeek (long) maximum
+            if(this.DayOfWeek > (long)7)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayOfWeek, must be a value less than or equal to 7.", new [] { "DayOfWeek" });
             }
 
-            // DayOfWeek (int) minimum
-            if(this.DayOfWeek < (int)1)
+            // DayOfWeek (long) minimum
+            if(this.DayOfWeek < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DayOfWeek, must be a value greater than or equal to 1.", new [] { "DayOfWeek" });
             }

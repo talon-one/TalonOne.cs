@@ -81,6 +81,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'CampaignAccessGroups'
         }
+        /// <summary>
+        /// Test the property 'Account'
+        /// </summary>
+        [Fact]
+        public void AccountTest()
+        {
+            // TODO unit test for the property 'Account'
+        }
 
     }
 

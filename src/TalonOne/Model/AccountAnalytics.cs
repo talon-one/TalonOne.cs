@@ -59,7 +59,7 @@ namespace TalonOne.Model
         /// <param name="loyaltyPrograms">Total number of all loyalty programs in the account. (required).</param>
         /// <param name="liveLoyaltyPrograms">Total number of live loyalty programs in the account. (required).</param>
         /// <param name="lastUpdatedAt">The point in time when the analytics numbers were updated last. (required).</param>
-        public AccountAnalytics(int applications = default(int), int liveApplications = default(int), int sandboxApplications = default(int), int campaigns = default(int), int activeCampaigns = default(int), int liveActiveCampaigns = default(int), int coupons = default(int), int activeCoupons = default(int), int expiredCoupons = default(int), int referralCodes = default(int), int activeReferralCodes = default(int), int expiredReferralCodes = default(int), int activeRules = default(int), int users = default(int), int roles = default(int), int customAttributes = default(int), int webhooks = default(int), int loyaltyPrograms = default(int), int liveLoyaltyPrograms = default(int), DateTime lastUpdatedAt = default(DateTime))
+        public AccountAnalytics(long applications = default(long), long liveApplications = default(long), long sandboxApplications = default(long), long campaigns = default(long), long activeCampaigns = default(long), long liveActiveCampaigns = default(long), long coupons = default(long), long activeCoupons = default(long), long expiredCoupons = default(long), long referralCodes = default(long), long activeReferralCodes = default(long), long expiredReferralCodes = default(long), long activeRules = default(long), long users = default(long), long roles = default(long), long customAttributes = default(long), long webhooks = default(long), long loyaltyPrograms = default(long), long liveLoyaltyPrograms = default(long), DateTime lastUpdatedAt = default(DateTime))
         {
             this.Applications = applications;
             this.LiveApplications = liveApplications;
@@ -88,133 +88,133 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Total number of applications in the account.</value>
         [DataMember(Name="applications", EmitDefaultValue=false)]
-        public int Applications { get; set; }
+        public long Applications { get; set; }
 
         /// <summary>
         /// Total number of live applications in the account.
         /// </summary>
         /// <value>Total number of live applications in the account.</value>
         [DataMember(Name="liveApplications", EmitDefaultValue=false)]
-        public int LiveApplications { get; set; }
+        public long LiveApplications { get; set; }
 
         /// <summary>
         /// Total number of sandbox applications in the account.
         /// </summary>
         /// <value>Total number of sandbox applications in the account.</value>
         [DataMember(Name="sandboxApplications", EmitDefaultValue=false)]
-        public int SandboxApplications { get; set; }
+        public long SandboxApplications { get; set; }
 
         /// <summary>
         /// Total number of campaigns in the account.
         /// </summary>
         /// <value>Total number of campaigns in the account.</value>
         [DataMember(Name="campaigns", EmitDefaultValue=false)]
-        public int Campaigns { get; set; }
+        public long Campaigns { get; set; }
 
         /// <summary>
         /// Total number of active campaigns in the account.
         /// </summary>
         /// <value>Total number of active campaigns in the account.</value>
         [DataMember(Name="activeCampaigns", EmitDefaultValue=false)]
-        public int ActiveCampaigns { get; set; }
+        public long ActiveCampaigns { get; set; }
 
         /// <summary>
         /// Total number of active campaigns in live applications in the account.
         /// </summary>
         /// <value>Total number of active campaigns in live applications in the account.</value>
         [DataMember(Name="liveActiveCampaigns", EmitDefaultValue=false)]
-        public int LiveActiveCampaigns { get; set; }
+        public long LiveActiveCampaigns { get; set; }
 
         /// <summary>
         /// Total number of coupons in the account.
         /// </summary>
         /// <value>Total number of coupons in the account.</value>
         [DataMember(Name="coupons", EmitDefaultValue=false)]
-        public int Coupons { get; set; }
+        public long Coupons { get; set; }
 
         /// <summary>
         /// Total number of active coupons in the account.
         /// </summary>
         /// <value>Total number of active coupons in the account.</value>
         [DataMember(Name="activeCoupons", EmitDefaultValue=false)]
-        public int ActiveCoupons { get; set; }
+        public long ActiveCoupons { get; set; }
 
         /// <summary>
         /// Total number of expired coupons in the account.
         /// </summary>
         /// <value>Total number of expired coupons in the account.</value>
         [DataMember(Name="expiredCoupons", EmitDefaultValue=false)]
-        public int ExpiredCoupons { get; set; }
+        public long ExpiredCoupons { get; set; }
 
         /// <summary>
         /// Total number of referral codes in the account.
         /// </summary>
         /// <value>Total number of referral codes in the account.</value>
         [DataMember(Name="referralCodes", EmitDefaultValue=false)]
-        public int ReferralCodes { get; set; }
+        public long ReferralCodes { get; set; }
 
         /// <summary>
         /// Total number of active referral codes in the account.
         /// </summary>
         /// <value>Total number of active referral codes in the account.</value>
         [DataMember(Name="activeReferralCodes", EmitDefaultValue=false)]
-        public int ActiveReferralCodes { get; set; }
+        public long ActiveReferralCodes { get; set; }
 
         /// <summary>
         /// Total number of expired referral codes in the account.
         /// </summary>
         /// <value>Total number of expired referral codes in the account.</value>
         [DataMember(Name="expiredReferralCodes", EmitDefaultValue=false)]
-        public int ExpiredReferralCodes { get; set; }
+        public long ExpiredReferralCodes { get; set; }
 
         /// <summary>
         /// Total number of active rules in the account.
         /// </summary>
         /// <value>Total number of active rules in the account.</value>
         [DataMember(Name="activeRules", EmitDefaultValue=false)]
-        public int ActiveRules { get; set; }
+        public long ActiveRules { get; set; }
 
         /// <summary>
         /// Total number of users in the account.
         /// </summary>
         /// <value>Total number of users in the account.</value>
         [DataMember(Name="users", EmitDefaultValue=false)]
-        public int Users { get; set; }
+        public long Users { get; set; }
 
         /// <summary>
         /// Total number of roles in the account.
         /// </summary>
         /// <value>Total number of roles in the account.</value>
         [DataMember(Name="roles", EmitDefaultValue=false)]
-        public int Roles { get; set; }
+        public long Roles { get; set; }
 
         /// <summary>
         /// Total number of custom attributes in the account.
         /// </summary>
         /// <value>Total number of custom attributes in the account.</value>
         [DataMember(Name="customAttributes", EmitDefaultValue=false)]
-        public int CustomAttributes { get; set; }
+        public long CustomAttributes { get; set; }
 
         /// <summary>
         /// Total number of webhooks in the account.
         /// </summary>
         /// <value>Total number of webhooks in the account.</value>
         [DataMember(Name="webhooks", EmitDefaultValue=false)]
-        public int Webhooks { get; set; }
+        public long Webhooks { get; set; }
 
         /// <summary>
         /// Total number of all loyalty programs in the account.
         /// </summary>
         /// <value>Total number of all loyalty programs in the account.</value>
         [DataMember(Name="loyaltyPrograms", EmitDefaultValue=false)]
-        public int LoyaltyPrograms { get; set; }
+        public long LoyaltyPrograms { get; set; }
 
         /// <summary>
         /// Total number of live loyalty programs in the account.
         /// </summary>
         /// <value>Total number of live loyalty programs in the account.</value>
         [DataMember(Name="liveLoyaltyPrograms", EmitDefaultValue=false)]
-        public int LiveLoyaltyPrograms { get; set; }
+        public long LiveLoyaltyPrograms { get; set; }
 
         /// <summary>
         /// The point in time when the analytics numbers were updated last.

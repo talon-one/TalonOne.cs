@@ -50,7 +50,7 @@ namespace TalonOne.Model
         /// <param name="importId">The ID of the Import which created this giveaway..</param>
         /// <param name="profileIntegrationId">The third-party integration ID of the customer profile that was awarded the giveaway, if the giveaway was awarded..</param>
         /// <param name="profileId">The internal ID of the customer profile that was awarded the giveaway, if the giveaway was awarded and an internal ID exists..</param>
-        public Giveaway(int id = default(int), DateTime created = default(DateTime), string code = default(string), int poolId = default(int), DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), Object attributes = default(Object), bool used = default(bool), int importId = default(int), string profileIntegrationId = default(string), int profileId = default(int))
+        public Giveaway(long id = default(long), DateTime created = default(DateTime), string code = default(string), long poolId = default(long), DateTime startDate = default(DateTime), DateTime endDate = default(DateTime), Object attributes = default(Object), bool used = default(bool), long importId = default(long), string profileIntegrationId = default(string), long profileId = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -71,7 +71,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of this entity.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         /// <summary>
         /// The time this entity was created.
@@ -92,7 +92,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the pool to return giveaway codes from.</value>
         [DataMember(Name="poolId", EmitDefaultValue=false)]
-        public int PoolId { get; set; }
+        public long PoolId { get; set; }
 
         /// <summary>
         /// Timestamp at which point the giveaway becomes valid.
@@ -127,7 +127,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The ID of the Import which created this giveaway.</value>
         [DataMember(Name="importId", EmitDefaultValue=false)]
-        public int ImportId { get; set; }
+        public long ImportId { get; set; }
 
         /// <summary>
         /// The third-party integration ID of the customer profile that was awarded the giveaway, if the giveaway was awarded.
@@ -141,7 +141,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal ID of the customer profile that was awarded the giveaway, if the giveaway was awarded and an internal ID exists.</value>
         [DataMember(Name="profileId", EmitDefaultValue=false)]
-        public int ProfileId { get; set; }
+        public long ProfileId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

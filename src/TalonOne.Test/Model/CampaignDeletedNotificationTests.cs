@@ -58,20 +58,28 @@ namespace TalonOne.Test
 
 
         /// <summary>
-        /// Test the property 'Campaign'
+        /// Test the property 'NotificationType'
         /// </summary>
         [Fact]
-        public void CampaignTest()
+        public void NotificationTypeTest()
         {
-            // TODO unit test for the property 'Campaign'
+            // TODO unit test for the property 'NotificationType'
         }
         /// <summary>
-        /// Test the property 'DeletedAt'
+        /// Test the property 'TotalResultSize'
         /// </summary>
         [Fact]
-        public void DeletedAtTest()
+        public void TotalResultSizeTest()
         {
-            // TODO unit test for the property 'DeletedAt'
+            // TODO unit test for the property 'TotalResultSize'
+        }
+        /// <summary>
+        /// Test the property 'Data'
+        /// </summary>
+        [Fact]
+        public void DataTest()
+        {
+            // TODO unit test for the property 'Data'
         }
 
     }

@@ -170,7 +170,7 @@ namespace TalonOne.Model
         /// <param name="description">Description of our Loyalty Program..</param>
         /// <param name="subscribedApplications">A list containing the IDs of all applications that are subscribed to this Loyalty Program..</param>
         /// <param name="defaultValidity">The default duration after which new loyalty points should expire. Can be &#39;unlimited&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. .</param>
-        /// <param name="defaultPending">The default duration of the pending time after which points should be valid. Can be &#39;immediate&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. .</param>
+        /// <param name="defaultPending">The default duration of the pending time after which points should be valid. Accepted values: &#39;immediate&#39;, &#39;on_action&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. .</param>
         /// <param name="allowSubledger">Indicates if this program supports subledgers inside the program..</param>
         /// <param name="usersPerCardLimit">The max amount of user profiles with whom a card can be shared. This can be set to 0 for no limit. This property is only used when &#x60;cardBased&#x60; is &#x60;true&#x60;. .</param>
         /// <param name="sandbox">Indicates if this program is a live or sandbox program. Programs of a given type can only be connected to Applications of the same type..</param>
@@ -182,7 +182,7 @@ namespace TalonOne.Model
         /// <param name="cardCodeSettings">cardCodeSettings.</param>
         /// <param name="returnPolicy">The policy that defines the rollback of points in case of a partially returned, cancelled, or reopened [customer session](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). - &#x60;only_pending&#x60;: Only pending points can be rolled back. - &#x60;within_balance&#x60;: Available active points can be rolled back if there aren&#39;t enough pending points. The active balance of the customer cannot be negative. - &#x60;unlimited&#x60;: Allows negative balance without any limit. .</param>
         /// <param name="tiers">The tiers in this loyalty program..</param>
-        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<int> subscribedApplications = default(List<int>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), int usersPerCardLimit = default(int), bool sandbox = default(bool), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), DateTime tierCycleStartDate = default(DateTime), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings), ReturnPolicyEnum? returnPolicy = default(ReturnPolicyEnum?), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
+        public UpdateLoyaltyProgram(string title = default(string), string description = default(string), List<long> subscribedApplications = default(List<long>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), long usersPerCardLimit = default(long), bool sandbox = default(bool), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), DateTime tierCycleStartDate = default(DateTime), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings), ReturnPolicyEnum? returnPolicy = default(ReturnPolicyEnum?), List<NewLoyaltyTier> tiers = default(List<NewLoyaltyTier>))
         {
             this.Title = title;
             this.Description = description;
@@ -221,7 +221,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>A list containing the IDs of all applications that are subscribed to this Loyalty Program.</value>
         [DataMember(Name="subscribedApplications", EmitDefaultValue=false)]
-        public List<int> SubscribedApplications { get; set; }
+        public List<long> SubscribedApplications { get; set; }
 
         /// <summary>
         /// The default duration after which new loyalty points should expire. Can be &#39;unlimited&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. 
@@ -231,9 +231,9 @@ namespace TalonOne.Model
         public string DefaultValidity { get; set; }
 
         /// <summary>
-        /// The default duration of the pending time after which points should be valid. Can be &#39;immediate&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. 
+        /// The default duration of the pending time after which points should be valid. Accepted values: &#39;immediate&#39;, &#39;on_action&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. 
         /// </summary>
-        /// <value>The default duration of the pending time after which points should be valid. Can be &#39;immediate&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. </value>
+        /// <value>The default duration of the pending time after which points should be valid. Accepted values: &#39;immediate&#39;, &#39;on_action&#39; or a specific time. The time format is a number followed by one letter indicating the time unit, like &#39;30s&#39;, &#39;40m&#39;, &#39;1h&#39;, &#39;5D&#39;, &#39;7W&#39;, or 10M&#39;. These rounding suffixes are also supported: - &#39;_D&#39; for rounding down. Can be used as a suffix after &#39;D&#39;, and signifies the start of the day. - &#39;_U&#39; for rounding up. Can be used as a suffix after &#39;D&#39;, &#39;W&#39;, and &#39;M&#39;, and signifies the end of the day, week, and month. </value>
         [DataMember(Name="defaultPending", EmitDefaultValue=false)]
         public string DefaultPending { get; set; }
 
@@ -249,7 +249,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The max amount of user profiles with whom a card can be shared. This can be set to 0 for no limit. This property is only used when &#x60;cardBased&#x60; is &#x60;true&#x60;. </value>
         [DataMember(Name="usersPerCardLimit", EmitDefaultValue=false)]
-        public int UsersPerCardLimit { get; set; }
+        public long UsersPerCardLimit { get; set; }
 
         /// <summary>
         /// Indicates if this program is a live or sandbox program. Programs of a given type can only be connected to Applications of the same type.
@@ -465,8 +465,8 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // UsersPerCardLimit (int) minimum
-            if(this.UsersPerCardLimit < (int)0)
+            // UsersPerCardLimit (long) minimum
+            if(this.UsersPerCardLimit < (long)0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UsersPerCardLimit, must be a value greater than or equal to 0.", new [] { "UsersPerCardLimit" });
             }

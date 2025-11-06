@@ -1323,7 +1323,7 @@ namespace TalonOne.Api
         /// Export customer&#39;s transaction logs
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. 
+        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -1338,7 +1338,7 @@ namespace TalonOne.Api
         /// Export customer&#39;s transaction logs
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. 
+        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -1782,8 +1782,9 @@ namespace TalonOne.Api
         /// <param name="referralCode">Referral code (optional)</param>
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
+        /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)</param>
         /// <returns>InlineResponse20030</returns>
-        InlineResponse20030 GetApplicationEventsWithoutTotalCount (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        InlineResponse20030 GetApplicationEventsWithoutTotalCount (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string), string effectType = default(string));
 
         /// <summary>
         /// List Applications events
@@ -1807,8 +1808,9 @@ namespace TalonOne.Api
         /// <param name="referralCode">Referral code (optional)</param>
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
+        /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)</param>
         /// <returns>ApiResponse of InlineResponse20030</returns>
-        ApiResponse<InlineResponse20030> GetApplicationEventsWithoutTotalCountWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        ApiResponse<InlineResponse20030> GetApplicationEventsWithoutTotalCountWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string), string effectType = default(string));
         /// <summary>
         /// Get Application session
         /// </summary>
@@ -2250,8 +2252,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>InlineResponse20044</returns>
-        InlineResponse20044 GetChanges (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?));
+        /// <returns>InlineResponse20042</returns>
+        InlineResponse20042 GetChanges (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?));
 
         /// <summary>
         /// Get audit logs for an account
@@ -2271,8 +2273,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20044</returns>
-        ApiResponse<InlineResponse20044> GetChangesWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?));
+        /// <returns>ApiResponse of InlineResponse20042</returns>
+        ApiResponse<InlineResponse20042> GetChangesWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?));
         /// <summary>
         /// Get campaign-level collection
         /// </summary>
@@ -2515,8 +2517,8 @@ namespace TalonOne.Api
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="achievementId">The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)</param>
         /// <param name="title">Filter results by the &#x60;title&#x60; of an achievement. (optional)</param>
-        /// <returns>InlineResponse20051</returns>
-        InlineResponse20051 GetCustomerProfileAchievementProgress (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string));
+        /// <returns>InlineResponse20049</returns>
+        InlineResponse20049 GetCustomerProfileAchievementProgress (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string));
 
         /// <summary>
         /// List customer achievements
@@ -2531,8 +2533,8 @@ namespace TalonOne.Api
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="achievementId">The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)</param>
         /// <param name="title">Filter results by the &#x60;title&#x60; of an achievement. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20051</returns>
-        ApiResponse<InlineResponse20051> GetCustomerProfileAchievementProgressWithHttpInfo (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string));
+        /// <returns>ApiResponse of InlineResponse20049</returns>
+        ApiResponse<InlineResponse20049> GetCustomerProfileAchievementProgressWithHttpInfo (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string));
         /// <summary>
         /// List customer profiles
         /// </summary>
@@ -2624,8 +2626,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>InlineResponse20042</returns>
-        InlineResponse20042 GetEventTypes (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
+        /// <returns>InlineResponse20040</returns>
+        InlineResponse20040 GetEventTypes (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
 
         /// <summary>
         /// List event types
@@ -2639,8 +2641,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20042</returns>
-        ApiResponse<InlineResponse20042> GetEventTypesWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
+        /// <returns>ApiResponse of InlineResponse20040</returns>
+        ApiResponse<InlineResponse20040> GetEventTypesWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
         /// <summary>
         /// Get exports
         /// </summary>
@@ -2653,8 +2655,8 @@ namespace TalonOne.Api
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>InlineResponse20045</returns>
-        InlineResponse20045 GetExports (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string));
+        /// <returns>InlineResponse20043</returns>
+        InlineResponse20043 GetExports (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string));
 
         /// <summary>
         /// Get exports
@@ -2668,8 +2670,8 @@ namespace TalonOne.Api
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20045</returns>
-        ApiResponse<InlineResponse20045> GetExportsWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string));
+        /// <returns>ApiResponse of InlineResponse20043</returns>
+        ApiResponse<InlineResponse20043> GetExportsWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string));
         /// <summary>
         /// Get loyalty card
         /// </summary>
@@ -2707,8 +2709,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <returns>InlineResponse20019</returns>
-        InlineResponse20019 GetLoyaltyCardTransactionLogs (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string));
+        InlineResponse20019 GetLoyaltyCardTransactionLogs (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>));
 
         /// <summary>
         /// List card&#39;s transactions
@@ -2724,8 +2728,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20019</returns>
-        ApiResponse<InlineResponse20019> GetLoyaltyCardTransactionLogsWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string));
+        ApiResponse<InlineResponse20019> GetLoyaltyCardTransactionLogsWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>));
         /// <summary>
         /// List loyalty cards
         /// </summary>
@@ -2813,12 +2819,14 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20017</returns>
-        InlineResponse20017 GetLoyaltyProgramTransactions (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
+        InlineResponse20017 GetLoyaltyProgramTransactions (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List loyalty program transactions
@@ -2830,12 +2838,14 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20017</returns>
-        ApiResponse<InlineResponse20017> GetLoyaltyProgramTransactionsWithHttpInfo (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
+        ApiResponse<InlineResponse20017> GetLoyaltyProgramTransactionsWithHttpInfo (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List loyalty programs
         /// </summary>
@@ -2887,8 +2897,8 @@ namespace TalonOne.Api
         /// <param name="messageID">Filter results by message ID. (optional)</param>
         /// <param name="changeType">Filter results by change type. (optional)</param>
         /// <param name="notificationIDs">Filter results by notification ID (include up to 30 values, separated by a comma). (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
         /// <param name="cursor">A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)</param>
         /// <param name="period">Filter results by time period. Choose between the available relative time frames.  (optional)</param>
         /// <param name="isSuccessful">Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)</param>
@@ -2911,8 +2921,8 @@ namespace TalonOne.Api
         /// <param name="messageID">Filter results by message ID. (optional)</param>
         /// <param name="changeType">Filter results by change type. (optional)</param>
         /// <param name="notificationIDs">Filter results by notification ID (include up to 30 values, separated by a comma). (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
         /// <param name="cursor">A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)</param>
         /// <param name="period">Filter results by time period. Choose between the available relative time frames.  (optional)</param>
         /// <param name="isSuccessful">Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)</param>
@@ -3093,8 +3103,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>InlineResponse20043</returns>
-        InlineResponse20043 GetUsers (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
+        /// <returns>InlineResponse20041</returns>
+        InlineResponse20041 GetUsers (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
 
         /// <summary>
         /// List users in account
@@ -3106,8 +3116,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20043</returns>
-        ApiResponse<InlineResponse20043> GetUsersWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
+        /// <returns>ApiResponse of InlineResponse20041</returns>
+        ApiResponse<InlineResponse20041> GetUsersWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
         /// <summary>
         /// Get webhook
         /// </summary>
@@ -3129,82 +3139,6 @@ namespace TalonOne.Api
         /// <param name="webhookId">The ID of the webhook. You can find the ID in the Campaign Manager&#39;s URL when you display the details of the webhook in **Account** &gt; **Webhooks**. </param>
         /// <returns>ApiResponse of Webhook</returns>
         ApiResponse<Webhook> GetWebhookWithHttpInfo (long webhookId);
-        /// <summary>
-        /// List webhook activation log entries
-        /// </summary>
-        /// <remarks>
-        /// Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>InlineResponse20040</returns>
-        InlineResponse20040 GetWebhookActivationLogs (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-
-        /// <summary>
-        /// List webhook activation log entries
-        /// </summary>
-        /// <remarks>
-        /// Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20040</returns>
-        ApiResponse<InlineResponse20040> GetWebhookActivationLogsWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-        /// <summary>
-        /// List webhook log entries
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all webhook log entries.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>InlineResponse20041</returns>
-        InlineResponse20041 GetWebhookLogs (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-
-        /// <summary>
-        /// List webhook log entries
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all webhook log entries.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20041</returns>
-        ApiResponse<InlineResponse20041> GetWebhookLogsWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List webhooks
         /// </summary>
@@ -3598,8 +3532,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
-        /// <returns>InlineResponse20050</returns>
-        InlineResponse20050 ListAchievements (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string));
+        /// <returns>InlineResponse20048</returns>
+        InlineResponse20048 ListAchievements (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string));
 
         /// <summary>
         /// List achievements
@@ -3613,54 +3547,54 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20050</returns>
-        ApiResponse<InlineResponse20050> ListAchievementsWithHttpInfo (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string));
-        /// <summary>
-        /// List roles
-        /// </summary>
-        /// <remarks>
-        /// List all roles.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse20046</returns>
-        InlineResponse20046 ListAllRolesV2 ();
-
-        /// <summary>
-        /// List roles
-        /// </summary>
-        /// <remarks>
-        /// List all roles.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse20046</returns>
-        ApiResponse<InlineResponse20046> ListAllRolesV2WithHttpInfo ();
-        /// <summary>
-        /// List campaign store budget limits
-        /// </summary>
-        /// <remarks>
-        /// Return the store budget limits for a given campaign.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="action">The action that this budget is limiting. (optional)</param>
-        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
-        /// <returns>InlineResponse20048</returns>
-        InlineResponse20048 ListCampaignStoreBudgetLimits (long applicationId, long campaignId, string action = default(string), string period = default(string));
-
-        /// <summary>
-        /// List campaign store budget limits
-        /// </summary>
-        /// <remarks>
-        /// Return the store budget limits for a given campaign.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="action">The action that this budget is limiting. (optional)</param>
-        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20048</returns>
-        ApiResponse<InlineResponse20048> ListCampaignStoreBudgetLimitsWithHttpInfo (long applicationId, long campaignId, string action = default(string), string period = default(string));
+        ApiResponse<InlineResponse20048> ListAchievementsWithHttpInfo (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string));
+        /// <summary>
+        /// List roles
+        /// </summary>
+        /// <remarks>
+        /// List all roles.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse20044</returns>
+        InlineResponse20044 ListAllRolesV2 ();
+
+        /// <summary>
+        /// List roles
+        /// </summary>
+        /// <remarks>
+        /// List all roles.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse20044</returns>
+        ApiResponse<InlineResponse20044> ListAllRolesV2WithHttpInfo ();
+        /// <summary>
+        /// List campaign store budget limits
+        /// </summary>
+        /// <remarks>
+        /// Return the store budget limits for a given campaign.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="action">The action that this budget is limiting. (optional)</param>
+        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
+        /// <returns>InlineResponse20046</returns>
+        InlineResponse20046 ListCampaignStoreBudgetLimits (long applicationId, long campaignId, string action = default(string), string period = default(string));
+
+        /// <summary>
+        /// List campaign store budget limits
+        /// </summary>
+        /// <remarks>
+        /// Return the store budget limits for a given campaign.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="action">The action that this budget is limiting. (optional)</param>
+        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20046</returns>
+        ApiResponse<InlineResponse20046> ListCampaignStoreBudgetLimitsWithHttpInfo (long applicationId, long campaignId, string action = default(string), string period = default(string));
         /// <summary>
         /// List items in a catalog
         /// </summary>
@@ -3772,8 +3706,8 @@ namespace TalonOne.Api
         /// <param name="name">The name of the store. (optional)</param>
         /// <param name="integrationId">The integration ID of the store. (optional)</param>
         /// <param name="query">Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)</param>
-        /// <returns>InlineResponse20047</returns>
-        InlineResponse20047 ListStores (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string));
+        /// <returns>InlineResponse20045</returns>
+        InlineResponse20045 ListStores (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string));
 
         /// <summary>
         /// List stores
@@ -3791,8 +3725,8 @@ namespace TalonOne.Api
         /// <param name="name">The name of the store. (optional)</param>
         /// <param name="integrationId">The integration ID of the store. (optional)</param>
         /// <param name="query">Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20047</returns>
-        ApiResponse<InlineResponse20047> ListStoresWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string));
+        /// <returns>ApiResponse of InlineResponse20045</returns>
+        ApiResponse<InlineResponse20045> ListStoresWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string));
         /// <summary>
         /// Validate Okta API ownership
         /// </summary>
@@ -4278,8 +4212,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <returns>InlineResponse20049</returns>
-        InlineResponse20049 SummarizeCampaignStoreBudget (long applicationId, long campaignId);
+        /// <returns>InlineResponse20047</returns>
+        InlineResponse20047 SummarizeCampaignStoreBudget (long applicationId, long campaignId);
 
         /// <summary>
         /// Get summary of campaign store budgets
@@ -4290,8 +4224,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <returns>ApiResponse of InlineResponse20049</returns>
-        ApiResponse<InlineResponse20049> SummarizeCampaignStoreBudgetWithHttpInfo (long applicationId, long campaignId);
+        /// <returns>ApiResponse of InlineResponse20047</returns>
+        ApiResponse<InlineResponse20047> SummarizeCampaignStoreBudgetWithHttpInfo (long applicationId, long campaignId);
         /// <summary>
         /// Transfer card data
         /// </summary>
@@ -5943,7 +5877,7 @@ namespace TalonOne.Api
         /// Export customer&#39;s transaction logs
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. 
+        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -5958,7 +5892,7 @@ namespace TalonOne.Api
         /// Export customer&#39;s transaction logs
         /// </summary>
         /// <remarks>
-        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. 
+        /// Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
         /// </remarks>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -6402,8 +6336,9 @@ namespace TalonOne.Api
         /// <param name="referralCode">Referral code (optional)</param>
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
+        /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)</param>
         /// <returns>Task of InlineResponse20030</returns>
-        System.Threading.Tasks.Task<InlineResponse20030> GetApplicationEventsWithoutTotalCountAsync (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        System.Threading.Tasks.Task<InlineResponse20030> GetApplicationEventsWithoutTotalCountAsync (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string), string effectType = default(string));
 
         /// <summary>
         /// List Applications events
@@ -6427,8 +6362,9 @@ namespace TalonOne.Api
         /// <param name="referralCode">Referral code (optional)</param>
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
+        /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20030)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20030>> GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20030>> GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string), string effectType = default(string));
         /// <summary>
         /// Get Application session
         /// </summary>
@@ -6870,8 +6806,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of InlineResponse20044</returns>
-        System.Threading.Tasks.Task<InlineResponse20044> GetChangesAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?));
+        /// <returns>Task of InlineResponse20042</returns>
+        System.Threading.Tasks.Task<InlineResponse20042> GetChangesAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?));
 
         /// <summary>
         /// Get audit logs for an account
@@ -6891,8 +6827,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20044)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20044>> GetChangesAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?));
+        /// <returns>Task of ApiResponse (InlineResponse20042)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20042>> GetChangesAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?));
         /// <summary>
         /// Get campaign-level collection
         /// </summary>
@@ -7135,8 +7071,8 @@ namespace TalonOne.Api
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="achievementId">The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)</param>
         /// <param name="title">Filter results by the &#x60;title&#x60; of an achievement. (optional)</param>
-        /// <returns>Task of InlineResponse20051</returns>
-        System.Threading.Tasks.Task<InlineResponse20051> GetCustomerProfileAchievementProgressAsync (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string));
+        /// <returns>Task of InlineResponse20049</returns>
+        System.Threading.Tasks.Task<InlineResponse20049> GetCustomerProfileAchievementProgressAsync (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string));
 
         /// <summary>
         /// List customer achievements
@@ -7151,8 +7087,8 @@ namespace TalonOne.Api
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="achievementId">The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)</param>
         /// <param name="title">Filter results by the &#x60;title&#x60; of an achievement. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20051)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20051>> GetCustomerProfileAchievementProgressAsyncWithHttpInfo (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20049)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20049>> GetCustomerProfileAchievementProgressAsyncWithHttpInfo (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string));
         /// <summary>
         /// List customer profiles
         /// </summary>
@@ -7244,8 +7180,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>Task of InlineResponse20042</returns>
-        System.Threading.Tasks.Task<InlineResponse20042> GetEventTypesAsync (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
+        /// <returns>Task of InlineResponse20040</returns>
+        System.Threading.Tasks.Task<InlineResponse20040> GetEventTypesAsync (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
 
         /// <summary>
         /// List event types
@@ -7259,8 +7195,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20042)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20042>> GetEventTypesAsyncWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20040)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20040>> GetEventTypesAsyncWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
         /// <summary>
         /// Get exports
         /// </summary>
@@ -7273,8 +7209,8 @@ namespace TalonOne.Api
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of InlineResponse20045</returns>
-        System.Threading.Tasks.Task<InlineResponse20045> GetExportsAsync (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string));
+        /// <returns>Task of InlineResponse20043</returns>
+        System.Threading.Tasks.Task<InlineResponse20043> GetExportsAsync (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string));
 
         /// <summary>
         /// Get exports
@@ -7288,8 +7224,8 @@ namespace TalonOne.Api
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20045)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20045>> GetExportsAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20043)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20043>> GetExportsAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string));
         /// <summary>
         /// Get loyalty card
         /// </summary>
@@ -7327,8 +7263,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <returns>Task of InlineResponse20019</returns>
-        System.Threading.Tasks.Task<InlineResponse20019> GetLoyaltyCardTransactionLogsAsync (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string));
+        System.Threading.Tasks.Task<InlineResponse20019> GetLoyaltyCardTransactionLogsAsync (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>));
 
         /// <summary>
         /// List card&#39;s transactions
@@ -7344,8 +7282,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetLoyaltyCardTransactionLogsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20019>> GetLoyaltyCardTransactionLogsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>));
         /// <summary>
         /// List loyalty cards
         /// </summary>
@@ -7433,12 +7373,14 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20017</returns>
-        System.Threading.Tasks.Task<InlineResponse20017> GetLoyaltyProgramTransactionsAsync (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
+        System.Threading.Tasks.Task<InlineResponse20017> GetLoyaltyProgramTransactionsAsync (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
 
         /// <summary>
         /// List loyalty program transactions
@@ -7450,12 +7392,14 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> GetLoyaltyProgramTransactionsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20017>> GetLoyaltyProgramTransactionsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?));
         /// <summary>
         /// List loyalty programs
         /// </summary>
@@ -7507,8 +7451,8 @@ namespace TalonOne.Api
         /// <param name="messageID">Filter results by message ID. (optional)</param>
         /// <param name="changeType">Filter results by change type. (optional)</param>
         /// <param name="notificationIDs">Filter results by notification ID (include up to 30 values, separated by a comma). (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
         /// <param name="cursor">A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)</param>
         /// <param name="period">Filter results by time period. Choose between the available relative time frames.  (optional)</param>
         /// <param name="isSuccessful">Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)</param>
@@ -7531,8 +7475,8 @@ namespace TalonOne.Api
         /// <param name="messageID">Filter results by message ID. (optional)</param>
         /// <param name="changeType">Filter results by change type. (optional)</param>
         /// <param name="notificationIDs">Filter results by notification ID (include up to 30 values, separated by a comma). (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
         /// <param name="cursor">A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)</param>
         /// <param name="period">Filter results by time period. Choose between the available relative time frames.  (optional)</param>
         /// <param name="isSuccessful">Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)</param>
@@ -7713,8 +7657,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>Task of InlineResponse20043</returns>
-        System.Threading.Tasks.Task<InlineResponse20043> GetUsersAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
+        /// <returns>Task of InlineResponse20041</returns>
+        System.Threading.Tasks.Task<InlineResponse20041> GetUsersAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
 
         /// <summary>
         /// List users in account
@@ -7726,8 +7670,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20043)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20043>> GetUsersAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20041)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20041>> GetUsersAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string));
         /// <summary>
         /// Get webhook
         /// </summary>
@@ -7749,82 +7693,6 @@ namespace TalonOne.Api
         /// <param name="webhookId">The ID of the webhook. You can find the ID in the Campaign Manager&#39;s URL when you display the details of the webhook in **Account** &gt; **Webhooks**. </param>
         /// <returns>Task of ApiResponse (Webhook)</returns>
         System.Threading.Tasks.Task<ApiResponse<Webhook>> GetWebhookAsyncWithHttpInfo (long webhookId);
-        /// <summary>
-        /// List webhook activation log entries
-        /// </summary>
-        /// <remarks>
-        /// Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of InlineResponse20040</returns>
-        System.Threading.Tasks.Task<InlineResponse20040> GetWebhookActivationLogsAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-
-        /// <summary>
-        /// List webhook activation log entries
-        /// </summary>
-        /// <remarks>
-        /// Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20040)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20040>> GetWebhookActivationLogsAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-        /// <summary>
-        /// List webhook log entries
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all webhook log entries.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of InlineResponse20041</returns>
-        System.Threading.Tasks.Task<InlineResponse20041> GetWebhookLogsAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
-
-        /// <summary>
-        /// List webhook log entries
-        /// </summary>
-        /// <remarks>
-        /// Retrieve all webhook log entries.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20041)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20041>> GetWebhookLogsAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?));
         /// <summary>
         /// List webhooks
         /// </summary>
@@ -8218,8 +8086,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
-        /// <returns>Task of InlineResponse20050</returns>
-        System.Threading.Tasks.Task<InlineResponse20050> ListAchievementsAsync (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string));
+        /// <returns>Task of InlineResponse20048</returns>
+        System.Threading.Tasks.Task<InlineResponse20048> ListAchievementsAsync (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string));
 
         /// <summary>
         /// List achievements
@@ -8233,54 +8101,54 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20050)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20050>> ListAchievementsAsyncWithHttpInfo (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string));
-        /// <summary>
-        /// List roles
-        /// </summary>
-        /// <remarks>
-        /// List all roles.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse20046</returns>
-        System.Threading.Tasks.Task<InlineResponse20046> ListAllRolesV2Async ();
-
-        /// <summary>
-        /// List roles
-        /// </summary>
-        /// <remarks>
-        /// List all roles.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse20046)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20046>> ListAllRolesV2AsyncWithHttpInfo ();
-        /// <summary>
-        /// List campaign store budget limits
-        /// </summary>
-        /// <remarks>
-        /// Return the store budget limits for a given campaign.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="action">The action that this budget is limiting. (optional)</param>
-        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
-        /// <returns>Task of InlineResponse20048</returns>
-        System.Threading.Tasks.Task<InlineResponse20048> ListCampaignStoreBudgetLimitsAsync (long applicationId, long campaignId, string action = default(string), string period = default(string));
-
-        /// <summary>
-        /// List campaign store budget limits
-        /// </summary>
-        /// <remarks>
-        /// Return the store budget limits for a given campaign.
-        /// </remarks>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="action">The action that this budget is limiting. (optional)</param>
-        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20048)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20048>> ListCampaignStoreBudgetLimitsAsyncWithHttpInfo (long applicationId, long campaignId, string action = default(string), string period = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20048>> ListAchievementsAsyncWithHttpInfo (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string));
+        /// <summary>
+        /// List roles
+        /// </summary>
+        /// <remarks>
+        /// List all roles.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse20044</returns>
+        System.Threading.Tasks.Task<InlineResponse20044> ListAllRolesV2Async ();
+
+        /// <summary>
+        /// List roles
+        /// </summary>
+        /// <remarks>
+        /// List all roles.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse20044)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20044>> ListAllRolesV2AsyncWithHttpInfo ();
+        /// <summary>
+        /// List campaign store budget limits
+        /// </summary>
+        /// <remarks>
+        /// Return the store budget limits for a given campaign.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="action">The action that this budget is limiting. (optional)</param>
+        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
+        /// <returns>Task of InlineResponse20046</returns>
+        System.Threading.Tasks.Task<InlineResponse20046> ListCampaignStoreBudgetLimitsAsync (long applicationId, long campaignId, string action = default(string), string period = default(string));
+
+        /// <summary>
+        /// List campaign store budget limits
+        /// </summary>
+        /// <remarks>
+        /// Return the store budget limits for a given campaign.
+        /// </remarks>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="action">The action that this budget is limiting. (optional)</param>
+        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20046)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20046>> ListCampaignStoreBudgetLimitsAsyncWithHttpInfo (long applicationId, long campaignId, string action = default(string), string period = default(string));
         /// <summary>
         /// List items in a catalog
         /// </summary>
@@ -8392,8 +8260,8 @@ namespace TalonOne.Api
         /// <param name="name">The name of the store. (optional)</param>
         /// <param name="integrationId">The integration ID of the store. (optional)</param>
         /// <param name="query">Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)</param>
-        /// <returns>Task of InlineResponse20047</returns>
-        System.Threading.Tasks.Task<InlineResponse20047> ListStoresAsync (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string));
+        /// <returns>Task of InlineResponse20045</returns>
+        System.Threading.Tasks.Task<InlineResponse20045> ListStoresAsync (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string));
 
         /// <summary>
         /// List stores
@@ -8411,8 +8279,8 @@ namespace TalonOne.Api
         /// <param name="name">The name of the store. (optional)</param>
         /// <param name="integrationId">The integration ID of the store. (optional)</param>
         /// <param name="query">Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20047)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20047>> ListStoresAsyncWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string));
+        /// <returns>Task of ApiResponse (InlineResponse20045)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20045>> ListStoresAsyncWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string));
         /// <summary>
         /// Validate Okta API ownership
         /// </summary>
@@ -8898,8 +8766,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <returns>Task of InlineResponse20049</returns>
-        System.Threading.Tasks.Task<InlineResponse20049> SummarizeCampaignStoreBudgetAsync (long applicationId, long campaignId);
+        /// <returns>Task of InlineResponse20047</returns>
+        System.Threading.Tasks.Task<InlineResponse20047> SummarizeCampaignStoreBudgetAsync (long applicationId, long campaignId);
 
         /// <summary>
         /// Get summary of campaign store budgets
@@ -8910,8 +8778,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20049)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse20049>> SummarizeCampaignStoreBudgetAsyncWithHttpInfo (long applicationId, long campaignId);
+        /// <returns>Task of ApiResponse (InlineResponse20047)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse20047>> SummarizeCampaignStoreBudgetAsyncWithHttpInfo (long applicationId, long campaignId);
         /// <summary>
         /// Transfer card data
         /// </summary>
@@ -9421,6 +9289,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -9498,6 +9376,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -9585,6 +9473,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -9673,6 +9571,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -9764,6 +9672,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -9856,6 +9774,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -9940,6 +9868,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10025,6 +9963,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10103,6 +10051,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10182,6 +10140,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10266,6 +10234,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10351,6 +10329,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10429,6 +10417,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10508,6 +10506,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10586,6 +10594,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10665,6 +10683,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10746,6 +10774,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10828,6 +10866,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10909,6 +10957,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -10991,6 +11049,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11074,6 +11142,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11158,6 +11236,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11242,6 +11330,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11327,6 +11425,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11417,6 +11525,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11508,6 +11626,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11592,6 +11720,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11677,6 +11815,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11761,6 +11909,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11846,6 +12004,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -11936,6 +12104,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12027,6 +12205,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12105,6 +12293,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12184,6 +12382,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12262,6 +12470,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12341,6 +12559,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12419,6 +12647,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12498,6 +12736,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12576,6 +12824,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12655,6 +12913,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12736,6 +13004,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12818,6 +13096,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12894,6 +13182,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -12971,6 +13269,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13058,6 +13366,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13146,6 +13464,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13218,6 +13546,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13291,6 +13629,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13369,6 +13717,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13448,6 +13806,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13522,6 +13890,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13597,6 +13975,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13684,6 +14072,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "period", period));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13772,6 +14170,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "period", period));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13850,6 +14258,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -13929,6 +14347,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14010,6 +14438,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("couponId", TalonOne.Client.ClientUtils.ParameterToString(couponId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14092,6 +14530,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("couponId", TalonOne.Client.ClientUtils.ParameterToString(couponId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14244,6 +14692,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "exactMatch", exactMatch));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14397,6 +14855,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "exactMatch", exactMatch));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14476,6 +14944,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14556,6 +15034,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14637,6 +15125,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("referralId", TalonOne.Client.ClientUtils.ParameterToString(referralId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14719,6 +15217,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("referralId", TalonOne.Client.ClientUtils.ParameterToString(referralId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14798,6 +15306,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("storeId", TalonOne.Client.ClientUtils.ParameterToString(storeId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14878,6 +15396,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("storeId", TalonOne.Client.ClientUtils.ParameterToString(storeId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -14949,6 +15477,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15021,6 +15559,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15097,6 +15645,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15174,6 +15732,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15242,6 +15810,16 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15311,6 +15889,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15386,6 +15974,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15462,6 +16060,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15535,6 +16143,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15609,6 +16227,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15688,6 +16316,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15768,6 +16406,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15841,6 +16489,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -15915,6 +16573,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("audienceId", TalonOne.Client.ClientUtils.ParameterToString(audienceId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16003,6 +16671,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "period", period));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16092,6 +16770,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "period", period));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16168,6 +16856,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16245,6 +16943,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16324,6 +17032,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16404,6 +17122,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16561,6 +17289,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "valuesOnly", valuesOnly));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16719,6 +17457,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "valuesOnly", valuesOnly));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16822,6 +17570,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "customerSessionState", customerSessionState));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -16926,6 +17684,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "customerSessionState", customerSessionState));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17015,6 +17783,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "tierNames", tierNames));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17105,6 +17883,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("csv", "tierNames", tierNames));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17202,6 +17990,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17300,6 +18098,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17383,6 +18191,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17467,6 +18285,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17550,6 +18378,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17634,6 +18472,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17713,6 +18561,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17793,6 +18651,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "endDate", endDate));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17885,6 +18753,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -17978,6 +18856,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18075,6 +18963,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18173,6 +19071,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18209,7 +19117,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. 
+        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -18225,7 +19133,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. 
+        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -18269,6 +19177,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18304,7 +19222,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. 
+        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -18321,7 +19239,7 @@ namespace TalonOne.Api
         }
 
         /// <summary>
-        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. 
+        /// Export customer&#39;s transaction logs Download a CSV file containing a customer&#39;s transaction logs in the loyalty program.  **Tip:** If the exported CSV file is too large to view, you can [split it into multiple files](https://www.makeuseof.com/tag/how-to-split-a-huge-csv-excel-workbook-into-seperate-files/).  The generated file can contain the following columns:  - &#x60;customerprofileid&#x60;: The ID of the profile. - &#x60;customersessionid&#x60;: The ID of the customer session. - &#x60;rulesetid&#x60;: The ID of the rule set. - &#x60;rulename&#x60;: The name of the rule. - &#x60;programid&#x60;: The ID of the loyalty program. - &#x60;type&#x60;: The transaction type, such as &#x60;addition&#x60; or &#x60;subtraction&#x60;. - &#x60;name&#x60;: The reason for the transaction. - &#x60;subledgerid&#x60;: The ID of the subledger, when applicable. - &#x60;startdate&#x60;: The start date of the program. - &#x60;expirydate&#x60;: The expiration date of the program. - &#x60;id&#x60;: The ID of the transaction. - &#x60;created&#x60;: The timestamp of the creation of the loyalty program. - &#x60;amount&#x60;: The number of points in that transaction. - &#x60;archived&#x60;: Whether the session related to the transaction is archived. - &#x60;campaignid&#x60;: The ID of the campaign. - &#x60;flags&#x60;: The flags of the transaction, when applicable. The &#x60;createsNegativeBalance&#x60; flag indicates whether the transaction results in a negative balance. - &#x60;transactionUUID&#x60;: Unique identifier of the transaction in the UUID format. 
         /// </summary>
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rangeStart">Only return results from after this timestamp.  **Note:** - This must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. </param>
@@ -18366,6 +19284,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18451,6 +19379,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18537,6 +19475,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18652,6 +19600,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18768,6 +19726,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "dateFormat", dateFormat));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18883,6 +19851,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -18999,6 +19977,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19072,6 +20060,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("accountId", TalonOne.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19146,6 +20144,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("accountId", TalonOne.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19219,6 +20227,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("accountId", TalonOne.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19293,6 +20311,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("accountId", TalonOne.Client.ClientUtils.ParameterToString(accountId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19366,6 +20394,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19440,6 +20478,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19519,6 +20567,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19599,6 +20657,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19672,6 +20740,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("additionalCostId", TalonOne.Client.ClientUtils.ParameterToString(additionalCostId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19746,6 +20824,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("additionalCostId", TalonOne.Client.ClientUtils.ParameterToString(additionalCostId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19834,6 +20922,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19923,6 +21021,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -19996,6 +21104,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20070,6 +21188,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20143,6 +21271,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20217,6 +21355,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20293,6 +21441,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("customerId", TalonOne.Client.ClientUtils.ParameterToString(customerId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20370,6 +21528,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("customerId", TalonOne.Client.ClientUtils.ParameterToString(customerId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20474,6 +21642,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "withTotalResultSize", withTotalResultSize));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20579,6 +21757,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "withTotalResultSize", withTotalResultSize));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20676,6 +21864,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "withTotalResultSize", withTotalResultSize));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20774,6 +21972,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "withTotalResultSize", withTotalResultSize));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20873,6 +22081,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -20973,6 +22191,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -21064,6 +22292,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -21156,6 +22394,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -21210,10 +22458,11 @@ namespace TalonOne.Api
         /// <param name="referralCode">Referral code (optional)</param>
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
+        /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)</param>
         /// <returns>InlineResponse20030</returns>
-        public InlineResponse20030 GetApplicationEventsWithoutTotalCount (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public InlineResponse20030 GetApplicationEventsWithoutTotalCount (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string), string effectType = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20030> localVarResponse = GetApplicationEventsWithoutTotalCountWithHttpInfo(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
+             TalonOne.Client.ApiResponse<InlineResponse20030> localVarResponse = GetApplicationEventsWithoutTotalCountWithHttpInfo(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType);
              return localVarResponse.Data;
         }
 
@@ -21236,8 +22485,9 @@ namespace TalonOne.Api
         /// <param name="referralCode">Referral code (optional)</param>
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
+        /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)</param>
         /// <returns>ApiResponse of InlineResponse20030</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20030 > GetApplicationEventsWithoutTotalCountWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public TalonOne.Client.ApiResponse< InlineResponse20030 > GetApplicationEventsWithoutTotalCountWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string), string effectType = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -21312,7 +22562,21 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignQuery", campaignQuery));
             }
+            if (effectType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "effectType", effectType));
+            }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -21366,10 +22630,11 @@ namespace TalonOne.Api
         /// <param name="referralCode">Referral code (optional)</param>
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
+        /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)</param>
         /// <returns>Task of InlineResponse20030</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20030> GetApplicationEventsWithoutTotalCountAsync (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20030> GetApplicationEventsWithoutTotalCountAsync (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string), string effectType = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20030> localVarResponse = await GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery);
+             TalonOne.Client.ApiResponse<InlineResponse20030> localVarResponse = await GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType);
              return localVarResponse.Data;
 
         }
@@ -21393,8 +22658,9 @@ namespace TalonOne.Api
         /// <param name="referralCode">Referral code (optional)</param>
         /// <param name="ruleQuery">Rule name filter for events (optional)</param>
         /// <param name="campaignQuery">Campaign name filter for events (optional)</param>
+        /// <param name="effectType">The type of effect that was triggered. See [API effects](https://docs.talon.one/docs/dev/integration-api/api-effects). (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20030)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20030>> GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20030>> GetApplicationEventsWithoutTotalCountAsyncWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string type = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), string session = default(string), string profile = default(string), string customerName = default(string), string customerEmail = default(string), string couponCode = default(string), string referralCode = default(string), string ruleQuery = default(string), string campaignQuery = default(string), string effectType = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -21470,7 +22736,21 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignQuery", campaignQuery));
             }
+            if (effectType != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "effectType", effectType));
+            }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -21547,6 +22827,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("sessionId", TalonOne.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -21624,6 +22914,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("sessionId", TalonOne.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -21763,6 +23063,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "storeIntegrationId", storeIntegrationId));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -21903,6 +23213,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "storeIntegrationId", storeIntegrationId));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -21991,6 +23311,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22080,6 +23410,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22153,6 +23493,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("attributeId", TalonOne.Client.ClientUtils.ParameterToString(attributeId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22227,6 +23577,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("attributeId", TalonOne.Client.ClientUtils.ParameterToString(attributeId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22321,6 +23681,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "entity", entity));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22416,6 +23786,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "entity", entity));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22513,6 +23893,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "profileQuery", profileQuery));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22611,6 +24001,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "profileQuery", profileQuery));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22705,6 +24105,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "withTotalResultSize", withTotalResultSize));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22800,6 +24210,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "withTotalResultSize", withTotalResultSize));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22883,6 +24303,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "audienceIds", audienceIds));
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -22967,6 +24397,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "audienceIds", audienceIds));
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23043,6 +24483,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23120,6 +24570,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23208,6 +24668,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "granularity", granularity));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23297,6 +24767,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "granularity", granularity));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23402,6 +24882,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23508,6 +24998,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23581,6 +25081,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("campaignGroupId", TalonOne.Client.ClientUtils.ParameterToString(campaignGroupId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23655,6 +25165,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("campaignGroupId", TalonOne.Client.ClientUtils.ParameterToString(campaignGroupId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23743,6 +25263,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23832,6 +25362,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -23944,6 +25484,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -24057,6 +25607,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "userId", userId));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -24196,6 +25756,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "storeId", storeId));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -24336,6 +25906,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "storeId", storeId));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -24386,10 +25966,10 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>InlineResponse20044</returns>
-        public InlineResponse20044 GetChanges (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?))
+        /// <returns>InlineResponse20042</returns>
+        public InlineResponse20042 GetChanges (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20044> localVarResponse = GetChangesWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
+             TalonOne.Client.ApiResponse<InlineResponse20042> localVarResponse = GetChangesWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
              return localVarResponse.Data;
         }
 
@@ -24408,8 +25988,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20044</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20044 > GetChangesWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?))
+        /// <returns>ApiResponse of InlineResponse20042</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20042 > GetChangesWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -24472,6 +26052,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "includeOld", includeOld));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -24494,7 +26084,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20044 >("/v1/changes", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20042 >("/v1/changes", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -24521,10 +26111,10 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of InlineResponse20044</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20044> GetChangesAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?))
+        /// <returns>Task of InlineResponse20042</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20042> GetChangesAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20044> localVarResponse = await GetChangesAsyncWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
+             TalonOne.Client.ApiResponse<InlineResponse20042> localVarResponse = await GetChangesAsyncWithHttpInfo(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
              return localVarResponse.Data;
 
         }
@@ -24544,8 +26134,8 @@ namespace TalonOne.Api
         /// <param name="withTotalResultSize">When this flag is set, the result includes the total size of the result, across all pages. This might decrease performance on large data sets.  - When &#x60;true&#x60;: &#x60;hasMore&#x60; is true when there is a next page. &#x60;totalResultSize&#x60; is always zero. - When &#x60;false&#x60;: &#x60;hasMore&#x60; is always false. &#x60;totalResultSize&#x60; contains the total number of results for this query.  (optional)</param>
         /// <param name="managementKeyId">Filter results that match the given management key ID. (optional)</param>
         /// <param name="includeOld">When this flag is set to false, the state without the change will not be returned. The default value is true. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20044)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20044>> GetChangesAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?))
+        /// <returns>Task of ApiResponse (InlineResponse20042)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20042>> GetChangesAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), decimal? applicationId = default(decimal?), string entityPath = default(string), long? userId = default(long?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?), bool? withTotalResultSize = default(bool?), long? managementKeyId = default(long?), bool? includeOld = default(bool?))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -24609,6 +26199,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "includeOld", includeOld));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -24632,7 +26232,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20044>("/v1/changes", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20042>("/v1/changes", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -24688,6 +26288,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -24768,6 +26378,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -24853,6 +26473,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -24939,6 +26569,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -25123,6 +26763,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "valuesOnly", valuesOnly));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -25308,6 +26958,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "valuesOnly", valuesOnly));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -25402,6 +27062,16 @@ namespace TalonOne.Api
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "rangeStart", rangeStart));
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "rangeEnd", rangeEnd));
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -25497,6 +27167,16 @@ namespace TalonOne.Api
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "rangeStart", rangeStart));
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "rangeEnd", rangeEnd));
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -25618,6 +27298,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "advocateName", advocateName));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -25740,6 +27430,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "advocateName", advocateName));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -25834,6 +27534,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -25929,6 +27639,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26002,6 +27722,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("customerId", TalonOne.Client.ClientUtils.ParameterToString(customerId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26076,6 +27806,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("customerId", TalonOne.Client.ClientUtils.ParameterToString(customerId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26121,10 +27861,10 @@ namespace TalonOne.Api
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="achievementId">The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)</param>
         /// <param name="title">Filter results by the &#x60;title&#x60; of an achievement. (optional)</param>
-        /// <returns>InlineResponse20051</returns>
-        public InlineResponse20051 GetCustomerProfileAchievementProgress (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string))
+        /// <returns>InlineResponse20049</returns>
+        public InlineResponse20049 GetCustomerProfileAchievementProgress (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20051> localVarResponse = GetCustomerProfileAchievementProgressWithHttpInfo(applicationId, integrationId, pageSize, skip, achievementId, title);
+             TalonOne.Client.ApiResponse<InlineResponse20049> localVarResponse = GetCustomerProfileAchievementProgressWithHttpInfo(applicationId, integrationId, pageSize, skip, achievementId, title);
              return localVarResponse.Data;
         }
 
@@ -26138,8 +27878,8 @@ namespace TalonOne.Api
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="achievementId">The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)</param>
         /// <param name="title">Filter results by the &#x60;title&#x60; of an achievement. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20051</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20051 > GetCustomerProfileAchievementProgressWithHttpInfo (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string))
+        /// <returns>ApiResponse of InlineResponse20049</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20049 > GetCustomerProfileAchievementProgressWithHttpInfo (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -26180,6 +27920,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26202,7 +27952,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20051 >("/v1/applications/{applicationId}/achievement_progress/{integrationId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20049 >("/v1/applications/{applicationId}/achievement_progress/{integrationId}", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -26224,10 +27974,10 @@ namespace TalonOne.Api
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="achievementId">The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)</param>
         /// <param name="title">Filter results by the &#x60;title&#x60; of an achievement. (optional)</param>
-        /// <returns>Task of InlineResponse20051</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20051> GetCustomerProfileAchievementProgressAsync (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string))
+        /// <returns>Task of InlineResponse20049</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20049> GetCustomerProfileAchievementProgressAsync (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20051> localVarResponse = await GetCustomerProfileAchievementProgressAsyncWithHttpInfo(applicationId, integrationId, pageSize, skip, achievementId, title);
+             TalonOne.Client.ApiResponse<InlineResponse20049> localVarResponse = await GetCustomerProfileAchievementProgressAsyncWithHttpInfo(applicationId, integrationId, pageSize, skip, achievementId, title);
              return localVarResponse.Data;
 
         }
@@ -26242,8 +27992,8 @@ namespace TalonOne.Api
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="achievementId">The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. (optional)</param>
         /// <param name="title">Filter results by the &#x60;title&#x60; of an achievement. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20051)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20051>> GetCustomerProfileAchievementProgressAsyncWithHttpInfo (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20049)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20049>> GetCustomerProfileAchievementProgressAsyncWithHttpInfo (long applicationId, string integrationId, long? pageSize = default(long?), long? skip = default(long?), long? achievementId = default(long?), string title = default(string))
         {
             // verify the required parameter 'integrationId' is set
             if (integrationId == null)
@@ -26285,6 +28035,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26308,7 +28068,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20051>("/v1/applications/{applicationId}/achievement_progress/{integrationId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20049>("/v1/applications/{applicationId}/achievement_progress/{integrationId}", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -26373,6 +28133,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sandbox", sandbox));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26462,6 +28232,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sandbox", sandbox));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26558,6 +28338,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26655,6 +28445,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26740,6 +28540,16 @@ namespace TalonOne.Api
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "rangeStart", rangeStart));
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "rangeEnd", rangeEnd));
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26826,6 +28636,16 @@ namespace TalonOne.Api
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "rangeStart", rangeStart));
             localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "rangeEnd", rangeEnd));
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26870,10 +28690,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>InlineResponse20042</returns>
-        public InlineResponse20042 GetEventTypes (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
+        /// <returns>InlineResponse20040</returns>
+        public InlineResponse20040 GetEventTypes (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20042> localVarResponse = GetEventTypesWithHttpInfo(name, includeOldVersions, pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20040> localVarResponse = GetEventTypesWithHttpInfo(name, includeOldVersions, pageSize, skip, sort);
              return localVarResponse.Data;
         }
 
@@ -26886,8 +28706,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20042</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20042 > GetEventTypesWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
+        /// <returns>ApiResponse of InlineResponse20040</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20040 > GetEventTypesWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -26926,6 +28746,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -26948,7 +28778,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20042 >("/v1/event_types", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20040 >("/v1/event_types", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -26969,10 +28799,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>Task of InlineResponse20042</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20042> GetEventTypesAsync (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
+        /// <returns>Task of InlineResponse20040</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20040> GetEventTypesAsync (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20042> localVarResponse = await GetEventTypesAsyncWithHttpInfo(name, includeOldVersions, pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20040> localVarResponse = await GetEventTypesAsyncWithHttpInfo(name, includeOldVersions, pageSize, skip, sort);
              return localVarResponse.Data;
 
         }
@@ -26986,8 +28816,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20042)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20042>> GetEventTypesAsyncWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20040)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20040>> GetEventTypesAsyncWithHttpInfo (string name = default(string), bool? includeOldVersions = default(bool?), long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -27027,6 +28857,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27050,7 +28890,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20042>("/v1/event_types", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20040>("/v1/event_types", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -27071,10 +28911,10 @@ namespace TalonOne.Api
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>InlineResponse20045</returns>
-        public InlineResponse20045 GetExports (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string))
+        /// <returns>InlineResponse20043</returns>
+        public InlineResponse20043 GetExports (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20045> localVarResponse = GetExportsWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
+             TalonOne.Client.ApiResponse<InlineResponse20043> localVarResponse = GetExportsWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
              return localVarResponse.Data;
         }
 
@@ -27087,8 +28927,8 @@ namespace TalonOne.Api
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20045</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20045 > GetExportsWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string))
+        /// <returns>ApiResponse of InlineResponse20043</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20043 > GetExportsWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -27127,6 +28967,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "entity", entity));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27149,7 +28999,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20045 >("/v1/exports", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20043 >("/v1/exports", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -27170,10 +29020,10 @@ namespace TalonOne.Api
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of InlineResponse20045</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20045> GetExportsAsync (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string))
+        /// <returns>Task of InlineResponse20043</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20043> GetExportsAsync (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20045> localVarResponse = await GetExportsAsyncWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
+             TalonOne.Client.ApiResponse<InlineResponse20043> localVarResponse = await GetExportsAsyncWithHttpInfo(pageSize, skip, applicationId, campaignId, entity);
              return localVarResponse.Data;
 
         }
@@ -27187,8 +29037,8 @@ namespace TalonOne.Api
         /// <param name="applicationId">Filter results by Application ID. (optional)</param>
         /// <param name="campaignId">Filter by the campaign ID on which the limit counters are used. (optional)</param>
         /// <param name="entity">The name of the entity type that was exported. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20045)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20045>> GetExportsAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20043)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20043>> GetExportsAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), decimal? applicationId = default(decimal?), long? campaignId = default(long?), string entity = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -27228,6 +29078,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "entity", entity));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27251,7 +29111,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20045>("/v1/exports", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20043>("/v1/exports", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -27308,6 +29168,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27389,6 +29259,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27435,10 +29315,12 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <returns>InlineResponse20019</returns>
-        public InlineResponse20019 GetLoyaltyCardTransactionLogs (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string))
+        public InlineResponse20019 GetLoyaltyCardTransactionLogs (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20019> localVarResponse = GetLoyaltyCardTransactionLogsWithHttpInfo(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId);
+             TalonOne.Client.ApiResponse<InlineResponse20019> localVarResponse = GetLoyaltyCardTransactionLogsWithHttpInfo(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId, customerSessionIDs, transactionUUIDs);
              return localVarResponse.Data;
         }
 
@@ -27453,8 +29335,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <returns>ApiResponse of InlineResponse20019</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20019 > GetLoyaltyCardTransactionLogsWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string))
+        public TalonOne.Client.ApiResponse< InlineResponse20019 > GetLoyaltyCardTransactionLogsWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -27498,7 +29382,25 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
             }
+            if (customerSessionIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "customerSessionIDs", customerSessionIDs));
+            }
+            if (transactionUUIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "transactionUUIDs", transactionUUIDs));
+            }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27544,10 +29446,12 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <returns>Task of InlineResponse20019</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20019> GetLoyaltyCardTransactionLogsAsync (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string))
+        public async System.Threading.Tasks.Task<InlineResponse20019> GetLoyaltyCardTransactionLogsAsync (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20019> localVarResponse = await GetLoyaltyCardTransactionLogsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId);
+             TalonOne.Client.ApiResponse<InlineResponse20019> localVarResponse = await GetLoyaltyCardTransactionLogsAsyncWithHttpInfo(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId, customerSessionIDs, transactionUUIDs);
              return localVarResponse.Data;
 
         }
@@ -27563,8 +29467,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20019)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20019>> GetLoyaltyCardTransactionLogsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20019>> GetLoyaltyCardTransactionLogsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>))
         {
             // verify the required parameter 'loyaltyCardId' is set
             if (loyaltyCardId == null)
@@ -27609,7 +29515,25 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
             }
+            if (customerSessionIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "customerSessionIDs", customerSessionIDs));
+            }
+            if (transactionUUIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "transactionUUIDs", transactionUUIDs));
+            }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27719,6 +29643,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "batchId", batchId));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27829,6 +29763,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "batchId", batchId));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27913,6 +29857,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
             localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -27998,6 +29952,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
             localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28071,6 +30035,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28145,6 +30119,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28187,14 +30171,16 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>InlineResponse20017</returns>
-        public InlineResponse20017 GetLoyaltyProgramTransactions (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
+        public InlineResponse20017 GetLoyaltyProgramTransactions (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20017> localVarResponse = GetLoyaltyProgramTransactionsWithHttpInfo(loyaltyProgramId, loyaltyTransactionType, subledgerId, startDate, endDate, pageSize, skip);
+             TalonOne.Client.ApiResponse<InlineResponse20017> localVarResponse = GetLoyaltyProgramTransactionsWithHttpInfo(loyaltyProgramId, loyaltyTransactionType, subledgerId, customerSessionIDs, transactionUUIDs, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
         }
 
@@ -28205,12 +30191,14 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>ApiResponse of InlineResponse20017</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20017 > GetLoyaltyProgramTransactionsWithHttpInfo (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
+        public TalonOne.Client.ApiResponse< InlineResponse20017 > GetLoyaltyProgramTransactionsWithHttpInfo (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -28237,6 +30225,14 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
             }
+            if (customerSessionIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "customerSessionIDs", customerSessionIDs));
+            }
+            if (transactionUUIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "transactionUUIDs", transactionUUIDs));
+            }
             if (startDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
@@ -28254,6 +30250,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28295,14 +30301,16 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of InlineResponse20017</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20017> GetLoyaltyProgramTransactionsAsync (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
+        public async System.Threading.Tasks.Task<InlineResponse20017> GetLoyaltyProgramTransactionsAsync (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20017> localVarResponse = await GetLoyaltyProgramTransactionsAsyncWithHttpInfo(loyaltyProgramId, loyaltyTransactionType, subledgerId, startDate, endDate, pageSize, skip);
+             TalonOne.Client.ApiResponse<InlineResponse20017> localVarResponse = await GetLoyaltyProgramTransactionsAsyncWithHttpInfo(loyaltyProgramId, loyaltyTransactionType, subledgerId, customerSessionIDs, transactionUUIDs, startDate, endDate, pageSize, skip);
              return localVarResponse.Data;
 
         }
@@ -28314,12 +30322,14 @@ namespace TalonOne.Api
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. </param>
         /// <param name="loyaltyTransactionType">Filter results by loyalty transaction type: - &#x60;manual&#x60;: Loyalty transaction that was done manually. - &#x60;session&#x60;: Loyalty transaction that resulted from a customer session. - &#x60;import&#x60;: Loyalty transaction that was imported from a CSV file.  (optional)</param>
         /// <param name="subledgerId">The ID of the subledger by which we filter the data. (optional)</param>
+        /// <param name="customerSessionIDs">Filter the results by a list of customer session IDs.   To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?customerSessionIDs&#x3D;id1&amp;customerSessionIDs&#x3D;id2&#x60;.  The response contains only data associated with the specified sessions.  (optional)</param>
+        /// <param name="transactionUUIDs">Filter the results by a list of transaction UUIDs.  To include multiple IDs, repeat the parameter for each one, for example,  &#x60;?transactionUUIDs&#x3D;uuid1&amp;transactionUUIDs&#x3D;uuid2&#x60;.  The response contains only data associated with the specified transactions.  (optional)</param>
         /// <param name="startDate">Date and time from which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="endDate">Date and time by which results are returned. Results are filtered by transaction creation date.  **Note:**  - It must be an RFC3339 timestamp string. - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  (optional)</param>
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <returns>Task of ApiResponse (InlineResponse20017)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20017>> GetLoyaltyProgramTransactionsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20017>> GetLoyaltyProgramTransactionsAsyncWithHttpInfo (long loyaltyProgramId, string loyaltyTransactionType = default(string), string subledgerId = default(string), List<string> customerSessionIDs = default(List<string>), List<string> transactionUUIDs = default(List<string>), DateTime? startDate = default(DateTime?), DateTime? endDate = default(DateTime?), long? pageSize = default(long?), long? skip = default(long?))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -28347,6 +30357,14 @@ namespace TalonOne.Api
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "subledgerId", subledgerId));
             }
+            if (customerSessionIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "customerSessionIDs", customerSessionIDs));
+            }
+            if (transactionUUIDs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "transactionUUIDs", transactionUUIDs));
+            }
             if (startDate != null)
             {
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "startDate", startDate));
@@ -28364,6 +30382,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28434,6 +30462,16 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28505,6 +30543,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28578,6 +30626,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28652,6 +30710,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("loyaltyProgramId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyProgramId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28695,8 +30763,8 @@ namespace TalonOne.Api
         /// <param name="messageID">Filter results by message ID. (optional)</param>
         /// <param name="changeType">Filter results by change type. (optional)</param>
         /// <param name="notificationIDs">Filter results by notification ID (include up to 30 values, separated by a comma). (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
         /// <param name="cursor">A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)</param>
         /// <param name="period">Filter results by time period. Choose between the available relative time frames.  (optional)</param>
         /// <param name="isSuccessful">Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)</param>
@@ -28720,8 +30788,8 @@ namespace TalonOne.Api
         /// <param name="messageID">Filter results by message ID. (optional)</param>
         /// <param name="changeType">Filter results by change type. (optional)</param>
         /// <param name="notificationIDs">Filter results by notification ID (include up to 30 values, separated by a comma). (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
         /// <param name="cursor">A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)</param>
         /// <param name="period">Filter results by time period. Choose between the available relative time frames.  (optional)</param>
         /// <param name="isSuccessful">Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)</param>
@@ -28807,6 +30875,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookIDs", webhookIDs));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -28849,8 +30927,8 @@ namespace TalonOne.Api
         /// <param name="messageID">Filter results by message ID. (optional)</param>
         /// <param name="changeType">Filter results by change type. (optional)</param>
         /// <param name="notificationIDs">Filter results by notification ID (include up to 30 values, separated by a comma). (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
         /// <param name="cursor">A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)</param>
         /// <param name="period">Filter results by time period. Choose between the available relative time frames.  (optional)</param>
         /// <param name="isSuccessful">Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)</param>
@@ -28875,8 +30953,8 @@ namespace TalonOne.Api
         /// <param name="messageID">Filter results by message ID. (optional)</param>
         /// <param name="changeType">Filter results by change type. (optional)</param>
         /// <param name="notificationIDs">Filter results by notification ID (include up to 30 values, separated by a comma). (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
+        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
+        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional)</param>
         /// <param name="cursor">A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional)</param>
         /// <param name="period">Filter results by time period. Choose between the available relative time frames.  (optional)</param>
         /// <param name="isSuccessful">Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  (optional)</param>
@@ -28963,6 +31041,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookIDs", webhookIDs));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29093,6 +31181,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "advocate", advocate));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29224,6 +31322,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "advocate", advocate));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29297,6 +31405,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("roleId", TalonOne.Client.ClientUtils.ParameterToString(roleId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29371,6 +31489,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("roleId", TalonOne.Client.ClientUtils.ParameterToString(roleId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29450,6 +31578,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("rulesetId", TalonOne.Client.ClientUtils.ParameterToString(rulesetId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29530,6 +31668,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.PathParameters.Add("rulesetId", TalonOne.Client.ClientUtils.ParameterToString(rulesetId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29624,6 +31772,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29719,6 +31877,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29799,6 +31967,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("storeId", TalonOne.Client.ClientUtils.ParameterToString(storeId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29880,6 +32058,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("storeId", TalonOne.Client.ClientUtils.ParameterToString(storeId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -29953,6 +32141,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -30027,6 +32225,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -30069,10 +32277,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>InlineResponse20043</returns>
-        public InlineResponse20043 GetUsers (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
+        /// <returns>InlineResponse20041</returns>
+        public InlineResponse20041 GetUsers (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20043> localVarResponse = GetUsersWithHttpInfo(pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20041> localVarResponse = GetUsersWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
         }
 
@@ -30083,8 +32291,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20043</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20043 > GetUsersWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
+        /// <returns>ApiResponse of InlineResponse20041</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20041 > GetUsersWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -30115,6 +32323,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -30137,7 +32355,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20043 >("/v1/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20041 >("/v1/users", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -30156,10 +32374,10 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>Task of InlineResponse20043</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20043> GetUsersAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
+        /// <returns>Task of InlineResponse20041</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20041> GetUsersAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20043> localVarResponse = await GetUsersAsyncWithHttpInfo(pageSize, skip, sort);
+             TalonOne.Client.ApiResponse<InlineResponse20041> localVarResponse = await GetUsersAsyncWithHttpInfo(pageSize, skip, sort);
              return localVarResponse.Data;
 
         }
@@ -30171,8 +32389,8 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20043)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20043>> GetUsersAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20041)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20041>> GetUsersAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -30204,6 +32422,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -30227,7 +32455,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20043>("/v1/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20041>("/v1/users", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -30277,6 +32505,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("webhookId", TalonOne.Client.ClientUtils.ParameterToString(webhookId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -30351,6 +32589,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("webhookId", TalonOne.Client.ClientUtils.ParameterToString(webhookId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -30380,516 +32628,6 @@ namespace TalonOne.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetWebhook", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>InlineResponse20040</returns>
-        public InlineResponse20040 GetWebhookActivationLogs (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20040> localVarResponse = GetWebhookActivationLogsWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20040</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20040 > GetWebhookActivationLogsWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
-            if (integrationRequestUuid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "integrationRequestUuid", integrationRequestUuid));
-            }
-            if (webhookId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookId", webhookId));
-            }
-            if (applicationId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "applicationId", applicationId));
-            }
-            if (campaignId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
-            }
-            if (createdBefore != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
-            }
-            if (createdAfter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
-            }
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20040 >("/v1/webhook_activation_logs", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of InlineResponse20040</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20040> GetWebhookActivationLogsAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20040> localVarResponse = await GetWebhookActivationLogsAsyncWithHttpInfo(pageSize, skip, sort, integrationRequestUuid, webhookId, applicationId, campaignId, createdBefore, createdAfter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List webhook activation log entries Webhook activation log entries are created as soon as an integration request triggers a webhook effect. See the [docs](https://docs.talon.one/docs/dev/getting-started/webhooks). 
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="integrationRequestUuid">Filter results by integration request UUID. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="createdBefore">Only return events created before this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Only return events created after this date. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20040)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20040>> GetWebhookActivationLogsAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string integrationRequestUuid = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
-            if (integrationRequestUuid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "integrationRequestUuid", integrationRequestUuid));
-            }
-            if (webhookId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookId", webhookId));
-            }
-            if (applicationId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "applicationId", applicationId));
-            }
-            if (campaignId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
-            }
-            if (createdBefore != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
-            }
-            if (createdAfter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
-            }
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20040>("/v1/webhook_activation_logs", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetWebhookActivationLogs", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List webhook log entries Retrieve all webhook log entries.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>InlineResponse20041</returns>
-        public InlineResponse20041 GetWebhookLogs (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20041> localVarResponse = GetWebhookLogsWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List webhook log entries Retrieve all webhook log entries.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20041</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20041 > GetWebhookLogsWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
-            if (status != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            }
-            if (webhookId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookId", webhookId));
-            }
-            if (applicationId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "applicationId", applicationId));
-            }
-            if (campaignId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
-            }
-            if (requestUuid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "requestUuid", requestUuid));
-            }
-            if (createdBefore != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
-            }
-            if (createdAfter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
-            }
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20041 >("/v1/webhook_logs", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetWebhookLogs", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List webhook log entries Retrieve all webhook log entries.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of InlineResponse20041</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20041> GetWebhookLogsAsync (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20041> localVarResponse = await GetWebhookLogsAsyncWithHttpInfo(pageSize, skip, sort, status, webhookId, applicationId, campaignId, requestUuid, createdBefore, createdAfter);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List webhook log entries Retrieve all webhook log entries.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 1000)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="sort">The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional)</param>
-        /// <param name="status">Filter results by HTTP status codes. (optional)</param>
-        /// <param name="webhookId">Filter results by webhook id. (optional)</param>
-        /// <param name="applicationId">Filter results by Application ID. (optional)</param>
-        /// <param name="campaignId">Filter results by campaign ID. (optional)</param>
-        /// <param name="requestUuid">Filter results by request UUID. (optional)</param>
-        /// <param name="createdBefore">Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <param name="createdAfter">Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20041)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20041>> GetWebhookLogsAsyncWithHttpInfo (long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), string status = default(string), decimal? webhookId = default(decimal?), decimal? applicationId = default(decimal?), decimal? campaignId = default(decimal?), string requestUuid = default(string), DateTime? createdBefore = default(DateTime?), DateTime? createdAfter = default(DateTime?))
-        {
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
-            if (status != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "status", status));
-            }
-            if (webhookId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "webhookId", webhookId));
-            }
-            if (applicationId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "applicationId", applicationId));
-            }
-            if (campaignId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "campaignId", campaignId));
-            }
-            if (requestUuid != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "requestUuid", requestUuid));
-            }
-            if (createdBefore != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdBefore", createdBefore));
-            }
-            if (createdAfter != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "createdAfter", createdAfter));
-            }
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20041>("/v1/webhook_logs", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("GetWebhookLogs", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -30979,6 +32717,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31098,6 +32846,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31179,6 +32937,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31266,6 +33034,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31352,6 +33130,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31439,6 +33227,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31525,6 +33323,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31612,6 +33420,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31713,6 +33531,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31815,6 +33643,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31904,6 +33742,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -31994,6 +33842,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32086,6 +33944,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32179,6 +34047,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32274,6 +34152,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32370,6 +34258,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32456,6 +34354,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32543,6 +34451,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32629,6 +34547,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32716,6 +34644,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32808,6 +34746,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32901,6 +34849,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -32987,6 +34945,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -33074,6 +35042,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -33163,6 +35141,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -33253,6 +35241,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.FileParameters.Add("upFile", upFileStream); // file parameter
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -33334,6 +35332,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -33411,6 +35419,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -33511,6 +35529,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -33612,6 +35640,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -33656,339 +35694,379 @@ namespace TalonOne.Api
         /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
         /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
         /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
-        /// <returns>InlineResponse20050</returns>
-        public InlineResponse20050 ListAchievements (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20050> localVarResponse = ListAchievementsWithHttpInfo(applicationId, campaignId, pageSize, skip, title);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List achievements List all the achievements for a specific campaign.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20050</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20050 > ListAchievementsWithHttpInfo (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string))
-        {
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-            if (title != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
-            }
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20050 >("/v1/applications/{applicationId}/campaigns/{campaignId}/achievements", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListAchievements", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List achievements List all the achievements for a specific campaign.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
-        /// <returns>Task of InlineResponse20050</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20050> ListAchievementsAsync (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string))
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20050> localVarResponse = await ListAchievementsAsyncWithHttpInfo(applicationId, campaignId, pageSize, skip, title);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List achievements List all the achievements for a specific campaign.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
-        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
-        /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20050)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20050>> ListAchievementsAsyncWithHttpInfo (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string))
-        {
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
-            }
-            if (skip != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
-            }
-            if (title != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
-            }
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20050>("/v1/applications/{applicationId}/campaigns/{campaignId}/achievements", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListAchievements", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List roles List all roles.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>InlineResponse20046</returns>
-        public InlineResponse20046 ListAllRolesV2 ()
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20046> localVarResponse = ListAllRolesV2WithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// List roles List all roles.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of InlineResponse20046</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20046 > ListAllRolesV2WithHttpInfo ()
-        {
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-
-            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20046 >("/v2/roles", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListAllRolesV2", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List roles List all roles.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of InlineResponse20046</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20046> ListAllRolesV2Async ()
-        {
-             TalonOne.Client.ApiResponse<InlineResponse20046> localVarResponse = await ListAllRolesV2AsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// List roles List all roles.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (InlineResponse20046)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20046>> ListAllRolesV2AsyncWithHttpInfo ()
-        {
-
-            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
-
-            String[] _contentTypes = new String[] {
-            };
-
-            // to determine the Accept header
-            String[] _accepts = new String[] {
-                "application/json"
-            };
-            
-            foreach (var _contentType in _contentTypes)
-                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
-            
-            foreach (var _accept in _accepts)
-                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
-            
-
-            // authentication (management_key) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-            // authentication (manager_auth) required
-            if (
-                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
-                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
-                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
-                )
-            )
-            {
-                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20046>("/v2/roles", localVarRequestOptions, this.Configuration);
-
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("ListAllRolesV2", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// List campaign store budget limits Return the store budget limits for a given campaign.
-        /// </summary>
-        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <param name="action">The action that this budget is limiting. (optional)</param>
-        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
         /// <returns>InlineResponse20048</returns>
-        public InlineResponse20048 ListCampaignStoreBudgetLimits (long applicationId, long campaignId, string action = default(string), string period = default(string))
+        public InlineResponse20048 ListAchievements (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20048> localVarResponse = ListCampaignStoreBudgetLimitsWithHttpInfo(applicationId, campaignId, action, period);
+             TalonOne.Client.ApiResponse<InlineResponse20048> localVarResponse = ListAchievementsWithHttpInfo(applicationId, campaignId, pageSize, skip, title);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List achievements List all the achievements for a specific campaign.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
+        /// <returns>ApiResponse of InlineResponse20048</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20048 > ListAchievementsWithHttpInfo (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string))
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+            if (title != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< InlineResponse20048 >("/v1/applications/{applicationId}/campaigns/{campaignId}/achievements", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAchievements", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List achievements List all the achievements for a specific campaign.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
+        /// <returns>Task of InlineResponse20048</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20048> ListAchievementsAsync (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20048> localVarResponse = await ListAchievementsAsyncWithHttpInfo(applicationId, campaignId, pageSize, skip, title);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List achievements List all the achievements for a specific campaign.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="pageSize">The number of items in the response. (optional, default to 50)</param>
+        /// <param name="skip">The number of items to skip when paging through large result sets. (optional)</param>
+        /// <param name="title">Filter by the display name for the achievement in the campaign manager.  **Note**: If no &#x60;title&#x60; is provided, all the achievements from the campaign are returned.  (optional)</param>
+        /// <returns>Task of ApiResponse (InlineResponse20048)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20048>> ListAchievementsAsyncWithHttpInfo (long applicationId, long campaignId, long? pageSize = default(long?), long? skip = default(long?), string title = default(string))
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+            localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
+            if (skip != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "skip", skip));
+            }
+            if (title != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "title", title));
+            }
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20048>("/v1/applications/{applicationId}/campaigns/{campaignId}/achievements", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAchievements", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List roles List all roles.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>InlineResponse20044</returns>
+        public InlineResponse20044 ListAllRolesV2 ()
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20044> localVarResponse = ListAllRolesV2WithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List roles List all roles.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of InlineResponse20044</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20044 > ListAllRolesV2WithHttpInfo ()
+        {
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+
+            var localVarContentType = TalonOne.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = TalonOne.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get< InlineResponse20044 >("/v2/roles", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAllRolesV2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List roles List all roles.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of InlineResponse20044</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20044> ListAllRolesV2Async ()
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20044> localVarResponse = await ListAllRolesV2AsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// List roles List all roles.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (InlineResponse20044)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20044>> ListAllRolesV2AsyncWithHttpInfo ()
+        {
+
+            TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
+
+            String[] _contentTypes = new String[] {
+            };
+
+            // to determine the Accept header
+            String[] _accepts = new String[] {
+                "application/json"
+            };
+            
+            foreach (var _contentType in _contentTypes)
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", _contentType);
+            
+            foreach (var _accept in _accepts)
+                localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
+            
+
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (management_key) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (manager_auth) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20044>("/v2/roles", localVarRequestOptions, this.Configuration);
+
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListAllRolesV2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List campaign store budget limits Return the store budget limits for a given campaign.
+        /// </summary>
+        /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
+        /// <param name="action">The action that this budget is limiting. (optional)</param>
+        /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
+        /// <returns>InlineResponse20046</returns>
+        public InlineResponse20046 ListCampaignStoreBudgetLimits (long applicationId, long campaignId, string action = default(string), string period = default(string))
+        {
+             TalonOne.Client.ApiResponse<InlineResponse20046> localVarResponse = ListCampaignStoreBudgetLimitsWithHttpInfo(applicationId, campaignId, action, period);
              return localVarResponse.Data;
         }
 
@@ -34000,8 +36078,8 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="action">The action that this budget is limiting. (optional)</param>
         /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20048</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20048 > ListCampaignStoreBudgetLimitsWithHttpInfo (long applicationId, long campaignId, string action = default(string), string period = default(string))
+        /// <returns>ApiResponse of InlineResponse20046</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20046 > ListCampaignStoreBudgetLimitsWithHttpInfo (long applicationId, long campaignId, string action = default(string), string period = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -34030,6 +36108,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "period", period));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -34052,7 +36140,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20048 >("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20046 >("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -34072,10 +36160,10 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="action">The action that this budget is limiting. (optional)</param>
         /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
-        /// <returns>Task of InlineResponse20048</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20048> ListCampaignStoreBudgetLimitsAsync (long applicationId, long campaignId, string action = default(string), string period = default(string))
+        /// <returns>Task of InlineResponse20046</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20046> ListCampaignStoreBudgetLimitsAsync (long applicationId, long campaignId, string action = default(string), string period = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20048> localVarResponse = await ListCampaignStoreBudgetLimitsAsyncWithHttpInfo(applicationId, campaignId, action, period);
+             TalonOne.Client.ApiResponse<InlineResponse20046> localVarResponse = await ListCampaignStoreBudgetLimitsAsyncWithHttpInfo(applicationId, campaignId, action, period);
              return localVarResponse.Data;
 
         }
@@ -34088,8 +36176,8 @@ namespace TalonOne.Api
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="action">The action that this budget is limiting. (optional)</param>
         /// <param name="period">The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20048)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20048>> ListCampaignStoreBudgetLimitsAsyncWithHttpInfo (long applicationId, long campaignId, string action = default(string), string period = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20046)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20046>> ListCampaignStoreBudgetLimitsAsyncWithHttpInfo (long applicationId, long campaignId, string action = default(string), string period = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -34119,6 +36207,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "period", period));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -34142,7 +36240,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20048>("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20046>("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -34222,6 +36320,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "productNames", productNames));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -34326,6 +36434,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("multi", "productNames", productNames));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -34432,6 +36550,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -34539,6 +36667,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -34642,6 +36780,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -34746,6 +36894,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "name", name));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -34794,10 +36952,10 @@ namespace TalonOne.Api
         /// <param name="name">The name of the store. (optional)</param>
         /// <param name="integrationId">The integration ID of the store. (optional)</param>
         /// <param name="query">Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)</param>
-        /// <returns>InlineResponse20047</returns>
-        public InlineResponse20047 ListStores (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string))
+        /// <returns>InlineResponse20045</returns>
+        public InlineResponse20045 ListStores (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20047> localVarResponse = ListStoresWithHttpInfo(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
+             TalonOne.Client.ApiResponse<InlineResponse20045> localVarResponse = ListStoresWithHttpInfo(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
              return localVarResponse.Data;
         }
 
@@ -34814,8 +36972,8 @@ namespace TalonOne.Api
         /// <param name="name">The name of the store. (optional)</param>
         /// <param name="integrationId">The integration ID of the store. (optional)</param>
         /// <param name="query">Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)</param>
-        /// <returns>ApiResponse of InlineResponse20047</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20047 > ListStoresWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string))
+        /// <returns>ApiResponse of InlineResponse20045</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20045 > ListStoresWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string))
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -34867,6 +37025,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -34889,7 +37057,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20047 >("/v1/applications/{applicationId}/stores", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20045 >("/v1/applications/{applicationId}/stores", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -34914,10 +37082,10 @@ namespace TalonOne.Api
         /// <param name="name">The name of the store. (optional)</param>
         /// <param name="integrationId">The integration ID of the store. (optional)</param>
         /// <param name="query">Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)</param>
-        /// <returns>Task of InlineResponse20047</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20047> ListStoresAsync (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string))
+        /// <returns>Task of InlineResponse20045</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20045> ListStoresAsync (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string))
         {
-             TalonOne.Client.ApiResponse<InlineResponse20047> localVarResponse = await ListStoresAsyncWithHttpInfo(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
+             TalonOne.Client.ApiResponse<InlineResponse20045> localVarResponse = await ListStoresAsyncWithHttpInfo(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
              return localVarResponse.Data;
 
         }
@@ -34935,8 +37103,8 @@ namespace TalonOne.Api
         /// <param name="name">The name of the store. (optional)</param>
         /// <param name="integrationId">The integration ID of the store. (optional)</param>
         /// <param name="query">Filter results by &#x60;name&#x60; or &#x60;integrationId&#x60;. (optional)</param>
-        /// <returns>Task of ApiResponse (InlineResponse20047)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20047>> ListStoresAsyncWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string))
+        /// <returns>Task of ApiResponse (InlineResponse20045)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20045>> ListStoresAsyncWithHttpInfo (long applicationId, long? pageSize = default(long?), long? skip = default(long?), string sort = default(string), bool? withTotalResultSize = default(bool?), decimal? campaignId = default(decimal?), string name = default(string), string integrationId = default(string), string query = default(string))
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -34989,6 +37157,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.QueryParameters.Add(TalonOne.Client.ClientUtils.ParameterToMultiMap("", "query", query));
             }
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35012,7 +37190,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20047>("/v1/applications/{applicationId}/stores", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20045>("/v1/applications/{applicationId}/stores", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -35057,6 +37235,16 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35126,6 +37314,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35217,6 +37415,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35309,6 +37517,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("integrationId", TalonOne.Client.ClientUtils.ParameterToString(integrationId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35387,6 +37605,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35466,6 +37694,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35544,6 +37782,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35623,6 +37871,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35701,6 +37959,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35780,6 +38048,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35851,6 +38129,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("groupId", TalonOne.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35923,6 +38211,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("groupId", TalonOne.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -35994,6 +38292,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36066,6 +38374,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36139,6 +38457,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("groupId", TalonOne.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36213,6 +38541,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("groupId", TalonOne.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36283,6 +38621,16 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36354,6 +38702,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36424,6 +38782,16 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36495,6 +38863,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36565,6 +38943,16 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36636,6 +39024,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36706,6 +39104,16 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36777,6 +39185,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36850,6 +39268,16 @@ namespace TalonOne.Api
 
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36924,6 +39352,16 @@ namespace TalonOne.Api
             
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -36994,6 +39432,16 @@ namespace TalonOne.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37065,6 +39513,16 @@ namespace TalonOne.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", _accept);
             
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37146,6 +39604,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("groupId", TalonOne.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37228,6 +39696,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("groupId", TalonOne.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37309,6 +39787,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37391,6 +39879,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37472,6 +39970,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("groupId", TalonOne.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37554,6 +40062,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("groupId", TalonOne.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37635,6 +40153,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37717,6 +40245,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -37876,6 +40414,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38036,6 +40584,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38192,6 +40750,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38349,6 +40917,16 @@ namespace TalonOne.Api
             }
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38390,10 +40968,10 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <returns>InlineResponse20049</returns>
-        public InlineResponse20049 SummarizeCampaignStoreBudget (long applicationId, long campaignId)
+        /// <returns>InlineResponse20047</returns>
+        public InlineResponse20047 SummarizeCampaignStoreBudget (long applicationId, long campaignId)
         {
-             TalonOne.Client.ApiResponse<InlineResponse20049> localVarResponse = SummarizeCampaignStoreBudgetWithHttpInfo(applicationId, campaignId);
+             TalonOne.Client.ApiResponse<InlineResponse20047> localVarResponse = SummarizeCampaignStoreBudgetWithHttpInfo(applicationId, campaignId);
              return localVarResponse.Data;
         }
 
@@ -38403,8 +40981,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <returns>ApiResponse of InlineResponse20049</returns>
-        public TalonOne.Client.ApiResponse< InlineResponse20049 > SummarizeCampaignStoreBudgetWithHttpInfo (long applicationId, long campaignId)
+        /// <returns>ApiResponse of InlineResponse20047</returns>
+        public TalonOne.Client.ApiResponse< InlineResponse20047 > SummarizeCampaignStoreBudgetWithHttpInfo (long applicationId, long campaignId)
         {
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
 
@@ -38425,6 +41003,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38447,7 +41035,7 @@ namespace TalonOne.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get< InlineResponse20049 >("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/summary", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get< InlineResponse20047 >("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/summary", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -38465,10 +41053,10 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <returns>Task of InlineResponse20049</returns>
-        public async System.Threading.Tasks.Task<InlineResponse20049> SummarizeCampaignStoreBudgetAsync (long applicationId, long campaignId)
+        /// <returns>Task of InlineResponse20047</returns>
+        public async System.Threading.Tasks.Task<InlineResponse20047> SummarizeCampaignStoreBudgetAsync (long applicationId, long campaignId)
         {
-             TalonOne.Client.ApiResponse<InlineResponse20049> localVarResponse = await SummarizeCampaignStoreBudgetAsyncWithHttpInfo(applicationId, campaignId);
+             TalonOne.Client.ApiResponse<InlineResponse20047> localVarResponse = await SummarizeCampaignStoreBudgetAsyncWithHttpInfo(applicationId, campaignId);
              return localVarResponse.Data;
 
         }
@@ -38479,8 +41067,8 @@ namespace TalonOne.Api
         /// <exception cref="TalonOne.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="applicationId">The ID of the Application. It is displayed in your Talon.One deployment URL.</param>
         /// <param name="campaignId">The ID of the campaign. It is displayed in your Talon.One deployment URL.</param>
-        /// <returns>Task of ApiResponse (InlineResponse20049)</returns>
-        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20049>> SummarizeCampaignStoreBudgetAsyncWithHttpInfo (long applicationId, long campaignId)
+        /// <returns>Task of ApiResponse (InlineResponse20047)</returns>
+        public async System.Threading.Tasks.Task<TalonOne.Client.ApiResponse<InlineResponse20047>> SummarizeCampaignStoreBudgetAsyncWithHttpInfo (long applicationId, long campaignId)
         {
 
             TalonOne.Client.RequestOptions localVarRequestOptions = new TalonOne.Client.RequestOptions();
@@ -38502,6 +41090,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("applicationId", TalonOne.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38525,7 +41123,7 @@ namespace TalonOne.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20049>("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/summary", localVarRequestOptions, this.Configuration);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<InlineResponse20047>("/v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets/summary", localVarRequestOptions, this.Configuration);
 
 
             if (this.ExceptionFactory != null)
@@ -38589,6 +41187,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38677,6 +41285,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38758,6 +41376,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38840,6 +41468,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -38927,6 +41565,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39015,6 +41663,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("achievementId", TalonOne.Client.ClientUtils.ParameterToString(achievementId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39096,6 +41754,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("additionalCostId", TalonOne.Client.ClientUtils.ParameterToString(additionalCostId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39178,6 +41846,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("additionalCostId", TalonOne.Client.ClientUtils.ParameterToString(additionalCostId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39259,6 +41937,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("attributeId", TalonOne.Client.ClientUtils.ParameterToString(attributeId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39341,6 +42029,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("attributeId", TalonOne.Client.ClientUtils.ParameterToString(attributeId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39425,6 +42123,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39510,6 +42218,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39597,6 +42315,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39685,6 +42413,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("collectionId", TalonOne.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39776,6 +42514,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("couponId", TalonOne.Client.ClientUtils.ParameterToString(couponId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39868,6 +42616,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("couponId", TalonOne.Client.ClientUtils.ParameterToString(couponId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -39950,6 +42708,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40033,6 +42801,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("campaignId", TalonOne.Client.ClientUtils.ParameterToString(campaignId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40121,6 +42899,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40210,6 +42998,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("loyaltyCardId", TalonOne.Client.ClientUtils.ParameterToString(loyaltyCardId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40301,6 +43099,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("referralId", TalonOne.Client.ClientUtils.ParameterToString(referralId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40393,6 +43201,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("referralId", TalonOne.Client.ClientUtils.ParameterToString(referralId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40474,6 +43292,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("roleId", TalonOne.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40556,6 +43384,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("roleId", TalonOne.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40644,6 +43482,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("storeId", TalonOne.Client.ClientUtils.ParameterToString(storeId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40733,6 +43581,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("storeId", TalonOne.Client.ClientUtils.ParameterToString(storeId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40814,6 +43672,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
@@ -40896,6 +43764,16 @@ namespace TalonOne.Api
             localVarRequestOptions.PathParameters.Add("userId", TalonOne.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = body;
 
+            // authentication (api_key_v1) required
+            if (
+                !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
+                    !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization") ||
+                    localVarRequestOptions.HeaderParameters["Authorization"].Count == 0
+                )
+            )
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
             // authentication (management_key) required
             if (
                 !String.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")) && (
