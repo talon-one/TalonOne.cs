@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -114,7 +114,8 @@ namespace TalonOne.Model
         /// <param name="frontendState">The campaign state displayed in the Campaign Manager. (required).</param>
         /// <param name="storesImported">Indicates whether the linked stores were imported via a CSV file. (required).</param>
         /// <param name="valueMapsIds">A list of value map IDs for the campaign..</param>
-        public AdditionalCampaignProperties(List<CampaignBudget> budgets = default(List<CampaignBudget>), long couponRedemptionCount = default(long), long referralRedemptionCount = default(long), decimal discountCount = default(decimal), long discountEffectCount = default(long), long couponCreationCount = default(long), long customEffectCount = default(long), long referralCreationCount = default(long), long addFreeItemEffectCount = default(long), long awardedGiveawaysCount = default(long), decimal createdLoyaltyPointsCount = default(decimal), long createdLoyaltyPointsEffectCount = default(long), decimal redeemedLoyaltyPointsCount = default(decimal), long redeemedLoyaltyPointsEffectCount = default(long), long callApiEffectCount = default(long), long reservecouponEffectCount = default(long), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string), long templateId = default(long), FrontendStateEnum frontendState = default(FrontendStateEnum), bool storesImported = default(bool), List<long> valueMapsIds = default(List<long>))
+        /// <param name="experimentId">The ID of the Experiment this Campaign is part of..</param>
+        public AdditionalCampaignProperties(List<CampaignBudget> budgets = default(List<CampaignBudget>), long couponRedemptionCount = default(long), long referralRedemptionCount = default(long), decimal discountCount = default(decimal), long discountEffectCount = default(long), long couponCreationCount = default(long), long customEffectCount = default(long), long referralCreationCount = default(long), long addFreeItemEffectCount = default(long), long awardedGiveawaysCount = default(long), decimal createdLoyaltyPointsCount = default(decimal), long createdLoyaltyPointsEffectCount = default(long), decimal redeemedLoyaltyPointsCount = default(decimal), long redeemedLoyaltyPointsEffectCount = default(long), long callApiEffectCount = default(long), long reservecouponEffectCount = default(long), DateTime lastActivity = default(DateTime), DateTime updated = default(DateTime), string createdBy = default(string), string updatedBy = default(string), long templateId = default(long), FrontendStateEnum frontendState = default(FrontendStateEnum), bool storesImported = default(bool), List<long> valueMapsIds = default(List<long>), long experimentId = default(long))
         {
             this.FrontendState = frontendState;
             this.StoresImported = storesImported;
@@ -140,6 +141,7 @@ namespace TalonOne.Model
             this.UpdatedBy = updatedBy;
             this.TemplateId = templateId;
             this.ValueMapsIds = valueMapsIds;
+            this.ExperimentId = experimentId;
         }
         
         /// <summary>
@@ -304,6 +306,13 @@ namespace TalonOne.Model
         public List<long> ValueMapsIds { get; set; }
 
         /// <summary>
+        /// The ID of the Experiment this Campaign is part of.
+        /// </summary>
+        /// <value>The ID of the Experiment this Campaign is part of.</value>
+        [DataMember(Name="experimentId", EmitDefaultValue=false)]
+        public long ExperimentId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -335,6 +344,7 @@ namespace TalonOne.Model
             sb.Append("  FrontendState: ").Append(FrontendState).Append("\n");
             sb.Append("  StoresImported: ").Append(StoresImported).Append("\n");
             sb.Append("  ValueMapsIds: ").Append(ValueMapsIds).Append("\n");
+            sb.Append("  ExperimentId: ").Append(ExperimentId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -472,6 +482,10 @@ namespace TalonOne.Model
                     this.ValueMapsIds != null &&
                     input.ValueMapsIds != null &&
                     this.ValueMapsIds.SequenceEqual(input.ValueMapsIds)
+                ) && 
+                (
+                    this.ExperimentId == input.ExperimentId ||
+                    this.ExperimentId.Equals(input.ExperimentId)
                 );
         }
 
@@ -514,6 +528,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.StoresImported.GetHashCode();
                 if (this.ValueMapsIds != null)
                     hashCode = hashCode * 59 + this.ValueMapsIds.GetHashCode();
+                hashCode = hashCode * 59 + this.ExperimentId.GetHashCode();
                 return hashCode;
             }
         }

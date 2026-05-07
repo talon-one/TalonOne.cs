@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -47,7 +47,8 @@ namespace TalonOne.Model
         /// <param name="numberOfCoupons">The number of new coupon codes to generate for the campaign. (required).</param>
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="attributes">Arbitrary properties associated with coupons. (required).</param>
-        public NewCouponCreationJob(long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long numberOfCoupons = default(long), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), Object attributes = default(Object))
+        /// <param name="isReservationMandatory">An indication of whether the code can be redeemed only if it has been reserved first. (default to false).</param>
+        public NewCouponCreationJob(long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long numberOfCoupons = default(long), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), Object attributes = default(Object), bool isReservationMandatory = false)
         {
             this.UsageLimit = usageLimit;
             this.NumberOfCoupons = numberOfCoupons;
@@ -58,6 +59,7 @@ namespace TalonOne.Model
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
             this.CouponSettings = couponSettings;
+            this.IsReservationMandatory = isReservationMandatory;
         }
         
         /// <summary>
@@ -116,6 +118,13 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
+        /// An indication of whether the code can be redeemed only if it has been reserved first.
+        /// </summary>
+        /// <value>An indication of whether the code can be redeemed only if it has been reserved first.</value>
+        [DataMember(Name="isReservationMandatory", EmitDefaultValue=false)]
+        public bool IsReservationMandatory { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,6 +140,7 @@ namespace TalonOne.Model
             sb.Append("  NumberOfCoupons: ").Append(NumberOfCoupons).Append("\n");
             sb.Append("  CouponSettings: ").Append(CouponSettings).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  IsReservationMandatory: ").Append(IsReservationMandatory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +210,10 @@ namespace TalonOne.Model
                     this.Attributes == input.Attributes ||
                     (this.Attributes != null &&
                     this.Attributes.Equals(input.Attributes))
+                ) && 
+                (
+                    this.IsReservationMandatory == input.IsReservationMandatory ||
+                    this.IsReservationMandatory.Equals(input.IsReservationMandatory)
                 );
         }
 
@@ -224,6 +238,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CouponSettings.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                hashCode = hashCode * 59 + this.IsReservationMandatory.GetHashCode();
                 return hashCode;
             }
         }

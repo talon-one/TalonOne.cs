@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -34,17 +34,14 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReturnedCartItem" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ReturnedCartItem() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ReturnedCartItem" /> class.
-        /// </summary>
-        /// <param name="position">The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property. (required).</param>
+        /// <param name="position">The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property..</param>
         /// <param name="quantity">Number of cart items to return. .</param>
-        public ReturnedCartItem(long position = default(long), long quantity = default(long))
+        /// <param name="sku">The SKU of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property..</param>
+        public ReturnedCartItem(long position = default(long), long quantity = default(long), string sku = default(string))
         {
             this.Position = position;
             this.Quantity = quantity;
+            this.Sku = sku;
         }
         
         /// <summary>
@@ -62,6 +59,13 @@ namespace TalonOne.Model
         public long Quantity { get; set; }
 
         /// <summary>
+        /// The SKU of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property.
+        /// </summary>
+        /// <value>The SKU of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property.</value>
+        [DataMember(Name="sku", EmitDefaultValue=false)]
+        public string Sku { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,6 +75,7 @@ namespace TalonOne.Model
             sb.Append("class ReturnedCartItem {\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
             sb.Append("  Quantity: ").Append(Quantity).Append("\n");
+            sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,6 +117,11 @@ namespace TalonOne.Model
                 (
                     this.Quantity == input.Quantity ||
                     this.Quantity.Equals(input.Quantity)
+                ) && 
+                (
+                    this.Sku == input.Sku ||
+                    (this.Sku != null &&
+                    this.Sku.Equals(input.Sku))
                 );
         }
 
@@ -126,6 +136,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Position.GetHashCode();
                 hashCode = hashCode * 59 + this.Quantity.GetHashCode();
+                if (this.Sku != null)
+                    hashCode = hashCode * 59 + this.Sku.GetHashCode();
                 return hashCode;
             }
         }
@@ -137,6 +149,12 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Sku (string) minLength
+            if(this.Sku != null && this.Sku.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sku, length must be greater than 1.", new [] { "Sku" });
+            }
+
             yield break;
         }
     }

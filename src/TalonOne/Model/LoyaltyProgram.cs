@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -194,11 +194,10 @@ namespace TalonOne.Model
         /// <param name="timezone">A string containing an IANA timezone descriptor. (required).</param>
         /// <param name="cardBased">Defines the type of loyalty program: - &#x60;true&#x60;: the program is a card-based. - &#x60;false&#x60;: the program is profile-based.  (required) (default to false).</param>
         /// <param name="canUpdateTiers">&#x60;True&#x60; if the tier definitions can be updated.  (default to false).</param>
-        /// <param name="canUpdateJoinPolicy">&#x60;True&#x60; if the program join policy can be updated. .</param>
         /// <param name="canUpdateTierExpirationPolicy">&#x60;True&#x60; if the tier expiration policy can be updated. .</param>
         /// <param name="canUpgradeToAdvancedTiers">&#x60;True&#x60; if the program can be upgraded to use the &#x60;tiersExpireIn&#x60; and &#x60;tiersDowngradePolicy&#x60; properties.  (default to false).</param>
         /// <param name="canUpdateSubledgers">&#x60;True&#x60; if the &#x60;allowSubledger&#x60; property can be updated in the loyalty program.  (default to false).</param>
-        public LoyaltyProgram(long id = default(long), DateTime created = default(DateTime), string title = default(string), string description = default(string), List<long> subscribedApplications = default(List<long>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), long usersPerCardLimit = default(long), bool sandbox = default(bool), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), DateTime tierCycleStartDate = default(DateTime), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings), ReturnPolicyEnum? returnPolicy = default(ReturnPolicyEnum?), long accountID = default(long), string name = default(string), List<LoyaltyTier> tiers = default(List<LoyaltyTier>), string timezone = default(string), bool cardBased = false, bool canUpdateTiers = false, bool canUpdateJoinPolicy = default(bool), bool canUpdateTierExpirationPolicy = default(bool), bool canUpgradeToAdvancedTiers = false, bool canUpdateSubledgers = false)
+        public LoyaltyProgram(long id = default(long), DateTime created = default(DateTime), string title = default(string), string description = default(string), List<long> subscribedApplications = default(List<long>), string defaultValidity = default(string), string defaultPending = default(string), bool allowSubledger = default(bool), long usersPerCardLimit = default(long), bool sandbox = default(bool), ProgramJoinPolicyEnum? programJoinPolicy = default(ProgramJoinPolicyEnum?), TiersExpirationPolicyEnum? tiersExpirationPolicy = default(TiersExpirationPolicyEnum?), DateTime tierCycleStartDate = default(DateTime), string tiersExpireIn = default(string), TiersDowngradePolicyEnum? tiersDowngradePolicy = default(TiersDowngradePolicyEnum?), CodeGeneratorSettings cardCodeSettings = default(CodeGeneratorSettings), ReturnPolicyEnum? returnPolicy = default(ReturnPolicyEnum?), long accountID = default(long), string name = default(string), List<LoyaltyTier> tiers = default(List<LoyaltyTier>), string timezone = default(string), bool cardBased = false, bool canUpdateTiers = false, bool canUpdateTierExpirationPolicy = default(bool), bool canUpgradeToAdvancedTiers = false, bool canUpdateSubledgers = false)
         {
             this.Id = id;
             this.Created = created;
@@ -230,7 +229,6 @@ namespace TalonOne.Model
             this.ReturnPolicy = returnPolicy;
             this.Tiers = tiers;
             this.CanUpdateTiers = canUpdateTiers;
-            this.CanUpdateJoinPolicy = canUpdateJoinPolicy;
             this.CanUpdateTierExpirationPolicy = canUpdateTierExpirationPolicy;
             this.CanUpgradeToAdvancedTiers = canUpgradeToAdvancedTiers;
             this.CanUpdateSubledgers = canUpdateSubledgers;
@@ -369,13 +367,6 @@ namespace TalonOne.Model
         public bool CanUpdateTiers { get; set; }
 
         /// <summary>
-        /// &#x60;True&#x60; if the program join policy can be updated. 
-        /// </summary>
-        /// <value>&#x60;True&#x60; if the program join policy can be updated. </value>
-        [DataMember(Name="canUpdateJoinPolicy", EmitDefaultValue=false)]
-        public bool CanUpdateJoinPolicy { get; set; }
-
-        /// <summary>
         /// &#x60;True&#x60; if the tier expiration policy can be updated. 
         /// </summary>
         /// <value>&#x60;True&#x60; if the tier expiration policy can be updated. </value>
@@ -427,7 +418,6 @@ namespace TalonOne.Model
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  CardBased: ").Append(CardBased).Append("\n");
             sb.Append("  CanUpdateTiers: ").Append(CanUpdateTiers).Append("\n");
-            sb.Append("  CanUpdateJoinPolicy: ").Append(CanUpdateJoinPolicy).Append("\n");
             sb.Append("  CanUpdateTierExpirationPolicy: ").Append(CanUpdateTierExpirationPolicy).Append("\n");
             sb.Append("  CanUpgradeToAdvancedTiers: ").Append(CanUpgradeToAdvancedTiers).Append("\n");
             sb.Append("  CanUpdateSubledgers: ").Append(CanUpdateSubledgers).Append("\n");
@@ -572,10 +562,6 @@ namespace TalonOne.Model
                     this.CanUpdateTiers.Equals(input.CanUpdateTiers)
                 ) && 
                 (
-                    this.CanUpdateJoinPolicy == input.CanUpdateJoinPolicy ||
-                    this.CanUpdateJoinPolicy.Equals(input.CanUpdateJoinPolicy)
-                ) && 
-                (
                     this.CanUpdateTierExpirationPolicy == input.CanUpdateTierExpirationPolicy ||
                     this.CanUpdateTierExpirationPolicy.Equals(input.CanUpdateTierExpirationPolicy)
                 ) && 
@@ -633,7 +619,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 hashCode = hashCode * 59 + this.CardBased.GetHashCode();
                 hashCode = hashCode * 59 + this.CanUpdateTiers.GetHashCode();
-                hashCode = hashCode * 59 + this.CanUpdateJoinPolicy.GetHashCode();
                 hashCode = hashCode * 59 + this.CanUpdateTierExpirationPolicy.GetHashCode();
                 hashCode = hashCode * 59 + this.CanUpgradeToAdvancedTiers.GetHashCode();
                 hashCode = hashCode * 59 + this.CanUpdateSubledgers.GetHashCode();

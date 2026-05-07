@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **Campaign** | [**Campaign**](Campaign.md) |  | 
 **OldCampaign** | [**Campaign**](Campaign.md) |  | 
 **Ruleset** | [**Ruleset**](Ruleset.md) |  | [optional] 
+**Placeholders** | [**List&lt;PlaceholderDetails&gt;**](PlaceholderDetails.md) | The current details of the [placeholders](https://docs.talon.one/docs/product/campaigns/templates/create-templates#use-placeholders) in the campaign. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

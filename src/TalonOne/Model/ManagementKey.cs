@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -48,7 +48,8 @@ namespace TalonOne.Model
         /// <param name="accountID">ID of account the key is used for. (required).</param>
         /// <param name="created">The date the management key was created. (required).</param>
         /// <param name="disabled">The management key is disabled (this property is set to &#x60;true&#x60;) when the user who created the key is disabled or deleted..</param>
-        public ManagementKey(string name = default(string), DateTime expiryDate = default(DateTime), List<Endpoint> endpoints = default(List<Endpoint>), List<long> allowedApplicationIds = default(List<long>), long id = default(long), long createdBy = default(long), long accountID = default(long), DateTime created = default(DateTime), bool disabled = default(bool))
+        /// <param name="lastUsed">The last time the management key was used..</param>
+        public ManagementKey(string name = default(string), DateTime expiryDate = default(DateTime), List<Endpoint> endpoints = default(List<Endpoint>), List<long> allowedApplicationIds = default(List<long>), long id = default(long), long createdBy = default(long), long accountID = default(long), DateTime created = default(DateTime), bool disabled = default(bool), DateTime lastUsed = default(DateTime))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for ManagementKey and cannot be null");
@@ -61,6 +62,7 @@ namespace TalonOne.Model
             this.Created = created;
             this.AllowedApplicationIds = allowedApplicationIds;
             this.Disabled = disabled;
+            this.LastUsed = lastUsed;
         }
         
         /// <summary>
@@ -127,6 +129,13 @@ namespace TalonOne.Model
         public bool Disabled { get; set; }
 
         /// <summary>
+        /// The last time the management key was used.
+        /// </summary>
+        /// <value>The last time the management key was used.</value>
+        [DataMember(Name="lastUsed", EmitDefaultValue=false)]
+        public DateTime LastUsed { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -143,6 +152,7 @@ namespace TalonOne.Model
             sb.Append("  AccountID: ").Append(AccountID).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Disabled: ").Append(Disabled).Append("\n");
+            sb.Append("  LastUsed: ").Append(LastUsed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -219,6 +229,11 @@ namespace TalonOne.Model
                 (
                     this.Disabled == input.Disabled ||
                     this.Disabled.Equals(input.Disabled)
+                ) && 
+                (
+                    this.LastUsed == input.LastUsed ||
+                    (this.LastUsed != null &&
+                    this.LastUsed.Equals(input.LastUsed))
                 );
         }
 
@@ -245,6 +260,8 @@ namespace TalonOne.Model
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.Disabled.GetHashCode();
+                if (this.LastUsed != null)
+                    hashCode = hashCode * 59 + this.LastUsed.GetHashCode();
                 return hashCode;
             }
         }

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **CouponAttributes** | [**Object**](.md) | The campaign attributes that coupons created from this template will have by default. | [optional] 
 **State** | **string** | Only Campaign Templates in &#39;available&#39; state may be used to create Campaigns. | 
 **Tags** | **List&lt;string&gt;** | A list of tags for the campaign template. | [optional] 
+**ReevaluateOnReturn** | **bool** | Indicates whether campaigns created from this template should be reevaluated when a customer returns an item. | [optional] 
 **Features** | **List&lt;string&gt;** | A list of features for the campaign template. | [optional] 
 **CouponSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **CouponReservationSettings** | [**CampaignTemplateCouponReservationSettings**](CampaignTemplateCouponReservationSettings.md) |  | [optional] 

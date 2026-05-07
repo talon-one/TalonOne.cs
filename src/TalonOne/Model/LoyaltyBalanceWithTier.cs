@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -42,7 +42,7 @@ namespace TalonOne.Model
         /// <param name="currentTier">currentTier.</param>
         /// <param name="projectedTier">projectedTier.</param>
         /// <param name="pointsToNextTier">The number of points required to move up a tier..</param>
-        /// <param name="nextTierName">The name of the tier consecutive to the current tier..</param>
+        /// <param name="nextTierName">The name of the next higher tier level in the loyalty program.  **Note**: - Returns &#x60;null&#x60; if the customer has reached the highest available tier. - Returns the lowest level tier name if the customer is not currently assigned to any tier. .</param>
         public LoyaltyBalanceWithTier(decimal activePoints = default(decimal), decimal pendingPoints = default(decimal), decimal spentPoints = default(decimal), decimal expiredPoints = default(decimal), decimal negativePoints = default(decimal), Tier currentTier = default(Tier), ProjectedTier projectedTier = default(ProjectedTier), decimal pointsToNextTier = default(decimal), string nextTierName = default(string))
         {
             this.ActivePoints = activePoints;
@@ -111,9 +111,9 @@ namespace TalonOne.Model
         public decimal PointsToNextTier { get; set; }
 
         /// <summary>
-        /// The name of the tier consecutive to the current tier.
+        /// The name of the next higher tier level in the loyalty program.  **Note**: - Returns &#x60;null&#x60; if the customer has reached the highest available tier. - Returns the lowest level tier name if the customer is not currently assigned to any tier. 
         /// </summary>
-        /// <value>The name of the tier consecutive to the current tier.</value>
+        /// <value>The name of the next higher tier level in the loyalty program.  **Note**: - Returns &#x60;null&#x60; if the customer has reached the highest available tier. - Returns the lowest level tier name if the customer is not currently assigned to any tier. </value>
         [DataMember(Name="nextTierName", EmitDefaultValue=false)]
         public string NextTierName { get; set; }
 

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -34,31 +34,17 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20050" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InlineResponse20050() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse20050" /> class.
-        /// </summary>
-        /// <param name="hasMore">hasMore.</param>
-        /// <param name="data">data (required).</param>
-        public InlineResponse20050(bool hasMore = default(bool), List<Achievement> data = default(List<Achievement>))
+        /// <param name="data">data.</param>
+        public InlineResponse20050(List<SummaryCampaignStoreBudget> data = default(List<SummaryCampaignStoreBudget>))
         {
-            // to ensure "data" is required (not null)
-            this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20050 and cannot be null");
-            this.HasMore = hasMore;
+            this.Data = data;
         }
         
-        /// <summary>
-        /// Gets or Sets HasMore
-        /// </summary>
-        [DataMember(Name="hasMore", EmitDefaultValue=false)]
-        public bool HasMore { get; set; }
-
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<Achievement> Data { get; set; }
+        public List<SummaryCampaignStoreBudget> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -68,7 +54,6 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20050 {\n");
-            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,10 +90,6 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.HasMore == input.HasMore ||
-                    this.HasMore.Equals(input.HasMore)
-                ) && 
-                (
                     this.Data == input.Data ||
                     this.Data != null &&
                     input.Data != null &&
@@ -125,7 +106,6 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.HasMore.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;

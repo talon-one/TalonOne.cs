@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -77,9 +77,9 @@ namespace TalonOne.Model
 
 
         /// <summary>
-        /// Optional list of requested information to be present on the response related to the tracking custom event. 
+        /// Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints. 
         /// </summary>
-        /// <value>Optional list of requested information to be present on the response related to the tracking custom event. </value>
+        /// <value>Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints. </value>
         [DataMember(Name="responseContent", EmitDefaultValue=false)]
         public List<ResponseContentEnum> ResponseContent { get; set; }
         /// <summary>
@@ -95,9 +95,9 @@ namespace TalonOne.Model
         /// <param name="evaluableCampaignIds">When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. .</param>
         /// <param name="type">A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager.  (required).</param>
         /// <param name="attributes">Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute)..</param>
-        /// <param name="loyaltyCards">Identifier of the loyalty card used during this event..</param>
-        /// <param name="responseContent">Optional list of requested information to be present on the response related to the tracking custom event. .</param>
-        public IntegrationEventV2Request(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), string type = default(string), Object attributes = default(Object), List<string> loyaltyCards = default(List<string>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
+        /// <param name="responseContent">Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints. .</param>
+        /// <param name="loyaltyCards">Identifiers of the loyalty cards used during this event..</param>
+        public IntegrationEventV2Request(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), string type = default(string), Object attributes = default(Object), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>), List<string> loyaltyCards = default(List<string>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IntegrationEventV2Request and cannot be null");
@@ -105,8 +105,8 @@ namespace TalonOne.Model
             this.StoreIntegrationId = storeIntegrationId;
             this.EvaluableCampaignIds = evaluableCampaignIds;
             this.Attributes = attributes;
-            this.LoyaltyCards = loyaltyCards;
             this.ResponseContent = responseContent;
+            this.LoyaltyCards = loyaltyCards;
         }
         
         /// <summary>
@@ -145,9 +145,9 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// Identifier of the loyalty card used during this event.
+        /// Identifiers of the loyalty cards used during this event.
         /// </summary>
-        /// <value>Identifier of the loyalty card used during this event.</value>
+        /// <value>Identifiers of the loyalty cards used during this event.</value>
         [DataMember(Name="loyaltyCards", EmitDefaultValue=false)]
         public List<string> LoyaltyCards { get; set; }
 
@@ -164,8 +164,8 @@ namespace TalonOne.Model
             sb.Append("  EvaluableCampaignIds: ").Append(EvaluableCampaignIds).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
-            sb.Append("  LoyaltyCards: ").Append(LoyaltyCards).Append("\n");
             sb.Append("  ResponseContent: ").Append(ResponseContent).Append("\n");
+            sb.Append("  LoyaltyCards: ").Append(LoyaltyCards).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -227,14 +227,14 @@ namespace TalonOne.Model
                     this.Attributes.Equals(input.Attributes))
                 ) && 
                 (
+                    this.ResponseContent == input.ResponseContent ||
+                    this.ResponseContent.SequenceEqual(input.ResponseContent)
+                ) && 
+                (
                     this.LoyaltyCards == input.LoyaltyCards ||
                     this.LoyaltyCards != null &&
                     input.LoyaltyCards != null &&
                     this.LoyaltyCards.SequenceEqual(input.LoyaltyCards)
-                ) && 
-                (
-                    this.ResponseContent == input.ResponseContent ||
-                    this.ResponseContent.SequenceEqual(input.ResponseContent)
                 );
         }
 
@@ -257,9 +257,9 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                hashCode = hashCode * 59 + this.ResponseContent.GetHashCode();
                 if (this.LoyaltyCards != null)
                     hashCode = hashCode * 59 + this.LoyaltyCards.GetHashCode();
-                hashCode = hashCode * 59 + this.ResponseContent.GetHashCode();
                 return hashCode;
             }
         }

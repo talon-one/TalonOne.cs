@@ -13,8 +13,9 @@ Name | Type | Description | Notes
 **EndTime** | **DateTime** | Timestamp when the campaign will become inactive. | [optional] 
 **Attributes** | [**Object**](.md) | Arbitrary properties associated with this campaign. | [optional] 
 **State** | **string** | A disabled or archived campaign is not evaluated for rules or coupons.  | [default to StateEnum.Enabled]
-**ActiveRulesetId** | **long** | [ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation.  | [optional] 
+**ActiveRulesetId** | **long** | [ID of Ruleset](https://docs.talon.one/management-api#tag/Campaigns/operation/getRulesets) this campaign applies on customer session evaluation.  | [optional] 
 **Tags** | **List&lt;string&gt;** | A list of tags for the campaign. | 
+**ReevaluateOnReturn** | **bool** | Indicates whether this campaign should be reevaluated when a customer returns an item. | 
 **Features** | **List&lt;string&gt;** | The features enabled in this campaign. | 
 **CouponSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **ReferralSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
@@ -22,6 +23,7 @@ Name | Type | Description | Notes
 **CampaignGroups** | **List&lt;long&gt;** | The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to.  | [optional] 
 **Type** | **string** | The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  | [default to TypeEnum.Advanced]
 **LinkedStoreIds** | **List&lt;long&gt;** | A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store.  | [optional] 
+**CouponAttributes** | [**Object**](.md) | Arbitrary properties associated with coupons in this campaign. | [optional] 
 **Budgets** | [**List&lt;CampaignBudget&gt;**](CampaignBudget.md) | A list of all the budgets that are defined by this campaign and their usage.  **Note:** Budgets that are not defined do not appear in this list and their usage is not counted until they are defined.  | [optional] 
 **CouponRedemptionCount** | **long** | This property is **deprecated**. The count should be available under *budgets* property. Number of coupons redeemed in the campaign.  | [optional] 
 **ReferralRedemptionCount** | **long** | This property is **deprecated**. The count should be available under *budgets* property. Number of referral codes redeemed in the campaign.  | [optional] 
@@ -46,6 +48,7 @@ Name | Type | Description | Notes
 **FrontendState** | **string** | The campaign state displayed in the Campaign Manager. | 
 **StoresImported** | **bool** | Indicates whether the linked stores were imported via a CSV file. | 
 **ValueMapsIds** | **List&lt;long&gt;** | A list of value map IDs for the campaign. | [optional] 
+**ExperimentId** | **long** | The ID of the Experiment this Campaign is part of. | [optional] 
 **RevisionFrontendState** | **string** | The campaign revision state displayed in the Campaign Manager. | [optional] 
 **ActiveRevisionId** | **long** | ID of the revision that was last activated on this campaign.  | [optional] 
 **ActiveRevisionVersionId** | **long** | ID of the revision version that is active on the campaign.  | [optional] 

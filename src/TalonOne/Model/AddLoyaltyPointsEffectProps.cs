@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -50,10 +50,12 @@ namespace TalonOne.Model
         /// <param name="transactionUUID">The identifier of this addition in the loyalty ledger. (required).</param>
         /// <param name="cartItemPosition">The index of the item in the cart items list on which the loyal points addition should be applied..</param>
         /// <param name="cartItemSubPosition">For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates to which item the loyalty points addition is applied. .</param>
-        /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
+        /// <param name="cardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
         /// <param name="bundleIndex">The position of the bundle in a list of item bundles created from the same bundle definition..</param>
         /// <param name="bundleName">The name of the bundle definition..</param>
-        public AddLoyaltyPointsEffectProps(string name = default(string), long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), decimal desiredValue = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), string cardIdentifier = default(string), long bundleIndex = default(long), string bundleName = default(string))
+        /// <param name="awaitsActivation">If &#x60;true&#x60;, the loyalty points remain pending until a specific action is complete. The &#x60;startDate&#x60; parameter automatically sets to &#x60;on_action&#x60;. .</param>
+        /// <param name="validityDuration">The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set. .</param>
+        public AddLoyaltyPointsEffectProps(string name = default(string), long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), decimal desiredValue = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), string cardIdentifier = default(string), long bundleIndex = default(long), string bundleName = default(string), bool awaitsActivation = default(bool), string validityDuration = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for AddLoyaltyPointsEffectProps and cannot be null");
@@ -73,6 +75,8 @@ namespace TalonOne.Model
             this.CardIdentifier = cardIdentifier;
             this.BundleIndex = bundleIndex;
             this.BundleName = bundleName;
+            this.AwaitsActivation = awaitsActivation;
+            this.ValidityDuration = validityDuration;
         }
         
         /// <summary>
@@ -153,9 +157,9 @@ namespace TalonOne.Model
         public decimal CartItemSubPosition { get; set; }
 
         /// <summary>
-        /// The alphanumeric identifier of the loyalty card. 
+        /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
-        /// <value>The alphanumeric identifier of the loyalty card. </value>
+        /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
         [DataMember(Name="cardIdentifier", EmitDefaultValue=false)]
         public string CardIdentifier { get; set; }
 
@@ -172,6 +176,20 @@ namespace TalonOne.Model
         /// <value>The name of the bundle definition.</value>
         [DataMember(Name="bundleName", EmitDefaultValue=false)]
         public string BundleName { get; set; }
+
+        /// <summary>
+        /// If &#x60;true&#x60;, the loyalty points remain pending until a specific action is complete. The &#x60;startDate&#x60; parameter automatically sets to &#x60;on_action&#x60;. 
+        /// </summary>
+        /// <value>If &#x60;true&#x60;, the loyalty points remain pending until a specific action is complete. The &#x60;startDate&#x60; parameter automatically sets to &#x60;on_action&#x60;. </value>
+        [DataMember(Name="awaitsActivation", EmitDefaultValue=false)]
+        public bool AwaitsActivation { get; set; }
+
+        /// <summary>
+        /// The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set. 
+        /// </summary>
+        /// <value>The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set. </value>
+        [DataMember(Name="validityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -195,6 +213,8 @@ namespace TalonOne.Model
             sb.Append("  CardIdentifier: ").Append(CardIdentifier).Append("\n");
             sb.Append("  BundleIndex: ").Append(BundleIndex).Append("\n");
             sb.Append("  BundleName: ").Append(BundleName).Append("\n");
+            sb.Append("  AwaitsActivation: ").Append(AwaitsActivation).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -292,6 +312,15 @@ namespace TalonOne.Model
                     this.BundleName == input.BundleName ||
                     (this.BundleName != null &&
                     this.BundleName.Equals(input.BundleName))
+                ) && 
+                (
+                    this.AwaitsActivation == input.AwaitsActivation ||
+                    this.AwaitsActivation.Equals(input.AwaitsActivation)
+                ) && 
+                (
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
                 );
         }
 
@@ -326,6 +355,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.BundleIndex.GetHashCode();
                 if (this.BundleName != null)
                     hashCode = hashCode * 59 + this.BundleName.GetHashCode();
+                hashCode = hashCode * 59 + this.AwaitsActivation.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
                 return hashCode;
             }
         }
@@ -349,8 +381,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be less than 108.", new [] { "CardIdentifier" });
             }
 
+            // CardIdentifier (string) minLength
+            if(this.CardIdentifier != null && this.CardIdentifier.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be greater than 4.", new [] { "CardIdentifier" });
+            }
+
             // CardIdentifier (string) pattern
-            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
             if (false == regexCardIdentifier.Match(this.CardIdentifier).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, must match a pattern of " + regexCardIdentifier, new [] { "CardIdentifier" });

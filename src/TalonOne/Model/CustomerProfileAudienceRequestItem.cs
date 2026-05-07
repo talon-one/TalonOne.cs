@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -68,7 +68,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="action">Defines the action to perform: - &#x60;add&#x60;: Adds the customer profile to the audience.    **Note**: If the customer profile does not exist, it will be created. The profile will not be visible in any Application   until a session or profile update is received for that profile. - &#x60;delete&#x60;: Removes the customer profile from the audience.  (required).</param>
         /// <param name="profileIntegrationId">The ID of this customer profile in the third-party integration. (required).</param>
-        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2). (required).</param>
+        /// <param name="audienceId">The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#tag/Audiences/operation/createAudienceV2). (required).</param>
         public CustomerProfileAudienceRequestItem(ActionEnum action = default(ActionEnum), string profileIntegrationId = default(string), long audienceId = default(long))
         {
             this.Action = action;
@@ -85,9 +85,9 @@ namespace TalonOne.Model
         public string ProfileIntegrationId { get; set; }
 
         /// <summary>
-        /// The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).
+        /// The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#tag/Audiences/operation/createAudienceV2).
         /// </summary>
-        /// <value>The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#operation/createAudienceV2).</value>
+        /// <value>The ID of the audience. You get it via the &#x60;id&#x60; property when [creating an audience](#tag/Audiences/operation/createAudienceV2).</value>
         [DataMember(Name="audienceId", EmitDefaultValue=false)]
         public long AudienceId { get; set; }
 

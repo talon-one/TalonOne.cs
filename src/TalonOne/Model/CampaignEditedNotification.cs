@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -32,6 +32,27 @@ namespace TalonOne.Model
     public partial class CampaignEditedNotification :  IEquatable<CampaignEditedNotification>, IValidatableObject
     {
         /// <summary>
+        /// The type of the notification
+        /// </summary>
+        /// <value>The type of the notification</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum NotificationTypeEnum
+        {
+            /// <summary>
+            /// Enum CampaignNotification for value: CampaignNotification
+            /// </summary>
+            [EnumMember(Value = "CampaignNotification")]
+            CampaignNotification = 1
+
+        }
+
+        /// <summary>
+        /// The type of the notification
+        /// </summary>
+        /// <value>The type of the notification</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public NotificationTypeEnum NotificationType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CampaignEditedNotification" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -42,21 +63,13 @@ namespace TalonOne.Model
         /// <param name="notificationType">The type of the notification (required).</param>
         /// <param name="totalResultSize">The total size of the result set. (required).</param>
         /// <param name="data">A list of campaign notification data..</param>
-        public CampaignEditedNotification(string notificationType = default(string), long totalResultSize = default(long), List<CampaignEditedNotificationItem> data = default(List<CampaignEditedNotificationItem>))
+        public CampaignEditedNotification(NotificationTypeEnum notificationType = default(NotificationTypeEnum), long totalResultSize = default(long), List<CampaignEditedNotificationItem> data = default(List<CampaignEditedNotificationItem>))
         {
-            // to ensure "notificationType" is required (not null)
-            this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for CampaignEditedNotification and cannot be null");
+            this.NotificationType = notificationType;
             this.TotalResultSize = totalResultSize;
             this.Data = data;
         }
         
-        /// <summary>
-        /// The type of the notification
-        /// </summary>
-        /// <value>The type of the notification</value>
-        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
-        public string NotificationType { get; set; }
-
         /// <summary>
         /// The total size of the result set.
         /// </summary>
@@ -118,8 +131,7 @@ namespace TalonOne.Model
             return 
                 (
                     this.NotificationType == input.NotificationType ||
-                    (this.NotificationType != null &&
-                    this.NotificationType.Equals(input.NotificationType))
+                    this.NotificationType.Equals(input.NotificationType)
                 ) && 
                 (
                     this.TotalResultSize == input.TotalResultSize ||
@@ -142,8 +154,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.NotificationType != null)
-                    hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();

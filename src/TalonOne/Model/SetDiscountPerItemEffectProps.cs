@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -51,7 +51,8 @@ namespace TalonOne.Model
         /// <param name="bundleName">The name of the bundle definition..</param>
         /// <param name="targetedItemPosition">The index of the targeted bundle item on which the applied discount is based..</param>
         /// <param name="targetedItemSubPosition">The sub-position of the targeted bundle item on which the applied discount is based. .</param>
-        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), decimal desiredValue = default(decimal), string scope = default(string), decimal totalDiscount = default(decimal), decimal desiredTotalDiscount = default(decimal), long bundleIndex = default(long), string bundleName = default(string), decimal targetedItemPosition = default(decimal), decimal targetedItemSubPosition = default(decimal))
+        /// <param name="excludedFromPriceHistory">When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history..</param>
+        public SetDiscountPerItemEffectProps(string name = default(string), decimal value = default(decimal), decimal position = default(decimal), decimal subPosition = default(decimal), decimal desiredValue = default(decimal), string scope = default(string), decimal totalDiscount = default(decimal), decimal desiredTotalDiscount = default(decimal), long bundleIndex = default(long), string bundleName = default(string), decimal targetedItemPosition = default(decimal), decimal targetedItemSubPosition = default(decimal), bool excludedFromPriceHistory = default(bool))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for SetDiscountPerItemEffectProps and cannot be null");
@@ -66,6 +67,7 @@ namespace TalonOne.Model
             this.BundleName = bundleName;
             this.TargetedItemPosition = targetedItemPosition;
             this.TargetedItemSubPosition = targetedItemSubPosition;
+            this.ExcludedFromPriceHistory = excludedFromPriceHistory;
         }
         
         /// <summary>
@@ -153,6 +155,13 @@ namespace TalonOne.Model
         public decimal TargetedItemSubPosition { get; set; }
 
         /// <summary>
+        /// When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history.
+        /// </summary>
+        /// <value>When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history.</value>
+        [DataMember(Name="excludedFromPriceHistory", EmitDefaultValue=false)]
+        public bool ExcludedFromPriceHistory { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -172,6 +181,7 @@ namespace TalonOne.Model
             sb.Append("  BundleName: ").Append(BundleName).Append("\n");
             sb.Append("  TargetedItemPosition: ").Append(TargetedItemPosition).Append("\n");
             sb.Append("  TargetedItemSubPosition: ").Append(TargetedItemSubPosition).Append("\n");
+            sb.Append("  ExcludedFromPriceHistory: ").Append(ExcludedFromPriceHistory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -256,6 +266,10 @@ namespace TalonOne.Model
                 (
                     this.TargetedItemSubPosition == input.TargetedItemSubPosition ||
                     this.TargetedItemSubPosition.Equals(input.TargetedItemSubPosition)
+                ) && 
+                (
+                    this.ExcludedFromPriceHistory == input.ExcludedFromPriceHistory ||
+                    this.ExcludedFromPriceHistory.Equals(input.ExcludedFromPriceHistory)
                 );
         }
 
@@ -283,6 +297,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.BundleName.GetHashCode();
                 hashCode = hashCode * 59 + this.TargetedItemPosition.GetHashCode();
                 hashCode = hashCode * 59 + this.TargetedItemSubPosition.GetHashCode();
+                hashCode = hashCode * 59 + this.ExcludedFromPriceHistory.GetHashCode();
                 return hashCode;
             }
         }

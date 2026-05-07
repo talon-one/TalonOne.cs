@@ -11,7 +11,8 @@ Name | Type | Description | Notes
 **TotalBatches** | **long** | The total number of batches for the notification. | 
 **Trigger** | [**StrikethroughTrigger**](StrikethroughTrigger.md) |  | 
 **ChangedItems** | [**List&lt;StrikethroughChangedItem&gt;**](StrikethroughChangedItem.md) |  | 
-**NotificationType** | **string** | The type of the notification | 
+**NotificationType** | **string** | The type of notification. | 
+**SentAt** | **DateTime** | Timestamp at which the notification was sent. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

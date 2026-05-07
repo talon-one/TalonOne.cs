@@ -15,9 +15,11 @@ Name | Type | Description | Notes
 **TransactionUUID** | **string** | The identifier of this addition in the loyalty ledger. | 
 **CartItemPosition** | **decimal** | The index of the item in the cart items list on which the loyal points addition should be applied. | [optional] 
 **CartItemSubPosition** | **decimal** | For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates to which item the loyalty points addition is applied.  | [optional] 
-**CardIdentifier** | **string** | The alphanumeric identifier of the loyalty card.  | [optional] 
+**CardIdentifier** | **string** | The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  | [optional] 
 **BundleIndex** | **long** | The position of the bundle in a list of item bundles created from the same bundle definition. | [optional] 
 **BundleName** | **string** | The name of the bundle definition. | [optional] 
+**AwaitsActivation** | **bool** | If &#x60;true&#x60;, the loyalty points remain pending until a specific action is complete. The &#x60;startDate&#x60; parameter automatically sets to &#x60;on_action&#x60;.  | [optional] 
+**ValidityDuration** | **string** | The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

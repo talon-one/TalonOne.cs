@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **State** | **string** | Only campaign templates in &#39;available&#39; state may be used to create campaigns. | 
 **ActiveRulesetId** | **long** | The ID of the ruleset this campaign template will use. | [optional] 
 **Tags** | **List&lt;string&gt;** | A list of tags for the campaign template. | [optional] 
+**ReevaluateOnReturn** | **bool** | Indicates whether campaigns created from this template should be reevaluated when a customer returns an item. | 
 **Features** | **List&lt;string&gt;** | A list of features for the campaign template. | [optional] 
 **CouponSettings** | [**CodeGeneratorSettings**](CodeGeneratorSettings.md) |  | [optional] 
 **CouponReservationSettings** | [**CampaignTemplateCouponReservationSettings**](CampaignTemplateCouponReservationSettings.md) |  | [optional] 
@@ -25,6 +26,7 @@ Name | Type | Description | Notes
 **CampaignCollections** | [**List&lt;CampaignTemplateCollection&gt;**](CampaignTemplateCollection.md) | The campaign collections from the blueprint campaign for the template. | [optional] 
 **DefaultCampaignGroupId** | **long** | The default campaign group ID. | [optional] 
 **CampaignType** | **string** | The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  | [default to CampaignTypeEnum.Advanced]
+**CampaignsCount** | **long** | The number of Campaigns created from this template. | [optional] 
 **Updated** | **DateTime** | Timestamp of the most recent update to the campaign template or any of its elements. | [optional] 
 **UpdatedBy** | **string** | Name of the user who last updated this campaign template, if available. | [optional] 
 **ValidApplicationIds** | **List&lt;long&gt;** | The IDs of the Applications that are related to this entity. | 

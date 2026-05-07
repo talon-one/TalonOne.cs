@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -49,7 +49,8 @@ namespace TalonOne.Model
         /// <param name="tentativeNegativeBalance">The tentative negative balance after all additions and deductions from the current customer session are applied to &#x60;negativeBalance&#x60;. When the session is closed, the tentative effects are applied and &#x60;negativeBalance&#x60; is updated to this value.  **Note:** Tentative balances are specific to the current session and do not take into account other open sessions for the given customer. .</param>
         /// <param name="currentTier">currentTier.</param>
         /// <param name="pointsToNextTier">Points required to move up a tier..</param>
-        public LedgerInfo(decimal currentBalance = default(decimal), decimal pendingBalance = default(decimal), decimal negativeBalance = default(decimal), decimal expiredBalance = default(decimal), decimal spentBalance = default(decimal), decimal tentativeCurrentBalance = default(decimal), decimal tentativePendingBalance = default(decimal), decimal tentativeNegativeBalance = default(decimal), Tier currentTier = default(Tier), decimal pointsToNextTier = default(decimal))
+        /// <param name="nextTierName">The name of the next higher tier level in the loyalty program.  **Note**: - Returns &#x60;null&#x60; if the customer has reached the highest available tier. - Returns the lowest level tier name if the customer is not currently assigned to any tier. .</param>
+        public LedgerInfo(decimal currentBalance = default(decimal), decimal pendingBalance = default(decimal), decimal negativeBalance = default(decimal), decimal expiredBalance = default(decimal), decimal spentBalance = default(decimal), decimal tentativeCurrentBalance = default(decimal), decimal tentativePendingBalance = default(decimal), decimal tentativeNegativeBalance = default(decimal), Tier currentTier = default(Tier), decimal pointsToNextTier = default(decimal), string nextTierName = default(string))
         {
             this.CurrentBalance = currentBalance;
             this.PendingBalance = pendingBalance;
@@ -61,6 +62,7 @@ namespace TalonOne.Model
             this.TentativeNegativeBalance = tentativeNegativeBalance;
             this.CurrentTier = currentTier;
             this.PointsToNextTier = pointsToNextTier;
+            this.NextTierName = nextTierName;
         }
         
         /// <summary>
@@ -133,6 +135,13 @@ namespace TalonOne.Model
         public decimal PointsToNextTier { get; set; }
 
         /// <summary>
+        /// The name of the next higher tier level in the loyalty program.  **Note**: - Returns &#x60;null&#x60; if the customer has reached the highest available tier. - Returns the lowest level tier name if the customer is not currently assigned to any tier. 
+        /// </summary>
+        /// <value>The name of the next higher tier level in the loyalty program.  **Note**: - Returns &#x60;null&#x60; if the customer has reached the highest available tier. - Returns the lowest level tier name if the customer is not currently assigned to any tier. </value>
+        [DataMember(Name="nextTierName", EmitDefaultValue=false)]
+        public string NextTierName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -150,6 +159,7 @@ namespace TalonOne.Model
             sb.Append("  TentativeNegativeBalance: ").Append(TentativeNegativeBalance).Append("\n");
             sb.Append("  CurrentTier: ").Append(CurrentTier).Append("\n");
             sb.Append("  PointsToNextTier: ").Append(PointsToNextTier).Append("\n");
+            sb.Append("  NextTierName: ").Append(NextTierName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -224,6 +234,11 @@ namespace TalonOne.Model
                 (
                     this.PointsToNextTier == input.PointsToNextTier ||
                     this.PointsToNextTier.Equals(input.PointsToNextTier)
+                ) && 
+                (
+                    this.NextTierName == input.NextTierName ||
+                    (this.NextTierName != null &&
+                    this.NextTierName.Equals(input.NextTierName))
                 );
         }
 
@@ -247,6 +262,8 @@ namespace TalonOne.Model
                 if (this.CurrentTier != null)
                     hashCode = hashCode * 59 + this.CurrentTier.GetHashCode();
                 hashCode = hashCode * 59 + this.PointsToNextTier.GetHashCode();
+                if (this.NextTierName != null)
+                    hashCode = hashCode * 59 + this.NextTierName.GetHashCode();
                 return hashCode;
             }
         }

@@ -4,6 +4,7 @@ A generic effect that is fired by a triggered campaign. The props property will 
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ExperimentId** | **long** | The ID of the experiment that campaign belongs to. | [optional] 
 **CampaignId** | **long** | The ID of the campaign that triggered this effect. | 
 **RulesetId** | **long** | The ID of the ruleset that was active in the campaign when this effect was triggered. | 
 **RuleIndex** | **long** | The position of the rule that triggered this effect within the ruleset. | 

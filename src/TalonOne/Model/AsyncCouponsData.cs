@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -32,6 +32,27 @@ namespace TalonOne.Model
     public partial class AsyncCouponsData :  IEquatable<AsyncCouponsData>, IValidatableObject
     {
         /// <summary>
+        /// The type of the notification
+        /// </summary>
+        /// <value>The type of the notification</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum NotificationTypeEnum
+        {
+            /// <summary>
+            /// Enum AsyncCouponsCreated for value: AsyncCouponsCreated
+            /// </summary>
+            [EnumMember(Value = "AsyncCouponsCreated")]
+            AsyncCouponsCreated = 1
+
+        }
+
+        /// <summary>
+        /// The type of the notification
+        /// </summary>
+        /// <value>The type of the notification</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public NotificationTypeEnum NotificationType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="AsyncCouponsData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -44,7 +65,7 @@ namespace TalonOne.Model
         /// <param name="operation">operation (required).</param>
         /// <param name="employeeName">employeeName (required).</param>
         /// <param name="notificationType">The type of the notification (required).</param>
-        public AsyncCouponsData(string batchID = default(string), string typeOfChange = default(string), string operation = default(string), string employeeName = default(string), string notificationType = default(string))
+        public AsyncCouponsData(string batchID = default(string), string typeOfChange = default(string), string operation = default(string), string employeeName = default(string), NotificationTypeEnum notificationType = default(NotificationTypeEnum))
         {
             // to ensure "batchID" is required (not null)
             this.BatchID = batchID ?? throw new ArgumentNullException("batchID is a required property for AsyncCouponsData and cannot be null");
@@ -54,8 +75,7 @@ namespace TalonOne.Model
             this.Operation = operation ?? throw new ArgumentNullException("operation is a required property for AsyncCouponsData and cannot be null");
             // to ensure "employeeName" is required (not null)
             this.EmployeeName = employeeName ?? throw new ArgumentNullException("employeeName is a required property for AsyncCouponsData and cannot be null");
-            // to ensure "notificationType" is required (not null)
-            this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for AsyncCouponsData and cannot be null");
+            this.NotificationType = notificationType;
         }
         
         /// <summary>
@@ -82,13 +102,6 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="EmployeeName", EmitDefaultValue=false)]
         public string EmployeeName { get; set; }
-
-        /// <summary>
-        /// The type of the notification
-        /// </summary>
-        /// <value>The type of the notification</value>
-        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
-        public string NotificationType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -159,8 +172,7 @@ namespace TalonOne.Model
                 ) && 
                 (
                     this.NotificationType == input.NotificationType ||
-                    (this.NotificationType != null &&
-                    this.NotificationType.Equals(input.NotificationType))
+                    this.NotificationType.Equals(input.NotificationType)
                 );
         }
 
@@ -181,8 +193,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Operation.GetHashCode();
                 if (this.EmployeeName != null)
                     hashCode = hashCode * 59 + this.EmployeeName.GetHashCode();
-                if (this.NotificationType != null)
-                    hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
                 return hashCode;
             }
         }

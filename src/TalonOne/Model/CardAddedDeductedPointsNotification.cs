@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -31,6 +31,33 @@ namespace TalonOne.Model
     [DataContract]
     public partial class CardAddedDeductedPointsNotification :  IEquatable<CardAddedDeductedPointsNotification>, IValidatableObject
     {
+        /// <summary>
+        /// The type of notification.
+        /// </summary>
+        /// <value>The type of notification.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum NotificationTypeEnum
+        {
+            /// <summary>
+            /// Enum LoyaltyCardPointsDeducted for value: LoyaltyCardPointsDeducted
+            /// </summary>
+            [EnumMember(Value = "LoyaltyCardPointsDeducted")]
+            LoyaltyCardPointsDeducted = 1,
+
+            /// <summary>
+            /// Enum LoyaltyCardPointsAdded for value: LoyaltyCardPointsAdded
+            /// </summary>
+            [EnumMember(Value = "LoyaltyCardPointsAdded")]
+            LoyaltyCardPointsAdded = 2
+
+        }
+
+        /// <summary>
+        /// The type of notification.
+        /// </summary>
+        /// <value>The type of notification.</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public NotificationTypeEnum NotificationType { get; set; }
         /// <summary>
         /// The notification source, that is, it indicates whether the points were added or deducted via one of the following routes:  - [The Campaign Manager](/docs/product/getting-started)  - [Management API](/management-api#tag/Loyalty)  - [Rule Engine](/docs/product/applications/evaluation-order-for-rules-and-filters) 
         /// </summary>
@@ -65,9 +92,9 @@ namespace TalonOne.Model
         [DataMember(Name="TypeOfChange", EmitDefaultValue=false)]
         public TypeOfChangeEnum TypeOfChange { get; set; }
         /// <summary>
-        /// The action (addition or deduction) made with loyalty points.
+        /// The action (addition or subtraction) made with loyalty points.
         /// </summary>
-        /// <value>The action (addition or deduction) made with loyalty points.</value>
+        /// <value>The action (addition or subtraction) made with loyalty points.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum OperationEnum
         {
@@ -78,46 +105,19 @@ namespace TalonOne.Model
             Addition = 1,
 
             /// <summary>
-            /// Enum Deduction for value: deduction
+            /// Enum Subtraction for value: subtraction
             /// </summary>
-            [EnumMember(Value = "deduction")]
-            Deduction = 2
+            [EnumMember(Value = "subtraction")]
+            Subtraction = 2
 
         }
 
         /// <summary>
-        /// The action (addition or deduction) made with loyalty points.
+        /// The action (addition or subtraction) made with loyalty points.
         /// </summary>
-        /// <value>The action (addition or deduction) made with loyalty points.</value>
+        /// <value>The action (addition or subtraction) made with loyalty points.</value>
         [DataMember(Name="Operation", EmitDefaultValue=false)]
         public OperationEnum Operation { get; set; }
-        /// <summary>
-        /// The type of notification.
-        /// </summary>
-        /// <value>The type of notification.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum NotificationTypeEnum
-        {
-            /// <summary>
-            /// Enum LoyaltyCardPointsDeducted for value: LoyaltyCardPointsDeducted
-            /// </summary>
-            [EnumMember(Value = "LoyaltyCardPointsDeducted")]
-            LoyaltyCardPointsDeducted = 1,
-
-            /// <summary>
-            /// Enum LoyaltyCardPointsAdded for value: LoyaltyCardPointsAdded
-            /// </summary>
-            [EnumMember(Value = "LoyaltyCardPointsAdded")]
-            LoyaltyCardPointsAdded = 2
-
-        }
-
-        /// <summary>
-        /// The type of notification.
-        /// </summary>
-        /// <value>The type of notification.</value>
-        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
-        public NotificationTypeEnum NotificationType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CardAddedDeductedPointsNotification" /> class.
         /// </summary>
@@ -126,80 +126,54 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CardAddedDeductedPointsNotification" /> class.
         /// </summary>
-        /// <param name="profileIntegrationIDs">The integration ID of the customer profile to whom points were added or deducted. (required).</param>
-        /// <param name="loyaltyProgramID">The ID of the loyalty program. (required).</param>
-        /// <param name="subledgerID">The ID of the subledger within the loyalty program where these points were added or deducted. (required).</param>
-        /// <param name="amount">The amount of added or deducted loyalty points. (required).</param>
-        /// <param name="reason">The reason for the points addition or deduction. (required).</param>
-        /// <param name="typeOfChange">The notification source, that is, it indicates whether the points were added or deducted via one of the following routes:  - [The Campaign Manager](/docs/product/getting-started)  - [Management API](/management-api#tag/Loyalty)  - [Rule Engine](/docs/product/applications/evaluation-order-for-rules-and-filters)  (required).</param>
-        /// <param name="employeeName">The name of the employee who added or deducted points. (required).</param>
-        /// <param name="userID">The ID of the employee who added or deducted points. (required).</param>
-        /// <param name="operation">The action (addition or deduction) made with loyalty points. (required).</param>
-        /// <param name="startDate">The start date for loyalty points..</param>
-        /// <param name="expiryDate">The expiration date for loyalty points..</param>
-        /// <param name="sessionIntegrationID">The integration ID of the session through which the points were earned or lost. (required).</param>
-        /// <param name="notificationType">The type of notification. (required).</param>
         /// <param name="cardIdentifier">Loyalty card identification number. (required).</param>
+        /// <param name="employeeName">The name of the employee who added or deducted points. (required).</param>
+        /// <param name="loyaltyProgramID">The ID of the loyalty program. (required).</param>
+        /// <param name="notificationType">The type of notification. (required).</param>
+        /// <param name="profileIntegrationIDs">The integration ID of the customer profile to whom points were added or deducted. (required).</param>
+        /// <param name="sessionIntegrationID">The integration ID of the session through which the points were earned or lost. (required).</param>
+        /// <param name="subledgerID">The ID of the subledger within the loyalty program where these points were added or deducted. (required).</param>
+        /// <param name="typeOfChange">The notification source, that is, it indicates whether the points were added or deducted via one of the following routes:  - [The Campaign Manager](/docs/product/getting-started)  - [Management API](/management-api#tag/Loyalty)  - [Rule Engine](/docs/product/applications/evaluation-order-for-rules-and-filters)  (required).</param>
+        /// <param name="userID">The ID of the employee who added or deducted points. (required).</param>
         /// <param name="usersPerCardLimit">The max amount of user profiles with whom a card can be shared. This can be set to &#x60;0&#x60; for no limit. (required).</param>
-        public CardAddedDeductedPointsNotification(List<string> profileIntegrationIDs = default(List<string>), long loyaltyProgramID = default(long), string subledgerID = default(string), decimal amount = default(decimal), string reason = default(string), TypeOfChangeEnum typeOfChange = default(TypeOfChangeEnum), string employeeName = default(string), long userID = default(long), OperationEnum operation = default(OperationEnum), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string sessionIntegrationID = default(string), NotificationTypeEnum notificationType = default(NotificationTypeEnum), string cardIdentifier = default(string), long usersPerCardLimit = default(long))
+        /// <param name="amount">The amount of added or deducted loyalty points. (required).</param>
+        /// <param name="expiryDate">The expiration date for loyalty points..</param>
+        /// <param name="operation">The action (addition or subtraction) made with loyalty points. (required).</param>
+        /// <param name="reason">The reason for the points addition or deduction. (required).</param>
+        /// <param name="startDate">The start date for loyalty points..</param>
+        /// <param name="transactionUUID">The identifier of the transaction in the loyalty ledger. (required).</param>
+        public CardAddedDeductedPointsNotification(string cardIdentifier = default(string), string employeeName = default(string), long loyaltyProgramID = default(long), NotificationTypeEnum notificationType = default(NotificationTypeEnum), List<string> profileIntegrationIDs = default(List<string>), string sessionIntegrationID = default(string), string subledgerID = default(string), TypeOfChangeEnum typeOfChange = default(TypeOfChangeEnum), long userID = default(long), long usersPerCardLimit = default(long), decimal amount = default(decimal), DateTime expiryDate = default(DateTime), OperationEnum operation = default(OperationEnum), string reason = default(string), DateTime startDate = default(DateTime), Guid transactionUUID = default(Guid))
         {
-            // to ensure "profileIntegrationIDs" is required (not null)
-            this.ProfileIntegrationIDs = profileIntegrationIDs ?? throw new ArgumentNullException("profileIntegrationIDs is a required property for CardAddedDeductedPointsNotification and cannot be null");
-            this.LoyaltyProgramID = loyaltyProgramID;
-            // to ensure "subledgerID" is required (not null)
-            this.SubledgerID = subledgerID ?? throw new ArgumentNullException("subledgerID is a required property for CardAddedDeductedPointsNotification and cannot be null");
-            this.Amount = amount;
-            // to ensure "reason" is required (not null)
-            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for CardAddedDeductedPointsNotification and cannot be null");
-            this.TypeOfChange = typeOfChange;
-            // to ensure "employeeName" is required (not null)
-            this.EmployeeName = employeeName ?? throw new ArgumentNullException("employeeName is a required property for CardAddedDeductedPointsNotification and cannot be null");
-            this.UserID = userID;
-            this.Operation = operation;
-            // to ensure "sessionIntegrationID" is required (not null)
-            this.SessionIntegrationID = sessionIntegrationID ?? throw new ArgumentNullException("sessionIntegrationID is a required property for CardAddedDeductedPointsNotification and cannot be null");
-            this.NotificationType = notificationType;
             // to ensure "cardIdentifier" is required (not null)
             this.CardIdentifier = cardIdentifier ?? throw new ArgumentNullException("cardIdentifier is a required property for CardAddedDeductedPointsNotification and cannot be null");
+            // to ensure "employeeName" is required (not null)
+            this.EmployeeName = employeeName ?? throw new ArgumentNullException("employeeName is a required property for CardAddedDeductedPointsNotification and cannot be null");
+            this.LoyaltyProgramID = loyaltyProgramID;
+            this.NotificationType = notificationType;
+            // to ensure "profileIntegrationIDs" is required (not null)
+            this.ProfileIntegrationIDs = profileIntegrationIDs ?? throw new ArgumentNullException("profileIntegrationIDs is a required property for CardAddedDeductedPointsNotification and cannot be null");
+            // to ensure "sessionIntegrationID" is required (not null)
+            this.SessionIntegrationID = sessionIntegrationID ?? throw new ArgumentNullException("sessionIntegrationID is a required property for CardAddedDeductedPointsNotification and cannot be null");
+            // to ensure "subledgerID" is required (not null)
+            this.SubledgerID = subledgerID ?? throw new ArgumentNullException("subledgerID is a required property for CardAddedDeductedPointsNotification and cannot be null");
+            this.TypeOfChange = typeOfChange;
+            this.UserID = userID;
             this.UsersPerCardLimit = usersPerCardLimit;
-            this.StartDate = startDate;
+            this.Amount = amount;
+            this.Operation = operation;
+            // to ensure "reason" is required (not null)
+            this.Reason = reason ?? throw new ArgumentNullException("reason is a required property for CardAddedDeductedPointsNotification and cannot be null");
+            this.TransactionUUID = transactionUUID;
             this.ExpiryDate = expiryDate;
+            this.StartDate = startDate;
         }
         
         /// <summary>
-        /// The integration ID of the customer profile to whom points were added or deducted.
+        /// Loyalty card identification number.
         /// </summary>
-        /// <value>The integration ID of the customer profile to whom points were added or deducted.</value>
-        [DataMember(Name="ProfileIntegrationIDs", EmitDefaultValue=false)]
-        public List<string> ProfileIntegrationIDs { get; set; }
-
-        /// <summary>
-        /// The ID of the loyalty program.
-        /// </summary>
-        /// <value>The ID of the loyalty program.</value>
-        [DataMember(Name="LoyaltyProgramID", EmitDefaultValue=false)]
-        public long LoyaltyProgramID { get; set; }
-
-        /// <summary>
-        /// The ID of the subledger within the loyalty program where these points were added or deducted.
-        /// </summary>
-        /// <value>The ID of the subledger within the loyalty program where these points were added or deducted.</value>
-        [DataMember(Name="SubledgerID", EmitDefaultValue=false)]
-        public string SubledgerID { get; set; }
-
-        /// <summary>
-        /// The amount of added or deducted loyalty points.
-        /// </summary>
-        /// <value>The amount of added or deducted loyalty points.</value>
-        [DataMember(Name="Amount", EmitDefaultValue=false)]
-        public decimal Amount { get; set; }
-
-        /// <summary>
-        /// The reason for the points addition or deduction.
-        /// </summary>
-        /// <value>The reason for the points addition or deduction.</value>
-        [DataMember(Name="Reason", EmitDefaultValue=false)]
-        public string Reason { get; set; }
+        /// <value>Loyalty card identification number.</value>
+        [DataMember(Name="CardIdentifier", EmitDefaultValue=false)]
+        public string CardIdentifier { get; set; }
 
         /// <summary>
         /// The name of the employee who added or deducted points.
@@ -209,25 +183,18 @@ namespace TalonOne.Model
         public string EmployeeName { get; set; }
 
         /// <summary>
-        /// The ID of the employee who added or deducted points.
+        /// The ID of the loyalty program.
         /// </summary>
-        /// <value>The ID of the employee who added or deducted points.</value>
-        [DataMember(Name="UserID", EmitDefaultValue=false)]
-        public long UserID { get; set; }
+        /// <value>The ID of the loyalty program.</value>
+        [DataMember(Name="LoyaltyProgramID", EmitDefaultValue=false)]
+        public long LoyaltyProgramID { get; set; }
 
         /// <summary>
-        /// The start date for loyalty points.
+        /// The integration ID of the customer profile to whom points were added or deducted.
         /// </summary>
-        /// <value>The start date for loyalty points.</value>
-        [DataMember(Name="StartDate", EmitDefaultValue=false)]
-        public DateTime StartDate { get; set; }
-
-        /// <summary>
-        /// The expiration date for loyalty points.
-        /// </summary>
-        /// <value>The expiration date for loyalty points.</value>
-        [DataMember(Name="ExpiryDate", EmitDefaultValue=false)]
-        public DateTime ExpiryDate { get; set; }
+        /// <value>The integration ID of the customer profile to whom points were added or deducted.</value>
+        [DataMember(Name="ProfileIntegrationIDs", EmitDefaultValue=false)]
+        public List<string> ProfileIntegrationIDs { get; set; }
 
         /// <summary>
         /// The integration ID of the session through which the points were earned or lost.
@@ -237,11 +204,18 @@ namespace TalonOne.Model
         public string SessionIntegrationID { get; set; }
 
         /// <summary>
-        /// Loyalty card identification number.
+        /// The ID of the subledger within the loyalty program where these points were added or deducted.
         /// </summary>
-        /// <value>Loyalty card identification number.</value>
-        [DataMember(Name="CardIdentifier", EmitDefaultValue=false)]
-        public string CardIdentifier { get; set; }
+        /// <value>The ID of the subledger within the loyalty program where these points were added or deducted.</value>
+        [DataMember(Name="SubledgerID", EmitDefaultValue=false)]
+        public string SubledgerID { get; set; }
+
+        /// <summary>
+        /// The ID of the employee who added or deducted points.
+        /// </summary>
+        /// <value>The ID of the employee who added or deducted points.</value>
+        [DataMember(Name="UserID", EmitDefaultValue=false)]
+        public long UserID { get; set; }
 
         /// <summary>
         /// The max amount of user profiles with whom a card can be shared. This can be set to &#x60;0&#x60; for no limit.
@@ -251,6 +225,41 @@ namespace TalonOne.Model
         public long UsersPerCardLimit { get; set; }
 
         /// <summary>
+        /// The amount of added or deducted loyalty points.
+        /// </summary>
+        /// <value>The amount of added or deducted loyalty points.</value>
+        [DataMember(Name="Amount", EmitDefaultValue=false)]
+        public decimal Amount { get; set; }
+
+        /// <summary>
+        /// The expiration date for loyalty points.
+        /// </summary>
+        /// <value>The expiration date for loyalty points.</value>
+        [DataMember(Name="ExpiryDate", EmitDefaultValue=false)]
+        public DateTime ExpiryDate { get; set; }
+
+        /// <summary>
+        /// The reason for the points addition or deduction.
+        /// </summary>
+        /// <value>The reason for the points addition or deduction.</value>
+        [DataMember(Name="Reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
+
+        /// <summary>
+        /// The start date for loyalty points.
+        /// </summary>
+        /// <value>The start date for loyalty points.</value>
+        [DataMember(Name="StartDate", EmitDefaultValue=false)]
+        public DateTime StartDate { get; set; }
+
+        /// <summary>
+        /// The identifier of the transaction in the loyalty ledger.
+        /// </summary>
+        /// <value>The identifier of the transaction in the loyalty ledger.</value>
+        [DataMember(Name="TransactionUUID", EmitDefaultValue=false)]
+        public Guid TransactionUUID { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -258,21 +267,22 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CardAddedDeductedPointsNotification {\n");
-            sb.Append("  ProfileIntegrationIDs: ").Append(ProfileIntegrationIDs).Append("\n");
-            sb.Append("  LoyaltyProgramID: ").Append(LoyaltyProgramID).Append("\n");
-            sb.Append("  SubledgerID: ").Append(SubledgerID).Append("\n");
-            sb.Append("  Amount: ").Append(Amount).Append("\n");
-            sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  TypeOfChange: ").Append(TypeOfChange).Append("\n");
-            sb.Append("  EmployeeName: ").Append(EmployeeName).Append("\n");
-            sb.Append("  UserID: ").Append(UserID).Append("\n");
-            sb.Append("  Operation: ").Append(Operation).Append("\n");
-            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
-            sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
-            sb.Append("  SessionIntegrationID: ").Append(SessionIntegrationID).Append("\n");
-            sb.Append("  NotificationType: ").Append(NotificationType).Append("\n");
             sb.Append("  CardIdentifier: ").Append(CardIdentifier).Append("\n");
+            sb.Append("  EmployeeName: ").Append(EmployeeName).Append("\n");
+            sb.Append("  LoyaltyProgramID: ").Append(LoyaltyProgramID).Append("\n");
+            sb.Append("  NotificationType: ").Append(NotificationType).Append("\n");
+            sb.Append("  ProfileIntegrationIDs: ").Append(ProfileIntegrationIDs).Append("\n");
+            sb.Append("  SessionIntegrationID: ").Append(SessionIntegrationID).Append("\n");
+            sb.Append("  SubledgerID: ").Append(SubledgerID).Append("\n");
+            sb.Append("  TypeOfChange: ").Append(TypeOfChange).Append("\n");
+            sb.Append("  UserID: ").Append(UserID).Append("\n");
             sb.Append("  UsersPerCardLimit: ").Append(UsersPerCardLimit).Append("\n");
+            sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  Operation: ").Append(Operation).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  StartDate: ").Append(StartDate).Append("\n");
+            sb.Append("  TransactionUUID: ").Append(TransactionUUID).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -308,32 +318,9 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.ProfileIntegrationIDs == input.ProfileIntegrationIDs ||
-                    this.ProfileIntegrationIDs != null &&
-                    input.ProfileIntegrationIDs != null &&
-                    this.ProfileIntegrationIDs.SequenceEqual(input.ProfileIntegrationIDs)
-                ) && 
-                (
-                    this.LoyaltyProgramID == input.LoyaltyProgramID ||
-                    this.LoyaltyProgramID.Equals(input.LoyaltyProgramID)
-                ) && 
-                (
-                    this.SubledgerID == input.SubledgerID ||
-                    (this.SubledgerID != null &&
-                    this.SubledgerID.Equals(input.SubledgerID))
-                ) && 
-                (
-                    this.Amount == input.Amount ||
-                    this.Amount.Equals(input.Amount)
-                ) && 
-                (
-                    this.Reason == input.Reason ||
-                    (this.Reason != null &&
-                    this.Reason.Equals(input.Reason))
-                ) && 
-                (
-                    this.TypeOfChange == input.TypeOfChange ||
-                    this.TypeOfChange.Equals(input.TypeOfChange)
+                    this.CardIdentifier == input.CardIdentifier ||
+                    (this.CardIdentifier != null &&
+                    this.CardIdentifier.Equals(input.CardIdentifier))
                 ) && 
                 (
                     this.EmployeeName == input.EmployeeName ||
@@ -341,22 +328,18 @@ namespace TalonOne.Model
                     this.EmployeeName.Equals(input.EmployeeName))
                 ) && 
                 (
-                    this.UserID == input.UserID ||
-                    this.UserID.Equals(input.UserID)
+                    this.LoyaltyProgramID == input.LoyaltyProgramID ||
+                    this.LoyaltyProgramID.Equals(input.LoyaltyProgramID)
                 ) && 
                 (
-                    this.Operation == input.Operation ||
-                    this.Operation.Equals(input.Operation)
+                    this.NotificationType == input.NotificationType ||
+                    this.NotificationType.Equals(input.NotificationType)
                 ) && 
                 (
-                    this.StartDate == input.StartDate ||
-                    (this.StartDate != null &&
-                    this.StartDate.Equals(input.StartDate))
-                ) && 
-                (
-                    this.ExpiryDate == input.ExpiryDate ||
-                    (this.ExpiryDate != null &&
-                    this.ExpiryDate.Equals(input.ExpiryDate))
+                    this.ProfileIntegrationIDs == input.ProfileIntegrationIDs ||
+                    this.ProfileIntegrationIDs != null &&
+                    input.ProfileIntegrationIDs != null &&
+                    this.ProfileIntegrationIDs.SequenceEqual(input.ProfileIntegrationIDs)
                 ) && 
                 (
                     this.SessionIntegrationID == input.SessionIntegrationID ||
@@ -364,17 +347,49 @@ namespace TalonOne.Model
                     this.SessionIntegrationID.Equals(input.SessionIntegrationID))
                 ) && 
                 (
-                    this.NotificationType == input.NotificationType ||
-                    this.NotificationType.Equals(input.NotificationType)
+                    this.SubledgerID == input.SubledgerID ||
+                    (this.SubledgerID != null &&
+                    this.SubledgerID.Equals(input.SubledgerID))
                 ) && 
                 (
-                    this.CardIdentifier == input.CardIdentifier ||
-                    (this.CardIdentifier != null &&
-                    this.CardIdentifier.Equals(input.CardIdentifier))
+                    this.TypeOfChange == input.TypeOfChange ||
+                    this.TypeOfChange.Equals(input.TypeOfChange)
+                ) && 
+                (
+                    this.UserID == input.UserID ||
+                    this.UserID.Equals(input.UserID)
                 ) && 
                 (
                     this.UsersPerCardLimit == input.UsersPerCardLimit ||
                     this.UsersPerCardLimit.Equals(input.UsersPerCardLimit)
+                ) && 
+                (
+                    this.Amount == input.Amount ||
+                    this.Amount.Equals(input.Amount)
+                ) && 
+                (
+                    this.ExpiryDate == input.ExpiryDate ||
+                    (this.ExpiryDate != null &&
+                    this.ExpiryDate.Equals(input.ExpiryDate))
+                ) && 
+                (
+                    this.Operation == input.Operation ||
+                    this.Operation.Equals(input.Operation)
+                ) && 
+                (
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
+                ) && 
+                (
+                    this.StartDate == input.StartDate ||
+                    (this.StartDate != null &&
+                    this.StartDate.Equals(input.StartDate))
+                ) && 
+                (
+                    this.TransactionUUID == input.TransactionUUID ||
+                    (this.TransactionUUID != null &&
+                    this.TransactionUUID.Equals(input.TransactionUUID))
                 );
         }
 
@@ -387,29 +402,31 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ProfileIntegrationIDs != null)
-                    hashCode = hashCode * 59 + this.ProfileIntegrationIDs.GetHashCode();
-                hashCode = hashCode * 59 + this.LoyaltyProgramID.GetHashCode();
-                if (this.SubledgerID != null)
-                    hashCode = hashCode * 59 + this.SubledgerID.GetHashCode();
-                hashCode = hashCode * 59 + this.Amount.GetHashCode();
-                if (this.Reason != null)
-                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
-                hashCode = hashCode * 59 + this.TypeOfChange.GetHashCode();
-                if (this.EmployeeName != null)
-                    hashCode = hashCode * 59 + this.EmployeeName.GetHashCode();
-                hashCode = hashCode * 59 + this.UserID.GetHashCode();
-                hashCode = hashCode * 59 + this.Operation.GetHashCode();
-                if (this.StartDate != null)
-                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
-                if (this.ExpiryDate != null)
-                    hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
-                if (this.SessionIntegrationID != null)
-                    hashCode = hashCode * 59 + this.SessionIntegrationID.GetHashCode();
-                hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
                 if (this.CardIdentifier != null)
                     hashCode = hashCode * 59 + this.CardIdentifier.GetHashCode();
+                if (this.EmployeeName != null)
+                    hashCode = hashCode * 59 + this.EmployeeName.GetHashCode();
+                hashCode = hashCode * 59 + this.LoyaltyProgramID.GetHashCode();
+                hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                if (this.ProfileIntegrationIDs != null)
+                    hashCode = hashCode * 59 + this.ProfileIntegrationIDs.GetHashCode();
+                if (this.SessionIntegrationID != null)
+                    hashCode = hashCode * 59 + this.SessionIntegrationID.GetHashCode();
+                if (this.SubledgerID != null)
+                    hashCode = hashCode * 59 + this.SubledgerID.GetHashCode();
+                hashCode = hashCode * 59 + this.TypeOfChange.GetHashCode();
+                hashCode = hashCode * 59 + this.UserID.GetHashCode();
                 hashCode = hashCode * 59 + this.UsersPerCardLimit.GetHashCode();
+                hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                if (this.ExpiryDate != null)
+                    hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                hashCode = hashCode * 59 + this.Operation.GetHashCode();
+                if (this.Reason != null)
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                if (this.StartDate != null)
+                    hashCode = hashCode * 59 + this.StartDate.GetHashCode();
+                if (this.TransactionUUID != null)
+                    hashCode = hashCode * 59 + this.TransactionUUID.GetHashCode();
                 return hashCode;
             }
         }
@@ -425,12 +442,6 @@ namespace TalonOne.Model
             if(this.LoyaltyProgramID < (long)1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyProgramID, must be a value greater than or equal to 1.", new [] { "LoyaltyProgramID" });
-            }
-
-            // UserID (long) minimum
-            if(this.UserID < (long)1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserID, must be a value greater than or equal to 1.", new [] { "UserID" });
             }
 
             yield break;

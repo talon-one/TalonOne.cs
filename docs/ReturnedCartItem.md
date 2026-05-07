@@ -3,8 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Position** | **long** | The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property. | 
+**Position** | **long** | The index of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property. | [optional] 
 **Quantity** | **long** | Number of cart items to return.  | [optional] 
+**Sku** | **string** | The SKU of the cart item in the provided customer session&#39;s &#x60;cartItems&#x60; property. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -157,6 +157,7 @@ namespace TalonOne.Model
         /// <param name="couponAttributes">The campaign attributes that coupons created from this template will have by default..</param>
         /// <param name="state">Only Campaign Templates in &#39;available&#39; state may be used to create Campaigns. (required).</param>
         /// <param name="tags">A list of tags for the campaign template..</param>
+        /// <param name="reevaluateOnReturn">Indicates whether campaigns created from this template should be reevaluated when a customer returns an item..</param>
         /// <param name="features">A list of features for the campaign template..</param>
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="couponReservationSettings">couponReservationSettings.</param>
@@ -166,7 +167,7 @@ namespace TalonOne.Model
         /// <param name="campaignCollections">The campaign collections from the blueprint campaign for the template..</param>
         /// <param name="defaultCampaignGroupId">The default campaign group ID..</param>
         /// <param name="campaignType">The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  (required) (default to CampaignTypeEnum.Advanced).</param>
-        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CampaignTemplateCouponReservationSettings couponReservationSettings = default(CampaignTemplateCouponReservationSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), long defaultCampaignGroupId = default(long), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced)
+        public NewCampaignTemplate(string name = default(string), string description = default(string), string instructions = default(string), Object campaignAttributes = default(Object), Object couponAttributes = default(Object), StateEnum state = default(StateEnum), List<string> tags = default(List<string>), bool reevaluateOnReturn = default(bool), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CampaignTemplateCouponReservationSettings couponReservationSettings = default(CampaignTemplateCouponReservationSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<TemplateLimitConfig> limits = default(List<TemplateLimitConfig>), List<CampaignTemplateParams> templateParams = default(List<CampaignTemplateParams>), List<CampaignTemplateCollection> campaignCollections = default(List<CampaignTemplateCollection>), long defaultCampaignGroupId = default(long), CampaignTypeEnum campaignType = CampaignTypeEnum.Advanced)
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewCampaignTemplate and cannot be null");
@@ -179,6 +180,7 @@ namespace TalonOne.Model
             this.CampaignAttributes = campaignAttributes;
             this.CouponAttributes = couponAttributes;
             this.Tags = tags;
+            this.ReevaluateOnReturn = reevaluateOnReturn;
             this.Features = features;
             this.CouponSettings = couponSettings;
             this.CouponReservationSettings = couponReservationSettings;
@@ -230,6 +232,13 @@ namespace TalonOne.Model
         /// <value>A list of tags for the campaign template.</value>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// Indicates whether campaigns created from this template should be reevaluated when a customer returns an item.
+        /// </summary>
+        /// <value>Indicates whether campaigns created from this template should be reevaluated when a customer returns an item.</value>
+        [DataMember(Name="reevaluateOnReturn", EmitDefaultValue=false)]
+        public bool ReevaluateOnReturn { get; set; }
 
         /// <summary>
         /// Gets or Sets CouponSettings
@@ -292,6 +301,7 @@ namespace TalonOne.Model
             sb.Append("  CouponAttributes: ").Append(CouponAttributes).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  ReevaluateOnReturn: ").Append(ReevaluateOnReturn).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  CouponSettings: ").Append(CouponSettings).Append("\n");
             sb.Append("  CouponReservationSettings: ").Append(CouponReservationSettings).Append("\n");
@@ -371,6 +381,10 @@ namespace TalonOne.Model
                     this.Tags.SequenceEqual(input.Tags)
                 ) && 
                 (
+                    this.ReevaluateOnReturn == input.ReevaluateOnReturn ||
+                    this.ReevaluateOnReturn.Equals(input.ReevaluateOnReturn)
+                ) && 
+                (
                     this.Features == input.Features ||
                     this.Features.SequenceEqual(input.Features)
                 ) && 
@@ -439,6 +453,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                hashCode = hashCode * 59 + this.ReevaluateOnReturn.GetHashCode();
                 hashCode = hashCode * 59 + this.Features.GetHashCode();
                 if (this.CouponSettings != null)
                     hashCode = hashCode * 59 + this.CouponSettings.GetHashCode();

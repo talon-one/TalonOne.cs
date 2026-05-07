@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -81,10 +81,11 @@ namespace TalonOne.Model
         /// <param name="loyaltyCards">Identifier of a loyalty card..</param>
         /// <param name="state">Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; → &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; → &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; → &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  (default to StateEnum.Open).</param>
         /// <param name="cartItems">The items to add to this session. **Do not exceed 1000 items** and ensure the sum of all cart item&#39;s &#x60;quantity&#x60; **does not exceed 10.000** per request. .</param>
+        /// <param name="experimentVariantAllocations">The experiment variant allocations to add to this session. .</param>
         /// <param name="additionalCosts">Use this property to set a value for the additional costs of this session, such as a shipping cost.  They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs). .</param>
         /// <param name="identifiers">Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview). - We recommend passing an anonymized (hashed) version of the identifier value. .</param>
         /// <param name="attributes">Use this property to set a value for the attributes of your choice. Attributes represent any information to attach to your session, like the shipping city.  You can use [built-in attributes](https://docs.talon.one/docs/dev/concepts/attributes#built-in-attributes) or [custom ones](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes). Custom attributes must be created in the Campaign Manager before you set them with this property. .</param>
-        public NewCustomerSessionV2(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), List<string> couponCodes = default(List<string>), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), StateEnum? state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object))
+        public NewCustomerSessionV2(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), List<string> couponCodes = default(List<string>), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), StateEnum? state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), List<ExperimentVariantAllocation> experimentVariantAllocations = default(List<ExperimentVariantAllocation>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object))
         {
             this.ProfileId = profileId;
             this.StoreIntegrationId = storeIntegrationId;
@@ -94,6 +95,7 @@ namespace TalonOne.Model
             this.LoyaltyCards = loyaltyCards;
             this.State = state;
             this.CartItems = cartItems;
+            this.ExperimentVariantAllocations = experimentVariantAllocations;
             this.AdditionalCosts = additionalCosts;
             this.Identifiers = identifiers;
             this.Attributes = attributes;
@@ -149,6 +151,13 @@ namespace TalonOne.Model
         public List<CartItem> CartItems { get; set; }
 
         /// <summary>
+        /// The experiment variant allocations to add to this session. 
+        /// </summary>
+        /// <value>The experiment variant allocations to add to this session. </value>
+        [DataMember(Name="experimentVariantAllocations", EmitDefaultValue=false)]
+        public List<ExperimentVariantAllocation> ExperimentVariantAllocations { get; set; }
+
+        /// <summary>
         /// Use this property to set a value for the additional costs of this session, such as a shipping cost.  They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs). 
         /// </summary>
         /// <value>Use this property to set a value for the additional costs of this session, such as a shipping cost.  They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs). </value>
@@ -185,6 +194,7 @@ namespace TalonOne.Model
             sb.Append("  LoyaltyCards: ").Append(LoyaltyCards).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  CartItems: ").Append(CartItems).Append("\n");
+            sb.Append("  ExperimentVariantAllocations: ").Append(ExperimentVariantAllocations).Append("\n");
             sb.Append("  AdditionalCosts: ").Append(AdditionalCosts).Append("\n");
             sb.Append("  Identifiers: ").Append(Identifiers).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
@@ -266,6 +276,12 @@ namespace TalonOne.Model
                     this.CartItems.SequenceEqual(input.CartItems)
                 ) && 
                 (
+                    this.ExperimentVariantAllocations == input.ExperimentVariantAllocations ||
+                    this.ExperimentVariantAllocations != null &&
+                    input.ExperimentVariantAllocations != null &&
+                    this.ExperimentVariantAllocations.SequenceEqual(input.ExperimentVariantAllocations)
+                ) && 
+                (
                     this.AdditionalCosts == input.AdditionalCosts ||
                     this.AdditionalCosts != null &&
                     input.AdditionalCosts != null &&
@@ -308,6 +324,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.CartItems != null)
                     hashCode = hashCode * 59 + this.CartItems.GetHashCode();
+                if (this.ExperimentVariantAllocations != null)
+                    hashCode = hashCode * 59 + this.ExperimentVariantAllocations.GetHashCode();
                 if (this.AdditionalCosts != null)
                     hashCode = hashCode * 59 + this.AdditionalCosts.GetHashCode();
                 if (this.Identifiers != null)

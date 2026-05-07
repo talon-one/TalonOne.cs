@@ -1,0 +1,9 @@
+# TalonOne.Model.ExperimentListResults
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Results** | [**List&lt;ExperimentResult&gt;**](ExperimentResult.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+

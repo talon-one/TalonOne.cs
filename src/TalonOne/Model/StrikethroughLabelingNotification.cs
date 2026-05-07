@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -53,6 +53,27 @@ namespace TalonOne.Model
         [DataMember(Name="version", EmitDefaultValue=false)]
         public VersionEnum? Version { get; set; }
         /// <summary>
+        /// The type of notification.
+        /// </summary>
+        /// <value>The type of notification.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum NotificationTypeEnum
+        {
+            /// <summary>
+            /// Enum StrikethroughPrice for value: StrikethroughPrice
+            /// </summary>
+            [EnumMember(Value = "StrikethroughPrice")]
+            StrikethroughPrice = 1
+
+        }
+
+        /// <summary>
+        /// The type of notification.
+        /// </summary>
+        /// <value>The type of notification.</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public NotificationTypeEnum NotificationType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="StrikethroughLabelingNotification" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -67,8 +88,9 @@ namespace TalonOne.Model
         /// <param name="totalBatches">The total number of batches for the notification. (required).</param>
         /// <param name="trigger">trigger (required).</param>
         /// <param name="changedItems">changedItems (required).</param>
-        /// <param name="notificationType">The type of the notification (required).</param>
-        public StrikethroughLabelingNotification(VersionEnum? version = default(VersionEnum?), DateTime validFrom = default(DateTime), long applicationId = default(long), long currentBatch = default(long), long totalBatches = default(long), StrikethroughTrigger trigger = default(StrikethroughTrigger), List<StrikethroughChangedItem> changedItems = default(List<StrikethroughChangedItem>), string notificationType = default(string))
+        /// <param name="notificationType">The type of notification. (required).</param>
+        /// <param name="sentAt">Timestamp at which the notification was sent. (required).</param>
+        public StrikethroughLabelingNotification(VersionEnum? version = default(VersionEnum?), DateTime validFrom = default(DateTime), long applicationId = default(long), long currentBatch = default(long), long totalBatches = default(long), StrikethroughTrigger trigger = default(StrikethroughTrigger), List<StrikethroughChangedItem> changedItems = default(List<StrikethroughChangedItem>), NotificationTypeEnum notificationType = default(NotificationTypeEnum), DateTime sentAt = default(DateTime))
         {
             this.ApplicationId = applicationId;
             this.CurrentBatch = currentBatch;
@@ -77,8 +99,8 @@ namespace TalonOne.Model
             this.Trigger = trigger ?? throw new ArgumentNullException("trigger is a required property for StrikethroughLabelingNotification and cannot be null");
             // to ensure "changedItems" is required (not null)
             this.ChangedItems = changedItems ?? throw new ArgumentNullException("changedItems is a required property for StrikethroughLabelingNotification and cannot be null");
-            // to ensure "notificationType" is required (not null)
-            this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for StrikethroughLabelingNotification and cannot be null");
+            this.NotificationType = notificationType;
+            this.SentAt = sentAt;
             this.Version = version;
             this.ValidFrom = validFrom;
         }
@@ -124,11 +146,11 @@ namespace TalonOne.Model
         public List<StrikethroughChangedItem> ChangedItems { get; set; }
 
         /// <summary>
-        /// The type of the notification
+        /// Timestamp at which the notification was sent.
         /// </summary>
-        /// <value>The type of the notification</value>
-        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
-        public string NotificationType { get; set; }
+        /// <value>Timestamp at which the notification was sent.</value>
+        [DataMember(Name="sentAt", EmitDefaultValue=false)]
+        public DateTime SentAt { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -146,6 +168,7 @@ namespace TalonOne.Model
             sb.Append("  Trigger: ").Append(Trigger).Append("\n");
             sb.Append("  ChangedItems: ").Append(ChangedItems).Append("\n");
             sb.Append("  NotificationType: ").Append(NotificationType).Append("\n");
+            sb.Append("  SentAt: ").Append(SentAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -214,8 +237,12 @@ namespace TalonOne.Model
                 ) && 
                 (
                     this.NotificationType == input.NotificationType ||
-                    (this.NotificationType != null &&
-                    this.NotificationType.Equals(input.NotificationType))
+                    this.NotificationType.Equals(input.NotificationType)
+                ) && 
+                (
+                    this.SentAt == input.SentAt ||
+                    (this.SentAt != null &&
+                    this.SentAt.Equals(input.SentAt))
                 );
         }
 
@@ -238,8 +265,9 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Trigger.GetHashCode();
                 if (this.ChangedItems != null)
                     hashCode = hashCode * 59 + this.ChangedItems.GetHashCode();
-                if (this.NotificationType != null)
-                    hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                if (this.SentAt != null)
+                    hashCode = hashCode * 59 + this.SentAt.GetHashCode();
                 return hashCode;
             }
         }

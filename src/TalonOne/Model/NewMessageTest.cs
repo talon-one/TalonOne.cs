@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -90,7 +90,8 @@ namespace TalonOne.Model
         /// <param name="payload">API payload of this message..</param>
         /// <param name="_params">Array of template argument definitions..</param>
         /// <param name="applicationIds">The IDs of the Applications in which this webhook is available. An empty array means the webhook is available in &#x60;All Applications&#x60;. .</param>
-        public NewMessageTest(Dictionary<string, string> headers = default(Dictionary<string, string>), VerbEnum verb = default(VerbEnum), string url = default(string), string payload = default(string), List<TemplateArgDef> _params = default(List<TemplateArgDef>), List<long> applicationIds = default(List<long>))
+        /// <param name="authenticationId">The ID of the credential that this webhook is using..</param>
+        public NewMessageTest(Dictionary<string, string> headers = default(Dictionary<string, string>), VerbEnum verb = default(VerbEnum), string url = default(string), string payload = default(string), List<TemplateArgDef> _params = default(List<TemplateArgDef>), List<long> applicationIds = default(List<long>), long authenticationId = default(long))
         {
             this.Verb = verb;
             // to ensure "url" is required (not null)
@@ -99,6 +100,7 @@ namespace TalonOne.Model
             this.Payload = payload;
             this.Params = _params;
             this.ApplicationIds = applicationIds;
+            this.AuthenticationId = authenticationId;
         }
         
         /// <summary>
@@ -137,6 +139,13 @@ namespace TalonOne.Model
         public List<long> ApplicationIds { get; set; }
 
         /// <summary>
+        /// The ID of the credential that this webhook is using.
+        /// </summary>
+        /// <value>The ID of the credential that this webhook is using.</value>
+        [DataMember(Name="authenticationId", EmitDefaultValue=false)]
+        public long AuthenticationId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -150,6 +159,7 @@ namespace TalonOne.Model
             sb.Append("  Payload: ").Append(Payload).Append("\n");
             sb.Append("  Params: ").Append(Params).Append("\n");
             sb.Append("  ApplicationIds: ").Append(ApplicationIds).Append("\n");
+            sb.Append("  AuthenticationId: ").Append(AuthenticationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +225,10 @@ namespace TalonOne.Model
                     this.ApplicationIds != null &&
                     input.ApplicationIds != null &&
                     this.ApplicationIds.SequenceEqual(input.ApplicationIds)
+                ) && 
+                (
+                    this.AuthenticationId == input.AuthenticationId ||
+                    this.AuthenticationId.Equals(input.AuthenticationId)
                 );
         }
 
@@ -238,6 +252,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Params.GetHashCode();
                 if (this.ApplicationIds != null)
                     hashCode = hashCode * 59 + this.ApplicationIds.GetHashCode();
+                hashCode = hashCode * 59 + this.AuthenticationId.GetHashCode();
                 return hashCode;
             }
         }

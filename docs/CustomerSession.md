@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **Total** | **decimal** | The total sum of the cart in one session. | 
 **Attributes** | [**Object**](.md) | A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.  | 
 **FirstSession** | **bool** | Indicates whether this is the first session for the customer&#39;s profile. Will always be true for anonymous sessions. | 
+**UpdateCount** | **long** | The number of times the session was updated. When the session is created, this value is initialized to &#x60;1&#x60;. | 
 **Discounts** | **Dictionary&lt;string, decimal&gt;** | A map of labelled discount values, values will be in the same currency as the application associated with the session. | 
 **Updated** | **DateTime** | Timestamp of the most recent event received on this session. | 
 

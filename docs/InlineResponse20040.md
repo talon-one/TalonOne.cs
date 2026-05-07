@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TotalResultSize** | **long** |  | 
-**Data** | [**List&lt;EventType&gt;**](EventType.md) |  | 
+**Data** | [**List&lt;AccountAdditionalCost&gt;**](AccountAdditionalCost.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

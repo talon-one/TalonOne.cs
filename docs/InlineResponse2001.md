@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TotalResultSize** | **long** |  | 
-**Data** | [**List&lt;AchievementStatusEntry&gt;**](AchievementStatusEntry.md) |  | 
+**Data** | [**List&lt;CustomerProfile&gt;**](CustomerProfile.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

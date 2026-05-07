@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -72,7 +72,7 @@ namespace TalonOne.Model
         /// <param name="customerSessionId">ID of the customer session where the transaction occurred..</param>
         /// <param name="type">Type of transaction. Possible values:   - &#x60;addition&#x60;: Signifies added points.   - &#x60;subtraction&#x60;: Signifies deducted points.  (required).</param>
         /// <param name="name">Name or reason of the loyalty ledger transaction. (required).</param>
-        /// <param name="startDate">When points become active. Possible values:   - &#x60;immediate&#x60;: Points are immediately active.   - a timestamp value: Points become active at a given date and time.  (required).</param>
+        /// <param name="startDate">When points become active. Possible values:   - &#x60;immediate&#x60;: Points are immediately active.   - &#x60;on_action&#x60;: Points become active based on the customer&#39;s action.   - a timestamp value: Points become active at a given date and time.  (required).</param>
         /// <param name="expiryDate">Date when points expire. Possible values are:   - &#x60;unlimited&#x60;: Points have no expiration date.   - &#x60;timestamp value&#x60;: Points expire on the given date.  (required).</param>
         /// <param name="subledgerId">ID of the subledger. (required).</param>
         /// <param name="amount">Amount of loyalty points added or deducted in the transaction. (required).</param>
@@ -80,7 +80,8 @@ namespace TalonOne.Model
         /// <param name="rulesetId">The ID of the ruleset containing the rule that triggered this effect..</param>
         /// <param name="ruleName">The name of the rule that triggered this effect..</param>
         /// <param name="flags">flags.</param>
-        public LedgerTransactionLogEntryIntegrationAPI(string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), long id = default(long), long rulesetId = default(long), string ruleName = default(string), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags))
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
+        public LedgerTransactionLogEntryIntegrationAPI(string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), long id = default(long), long rulesetId = default(long), string ruleName = default(string), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags), string validityDuration = default(string))
         {
             // to ensure "transactionUUID" is required (not null)
             this.TransactionUUID = transactionUUID ?? throw new ArgumentNullException("transactionUUID is a required property for LedgerTransactionLogEntryIntegrationAPI and cannot be null");
@@ -101,6 +102,7 @@ namespace TalonOne.Model
             this.RulesetId = rulesetId;
             this.RuleName = ruleName;
             this.Flags = flags;
+            this.ValidityDuration = validityDuration;
         }
         
         /// <summary>
@@ -139,9 +141,9 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// When points become active. Possible values:   - &#x60;immediate&#x60;: Points are immediately active.   - a timestamp value: Points become active at a given date and time. 
+        /// When points become active. Possible values:   - &#x60;immediate&#x60;: Points are immediately active.   - &#x60;on_action&#x60;: Points become active based on the customer&#39;s action.   - a timestamp value: Points become active at a given date and time. 
         /// </summary>
-        /// <value>When points become active. Possible values:   - &#x60;immediate&#x60;: Points are immediately active.   - a timestamp value: Points become active at a given date and time. </value>
+        /// <value>When points become active. Possible values:   - &#x60;immediate&#x60;: Points are immediately active.   - &#x60;on_action&#x60;: Points become active based on the customer&#39;s action.   - a timestamp value: Points become active at a given date and time. </value>
         [DataMember(Name="startDate", EmitDefaultValue=false)]
         public string StartDate { get; set; }
 
@@ -194,6 +196,13 @@ namespace TalonOne.Model
         public LoyaltyLedgerEntryFlags Flags { get; set; }
 
         /// <summary>
+        /// The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+        /// </summary>
+        /// <value>The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
+        [DataMember(Name="validityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -215,6 +224,7 @@ namespace TalonOne.Model
             sb.Append("  RulesetId: ").Append(RulesetId).Append("\n");
             sb.Append("  RuleName: ").Append(RuleName).Append("\n");
             sb.Append("  Flags: ").Append(Flags).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -313,6 +323,11 @@ namespace TalonOne.Model
                     this.Flags == input.Flags ||
                     (this.Flags != null &&
                     this.Flags.Equals(input.Flags))
+                ) && 
+                (
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
                 );
         }
 
@@ -348,6 +363,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.RuleName.GetHashCode();
                 if (this.Flags != null)
                     hashCode = hashCode * 59 + this.Flags.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
                 return hashCode;
             }
         }

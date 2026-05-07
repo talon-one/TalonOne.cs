@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -69,18 +69,19 @@ namespace TalonOne.Model
         /// <param name="transactionUUID">Unique identifier of the transaction in the UUID format. (required).</param>
         /// <param name="created">Date and time the loyalty card transaction occurred. (required).</param>
         /// <param name="programId">ID of the loyalty program. (required).</param>
-        /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card.  (required).</param>
+        /// <param name="cardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  (required).</param>
         /// <param name="customerSessionId">ID of the customer session where the transaction occurred..</param>
         /// <param name="type">Type of transaction. Possible values:   - &#x60;addition&#x60;: Signifies added points.   - &#x60;subtraction&#x60;: Signifies deducted points.  (required).</param>
         /// <param name="name">Name or reason of the loyalty ledger transaction. (required).</param>
-        /// <param name="startDate">When points become active. Possible values:   - &#x60;immediate&#x60;: Points are active immediately.   - a timestamp value: Points become active at a given date and time.  (required).</param>
+        /// <param name="startDate">When points become active. Possible values:   - &#x60;immediate&#x60;: Points are active immediately.   - &#x60;on_action&#x60;: Points become active based on the customer&#39;s action.   - a timestamp value: Points become active at a given date and time.  (required).</param>
         /// <param name="expiryDate">Date when points expire. Possible values are:   - &#x60;unlimited&#x60;: Points have no expiration date.   - &#x60;timestamp value&#x60;: Points expire on the given date.  (required).</param>
         /// <param name="subledgerId">ID of the subledger. (required).</param>
         /// <param name="amount">Amount of loyalty points added or deducted in the transaction. (required).</param>
         /// <param name="id">ID of the loyalty ledger transaction. (required).</param>
         /// <param name="rulesetId">The ID of the ruleset containing the rule that triggered this effect..</param>
         /// <param name="ruleName">The name of the rule that triggered this effect..</param>
-        public CardLedgerTransactionLogEntryIntegrationAPI(string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string cardIdentifier = default(string), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), long id = default(long), long rulesetId = default(long), string ruleName = default(string))
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
+        public CardLedgerTransactionLogEntryIntegrationAPI(string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string cardIdentifier = default(string), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), long id = default(long), long rulesetId = default(long), string ruleName = default(string), string validityDuration = default(string))
         {
             // to ensure "transactionUUID" is required (not null)
             this.TransactionUUID = transactionUUID ?? throw new ArgumentNullException("transactionUUID is a required property for CardLedgerTransactionLogEntryIntegrationAPI and cannot be null");
@@ -102,6 +103,7 @@ namespace TalonOne.Model
             this.CustomerSessionId = customerSessionId;
             this.RulesetId = rulesetId;
             this.RuleName = ruleName;
+            this.ValidityDuration = validityDuration;
         }
         
         /// <summary>
@@ -126,9 +128,9 @@ namespace TalonOne.Model
         public long ProgramId { get; set; }
 
         /// <summary>
-        /// The alphanumeric identifier of the loyalty card. 
+        /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
-        /// <value>The alphanumeric identifier of the loyalty card. </value>
+        /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
         [DataMember(Name="cardIdentifier", EmitDefaultValue=false)]
         public string CardIdentifier { get; set; }
 
@@ -147,9 +149,9 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// When points become active. Possible values:   - &#x60;immediate&#x60;: Points are active immediately.   - a timestamp value: Points become active at a given date and time. 
+        /// When points become active. Possible values:   - &#x60;immediate&#x60;: Points are active immediately.   - &#x60;on_action&#x60;: Points become active based on the customer&#39;s action.   - a timestamp value: Points become active at a given date and time. 
         /// </summary>
-        /// <value>When points become active. Possible values:   - &#x60;immediate&#x60;: Points are active immediately.   - a timestamp value: Points become active at a given date and time. </value>
+        /// <value>When points become active. Possible values:   - &#x60;immediate&#x60;: Points are active immediately.   - &#x60;on_action&#x60;: Points become active based on the customer&#39;s action.   - a timestamp value: Points become active at a given date and time. </value>
         [DataMember(Name="startDate", EmitDefaultValue=false)]
         public string StartDate { get; set; }
 
@@ -196,6 +198,13 @@ namespace TalonOne.Model
         public string RuleName { get; set; }
 
         /// <summary>
+        /// The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+        /// </summary>
+        /// <value>The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
+        [DataMember(Name="validityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -217,6 +226,7 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  RulesetId: ").Append(RulesetId).Append("\n");
             sb.Append("  RuleName: ").Append(RuleName).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -315,6 +325,11 @@ namespace TalonOne.Model
                     this.RuleName == input.RuleName ||
                     (this.RuleName != null &&
                     this.RuleName.Equals(input.RuleName))
+                ) && 
+                (
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
                 );
         }
 
@@ -350,6 +365,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.RulesetId.GetHashCode();
                 if (this.RuleName != null)
                     hashCode = hashCode * 59 + this.RuleName.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
                 return hashCode;
             }
         }
@@ -367,8 +384,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be less than 108.", new [] { "CardIdentifier" });
             }
 
+            // CardIdentifier (string) minLength
+            if(this.CardIdentifier != null && this.CardIdentifier.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be greater than 4.", new [] { "CardIdentifier" });
+            }
+
             // CardIdentifier (string) pattern
-            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
             if (false == regexCardIdentifier.Match(this.CardIdentifier).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, must match a pattern of " + regexCardIdentifier, new [] { "CardIdentifier" });

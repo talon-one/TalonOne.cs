@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -50,7 +50,8 @@ namespace TalonOne.Model
         /// <param name="expiryDate">Date when points expire. Possible values are:   - &#x60;unlimited&#x60;: Points have no expiration date.   - &#x60;timestamp value&#x60;: Points expire on the given date and time.  (required).</param>
         /// <param name="subledgerId">ID of the subledger. (required).</param>
         /// <param name="amount">Amount of loyalty points added in the transaction. (required).</param>
-        public CardLedgerPointsEntryIntegrationAPI(long id = default(long), string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string customerProfileID = default(string), string customerSessionId = default(string), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal))
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
+        public CardLedgerPointsEntryIntegrationAPI(long id = default(long), string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string customerProfileID = default(string), string customerSessionId = default(string), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), string validityDuration = default(string))
         {
             this.Id = id;
             // to ensure "transactionUUID" is required (not null)
@@ -68,6 +69,7 @@ namespace TalonOne.Model
             this.Amount = amount;
             this.CustomerProfileID = customerProfileID;
             this.CustomerSessionId = customerSessionId;
+            this.ValidityDuration = validityDuration;
         }
         
         /// <summary>
@@ -148,6 +150,13 @@ namespace TalonOne.Model
         public decimal Amount { get; set; }
 
         /// <summary>
+        /// The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+        /// </summary>
+        /// <value>The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
+        [DataMember(Name="validityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -166,6 +175,7 @@ namespace TalonOne.Model
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  SubledgerId: ").Append(SubledgerId).Append("\n");
             sb.Append("  Amount: ").Append(Amount).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -251,6 +261,11 @@ namespace TalonOne.Model
                 (
                     this.Amount == input.Amount ||
                     this.Amount.Equals(input.Amount)
+                ) && 
+                (
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
                 );
         }
 
@@ -282,6 +297,8 @@ namespace TalonOne.Model
                 if (this.SubledgerId != null)
                     hashCode = hashCode * 59 + this.SubledgerId.GetHashCode();
                 hashCode = hashCode * 59 + this.Amount.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
                 return hashCode;
             }
         }
