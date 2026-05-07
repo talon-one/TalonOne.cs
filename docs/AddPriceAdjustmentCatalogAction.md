@@ -1,5 +1,5 @@
 # TalonOne.Model.AddPriceAdjustmentCatalogAction
-The specific properties of the \"ADD_PRICE_ADJUSTMENT\" catalog sync action. 
+The specific properties of the \"ADD_PRICE_ADJUSTMENT\" catalog sync action.        **Note:** You can only use this object if the `Beta` **price types** feature is enabled for your Application. To enable it, contact your Technical Account Manager. 
 ## Properties
 
 Name | Type | Description | Notes

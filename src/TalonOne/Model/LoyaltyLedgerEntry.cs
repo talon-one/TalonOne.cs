@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -54,7 +54,8 @@ namespace TalonOne.Model
         /// <param name="userID">This is the ID of the user who created this entry, if the addition or subtraction was done manually..</param>
         /// <param name="archived">Indicates if the entry belongs to the archived session..</param>
         /// <param name="flags">flags.</param>
-        public LoyaltyLedgerEntry(DateTime created = default(DateTime), long programID = default(long), string customerProfileID = default(string), long cardID = default(long), string customerSessionID = default(string), long eventID = default(long), string type = default(string), decimal amount = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), long userID = default(long), bool archived = default(bool), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags))
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
+        public LoyaltyLedgerEntry(DateTime created = default(DateTime), long programID = default(long), string customerProfileID = default(string), long cardID = default(long), string customerSessionID = default(string), long eventID = default(long), string type = default(string), decimal amount = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), long userID = default(long), bool archived = default(bool), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags), string validityDuration = default(string))
         {
             this.Created = created;
             this.ProgramID = programID;
@@ -74,6 +75,7 @@ namespace TalonOne.Model
             this.UserID = userID;
             this.Archived = archived;
             this.Flags = flags;
+            this.ValidityDuration = validityDuration;
         }
         
         /// <summary>
@@ -172,6 +174,13 @@ namespace TalonOne.Model
         public LoyaltyLedgerEntryFlags Flags { get; set; }
 
         /// <summary>
+        /// The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+        /// </summary>
+        /// <value>The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
+        [DataMember(Name="validityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -194,6 +203,7 @@ namespace TalonOne.Model
             sb.Append("  UserID: ").Append(UserID).Append("\n");
             sb.Append("  Archived: ").Append(Archived).Append("\n");
             sb.Append("  Flags: ").Append(Flags).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -296,6 +306,11 @@ namespace TalonOne.Model
                     this.Flags == input.Flags ||
                     (this.Flags != null &&
                     this.Flags.Equals(input.Flags))
+                ) && 
+                (
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
                 );
         }
 
@@ -332,6 +347,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Archived.GetHashCode();
                 if (this.Flags != null)
                     hashCode = hashCode * 59 + this.Flags.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
                 return hashCode;
             }
         }

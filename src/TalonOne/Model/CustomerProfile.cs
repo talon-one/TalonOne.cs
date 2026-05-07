@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -48,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="totalSales">The total amount of money spent by the customer **before** discounts are applied.  The total sales amount excludes the following: - Cancelled or reopened sessions. - Returned items.  (required).</param>
         /// <param name="loyaltyMemberships">**DEPRECATED. Always returns &#x60;null&#x60;.** A list of loyalty programs joined by the customer. .</param>
         /// <param name="audienceMemberships">The audiences the customer belongs to..</param>
-        /// <param name="lastActivity">Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field.  (required).</param>
+        /// <param name="lastActivity">Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#tag/Coupons/operation/createCouponReservation) for a customer doesn&#39;t impact this field.  (required).</param>
         /// <param name="sandbox">An indicator of whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments). .</param>
         public CustomerProfile(long id = default(long), DateTime created = default(DateTime), string integrationId = default(string), Object attributes = default(Object), long accountId = default(long), long closedSessions = default(long), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime), bool sandbox = default(bool))
         {
@@ -131,9 +131,9 @@ namespace TalonOne.Model
         public List<AudienceMembership> AudienceMemberships { get; set; }
 
         /// <summary>
-        /// Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field. 
+        /// Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#tag/Coupons/operation/createCouponReservation) for a customer doesn&#39;t impact this field. 
         /// </summary>
-        /// <value>Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#operation/createCouponReservation) for a customer doesn&#39;t impact this field. </value>
+        /// <value>Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#tag/Coupons/operation/createCouponReservation) for a customer doesn&#39;t impact this field. </value>
         [DataMember(Name="lastActivity", EmitDefaultValue=false)]
         public DateTime LastActivity { get; set; }
 

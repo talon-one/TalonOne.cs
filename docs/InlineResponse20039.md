@@ -3,8 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalResultSize** | **long** |  | 
-**Data** | [**List&lt;WebhookWithOutgoingIntegrationDetails&gt;**](WebhookWithOutgoingIntegrationDetails.md) |  | 
+**HasMore** | **bool** |  | [optional] 
+**TotalResultSize** | **long** |  | [optional] 
+**Data** | [**List&lt;CatalogItem&gt;**](CatalogItem.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

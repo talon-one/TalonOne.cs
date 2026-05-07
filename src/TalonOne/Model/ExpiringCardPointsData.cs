@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="loyaltyProgramID">The ID of the loyalty program. (required).</param>
         /// <param name="amountOfExpiringPoints">The amount of loyalty points that will be expired soon. (required).</param>
         /// <param name="subledgerID">The ID of the subledger within the loyalty program where these points were added. (required).</param>
-        /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. (required).</param>
+        /// <param name="cardIdentifier">The identifier of the loyalty card, &#x60;which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  (required).</param>
         /// <param name="usersPerCardLimit">The maximum number of customer profiles with which a card can be shared. This can be set to &#x60;0&#x60; for no limit.  (required).</param>
         /// <param name="profiles">The integration IDs of the customer profiles linked to the card. (required).</param>
         public ExpiringCardPointsData(DateTime expiryDate = default(DateTime), long loyaltyProgramID = default(long), decimal amountOfExpiringPoints = default(decimal), string subledgerID = default(string), string cardIdentifier = default(string), long usersPerCardLimit = default(long), List<string> profiles = default(List<string>))
@@ -90,9 +90,9 @@ namespace TalonOne.Model
         public string SubledgerID { get; set; }
 
         /// <summary>
-        /// The alphanumeric identifier of the loyalty card.
+        /// The identifier of the loyalty card, &#x60;which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
-        /// <value>The alphanumeric identifier of the loyalty card.</value>
+        /// <value>The identifier of the loyalty card, &#x60;which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
         [DataMember(Name="CardIdentifier", EmitDefaultValue=false)]
         public string CardIdentifier { get; set; }
 

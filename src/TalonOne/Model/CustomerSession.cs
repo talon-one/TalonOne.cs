@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -90,9 +90,10 @@ namespace TalonOne.Model
         /// <param name="total">The total sum of the cart in one session. (required).</param>
         /// <param name="attributes">A key-value map of the sessions attributes. The potentially valid attributes are configured in your accounts developer settings.  (required).</param>
         /// <param name="firstSession">Indicates whether this is the first session for the customer&#39;s profile. Will always be true for anonymous sessions. (required).</param>
+        /// <param name="updateCount">The number of times the session was updated. When the session is created, this value is initialized to &#x60;1&#x60;. (required).</param>
         /// <param name="discounts">A map of labelled discount values, values will be in the same currency as the application associated with the session. (required).</param>
         /// <param name="updated">Timestamp of the most recent event received on this session. (required).</param>
-        public CustomerSession(string integrationId = default(string), DateTime created = default(DateTime), long applicationId = default(long), string profileId = default(string), string coupon = default(string), string referral = default(string), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), List<string> identifiers = default(List<string>), decimal total = default(decimal), Object attributes = default(Object), bool firstSession = default(bool), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), DateTime updated = default(DateTime))
+        public CustomerSession(string integrationId = default(string), DateTime created = default(DateTime), long applicationId = default(long), string profileId = default(string), string coupon = default(string), string referral = default(string), StateEnum state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), List<string> identifiers = default(List<string>), decimal total = default(decimal), Object attributes = default(Object), bool firstSession = default(bool), long updateCount = default(long), Dictionary<string, decimal> discounts = default(Dictionary<string, decimal>), DateTime updated = default(DateTime))
         {
             // to ensure "integrationId" is required (not null)
             this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for CustomerSession and cannot be null");
@@ -111,6 +112,7 @@ namespace TalonOne.Model
             // to ensure "attributes" is required (not null)
             this.Attributes = attributes ?? throw new ArgumentNullException("attributes is a required property for CustomerSession and cannot be null");
             this.FirstSession = firstSession;
+            this.UpdateCount = updateCount;
             // to ensure "discounts" is required (not null)
             this.Discounts = discounts ?? throw new ArgumentNullException("discounts is a required property for CustomerSession and cannot be null");
             this.Updated = updated;
@@ -195,6 +197,13 @@ namespace TalonOne.Model
         public bool FirstSession { get; set; }
 
         /// <summary>
+        /// The number of times the session was updated. When the session is created, this value is initialized to &#x60;1&#x60;.
+        /// </summary>
+        /// <value>The number of times the session was updated. When the session is created, this value is initialized to &#x60;1&#x60;.</value>
+        [DataMember(Name="updateCount", EmitDefaultValue=false)]
+        public long UpdateCount { get; set; }
+
+        /// <summary>
         /// A map of labelled discount values, values will be in the same currency as the application associated with the session.
         /// </summary>
         /// <value>A map of labelled discount values, values will be in the same currency as the application associated with the session.</value>
@@ -228,6 +237,7 @@ namespace TalonOne.Model
             sb.Append("  Total: ").Append(Total).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  FirstSession: ").Append(FirstSession).Append("\n");
+            sb.Append("  UpdateCount: ").Append(UpdateCount).Append("\n");
             sb.Append("  Discounts: ").Append(Discounts).Append("\n");
             sb.Append("  Updated: ").Append(Updated).Append("\n");
             sb.Append("}\n");
@@ -323,6 +333,10 @@ namespace TalonOne.Model
                     this.FirstSession.Equals(input.FirstSession)
                 ) && 
                 (
+                    this.UpdateCount == input.UpdateCount ||
+                    this.UpdateCount.Equals(input.UpdateCount)
+                ) && 
+                (
                     this.Discounts == input.Discounts ||
                     this.Discounts != null &&
                     input.Discounts != null &&
@@ -364,6 +378,7 @@ namespace TalonOne.Model
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 hashCode = hashCode * 59 + this.FirstSession.GetHashCode();
+                hashCode = hashCode * 59 + this.UpdateCount.GetHashCode();
                 if (this.Discounts != null)
                     hashCode = hashCode * 59 + this.Discounts.GetHashCode();
                 if (this.Updated != null)

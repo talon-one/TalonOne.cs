@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -77,9 +77,9 @@ namespace TalonOne.Model
 
 
         /// <summary>
-        /// A list of features for the campaign template.
+        /// A list of features for the campaign.
         /// </summary>
-        /// <value>A list of features for the campaign template.</value>
+        /// <value>A list of features for the campaign.</value>
         [DataMember(Name="features", EmitDefaultValue=false)]
         public List<FeaturesEnum> Features { get; set; }
         /// <summary>
@@ -103,13 +103,15 @@ namespace TalonOne.Model
         /// <param name="endTime">Timestamp when the campaign will become inactive..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign..</param>
         /// <param name="description">A detailed description of the campaign..</param>
-        /// <param name="activeRulesetId">The ID of the ruleset this campaign template will use..</param>
-        /// <param name="tags">A list of tags for the campaign template..</param>
+        /// <param name="activeRulesetId">The ID of the ruleset this campaign will use..</param>
+        /// <param name="tags">A list of tags for the campaign..</param>
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="referralSettings">referralSettings.</param>
         /// <param name="limits">The set of limits that will operate for this campaign version..</param>
-        /// <param name="features">A list of features for the campaign template..</param>
-        public RevisionVersion(long id = default(long), long accountId = default(long), long applicationId = default(long), long campaignId = default(long), DateTime created = default(DateTime), long createdBy = default(long), long revisionId = default(long), long version = default(long), string name = default(string), DateTime? startTime = default(DateTime?), DateTime? endTime = default(DateTime?), Object attributes = default(Object), string description = default(string), int? activeRulesetId = default(int?), List<string> tags = default(List<string>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<FeaturesEnum> features = default(List<FeaturesEnum>))
+        /// <param name="reevaluateOnReturn">Indicates whether this campaign should be reevaluated when a customer returns an item..</param>
+        /// <param name="features">A list of features for the campaign..</param>
+        /// <param name="couponAttributes">Arbitrary properties associated with coupons in this campaign..</param>
+        public RevisionVersion(long id = default(long), long accountId = default(long), long applicationId = default(long), long campaignId = default(long), DateTime created = default(DateTime), long createdBy = default(long), long revisionId = default(long), long version = default(long), string name = default(string), DateTime? startTime = default(DateTime?), DateTime? endTime = default(DateTime?), Object attributes = default(Object), string description = default(string), int? activeRulesetId = default(int?), List<string> tags = default(List<string>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), bool reevaluateOnReturn = default(bool), List<FeaturesEnum> features = default(List<FeaturesEnum>), Object couponAttributes = default(Object))
         {
             this.Id = id;
             this.AccountId = accountId;
@@ -129,7 +131,9 @@ namespace TalonOne.Model
             this.CouponSettings = couponSettings;
             this.ReferralSettings = referralSettings;
             this.Limits = limits;
+            this.ReevaluateOnReturn = reevaluateOnReturn;
             this.Features = features;
+            this.CouponAttributes = couponAttributes;
         }
         
         /// <summary>
@@ -217,16 +221,16 @@ namespace TalonOne.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The ID of the ruleset this campaign template will use.
+        /// The ID of the ruleset this campaign will use.
         /// </summary>
-        /// <value>The ID of the ruleset this campaign template will use.</value>
+        /// <value>The ID of the ruleset this campaign will use.</value>
         [DataMember(Name="activeRulesetId", EmitDefaultValue=true)]
         public int? ActiveRulesetId { get; set; }
 
         /// <summary>
-        /// A list of tags for the campaign template.
+        /// A list of tags for the campaign.
         /// </summary>
-        /// <value>A list of tags for the campaign template.</value>
+        /// <value>A list of tags for the campaign.</value>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
 
@@ -248,6 +252,20 @@ namespace TalonOne.Model
         /// <value>The set of limits that will operate for this campaign version.</value>
         [DataMember(Name="limits", EmitDefaultValue=false)]
         public List<LimitConfig> Limits { get; set; }
+
+        /// <summary>
+        /// Indicates whether this campaign should be reevaluated when a customer returns an item.
+        /// </summary>
+        /// <value>Indicates whether this campaign should be reevaluated when a customer returns an item.</value>
+        [DataMember(Name="reevaluateOnReturn", EmitDefaultValue=false)]
+        public bool ReevaluateOnReturn { get; set; }
+
+        /// <summary>
+        /// Arbitrary properties associated with coupons in this campaign.
+        /// </summary>
+        /// <value>Arbitrary properties associated with coupons in this campaign.</value>
+        [DataMember(Name="couponAttributes", EmitDefaultValue=false)]
+        public Object CouponAttributes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -275,7 +293,9 @@ namespace TalonOne.Model
             sb.Append("  CouponSettings: ").Append(CouponSettings).Append("\n");
             sb.Append("  ReferralSettings: ").Append(ReferralSettings).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
+            sb.Append("  ReevaluateOnReturn: ").Append(ReevaluateOnReturn).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
+            sb.Append("  CouponAttributes: ").Append(CouponAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -396,8 +416,17 @@ namespace TalonOne.Model
                     this.Limits.SequenceEqual(input.Limits)
                 ) && 
                 (
+                    this.ReevaluateOnReturn == input.ReevaluateOnReturn ||
+                    this.ReevaluateOnReturn.Equals(input.ReevaluateOnReturn)
+                ) && 
+                (
                     this.Features == input.Features ||
                     this.Features.SequenceEqual(input.Features)
+                ) && 
+                (
+                    this.CouponAttributes == input.CouponAttributes ||
+                    (this.CouponAttributes != null &&
+                    this.CouponAttributes.Equals(input.CouponAttributes))
                 );
         }
 
@@ -439,7 +468,10 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ReferralSettings.GetHashCode();
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
+                hashCode = hashCode * 59 + this.ReevaluateOnReturn.GetHashCode();
                 hashCode = hashCode * 59 + this.Features.GetHashCode();
+                if (this.CouponAttributes != null)
+                    hashCode = hashCode * 59 + this.CouponAttributes.GetHashCode();
                 return hashCode;
             }
         }

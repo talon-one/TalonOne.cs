@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -34,26 +34,32 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BestPriorPriceMetadata" /> class.
         /// </summary>
-        /// <param name="influencingCampaignIDs">influencingCampaignIDs.</param>
-        /// <param name="adjustmentReferenceID">Identifier related to the &#x60;referenceId&#x60; used during a &#x60;ADD_PRICE_ADJUSTMENT&#x60; action  using the [Sync cart item catalog endpoint](https://docs.talon.one/integration-api#tag/Catalogs/operation/syncCatalog)..</param>
-        public BestPriorPriceMetadata(List<long> influencingCampaignIDs = default(List<long>), string adjustmentReferenceID = default(string))
+        [JsonConstructorAttribute]
+        protected BestPriorPriceMetadata() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BestPriorPriceMetadata" /> class.
+        /// </summary>
+        /// <param name="influencingCampaignDetails">Details about campaigns that influenced the final price. (required).</param>
+        /// <param name="adjustmentDetails">adjustmentDetails.</param>
+        public BestPriorPriceMetadata(List<InfluencingCampaignDetails> influencingCampaignDetails = default(List<InfluencingCampaignDetails>), AdjustmentDetails adjustmentDetails = default(AdjustmentDetails))
         {
-            this.InfluencingCampaignIDs = influencingCampaignIDs;
-            this.AdjustmentReferenceID = adjustmentReferenceID;
+            // to ensure "influencingCampaignDetails" is required (not null)
+            this.InfluencingCampaignDetails = influencingCampaignDetails ?? throw new ArgumentNullException("influencingCampaignDetails is a required property for BestPriorPriceMetadata and cannot be null");
+            this.AdjustmentDetails = adjustmentDetails;
         }
         
         /// <summary>
-        /// Gets or Sets InfluencingCampaignIDs
+        /// Details about campaigns that influenced the final price.
         /// </summary>
-        [DataMember(Name="influencingCampaignIDs", EmitDefaultValue=false)]
-        public List<long> InfluencingCampaignIDs { get; set; }
+        /// <value>Details about campaigns that influenced the final price.</value>
+        [DataMember(Name="influencingCampaignDetails", EmitDefaultValue=false)]
+        public List<InfluencingCampaignDetails> InfluencingCampaignDetails { get; set; }
 
         /// <summary>
-        /// Identifier related to the &#x60;referenceId&#x60; used during a &#x60;ADD_PRICE_ADJUSTMENT&#x60; action  using the [Sync cart item catalog endpoint](https://docs.talon.one/integration-api#tag/Catalogs/operation/syncCatalog).
+        /// Gets or Sets AdjustmentDetails
         /// </summary>
-        /// <value>Identifier related to the &#x60;referenceId&#x60; used during a &#x60;ADD_PRICE_ADJUSTMENT&#x60; action  using the [Sync cart item catalog endpoint](https://docs.talon.one/integration-api#tag/Catalogs/operation/syncCatalog).</value>
-        [DataMember(Name="adjustmentReferenceID", EmitDefaultValue=false)]
-        public string AdjustmentReferenceID { get; set; }
+        [DataMember(Name="adjustmentDetails", EmitDefaultValue=false)]
+        public AdjustmentDetails AdjustmentDetails { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,8 +69,8 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class BestPriorPriceMetadata {\n");
-            sb.Append("  InfluencingCampaignIDs: ").Append(InfluencingCampaignIDs).Append("\n");
-            sb.Append("  AdjustmentReferenceID: ").Append(AdjustmentReferenceID).Append("\n");
+            sb.Append("  InfluencingCampaignDetails: ").Append(InfluencingCampaignDetails).Append("\n");
+            sb.Append("  AdjustmentDetails: ").Append(AdjustmentDetails).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,15 +106,15 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.InfluencingCampaignIDs == input.InfluencingCampaignIDs ||
-                    this.InfluencingCampaignIDs != null &&
-                    input.InfluencingCampaignIDs != null &&
-                    this.InfluencingCampaignIDs.SequenceEqual(input.InfluencingCampaignIDs)
+                    this.InfluencingCampaignDetails == input.InfluencingCampaignDetails ||
+                    this.InfluencingCampaignDetails != null &&
+                    input.InfluencingCampaignDetails != null &&
+                    this.InfluencingCampaignDetails.SequenceEqual(input.InfluencingCampaignDetails)
                 ) && 
                 (
-                    this.AdjustmentReferenceID == input.AdjustmentReferenceID ||
-                    (this.AdjustmentReferenceID != null &&
-                    this.AdjustmentReferenceID.Equals(input.AdjustmentReferenceID))
+                    this.AdjustmentDetails == input.AdjustmentDetails ||
+                    (this.AdjustmentDetails != null &&
+                    this.AdjustmentDetails.Equals(input.AdjustmentDetails))
                 );
         }
 
@@ -121,10 +127,10 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InfluencingCampaignIDs != null)
-                    hashCode = hashCode * 59 + this.InfluencingCampaignIDs.GetHashCode();
-                if (this.AdjustmentReferenceID != null)
-                    hashCode = hashCode * 59 + this.AdjustmentReferenceID.GetHashCode();
+                if (this.InfluencingCampaignDetails != null)
+                    hashCode = hashCode * 59 + this.InfluencingCampaignDetails.GetHashCode();
+                if (this.AdjustmentDetails != null)
+                    hashCode = hashCode * 59 + this.AdjustmentDetails.GetHashCode();
                 return hashCode;
             }
         }

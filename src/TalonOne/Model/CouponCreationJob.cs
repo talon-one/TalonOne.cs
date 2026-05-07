@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -52,6 +52,7 @@ namespace TalonOne.Model
         /// <param name="numberOfCoupons">The number of new coupon codes to generate for the campaign. (required).</param>
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="attributes">Arbitrary properties associated with coupons. (required).</param>
+        /// <param name="isReservationMandatory">An indication of whether the code can be redeemed only if it has been reserved first. (default to false).</param>
         /// <param name="batchId">The batch ID coupons created by this job will bear. (required).</param>
         /// <param name="status">The current status of this request. Possible values: - &#x60;pending verification&#x60; - &#x60;pending&#x60; - &#x60;completed&#x60; - &#x60;failed&#x60; - &#x60;coupon pattern full&#x60;  (required).</param>
         /// <param name="createdAmount">The number of coupon codes that were already created for this request. (required).</param>
@@ -61,7 +62,7 @@ namespace TalonOne.Model
         /// <param name="communicated">Whether or not the user that created this job was notified of its final state. (required).</param>
         /// <param name="chunkExecutionCount">The number of times an attempt to create a chunk of coupons was made during the processing of the job. (required).</param>
         /// <param name="chunkSize">The number of coupons that will be created in a single transactions. Coupons will be created in chunks until arriving at the requested amount..</param>
-        public CouponCreationJob(long id = default(long), DateTime created = default(DateTime), long campaignId = default(long), long applicationId = default(long), long accountId = default(long), long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long numberOfCoupons = default(long), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), Object attributes = default(Object), string batchId = default(string), string status = default(string), long createdAmount = default(long), long failCount = default(long), List<string> errors = default(List<string>), long createdBy = default(long), bool communicated = default(bool), long chunkExecutionCount = default(long), long chunkSize = default(long))
+        public CouponCreationJob(long id = default(long), DateTime created = default(DateTime), long campaignId = default(long), long applicationId = default(long), long accountId = default(long), long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long numberOfCoupons = default(long), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), Object attributes = default(Object), bool isReservationMandatory = false, string batchId = default(string), string status = default(string), long createdAmount = default(long), long failCount = default(long), List<string> errors = default(List<string>), long createdBy = default(long), bool communicated = default(bool), long chunkExecutionCount = default(long), long chunkSize = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -88,6 +89,7 @@ namespace TalonOne.Model
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
             this.CouponSettings = couponSettings;
+            this.IsReservationMandatory = isReservationMandatory;
             this.ChunkSize = chunkSize;
         }
         
@@ -182,6 +184,13 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
+        /// An indication of whether the code can be redeemed only if it has been reserved first.
+        /// </summary>
+        /// <value>An indication of whether the code can be redeemed only if it has been reserved first.</value>
+        [DataMember(Name="isReservationMandatory", EmitDefaultValue=false)]
+        public bool IsReservationMandatory { get; set; }
+
+        /// <summary>
         /// The batch ID coupons created by this job will bear.
         /// </summary>
         /// <value>The batch ID coupons created by this job will bear.</value>
@@ -265,6 +274,7 @@ namespace TalonOne.Model
             sb.Append("  NumberOfCoupons: ").Append(NumberOfCoupons).Append("\n");
             sb.Append("  CouponSettings: ").Append(CouponSettings).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
+            sb.Append("  IsReservationMandatory: ").Append(IsReservationMandatory).Append("\n");
             sb.Append("  BatchId: ").Append(BatchId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  CreatedAmount: ").Append(CreatedAmount).Append("\n");
@@ -366,6 +376,10 @@ namespace TalonOne.Model
                     this.Attributes.Equals(input.Attributes))
                 ) && 
                 (
+                    this.IsReservationMandatory == input.IsReservationMandatory ||
+                    this.IsReservationMandatory.Equals(input.IsReservationMandatory)
+                ) && 
+                (
                     this.BatchId == input.BatchId ||
                     (this.BatchId != null &&
                     this.BatchId.Equals(input.BatchId))
@@ -434,6 +448,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CouponSettings.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
+                hashCode = hashCode * 59 + this.IsReservationMandatory.GetHashCode();
                 if (this.BatchId != null)
                     hashCode = hashCode * 59 + this.BatchId.GetHashCode();
                 if (this.Status != null)

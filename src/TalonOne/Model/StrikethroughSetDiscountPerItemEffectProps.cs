@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -41,12 +41,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">effect name. (required).</param>
         /// <param name="value">discount value. (required).</param>
-        public StrikethroughSetDiscountPerItemEffectProps(string name = default(string), Object value = default(Object))
+        /// <param name="excludedFromPriceHistory">excludedFromPriceHistory.</param>
+        public StrikethroughSetDiscountPerItemEffectProps(string name = default(string), Object value = default(Object), bool excludedFromPriceHistory = default(bool))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for StrikethroughSetDiscountPerItemEffectProps and cannot be null");
             // to ensure "value" is required (not null)
             this.Value = value ?? throw new ArgumentNullException("value is a required property for StrikethroughSetDiscountPerItemEffectProps and cannot be null");
+            this.ExcludedFromPriceHistory = excludedFromPriceHistory;
         }
         
         /// <summary>
@@ -64,6 +66,12 @@ namespace TalonOne.Model
         public Object Value { get; set; }
 
         /// <summary>
+        /// Gets or Sets ExcludedFromPriceHistory
+        /// </summary>
+        [DataMember(Name="excludedFromPriceHistory", EmitDefaultValue=false)]
+        public bool ExcludedFromPriceHistory { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -73,6 +81,7 @@ namespace TalonOne.Model
             sb.Append("class StrikethroughSetDiscountPerItemEffectProps {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
+            sb.Append("  ExcludedFromPriceHistory: ").Append(ExcludedFromPriceHistory).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -116,6 +125,10 @@ namespace TalonOne.Model
                     this.Value == input.Value ||
                     (this.Value != null &&
                     this.Value.Equals(input.Value))
+                ) && 
+                (
+                    this.ExcludedFromPriceHistory == input.ExcludedFromPriceHistory ||
+                    this.ExcludedFromPriceHistory.Equals(input.ExcludedFromPriceHistory)
                 );
         }
 
@@ -132,6 +145,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Value != null)
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
+                hashCode = hashCode * 59 + this.ExcludedFromPriceHistory.GetHashCode();
                 return hashCode;
             }
         }

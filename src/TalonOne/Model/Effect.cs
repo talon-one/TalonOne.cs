@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -39,6 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Effect" /> class.
         /// </summary>
+        /// <param name="experimentId">The ID of the experiment that campaign belongs to..</param>
         /// <param name="campaignId">The ID of the campaign that triggered this effect. (required).</param>
         /// <param name="rulesetId">The ID of the ruleset that was active in the campaign when this effect was triggered. (required).</param>
         /// <param name="ruleIndex">The position of the rule that triggered this effect within the ruleset. (required).</param>
@@ -55,7 +56,7 @@ namespace TalonOne.Model
         /// <param name="selectedPrice">The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied..</param>
         /// <param name="adjustmentReferenceId">The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment..</param>
         /// <param name="props">props (required).</param>
-        public Effect(long campaignId = default(long), long rulesetId = default(long), long ruleIndex = default(long), string ruleName = default(string), string effectType = default(string), long triggeredByCoupon = default(long), long triggeredForCatalogItem = default(long), long conditionIndex = default(long), long evaluationGroupID = default(long), string evaluationGroupMode = default(string), long campaignRevisionId = default(long), long campaignRevisionVersionId = default(long), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), Guid adjustmentReferenceId = default(Guid), Object props = default(Object))
+        public Effect(long experimentId = default(long), long campaignId = default(long), long rulesetId = default(long), long ruleIndex = default(long), string ruleName = default(string), string effectType = default(string), long triggeredByCoupon = default(long), long triggeredForCatalogItem = default(long), long conditionIndex = default(long), long evaluationGroupID = default(long), string evaluationGroupMode = default(string), long campaignRevisionId = default(long), long campaignRevisionVersionId = default(long), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), Guid adjustmentReferenceId = default(Guid), Object props = default(Object))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -66,6 +67,7 @@ namespace TalonOne.Model
             this.EffectType = effectType ?? throw new ArgumentNullException("effectType is a required property for Effect and cannot be null");
             // to ensure "props" is required (not null)
             this.Props = props ?? throw new ArgumentNullException("props is a required property for Effect and cannot be null");
+            this.ExperimentId = experimentId;
             this.TriggeredByCoupon = triggeredByCoupon;
             this.TriggeredForCatalogItem = triggeredForCatalogItem;
             this.ConditionIndex = conditionIndex;
@@ -78,6 +80,13 @@ namespace TalonOne.Model
             this.AdjustmentReferenceId = adjustmentReferenceId;
         }
         
+        /// <summary>
+        /// The ID of the experiment that campaign belongs to.
+        /// </summary>
+        /// <value>The ID of the experiment that campaign belongs to.</value>
+        [DataMember(Name="experimentId", EmitDefaultValue=false)]
+        public long ExperimentId { get; set; }
+
         /// <summary>
         /// The ID of the campaign that triggered this effect.
         /// </summary>
@@ -197,6 +206,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Effect {\n");
+            sb.Append("  ExperimentId: ").Append(ExperimentId).Append("\n");
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
             sb.Append("  RulesetId: ").Append(RulesetId).Append("\n");
             sb.Append("  RuleIndex: ").Append(RuleIndex).Append("\n");
@@ -247,6 +257,10 @@ namespace TalonOne.Model
                 return false;
 
             return 
+                (
+                    this.ExperimentId == input.ExperimentId ||
+                    this.ExperimentId.Equals(input.ExperimentId)
+                ) && 
                 (
                     this.CampaignId == input.CampaignId ||
                     this.CampaignId.Equals(input.CampaignId)
@@ -328,6 +342,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.ExperimentId.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 hashCode = hashCode * 59 + this.RulesetId.GetHashCode();
                 hashCode = hashCode * 59 + this.RuleIndex.GetHashCode();

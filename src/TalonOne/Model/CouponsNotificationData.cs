@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -32,6 +32,33 @@ namespace TalonOne.Model
     public partial class CouponsNotificationData :  IEquatable<CouponsNotificationData>, IValidatableObject
     {
         /// <summary>
+        /// The type of the notification
+        /// </summary>
+        /// <value>The type of the notification</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum NotificationTypeEnum
+        {
+            /// <summary>
+            /// Enum CouponUpdated for value: CouponUpdated
+            /// </summary>
+            [EnumMember(Value = "CouponUpdated")]
+            CouponUpdated = 1,
+
+            /// <summary>
+            /// Enum CouponDeleted for value: CouponDeleted
+            /// </summary>
+            [EnumMember(Value = "CouponDeleted")]
+            CouponDeleted = 2
+
+        }
+
+        /// <summary>
+        /// The type of the notification
+        /// </summary>
+        /// <value>The type of the notification</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public NotificationTypeEnum NotificationType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CouponsNotificationData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -45,7 +72,7 @@ namespace TalonOne.Model
         /// <param name="data">A list of extended coupon data..</param>
         /// <param name="totalResultSize">totalResultSize.</param>
         /// <param name="notificationType">The type of the notification (required).</param>
-        public CouponsNotificationData(string typeOfChange = default(string), string operation = default(string), string employeeName = default(string), List<ExtendedCoupon> data = default(List<ExtendedCoupon>), long totalResultSize = default(long), string notificationType = default(string))
+        public CouponsNotificationData(string typeOfChange = default(string), string operation = default(string), string employeeName = default(string), List<ExtendedCoupon> data = default(List<ExtendedCoupon>), long totalResultSize = default(long), NotificationTypeEnum notificationType = default(NotificationTypeEnum))
         {
             // to ensure "typeOfChange" is required (not null)
             this.TypeOfChange = typeOfChange ?? throw new ArgumentNullException("typeOfChange is a required property for CouponsNotificationData and cannot be null");
@@ -53,8 +80,7 @@ namespace TalonOne.Model
             this.Operation = operation ?? throw new ArgumentNullException("operation is a required property for CouponsNotificationData and cannot be null");
             // to ensure "employeeName" is required (not null)
             this.EmployeeName = employeeName ?? throw new ArgumentNullException("employeeName is a required property for CouponsNotificationData and cannot be null");
-            // to ensure "notificationType" is required (not null)
-            this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for CouponsNotificationData and cannot be null");
+            this.NotificationType = notificationType;
             this.Data = data;
             this.TotalResultSize = totalResultSize;
         }
@@ -92,13 +118,6 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="totalResultSize", EmitDefaultValue=false)]
         public long TotalResultSize { get; set; }
-
-        /// <summary>
-        /// The type of the notification
-        /// </summary>
-        /// <value>The type of the notification</value>
-        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
-        public string NotificationType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -175,8 +194,7 @@ namespace TalonOne.Model
                 ) && 
                 (
                     this.NotificationType == input.NotificationType ||
-                    (this.NotificationType != null &&
-                    this.NotificationType.Equals(input.NotificationType))
+                    this.NotificationType.Equals(input.NotificationType)
                 );
         }
 
@@ -198,8 +216,7 @@ namespace TalonOne.Model
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
-                if (this.NotificationType != null)
-                    hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
                 return hashCode;
             }
         }

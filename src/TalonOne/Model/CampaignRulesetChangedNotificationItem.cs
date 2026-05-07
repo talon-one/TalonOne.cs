@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -42,15 +42,19 @@ namespace TalonOne.Model
         /// <param name="_event">The type of the event. Can be one of the following: [&#39;campaign_state_changed&#39;, &#39;campaign_ruleset_changed&#39;, &#39;campaign_edited&#39;, &#39;campaign_created&#39;, &#39;campaign_deleted&#39;]  (required).</param>
         /// <param name="campaign">campaign (required).</param>
         /// <param name="oldRuleset">oldRuleset.</param>
+        /// <param name="oldPlaceholders">The previous details of the placeholders before the ruleset was changed..</param>
         /// <param name="ruleset">ruleset.</param>
-        public CampaignRulesetChangedNotificationItem(string _event = default(string), Campaign campaign = default(Campaign), Ruleset oldRuleset = default(Ruleset), Ruleset ruleset = default(Ruleset))
+        /// <param name="placeholders">The current details of the [placeholders](https://docs.talon.one/docs/product/campaigns/templates/create-templates#use-placeholders) in the campaign..</param>
+        public CampaignRulesetChangedNotificationItem(string _event = default(string), Campaign campaign = default(Campaign), Ruleset oldRuleset = default(Ruleset), List<PlaceholderDetails> oldPlaceholders = default(List<PlaceholderDetails>), Ruleset ruleset = default(Ruleset), List<PlaceholderDetails> placeholders = default(List<PlaceholderDetails>))
         {
             // to ensure "_event" is required (not null)
             this.Event = _event ?? throw new ArgumentNullException("_event is a required property for CampaignRulesetChangedNotificationItem and cannot be null");
             // to ensure "campaign" is required (not null)
             this.Campaign = campaign ?? throw new ArgumentNullException("campaign is a required property for CampaignRulesetChangedNotificationItem and cannot be null");
             this.OldRuleset = oldRuleset;
+            this.OldPlaceholders = oldPlaceholders;
             this.Ruleset = ruleset;
+            this.Placeholders = placeholders;
         }
         
         /// <summary>
@@ -73,10 +77,24 @@ namespace TalonOne.Model
         public Ruleset OldRuleset { get; set; }
 
         /// <summary>
+        /// The previous details of the placeholders before the ruleset was changed.
+        /// </summary>
+        /// <value>The previous details of the placeholders before the ruleset was changed.</value>
+        [DataMember(Name="oldPlaceholders", EmitDefaultValue=false)]
+        public List<PlaceholderDetails> OldPlaceholders { get; set; }
+
+        /// <summary>
         /// Gets or Sets Ruleset
         /// </summary>
         [DataMember(Name="ruleset", EmitDefaultValue=false)]
         public Ruleset Ruleset { get; set; }
+
+        /// <summary>
+        /// The current details of the [placeholders](https://docs.talon.one/docs/product/campaigns/templates/create-templates#use-placeholders) in the campaign.
+        /// </summary>
+        /// <value>The current details of the [placeholders](https://docs.talon.one/docs/product/campaigns/templates/create-templates#use-placeholders) in the campaign.</value>
+        [DataMember(Name="placeholders", EmitDefaultValue=false)]
+        public List<PlaceholderDetails> Placeholders { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,7 +107,9 @@ namespace TalonOne.Model
             sb.Append("  Event: ").Append(Event).Append("\n");
             sb.Append("  Campaign: ").Append(Campaign).Append("\n");
             sb.Append("  OldRuleset: ").Append(OldRuleset).Append("\n");
+            sb.Append("  OldPlaceholders: ").Append(OldPlaceholders).Append("\n");
             sb.Append("  Ruleset: ").Append(Ruleset).Append("\n");
+            sb.Append("  Placeholders: ").Append(Placeholders).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,9 +160,21 @@ namespace TalonOne.Model
                     this.OldRuleset.Equals(input.OldRuleset))
                 ) && 
                 (
+                    this.OldPlaceholders == input.OldPlaceholders ||
+                    this.OldPlaceholders != null &&
+                    input.OldPlaceholders != null &&
+                    this.OldPlaceholders.SequenceEqual(input.OldPlaceholders)
+                ) && 
+                (
                     this.Ruleset == input.Ruleset ||
                     (this.Ruleset != null &&
                     this.Ruleset.Equals(input.Ruleset))
+                ) && 
+                (
+                    this.Placeholders == input.Placeholders ||
+                    this.Placeholders != null &&
+                    input.Placeholders != null &&
+                    this.Placeholders.SequenceEqual(input.Placeholders)
                 );
         }
 
@@ -161,8 +193,12 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Campaign.GetHashCode();
                 if (this.OldRuleset != null)
                     hashCode = hashCode * 59 + this.OldRuleset.GetHashCode();
+                if (this.OldPlaceholders != null)
+                    hashCode = hashCode * 59 + this.OldPlaceholders.GetHashCode();
                 if (this.Ruleset != null)
                     hashCode = hashCode * 59 + this.Ruleset.GetHashCode();
+                if (this.Placeholders != null)
+                    hashCode = hashCode * 59 + this.Placeholders.GetHashCode();
                 return hashCode;
             }
         }

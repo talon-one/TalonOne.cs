@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -47,7 +47,8 @@ namespace TalonOne.Model
         /// <param name="description">Description of the role..</param>
         /// <param name="permissions">permissions.</param>
         /// <param name="members">A list of user IDs the role is assigned to..</param>
-        public RoleV2(long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime), long accountId = default(long), string name = default(string), string description = default(string), RoleV2Permissions permissions = default(RoleV2Permissions), List<long> members = default(List<long>))
+        /// <param name="isReadonly">Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The &#39;isReadonly&#39; property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role. (default to false).</param>
+        public RoleV2(long id = default(long), DateTime created = default(DateTime), DateTime modified = default(DateTime), long accountId = default(long), string name = default(string), string description = default(string), RoleV2Permissions permissions = default(RoleV2Permissions), List<long> members = default(List<long>), bool isReadonly = false)
         {
             this.Id = id;
             this.Created = created;
@@ -57,6 +58,7 @@ namespace TalonOne.Model
             this.Description = description;
             this.Permissions = permissions;
             this.Members = members;
+            this.IsReadonly = isReadonly;
         }
         
         /// <summary>
@@ -115,6 +117,13 @@ namespace TalonOne.Model
         public List<long> Members { get; set; }
 
         /// <summary>
+        /// Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The &#39;isReadonly&#39; property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.
+        /// </summary>
+        /// <value>Identifies if the role is read-only. For read-only roles, you can only assign or unassign users. You cannot edit any other properties, such as the name, description, or permissions. The &#39;isReadonly&#39; property cannot be set for new or existing roles. It is reserved for predefined roles, such as the Talon.One support role.</value>
+        [DataMember(Name="isReadonly", EmitDefaultValue=false)]
+        public bool IsReadonly { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -130,6 +139,7 @@ namespace TalonOne.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Permissions: ").Append(Permissions).Append("\n");
             sb.Append("  Members: ").Append(Members).Append("\n");
+            sb.Append("  IsReadonly: ").Append(IsReadonly).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -202,6 +212,10 @@ namespace TalonOne.Model
                     this.Members != null &&
                     input.Members != null &&
                     this.Members.SequenceEqual(input.Members)
+                ) && 
+                (
+                    this.IsReadonly == input.IsReadonly ||
+                    this.IsReadonly.Equals(input.IsReadonly)
                 );
         }
 
@@ -228,6 +242,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Permissions.GetHashCode();
                 if (this.Members != null)
                     hashCode = hashCode * 59 + this.Members.GetHashCode();
+                hashCode = hashCode * 59 + this.IsReadonly.GetHashCode();
                 return hashCode;
             }
         }

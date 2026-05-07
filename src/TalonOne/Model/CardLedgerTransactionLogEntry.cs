@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -69,7 +69,7 @@ namespace TalonOne.Model
         /// <param name="transactionUUID">Unique identifier of the transaction in the UUID format. (required).</param>
         /// <param name="created">Date and time the loyalty card transaction occurred. (required).</param>
         /// <param name="programId">ID of the loyalty program. (required).</param>
-        /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card.  (required).</param>
+        /// <param name="cardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  (required).</param>
         /// <param name="applicationId">The ID of the Application that owns this entity..</param>
         /// <param name="sessionId">The **internal** ID of the session. .</param>
         /// <param name="customerSessionId">ID of the customer session where the transaction occurred..</param>
@@ -126,9 +126,9 @@ namespace TalonOne.Model
         public long ProgramId { get; set; }
 
         /// <summary>
-        /// The alphanumeric identifier of the loyalty card. 
+        /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
-        /// <value>The alphanumeric identifier of the loyalty card. </value>
+        /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
         [DataMember(Name="cardIdentifier", EmitDefaultValue=false)]
         public string CardIdentifier { get; set; }
 
@@ -365,8 +365,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be less than 108.", new [] { "CardIdentifier" });
             }
 
+            // CardIdentifier (string) minLength
+            if(this.CardIdentifier != null && this.CardIdentifier.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be greater than 4.", new [] { "CardIdentifier" });
+            }
+
             // CardIdentifier (string) pattern
-            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
             if (false == regexCardIdentifier.Match(this.CardIdentifier).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, must match a pattern of " + regexCardIdentifier, new [] { "CardIdentifier" });

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TransferLoyaltyCard" /> class.
         /// </summary>
-        /// <param name="newCardIdentifier">The alphanumeric identifier of the loyalty card.  (required).</param>
+        /// <param name="newCardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  (required).</param>
         /// <param name="blockReason">Reason for transferring and blocking the loyalty card. .</param>
         public TransferLoyaltyCard(string newCardIdentifier = default(string), string blockReason = default(string))
         {
@@ -49,9 +49,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The alphanumeric identifier of the loyalty card. 
+        /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
-        /// <value>The alphanumeric identifier of the loyalty card. </value>
+        /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
         [DataMember(Name="newCardIdentifier", EmitDefaultValue=false)]
         public string NewCardIdentifier { get; set; }
 
@@ -148,8 +148,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, length must be less than 108.", new [] { "NewCardIdentifier" });
             }
 
+            // NewCardIdentifier (string) minLength
+            if(this.NewCardIdentifier != null && this.NewCardIdentifier.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, length must be greater than 4.", new [] { "NewCardIdentifier" });
+            }
+
             // NewCardIdentifier (string) pattern
-            Regex regexNewCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            Regex regexNewCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
             if (false == regexNewCardIdentifier.Match(this.NewCardIdentifier).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, must match a pattern of " + regexNewCardIdentifier, new [] { "NewCardIdentifier" });

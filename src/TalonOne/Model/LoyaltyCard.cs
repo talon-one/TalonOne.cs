@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -46,14 +46,14 @@ namespace TalonOne.Model
         /// <param name="programTitle">The Campaign Manager-displayed name of the loyalty program that owns this entity..</param>
         /// <param name="status">Status of the loyalty card. Can be &#x60;active&#x60; or &#x60;inactive&#x60;.  (required).</param>
         /// <param name="blockReason">Reason for transferring and blocking the loyalty card. .</param>
-        /// <param name="identifier">The alphanumeric identifier of the loyalty card.  (required).</param>
+        /// <param name="identifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  (required).</param>
         /// <param name="usersPerCardLimit">The max amount of customer profiles that can be linked to the card. 0 means unlimited.  (required).</param>
         /// <param name="profiles">Integration IDs of the customers profiles linked to the card..</param>
         /// <param name="ledger">ledger.</param>
         /// <param name="subledgers">Displays point balances of the card in the subledgers of the loyalty program..</param>
         /// <param name="modified">Timestamp of the most recent update of the loyalty card..</param>
-        /// <param name="oldCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
-        /// <param name="newCardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
+        /// <param name="oldCardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
+        /// <param name="newCardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
         /// <param name="batchId">The ID of the batch in which the loyalty card was created..</param>
         public LoyaltyCard(long id = default(long), DateTime created = default(DateTime), long programID = default(long), string programName = default(string), string programTitle = default(string), string status = default(string), string blockReason = default(string), string identifier = default(string), long usersPerCardLimit = default(long), List<LoyaltyCardProfileRegistration> profiles = default(List<LoyaltyCardProfileRegistration>), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subledgers = default(Dictionary<string, LedgerInfo>), DateTime modified = default(DateTime), string oldCardIdentifier = default(string), string newCardIdentifier = default(string), string batchId = default(string))
         {
@@ -127,9 +127,9 @@ namespace TalonOne.Model
         public string BlockReason { get; set; }
 
         /// <summary>
-        /// The alphanumeric identifier of the loyalty card. 
+        /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
-        /// <value>The alphanumeric identifier of the loyalty card. </value>
+        /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
         [DataMember(Name="identifier", EmitDefaultValue=false)]
         public string Identifier { get; set; }
 
@@ -168,16 +168,16 @@ namespace TalonOne.Model
         public DateTime Modified { get; set; }
 
         /// <summary>
-        /// The alphanumeric identifier of the loyalty card. 
+        /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
-        /// <value>The alphanumeric identifier of the loyalty card. </value>
+        /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
         [DataMember(Name="oldCardIdentifier", EmitDefaultValue=false)]
         public string OldCardIdentifier { get; set; }
 
         /// <summary>
-        /// The alphanumeric identifier of the loyalty card. 
+        /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
-        /// <value>The alphanumeric identifier of the loyalty card. </value>
+        /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
         [DataMember(Name="newCardIdentifier", EmitDefaultValue=false)]
         public string NewCardIdentifier { get; set; }
 
@@ -382,8 +382,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Identifier, length must be less than 108.", new [] { "Identifier" });
             }
 
+            // Identifier (string) minLength
+            if(this.Identifier != null && this.Identifier.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Identifier, length must be greater than 4.", new [] { "Identifier" });
+            }
+
             // Identifier (string) pattern
-            Regex regexIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            Regex regexIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
             if (false == regexIdentifier.Match(this.Identifier).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Identifier, must match a pattern of " + regexIdentifier, new [] { "Identifier" });
@@ -401,8 +407,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OldCardIdentifier, length must be less than 108.", new [] { "OldCardIdentifier" });
             }
 
+            // OldCardIdentifier (string) minLength
+            if(this.OldCardIdentifier != null && this.OldCardIdentifier.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OldCardIdentifier, length must be greater than 4.", new [] { "OldCardIdentifier" });
+            }
+
             // OldCardIdentifier (string) pattern
-            Regex regexOldCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            Regex regexOldCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
             if (false == regexOldCardIdentifier.Match(this.OldCardIdentifier).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for OldCardIdentifier, must match a pattern of " + regexOldCardIdentifier, new [] { "OldCardIdentifier" });
@@ -414,8 +426,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, length must be less than 108.", new [] { "NewCardIdentifier" });
             }
 
+            // NewCardIdentifier (string) minLength
+            if(this.NewCardIdentifier != null && this.NewCardIdentifier.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, length must be greater than 4.", new [] { "NewCardIdentifier" });
+            }
+
             // NewCardIdentifier (string) pattern
-            Regex regexNewCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            Regex regexNewCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
             if (false == regexNewCardIdentifier.Match(this.NewCardIdentifier).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NewCardIdentifier, must match a pattern of " + regexNewCardIdentifier, new [] { "NewCardIdentifier" });

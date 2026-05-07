@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="value">The amount of points that were deducted. (required).</param>
         /// <param name="transactionUUID">The identifier of this deduction in the loyalty ledger. (required).</param>
         /// <param name="name">The name property gets one of the following two values. It can be the loyalty program name or it can represent a reason for the respective deduction of loyalty points. The latter is an optional value defined in a deduction rule.  (required).</param>
-        /// <param name="cardIdentifier">The alphanumeric identifier of the loyalty card. .</param>
+        /// <param name="cardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
         public DeductLoyaltyPointsEffectProps(string ruleTitle = default(string), long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), string transactionUUID = default(string), string name = default(string), string cardIdentifier = default(string))
         {
             // to ensure "ruleTitle" is required (not null)
@@ -104,9 +104,9 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// The alphanumeric identifier of the loyalty card. 
+        /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
-        /// <value>The alphanumeric identifier of the loyalty card. </value>
+        /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
         [DataMember(Name="cardIdentifier", EmitDefaultValue=false)]
         public string CardIdentifier { get; set; }
 
@@ -232,8 +232,14 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be less than 108.", new [] { "CardIdentifier" });
             }
 
+            // CardIdentifier (string) minLength
+            if(this.CardIdentifier != null && this.CardIdentifier.Length < 4)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be greater than 4.", new [] { "CardIdentifier" });
+            }
+
             // CardIdentifier (string) pattern
-            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9_-]*$", RegexOptions.CultureInvariant);
+            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
             if (false == regexCardIdentifier.Match(this.CardIdentifier).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, must match a pattern of " + regexCardIdentifier, new [] { "CardIdentifier" });

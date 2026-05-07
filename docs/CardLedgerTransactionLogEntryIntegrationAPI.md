@@ -7,17 +7,18 @@ Name | Type | Description | Notes
 **TransactionUUID** | **string** | Unique identifier of the transaction in the UUID format. | 
 **Created** | **DateTime** | Date and time the loyalty card transaction occurred. | 
 **ProgramId** | **long** | ID of the loyalty program. | 
-**CardIdentifier** | **string** | The alphanumeric identifier of the loyalty card.  | 
+**CardIdentifier** | **string** | The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  | 
 **CustomerSessionId** | **string** | ID of the customer session where the transaction occurred. | [optional] 
 **Type** | **string** | Type of transaction. Possible values:   - &#x60;addition&#x60;: Signifies added points.   - &#x60;subtraction&#x60;: Signifies deducted points.  | 
 **Name** | **string** | Name or reason of the loyalty ledger transaction. | 
-**StartDate** | **string** | When points become active. Possible values:   - &#x60;immediate&#x60;: Points are active immediately.   - a timestamp value: Points become active at a given date and time.  | 
+**StartDate** | **string** | When points become active. Possible values:   - &#x60;immediate&#x60;: Points are active immediately.   - &#x60;on_action&#x60;: Points become active based on the customer&#39;s action.   - a timestamp value: Points become active at a given date and time.  | 
 **ExpiryDate** | **string** | Date when points expire. Possible values are:   - &#x60;unlimited&#x60;: Points have no expiration date.   - &#x60;timestamp value&#x60;: Points expire on the given date.  | 
 **SubledgerId** | **string** | ID of the subledger. | 
 **Amount** | **decimal** | Amount of loyalty points added or deducted in the transaction. | 
 **Id** | **long** | ID of the loyalty ledger transaction. | 
 **RulesetId** | **long** | The ID of the ruleset containing the rule that triggered this effect. | [optional] 
 **RuleName** | **string** | The name of the rule that triggered this effect. | [optional] 
+**ValidityDuration** | **string** | The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -39,13 +39,15 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20044" /> class.
         /// </summary>
-        /// <param name="totalResultSize">totalResultSize (required).</param>
+        /// <param name="totalResultSize">totalResultSize.</param>
+        /// <param name="hasMore">hasMore.</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20044(long totalResultSize = default(long), List<RoleV2> data = default(List<RoleV2>))
+        public InlineResponse20044(long totalResultSize = default(long), bool hasMore = default(bool), List<Change> data = default(List<Change>))
         {
-            this.TotalResultSize = totalResultSize;
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20044 and cannot be null");
+            this.TotalResultSize = totalResultSize;
+            this.HasMore = hasMore;
         }
         
         /// <summary>
@@ -55,10 +57,16 @@ namespace TalonOne.Model
         public long TotalResultSize { get; set; }
 
         /// <summary>
+        /// Gets or Sets HasMore
+        /// </summary>
+        [DataMember(Name="hasMore", EmitDefaultValue=false)]
+        public bool HasMore { get; set; }
+
+        /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<RoleV2> Data { get; set; }
+        public List<Change> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,6 +77,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20044 {\n");
             sb.Append("  TotalResultSize: ").Append(TotalResultSize).Append("\n");
+            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -109,6 +118,10 @@ namespace TalonOne.Model
                     this.TotalResultSize.Equals(input.TotalResultSize)
                 ) && 
                 (
+                    this.HasMore == input.HasMore ||
+                    this.HasMore.Equals(input.HasMore)
+                ) && 
+                (
                     this.Data == input.Data ||
                     this.Data != null &&
                     input.Data != null &&
@@ -126,6 +139,7 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
+                hashCode = hashCode * 59 + this.HasMore.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;

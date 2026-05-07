@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -32,6 +32,27 @@ namespace TalonOne.Model
     public partial class DeleteCouponsData :  IEquatable<DeleteCouponsData>, IValidatableObject
     {
         /// <summary>
+        /// The type of the notification
+        /// </summary>
+        /// <value>The type of the notification</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum NotificationTypeEnum
+        {
+            /// <summary>
+            /// Enum CouponsDeleted for value: CouponsDeleted
+            /// </summary>
+            [EnumMember(Value = "CouponsDeleted")]
+            CouponsDeleted = 1
+
+        }
+
+        /// <summary>
+        /// The type of the notification
+        /// </summary>
+        /// <value>The type of the notification</value>
+        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
+        public NotificationTypeEnum NotificationType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="DeleteCouponsData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -47,7 +68,7 @@ namespace TalonOne.Model
         /// <param name="campaignID">campaignID (required).</param>
         /// <param name="totalResultSize">totalResultSize (required).</param>
         /// <param name="notificationType">The type of the notification (required).</param>
-        public DeleteCouponsData(string typeOfChange = default(string), string operation = default(string), string employeeName = default(string), string batchID = default(string), long applicationID = default(long), long campaignID = default(long), long totalResultSize = default(long), string notificationType = default(string))
+        public DeleteCouponsData(string typeOfChange = default(string), string operation = default(string), string employeeName = default(string), string batchID = default(string), long applicationID = default(long), long campaignID = default(long), long totalResultSize = default(long), NotificationTypeEnum notificationType = default(NotificationTypeEnum))
         {
             // to ensure "typeOfChange" is required (not null)
             this.TypeOfChange = typeOfChange ?? throw new ArgumentNullException("typeOfChange is a required property for DeleteCouponsData and cannot be null");
@@ -60,8 +81,7 @@ namespace TalonOne.Model
             this.ApplicationID = applicationID;
             this.CampaignID = campaignID;
             this.TotalResultSize = totalResultSize;
-            // to ensure "notificationType" is required (not null)
-            this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for DeleteCouponsData and cannot be null");
+            this.NotificationType = notificationType;
         }
         
         /// <summary>
@@ -105,13 +125,6 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="TotalResultSize", EmitDefaultValue=false)]
         public long TotalResultSize { get; set; }
-
-        /// <summary>
-        /// The type of the notification
-        /// </summary>
-        /// <value>The type of the notification</value>
-        [DataMember(Name="NotificationType", EmitDefaultValue=false)]
-        public string NotificationType { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -197,8 +210,7 @@ namespace TalonOne.Model
                 ) && 
                 (
                     this.NotificationType == input.NotificationType ||
-                    (this.NotificationType != null &&
-                    this.NotificationType.Equals(input.NotificationType))
+                    this.NotificationType.Equals(input.NotificationType)
                 );
         }
 
@@ -222,8 +234,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ApplicationID.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignID.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalResultSize.GetHashCode();
-                if (this.NotificationType != null)
-                    hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
+                hashCode = hashCode * 59 + this.NotificationType.GetHashCode();
                 return hashCode;
             }
         }

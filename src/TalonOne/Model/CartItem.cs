@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -42,8 +42,6 @@ namespace TalonOne.Model
         /// <param name="name">Name of item..</param>
         /// <param name="sku">Stock keeping unit of item. (required).</param>
         /// <param name="quantity">Number of units of this item. Due to [cart item flattening](https://docs.talon.one/docs/product/rules/understanding-cart-item-flattening), if you provide a quantity greater than 1, the item will be split in as many items as the provided quantity. This will impact the number of **per-item** effects triggered from your campaigns.  (required).</param>
-        /// <param name="returnedQuantity">Number of returned items, calculated internally based on returns of this item..</param>
-        /// <param name="remainingQuantity">Remaining quantity of the item, calculated internally based on returns of this item..</param>
         /// <param name="price">Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs). If it is part of a catalog, setting a price here overrides the price from the catalog. .</param>
         /// <param name="category">Type, group or model of the item..</param>
         /// <param name="product">product.</param>
@@ -51,23 +49,14 @@ namespace TalonOne.Model
         /// <param name="height">Height of item in mm..</param>
         /// <param name="width">Width of item in mm..</param>
         /// <param name="length">Length of item in mm..</param>
-        /// <param name="position">Position of the Cart Item in the Cart (calculated internally)..</param>
         /// <param name="attributes">Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.  **Note:** Any previously defined attributes that you do not include in the array will be removed. .</param>
         /// <param name="additionalCosts">Use this property to set a value for the additional costs of this item, such as a shipping cost. They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs). .</param>
-        /// <param name="catalogItemID">The catalog item ID..</param>
-        /// <param name="selectedPriceType">The selected price type for this cart item (e.g. the price for members only)..</param>
-        /// <param name="adjustmentReferenceId">The reference ID of the selected price adjustment for this cart item. Only returned if the selected price resulted from a price adjustment..</param>
-        /// <param name="adjustmentEffectiveFrom">The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field..</param>
-        /// <param name="adjustmentEffectiveUntil">The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field..</param>
-        /// <param name="prices">A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the &#x60;priceType&#x60; names. .</param>
-        public CartItem(string name = default(string), string sku = default(string), long quantity = default(long), long returnedQuantity = default(long), long remainingQuantity = default(long), decimal price = default(decimal), string category = default(string), Product product = default(Product), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), decimal position = default(decimal), Object attributes = default(Object), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), long catalogItemID = default(long), string selectedPriceType = default(string), Guid adjustmentReferenceId = default(Guid), DateTime adjustmentEffectiveFrom = default(DateTime), DateTime adjustmentEffectiveUntil = default(DateTime), Dictionary<string, PriceDetail> prices = default(Dictionary<string, PriceDetail>))
+        public CartItem(string name = default(string), string sku = default(string), long quantity = default(long), decimal price = default(decimal), string category = default(string), Product product = default(Product), decimal weight = default(decimal), decimal height = default(decimal), decimal width = default(decimal), decimal length = default(decimal), Object attributes = default(Object), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>))
         {
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for CartItem and cannot be null");
             this.Quantity = quantity;
             this.Name = name;
-            this.ReturnedQuantity = returnedQuantity;
-            this.RemainingQuantity = remainingQuantity;
             this.Price = price;
             this.Category = category;
             this.Product = product;
@@ -75,15 +64,8 @@ namespace TalonOne.Model
             this.Height = height;
             this.Width = width;
             this.Length = length;
-            this.Position = position;
             this.Attributes = attributes;
             this.AdditionalCosts = additionalCosts;
-            this.CatalogItemID = catalogItemID;
-            this.SelectedPriceType = selectedPriceType;
-            this.AdjustmentReferenceId = adjustmentReferenceId;
-            this.AdjustmentEffectiveFrom = adjustmentEffectiveFrom;
-            this.AdjustmentEffectiveUntil = adjustmentEffectiveUntil;
-            this.Prices = prices;
         }
         
         /// <summary>
@@ -112,14 +94,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Number of returned items, calculated internally based on returns of this item.</value>
         [DataMember(Name="returnedQuantity", EmitDefaultValue=false)]
-        public long ReturnedQuantity { get; set; }
+        public long ReturnedQuantity { get; private set; }
 
         /// <summary>
         /// Remaining quantity of the item, calculated internally based on returns of this item.
         /// </summary>
         /// <value>Remaining quantity of the item, calculated internally based on returns of this item.</value>
         [DataMember(Name="remainingQuantity", EmitDefaultValue=false)]
-        public long RemainingQuantity { get; set; }
+        public long RemainingQuantity { get; private set; }
 
         /// <summary>
         /// Price of the item in the currency defined by your Application. This field is required if this item is not part of a [catalog](https://docs.talon.one/docs/product/account/dev-tools/managing-cart-item-catalogs). If it is part of a catalog, setting a price here overrides the price from the catalog. 
@@ -174,7 +156,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>Position of the Cart Item in the Cart (calculated internally).</value>
         [DataMember(Name="position", EmitDefaultValue=true)]
-        public decimal Position { get; set; }
+        public decimal Position { get; private set; }
 
         /// <summary>
         /// Use this property to set a value for the attributes of your choice. [Attributes](https://docs.talon.one/docs/dev/concepts/attributes) represent any information to attach to this cart item.  Custom _cart item_ attributes must be created in the Campaign Manager before you set them with this property.  **Note:** Any previously defined attributes that you do not include in the array will be removed. 
@@ -195,42 +177,42 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The catalog item ID.</value>
         [DataMember(Name="catalogItemID", EmitDefaultValue=false)]
-        public long CatalogItemID { get; set; }
+        public long CatalogItemID { get; private set; }
 
         /// <summary>
         /// The selected price type for this cart item (e.g. the price for members only).
         /// </summary>
         /// <value>The selected price type for this cart item (e.g. the price for members only).</value>
         [DataMember(Name="selectedPriceType", EmitDefaultValue=false)]
-        public string SelectedPriceType { get; set; }
+        public string SelectedPriceType { get; private set; }
 
         /// <summary>
         /// The reference ID of the selected price adjustment for this cart item. Only returned if the selected price resulted from a price adjustment.
         /// </summary>
         /// <value>The reference ID of the selected price adjustment for this cart item. Only returned if the selected price resulted from a price adjustment.</value>
         [DataMember(Name="adjustmentReferenceId", EmitDefaultValue=false)]
-        public Guid AdjustmentReferenceId { get; set; }
+        public Guid AdjustmentReferenceId { get; private set; }
 
         /// <summary>
         /// The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.
         /// </summary>
         /// <value>The date and time from which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.</value>
         [DataMember(Name="adjustmentEffectiveFrom", EmitDefaultValue=false)]
-        public DateTime AdjustmentEffectiveFrom { get; set; }
+        public DateTime AdjustmentEffectiveFrom { get; private set; }
 
         /// <summary>
         /// The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.
         /// </summary>
         /// <value>The date and time until which the price adjustment is effective. Only returned if the selected price resulted from a price adjustment that contains this field.</value>
         [DataMember(Name="adjustmentEffectiveUntil", EmitDefaultValue=false)]
-        public DateTime AdjustmentEffectiveUntil { get; set; }
+        public DateTime AdjustmentEffectiveUntil { get; private set; }
 
         /// <summary>
         /// A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the &#x60;priceType&#x60; names. 
         /// </summary>
         /// <value>A map of keys and values representing the price types and related price adjustment details for this cart item. The keys correspond to the &#x60;priceType&#x60; names. </value>
         [DataMember(Name="prices", EmitDefaultValue=false)]
-        public Dictionary<string, PriceDetail> Prices { get; set; }
+        public Dictionary<string, PriceDetail> Prices { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

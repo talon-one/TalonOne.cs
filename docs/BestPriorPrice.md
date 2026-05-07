@@ -3,8 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Id** | **long** | The ID of the historical price. | 
 **Sku** | **string** | sku | 
-**ObservedAt** | **DateTime** | The date and time when the best price was observed. | 
+**ObservedAt** | **DateTime** | The date and time when the price was observed. | 
 **ContextId** | **string** | The context ID of the context active at the time of observation.  | 
 **Price** | **decimal** | Price of the item. | 
 **Metadata** | [**BestPriorPriceMetadata**](BestPriorPriceMetadata.md) |  | 

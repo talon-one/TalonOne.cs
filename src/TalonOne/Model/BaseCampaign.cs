@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -156,8 +156,9 @@ namespace TalonOne.Model
         /// <param name="endTime">Timestamp when the campaign will become inactive..</param>
         /// <param name="attributes">Arbitrary properties associated with this campaign..</param>
         /// <param name="state">A disabled or archived campaign is not evaluated for rules or coupons.  (required) (default to StateEnum.Enabled).</param>
-        /// <param name="activeRulesetId">[ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. .</param>
+        /// <param name="activeRulesetId">[ID of Ruleset](https://docs.talon.one/management-api#tag/Campaigns/operation/getRulesets) this campaign applies on customer session evaluation. .</param>
         /// <param name="tags">A list of tags for the campaign. (required).</param>
+        /// <param name="reevaluateOnReturn">Indicates whether this campaign should be reevaluated when a customer returns an item..</param>
         /// <param name="features">The features enabled in this campaign. (required).</param>
         /// <param name="couponSettings">couponSettings.</param>
         /// <param name="referralSettings">referralSettings.</param>
@@ -165,7 +166,8 @@ namespace TalonOne.Model
         /// <param name="campaignGroups">The IDs of the [campaign groups](https://docs.talon.one/docs/product/account/managing-campaign-groups) this campaign belongs to. .</param>
         /// <param name="type">The campaign type. Possible type values:   - &#x60;cartItem&#x60;: Type of campaign that can apply effects only to cart items.   - &#x60;advanced&#x60;: Type of campaign that can apply effects to customer sessions and cart items.  (default to TypeEnum.Advanced).</param>
         /// <param name="linkedStoreIds">A list of store IDs that you want to link to the campaign.  **Note:** Campaigns with linked store IDs will only be evaluated when there is a [customer session update](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) that references a linked store. .</param>
-        public BaseCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, long activeRulesetId = default(long), List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<long> campaignGroups = default(List<long>), TypeEnum? type = TypeEnum.Advanced, List<long> linkedStoreIds = default(List<long>))
+        /// <param name="couponAttributes">Arbitrary properties associated with coupons in this campaign..</param>
+        public BaseCampaign(string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, long activeRulesetId = default(long), List<string> tags = default(List<string>), bool reevaluateOnReturn = default(bool), List<FeaturesEnum> features = default(List<FeaturesEnum>), CodeGeneratorSettings couponSettings = default(CodeGeneratorSettings), CodeGeneratorSettings referralSettings = default(CodeGeneratorSettings), List<LimitConfig> limits = default(List<LimitConfig>), List<long> campaignGroups = default(List<long>), TypeEnum? type = TypeEnum.Advanced, List<long> linkedStoreIds = default(List<long>), Object couponAttributes = default(Object))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for BaseCampaign and cannot be null");
@@ -181,11 +183,13 @@ namespace TalonOne.Model
             this.EndTime = endTime;
             this.Attributes = attributes;
             this.ActiveRulesetId = activeRulesetId;
+            this.ReevaluateOnReturn = reevaluateOnReturn;
             this.CouponSettings = couponSettings;
             this.ReferralSettings = referralSettings;
             this.CampaignGroups = campaignGroups;
             this.Type = type;
             this.LinkedStoreIds = linkedStoreIds;
+            this.CouponAttributes = couponAttributes;
         }
         
         /// <summary>
@@ -224,9 +228,9 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// [ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. 
+        /// [ID of Ruleset](https://docs.talon.one/management-api#tag/Campaigns/operation/getRulesets) this campaign applies on customer session evaluation. 
         /// </summary>
-        /// <value>[ID of Ruleset](https://docs.talon.one/management-api#operation/getRulesets) this campaign applies on customer session evaluation. </value>
+        /// <value>[ID of Ruleset](https://docs.talon.one/management-api#tag/Campaigns/operation/getRulesets) this campaign applies on customer session evaluation. </value>
         [DataMember(Name="activeRulesetId", EmitDefaultValue=false)]
         public long ActiveRulesetId { get; set; }
 
@@ -236,6 +240,13 @@ namespace TalonOne.Model
         /// <value>A list of tags for the campaign.</value>
         [DataMember(Name="tags", EmitDefaultValue=false)]
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// Indicates whether this campaign should be reevaluated when a customer returns an item.
+        /// </summary>
+        /// <value>Indicates whether this campaign should be reevaluated when a customer returns an item.</value>
+        [DataMember(Name="reevaluateOnReturn", EmitDefaultValue=false)]
+        public bool ReevaluateOnReturn { get; set; }
 
         /// <summary>
         /// Gets or Sets CouponSettings
@@ -271,6 +282,13 @@ namespace TalonOne.Model
         public List<long> LinkedStoreIds { get; set; }
 
         /// <summary>
+        /// Arbitrary properties associated with coupons in this campaign.
+        /// </summary>
+        /// <value>Arbitrary properties associated with coupons in this campaign.</value>
+        [DataMember(Name="couponAttributes", EmitDefaultValue=false)]
+        public Object CouponAttributes { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -286,6 +304,7 @@ namespace TalonOne.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  ActiveRulesetId: ").Append(ActiveRulesetId).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
+            sb.Append("  ReevaluateOnReturn: ").Append(ReevaluateOnReturn).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  CouponSettings: ").Append(CouponSettings).Append("\n");
             sb.Append("  ReferralSettings: ").Append(ReferralSettings).Append("\n");
@@ -293,6 +312,7 @@ namespace TalonOne.Model
             sb.Append("  CampaignGroups: ").Append(CampaignGroups).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  LinkedStoreIds: ").Append(LinkedStoreIds).Append("\n");
+            sb.Append("  CouponAttributes: ").Append(CouponAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -367,6 +387,10 @@ namespace TalonOne.Model
                     this.Tags.SequenceEqual(input.Tags)
                 ) && 
                 (
+                    this.ReevaluateOnReturn == input.ReevaluateOnReturn ||
+                    this.ReevaluateOnReturn.Equals(input.ReevaluateOnReturn)
+                ) && 
+                (
                     this.Features == input.Features ||
                     this.Features.SequenceEqual(input.Features)
                 ) && 
@@ -401,6 +425,11 @@ namespace TalonOne.Model
                     this.LinkedStoreIds != null &&
                     input.LinkedStoreIds != null &&
                     this.LinkedStoreIds.SequenceEqual(input.LinkedStoreIds)
+                ) && 
+                (
+                    this.CouponAttributes == input.CouponAttributes ||
+                    (this.CouponAttributes != null &&
+                    this.CouponAttributes.Equals(input.CouponAttributes))
                 );
         }
 
@@ -427,6 +456,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ActiveRulesetId.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
+                hashCode = hashCode * 59 + this.ReevaluateOnReturn.GetHashCode();
                 hashCode = hashCode * 59 + this.Features.GetHashCode();
                 if (this.CouponSettings != null)
                     hashCode = hashCode * 59 + this.CouponSettings.GetHashCode();
@@ -439,6 +469,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.LinkedStoreIds != null)
                     hashCode = hashCode * 59 + this.LinkedStoreIds.GetHashCode();
+                if (this.CouponAttributes != null)
+                    hashCode = hashCode * 59 + this.CouponAttributes.GetHashCode();
                 return hashCode;
             }
         }

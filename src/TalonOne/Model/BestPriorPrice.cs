@@ -1,7 +1,7 @@
 /* 
  * Talon.One API
  *
- * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) are used to integrate with our platform - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment. For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}` 
+ * Use the Talon.One API to integrate with your application and to manage applications and campaigns:  - Use the operations in the [Integration API section](#integration-api) to integrate with our platform. - Use the operation in the [Management API section](#management-api) to manage applications and campaigns.  ## Determining the base URL of the endpoints  The API is available at the same hostname as your Campaign Manager deployment.  For example, if you access the Campaign Manager at `https://yourbaseurl.talon.one/`, the URL for the [updateCustomerSessionV2](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2) endpoint is `https://yourbaseurl.talon.one/v2/customer_sessions/{Id}`. 
  *
  * 
  * Contact: devs@talon.one
@@ -39,14 +39,16 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BestPriorPrice" /> class.
         /// </summary>
+        /// <param name="id">The ID of the historical price. (required).</param>
         /// <param name="sku">sku (required).</param>
-        /// <param name="observedAt">The date and time when the best price was observed. (required).</param>
+        /// <param name="observedAt">The date and time when the price was observed. (required).</param>
         /// <param name="contextId">The context ID of the context active at the time of observation.  (required).</param>
         /// <param name="price">Price of the item. (required).</param>
         /// <param name="metadata">metadata (required).</param>
         /// <param name="target">target (required).</param>
-        public BestPriorPrice(string sku = default(string), DateTime observedAt = default(DateTime), string contextId = default(string), decimal price = default(decimal), BestPriorPriceMetadata metadata = default(BestPriorPriceMetadata), Object target = default(Object))
+        public BestPriorPrice(long id = default(long), string sku = default(string), DateTime observedAt = default(DateTime), string contextId = default(string), decimal price = default(decimal), BestPriorPriceMetadata metadata = default(BestPriorPriceMetadata), Object target = default(Object))
         {
+            this.Id = id;
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for BestPriorPrice and cannot be null");
             this.ObservedAt = observedAt;
@@ -60,6 +62,13 @@ namespace TalonOne.Model
         }
         
         /// <summary>
+        /// The ID of the historical price.
+        /// </summary>
+        /// <value>The ID of the historical price.</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public long Id { get; set; }
+
+        /// <summary>
         /// sku
         /// </summary>
         /// <value>sku</value>
@@ -67,9 +76,9 @@ namespace TalonOne.Model
         public string Sku { get; set; }
 
         /// <summary>
-        /// The date and time when the best price was observed.
+        /// The date and time when the price was observed.
         /// </summary>
-        /// <value>The date and time when the best price was observed.</value>
+        /// <value>The date and time when the price was observed.</value>
         [DataMember(Name="observedAt", EmitDefaultValue=false)]
         public DateTime ObservedAt { get; set; }
 
@@ -107,6 +116,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class BestPriorPrice {\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  ObservedAt: ").Append(ObservedAt).Append("\n");
             sb.Append("  ContextId: ").Append(ContextId).Append("\n");
@@ -148,6 +158,10 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.Id == input.Id ||
+                    this.Id.Equals(input.Id)
+                ) && 
+                (
                     this.Sku == input.Sku ||
                     (this.Sku != null &&
                     this.Sku.Equals(input.Sku))
@@ -187,6 +201,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Sku != null)
                     hashCode = hashCode * 59 + this.Sku.GetHashCode();
                 if (this.ObservedAt != null)
