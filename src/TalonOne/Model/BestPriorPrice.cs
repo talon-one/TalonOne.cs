@@ -42,18 +42,18 @@ namespace TalonOne.Model
         /// <param name="id">The ID of the historical price. (required).</param>
         /// <param name="sku">sku (required).</param>
         /// <param name="observedAt">The date and time when the price was observed. (required).</param>
-        /// <param name="contextId">The context ID of the context active at the time of observation.  (required).</param>
+        /// <param name="contextIds">The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price.  (required).</param>
         /// <param name="price">Price of the item. (required).</param>
         /// <param name="metadata">metadata (required).</param>
         /// <param name="target">target (required).</param>
-        public BestPriorPrice(long id = default(long), string sku = default(string), DateTime observedAt = default(DateTime), string contextId = default(string), decimal price = default(decimal), BestPriorPriceMetadata metadata = default(BestPriorPriceMetadata), Object target = default(Object))
+        public BestPriorPrice(long id = default(long), string sku = default(string), DateTime observedAt = default(DateTime), List<string> contextIds = default(List<string>), decimal price = default(decimal), BestPriorPriceMetadata metadata = default(BestPriorPriceMetadata), Object target = default(Object))
         {
             this.Id = id;
             // to ensure "sku" is required (not null)
             this.Sku = sku ?? throw new ArgumentNullException("sku is a required property for BestPriorPrice and cannot be null");
             this.ObservedAt = observedAt;
-            // to ensure "contextId" is required (not null)
-            this.ContextId = contextId ?? throw new ArgumentNullException("contextId is a required property for BestPriorPrice and cannot be null");
+            // to ensure "contextIds" is required (not null)
+            this.ContextIds = contextIds ?? throw new ArgumentNullException("contextIds is a required property for BestPriorPrice and cannot be null");
             this.Price = price;
             // to ensure "metadata" is required (not null)
             this.Metadata = metadata ?? throw new ArgumentNullException("metadata is a required property for BestPriorPrice and cannot be null");
@@ -83,11 +83,11 @@ namespace TalonOne.Model
         public DateTime ObservedAt { get; set; }
 
         /// <summary>
-        /// The context ID of the context active at the time of observation. 
+        /// The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. 
         /// </summary>
-        /// <value>The context ID of the context active at the time of observation. </value>
-        [DataMember(Name="contextId", EmitDefaultValue=false)]
-        public string ContextId { get; set; }
+        /// <value>The identifiers of the relevant context at the time the price was observed. Includes the context IDs of any price adjustments and of the campaigns that influenced the final price. </value>
+        [DataMember(Name="contextIds", EmitDefaultValue=false)]
+        public List<string> ContextIds { get; set; }
 
         /// <summary>
         /// Price of the item.
@@ -119,7 +119,7 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Sku: ").Append(Sku).Append("\n");
             sb.Append("  ObservedAt: ").Append(ObservedAt).Append("\n");
-            sb.Append("  ContextId: ").Append(ContextId).Append("\n");
+            sb.Append("  ContextIds: ").Append(ContextIds).Append("\n");
             sb.Append("  Price: ").Append(Price).Append("\n");
             sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Target: ").Append(Target).Append("\n");
@@ -172,9 +172,10 @@ namespace TalonOne.Model
                     this.ObservedAt.Equals(input.ObservedAt))
                 ) && 
                 (
-                    this.ContextId == input.ContextId ||
-                    (this.ContextId != null &&
-                    this.ContextId.Equals(input.ContextId))
+                    this.ContextIds == input.ContextIds ||
+                    this.ContextIds != null &&
+                    input.ContextIds != null &&
+                    this.ContextIds.SequenceEqual(input.ContextIds)
                 ) && 
                 (
                     this.Price == input.Price ||
@@ -206,8 +207,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Sku.GetHashCode();
                 if (this.ObservedAt != null)
                     hashCode = hashCode * 59 + this.ObservedAt.GetHashCode();
-                if (this.ContextId != null)
-                    hashCode = hashCode * 59 + this.ContextId.GetHashCode();
+                if (this.ContextIds != null)
+                    hashCode = hashCode * 59 + this.ContextIds.GetHashCode();
                 hashCode = hashCode * 59 + this.Price.GetHashCode();
                 if (this.Metadata != null)
                     hashCode = hashCode * 59 + this.Metadata.GetHashCode();

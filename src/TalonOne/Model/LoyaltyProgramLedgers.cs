@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// <param name="name">Internal name of loyalty program. (required).</param>
         /// <param name="joinDate">The date on which the customer joined the loyalty program in RFC3339.  **Note**: This is in the loyalty program&#39;s time zone. .</param>
         /// <param name="ledger">ledger (required).</param>
-        /// <param name="subLedgers">A map containing information about each loyalty subledger..</param>
+        /// <param name="subLedgers">A map containing information about each loyalty subledger. Subledgers for which all balances are zero are excluded from the response..</param>
         public LoyaltyProgramLedgers(long id = default(long), string title = default(string), string name = default(string), DateTime joinDate = default(DateTime), LedgerInfo ledger = default(LedgerInfo), Dictionary<string, LedgerInfo> subLedgers = default(Dictionary<string, LedgerInfo>))
         {
             this.Id = id;
@@ -93,9 +93,9 @@ namespace TalonOne.Model
         public LedgerInfo Ledger { get; set; }
 
         /// <summary>
-        /// A map containing information about each loyalty subledger.
+        /// A map containing information about each loyalty subledger. Subledgers for which all balances are zero are excluded from the response.
         /// </summary>
-        /// <value>A map containing information about each loyalty subledger.</value>
+        /// <value>A map containing information about each loyalty subledger. Subledgers for which all balances are zero are excluded from the response.</value>
         [DataMember(Name="subLedgers", EmitDefaultValue=false)]
         public Dictionary<string, LedgerInfo> SubLedgers { get; set; }
 

@@ -58,6 +58,14 @@ namespace TalonOne.Test
 
 
         /// <summary>
+        /// Test the property 'EventId'
+        /// </summary>
+        [Fact]
+        public void EventIdTest()
+        {
+            // TODO unit test for the property 'EventId'
+        }
+        /// <summary>
         /// Test the property 'ProfileIntegrationID'
         /// </summary>
         [Fact]
@@ -72,6 +80,14 @@ namespace TalonOne.Test
         public void LoyaltyProgramIDTest()
         {
             // TODO unit test for the property 'LoyaltyProgramID'
+        }
+        /// <summary>
+        /// Test the property 'LoyaltyProgramName'
+        /// </summary>
+        [Fact]
+        public void LoyaltyProgramNameTest()
+        {
+            // TODO unit test for the property 'LoyaltyProgramName'
         }
         /// <summary>
         /// Test the property 'SubledgerID'

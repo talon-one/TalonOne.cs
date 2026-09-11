@@ -226,6 +226,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'EnableCampaignStateManagement'
         }
         /// <summary>
+        /// Test the property 'BestPriorPriceSettings'
+        /// </summary>
+        [Fact]
+        public void BestPriorPriceSettingsTest()
+        {
+            // TODO unit test for the property 'BestPriorPriceSettings'
+        }
+        /// <summary>
         /// Test the property 'LoyaltyPrograms'
         /// </summary>
         [Fact]

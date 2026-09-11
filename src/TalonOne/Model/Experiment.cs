@@ -65,6 +65,45 @@ namespace TalonOne.Model
         [DataMember(Name="state", EmitDefaultValue=false)]
         public StateEnum State { get; set; }
         /// <summary>
+        /// The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. 
+        /// </summary>
+        /// <value>The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum GoalTypeEnum
+        {
+            /// <summary>
+            /// Enum Other for value: other
+            /// </summary>
+            [EnumMember(Value = "other")]
+            Other = 1,
+
+            /// <summary>
+            /// Enum Maximizerevenue for value: maximize_revenue
+            /// </summary>
+            [EnumMember(Value = "maximize_revenue")]
+            Maximizerevenue = 2,
+
+            /// <summary>
+            /// Enum Optimizediscountefficiency for value: optimize_discount_efficiency
+            /// </summary>
+            [EnumMember(Value = "optimize_discount_efficiency")]
+            Optimizediscountefficiency = 3,
+
+            /// <summary>
+            /// Enum Maximizeitemssold for value: maximize_items_sold
+            /// </summary>
+            [EnumMember(Value = "maximize_items_sold")]
+            Maximizeitemssold = 4
+
+        }
+
+        /// <summary>
+        /// The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. 
+        /// </summary>
+        /// <value>The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. </value>
+        [DataMember(Name="goalType", EmitDefaultValue=false)]
+        public GoalTypeEnum GoalType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Experiment" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -80,17 +119,21 @@ namespace TalonOne.Model
         /// <param name="activated">The date and time the experiment was activated. .</param>
         /// <param name="state">A disabled experiment is not evaluated for rules or coupons.  (required) (default to StateEnum.Disabled).</param>
         /// <param name="variants">variants.</param>
+        /// <param name="goalType">The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used.  (required).</param>
+        /// <param name="goalDescription">A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. .</param>
         /// <param name="deletedat">The date and time the experiment was deleted. .</param>
-        public Experiment(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), bool isVariantAssignmentExternal = default(bool), Campaign campaign = default(Campaign), DateTime activated = default(DateTime), StateEnum state = StateEnum.Disabled, List<ExperimentVariant> variants = default(List<ExperimentVariant>), DateTime deletedat = default(DateTime))
+        public Experiment(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), bool isVariantAssignmentExternal = default(bool), Campaign campaign = default(Campaign), DateTime activated = default(DateTime), StateEnum state = StateEnum.Disabled, List<ExperimentVariant> variants = default(List<ExperimentVariant>), GoalTypeEnum goalType = default(GoalTypeEnum), string goalDescription = default(string), DateTime deletedat = default(DateTime))
         {
             this.Id = id;
             this.Created = created;
             this.ApplicationId = applicationId;
             this.State = state;
+            this.GoalType = goalType;
             this.IsVariantAssignmentExternal = isVariantAssignmentExternal;
             this.Campaign = campaign;
             this.Activated = activated;
             this.Variants = variants;
+            this.GoalDescription = goalDescription;
             this.Deletedat = deletedat;
         }
         
@@ -142,6 +185,13 @@ namespace TalonOne.Model
         public List<ExperimentVariant> Variants { get; set; }
 
         /// <summary>
+        /// A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. 
+        /// </summary>
+        /// <value>A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. </value>
+        [DataMember(Name="goalDescription", EmitDefaultValue=false)]
+        public string GoalDescription { get; set; }
+
+        /// <summary>
         /// The date and time the experiment was deleted. 
         /// </summary>
         /// <value>The date and time the experiment was deleted. </value>
@@ -164,6 +214,8 @@ namespace TalonOne.Model
             sb.Append("  Activated: ").Append(Activated).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Variants: ").Append(Variants).Append("\n");
+            sb.Append("  GoalType: ").Append(GoalType).Append("\n");
+            sb.Append("  GoalDescription: ").Append(GoalDescription).Append("\n");
             sb.Append("  Deletedat: ").Append(Deletedat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -237,6 +289,15 @@ namespace TalonOne.Model
                     this.Variants.SequenceEqual(input.Variants)
                 ) && 
                 (
+                    this.GoalType == input.GoalType ||
+                    this.GoalType.Equals(input.GoalType)
+                ) && 
+                (
+                    this.GoalDescription == input.GoalDescription ||
+                    (this.GoalDescription != null &&
+                    this.GoalDescription.Equals(input.GoalDescription))
+                ) && 
+                (
                     this.Deletedat == input.Deletedat ||
                     (this.Deletedat != null &&
                     this.Deletedat.Equals(input.Deletedat))
@@ -264,6 +325,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.Variants != null)
                     hashCode = hashCode * 59 + this.Variants.GetHashCode();
+                hashCode = hashCode * 59 + this.GoalType.GetHashCode();
+                if (this.GoalDescription != null)
+                    hashCode = hashCode * 59 + this.GoalDescription.GetHashCode();
                 if (this.Deletedat != null)
                     hashCode = hashCode * 59 + this.Deletedat.GetHashCode();
                 return hashCode;

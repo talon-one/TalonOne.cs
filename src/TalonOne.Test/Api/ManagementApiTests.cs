@@ -136,6 +136,18 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test CreateAchievementV2
+        /// </summary>
+        [Fact]
+        public void CreateAchievementV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //CreateAchievementV2 body = null;
+            //var response = instance.CreateAchievementV2(body);
+            //Assert.IsType<AchievementV2> (response, "response is AchievementV2");
+        }
+        
+        /// <summary>
         /// Test CreateAdditionalCost
         /// </summary>
         [Fact]
@@ -308,6 +320,20 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test CreateRulesetV2
+        /// </summary>
+        [Fact]
+        public void CreateRulesetV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long applicationId = null;
+            //long campaignId = null;
+            //RulesetV2 body = null;
+            //var response = instance.CreateRulesetV2(applicationId, campaignId, body);
+            //Assert.IsType<RulesetV2> (response, "response is RulesetV2");
+        }
+        
+        /// <summary>
         /// Test CreateSession
         /// </summary>
         [Fact]
@@ -381,6 +407,18 @@ namespace TalonOne.Test
             //long campaignId = null;
             //long achievementId = null;
             //instance.DeleteAchievement(applicationId, campaignId, achievementId);
+            
+        }
+        
+        /// <summary>
+        /// Test DeleteAchievementV2
+        /// </summary>
+        [Fact]
+        public void DeleteAchievementV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long achievementId = null;
+            //instance.DeleteAchievementV2(achievementId);
             
         }
         
@@ -555,6 +593,19 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test ExcludePriceHistory
+        /// </summary>
+        [Fact]
+        public void ExcludePriceHistoryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long applicationId = null;
+            //ExcludePriceObservationsRequest body = null;
+            //instance.ExcludePriceHistory(applicationId, body);
+            
+        }
+        
+        /// <summary>
         /// Test ExportAccountCollectionItems
         /// </summary>
         [Fact]
@@ -563,6 +614,18 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //long collectionId = null;
             //var response = instance.ExportAccountCollectionItems(collectionId);
+            //Assert.IsType<string> (response, "response is string");
+        }
+        
+        /// <summary>
+        /// Test ExportAchievementV2
+        /// </summary>
+        [Fact]
+        public void ExportAchievementV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long achievementId = null;
+            //var response = instance.ExportAchievementV2(achievementId);
             //Assert.IsType<string> (response, "response is string");
         }
         
@@ -685,7 +748,9 @@ namespace TalonOne.Test
             //string dateFormat = null;
             //string campaignState = null;
             //bool? valuesOnly = null;
-            //var response = instance.ExportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly);
+            //DateTime? deletedBefore = null;
+            //DateTime? deletedAfter = null;
+            //var response = instance.ExportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, deletedBefore, deletedAfter);
             //Assert.IsType<string> (response, "response is string");
         }
         
@@ -699,10 +764,12 @@ namespace TalonOne.Test
             //long applicationId = null;
             //DateTime? createdBefore = null;
             //DateTime? createdAfter = null;
+            //DateTime? updatedBefore = null;
+            //DateTime? updatedAfter = null;
             //string profileIntegrationId = null;
             //string dateFormat = null;
             //string customerSessionState = null;
-            //var response = instance.ExportCustomerSessions(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState);
+            //var response = instance.ExportCustomerSessions(applicationId, createdBefore, createdAfter, updatedBefore, updatedAfter, profileIntegrationId, dateFormat, customerSessionState);
             //Assert.IsType<string> (response, "response is string");
         }
         
@@ -745,7 +812,8 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string loyaltyProgramId = null;
             //DateTime? endDate = null;
-            //var response = instance.ExportLoyaltyBalance(loyaltyProgramId, endDate);
+            //string balances = null;
+            //var response = instance.ExportLoyaltyBalance(loyaltyProgramId, endDate, balances);
             //Assert.IsType<string> (response, "response is string");
         }
         
@@ -758,7 +826,8 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //string loyaltyProgramId = null;
             //DateTime? endDate = null;
-            //var response = instance.ExportLoyaltyBalances(loyaltyProgramId, endDate);
+            //string balances = null;
+            //var response = instance.ExportLoyaltyBalances(loyaltyProgramId, endDate, balances);
             //Assert.IsType<string> (response, "response is string");
         }
         
@@ -771,7 +840,8 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //long loyaltyProgramId = null;
             //DateTime? endDate = null;
-            //var response = instance.ExportLoyaltyCardBalances(loyaltyProgramId, endDate);
+            //string balances = null;
+            //var response = instance.ExportLoyaltyCardBalances(loyaltyProgramId, endDate, balances);
             //Assert.IsType<string> (response, "response is string");
         }
         
@@ -880,7 +950,7 @@ namespace TalonOne.Test
             //string language = null;
             //string couponCode = null;
             //var response = instance.GenerateCouponRejections(sessionIntegrationId, applicationId, language, couponCode);
-            //Assert.IsType<InlineResponse20053> (response, "response is InlineResponse20053");
+            //Assert.IsType<InlineResponse20055> (response, "response is InlineResponse20055");
         }
         
         /// <summary>
@@ -954,6 +1024,18 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test GetAchievementV2
+        /// </summary>
+        [Fact]
+        public void GetAchievementV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long achievementId = null;
+            //var response = instance.GetAchievementV2(achievementId);
+            //Assert.IsType<AchievementV2> (response, "response is AchievementV2");
+        }
+        
+        /// <summary>
         /// Test GetAdditionalCost
         /// </summary>
         [Fact]
@@ -976,7 +1058,7 @@ namespace TalonOne.Test
             //long? skip = null;
             //string sort = null;
             //var response = instance.GetAdditionalCosts(pageSize, skip, sort);
-            //Assert.IsType<InlineResponse20040> (response, "response is InlineResponse20040");
+            //Assert.IsType<InlineResponse20041> (response, "response is InlineResponse20041");
         }
         
         /// <summary>
@@ -1044,7 +1126,7 @@ namespace TalonOne.Test
             //string sort = null;
             //bool? withTotalResultSize = null;
             //var response = instance.GetApplicationCustomerFriends(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize);
-            //Assert.IsType<InlineResponse20037> (response, "response is InlineResponse20037");
+            //Assert.IsType<InlineResponse20038> (response, "response is InlineResponse20038");
         }
         
         /// <summary>
@@ -1091,7 +1173,7 @@ namespace TalonOne.Test
             //long? skip = null;
             //string sort = null;
             //var response = instance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
-            //Assert.IsType<InlineResponse20033> (response, "response is InlineResponse20033");
+            //Assert.IsType<InlineResponse20034> (response, "response is InlineResponse20034");
         }
         
         /// <summary>
@@ -1118,7 +1200,7 @@ namespace TalonOne.Test
             //string campaignQuery = null;
             //string effectType = null;
             //var response = instance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType);
-            //Assert.IsType<InlineResponse20032> (response, "response is InlineResponse20032");
+            //Assert.IsType<InlineResponse20033> (response, "response is InlineResponse20033");
         }
         
         /// <summary>
@@ -1159,6 +1241,22 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test GetApplicationSessionsByCustomerAttributes
+        /// </summary>
+        [Fact]
+        public void GetApplicationSessionsByCustomerAttributesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long applicationId = null;
+            //CustomerProfileSearchQuery body = null;
+            //long? pageSize = null;
+            //long? skip = null;
+            //bool? withTotalResultSize = null;
+            //var response = instance.GetApplicationSessionsByCustomerAttributes(applicationId, body, pageSize, skip, withTotalResultSize);
+            //Assert.IsType<InlineResponse20032> (response, "response is InlineResponse20032");
+        }
+        
+        /// <summary>
         /// Test GetApplications
         /// </summary>
         [Fact]
@@ -1196,11 +1294,12 @@ namespace TalonOne.Test
             //string sort = null;
             //string entity = null;
             //string applicationIds = null;
+            //string loyaltyProgramIds = null;
             //string type = null;
             //string kind = null;
             //string search = null;
-            //var response = instance.GetAttributes(pageSize, skip, sort, entity, applicationIds, type, kind, search);
-            //Assert.IsType<InlineResponse20038> (response, "response is InlineResponse20038");
+            //var response = instance.GetAttributes(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search);
+            //Assert.IsType<InlineResponse20039> (response, "response is InlineResponse20039");
         }
         
         /// <summary>
@@ -1216,7 +1315,7 @@ namespace TalonOne.Test
             //string sort = null;
             //string profileQuery = null;
             //var response = instance.GetAudienceMemberships(audienceId, pageSize, skip, sort, profileQuery);
-            //Assert.IsType<InlineResponse20036> (response, "response is InlineResponse20036");
+            //Assert.IsType<InlineResponse20037> (response, "response is InlineResponse20037");
         }
         
         /// <summary>
@@ -1231,7 +1330,7 @@ namespace TalonOne.Test
             //string sort = null;
             //bool? withTotalResultSize = null;
             //var response = instance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
-            //Assert.IsType<InlineResponse20034> (response, "response is InlineResponse20034");
+            //Assert.IsType<InlineResponse20035> (response, "response is InlineResponse20035");
         }
         
         /// <summary>
@@ -1244,7 +1343,7 @@ namespace TalonOne.Test
             //string audienceIds = null;
             //string sort = null;
             //var response = instance.GetAudiencesAnalytics(audienceIds, sort);
-            //Assert.IsType<InlineResponse20035> (response, "response is InlineResponse20035");
+            //Assert.IsType<InlineResponse20036> (response, "response is InlineResponse20036");
         }
         
         /// <summary>
@@ -1350,7 +1449,7 @@ namespace TalonOne.Test
             //string sort = null;
             //string campaignState = null;
             //string name = null;
-            //string tags = null;
+            //List<string> tags = null;
             //DateTime? createdBefore = null;
             //DateTime? createdAfter = null;
             //DateTime? startBefore = null;
@@ -1383,7 +1482,7 @@ namespace TalonOne.Test
             //long? managementKeyId = null;
             //bool? includeOld = null;
             //var response = instance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
-            //Assert.IsType<InlineResponse20044> (response, "response is InlineResponse20044");
+            //Assert.IsType<InlineResponse20045> (response, "response is InlineResponse20045");
         }
         
         /// <summary>
@@ -1525,7 +1624,7 @@ namespace TalonOne.Test
             //long? achievementId = null;
             //string title = null;
             //var response = instance.GetCustomerProfileAchievementProgress(applicationId, integrationId, pageSize, skip, achievementId, title);
-            //Assert.IsType<InlineResponse20052> (response, "response is InlineResponse20052");
+            //Assert.IsType<InlineResponse20054> (response, "response is InlineResponse20054");
         }
         
         /// <summary>
@@ -1585,7 +1684,7 @@ namespace TalonOne.Test
             //long? skip = null;
             //string sort = null;
             //var response = instance.GetEventTypes(name, includeOldVersions, pageSize, skip, sort);
-            //Assert.IsType<InlineResponse20042> (response, "response is InlineResponse20042");
+            //Assert.IsType<InlineResponse20043> (response, "response is InlineResponse20043");
         }
         
         /// <summary>
@@ -1614,7 +1713,7 @@ namespace TalonOne.Test
             //long? campaignId = null;
             //string entity = null;
             //var response = instance.GetExports(pageSize, skip, applicationId, campaignId, entity);
-            //Assert.IsType<InlineResponse20045> (response, "response is InlineResponse20045");
+            //Assert.IsType<InlineResponse20046> (response, "response is InlineResponse20046");
         }
         
         /// <summary>
@@ -1790,6 +1889,7 @@ namespace TalonOne.Test
             //DateTime? createdBefore = null;
             //DateTime? createdAfter = null;
             //byte[] cursor = null;
+            //long? pageSize = null;
             //string period = null;
             //bool? isSuccessful = null;
             //decimal? applicationId = null;
@@ -1797,7 +1897,7 @@ namespace TalonOne.Test
             //long? loyaltyProgramId = null;
             //long? responseCode = null;
             //string webhookIDs = null;
-            //var response = instance.GetMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
+            //var response = instance.GetMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, pageSize, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
             //Assert.IsType<MessageLogEntries> (response, "response is MessageLogEntries");
         }
         
@@ -1847,6 +1947,20 @@ namespace TalonOne.Test
             //long rulesetId = null;
             //var response = instance.GetRuleset(applicationId, campaignId, rulesetId);
             //Assert.IsType<Ruleset> (response, "response is Ruleset");
+        }
+        
+        /// <summary>
+        /// Test GetRulesetV2
+        /// </summary>
+        [Fact]
+        public void GetRulesetV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long applicationId = null;
+            //long campaignId = null;
+            //long rulesetId = null;
+            //var response = instance.GetRulesetV2(applicationId, campaignId, rulesetId);
+            //Assert.IsType<RulesetV2> (response, "response is RulesetV2");
         }
         
         /// <summary>
@@ -1901,7 +2015,7 @@ namespace TalonOne.Test
             //long? skip = null;
             //string sort = null;
             //var response = instance.GetUsers(pageSize, skip, sort);
-            //Assert.IsType<InlineResponse20043> (response, "response is InlineResponse20043");
+            //Assert.IsType<InlineResponse20044> (response, "response is InlineResponse20044");
         }
         
         /// <summary>
@@ -1932,7 +2046,7 @@ namespace TalonOne.Test
             //long? outgoingIntegrationsTypeId = null;
             //string title = null;
             //var response = instance.GetWebhooks(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title);
-            //Assert.IsType<InlineResponse20041> (response, "response is InlineResponse20041");
+            //Assert.IsType<InlineResponse20042> (response, "response is InlineResponse20042");
         }
         
         /// <summary>
@@ -1943,7 +2057,7 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //long collectionId = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportAccountCollection(collectionId, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -1956,7 +2070,7 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //long attributeId = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportAllowedList(attributeId, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -1969,7 +2083,7 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //long audienceId = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportAudiencesMemberships(audienceId, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -1985,7 +2099,7 @@ namespace TalonOne.Test
             //long campaignId = null;
             //string action = null;
             //string period = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportCampaignStoreBudget(applicationId, campaignId, action, period, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -1999,7 +2113,7 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //long applicationId = null;
             //long campaignId = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportCampaignStores(applicationId, campaignId, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -2014,7 +2128,7 @@ namespace TalonOne.Test
             //long applicationId = null;
             //long campaignId = null;
             //long collectionId = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportCollection(applicationId, campaignId, collectionId, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -2029,7 +2143,7 @@ namespace TalonOne.Test
             //long applicationId = null;
             //long campaignId = null;
             //bool? skipDuplicates = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportCoupons(applicationId, campaignId, skipDuplicates, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -2042,7 +2156,7 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //long loyaltyProgramId = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportLoyaltyCards(loyaltyProgramId, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -2055,8 +2169,21 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //long loyaltyProgramId = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportLoyaltyCustomersTiers(loyaltyProgramId, upFile);
+            //Assert.IsType<Import> (response, "response is Import");
+        }
+        
+        /// <summary>
+        /// Test ImportLoyaltyJoinDates
+        /// </summary>
+        [Fact]
+        public void ImportLoyaltyJoinDatesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long loyaltyProgramId = null;
+            //System.IO.Stream upFile = null;
+            //var response = instance.ImportLoyaltyJoinDates(loyaltyProgramId, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
         
@@ -2069,7 +2196,7 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //long loyaltyProgramId = null;
             //bool? notificationsEnabled = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportLoyaltyPoints(loyaltyProgramId, notificationsEnabled, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -2082,7 +2209,7 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //long poolId = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportPoolGiveaways(poolId, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -2096,7 +2223,7 @@ namespace TalonOne.Test
             // TODO uncomment below to test the method and replace null with proper value
             //long applicationId = null;
             //long campaignId = null;
-            //string upFile = null;
+            //System.IO.Stream upFile = null;
             //var response = instance.ImportReferrals(applicationId, campaignId, upFile);
             //Assert.IsType<Import> (response, "response is Import");
         }
@@ -2142,7 +2269,23 @@ namespace TalonOne.Test
             //long? skip = null;
             //string title = null;
             //var response = instance.ListAchievements(applicationId, campaignId, pageSize, skip, title);
-            //Assert.IsType<InlineResponse20051> (response, "response is InlineResponse20051");
+            //Assert.IsType<InlineResponse20052> (response, "response is InlineResponse20052");
+        }
+        
+        /// <summary>
+        /// Test ListAchievementsV2
+        /// </summary>
+        [Fact]
+        public void ListAchievementsV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long? pageSize = null;
+            //long? skip = null;
+            //string sort = null;
+            //string title = null;
+            //long? applicationId = null;
+            //var response = instance.ListAchievementsV2(pageSize, skip, sort, title, applicationId);
+            //Assert.IsType<InlineResponse20053> (response, "response is InlineResponse20053");
         }
         
         /// <summary>
@@ -2153,7 +2296,7 @@ namespace TalonOne.Test
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.ListAllRolesV2();
-            //Assert.IsType<InlineResponse20046> (response, "response is InlineResponse20046");
+            //Assert.IsType<InlineResponse20047> (response, "response is InlineResponse20047");
         }
         
         /// <summary>
@@ -2166,9 +2309,9 @@ namespace TalonOne.Test
             //long applicationId = null;
             //long? pageSize = null;
             //long? skip = null;
-            //string title = null;
-            //var response = instance.ListApplicationCartItemFilters(applicationId, pageSize, skip, title);
-            //Assert.IsType<InlineResponse20048> (response, "response is InlineResponse20048");
+            //string name = null;
+            //var response = instance.ListApplicationCartItemFilters(applicationId, pageSize, skip, name);
+            //Assert.IsType<InlineResponse20049> (response, "response is InlineResponse20049");
         }
         
         /// <summary>
@@ -2183,7 +2326,7 @@ namespace TalonOne.Test
             //string action = null;
             //string period = null;
             //var response = instance.ListCampaignStoreBudgetLimits(applicationId, campaignId, action, period);
-            //Assert.IsType<InlineResponse20049> (response, "response is InlineResponse20049");
+            //Assert.IsType<InlineResponse20050> (response, "response is InlineResponse20050");
         }
         
         /// <summary>
@@ -2200,7 +2343,7 @@ namespace TalonOne.Test
             //List<string> sku = null;
             //List<string> productNames = null;
             //var response = instance.ListCatalogItems(catalogId, pageSize, skip, withTotalResultSize, sku, productNames);
-            //Assert.IsType<InlineResponse20039> (response, "response is InlineResponse20039");
+            //Assert.IsType<InlineResponse20040> (response, "response is InlineResponse20040");
         }
         
         /// <summary>
@@ -2270,7 +2413,7 @@ namespace TalonOne.Test
             //string integrationId = null;
             //string query = null;
             //var response = instance.ListStores(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
-            //Assert.IsType<InlineResponse20047> (response, "response is InlineResponse20047");
+            //Assert.IsType<InlineResponse20048> (response, "response is InlineResponse20048");
         }
         
         /// <summary>
@@ -2564,7 +2707,7 @@ namespace TalonOne.Test
             //long applicationId = null;
             //long campaignId = null;
             //var response = instance.SummarizeCampaignStoreBudget(applicationId, campaignId);
-            //Assert.IsType<InlineResponse20050> (response, "response is InlineResponse20050");
+            //Assert.IsType<InlineResponse20051> (response, "response is InlineResponse20051");
         }
         
         /// <summary>
@@ -2607,6 +2750,19 @@ namespace TalonOne.Test
             //UpdateAchievement body = null;
             //var response = instance.UpdateAchievement(applicationId, campaignId, achievementId, body);
             //Assert.IsType<Achievement> (response, "response is Achievement");
+        }
+        
+        /// <summary>
+        /// Test UpdateAchievementV2
+        /// </summary>
+        [Fact]
+        public void UpdateAchievementV2Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long achievementId = null;
+            //UpdateAchievementV2 body = null;
+            //var response = instance.UpdateAchievementV2(achievementId, body);
+            //Assert.IsType<AchievementV2> (response, "response is AchievementV2");
         }
         
         /// <summary>

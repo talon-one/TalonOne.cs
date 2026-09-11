@@ -86,7 +86,7 @@ namespace TalonOne.Model
         /// <param name="rulesetId">ID of the ruleset containing the rule that triggered the effect. Applies only for transactions that resulted from a customer session..</param>
         /// <param name="ruleName">Name of the rule that triggered the effect. Applies only for transactions that resulted from a customer session..</param>
         /// <param name="flags">flags.</param>
-        /// <param name="validityDuration">The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
         public LoyaltyProgramTransaction(long id = default(long), string transactionUUID = default(string), long programId = default(long), long campaignId = default(long), DateTime created = default(DateTime), TypeEnum type = default(TypeEnum), decimal amount = default(decimal), string name = default(string), string startDate = default(string), string expiryDate = default(string), string customerProfileId = default(string), string cardIdentifier = default(string), string subledgerId = default(string), string customerSessionId = default(string), long importId = default(long), long userId = default(long), string userEmail = default(string), long rulesetId = default(long), string ruleName = default(string), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags), string validityDuration = default(string))
         {
             this.Id = id;
@@ -250,9 +250,9 @@ namespace TalonOne.Model
         public LoyaltyLedgerEntryFlags Flags { get; set; }
 
         /// <summary>
-        /// The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+        /// The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
         /// </summary>
-        /// <value>The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
+        /// <value>The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
         [DataMember(Name="validityDuration", EmitDefaultValue=false)]
         public string ValidityDuration { get; set; }
 

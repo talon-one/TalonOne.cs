@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;rollbackReferral\&quot; effect. This gets triggered whenever previously closed session is now cancelled and a referral redemption was cancelled on our internal usage limit counters.
+    /// This effect indicates that the redemption of the referral code has been rolled back. It triggers when a closed session that redeemed a referral is gets cancelled. The code becomes redeemable again.  For more information about session states, see [Managing states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).
     /// </summary>
     [DataContract]
     public partial class RollbackReferralEffectProps :  IEquatable<RollbackReferralEffectProps>, IValidatableObject
@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RollbackReferralEffectProps" /> class.
         /// </summary>
-        /// <param name="value">The referral code whose usage has been rolled back. (required).</param>
+        /// <param name="value">The referral code to be rolled back. (required).</param>
         public RollbackReferralEffectProps(string value = default(string))
         {
             // to ensure "value" is required (not null)
@@ -47,9 +47,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The referral code whose usage has been rolled back.
+        /// The referral code to be rolled back.
         /// </summary>
-        /// <value>The referral code whose usage has been rolled back.</value>
+        /// <value>The referral code to be rolled back.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
 

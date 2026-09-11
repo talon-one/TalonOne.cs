@@ -43,13 +43,17 @@ namespace TalonOne.Model
         /// <param name="workerCount">Number of IntegrationHub workers to run in parallel for this flow (maximum 500). (default to 10).</param>
         /// <param name="maxEventsPerMessage">Maximum number of events to send in a single message to IntegrationHub. (default to 1000).</param>
         /// <param name="maxRetries">Maximum number of retries for a IntegrationHub event before it is ignored. (default to 10).</param>
-        public IntegrationHubFlowConfig(string apiKey = default(string), long workerCount = 10, long maxEventsPerMessage = 1000, long maxRetries = 10)
+        /// <param name="instanceName">Name of the Prismatic instance that registered this flow..</param>
+        /// <param name="integrationName">Name of the Prismatic integration that registered this flow..</param>
+        public IntegrationHubFlowConfig(string apiKey = default(string), long workerCount = 10, long maxEventsPerMessage = 1000, long maxRetries = 10, string instanceName = default(string), string integrationName = default(string))
         {
             // to ensure "apiKey" is required (not null)
             this.ApiKey = apiKey ?? throw new ArgumentNullException("apiKey is a required property for IntegrationHubFlowConfig and cannot be null");
             this.WorkerCount = workerCount;
             this.MaxEventsPerMessage = maxEventsPerMessage;
             this.MaxRetries = maxRetries;
+            this.InstanceName = instanceName;
+            this.IntegrationName = integrationName;
         }
         
         /// <summary>
@@ -80,6 +84,20 @@ namespace TalonOne.Model
         public long MaxRetries { get; set; }
 
         /// <summary>
+        /// Name of the Prismatic instance that registered this flow.
+        /// </summary>
+        /// <value>Name of the Prismatic instance that registered this flow.</value>
+        [DataMember(Name="InstanceName", EmitDefaultValue=false)]
+        public string InstanceName { get; set; }
+
+        /// <summary>
+        /// Name of the Prismatic integration that registered this flow.
+        /// </summary>
+        /// <value>Name of the Prismatic integration that registered this flow.</value>
+        [DataMember(Name="IntegrationName", EmitDefaultValue=false)]
+        public string IntegrationName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +109,8 @@ namespace TalonOne.Model
             sb.Append("  WorkerCount: ").Append(WorkerCount).Append("\n");
             sb.Append("  MaxEventsPerMessage: ").Append(MaxEventsPerMessage).Append("\n");
             sb.Append("  MaxRetries: ").Append(MaxRetries).Append("\n");
+            sb.Append("  InstanceName: ").Append(InstanceName).Append("\n");
+            sb.Append("  IntegrationName: ").Append(IntegrationName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,6 +161,16 @@ namespace TalonOne.Model
                 (
                     this.MaxRetries == input.MaxRetries ||
                     this.MaxRetries.Equals(input.MaxRetries)
+                ) && 
+                (
+                    this.InstanceName == input.InstanceName ||
+                    (this.InstanceName != null &&
+                    this.InstanceName.Equals(input.InstanceName))
+                ) && 
+                (
+                    this.IntegrationName == input.IntegrationName ||
+                    (this.IntegrationName != null &&
+                    this.IntegrationName.Equals(input.IntegrationName))
                 );
         }
 
@@ -158,6 +188,10 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.WorkerCount.GetHashCode();
                 hashCode = hashCode * 59 + this.MaxEventsPerMessage.GetHashCode();
                 hashCode = hashCode * 59 + this.MaxRetries.GetHashCode();
+                if (this.InstanceName != null)
+                    hashCode = hashCode * 59 + this.InstanceName.GetHashCode();
+                if (this.IntegrationName != null)
+                    hashCode = hashCode * 59 + this.IntegrationName.GetHashCode();
                 return hashCode;
             }
         }

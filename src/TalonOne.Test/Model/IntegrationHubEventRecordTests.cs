@@ -74,20 +74,28 @@ namespace TalonOne.Test
             // TODO unit test for the property 'FlowId'
         }
         /// <summary>
+        /// Test the property 'IntegrationName'
+        /// </summary>
+        [Fact]
+        public void IntegrationNameTest()
+        {
+            // TODO unit test for the property 'IntegrationName'
+        }
+        /// <summary>
+        /// Test the property 'InstanceName'
+        /// </summary>
+        [Fact]
+        public void InstanceNameTest()
+        {
+            // TODO unit test for the property 'InstanceName'
+        }
+        /// <summary>
         /// Test the property 'EventType'
         /// </summary>
         [Fact]
         public void EventTypeTest()
         {
             // TODO unit test for the property 'EventType'
-        }
-        /// <summary>
-        /// Test the property 'EventData'
-        /// </summary>
-        [Fact]
-        public void EventDataTest()
-        {
-            // TODO unit test for the property 'EventData'
         }
         /// <summary>
         /// Test the property 'PublishedAt'
@@ -106,12 +114,20 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ProcessedAt'
         }
         /// <summary>
-        /// Test the property 'ProcessAfter'
+        /// Test the property 'DeliveredAt'
         /// </summary>
         [Fact]
-        public void ProcessAfterTest()
+        public void DeliveredAtTest()
         {
-            // TODO unit test for the property 'ProcessAfter'
+            // TODO unit test for the property 'DeliveredAt'
+        }
+        /// <summary>
+        /// Test the property 'ScheduledTo'
+        /// </summary>
+        [Fact]
+        public void ScheduledToTest()
+        {
+            // TODO unit test for the property 'ScheduledTo'
         }
         /// <summary>
         /// Test the property 'Retry'
@@ -120,6 +136,14 @@ namespace TalonOne.Test
         public void RetryTest()
         {
             // TODO unit test for the property 'Retry'
+        }
+        /// <summary>
+        /// Test the property 'Payload'
+        /// </summary>
+        [Fact]
+        public void PayloadTest()
+        {
+            // TODO unit test for the property 'Payload'
         }
 
     }

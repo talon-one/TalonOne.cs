@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="profileId">ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. .</param>
         /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
-        /// <param name="type">A string representing the event. Must not be a reserved event name. (required).</param>
+        /// <param name="type">The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event. (required).</param>
         /// <param name="attributes">Arbitrary additional JSON data associated with the event. (required).</param>
         /// <param name="sessionId">The ID of the session that this event occurred in. (required).</param>
         public NewEvent(string profileId = default(string), string storeIntegrationId = default(string), string type = default(string), Object attributes = default(Object), string sessionId = default(string))
@@ -71,9 +71,9 @@ namespace TalonOne.Model
         public string StoreIntegrationId { get; set; }
 
         /// <summary>
-        /// A string representing the event. Must not be a reserved event name.
+        /// The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
         /// </summary>
-        /// <value>A string representing the event. Must not be a reserved event name.</value>
+        /// <value>The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

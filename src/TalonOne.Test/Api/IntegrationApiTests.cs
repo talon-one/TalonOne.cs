@@ -256,7 +256,8 @@ namespace TalonOne.Test
             //bool? loyalty = null;
             //bool? giveaways = null;
             //bool? achievements = null;
-            //var response = instance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements);
+            //bool? unlockedRewards = null;
+            //var response = instance.GetCustomerInventory(integrationId, profile, referrals, coupons, loyalty, giveaways, achievements, unlockedRewards);
             //Assert.IsType<CustomerInventory> (response, "response is CustomerInventory");
         }
         
@@ -270,6 +271,18 @@ namespace TalonOne.Test
             //string customerSessionId = null;
             //var response = instance.GetCustomerSession(customerSessionId);
             //Assert.IsType<IntegrationCustomerSessionResponse> (response, "response is IntegrationCustomerSessionResponse");
+        }
+        
+        /// <summary>
+        /// Test GetEventV3
+        /// </summary>
+        [Fact]
+        public void GetEventV3Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string integrationId = null;
+            //var response = instance.GetEventV3(integrationId);
+            //Assert.IsType<EventV3> (response, "response is EventV3");
         }
         
         /// <summary>
@@ -356,7 +369,7 @@ namespace TalonOne.Test
             //long loyaltyProgramId = null;
             //string integrationId = null;
             //string status = null;
-            //string subledgerId = null;
+            //List<string> subledgerId = null;
             //List<string> customerSessionIDs = null;
             //List<string> transactionUUIDs = null;
             //long? pageSize = null;
@@ -377,7 +390,7 @@ namespace TalonOne.Test
             //string integrationId = null;
             //List<string> customerSessionIDs = null;
             //List<string> transactionUUIDs = null;
-            //string subledgerId = null;
+            //List<string> subledgerId = null;
             //string loyaltyTransactionType = null;
             //DateTime? startDate = null;
             //DateTime? endDate = null;
@@ -414,8 +427,43 @@ namespace TalonOne.Test
             //DateTime? startBefore = null;
             //DateTime? endAfter = null;
             //DateTime? endBefore = null;
-            //var response = instance.IntegrationGetAllCampaigns(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore);
+            //long? storeId = null;
+            //long? audienceId = null;
+            //var response = instance.IntegrationGetAllCampaigns(pageSize, skip, campaignIds, startAfter, startBefore, endAfter, endBefore, storeId, audienceId);
             //Assert.IsType<InlineResponse200> (response, "response is InlineResponse200");
+        }
+        
+        /// <summary>
+        /// Test IntegrationRewardsCatalog
+        /// </summary>
+        [Fact]
+        public void IntegrationRewardsCatalogTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long? pageSize = null;
+            //long? skip = null;
+            //decimal? pointsFrom = null;
+            //decimal? pointsTo = null;
+            //bool? includeFree = null;
+            //long? loyaltyProgramId = null;
+            //string subledgerId = null;
+            //string profileIntegrationId = null;
+            //string loyaltyCardId = null;
+            //var response = instance.IntegrationRewardsCatalog(pageSize, skip, pointsFrom, pointsTo, includeFree, loyaltyProgramId, subledgerId, profileIntegrationId, loyaltyCardId);
+            //Assert.IsType<InlineResponse20056> (response, "response is InlineResponse20056");
+        }
+        
+        /// <summary>
+        /// Test JoinLoyaltyProgram
+        /// </summary>
+        [Fact]
+        public void JoinLoyaltyProgramTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long loyaltyProgramId = null;
+            //string integrationId = null;
+            //instance.JoinLoyaltyProgram(loyaltyProgramId, integrationId);
+            
         }
         
         /// <summary>
@@ -488,6 +536,21 @@ namespace TalonOne.Test
         }
         
         /// <summary>
+        /// Test TrackEventV3
+        /// </summary>
+        [Fact]
+        public void TrackEventV3Test()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //IntegrationEventV3Request body = null;
+            //string silent = null;
+            //bool? dry = null;
+            //bool? forceCompleteEvaluation = null;
+            //var response = instance.TrackEventV3(body, silent, dry, forceCompleteEvaluation);
+            //Assert.IsType<IntegrationEventV3Response> (response, "response is IntegrationEventV3Response");
+        }
+        
+        /// <summary>
         /// Test UnlinkLoyaltyCardFromProfile
         /// </summary>
         [Fact]
@@ -499,6 +562,20 @@ namespace TalonOne.Test
             //LoyaltyCardRegistration body = null;
             //var response = instance.UnlinkLoyaltyCardFromProfile(loyaltyProgramId, loyaltyCardId, body);
             //Assert.IsType<LoyaltyCard> (response, "response is LoyaltyCard");
+        }
+        
+        /// <summary>
+        /// Test UnlockReward
+        /// </summary>
+        [Fact]
+        public void UnlockRewardTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //long rewardId = null;
+            //IntegrationUnlockRewardRequest body = null;
+            //bool? dry = null;
+            //var response = instance.UnlockReward(rewardId, body, dry);
+            //Assert.IsType<IntegrationStateV2> (response, "response is IntegrationStateV2");
         }
         
         /// <summary>

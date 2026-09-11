@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**CopyCampaignToApplications**](ManagementApi.md#copycampaigntoapplications) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/copy | Copy the campaign into the specified Application
 [**CreateAccountCollection**](ManagementApi.md#createaccountcollection) | **POST** /v1/collections | Create account-level collection
 [**CreateAchievement**](ManagementApi.md#createachievement) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | Create achievement
+[**CreateAchievementV2**](ManagementApi.md#createachievementv2) | **POST** /v2/achievements | Create achievement
 [**CreateAdditionalCost**](ManagementApi.md#createadditionalcost) | **POST** /v1/additional_costs | Create additional cost
 [**CreateAttribute**](ManagementApi.md#createattribute) | **POST** /v1/attributes | Create custom attribute
 [**CreateBatchLoyaltyCards**](ManagementApi.md#createbatchloyaltycards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/cards/batch | Create loyalty cards
@@ -23,12 +24,14 @@ Method | HTTP request | Description
 [**CreateInviteEmail**](ManagementApi.md#createinviteemail) | **POST** /v1/invite_emails | Resend invitation email
 [**CreateInviteV2**](ManagementApi.md#createinvitev2) | **POST** /v2/invites | Invite user
 [**CreatePasswordRecoveryEmail**](ManagementApi.md#createpasswordrecoveryemail) | **POST** /v1/password_recovery_emails | Request a password reset
+[**CreateRulesetV2**](ManagementApi.md#createrulesetv2) | **POST** /v2/applications/{applicationId}/campaigns/{campaignId}/rulesets | Create ruleset (V2)
 [**CreateSession**](ManagementApi.md#createsession) | **POST** /v1/sessions | Create session
 [**CreateStore**](ManagementApi.md#createstore) | **POST** /v1/applications/{applicationId}/stores | Create store
 [**DeactivateUserByEmail**](ManagementApi.md#deactivateuserbyemail) | **POST** /v1/users/deactivate | Disable user by email address
 [**DeductLoyaltyCardPoints**](ManagementApi.md#deductloyaltycardpoints) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/deduct_points | Deduct points from card
 [**DeleteAccountCollection**](ManagementApi.md#deleteaccountcollection) | **DELETE** /v1/collections/{collectionId} | Delete account-level collection
 [**DeleteAchievement**](ManagementApi.md#deleteachievement) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Delete achievement
+[**DeleteAchievementV2**](ManagementApi.md#deleteachievementv2) | **DELETE** /v2/achievements/{achievementId} | Delete achievement
 [**DeleteCampaign**](ManagementApi.md#deletecampaign) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId} | Delete campaign
 [**DeleteCampaignStoreBudgets**](ManagementApi.md#deletecampaignstorebudgets) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | Delete campaign store budgets
 [**DeleteCollection**](ManagementApi.md#deletecollection) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/collections/{collectionId} | Delete campaign-level collection
@@ -41,7 +44,9 @@ Method | HTTP request | Description
 [**DeleteUserByEmail**](ManagementApi.md#deleteuserbyemail) | **POST** /v1/users/delete | Delete user by email address
 [**DestroySession**](ManagementApi.md#destroysession) | **DELETE** /v1/sessions | Destroy session
 [**DisconnectCampaignStores**](ManagementApi.md#disconnectcampaignstores) | **DELETE** /v1/applications/{applicationId}/campaigns/{campaignId}/stores | Disconnect stores
+[**ExcludePriceHistory**](ManagementApi.md#excludepricehistory) | **POST** /v1/applications/{applicationId}/price_history/exclusions | Exclude price records from price history
 [**ExportAccountCollectionItems**](ManagementApi.md#exportaccountcollectionitems) | **GET** /v1/collections/{collectionId}/export | Export account-level collection&#39;s items
+[**ExportAchievementV2**](ManagementApi.md#exportachievementv2) | **GET** /v2/achievements/{achievementId}/export | Export achievement customer data
 [**ExportAchievements**](ManagementApi.md#exportachievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId}/export | Export achievement customer data
 [**ExportApplicationCampaignAnalytics**](ManagementApi.md#exportapplicationcampaignanalytics) | **GET** /v1/applications/{applicationId}/campaign_analytics/export | Export Application analytics aggregated by campaign
 [**ExportAudiencesMemberships**](ManagementApi.md#exportaudiencesmemberships) | **GET** /v1/audiences/{audienceId}/memberships/export | Export audience members
@@ -68,6 +73,7 @@ Method | HTTP request | Description
 [**GetAccountAnalytics**](ManagementApi.md#getaccountanalytics) | **GET** /v1/accounts/{accountId}/analytics | Get account analytics
 [**GetAccountCollection**](ManagementApi.md#getaccountcollection) | **GET** /v1/collections/{collectionId} | Get account-level collection
 [**GetAchievement**](ManagementApi.md#getachievement) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Get achievement
+[**GetAchievementV2**](ManagementApi.md#getachievementv2) | **GET** /v2/achievements/{achievementId} | Get achievement
 [**GetAdditionalCost**](ManagementApi.md#getadditionalcost) | **GET** /v1/additional_costs/{additionalCostId} | Get additional cost
 [**GetAdditionalCosts**](ManagementApi.md#getadditionalcosts) | **GET** /v1/additional_costs | List additional costs
 [**GetApplication**](ManagementApi.md#getapplication) | **GET** /v1/applications/{applicationId} | Get Application
@@ -81,6 +87,7 @@ Method | HTTP request | Description
 [**GetApplicationEventsWithoutTotalCount**](ManagementApi.md#getapplicationeventswithouttotalcount) | **GET** /v1/applications/{applicationId}/events/no_total | List Applications events
 [**GetApplicationSession**](ManagementApi.md#getapplicationsession) | **GET** /v1/applications/{applicationId}/sessions/{sessionId} | Get Application session
 [**GetApplicationSessions**](ManagementApi.md#getapplicationsessions) | **GET** /v1/applications/{applicationId}/sessions | List Application sessions
+[**GetApplicationSessionsByCustomerAttributes**](ManagementApi.md#getapplicationsessionsbycustomerattributes) | **POST** /v1/applications/{applicationId}/sessions_search | List Application sessions matching the given customer attributes
 [**GetApplications**](ManagementApi.md#getapplications) | **GET** /v1/applications | List Applications
 [**GetAttribute**](ManagementApi.md#getattribute) | **GET** /v1/attributes/{attributeId} | Get custom attribute
 [**GetAttributes**](ManagementApi.md#getattributes) | **GET** /v1/attributes | List custom attributes
@@ -110,12 +117,12 @@ Method | HTTP request | Description
 [**GetExperiment**](ManagementApi.md#getexperiment) | **GET** /v1/applications/{applicationId}/experiments/{experimentId} | Get experiment in Application
 [**GetExports**](ManagementApi.md#getexports) | **GET** /v1/exports | Get exports
 [**GetLoyaltyCard**](ManagementApi.md#getloyaltycard) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId} | Get loyalty card
-[**GetLoyaltyCardTransactionLogs**](ManagementApi.md#getloyaltycardtransactionlogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions
+[**GetLoyaltyCardTransactionLogs**](ManagementApi.md#getloyaltycardtransactionlogs) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/logs | List card&#39;s transactions (Management API)
 [**GetLoyaltyCards**](ManagementApi.md#getloyaltycards) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/cards | List loyalty cards
-[**GetLoyaltyLedgerBalances**](ManagementApi.md#getloyaltyledgerbalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances
+[**GetLoyaltyLedgerBalances**](ManagementApi.md#getloyaltyledgerbalances) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_balances | Get customer&#39;s loyalty balances (Management API)
 [**GetLoyaltyPoints**](ManagementApi.md#getloyaltypoints) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId} | Get customer&#39;s full loyalty ledger
 [**GetLoyaltyProgram**](ManagementApi.md#getloyaltyprogram) | **GET** /v1/loyalty_programs/{loyaltyProgramId} | Get loyalty program
-[**GetLoyaltyProgramProfileLedgerTransactions**](ManagementApi.md#getloyaltyprogramprofileledgertransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions
+[**GetLoyaltyProgramProfileLedgerTransactions**](ManagementApi.md#getloyaltyprogramprofileledgertransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/profile/{integrationId}/ledger_transactions | List customer&#39;s loyalty transactions (Management API)
 [**GetLoyaltyProgramTransactions**](ManagementApi.md#getloyaltyprogramtransactions) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/transactions | List loyalty program transactions
 [**GetLoyaltyPrograms**](ManagementApi.md#getloyaltyprograms) | **GET** /v1/loyalty_programs | List loyalty programs
 [**GetLoyaltyStatistics**](ManagementApi.md#getloyaltystatistics) | **GET** /v1/loyalty_programs/{loyaltyProgramId}/statistics | Get loyalty program statistics
@@ -123,6 +130,7 @@ Method | HTTP request | Description
 [**GetReferralsWithoutTotalCount**](ManagementApi.md#getreferralswithouttotalcount) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/referrals/no_total | List referrals
 [**GetRoleV2**](ManagementApi.md#getrolev2) | **GET** /v2/roles/{roleId} | Get role
 [**GetRuleset**](ManagementApi.md#getruleset) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset
+[**GetRulesetV2**](ManagementApi.md#getrulesetv2) | **GET** /v2/applications/{applicationId}/campaigns/{campaignId}/rulesets/{rulesetId} | Get ruleset (V2)
 [**GetRulesets**](ManagementApi.md#getrulesets) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/rulesets | List campaign rulesets
 [**GetStore**](ManagementApi.md#getstore) | **GET** /v1/applications/{applicationId}/stores/{storeId} | Get store
 [**GetUser**](ManagementApi.md#getuser) | **GET** /v1/users/{userId} | Get user
@@ -138,12 +146,14 @@ Method | HTTP request | Description
 [**ImportCoupons**](ManagementApi.md#importcoupons) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_coupons | Import coupons
 [**ImportLoyaltyCards**](ManagementApi.md#importloyaltycards) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_cards | Import loyalty cards
 [**ImportLoyaltyCustomersTiers**](ManagementApi.md#importloyaltycustomerstiers) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_customers_tiers | Import customers into loyalty tiers
+[**ImportLoyaltyJoinDates**](ManagementApi.md#importloyaltyjoindates) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_join_dates | Import join dates for a loyalty program
 [**ImportLoyaltyPoints**](ManagementApi.md#importloyaltypoints) | **POST** /v1/loyalty_programs/{loyaltyProgramId}/import_points | Import loyalty points
 [**ImportPoolGiveaways**](ManagementApi.md#importpoolgiveaways) | **POST** /v1/giveaways/pools/{poolId}/import | Import giveaway codes into a giveaway pool
 [**ImportReferrals**](ManagementApi.md#importreferrals) | **POST** /v1/applications/{applicationId}/campaigns/{campaignId}/import_referrals | Import referrals
 [**InviteUserExternal**](ManagementApi.md#inviteuserexternal) | **POST** /v1/users/invite | Invite user from identity provider
 [**ListAccountCollections**](ManagementApi.md#listaccountcollections) | **GET** /v1/collections | List collections in account
 [**ListAchievements**](ManagementApi.md#listachievements) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements | List achievements
+[**ListAchievementsV2**](ManagementApi.md#listachievementsv2) | **GET** /v2/achievements | List achievements
 [**ListAllRolesV2**](ManagementApi.md#listallrolesv2) | **GET** /v2/roles | List roles
 [**ListApplicationCartItemFilters**](ManagementApi.md#listapplicationcartitemfilters) | **GET** /v1/applications/{applicationId}/cart_item_filters | List Application cart item filters
 [**ListCampaignStoreBudgetLimits**](ManagementApi.md#listcampaignstorebudgetlimits) | **GET** /v1/applications/{applicationId}/campaigns/{campaignId}/stores/budgets | List campaign store budget limits
@@ -177,6 +187,7 @@ Method | HTTP request | Description
 [**TransferLoyaltyCard**](ManagementApi.md#transferloyaltycard) | **PUT** /v1/loyalty_programs/{loyaltyProgramId}/cards/{loyaltyCardId}/transfer | Transfer card data
 [**UpdateAccountCollection**](ManagementApi.md#updateaccountcollection) | **PUT** /v1/collections/{collectionId} | Update account-level collection
 [**UpdateAchievement**](ManagementApi.md#updateachievement) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId}/achievements/{achievementId} | Update achievement
+[**UpdateAchievementV2**](ManagementApi.md#updateachievementv2) | **PUT** /v2/achievements/{achievementId} | Update achievement
 [**UpdateAdditionalCost**](ManagementApi.md#updateadditionalcost) | **PUT** /v1/additional_costs/{additionalCostId} | Update additional cost
 [**UpdateAttribute**](ManagementApi.md#updateattribute) | **PUT** /v1/attributes/{attributeId} | Update custom attribute
 [**UpdateCampaign**](ManagementApi.md#updatecampaign) | **PUT** /v1/applications/{applicationId}/campaigns/{campaignId} | Update campaign
@@ -710,6 +721,92 @@ Name | Type | Description  | Notes
 | **400** | Bad request |  -  |
 | **401** | Unauthorized |  -  |
 | **409** | Conflict. An achievement with this name or title already exists. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="createachievementv2"></a>
+# **CreateAchievementV2**
+> AchievementV2 CreateAchievementV2 (CreateAchievementV2 body)
+
+Create achievement
+
+Create a new account-level achievement.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class CreateAchievementV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var body = new CreateAchievementV2(); // CreateAchievementV2 | body
+
+            try
+            {
+                // Create achievement
+                AchievementV2 result = apiInstance.CreateAchievementV2(body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.CreateAchievementV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**CreateAchievementV2**](CreateAchievementV2.md)| body | 
+
+### Return type
+
+[**AchievementV2**](AchievementV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+| **409** | Conflict. An achievement with this name already exists. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1830,6 +1927,94 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="createrulesetv2"></a>
+# **CreateRulesetV2**
+> RulesetV2 CreateRulesetV2 (long applicationId, long campaignId, RulesetV2 body)
+
+Create ruleset (V2)
+
+Create a ruleset from promotion and strikethrough rules in the V2 JSON block format. A ruleset is a revision of all the rules of a campaign.  Only `group` and `passthrough` blocks are currently writable, with optional `onFailure` blocks. A payload containing any other block type is rejected. Each rule's `blocks` array may contain at most one block.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class CreateRulesetV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+            var campaignId = 789;  // long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+            var body = new RulesetV2(); // RulesetV2 | body
+
+            try
+            {
+                // Create ruleset (V2)
+                RulesetV2 result = apiInstance.CreateRulesetV2(applicationId, campaignId, body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.CreateRulesetV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaignId** | **long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **body** | [**RulesetV2**](RulesetV2.md)| body | 
+
+### Return type
+
+[**RulesetV2**](RulesetV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+| **400** | Bad request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="createsession"></a>
 # **CreateSession**
 > Session CreateSession (LoginParams body)
@@ -2319,6 +2504,90 @@ Name | Type | Description  | Notes
  **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaignId** | **long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **achievementId** | **long**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievements) endpoint. | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deleteachievementv2"></a>
+# **DeleteAchievementV2**
+> void DeleteAchievementV2 (long achievementId)
+
+Delete achievement
+
+Delete a specific achievement.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class DeleteAchievementV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var achievementId = 789;  // long | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+            try
+            {
+                // Delete achievement
+                apiInstance.DeleteAchievementV2(achievementId);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.DeleteAchievementV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievementId** | **long**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. | 
 
 ### Return type
 
@@ -3384,6 +3653,90 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="excludepricehistory"></a>
+# **ExcludePriceHistory**
+> void ExcludePriceHistory (long applicationId, ExcludePriceObservationsRequest body)
+
+Exclude price records from price history
+
+Select a batch of historical price IDs to exclude from [best prior price calculation](https://docs.talon.one/integration-api#tag/Catalogs/operation/bestPriorPrice). All IDs in the batch must be valid `id` values obtained from the [Get summary of price history](https://docs.talon.one/management-api#tag/Catalogs/operation/priceHistory.responses.200.history) endpoint, must belong to the specified Application, must not already be excluded from best prior price calculation, and must not be associated with a scheduled strikethrough pricing notification. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ExcludePriceHistoryExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+            var body = new ExcludePriceObservationsRequest(); // ExcludePriceObservationsRequest | body
+
+            try
+            {
+                // Exclude price records from price history
+                apiInstance.ExcludePriceHistory(applicationId, body);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ExcludePriceHistory: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **body** | [**ExcludePriceObservationsRequest**](ExcludePriceObservationsRequest.md)| body | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Ok |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="exportaccountcollectionitems"></a>
 # **ExportAccountCollectionItems**
 > string ExportAccountCollectionItems (long collectionId)
@@ -3465,6 +3818,92 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **401** | Unauthorized - Invalid API key |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="exportachievementv2"></a>
+# **ExportAchievementV2**
+> string ExportAchievementV2 (long achievementId)
+
+Export achievement customer data
+
+Download a CSV file containing a list of all the customers who have participated in and are currently participating in the given achievement.  The CSV file contains the following columns: - `profileIntegrationID`: The integration ID of the customer profile participating in the achievement. - `title`: The display name of the achievement in the Campaign Manager. - `target`: The required number of actions or the transactional milestone to complete the achievement. - `progress`: The current progress of the customer in the achievement. - `status`: The status of the achievement. Can be one of: ['inprogress', 'completed', 'expired']. - `startDate`: The date on which the customer profile started the achievement in RFC3339. - `endDate`: The date on which the achievement ends and resets for the customer profile in RFC3339. - `completionDate`: The date on which the customer profile completed the achievement in RFC3339. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ExportAchievementV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var achievementId = 789;  // long | The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+
+            try
+            {
+                // Export achievement customer data
+                string result = apiInstance.ExportAchievementV2(achievementId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ExportAchievementV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievementId** | **long**| The ID of the achievement. You can get this ID with the [List achievements](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. | 
+
+### Return type
+
+**string**
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/csv
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
 | **404** | Not found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4095,7 +4534,7 @@ Name | Type | Description  | Notes
 
 <a name="exportcoupons"></a>
 # **ExportCoupons**
-> string ExportCoupons (long applicationId, decimal? campaignId = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, long? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string dateFormat = null, string campaignState = null, bool? valuesOnly = null)
+> string ExportCoupons (long applicationId, decimal? campaignId = null, string sort = null, string value = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string valid = null, string usable = null, long? referralId = null, string recipientIntegrationId = null, string batchId = null, bool? exactMatch = null, string dateFormat = null, string campaignState = null, bool? valuesOnly = null, DateTime? deletedBefore = null, DateTime? deletedAfter = null)
 
 Export coupons
 
@@ -4146,11 +4585,13 @@ namespace Example
             var dateFormat = dateFormat_example;  // string | Determines the format of dates in the export document. (optional) 
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional) 
             var valuesOnly = true;  // bool? | Filter results to only return the coupon codes (`value` column) without the associated coupon data. (optional)  (default to false)
+            var deletedBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional) 
+            var deletedAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. (optional) 
 
             try
             {
                 // Export coupons
-                string result = apiInstance.ExportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly);
+                string result = apiInstance.ExportCoupons(applicationId, campaignId, sort, value, createdBefore, createdAfter, valid, usable, referralId, recipientIntegrationId, batchId, exactMatch, dateFormat, campaignState, valuesOnly, deletedBefore, deletedAfter);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4183,6 +4624,8 @@ Name | Type | Description  | Notes
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional] 
  **campaignState** | **string**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] 
  **valuesOnly** | **bool?**| Filter results to only return the coupon codes (&#x60;value&#x60; column) without the associated coupon data. | [optional] [default to false]
+ **deletedBefore** | **DateTime?**| Timestamp that filters the results to only contain coupons deleted before this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. | [optional] 
+ **deletedAfter** | **DateTime?**| Timestamp that filters the results to only contain coupons deleted after this date. Must be an RFC3339 timestamp string. You can use any time zone setting. Talon.One will convert to UTC internally.  **Note:** Only coupons deleted in the last 7 days will appear in the results. | [optional] 
 
 ### Return type
 
@@ -4206,7 +4649,7 @@ Name | Type | Description  | Notes
 
 <a name="exportcustomersessions"></a>
 # **ExportCustomerSessions**
-> string ExportCustomerSessions (long applicationId, DateTime? createdBefore = null, DateTime? createdAfter = null, string profileIntegrationId = null, string dateFormat = null, string customerSessionState = null)
+> string ExportCustomerSessions (long applicationId, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? updatedBefore = null, DateTime? updatedAfter = null, string profileIntegrationId = null, string dateFormat = null, string customerSessionState = null)
 
 Export customer sessions
 
@@ -4245,6 +4688,8 @@ namespace Example
             var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional) 
+            var updatedBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional) 
+            var updatedAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. (optional) 
             var profileIntegrationId = profileIntegrationId_example;  // string | Only return sessions for the customer that matches this customer integration ID. (optional) 
             var dateFormat = dateFormat_example;  // string | Determines the format of dates in the export document. (optional) 
             var customerSessionState = customerSessionState_example;  // string | Filter results by state. (optional) 
@@ -4252,7 +4697,7 @@ namespace Example
             try
             {
                 // Export customer sessions
-                string result = apiInstance.ExportCustomerSessions(applicationId, createdBefore, createdAfter, profileIntegrationId, dateFormat, customerSessionState);
+                string result = apiInstance.ExportCustomerSessions(applicationId, createdBefore, createdAfter, updatedBefore, updatedAfter, profileIntegrationId, dateFormat, customerSessionState);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4273,6 +4718,8 @@ Name | Type | Description  | Notes
  **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] 
+ **updatedBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] 
+ **updatedAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string. | [optional] 
  **profileIntegrationId** | **string**| Only return sessions for the customer that matches this customer integration ID. | [optional] 
  **dateFormat** | **string**| Determines the format of dates in the export document. | [optional] 
  **customerSessionState** | **string**| Filter results by state. | [optional] 
@@ -4477,7 +4924,7 @@ Name | Type | Description  | Notes
 
 <a name="exportloyaltybalance"></a>
 # **ExportLoyaltyBalance**
-> string ExportLoyaltyBalance (string loyaltyProgramId, DateTime? endDate = null)
+> string ExportLoyaltyBalance (string loyaltyProgramId, DateTime? endDate = null, string balances = null)
 
 Export customer loyalty balance to CSV
 
@@ -4515,11 +4962,12 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var loyaltyProgramId = loyaltyProgramId_example;  // string | The identifier for the loyalty program.
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
+            var balances = balances_example;  // string | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  (optional) 
 
             try
             {
                 // Export customer loyalty balance to CSV
-                string result = apiInstance.ExportLoyaltyBalance(loyaltyProgramId, endDate);
+                string result = apiInstance.ExportLoyaltyBalance(loyaltyProgramId, endDate, balances);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4539,6 +4987,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **string**| The identifier for the loyalty program. | 
  **endDate** | **DateTime?**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **balances** | **string**| Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  | [optional] 
 
 ### Return type
 
@@ -4564,7 +5013,7 @@ Name | Type | Description  | Notes
 
 <a name="exportloyaltybalances"></a>
 # **ExportLoyaltyBalances**
-> string ExportLoyaltyBalances (string loyaltyProgramId, DateTime? endDate = null)
+> string ExportLoyaltyBalances (string loyaltyProgramId, DateTime? endDate = null, string balances = null)
 
 Export customer loyalty balances
 
@@ -4602,11 +5051,12 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var loyaltyProgramId = loyaltyProgramId_example;  // string | The identifier for the loyalty program.
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered. > - This parameter does not affect the `currentTier` field in the CSV file, which shows the customer's tier at the time of export.  (optional) 
+            var balances = balances_example;  // string | Filters which balance fields are included in the CSV export. `currentBalance` is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  (optional) 
 
             try
             {
                 // Export customer loyalty balances
-                string result = apiInstance.ExportLoyaltyBalances(loyaltyProgramId, endDate);
+                string result = apiInstance.ExportLoyaltyBalances(loyaltyProgramId, endDate, balances);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4626,6 +5076,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **string**| The identifier for the loyalty program. | 
  **endDate** | **DateTime?**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered. &gt; - This parameter does not affect the &#x60;currentTier&#x60; field in the CSV file, which shows the customer&#39;s tier at the time of export.  | [optional] 
+ **balances** | **string**| Filters which balance fields are included in the CSV export. &#x60;currentBalance&#x60; is always returned.  By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  | [optional] 
 
 ### Return type
 
@@ -4651,7 +5102,7 @@ Name | Type | Description  | Notes
 
 <a name="exportloyaltycardbalances"></a>
 # **ExportLoyaltyCardBalances**
-> string ExportLoyaltyCardBalances (long loyaltyProgramId, DateTime? endDate = null)
+> string ExportLoyaltyCardBalances (long loyaltyProgramId, DateTime? endDate = null, string balances = null)
 
 Export all card transaction logs
 
@@ -4689,11 +5140,12 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var loyaltyProgramId = 789;  // long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var endDate = 2013-10-20T19:20:30+01:00;  // DateTime? | Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  > [!note] **Note** > - This must be an RFC3339 timestamp string. > - You can include a time component in your string, for example, `T23:59:59` to specify the end of the day. The time zone setting >   considered is `UTC`. If you do not include a time component, a default time value of `T00:00:00` (midnight) in `UTC` is considered.  (optional) 
+            var balances = balances_example;  // string | Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - `currentBalance` - `pendingBalance` - `expiredBalance` - `spentBalance` - `negativeBalance`  Multiple values must be provided as a comma-separated list.  **Note:** - The `negativeBalance` value is not supported for card balance exports. - Providing an unsupported or invalid value returns a `400 Bad Request` error.  (optional) 
 
             try
             {
                 // Export all card transaction logs
-                string result = apiInstance.ExportLoyaltyCardBalances(loyaltyProgramId, endDate);
+                string result = apiInstance.ExportLoyaltyCardBalances(loyaltyProgramId, endDate, balances);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -4713,6 +5165,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **endDate** | **DateTime?**| Used to return expired, active, and pending loyalty balances before this timestamp. You can enter any past, present, or future timestamp value.  &gt; [!note] **Note** &gt; - This must be an RFC3339 timestamp string. &gt; - You can include a time component in your string, for example, &#x60;T23:59:59&#x60; to specify the end of the day. The time zone setting &gt;   considered is &#x60;UTC&#x60;. If you do not include a time component, a default time value of &#x60;T00:00:00&#x60; (midnight) in &#x60;UTC&#x60; is considered.  | [optional] 
+ **balances** | **string**| Filters which balance fields are included in the CSV export. By default, all balance fields are included. When this parameter is provided, only the listed fields contain values and the rest are returned empty.  Accepted values: - &#x60;currentBalance&#x60; - &#x60;pendingBalance&#x60; - &#x60;expiredBalance&#x60; - &#x60;spentBalance&#x60; - &#x60;negativeBalance&#x60;  Multiple values must be provided as a comma-separated list.  **Note:** - The &#x60;negativeBalance&#x60; value is not supported for card balance exports. - Providing an unsupported or invalid value returns a &#x60;400 Bad Request&#x60; error.  | [optional] 
 
 ### Return type
 
@@ -4835,7 +5288,7 @@ Name | Type | Description  | Notes
 
 Export loyalty cards
 
-Download a CSV file containing the loyalty cards from a specified loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `identifier`: The unique identifier of the loyalty card. - `created`: The date and time the loyalty card was created. - `status`: The status of the loyalty card. - `userpercardlimit`: The maximum number of customer profiles that can be linked to the card. - `customerprofileids`: Integration IDs of the customer profiles linked to the card. - `blockreason`: The reason for transferring and blocking the loyalty card. - `generated`: An indicator of whether the loyalty card was generated. - `batchid`: The ID of the batch the loyalty card is in. - `attributes`: The custom attributes of this loyalty card. Currently, this feature is only available upon request. 
+Download a CSV file containing the loyalty cards from a specified loyalty program.  > [!tip] If the exported CSV file is too large to view, you can > [split it into multiple files](https://www.google.com/search?q=split+CSV+into+multiple+files).  The CSV file contains the following columns:  - `identifier`: The unique identifier of the loyalty card. - `created`: The date and time the loyalty card was created. - `status`: The status of the loyalty card. - `userpercardlimit`: The maximum number of customer profiles that can be linked to the card. - `customerprofileids`: Integration IDs of the customer profiles linked to the card. - `blockreason`: The reason for transferring and blocking the loyalty card. - `generated`: An indicator of whether the loyalty card was generated. - `batchid`: The ID of the batch the loyalty card is in. - `attributes`: The custom attributes of this loyalty card. 
 
 ### Example
 ```csharp
@@ -5285,7 +5738,7 @@ Name | Type | Description  | Notes
 
 <a name="generatecouponrejections"></a>
 # **GenerateCouponRejections**
-> InlineResponse20053 GenerateCouponRejections (string sessionIntegrationId, decimal? applicationId = null, string language = null, string couponCode = null)
+> InlineResponse20055 GenerateCouponRejections (string sessionIntegrationId, decimal? applicationId = null, string language = null, string couponCode = null)
 
 Summarize coupon redemption failures in session
 
@@ -5329,7 +5782,7 @@ namespace Example
             try
             {
                 // Summarize coupon redemption failures in session
-                InlineResponse20053 result = apiInstance.GenerateCouponRejections(sessionIntegrationId, applicationId, language, couponCode);
+                InlineResponse20055 result = apiInstance.GenerateCouponRejections(sessionIntegrationId, applicationId, language, couponCode);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -5354,7 +5807,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20053**](InlineResponse20053.md)
+[**InlineResponse20055**](InlineResponse20055.md)
 
 ### Authorization
 
@@ -5810,6 +6263,91 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getachievementv2"></a>
+# **GetAchievementV2**
+> AchievementV2 GetAchievementV2 (long achievementId)
+
+Get achievement
+
+Retrieve the details of a specific achievement.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetAchievementV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var achievementId = 789;  // long | The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. 
+
+            try
+            {
+                // Get achievement
+                AchievementV2 result = apiInstance.GetAchievementV2(achievementId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetAchievementV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievementId** | **long**| The ID of the achievement.  You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.  | 
+
+### Return type
+
+[**AchievementV2**](AchievementV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getadditionalcost"></a>
 # **GetAdditionalCost**
 > AccountAdditionalCost GetAdditionalCost (long additionalCostId)
@@ -5895,7 +6433,7 @@ Name | Type | Description  | Notes
 
 <a name="getadditionalcosts"></a>
 # **GetAdditionalCosts**
-> InlineResponse20040 GetAdditionalCosts (long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20041 GetAdditionalCosts (long? pageSize = null, long? skip = null, string sort = null)
 
 List additional costs
 
@@ -5938,7 +6476,7 @@ namespace Example
             try
             {
                 // List additional costs
-                InlineResponse20040 result = apiInstance.GetAdditionalCosts(pageSize, skip, sort);
+                InlineResponse20041 result = apiInstance.GetAdditionalCosts(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -5962,7 +6500,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20040**](InlineResponse20040.md)
+[**InlineResponse20041**](InlineResponse20041.md)
 
 ### Authorization
 
@@ -6320,7 +6858,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationcustomerfriends"></a>
 # **GetApplicationCustomerFriends**
-> InlineResponse20037 GetApplicationCustomerFriends (long applicationId, string integrationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null)
+> InlineResponse20038 GetApplicationCustomerFriends (long applicationId, string integrationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null)
 
 List friends referred by customer profile
 
@@ -6366,7 +6904,7 @@ namespace Example
             try
             {
                 // List friends referred by customer profile
-                InlineResponse20037 result = apiInstance.GetApplicationCustomerFriends(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize);
+                InlineResponse20038 result = apiInstance.GetApplicationCustomerFriends(applicationId, integrationId, pageSize, skip, sort, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -6393,7 +6931,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20037**](InlineResponse20037.md)
+[**InlineResponse20038**](InlineResponse20038.md)
 
 ### Authorization
 
@@ -6595,7 +7133,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationeventtypes"></a>
 # **GetApplicationEventTypes**
-> InlineResponse20033 GetApplicationEventTypes (long applicationId, long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20034 GetApplicationEventTypes (long applicationId, long? pageSize = null, long? skip = null, string sort = null)
 
 List Applications event types
 
@@ -6639,7 +7177,7 @@ namespace Example
             try
             {
                 // List Applications event types
-                InlineResponse20033 result = apiInstance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
+                InlineResponse20034 result = apiInstance.GetApplicationEventTypes(applicationId, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -6664,7 +7202,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20033**](InlineResponse20033.md)
+[**InlineResponse20034**](InlineResponse20034.md)
 
 ### Authorization
 
@@ -6684,7 +7222,7 @@ Name | Type | Description  | Notes
 
 <a name="getapplicationeventswithouttotalcount"></a>
 # **GetApplicationEventsWithoutTotalCount**
-> InlineResponse20032 GetApplicationEventsWithoutTotalCount (long applicationId, long? pageSize = null, long? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null, string effectType = null)
+> InlineResponse20033 GetApplicationEventsWithoutTotalCount (long applicationId, long? pageSize = null, long? skip = null, string sort = null, string type = null, DateTime? createdBefore = null, DateTime? createdAfter = null, string session = null, string profile = null, string customerName = null, string customerEmail = null, string couponCode = null, string referralCode = null, string ruleQuery = null, string campaignQuery = null, string effectType = null)
 
 List Applications events
 
@@ -6740,7 +7278,7 @@ namespace Example
             try
             {
                 // List Applications events
-                InlineResponse20032 result = apiInstance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType);
+                InlineResponse20033 result = apiInstance.GetApplicationEventsWithoutTotalCount(applicationId, pageSize, skip, sort, type, createdBefore, createdAfter, session, profile, customerName, customerEmail, couponCode, referralCode, ruleQuery, campaignQuery, effectType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -6777,7 +7315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20032**](InlineResponse20032.md)
+[**InlineResponse20033**](InlineResponse20033.md)
 
 ### Authorization
 
@@ -6987,6 +7525,97 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getapplicationsessionsbycustomerattributes"></a>
+# **GetApplicationSessionsByCustomerAttributes**
+> InlineResponse20032 GetApplicationSessionsByCustomerAttributes (long applicationId, CustomerProfileSearchQuery body, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null)
+
+List Application sessions matching the given customer attributes
+
+Get a list of the Application sessions matching the provided customer profile attributes.  The match is successful if all the attributes of the request are found in a profile, even if the profile has more attributes that are not present on the request. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetApplicationSessionsByCustomerAttributesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+            var body = new CustomerProfileSearchQuery(); // CustomerProfileSearchQuery | body
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 1000)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
+            var withTotalResultSize = true;  // bool? | When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When `true`: `totalResultSize` contains the total number of results for this query. - When `false`: Only `hasMore` is returned, and it is set to `true` when there are more results than shown on the page.  (optional) 
+
+            try
+            {
+                // List Application sessions matching the given customer attributes
+                InlineResponse20032 result = apiInstance.GetApplicationSessionsByCustomerAttributes(applicationId, body, pageSize, skip, withTotalResultSize);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetApplicationSessionsByCustomerAttributes: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **body** | [**CustomerProfileSearchQuery**](CustomerProfileSearchQuery.md)| body | 
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 1000]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
+ **withTotalResultSize** | **bool?**| When this flag is set, the result includes the total number of results for this query. This might decrease performance on large data sets. - When &#x60;true&#x60;: &#x60;totalResultSize&#x60; contains the total number of results for this query. - When &#x60;false&#x60;: Only &#x60;hasMore&#x60; is returned, and it is set to &#x60;true&#x60; when there are more results than shown on the page.  | [optional] 
+
+### Return type
+
+[**InlineResponse20032**](InlineResponse20032.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getapplications"></a>
 # **GetApplications**
 > InlineResponse2008 GetApplications (long? pageSize = null, long? skip = null, string sort = null)
@@ -7159,7 +7788,7 @@ Name | Type | Description  | Notes
 
 <a name="getattributes"></a>
 # **GetAttributes**
-> InlineResponse20038 GetAttributes (long? pageSize = null, long? skip = null, string sort = null, string entity = null, string applicationIds = null, string type = null, string kind = null, string search = null)
+> InlineResponse20039 GetAttributes (long? pageSize = null, long? skip = null, string sort = null, string entity = null, string applicationIds = null, string loyaltyProgramIds = null, string type = null, string kind = null, string search = null)
 
 List custom attributes
 
@@ -7200,6 +7829,7 @@ namespace Example
             var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var entity = entity_example;  // string | Returned attributes will be filtered by supplied entity. (optional) 
             var applicationIds = applicationIds_example;  // string | Returned attributes will be filtered by supplied application ids (optional) 
+            var loyaltyProgramIds = loyaltyProgramIds_example;  // string | Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when `entity` is `LoyaltyCard`. (optional) 
             var type = type_example;  // string | Returned attributes will be filtered by supplied type (optional) 
             var kind = kind_example;  // string | Returned attributes will be filtered by supplied kind (builtin or custom) (optional) 
             var search = search_example;  // string | Returned attributes will be filtered by searching case insensitive through Attribute name, description and type (optional) 
@@ -7207,7 +7837,7 @@ namespace Example
             try
             {
                 // List custom attributes
-                InlineResponse20038 result = apiInstance.GetAttributes(pageSize, skip, sort, entity, applicationIds, type, kind, search);
+                InlineResponse20039 result = apiInstance.GetAttributes(pageSize, skip, sort, entity, applicationIds, loyaltyProgramIds, type, kind, search);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7230,13 +7860,14 @@ Name | Type | Description  | Notes
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **entity** | **string**| Returned attributes will be filtered by supplied entity. | [optional] 
  **applicationIds** | **string**| Returned attributes will be filtered by supplied application ids | [optional] 
+ **loyaltyProgramIds** | **string**| Returned attributes will be filtered by the specified loyalty program ids, separated by commas. You can only use this parameter when &#x60;entity&#x60; is &#x60;LoyaltyCard&#x60;. | [optional] 
  **type** | **string**| Returned attributes will be filtered by supplied type | [optional] 
  **kind** | **string**| Returned attributes will be filtered by supplied kind (builtin or custom) | [optional] 
  **search** | **string**| Returned attributes will be filtered by searching case insensitive through Attribute name, description and type | [optional] 
 
 ### Return type
 
-[**InlineResponse20038**](InlineResponse20038.md)
+[**InlineResponse20039**](InlineResponse20039.md)
 
 ### Authorization
 
@@ -7256,7 +7887,7 @@ Name | Type | Description  | Notes
 
 <a name="getaudiencememberships"></a>
 # **GetAudienceMemberships**
-> InlineResponse20036 GetAudienceMemberships (long audienceId, long? pageSize = null, long? skip = null, string sort = null, string profileQuery = null)
+> InlineResponse20037 GetAudienceMemberships (long audienceId, long? pageSize = null, long? skip = null, string sort = null, string profileQuery = null)
 
 List audience members
 
@@ -7301,7 +7932,7 @@ namespace Example
             try
             {
                 // List audience members
-                InlineResponse20036 result = apiInstance.GetAudienceMemberships(audienceId, pageSize, skip, sort, profileQuery);
+                InlineResponse20037 result = apiInstance.GetAudienceMemberships(audienceId, pageSize, skip, sort, profileQuery);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7327,7 +7958,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20036**](InlineResponse20036.md)
+[**InlineResponse20037**](InlineResponse20037.md)
 
 ### Authorization
 
@@ -7348,7 +7979,7 @@ Name | Type | Description  | Notes
 
 <a name="getaudiences"></a>
 # **GetAudiences**
-> InlineResponse20034 GetAudiences (long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null)
+> InlineResponse20035 GetAudiences (long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null)
 
 List audiences
 
@@ -7392,7 +8023,7 @@ namespace Example
             try
             {
                 // List audiences
-                InlineResponse20034 result = apiInstance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
+                InlineResponse20035 result = apiInstance.GetAudiences(pageSize, skip, sort, withTotalResultSize);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7417,7 +8048,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20034**](InlineResponse20034.md)
+[**InlineResponse20035**](InlineResponse20035.md)
 
 ### Authorization
 
@@ -7437,7 +8068,7 @@ Name | Type | Description  | Notes
 
 <a name="getaudiencesanalytics"></a>
 # **GetAudiencesAnalytics**
-> InlineResponse20035 GetAudiencesAnalytics (string audienceIds, string sort = null)
+> InlineResponse20036 GetAudiencesAnalytics (string audienceIds, string sort = null)
 
 List audience analytics
 
@@ -7473,13 +8104,13 @@ namespace Example
             // config.AddApiKeyPrefix("Authorization", "Bearer");
 
             var apiInstance = new ManagementApi(config);
-            var audienceIds = audienceIds_example;  // string | The IDs of one or more audiences, separated by commas, by which to filter results.
+            var audienceIds = audienceIds_example;  // string | The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs.
             var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
 
             try
             {
                 // List audience analytics
-                InlineResponse20035 result = apiInstance.GetAudiencesAnalytics(audienceIds, sort);
+                InlineResponse20036 result = apiInstance.GetAudiencesAnalytics(audienceIds, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -7497,12 +8128,12 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **audienceIds** | **string**| The IDs of one or more audiences, separated by commas, by which to filter results. | 
+ **audienceIds** | **string**| The IDs of one or more audiences, separated by commas, by which to filter results. Do not provide more than 1000 audience IDs. | 
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20035**](InlineResponse20035.md)
+[**InlineResponse20036**](InlineResponse20036.md)
 
 ### Authorization
 
@@ -8056,7 +8687,7 @@ Name | Type | Description  | Notes
 
 <a name="getcampaigns"></a>
 # **GetCampaigns**
-> InlineResponse2009 GetCampaigns (long applicationId, long? pageSize = null, long? skip = null, string sort = null, string campaignState = null, string name = null, string tags = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startBefore = null, DateTime? startAfter = null, DateTime? endBefore = null, DateTime? endAfter = null, long? campaignGroupId = null, long? templateId = null, long? storeId = null)
+> InlineResponse2009 GetCampaigns (long applicationId, long? pageSize = null, long? skip = null, string sort = null, string campaignState = null, string name = null, List<string> tags = null, DateTime? createdBefore = null, DateTime? createdAfter = null, DateTime? startBefore = null, DateTime? startAfter = null, DateTime? endBefore = null, DateTime? endAfter = null, long? campaignGroupId = null, long? templateId = null, long? storeId = null)
 
 List campaigns
 
@@ -8098,7 +8729,7 @@ namespace Example
             var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
             var campaignState = campaignState_example;  // string | Filter results by the state of the campaign.  - `enabled`: Campaigns that are scheduled, running (activated), or expired. - `running`: Campaigns that are running (activated). - `disabled`: Campaigns that are disabled. - `expired`: Campaigns that are expired. - `archived`: Campaigns that are archived.  (optional) 
             var name = name_example;  // string | Filter results performing case-insensitive matching against the name of the campaign. (optional) 
-            var tags = tags_example;  // string | Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \"name\" query parameter, a logical OR will be performed to search both tags and name for the provided values  (optional) 
+            var tags = new List<string>(); // List<string> | Filter results performing case-insensitive matching against the tags of the campaign.  (optional) 
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
             var startBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. (optional) 
@@ -8136,7 +8767,7 @@ Name | Type | Description  | Notes
  **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
  **campaignState** | **string**| Filter results by the state of the campaign.  - &#x60;enabled&#x60;: Campaigns that are scheduled, running (activated), or expired. - &#x60;running&#x60;: Campaigns that are running (activated). - &#x60;disabled&#x60;: Campaigns that are disabled. - &#x60;expired&#x60;: Campaigns that are expired. - &#x60;archived&#x60;: Campaigns that are archived.  | [optional] 
  **name** | **string**| Filter results performing case-insensitive matching against the name of the campaign. | [optional] 
- **tags** | **string**| Filter results performing case-insensitive matching against the tags of the campaign. When used in conjunction with the \&quot;name\&quot; query parameter, a logical OR will be performed to search both tags and name for the provided values  | [optional] 
+ **tags** | [**List&lt;string&gt;**](string.md)| Filter results performing case-insensitive matching against the tags of the campaign.  | [optional] 
  **createdBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **createdAfter** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign creation timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
  **startBefore** | **DateTime?**| Filter results comparing the parameter value, expected to be an RFC3339 timestamp string, to the campaign start time timestamp. You can use any time zone setting. Talon.One will convert to UTC internally. | [optional] 
@@ -8170,7 +8801,7 @@ Name | Type | Description  | Notes
 
 <a name="getchanges"></a>
 # **GetChanges**
-> InlineResponse20044 GetChanges (long? pageSize = null, long? skip = null, string sort = null, decimal? applicationId = null, string entityPath = null, long? userId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, long? managementKeyId = null, bool? includeOld = null)
+> InlineResponse20045 GetChanges (long? pageSize = null, long? skip = null, string sort = null, decimal? applicationId = null, string entityPath = null, long? userId = null, DateTime? createdBefore = null, DateTime? createdAfter = null, bool? withTotalResultSize = null, long? managementKeyId = null, bool? includeOld = null)
 
 Get audit logs for an account
 
@@ -8221,7 +8852,7 @@ namespace Example
             try
             {
                 // Get audit logs for an account
-                InlineResponse20044 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
+                InlineResponse20045 result = apiInstance.GetChanges(pageSize, skip, sort, applicationId, entityPath, userId, createdBefore, createdAfter, withTotalResultSize, managementKeyId, includeOld);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -8253,7 +8884,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20044**](InlineResponse20044.md)
+[**InlineResponse20045**](InlineResponse20045.md)
 
 ### Authorization
 
@@ -8938,7 +9569,7 @@ Name | Type | Description  | Notes
 
 <a name="getcustomerprofileachievementprogress"></a>
 # **GetCustomerProfileAchievementProgress**
-> InlineResponse20052 GetCustomerProfileAchievementProgress (long applicationId, string integrationId, long? pageSize = null, long? skip = null, long? achievementId = null, string title = null)
+> InlineResponse20054 GetCustomerProfileAchievementProgress (long applicationId, string integrationId, long? pageSize = null, long? skip = null, long? achievementId = null, string title = null)
 
 List customer achievements
 
@@ -8984,7 +9615,7 @@ namespace Example
             try
             {
                 // List customer achievements
-                InlineResponse20052 result = apiInstance.GetCustomerProfileAchievementProgress(applicationId, integrationId, pageSize, skip, achievementId, title);
+                InlineResponse20054 result = apiInstance.GetCustomerProfileAchievementProgress(applicationId, integrationId, pageSize, skip, achievementId, title);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9011,7 +9642,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20052**](InlineResponse20052.md)
+[**InlineResponse20054**](InlineResponse20054.md)
 
 ### Authorization
 
@@ -9298,7 +9929,7 @@ Name | Type | Description  | Notes
 
 <a name="geteventtypes"></a>
 # **GetEventTypes**
-> InlineResponse20042 GetEventTypes (string name = null, bool? includeOldVersions = null, long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20043 GetEventTypes (string name = null, bool? includeOldVersions = null, long? pageSize = null, long? skip = null, string sort = null)
 
 List event types
 
@@ -9343,7 +9974,7 @@ namespace Example
             try
             {
                 // List event types
-                InlineResponse20042 result = apiInstance.GetEventTypes(name, includeOldVersions, pageSize, skip, sort);
+                InlineResponse20043 result = apiInstance.GetEventTypes(name, includeOldVersions, pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9369,7 +10000,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20042**](InlineResponse20042.md)
+[**InlineResponse20043**](InlineResponse20043.md)
 
 ### Authorization
 
@@ -9474,7 +10105,7 @@ Name | Type | Description  | Notes
 
 <a name="getexports"></a>
 # **GetExports**
-> InlineResponse20045 GetExports (long? pageSize = null, long? skip = null, decimal? applicationId = null, long? campaignId = null, string entity = null)
+> InlineResponse20046 GetExports (long? pageSize = null, long? skip = null, decimal? applicationId = null, long? campaignId = null, string entity = null)
 
 Get exports
 
@@ -9519,7 +10150,7 @@ namespace Example
             try
             {
                 // Get exports
-                InlineResponse20045 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
+                InlineResponse20046 result = apiInstance.GetExports(pageSize, skip, applicationId, campaignId, entity);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -9545,7 +10176,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20045**](InlineResponse20045.md)
+[**InlineResponse20046**](InlineResponse20046.md)
 
 ### Authorization
 
@@ -9655,9 +10286,9 @@ Name | Type | Description  | Notes
 # **GetLoyaltyCardTransactionLogs**
 > InlineResponse20021 GetLoyaltyCardTransactionLogs (long loyaltyProgramId, string loyaltyCardId, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, string subledgerId = null, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null)
 
-List card's transactions
+List card's transactions (Management API)
 
-Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied. If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
+Retrieve the transaction logs for the given [loyalty card](https://docs.talon.one/docs/product/loyalty-programs/card-based/card-based-overview) within the specified [card-based loyalty program](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types) with filtering options applied.  > [!note] For most use cases, especially real-time integrations, use the Integration API endpoint: > [List card's transactions](https://docs.talon.one/integration-api#tag/Loyalty-cards/operation/getLoyaltyCardTransactions).  If no filtering options are applied, the last 50 loyalty transactions for the given loyalty card are returned. 
 
 ### Example
 ```csharp
@@ -9701,7 +10332,7 @@ namespace Example
 
             try
             {
-                // List card's transactions
+                // List card's transactions (Management API)
                 InlineResponse20021 result = apiInstance.GetLoyaltyCardTransactionLogs(loyaltyProgramId, loyaltyCardId, startDate, endDate, pageSize, skip, subledgerId, customerSessionIDs, transactionUUIDs);
                 Debug.WriteLine(result);
             }
@@ -9853,9 +10484,9 @@ Name | Type | Description  | Notes
 # **GetLoyaltyLedgerBalances**
 > LoyaltyBalancesWithTiers GetLoyaltyLedgerBalances (long loyaltyProgramId, string integrationId, DateTime? endDate = null, string subledgerId = null, bool? includeTiers = null, bool? includeProjectedTier = null)
 
-Get customer's loyalty balances
+Get customer's loyalty balances (Management API)
 
-Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  > [!note] If no filtering options are applied, you retrieve all loyalty > balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
+Retrieve loyalty ledger balances for the given Integration ID in the specified loyalty program.  You can filter balances by date and subledger ID, and include tier-related information in the response.  > [!note] **Note** > - For most use cases, especially real-time integrations, use the Integration API endpoint:     [Get customer's loyalty balances](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyBalances). > - If no filtering options are applied, you retrieve all loyalty balances on the current date for the given integration ID.  Loyalty balances are calculated when Talon.One receives your request using the points stored in our database, so retrieving a large number of balances at once can impact performance.  For more information, see:  - [Managing card-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/card-based/managing-loyalty-cards)  - [Managing profile-based loyalty program data](https://docs.talon.one/docs/product/loyalty-programs/profile-based/managing-pb-lp-data) 
 
 ### Example
 ```csharp
@@ -9896,7 +10527,7 @@ namespace Example
 
             try
             {
-                // Get customer's loyalty balances
+                // Get customer's loyalty balances (Management API)
                 LoyaltyBalancesWithTiers result = apiInstance.GetLoyaltyLedgerBalances(loyaltyProgramId, integrationId, endDate, subledgerId, includeTiers, includeProjectedTier);
                 Debug.WriteLine(result);
             }
@@ -10117,9 +10748,9 @@ Name | Type | Description  | Notes
 # **GetLoyaltyProgramProfileLedgerTransactions**
 > InlineResponse2005 GetLoyaltyProgramProfileLedgerTransactions (long loyaltyProgramId, string integrationId, List<string> customerSessionIDs = null, List<string> transactionUUIDs = null, string subledgerId = null, string loyaltyTransactionType = null, DateTime? startDate = null, DateTime? endDate = null, long? pageSize = null, long? skip = null, bool? awaitsActivation = null)
 
-List customer's loyalty transactions
+List customer's loyalty transactions (Management API)
 
-Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  > [!note] To retrieve all loyalty program transaction logs in a given > loyalty program, use the [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) > endpoint. 
+Retrieve paginated results of loyalty transaction logs for the given Integration ID in the specified loyalty program.  You can filter transactions by date or by ledger (subledger or main ledger). If no filters are applied, the last 50 loyalty transactions for the given integration ID are returned.  > [!note] **Note** > - For most use cases, especially real-time integrations, use the Integration API endpoint: >   [List customer's loyalty transactions](https://docs.talon.one/integration-api#tag/Loyalty/operation/getLoyaltyProgramProfileTransactions). > - To retrieve all loyalty program transaction logs in a given loyalty program, use the >   [List loyalty program transactions](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyProgramTransactions) endpoint. 
 
 ### Example
 ```csharp
@@ -10165,7 +10796,7 @@ namespace Example
 
             try
             {
-                // List customer's loyalty transactions
+                // List customer's loyalty transactions (Management API)
                 InlineResponse2005 result = apiInstance.GetLoyaltyProgramProfileLedgerTransactions(loyaltyProgramId, integrationId, customerSessionIDs, transactionUUIDs, subledgerId, loyaltyTransactionType, startDate, endDate, pageSize, skip, awaitsActivation);
                 Debug.WriteLine(result);
             }
@@ -10408,7 +11039,7 @@ This endpoint does not need any parameter.
 
 Get loyalty program statistics
 
-> [warning] This endpoint is deprecated.  To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points. 
+> [!warning] This endpoint is deprecated.  To retrieve statistics for a loyalty program, use the [Get statistics for loyalty dashboard](/management-api#tag/Loyalty/operation/getDashboardStatistics) endpoint.  Retrieve the statistics of the specified loyalty program, such as the total active points, pending points, spent points, and expired points. 
 
 ### Example
 ```csharp
@@ -10487,7 +11118,7 @@ Name | Type | Description  | Notes
 
 <a name="getmessagelogs"></a>
 # **GetMessageLogs**
-> MessageLogEntries GetMessageLogs (string entityType, string messageID = null, string changeType = null, string notificationIDs = null, DateTime? createdBefore = null, DateTime? createdAfter = null, byte[] cursor = null, string period = null, bool? isSuccessful = null, decimal? applicationId = null, decimal? campaignId = null, long? loyaltyProgramId = null, long? responseCode = null, string webhookIDs = null)
+> MessageLogEntries GetMessageLogs (string entityType, string messageID = null, string changeType = null, string notificationIDs = null, DateTime? createdBefore = null, DateTime? createdAfter = null, byte[] cursor = null, long? pageSize = null, string period = null, bool? isSuccessful = null, decimal? applicationId = null, decimal? campaignId = null, long? loyaltyProgramId = null, long? responseCode = null, string webhookIDs = null)
 
 List message log entries
 
@@ -10530,6 +11161,7 @@ namespace Example
             var createdBefore = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional) 
             var createdAfter = 2013-10-20T19:20:30+01:00;  // DateTime? | Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. (optional) 
             var cursor = BYTE_ARRAY_DATA_HERE;  // byte[] | A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  (optional) 
+            var pageSize = 789;  // long? | The maximum number of message log entries to return. (optional)  (default to 50)
             var period = period_example;  // string | Filter results by time period. Choose between the available relative time frames.  (optional) 
             var isSuccessful = true;  // bool? | Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to`true`, only log entries with `2xx` response codes are returned. When set to `false`, only log entries with `4xx` and `5xx` response codes are returned.  (optional) 
             var applicationId = 8.14;  // decimal? | Filter results by Application ID. (optional) 
@@ -10541,7 +11173,7 @@ namespace Example
             try
             {
                 // List message log entries
-                MessageLogEntries result = apiInstance.GetMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
+                MessageLogEntries result = apiInstance.GetMessageLogs(entityType, messageID, changeType, notificationIDs, createdBefore, createdAfter, cursor, pageSize, period, isSuccessful, applicationId, campaignId, loyaltyProgramId, responseCode, webhookIDs);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -10566,6 +11198,7 @@ Name | Type | Description  | Notes
  **createdBefore** | **DateTime?**| Filter results where request and response times to return entries before parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional] 
  **createdAfter** | **DateTime?**| Filter results where request and response times to return entries after parameter value, expected to be an RFC3339 timestamp string. Use UTC time. | [optional] 
  **cursor** | **byte[]**| A specific unique value in the database. If this value is not given, the server fetches results starting with the first record.  | [optional] 
+ **pageSize** | **long?**| The maximum number of message log entries to return. | [optional] [default to 50]
  **period** | **string**| Filter results by time period. Choose between the available relative time frames.  | [optional] 
  **isSuccessful** | **bool?**| Indicates whether to return log entries with either successful or unsuccessful HTTP response codes. When set to&#x60;true&#x60;, only log entries with &#x60;2xx&#x60; response codes are returned. When set to &#x60;false&#x60;, only log entries with &#x60;4xx&#x60; and &#x60;5xx&#x60; response codes are returned.  | [optional] 
  **applicationId** | **decimal?**| Filter results by Application ID. | [optional] 
@@ -10867,6 +11500,93 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="getrulesetv2"></a>
+# **GetRulesetV2**
+> RulesetV2 GetRulesetV2 (long applicationId, long campaignId, long rulesetId)
+
+Get ruleset (V2)
+
+Retrieve the specified ruleset as a JSON object.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class GetRulesetV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
+            var campaignId = 789;  // long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
+            var rulesetId = 789;  // long | The ID of the ruleset.
+
+            try
+            {
+                // Get ruleset (V2)
+                RulesetV2 result = apiInstance.GetRulesetV2(applicationId, campaignId, rulesetId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.GetRulesetV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
+ **campaignId** | **long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
+ **rulesetId** | **long**| The ID of the ruleset. | 
+
+### Return type
+
+[**RulesetV2**](RulesetV2.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="getrulesets"></a>
 # **GetRulesets**
 > InlineResponse20010 GetRulesets (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string sort = null)
@@ -11129,7 +11849,7 @@ Name | Type | Description  | Notes
 
 <a name="getusers"></a>
 # **GetUsers**
-> InlineResponse20043 GetUsers (long? pageSize = null, long? skip = null, string sort = null)
+> InlineResponse20044 GetUsers (long? pageSize = null, long? skip = null, string sort = null)
 
 List users in account
 
@@ -11172,7 +11892,7 @@ namespace Example
             try
             {
                 // List users in account
-                InlineResponse20043 result = apiInstance.GetUsers(pageSize, skip, sort);
+                InlineResponse20044 result = apiInstance.GetUsers(pageSize, skip, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -11196,7 +11916,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20043**](InlineResponse20043.md)
+[**InlineResponse20044**](InlineResponse20044.md)
 
 ### Authorization
 
@@ -11299,7 +12019,7 @@ Name | Type | Description  | Notes
 
 <a name="getwebhooks"></a>
 # **GetWebhooks**
-> InlineResponse20041 GetWebhooks (string applicationIds = null, string sort = null, long? pageSize = null, long? skip = null, string creationType = null, string visibility = null, long? outgoingIntegrationsTypeId = null, string title = null)
+> InlineResponse20042 GetWebhooks (string applicationIds = null, string sort = null, long? pageSize = null, long? skip = null, string creationType = null, string visibility = null, long? outgoingIntegrationsTypeId = null, string title = null)
 
 List webhooks
 
@@ -11347,7 +12067,7 @@ namespace Example
             try
             {
                 // List webhooks
-                InlineResponse20041 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title);
+                InlineResponse20042 result = apiInstance.GetWebhooks(applicationIds, sort, pageSize, skip, creationType, visibility, outgoingIntegrationsTypeId, title);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -11376,7 +12096,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20041**](InlineResponse20041.md)
+[**InlineResponse20042**](InlineResponse20042.md)
 
 ### Authorization
 
@@ -11396,7 +12116,7 @@ Name | Type | Description  | Notes
 
 <a name="importaccountcollection"></a>
 # **ImportAccountCollection**
-> Import ImportAccountCollection (long collectionId, string upFile = null)
+> Import ImportAccountCollection (long collectionId, System.IO.Stream upFile = null)
 
 Import data into existing account-level collection
 
@@ -11433,7 +12153,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var collectionId = 789;  // long | The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint.
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -11457,7 +12177,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **long**| The ID of the collection. You can get it with the [List collections in account](#tag/Collections/operation/listAccountCollections) endpoint. | 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -11483,7 +12203,7 @@ Name | Type | Description  | Notes
 
 <a name="importallowedlist"></a>
 # **ImportAllowedList**
-> Import ImportAllowedList (long attributeId, string upFile = null)
+> Import ImportAllowedList (long attributeId, System.IO.Stream upFile = null)
 
 Import allowed values for attribute
 
@@ -11520,7 +12240,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var attributeId = 789;  // long | The ID of the attribute. You can find the ID in the Campaign Manager's URL when you display the details of an attribute in **Account** > **Tools** > **Attributes**.
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -11544,7 +12264,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **attributeId** | **long**| The ID of the attribute. You can find the ID in the Campaign Manager&#39;s URL when you display the details of an attribute in **Account** &gt; **Tools** &gt; **Attributes**. | 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -11571,7 +12291,7 @@ Name | Type | Description  | Notes
 
 <a name="importaudiencesmemberships"></a>
 # **ImportAudiencesMemberships**
-> Import ImportAudiencesMemberships (long audienceId, string upFile = null)
+> Import ImportAudiencesMemberships (long audienceId, System.IO.Stream upFile = null)
 
 Import audience members
 
@@ -11608,7 +12328,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var audienceId = 789;  // long | The ID of the audience.
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -11632,7 +12352,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **audienceId** | **long**| The ID of the audience. | 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -11659,7 +12379,7 @@ Name | Type | Description  | Notes
 
 <a name="importcampaignstorebudget"></a>
 # **ImportCampaignStoreBudget**
-> Import ImportCampaignStoreBudget (long applicationId, long campaignId, string action = null, string period = null, string upFile = null)
+> Import ImportCampaignStoreBudget (long applicationId, long campaignId, string action = null, string period = null, System.IO.Stream upFile = null)
 
 Import campaign store budgets
 
@@ -11699,7 +12419,7 @@ namespace Example
             var campaignId = 789;  // long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
             var action = action_example;  // string | The action that this budget is limiting. (optional) 
             var period = period_example;  // string | The period to which the limit applies.  **Note**: For budgets with no period, set this to `overall`.  (optional) 
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -11726,7 +12446,7 @@ Name | Type | Description  | Notes
  **campaignId** | **long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **action** | **string**| The action that this budget is limiting. | [optional] 
  **period** | **string**| The period to which the limit applies.  **Note**: For budgets with no period, set this to &#x60;overall&#x60;.  | [optional] 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -11751,7 +12471,7 @@ Name | Type | Description  | Notes
 
 <a name="importcampaignstores"></a>
 # **ImportCampaignStores**
-> Import ImportCampaignStores (long applicationId, long campaignId, string upFile = null)
+> Import ImportCampaignStores (long applicationId, long campaignId, System.IO.Stream upFile = null)
 
 Import stores
 
@@ -11789,7 +12509,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var campaignId = 789;  // long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -11814,7 +12534,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaignId** | **long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -11841,7 +12561,7 @@ Name | Type | Description  | Notes
 
 <a name="importcollection"></a>
 # **ImportCollection**
-> Import ImportCollection (long applicationId, long campaignId, long collectionId, string upFile = null)
+> Import ImportCollection (long applicationId, long campaignId, long collectionId, System.IO.Stream upFile = null)
 
 Import data into existing campaign-level collection
 
@@ -11880,7 +12600,7 @@ namespace Example
             var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var campaignId = 789;  // long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
             var collectionId = 789;  // long | The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint.
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -11906,7 +12626,7 @@ Name | Type | Description  | Notes
  **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaignId** | **long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **collectionId** | **long**| The ID of the collection. You can get it with the [List collections in Application](#tag/Collections/operation/listCollectionsInApplication) endpoint. | 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -11931,7 +12651,7 @@ Name | Type | Description  | Notes
 
 <a name="importcoupons"></a>
 # **ImportCoupons**
-> Import ImportCoupons (long applicationId, long campaignId, bool? skipDuplicates = null, string upFile = null)
+> Import ImportCoupons (long applicationId, long campaignId, bool? skipDuplicates = null, System.IO.Stream upFile = null)
 
 Import coupons
 
@@ -11970,7 +12690,7 @@ namespace Example
             var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var campaignId = 789;  // long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
             var skipDuplicates = true;  // bool? | An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when `skipDuplicates=true`.  (optional) 
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -11996,7 +12716,7 @@ Name | Type | Description  | Notes
  **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaignId** | **long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
  **skipDuplicates** | **bool?**| An indicator of whether to skip duplicate coupon values instead of causing an error. Duplicate values are ignored when &#x60;skipDuplicates&#x3D;true&#x60;.  | [optional] 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -12020,11 +12740,11 @@ Name | Type | Description  | Notes
 
 <a name="importloyaltycards"></a>
 # **ImportLoyaltyCards**
-> Import ImportLoyaltyCards (long loyaltyProgramId, string upFile = null)
+> Import ImportLoyaltyCards (long loyaltyProgramId, System.IO.Stream upFile = null)
 
 Import loyalty cards
 
-Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;).  > [!note] We recommend limiting your file size to 500MB.  ## Example  ```csv identifier,state,customerprofileids 123-456-789AT,active,Alexa001;UserA ``` 
+Upload a CSV file containing the loyalty cards that you want to use in your card-based loyalty program.  Send the file as multipart data.  It contains the following columns for each card:  - `identifier` (required): The identifier of the loyalty card, which must match the regular expression `^[A-Za-z0-9._%+@-]+$`. - `state` (required): The state of the loyalty card. It can be `active` or `inactive`. - `customerprofileids` (optional): An array of strings representing the identifiers of the customer profiles linked to the loyalty card. The identifiers should be separated with a semicolon (;). - `attributes` (optional): A JSON object that contains the loyalty card's custom attributes and their values. These attributes must be created and connected to this loyalty program before they can be assigned to the cards through this endpoint.  > [!note] Your CSV file must contain less than 500,000 rows. Requests time out after 30 seconds.  ## Example  ```csv identifier,state,customerprofileids,attributes 123-456-789AT,active,Alexa001;UserA,'{\"\"my_attributes\"\": \"\"10_off\"\"}\" ``` 
 
 ### Example
 ```csharp
@@ -12057,7 +12777,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var loyaltyProgramId = 789;  // long | Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -12081,7 +12801,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **long**| Identifier of the card-based loyalty program containing the loyalty card. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -12107,11 +12827,11 @@ Name | Type | Description  | Notes
 
 <a name="importloyaltycustomerstiers"></a>
 # **ImportLoyaltyCustomersTiers**
-> Import ImportLoyaltyCustomersTiers (long loyaltyProgramId, string upFile = null)
+> Import ImportLoyaltyCustomersTiers (long loyaltyProgramId, System.IO.Stream upFile = null)
 
 Import customers into loyalty tiers
 
-Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  > [!important] This endpoint only works with loyalty programs with advanced > tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiration date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiration date is updated.  > [!note] We recommend not using this endpoint to update the tier of a customer.  To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ``` 
+Upload a CSV file containing existing customers to be assigned to existing tiers.  Send the file as multipart data.  > [!important] This endpoint only works with loyalty programs with advanced > tiers (with expiration and downgrade policy) feature enabled.  The CSV file should contain the following columns:  - `subledgerid` (optional): The ID of the subledger. If this field is empty, the main ledger will be used. - `customerprofileid`: The integration ID of the customer profile to whom the tier should be assigned. - `tiername`: The name of an existing tier to assign to the customer. - `expirydate`: The expiry date of the tier when the tier is reevaluated. It should be a future date.  About customer assignment to a tier:  - If the customer isn't already in a tier, the customer is assigned to the specified tier during the tier import. - If the customer is already in the tier that's specified in the CSV file, only the expiry date is updated.  > [!note] We recommend importing customers into the tier that matches their > current balance. If a customer is imported into a lower tier, any session > or points update automatically upgrades them to the tier they qualify for.  To update a customer's tier, you can [add](/management-api#tag/Loyalty/operation/addLoyaltyPoints) or [deduct](/management-api#tag/Loyalty/operation/removeLoyaltyPoints) their loyalty points.  You can use the time zone of your choice. It is converted to UTC internally by Talon.One.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv subledgerid,customerprofileid,tiername,expirydate SUB1,alexa,Gold,2024-03-21T07:32:14Z ,george,Silver,2025-04-16T21:12:37Z SUB2,avocado,Bronze,2026-05-03T11:47:01Z ``` 
 
 ### Example
 ```csharp
@@ -12144,7 +12864,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var loyaltyProgramId = 789;  // long | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -12168,7 +12888,95 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **long**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
+
+### Return type
+
+[**Import**](Import.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="importloyaltyjoindates"></a>
+# **ImportLoyaltyJoinDates**
+> Import ImportLoyaltyJoinDates (long loyaltyProgramId, System.IO.Stream upFile = null)
+
+Import join dates for a loyalty program
+
+Upload a CSV file containing customer profile IDs and their join dates for the specified loyalty program. Send the file as multipart data.  > [!important] This endpoint only works with profile-based loyalty programs.  The CSV file **must** contain the following columns:  - `customerprofileid`: The integration ID of the customer profile whose join   date you want to update. - `newjoindate`: The new join date for the customer in RFC3339 format. You   can use the time zone of your choice. It is converted to UTC internally   by Talon.One.  **Note**: - Customer profiles must already exist. If a referenced profile does not exist, the import fails with a `400` error. - If a join date already exists for a profile, the uploaded date replaces it.  > [!note] We recommend limiting your file size to 500 MB.  ## Example  ```csv customerprofileid,newjoindate customer1,2024-03-21T07:32:14Z customer2,2025-04-16T21:12:37Z customer3,2026-05-03T11:47:01Z ``` 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ImportLoyaltyJoinDatesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var loyaltyProgramId = 789;  // long | Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
+
+            try
+            {
+                // Import join dates for a loyalty program
+                Import result = apiInstance.ImportLoyaltyJoinDates(loyaltyProgramId, upFile);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ImportLoyaltyJoinDates: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loyaltyProgramId** | **long**| Identifier of the profile-based loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -12195,7 +13003,7 @@ Name | Type | Description  | Notes
 
 <a name="importloyaltypoints"></a>
 # **ImportLoyaltyPoints**
-> Import ImportLoyaltyPoints (long loyaltyProgramId, bool? notificationsEnabled = null, string upFile = null)
+> Import ImportLoyaltyPoints (long loyaltyProgramId, bool? notificationsEnabled = null, System.IO.Stream upFile = null)
 
 Import loyalty points
 
@@ -12233,7 +13041,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var loyaltyProgramId = 789;  // long | Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint. 
             var notificationsEnabled = true;  // bool? | Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer's tier or offsets their negative points balance.  This parameter is optional and defaults to `true`.  (optional) 
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -12258,7 +13066,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **loyaltyProgramId** | **long**| Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.  | 
  **notificationsEnabled** | **bool?**| Indicates whether the points import triggers notifications about its effects. For example, a notification is sent if the import upgrades a customer&#39;s tier or offsets their negative points balance.  This parameter is optional and defaults to &#x60;true&#x60;.  | [optional] 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -12282,7 +13090,7 @@ Name | Type | Description  | Notes
 
 <a name="importpoolgiveaways"></a>
 # **ImportPoolGiveaways**
-> Import ImportPoolGiveaways (long poolId, string upFile = null)
+> Import ImportPoolGiveaways (long poolId, System.IO.Stream upFile = null)
 
 Import giveaway codes into a giveaway pool
 
@@ -12319,7 +13127,7 @@ namespace Example
 
             var apiInstance = new ManagementApi(config);
             var poolId = 789;  // long | The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section.
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -12343,7 +13151,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **poolId** | **long**| The ID of the pool. You can find it in the Campaign Manager, in the **Giveaways** section. | 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -12367,7 +13175,7 @@ Name | Type | Description  | Notes
 
 <a name="importreferrals"></a>
 # **ImportReferrals**
-> Import ImportReferrals (long applicationId, long campaignId, string upFile = null)
+> Import ImportReferrals (long applicationId, long campaignId, System.IO.Stream upFile = null)
 
 Import referrals
 
@@ -12405,7 +13213,7 @@ namespace Example
             var apiInstance = new ManagementApi(config);
             var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var campaignId = 789;  // long | The ID of the campaign. It is displayed in your Talon.One deployment URL.
-            var upFile = upFile_example;  // string | The file containing the data that is being imported. (optional) 
+            var upFile = BINARY_DATA_HERE;  // System.IO.Stream | The CSV file containing the data that is being imported. (optional) 
 
             try
             {
@@ -12430,7 +13238,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **campaignId** | **long**| The ID of the campaign. It is displayed in your Talon.One deployment URL. | 
- **upFile** | **string**| The file containing the data that is being imported. | [optional] 
+ **upFile** | **System.IO.Stream****System.IO.Stream**| The CSV file containing the data that is being imported. | [optional] 
 
 ### Return type
 
@@ -12630,7 +13438,7 @@ Name | Type | Description  | Notes
 
 <a name="listachievements"></a>
 # **ListAchievements**
-> InlineResponse20051 ListAchievements (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string title = null)
+> InlineResponse20052 ListAchievements (long applicationId, long campaignId, long? pageSize = null, long? skip = null, string title = null)
 
 List achievements
 
@@ -12675,7 +13483,7 @@ namespace Example
             try
             {
                 // List achievements
-                InlineResponse20051 result = apiInstance.ListAchievements(applicationId, campaignId, pageSize, skip, title);
+                InlineResponse20052 result = apiInstance.ListAchievements(applicationId, campaignId, pageSize, skip, title);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -12701,7 +13509,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20051**](InlineResponse20051.md)
+[**InlineResponse20052**](InlineResponse20052.md)
 
 ### Authorization
 
@@ -12719,9 +13527,102 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a name="listachievementsv2"></a>
+# **ListAchievementsV2**
+> InlineResponse20053 ListAchievementsV2 (long? pageSize = null, long? skip = null, string sort = null, string title = null, long? applicationId = null)
+
+List achievements
+
+List all achievements. 
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class ListAchievementsV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 50)
+            var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
+            var sort = sort_example;  // string | The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with `-`.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  (optional) 
+            var title = title_example;  // string | Filter by the display name of the achievement. (optional) 
+            var applicationId = 789;  // long? | Filter by the ID of an Application connected to the achievement. (optional) 
+
+            try
+            {
+                // List achievements
+                InlineResponse20053 result = apiInstance.ListAchievementsV2(pageSize, skip, sort, title, applicationId);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.ListAchievementsV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **pageSize** | **long?**| The number of items in the response. | [optional] [default to 50]
+ **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
+ **sort** | **string**| The field by which results should be sorted. By default, results are sorted in ascending order. To sort them in descending order, prefix the field name with &#x60;-&#x60;.  **Note:** You may not be able to use all fields for sorting. This is due to performance limitations.  | [optional] 
+ **title** | **string**| Filter by the display name of the achievement. | [optional] 
+ **applicationId** | **long?**| Filter by the ID of an Application connected to the achievement. | [optional] 
+
+### Return type
+
+[**InlineResponse20053**](InlineResponse20053.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a name="listallrolesv2"></a>
 # **ListAllRolesV2**
-> InlineResponse20046 ListAllRolesV2 ()
+> InlineResponse20047 ListAllRolesV2 ()
 
 List roles
 
@@ -12761,7 +13662,7 @@ namespace Example
             try
             {
                 // List roles
-                InlineResponse20046 result = apiInstance.ListAllRolesV2();
+                InlineResponse20047 result = apiInstance.ListAllRolesV2();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -12780,7 +13681,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**InlineResponse20046**](InlineResponse20046.md)
+[**InlineResponse20047**](InlineResponse20047.md)
 
 ### Authorization
 
@@ -12800,7 +13701,7 @@ This endpoint does not need any parameter.
 
 <a name="listapplicationcartitemfilters"></a>
 # **ListApplicationCartItemFilters**
-> InlineResponse20048 ListApplicationCartItemFilters (long applicationId, long? pageSize = null, long? skip = null, string title = null)
+> InlineResponse20049 ListApplicationCartItemFilters (long applicationId, long? pageSize = null, long? skip = null, string name = null)
 
 List Application cart item filters
 
@@ -12839,12 +13740,12 @@ namespace Example
             var applicationId = 789;  // long | The ID of the Application. It is displayed in your Talon.One deployment URL.
             var pageSize = 789;  // long? | The number of items in the response. (optional)  (default to 50)
             var skip = 789;  // long? | The number of items to skip when paging through large result sets. (optional) 
-            var title = title_example;  // string | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `title` is provided, all the Application cart item filters in the Application are returned.  (optional) 
+            var name = name_example;  // string | Filter by the display name of the Application cart item filter in the Application.  **Note**: If no `name` is provided, all the Application cart item filters in the Application are returned.  (optional) 
 
             try
             {
                 // List Application cart item filters
-                InlineResponse20048 result = apiInstance.ListApplicationCartItemFilters(applicationId, pageSize, skip, title);
+                InlineResponse20049 result = apiInstance.ListApplicationCartItemFilters(applicationId, pageSize, skip, name);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -12865,11 +13766,11 @@ Name | Type | Description  | Notes
  **applicationId** | **long**| The ID of the Application. It is displayed in your Talon.One deployment URL. | 
  **pageSize** | **long?**| The number of items in the response. | [optional] [default to 50]
  **skip** | **long?**| The number of items to skip when paging through large result sets. | [optional] 
- **title** | **string**| Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;title&#x60; is provided, all the Application cart item filters in the Application are returned.  | [optional] 
+ **name** | **string**| Filter by the display name of the Application cart item filter in the Application.  **Note**: If no &#x60;name&#x60; is provided, all the Application cart item filters in the Application are returned.  | [optional] 
 
 ### Return type
 
-[**InlineResponse20048**](InlineResponse20048.md)
+[**InlineResponse20049**](InlineResponse20049.md)
 
 ### Authorization
 
@@ -12889,7 +13790,7 @@ Name | Type | Description  | Notes
 
 <a name="listcampaignstorebudgetlimits"></a>
 # **ListCampaignStoreBudgetLimits**
-> InlineResponse20049 ListCampaignStoreBudgetLimits (long applicationId, long campaignId, string action = null, string period = null)
+> InlineResponse20050 ListCampaignStoreBudgetLimits (long applicationId, long campaignId, string action = null, string period = null)
 
 List campaign store budget limits
 
@@ -12933,7 +13834,7 @@ namespace Example
             try
             {
                 // List campaign store budget limits
-                InlineResponse20049 result = apiInstance.ListCampaignStoreBudgetLimits(applicationId, campaignId, action, period);
+                InlineResponse20050 result = apiInstance.ListCampaignStoreBudgetLimits(applicationId, campaignId, action, period);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -12958,7 +13859,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20049**](InlineResponse20049.md)
+[**InlineResponse20050**](InlineResponse20050.md)
 
 ### Authorization
 
@@ -12981,7 +13882,7 @@ Name | Type | Description  | Notes
 
 <a name="listcatalogitems"></a>
 # **ListCatalogItems**
-> InlineResponse20039 ListCatalogItems (long catalogId, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null, List<string> sku = null, List<string> productNames = null)
+> InlineResponse20040 ListCatalogItems (long catalogId, long? pageSize = null, long? skip = null, bool? withTotalResultSize = null, List<string> sku = null, List<string> productNames = null)
 
 List items in a catalog
 
@@ -13027,7 +13928,7 @@ namespace Example
             try
             {
                 // List items in a catalog
-                InlineResponse20039 result = apiInstance.ListCatalogItems(catalogId, pageSize, skip, withTotalResultSize, sku, productNames);
+                InlineResponse20040 result = apiInstance.ListCatalogItems(catalogId, pageSize, skip, withTotalResultSize, sku, productNames);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -13054,7 +13955,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20039**](InlineResponse20039.md)
+[**InlineResponse20040**](InlineResponse20040.md)
 
 ### Authorization
 
@@ -13353,7 +14254,7 @@ Name | Type | Description  | Notes
 
 <a name="liststores"></a>
 # **ListStores**
-> InlineResponse20047 ListStores (long applicationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, decimal? campaignId = null, string name = null, string integrationId = null, string query = null)
+> InlineResponse20048 ListStores (long applicationId, long? pageSize = null, long? skip = null, string sort = null, bool? withTotalResultSize = null, decimal? campaignId = null, string name = null, string integrationId = null, string query = null)
 
 List stores
 
@@ -13402,7 +14303,7 @@ namespace Example
             try
             {
                 // List stores
-                InlineResponse20047 result = apiInstance.ListStores(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
+                InlineResponse20048 result = apiInstance.ListStores(applicationId, pageSize, skip, sort, withTotalResultSize, campaignId, name, integrationId, query);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -13432,7 +14333,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20047**](InlineResponse20047.md)
+[**InlineResponse20048**](InlineResponse20048.md)
 
 ### Authorization
 
@@ -15240,7 +16141,7 @@ Name | Type | Description  | Notes
 
 <a name="summarizecampaignstorebudget"></a>
 # **SummarizeCampaignStoreBudget**
-> InlineResponse20050 SummarizeCampaignStoreBudget (long applicationId, long campaignId)
+> InlineResponse20051 SummarizeCampaignStoreBudget (long applicationId, long campaignId)
 
 Get summary of campaign store budgets
 
@@ -15282,7 +16183,7 @@ namespace Example
             try
             {
                 // Get summary of campaign store budgets
-                InlineResponse20050 result = apiInstance.SummarizeCampaignStoreBudget(applicationId, campaignId);
+                InlineResponse20051 result = apiInstance.SummarizeCampaignStoreBudget(applicationId, campaignId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -15305,7 +16206,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**InlineResponse20050**](InlineResponse20050.md)
+[**InlineResponse20051**](InlineResponse20051.md)
 
 ### Authorization
 
@@ -15575,6 +16476,94 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**Achievement**](Achievement.md)
+
+### Authorization
+
+[api_key_v1](../README.md#api_key_v1), [management_key](../README.md#management_key), [manager_auth](../README.md#manager_auth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | Bad request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateachievementv2"></a>
+# **UpdateAchievementV2**
+> AchievementV2 UpdateAchievementV2 (long achievementId, UpdateAchievementV2 body)
+
+Update achievement
+
+Update the details of a specific achievement.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using TalonOne.Api;
+using TalonOne.Client;
+using TalonOne.Model;
+
+namespace Example
+{
+    public class UpdateAchievementV2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://yourbaseurl.talon.one";
+            // Configure API key authorization: api_key_v1
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: management_key
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure API key authorization: manager_auth
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+
+            var apiInstance = new ManagementApi(config);
+            var achievementId = 789;  // long | The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint.
+            var body = new UpdateAchievementV2(); // UpdateAchievementV2 | body
+
+            try
+            {
+                // Update achievement
+                AchievementV2 result = apiInstance.UpdateAchievementV2(achievementId, body);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling ManagementApi.UpdateAchievementV2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **achievementId** | **long**| The ID of the achievement. You can get this ID with the [List achievement](https://docs.talon.one/management-api#tag/Achievements/operation/listAchievementsV2) endpoint. | 
+ **body** | [**UpdateAchievementV2**](UpdateAchievementV2.md)| body | 
+
+### Return type
+
+[**AchievementV2**](AchievementV2.md)
 
 ### Authorization
 

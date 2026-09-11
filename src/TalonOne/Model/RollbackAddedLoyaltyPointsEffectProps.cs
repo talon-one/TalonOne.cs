@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;rollbackAddedLoyaltyPoints\&quot; effect. This gets triggered whenever previously a closed session with an addLoyaltyPoints effect is cancelled.
+    /// This effect is triggered in the following cases:  - A session was cancelled in which loyalty points have been added. - A session was partially returned and loyalty point were added by the returned items. See [returning items](https://docs.talon.one/docs/dev/tutorials/partially-return-a-session).  If you use the [Add loyalty points per item effect](https://docs.talon.one/docs/product/rules/effects/available-effects#reward-effects), use the &#x60;cartItemPosition&#x60; property to identify which items the loyalty points were rolled back for.  If you use **Add loyalty points per item** and if the session contains some cart items with _quantity &gt; 1_, use the &#x60;cartItemSubPosition&#x60; property to identify the item unit in its line item.  If the loyalty program is [profile-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the &#x60;recipientIntegrationId&#x60; property to identify the user for whom the loyalty points are rolled back. If the loyalty program is [card-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the &#x60;cardIdentifier&#x60; property to identify the loyalty card where the points were originally added.
     /// </summary>
     [DataContract]
     public partial class RollbackAddedLoyaltyPointsEffectProps :  IEquatable<RollbackAddedLoyaltyPointsEffectProps>, IValidatableObject
@@ -39,13 +39,13 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RollbackAddedLoyaltyPointsEffectProps" /> class.
         /// </summary>
-        /// <param name="programId">The ID of the loyalty program where the points were originally added. (required).</param>
-        /// <param name="subLedgerId">The ID of the subledger within the loyalty program where these points were originally added. (required).</param>
+        /// <param name="programId">The ID of the loyalty program where these points were rolled back. (required).</param>
+        /// <param name="subLedgerId">The ID of the subledger within the loyalty program where these points were rolled back. (required).</param>
         /// <param name="value">The amount of points that were rolled back. (required).</param>
-        /// <param name="recipientIntegrationId">The user for whom these points were originally added. (required).</param>
-        /// <param name="transactionUUID">The identifier of &#39;deduction&#39; entry added to the ledger as the &#x60;addLoyaltyPoints&#x60; effect is rolled back. (required).</param>
-        /// <param name="cartItemPosition">The index of the item in the cart items for which the loyalty points were rolled back..</param>
-        /// <param name="cartItemSubPosition">For cart items with &#x60;quantity&#x60; &gt; 1, the sub-position indicates to which item the loyalty points were rolled back. .</param>
+        /// <param name="recipientIntegrationId">The user for whom these points were rolled back. (required).</param>
+        /// <param name="transactionUUID">The identifier of this loyalty point transaction. (required).</param>
+        /// <param name="cartItemPosition">(_Add points per cart item_ only.) The index of the item in the &#x60;cartItem&#x60; object for which these points were rolled back..</param>
+        /// <param name="cartItemSubPosition">(_Add points per cart item_ ) The index of the item unit in its line item..</param>
         /// <param name="cardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
         public RollbackAddedLoyaltyPointsEffectProps(long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), string cardIdentifier = default(string))
         {
@@ -63,16 +63,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The ID of the loyalty program where the points were originally added.
+        /// The ID of the loyalty program where these points were rolled back.
         /// </summary>
-        /// <value>The ID of the loyalty program where the points were originally added.</value>
+        /// <value>The ID of the loyalty program where these points were rolled back.</value>
         [DataMember(Name="programId", EmitDefaultValue=false)]
         public long ProgramId { get; set; }
 
         /// <summary>
-        /// The ID of the subledger within the loyalty program where these points were originally added.
+        /// The ID of the subledger within the loyalty program where these points were rolled back.
         /// </summary>
-        /// <value>The ID of the subledger within the loyalty program where these points were originally added.</value>
+        /// <value>The ID of the subledger within the loyalty program where these points were rolled back.</value>
         [DataMember(Name="subLedgerId", EmitDefaultValue=false)]
         public string SubLedgerId { get; set; }
 
@@ -84,30 +84,30 @@ namespace TalonOne.Model
         public decimal Value { get; set; }
 
         /// <summary>
-        /// The user for whom these points were originally added.
+        /// The user for whom these points were rolled back.
         /// </summary>
-        /// <value>The user for whom these points were originally added.</value>
+        /// <value>The user for whom these points were rolled back.</value>
         [DataMember(Name="recipientIntegrationId", EmitDefaultValue=false)]
         public string RecipientIntegrationId { get; set; }
 
         /// <summary>
-        /// The identifier of &#39;deduction&#39; entry added to the ledger as the &#x60;addLoyaltyPoints&#x60; effect is rolled back.
+        /// The identifier of this loyalty point transaction.
         /// </summary>
-        /// <value>The identifier of &#39;deduction&#39; entry added to the ledger as the &#x60;addLoyaltyPoints&#x60; effect is rolled back.</value>
+        /// <value>The identifier of this loyalty point transaction.</value>
         [DataMember(Name="transactionUUID", EmitDefaultValue=false)]
         public string TransactionUUID { get; set; }
 
         /// <summary>
-        /// The index of the item in the cart items for which the loyalty points were rolled back.
+        /// (_Add points per cart item_ only.) The index of the item in the &#x60;cartItem&#x60; object for which these points were rolled back.
         /// </summary>
-        /// <value>The index of the item in the cart items for which the loyalty points were rolled back.</value>
+        /// <value>(_Add points per cart item_ only.) The index of the item in the &#x60;cartItem&#x60; object for which these points were rolled back.</value>
         [DataMember(Name="cartItemPosition", EmitDefaultValue=false)]
         public decimal CartItemPosition { get; set; }
 
         /// <summary>
-        /// For cart items with &#x60;quantity&#x60; &gt; 1, the sub-position indicates to which item the loyalty points were rolled back. 
+        /// (_Add points per cart item_ ) The index of the item unit in its line item.
         /// </summary>
-        /// <value>For cart items with &#x60;quantity&#x60; &gt; 1, the sub-position indicates to which item the loyalty points were rolled back. </value>
+        /// <value>(_Add points per cart item_ ) The index of the item unit in its line item.</value>
         [DataMember(Name="cartItemSubPosition", EmitDefaultValue=false)]
         public decimal CartItemSubPosition { get; set; }
 

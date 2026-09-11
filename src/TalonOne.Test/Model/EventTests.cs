@@ -114,6 +114,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Attributes'
         }
         /// <summary>
+        /// Test the property 'IntegrationId'
+        /// </summary>
+        [Fact]
+        public void IntegrationIdTest()
+        {
+            // TODO unit test for the property 'IntegrationId'
+        }
+        /// <summary>
         /// Test the property 'SessionId'
         /// </summary>
         [Fact]

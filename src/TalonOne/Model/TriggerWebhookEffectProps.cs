@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;triggerWebhook\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;trigger webhook\&quot; effect. This is communicated as an FYI and should usually not require action on your side.
+    /// This effect is triggered when a rule containing a [webhook effect](https://docs.talon.one/docs/product/rules/effects/available-effects#webhooks) is validated. The details are shared with you for your information only. It usually doesn&#39;t require an action on your side.
     /// </summary>
     [DataContract]
     public partial class TriggerWebhookEffectProps :  IEquatable<TriggerWebhookEffectProps>, IValidatableObject
@@ -39,8 +39,8 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TriggerWebhookEffectProps" /> class.
         /// </summary>
-        /// <param name="webhookId">The ID of the webhook that was triggered. (required).</param>
-        /// <param name="webhookName">The name of the webhook that was triggered. (required).</param>
+        /// <param name="webhookId">The internal ID of the webhook. (required).</param>
+        /// <param name="webhookName">The name of the webhook. (required).</param>
         public TriggerWebhookEffectProps(decimal webhookId = default(decimal), string webhookName = default(string))
         {
             this.WebhookId = webhookId;
@@ -49,16 +49,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The ID of the webhook that was triggered.
+        /// The internal ID of the webhook.
         /// </summary>
-        /// <value>The ID of the webhook that was triggered.</value>
+        /// <value>The internal ID of the webhook.</value>
         [DataMember(Name="webhookId", EmitDefaultValue=false)]
         public decimal WebhookId { get; set; }
 
         /// <summary>
-        /// The name of the webhook that was triggered.
+        /// The name of the webhook.
         /// </summary>
-        /// <value>The name of the webhook that was triggered.</value>
+        /// <value>The name of the webhook.</value>
         [DataMember(Name="webhookName", EmitDefaultValue=false)]
         public string WebhookName { get; set; }
 

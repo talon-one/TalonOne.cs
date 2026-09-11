@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class StrikethroughLabelingNotification :  IEquatable<StrikethroughLabelingNotification>, IValidatableObject
     {
         /// <summary>
-        /// The version of the strikethrough pricing notification.
+        /// The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. 
         /// </summary>
-        /// <value>The version of the strikethrough pricing notification.</value>
+        /// <value>The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum VersionEnum
         {
@@ -47,9 +47,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// The version of the strikethrough pricing notification.
+        /// The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. 
         /// </summary>
-        /// <value>The version of the strikethrough pricing notification.</value>
+        /// <value>The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. </value>
         [DataMember(Name="version", EmitDefaultValue=false)]
         public VersionEnum? Version { get; set; }
         /// <summary>
@@ -81,7 +81,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StrikethroughLabelingNotification" /> class.
         /// </summary>
-        /// <param name="version">The version of the strikethrough pricing notification..</param>
+        /// <param name="version">The version of the strikethrough pricing notification. Set for **scheduled** strikethrough pricing updates only. .</param>
         /// <param name="validFrom">Timestamp at which the strikethrough pricing update becomes valid. Set for **scheduled** strikethrough pricing updates (version: v2) only. .</param>
         /// <param name="applicationId">The ID of the Application to which the catalog items labels belongs. (required).</param>
         /// <param name="currentBatch">The batch number of the notification. Notifications might be sent in different batches. (required).</param>

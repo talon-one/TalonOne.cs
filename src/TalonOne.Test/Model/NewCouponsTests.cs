@@ -114,6 +114,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'NumberOfCoupons'
         }
         /// <summary>
+        /// Test the property 'BatchId'
+        /// </summary>
+        [Fact]
+        public void BatchIdTest()
+        {
+            // TODO unit test for the property 'BatchId'
+        }
+        /// <summary>
         /// Test the property 'UniquePrefix'
         /// </summary>
         [Fact]
@@ -168,6 +176,22 @@ namespace TalonOne.Test
         public void ImplicitlyReservedTest()
         {
             // TODO unit test for the property 'ImplicitlyReserved'
+        }
+        /// <summary>
+        /// Test the property 'SupportRequestId'
+        /// </summary>
+        [Fact]
+        public void SupportRequestIdTest()
+        {
+            // TODO unit test for the property 'SupportRequestId'
+        }
+        /// <summary>
+        /// Test the property 'SupportRequestNote'
+        /// </summary>
+        [Fact]
+        public void SupportRequestNoteTest()
+        {
+            // TODO unit test for the property 'SupportRequestNote'
         }
 
     }

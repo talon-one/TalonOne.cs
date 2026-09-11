@@ -66,12 +66,52 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Id'
         }
         /// <summary>
-        /// Test the property 'ApplicationID'
+        /// Test the property 'IntegrationName'
         /// </summary>
         [Fact]
-        public void ApplicationIDTest()
+        public void IntegrationNameTest()
         {
-            // TODO unit test for the property 'ApplicationID'
+            // TODO unit test for the property 'IntegrationName'
+        }
+        /// <summary>
+        /// Test the property 'InstanceName'
+        /// </summary>
+        [Fact]
+        public void InstanceNameTest()
+        {
+            // TODO unit test for the property 'InstanceName'
+        }
+        /// <summary>
+        /// Test the property 'CreatedAt'
+        /// </summary>
+        [Fact]
+        public void CreatedAtTest()
+        {
+            // TODO unit test for the property 'CreatedAt'
+        }
+        /// <summary>
+        /// Test the property 'DisabledUntil'
+        /// </summary>
+        [Fact]
+        public void DisabledUntilTest()
+        {
+            // TODO unit test for the property 'DisabledUntil'
+        }
+        /// <summary>
+        /// Test the property 'ApplicationId'
+        /// </summary>
+        [Fact]
+        public void ApplicationIdTest()
+        {
+            // TODO unit test for the property 'ApplicationId'
+        }
+        /// <summary>
+        /// Test the property 'LoyaltyProgramId'
+        /// </summary>
+        [Fact]
+        public void LoyaltyProgramIdTest()
+        {
+            // TODO unit test for the property 'LoyaltyProgramId'
         }
         /// <summary>
         /// Test the property 'EventType'
@@ -80,14 +120,6 @@ namespace TalonOne.Test
         public void EventTypeTest()
         {
             // TODO unit test for the property 'EventType'
-        }
-        /// <summary>
-        /// Test the property 'IntegrationHubFlowUrl'
-        /// </summary>
-        [Fact]
-        public void IntegrationHubFlowUrlTest()
-        {
-            // TODO unit test for the property 'IntegrationHubFlowUrl'
         }
         /// <summary>
         /// Test the property 'Config'

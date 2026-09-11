@@ -40,7 +40,8 @@ namespace TalonOne.Model
         /// <param name="coupons">The coupons reserved by this profile. This array includes hard and soft reservations. .</param>
         /// <param name="giveaways">giveaways.</param>
         /// <param name="achievements">achievements.</param>
-        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<InventoryReferral> referrals = default(List<InventoryReferral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>), List<AchievementProgressWithDefinition> achievements = default(List<AchievementProgressWithDefinition>))
+        /// <param name="rewards">The customer rewards that are &#x60;unlocked&#x60; and not yet &#x60;used&#x60;..</param>
+        public CustomerInventory(CustomerProfile profile = default(CustomerProfile), Loyalty loyalty = default(Loyalty), List<InventoryReferral> referrals = default(List<InventoryReferral>), List<InventoryCoupon> coupons = default(List<InventoryCoupon>), List<Giveaway> giveaways = default(List<Giveaway>), List<AchievementProgressWithDefinition> achievements = default(List<AchievementProgressWithDefinition>), List<RewardWithUnlocks> rewards = default(List<RewardWithUnlocks>))
         {
             this.Profile = profile;
             this.Loyalty = loyalty;
@@ -48,6 +49,7 @@ namespace TalonOne.Model
             this.Coupons = coupons;
             this.Giveaways = giveaways;
             this.Achievements = achievements;
+            this.Rewards = rewards;
         }
         
         /// <summary>
@@ -88,6 +90,13 @@ namespace TalonOne.Model
         public List<AchievementProgressWithDefinition> Achievements { get; set; }
 
         /// <summary>
+        /// The customer rewards that are &#x60;unlocked&#x60; and not yet &#x60;used&#x60;.
+        /// </summary>
+        /// <value>The customer rewards that are &#x60;unlocked&#x60; and not yet &#x60;used&#x60;.</value>
+        [DataMember(Name="rewards", EmitDefaultValue=false)]
+        public List<RewardWithUnlocks> Rewards { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,6 +110,7 @@ namespace TalonOne.Model
             sb.Append("  Coupons: ").Append(Coupons).Append("\n");
             sb.Append("  Giveaways: ").Append(Giveaways).Append("\n");
             sb.Append("  Achievements: ").Append(Achievements).Append("\n");
+            sb.Append("  Rewards: ").Append(Rewards).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,6 +178,12 @@ namespace TalonOne.Model
                     this.Achievements != null &&
                     input.Achievements != null &&
                     this.Achievements.SequenceEqual(input.Achievements)
+                ) && 
+                (
+                    this.Rewards == input.Rewards ||
+                    this.Rewards != null &&
+                    input.Rewards != null &&
+                    this.Rewards.SequenceEqual(input.Rewards)
                 );
         }
 
@@ -192,6 +208,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Giveaways.GetHashCode();
                 if (this.Achievements != null)
                     hashCode = hashCode * 59 + this.Achievements.GetHashCode();
+                if (this.Rewards != null)
+                    hashCode = hashCode * 59 + this.Rewards.GetHashCode();
                 return hashCode;
             }
         }

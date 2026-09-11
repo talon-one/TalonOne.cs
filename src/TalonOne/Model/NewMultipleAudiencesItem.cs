@@ -40,11 +40,13 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="NewMultipleAudiencesItem" /> class.
         /// </summary>
         /// <param name="name">The human-friendly display name for this audience. (required).</param>
+        /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications that are connected to this audience..</param>
         /// <param name="integrationId">The ID of this audience in the third-party integration..</param>
-        public NewMultipleAudiencesItem(string name = default(string), string integrationId = default(string))
+        public NewMultipleAudiencesItem(string name = default(string), List<long> subscribedApplicationsIds = default(List<long>), string integrationId = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewMultipleAudiencesItem and cannot be null");
+            this.SubscribedApplicationsIds = subscribedApplicationsIds;
             this.IntegrationId = integrationId;
         }
         
@@ -54,6 +56,13 @@ namespace TalonOne.Model
         /// <value>The human-friendly display name for this audience.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// A list of the IDs of the Applications that are connected to this audience.
+        /// </summary>
+        /// <value>A list of the IDs of the Applications that are connected to this audience.</value>
+        [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
+        public List<long> SubscribedApplicationsIds { get; set; }
 
         /// <summary>
         /// The ID of this audience in the third-party integration.
@@ -71,6 +80,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class NewMultipleAudiencesItem {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
             sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,6 +122,12 @@ namespace TalonOne.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.SubscribedApplicationsIds == input.SubscribedApplicationsIds ||
+                    this.SubscribedApplicationsIds != null &&
+                    input.SubscribedApplicationsIds != null &&
+                    this.SubscribedApplicationsIds.SequenceEqual(input.SubscribedApplicationsIds)
+                ) && 
+                (
                     this.IntegrationId == input.IntegrationId ||
                     (this.IntegrationId != null &&
                     this.IntegrationId.Equals(input.IntegrationId))
@@ -129,6 +145,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.SubscribedApplicationsIds != null)
+                    hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();
                 if (this.IntegrationId != null)
                     hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
                 return hashCode;

@@ -32,6 +32,11 @@ namespace TalonOne.Model
     public partial class IntegrationHubEventRecord :  IEquatable<IntegrationHubEventRecord>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets EventType
+        /// </summary>
+        [DataMember(Name="eventType", EmitDefaultValue=false)]
+        public IntegrationHubEventType EventType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="IntegrationHubEventRecord" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,75 +44,102 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IntegrationHubEventRecord" /> class.
         /// </summary>
-        /// <param name="id">id (required).</param>
-        /// <param name="flowId">flowId (required).</param>
+        /// <param name="id">ID of the event record. (required).</param>
+        /// <param name="flowId">ID of the integration hub flow. (required).</param>
+        /// <param name="integrationName">Name of the integration..</param>
+        /// <param name="instanceName">Name of the integration instance..</param>
         /// <param name="eventType">eventType (required).</param>
-        /// <param name="eventData">eventData (required).</param>
-        /// <param name="publishedAt">publishedAt (required).</param>
-        /// <param name="processedAt">processedAt.</param>
-        /// <param name="processAfter">processAfter (required).</param>
-        /// <param name="retry">retry (required).</param>
-        public IntegrationHubEventRecord(long id = default(long), long flowId = default(long), string eventType = default(string), Object eventData = default(Object), DateTime publishedAt = default(DateTime), DateTime processedAt = default(DateTime), DateTime processAfter = default(DateTime), long retry = default(long))
+        /// <param name="publishedAt">Timestamp when the event was published. (required).</param>
+        /// <param name="processedAt">Timestamp when the event was processed..</param>
+        /// <param name="deliveredAt">Timestamp when the event was delivered..</param>
+        /// <param name="scheduledTo">Timestamp after which the event is scheduled to be processed. (required).</param>
+        /// <param name="retry">Number of delivery retries attempted. (required).</param>
+        /// <param name="payload">The event payload as a formatted JSON string. (required).</param>
+        public IntegrationHubEventRecord(long id = default(long), long flowId = default(long), string integrationName = default(string), string instanceName = default(string), IntegrationHubEventType eventType = default(IntegrationHubEventType), DateTime publishedAt = default(DateTime), DateTime processedAt = default(DateTime), DateTime deliveredAt = default(DateTime), DateTime scheduledTo = default(DateTime), long retry = default(long), string payload = default(string))
         {
             this.Id = id;
             this.FlowId = flowId;
-            // to ensure "eventType" is required (not null)
-            this.EventType = eventType ?? throw new ArgumentNullException("eventType is a required property for IntegrationHubEventRecord and cannot be null");
-            // to ensure "eventData" is required (not null)
-            this.EventData = eventData ?? throw new ArgumentNullException("eventData is a required property for IntegrationHubEventRecord and cannot be null");
+            this.EventType = eventType;
             this.PublishedAt = publishedAt;
-            this.ProcessAfter = processAfter;
+            this.ScheduledTo = scheduledTo;
             this.Retry = retry;
+            // to ensure "payload" is required (not null)
+            this.Payload = payload ?? throw new ArgumentNullException("payload is a required property for IntegrationHubEventRecord and cannot be null");
+            this.IntegrationName = integrationName;
+            this.InstanceName = instanceName;
             this.ProcessedAt = processedAt;
+            this.DeliveredAt = deliveredAt;
         }
         
         /// <summary>
-        /// Gets or Sets Id
+        /// ID of the event record.
         /// </summary>
-        [DataMember(Name="Id", EmitDefaultValue=false)]
+        /// <value>ID of the event record.</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets FlowId
+        /// ID of the integration hub flow.
         /// </summary>
-        [DataMember(Name="FlowId", EmitDefaultValue=false)]
+        /// <value>ID of the integration hub flow.</value>
+        [DataMember(Name="flowId", EmitDefaultValue=false)]
         public long FlowId { get; set; }
 
         /// <summary>
-        /// Gets or Sets EventType
+        /// Name of the integration.
         /// </summary>
-        [DataMember(Name="EventType", EmitDefaultValue=false)]
-        public string EventType { get; set; }
+        /// <value>Name of the integration.</value>
+        [DataMember(Name="integrationName", EmitDefaultValue=false)]
+        public string IntegrationName { get; set; }
 
         /// <summary>
-        /// Gets or Sets EventData
+        /// Name of the integration instance.
         /// </summary>
-        [DataMember(Name="EventData", EmitDefaultValue=false)]
-        public Object EventData { get; set; }
+        /// <value>Name of the integration instance.</value>
+        [DataMember(Name="instanceName", EmitDefaultValue=false)]
+        public string InstanceName { get; set; }
 
         /// <summary>
-        /// Gets or Sets PublishedAt
+        /// Timestamp when the event was published.
         /// </summary>
-        [DataMember(Name="PublishedAt", EmitDefaultValue=false)]
+        /// <value>Timestamp when the event was published.</value>
+        [DataMember(Name="publishedAt", EmitDefaultValue=false)]
         public DateTime PublishedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProcessedAt
+        /// Timestamp when the event was processed.
         /// </summary>
-        [DataMember(Name="ProcessedAt", EmitDefaultValue=false)]
+        /// <value>Timestamp when the event was processed.</value>
+        [DataMember(Name="processedAt", EmitDefaultValue=false)]
         public DateTime ProcessedAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets ProcessAfter
+        /// Timestamp when the event was delivered.
         /// </summary>
-        [DataMember(Name="ProcessAfter", EmitDefaultValue=false)]
-        public DateTime ProcessAfter { get; set; }
+        /// <value>Timestamp when the event was delivered.</value>
+        [DataMember(Name="deliveredAt", EmitDefaultValue=false)]
+        public DateTime DeliveredAt { get; set; }
 
         /// <summary>
-        /// Gets or Sets Retry
+        /// Timestamp after which the event is scheduled to be processed.
         /// </summary>
-        [DataMember(Name="Retry", EmitDefaultValue=false)]
+        /// <value>Timestamp after which the event is scheduled to be processed.</value>
+        [DataMember(Name="scheduledTo", EmitDefaultValue=false)]
+        public DateTime ScheduledTo { get; set; }
+
+        /// <summary>
+        /// Number of delivery retries attempted.
+        /// </summary>
+        /// <value>Number of delivery retries attempted.</value>
+        [DataMember(Name="retry", EmitDefaultValue=false)]
         public long Retry { get; set; }
+
+        /// <summary>
+        /// The event payload as a formatted JSON string.
+        /// </summary>
+        /// <value>The event payload as a formatted JSON string.</value>
+        [DataMember(Name="payload", EmitDefaultValue=false)]
+        public string Payload { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -119,12 +151,15 @@ namespace TalonOne.Model
             sb.Append("class IntegrationHubEventRecord {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  FlowId: ").Append(FlowId).Append("\n");
+            sb.Append("  IntegrationName: ").Append(IntegrationName).Append("\n");
+            sb.Append("  InstanceName: ").Append(InstanceName).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
-            sb.Append("  EventData: ").Append(EventData).Append("\n");
             sb.Append("  PublishedAt: ").Append(PublishedAt).Append("\n");
             sb.Append("  ProcessedAt: ").Append(ProcessedAt).Append("\n");
-            sb.Append("  ProcessAfter: ").Append(ProcessAfter).Append("\n");
+            sb.Append("  DeliveredAt: ").Append(DeliveredAt).Append("\n");
+            sb.Append("  ScheduledTo: ").Append(ScheduledTo).Append("\n");
             sb.Append("  Retry: ").Append(Retry).Append("\n");
+            sb.Append("  Payload: ").Append(Payload).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -168,14 +203,18 @@ namespace TalonOne.Model
                     this.FlowId.Equals(input.FlowId)
                 ) && 
                 (
-                    this.EventType == input.EventType ||
-                    (this.EventType != null &&
-                    this.EventType.Equals(input.EventType))
+                    this.IntegrationName == input.IntegrationName ||
+                    (this.IntegrationName != null &&
+                    this.IntegrationName.Equals(input.IntegrationName))
                 ) && 
                 (
-                    this.EventData == input.EventData ||
-                    (this.EventData != null &&
-                    this.EventData.Equals(input.EventData))
+                    this.InstanceName == input.InstanceName ||
+                    (this.InstanceName != null &&
+                    this.InstanceName.Equals(input.InstanceName))
+                ) && 
+                (
+                    this.EventType == input.EventType ||
+                    this.EventType.Equals(input.EventType)
                 ) && 
                 (
                     this.PublishedAt == input.PublishedAt ||
@@ -188,13 +227,23 @@ namespace TalonOne.Model
                     this.ProcessedAt.Equals(input.ProcessedAt))
                 ) && 
                 (
-                    this.ProcessAfter == input.ProcessAfter ||
-                    (this.ProcessAfter != null &&
-                    this.ProcessAfter.Equals(input.ProcessAfter))
+                    this.DeliveredAt == input.DeliveredAt ||
+                    (this.DeliveredAt != null &&
+                    this.DeliveredAt.Equals(input.DeliveredAt))
+                ) && 
+                (
+                    this.ScheduledTo == input.ScheduledTo ||
+                    (this.ScheduledTo != null &&
+                    this.ScheduledTo.Equals(input.ScheduledTo))
                 ) && 
                 (
                     this.Retry == input.Retry ||
                     this.Retry.Equals(input.Retry)
+                ) && 
+                (
+                    this.Payload == input.Payload ||
+                    (this.Payload != null &&
+                    this.Payload.Equals(input.Payload))
                 );
         }
 
@@ -209,17 +258,22 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
                 hashCode = hashCode * 59 + this.FlowId.GetHashCode();
-                if (this.EventType != null)
-                    hashCode = hashCode * 59 + this.EventType.GetHashCode();
-                if (this.EventData != null)
-                    hashCode = hashCode * 59 + this.EventData.GetHashCode();
+                if (this.IntegrationName != null)
+                    hashCode = hashCode * 59 + this.IntegrationName.GetHashCode();
+                if (this.InstanceName != null)
+                    hashCode = hashCode * 59 + this.InstanceName.GetHashCode();
+                hashCode = hashCode * 59 + this.EventType.GetHashCode();
                 if (this.PublishedAt != null)
                     hashCode = hashCode * 59 + this.PublishedAt.GetHashCode();
                 if (this.ProcessedAt != null)
                     hashCode = hashCode * 59 + this.ProcessedAt.GetHashCode();
-                if (this.ProcessAfter != null)
-                    hashCode = hashCode * 59 + this.ProcessAfter.GetHashCode();
+                if (this.DeliveredAt != null)
+                    hashCode = hashCode * 59 + this.DeliveredAt.GetHashCode();
+                if (this.ScheduledTo != null)
+                    hashCode = hashCode * 59 + this.ScheduledTo.GetHashCode();
                 hashCode = hashCode * 59 + this.Retry.GetHashCode();
+                if (this.Payload != null)
+                    hashCode = hashCode * 59 + this.Payload.GetHashCode();
                 return hashCode;
             }
         }

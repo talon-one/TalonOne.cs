@@ -58,6 +58,38 @@ namespace TalonOne.Test
 
 
         /// <summary>
+        /// Test the property 'ConnectedSessionId'
+        /// </summary>
+        [Fact]
+        public void ConnectedSessionIdTest()
+        {
+            // TODO unit test for the property 'ConnectedSessionId'
+        }
+        /// <summary>
+        /// Test the property 'Id'
+        /// </summary>
+        [Fact]
+        public void IdTest()
+        {
+            // TODO unit test for the property 'Id'
+        }
+        /// <summary>
+        /// Test the property 'Created'
+        /// </summary>
+        [Fact]
+        public void CreatedTest()
+        {
+            // TODO unit test for the property 'Created'
+        }
+        /// <summary>
+        /// Test the property 'ApplicationId'
+        /// </summary>
+        [Fact]
+        public void ApplicationIdTest()
+        {
+            // TODO unit test for the property 'ApplicationId'
+        }
+        /// <summary>
         /// Test the property 'ProfileId'
         /// </summary>
         [Fact]
@@ -72,22 +104,6 @@ namespace TalonOne.Test
         public void StoreIntegrationIdTest()
         {
             // TODO unit test for the property 'StoreIntegrationId'
-        }
-        /// <summary>
-        /// Test the property 'EvaluableCampaignIds'
-        /// </summary>
-        [Fact]
-        public void EvaluableCampaignIdsTest()
-        {
-            // TODO unit test for the property 'EvaluableCampaignIds'
-        }
-        /// <summary>
-        /// Test the property 'IntegrationId'
-        /// </summary>
-        [Fact]
-        public void IntegrationIdTest()
-        {
-            // TODO unit test for the property 'IntegrationId'
         }
         /// <summary>
         /// Test the property 'Type'
@@ -106,20 +122,28 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Attributes'
         }
         /// <summary>
-        /// Test the property 'ConnectedSessionID'
+        /// Test the property 'IntegrationId'
         /// </summary>
         [Fact]
-        public void ConnectedSessionIDTest()
+        public void IntegrationIdTest()
         {
-            // TODO unit test for the property 'ConnectedSessionID'
+            // TODO unit test for the property 'IntegrationId'
         }
         /// <summary>
-        /// Test the property 'PreviousEventID'
+        /// Test the property 'ReferralCode'
         /// </summary>
         [Fact]
-        public void PreviousEventIDTest()
+        public void ReferralCodeTest()
         {
-            // TODO unit test for the property 'PreviousEventID'
+            // TODO unit test for the property 'ReferralCode'
+        }
+        /// <summary>
+        /// Test the property 'Effects'
+        /// </summary>
+        [Fact]
+        public void EffectsTest()
+        {
+            // TODO unit test for the property 'Effects'
         }
 
     }

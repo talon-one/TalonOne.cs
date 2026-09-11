@@ -147,14 +147,16 @@ namespace TalonOne.Model
         /// <param name="name">The internal name of the achievement used in API requests.  (required).</param>
         /// <param name="title">The display name of the achievement in the Campaign Manager. (required).</param>
         /// <param name="description">The description of the achievement in the Campaign Manager. (required).</param>
-        /// <param name="campaignId">The ID of the campaign the achievement belongs to. (required).</param>
+        /// <param name="campaignId">This property is **deprecated**. Use &#x60;campaignIds&#x60; (Integration API) or &#x60;referencedByCampaigns&#x60; (Management API) instead. This field contains the first campaign ID from the related &#x60;campaignIds&#x60;, and is omitted when &#x60;campaignIds&#x60; is empty..</param>
+        /// <param name="campaignIds">The IDs of the campaigns that reference this achievement, in ascending order. (required).</param>
+        /// <param name="referencedByCampaigns">The campaigns that reference this achievement, in ascending order of their &#x60;id&#x60;. (required).</param>
         /// <param name="target">The required number of actions or the transactional milestone to complete the achievement..</param>
         /// <param name="achievementRecurrencePolicy">The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. - &#x60;on_completion&#x60;: When the customer progress status reaches &#x60;completed&#x60;, the achievement resets and becomes available again.  (required).</param>
         /// <param name="achievementActivationPolicy">The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule.  (required).</param>
         /// <param name="achievementFixedStartDate">The achievement&#39;s start date when &#x60;achievementActivationPolicy&#x60; is equal to &#x60;fixed_schedule&#x60;.  **Note:** It is an RFC3339 timestamp string. .</param>
         /// <param name="achievementEndDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It is an RFC3339 timestamp string. .</param>
         /// <param name="achievementAllowRollbackAfterCompletion">When &#x60;true&#x60;, customer progress can be rolled back in completed achievements..</param>
-        public AchievementProgressWithDefinition(StatusEnum status = default(StatusEnum), decimal progress = default(decimal), DateTime startDate = default(DateTime), DateTime completionDate = default(DateTime), DateTime endDate = default(DateTime), long achievementId = default(long), string name = default(string), string title = default(string), string description = default(string), long campaignId = default(long), decimal target = default(decimal), AchievementRecurrencePolicyEnum achievementRecurrencePolicy = default(AchievementRecurrencePolicyEnum), AchievementActivationPolicyEnum achievementActivationPolicy = default(AchievementActivationPolicyEnum), DateTime achievementFixedStartDate = default(DateTime), DateTime achievementEndDate = default(DateTime), bool achievementAllowRollbackAfterCompletion = default(bool))
+        public AchievementProgressWithDefinition(StatusEnum status = default(StatusEnum), decimal progress = default(decimal), DateTime startDate = default(DateTime), DateTime completionDate = default(DateTime), DateTime endDate = default(DateTime), long achievementId = default(long), string name = default(string), string title = default(string), string description = default(string), long campaignId = default(long), List<long> campaignIds = default(List<long>), List<CampaignReference> referencedByCampaigns = default(List<CampaignReference>), decimal target = default(decimal), AchievementRecurrencePolicyEnum achievementRecurrencePolicy = default(AchievementRecurrencePolicyEnum), AchievementActivationPolicyEnum achievementActivationPolicy = default(AchievementActivationPolicyEnum), DateTime achievementFixedStartDate = default(DateTime), DateTime achievementEndDate = default(DateTime), bool achievementAllowRollbackAfterCompletion = default(bool))
         {
             this.Status = status;
             this.Progress = progress;
@@ -165,12 +167,16 @@ namespace TalonOne.Model
             this.Title = title ?? throw new ArgumentNullException("title is a required property for AchievementProgressWithDefinition and cannot be null");
             // to ensure "description" is required (not null)
             this.Description = description ?? throw new ArgumentNullException("description is a required property for AchievementProgressWithDefinition and cannot be null");
-            this.CampaignId = campaignId;
+            // to ensure "campaignIds" is required (not null)
+            this.CampaignIds = campaignIds ?? throw new ArgumentNullException("campaignIds is a required property for AchievementProgressWithDefinition and cannot be null");
+            // to ensure "referencedByCampaigns" is required (not null)
+            this.ReferencedByCampaigns = referencedByCampaigns ?? throw new ArgumentNullException("referencedByCampaigns is a required property for AchievementProgressWithDefinition and cannot be null");
             this.AchievementRecurrencePolicy = achievementRecurrencePolicy;
             this.AchievementActivationPolicy = achievementActivationPolicy;
             this.StartDate = startDate;
             this.CompletionDate = completionDate;
             this.EndDate = endDate;
+            this.CampaignId = campaignId;
             this.Target = target;
             this.AchievementFixedStartDate = achievementFixedStartDate;
             this.AchievementEndDate = achievementEndDate;
@@ -234,11 +240,25 @@ namespace TalonOne.Model
         public string Description { get; set; }
 
         /// <summary>
-        /// The ID of the campaign the achievement belongs to.
+        /// This property is **deprecated**. Use &#x60;campaignIds&#x60; (Integration API) or &#x60;referencedByCampaigns&#x60; (Management API) instead. This field contains the first campaign ID from the related &#x60;campaignIds&#x60;, and is omitted when &#x60;campaignIds&#x60; is empty.
         /// </summary>
-        /// <value>The ID of the campaign the achievement belongs to.</value>
+        /// <value>This property is **deprecated**. Use &#x60;campaignIds&#x60; (Integration API) or &#x60;referencedByCampaigns&#x60; (Management API) instead. This field contains the first campaign ID from the related &#x60;campaignIds&#x60;, and is omitted when &#x60;campaignIds&#x60; is empty.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
         public long CampaignId { get; set; }
+
+        /// <summary>
+        /// The IDs of the campaigns that reference this achievement, in ascending order.
+        /// </summary>
+        /// <value>The IDs of the campaigns that reference this achievement, in ascending order.</value>
+        [DataMember(Name="campaignIds", EmitDefaultValue=false)]
+        public List<long> CampaignIds { get; set; }
+
+        /// <summary>
+        /// The campaigns that reference this achievement, in ascending order of their &#x60;id&#x60;.
+        /// </summary>
+        /// <value>The campaigns that reference this achievement, in ascending order of their &#x60;id&#x60;.</value>
+        [DataMember(Name="referencedByCampaigns", EmitDefaultValue=false)]
+        public List<CampaignReference> ReferencedByCampaigns { get; set; }
 
         /// <summary>
         /// The required number of actions or the transactional milestone to complete the achievement.
@@ -286,6 +306,8 @@ namespace TalonOne.Model
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
+            sb.Append("  CampaignIds: ").Append(CampaignIds).Append("\n");
+            sb.Append("  ReferencedByCampaigns: ").Append(ReferencedByCampaigns).Append("\n");
             sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("  AchievementRecurrencePolicy: ").Append(AchievementRecurrencePolicy).Append("\n");
             sb.Append("  AchievementActivationPolicy: ").Append(AchievementActivationPolicy).Append("\n");
@@ -373,6 +395,18 @@ namespace TalonOne.Model
                     this.CampaignId.Equals(input.CampaignId)
                 ) && 
                 (
+                    this.CampaignIds == input.CampaignIds ||
+                    this.CampaignIds != null &&
+                    input.CampaignIds != null &&
+                    this.CampaignIds.SequenceEqual(input.CampaignIds)
+                ) && 
+                (
+                    this.ReferencedByCampaigns == input.ReferencedByCampaigns ||
+                    this.ReferencedByCampaigns != null &&
+                    input.ReferencedByCampaigns != null &&
+                    this.ReferencedByCampaigns.SequenceEqual(input.ReferencedByCampaigns)
+                ) && 
+                (
                     this.Target == input.Target ||
                     this.Target.Equals(input.Target)
                 ) && 
@@ -425,6 +459,10 @@ namespace TalonOne.Model
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
+                if (this.CampaignIds != null)
+                    hashCode = hashCode * 59 + this.CampaignIds.GetHashCode();
+                if (this.ReferencedByCampaigns != null)
+                    hashCode = hashCode * 59 + this.ReferencedByCampaigns.GetHashCode();
                 hashCode = hashCode * 59 + this.Target.GetHashCode();
                 hashCode = hashCode * 59 + this.AchievementRecurrencePolicy.GetHashCode();
                 hashCode = hashCode * 59 + this.AchievementActivationPolicy.GetHashCode();
