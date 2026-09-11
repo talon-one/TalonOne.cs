@@ -95,7 +95,25 @@ namespace TalonOne.Model
             /// Enum PreviousReturns for value: previousReturns
             /// </summary>
             [EnumMember(Value = "previousReturns")]
-            PreviousReturns = 10
+            PreviousReturns = 10,
+
+            /// <summary>
+            /// Enum CampaignEligibility for value: campaignEligibility
+            /// </summary>
+            [EnumMember(Value = "campaignEligibility")]
+            CampaignEligibility = 11,
+
+            /// <summary>
+            /// Enum Achievements for value: achievements
+            /// </summary>
+            [EnumMember(Value = "achievements")]
+            Achievements = 12,
+
+            /// <summary>
+            /// Enum UnlockedRewards for value: unlockedRewards
+            /// </summary>
+            [EnumMember(Value = "unlockedRewards")]
+            UnlockedRewards = 13
 
         }
 

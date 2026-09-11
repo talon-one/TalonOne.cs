@@ -74,6 +74,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'SessionId'
         }
         /// <summary>
+        /// Test the property 'AdvancedEventIntegrationId'
+        /// </summary>
+        [Fact]
+        public void AdvancedEventIntegrationIdTest()
+        {
+            // TODO unit test for the property 'AdvancedEventIntegrationId'
+        }
+        /// <summary>
         /// Test the property 'AdvocateIntegrationId'
         /// </summary>
         [Fact]

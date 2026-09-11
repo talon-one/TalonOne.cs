@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;rollbackCoupon\&quot; effect. This gets triggered whenever previously closed session is now cancelled and a coupon redemption was cancelled on our internal usage limit counters.
+    /// This effect indicates that a coupon code redemption has been rolled back. The coupon becomes redeemable again.  The effect is triggered when you [cancel](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#manage-the-sessions-state) a session where a coupon was accepted. See an example of use in the [cancelling a session tutorial](https://docs.talon.one/docs/dev/tutorials/roll-back-effects).
     /// </summary>
     [DataContract]
     public partial class RollbackCouponEffectProps :  IEquatable<RollbackCouponEffectProps>, IValidatableObject
@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RollbackCouponEffectProps" /> class.
         /// </summary>
-        /// <param name="value">The coupon code whose usage has been rolled back. (required).</param>
+        /// <param name="value">The coupon code whose redemption has been rolled back. (required).</param>
         public RollbackCouponEffectProps(string value = default(string))
         {
             // to ensure "value" is required (not null)
@@ -47,9 +47,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The coupon code whose usage has been rolled back.
+        /// The coupon code whose redemption has been rolled back.
         /// </summary>
-        /// <value>The coupon code whose usage has been rolled back.</value>
+        /// <value>The coupon code whose redemption has been rolled back.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
 

@@ -71,7 +71,13 @@ namespace TalonOne.Model
             /// Enum Achievements for value: achievements
             /// </summary>
             [EnumMember(Value = "achievements")]
-            Achievements = 6
+            Achievements = 6,
+
+            /// <summary>
+            /// Enum AdvancedEvents for value: advancedEvents
+            /// </summary>
+            [EnumMember(Value = "advancedEvents")]
+            AdvancedEvents = 7
 
         }
 

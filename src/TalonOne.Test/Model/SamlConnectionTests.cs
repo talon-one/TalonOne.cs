@@ -66,6 +66,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'AssertionConsumerServiceURL'
         }
         /// <summary>
+        /// Test the property 'CertificateExpiry'
+        /// </summary>
+        [Fact]
+        public void CertificateExpiryTest()
+        {
+            // TODO unit test for the property 'CertificateExpiry'
+        }
+        /// <summary>
         /// Test the property 'AccountId'
         /// </summary>
         [Fact]

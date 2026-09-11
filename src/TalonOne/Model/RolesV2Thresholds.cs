@@ -34,12 +34,21 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RolesV2Thresholds" /> class.
         /// </summary>
+        /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint..</param>
         /// <param name="loyaltyPointsLimit">Maximum number of loyalty points a support user can award without approval..</param>
-        public RolesV2Thresholds(long loyaltyPointsLimit = default(long))
+        public RolesV2Thresholds(long loyaltyProgramId = default(long), long loyaltyPointsLimit = default(long))
         {
+            this.LoyaltyProgramId = loyaltyProgramId;
             this.LoyaltyPointsLimit = loyaltyPointsLimit;
         }
         
+        /// <summary>
+        /// Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.
+        /// </summary>
+        /// <value>Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint.</value>
+        [DataMember(Name="loyaltyProgramId", EmitDefaultValue=false)]
+        public long LoyaltyProgramId { get; set; }
+
         /// <summary>
         /// Maximum number of loyalty points a support user can award without approval.
         /// </summary>
@@ -55,6 +64,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RolesV2Thresholds {\n");
+            sb.Append("  LoyaltyProgramId: ").Append(LoyaltyProgramId).Append("\n");
             sb.Append("  LoyaltyPointsLimit: ").Append(LoyaltyPointsLimit).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -91,6 +101,10 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.LoyaltyProgramId == input.LoyaltyProgramId ||
+                    this.LoyaltyProgramId.Equals(input.LoyaltyProgramId)
+                ) && 
+                (
                     this.LoyaltyPointsLimit == input.LoyaltyPointsLimit ||
                     this.LoyaltyPointsLimit.Equals(input.LoyaltyPointsLimit)
                 );
@@ -105,6 +119,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.LoyaltyProgramId.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyPointsLimit.GetHashCode();
                 return hashCode;
             }

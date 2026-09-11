@@ -4,8 +4,8 @@ setDiscountPerItem member effect in strikethrough pricing payload.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Name** | **string** | effect name. | 
-**Value** | [**Object**](.md) | discount value. | 
+**Name** | **string** | The effect name. | 
+**Value** | [**Object**](.md) | The discount value. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

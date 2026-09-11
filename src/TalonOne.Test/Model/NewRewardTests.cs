@@ -97,6 +97,38 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Sandbox'
         }
+        /// <summary>
+        /// Test the property 'EligibilityConditions'
+        /// </summary>
+        [Fact]
+        public void EligibilityConditionsTest()
+        {
+            // TODO unit test for the property 'EligibilityConditions'
+        }
+        /// <summary>
+        /// Test the property 'Rule'
+        /// </summary>
+        [Fact]
+        public void RuleTest()
+        {
+            // TODO unit test for the property 'Rule'
+        }
+        /// <summary>
+        /// Test the property 'Bindings'
+        /// </summary>
+        [Fact]
+        public void BindingsTest()
+        {
+            // TODO unit test for the property 'Bindings'
+        }
+        /// <summary>
+        /// Test the property 'PointsRequired'
+        /// </summary>
+        [Fact]
+        public void PointsRequiredTest()
+        {
+            // TODO unit test for the property 'PointsRequired'
+        }
 
     }
 

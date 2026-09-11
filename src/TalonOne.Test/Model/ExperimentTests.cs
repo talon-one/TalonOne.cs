@@ -122,6 +122,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'Variants'
         }
         /// <summary>
+        /// Test the property 'GoalType'
+        /// </summary>
+        [Fact]
+        public void GoalTypeTest()
+        {
+            // TODO unit test for the property 'GoalType'
+        }
+        /// <summary>
+        /// Test the property 'GoalDescription'
+        /// </summary>
+        [Fact]
+        public void GoalDescriptionTest()
+        {
+            // TODO unit test for the property 'GoalDescription'
+        }
+        /// <summary>
         /// Test the property 'Deletedat'
         /// </summary>
         [Fact]

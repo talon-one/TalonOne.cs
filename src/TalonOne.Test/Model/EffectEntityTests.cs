@@ -185,6 +185,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'AdjustmentReferenceId'
         }
+        /// <summary>
+        /// Test the property 'RewardId'
+        /// </summary>
+        [Fact]
+        public void RewardIdTest()
+        {
+            // TODO unit test for the property 'RewardId'
+        }
 
     }
 

@@ -32,6 +32,45 @@ namespace TalonOne.Model
     public partial class UpdateExperiment :  IEquatable<UpdateExperiment>, IValidatableObject
     {
         /// <summary>
+        /// The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. If omitted, the current value is preserved. 
+        /// </summary>
+        /// <value>The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. If omitted, the current value is preserved. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum GoalTypeEnum
+        {
+            /// <summary>
+            /// Enum Other for value: other
+            /// </summary>
+            [EnumMember(Value = "other")]
+            Other = 1,
+
+            /// <summary>
+            /// Enum Maximizerevenue for value: maximize_revenue
+            /// </summary>
+            [EnumMember(Value = "maximize_revenue")]
+            Maximizerevenue = 2,
+
+            /// <summary>
+            /// Enum Maximizeitemssold for value: maximize_items_sold
+            /// </summary>
+            [EnumMember(Value = "maximize_items_sold")]
+            Maximizeitemssold = 3,
+
+            /// <summary>
+            /// Enum Optimizediscountefficiency for value: optimize_discount_efficiency
+            /// </summary>
+            [EnumMember(Value = "optimize_discount_efficiency")]
+            Optimizediscountefficiency = 4
+
+        }
+
+        /// <summary>
+        /// The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. If omitted, the current value is preserved. 
+        /// </summary>
+        /// <value>The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. If omitted, the current value is preserved. </value>
+        [DataMember(Name="goalType", EmitDefaultValue=false)]
+        public GoalTypeEnum? GoalType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="UpdateExperiment" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -41,11 +80,15 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="isVariantAssignmentExternal">The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally.  (required).</param>
         /// <param name="campaign">campaign (required).</param>
-        public UpdateExperiment(bool isVariantAssignmentExternal = default(bool), UpdateCampaign campaign = default(UpdateCampaign))
+        /// <param name="goalType">The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used. If omitted, the current value is preserved. .</param>
+        /// <param name="goalDescription">A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. If omitted, the current value is preserved. .</param>
+        public UpdateExperiment(bool isVariantAssignmentExternal = default(bool), UpdateCampaign campaign = default(UpdateCampaign), GoalTypeEnum? goalType = default(GoalTypeEnum?), string goalDescription = default(string))
         {
             this.IsVariantAssignmentExternal = isVariantAssignmentExternal;
             // to ensure "campaign" is required (not null)
             this.Campaign = campaign ?? throw new ArgumentNullException("campaign is a required property for UpdateExperiment and cannot be null");
+            this.GoalType = goalType;
+            this.GoalDescription = goalDescription;
         }
         
         /// <summary>
@@ -62,6 +105,13 @@ namespace TalonOne.Model
         public UpdateCampaign Campaign { get; set; }
 
         /// <summary>
+        /// A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. If omitted, the current value is preserved. 
+        /// </summary>
+        /// <value>A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. If omitted, the current value is preserved. </value>
+        [DataMember(Name="goalDescription", EmitDefaultValue=false)]
+        public string GoalDescription { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,6 +121,8 @@ namespace TalonOne.Model
             sb.Append("class UpdateExperiment {\n");
             sb.Append("  IsVariantAssignmentExternal: ").Append(IsVariantAssignmentExternal).Append("\n");
             sb.Append("  Campaign: ").Append(Campaign).Append("\n");
+            sb.Append("  GoalType: ").Append(GoalType).Append("\n");
+            sb.Append("  GoalDescription: ").Append(GoalDescription).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -113,6 +165,15 @@ namespace TalonOne.Model
                     this.Campaign == input.Campaign ||
                     (this.Campaign != null &&
                     this.Campaign.Equals(input.Campaign))
+                ) && 
+                (
+                    this.GoalType == input.GoalType ||
+                    this.GoalType.Equals(input.GoalType)
+                ) && 
+                (
+                    this.GoalDescription == input.GoalDescription ||
+                    (this.GoalDescription != null &&
+                    this.GoalDescription.Equals(input.GoalDescription))
                 );
         }
 
@@ -128,6 +189,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.IsVariantAssignmentExternal.GetHashCode();
                 if (this.Campaign != null)
                     hashCode = hashCode * 59 + this.Campaign.GetHashCode();
+                hashCode = hashCode * 59 + this.GoalType.GetHashCode();
+                if (this.GoalDescription != null)
+                    hashCode = hashCode * 59 + this.GoalDescription.GetHashCode();
                 return hashCode;
             }
         }

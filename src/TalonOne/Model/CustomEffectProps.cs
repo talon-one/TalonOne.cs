@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Effect containing custom payload.
+    /// If you want to return data as an effect but no effect matches your use case, you can [create a custom effect](https://docs.talon.one/docs/dev/tutorials/create-custom-effects).  Custom effects can be used as both rule effects and failure effects.  The structure of a custom effect depends on your specifications but is always named &#x60;customEffect&#x60;.
     /// </summary>
     [DataContract]
     public partial class CustomEffectProps :  IEquatable<CustomEffectProps>, IValidatableObject

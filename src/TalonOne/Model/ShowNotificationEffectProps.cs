@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;showNotification\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;show notification\&quot; effect.
+    /// You can use notifications to inform customers of certain events. There are four types of notification messages:  - &#x60;Info&#x60; - &#x60;Offer&#x60; - &#x60;Error&#x60; - &#x60;Misc&#x60;  It is up to you to use the Rule Builder to decide why and when to show notifications. Notifications can be used as both rule effects and failure effects.  A common use case is to display the notification at the top of the cart view in your web app. You can use the notification type to vary the styling of the notification message.
     /// </summary>
     [DataContract]
     public partial class ShowNotificationEffectProps :  IEquatable<ShowNotificationEffectProps>, IValidatableObject
@@ -39,9 +39,9 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ShowNotificationEffectProps" /> class.
         /// </summary>
-        /// <param name="notificationType">The type of notification that should be shown (e.g. error/warning/info). (required).</param>
-        /// <param name="title">Title of the notification. (required).</param>
-        /// <param name="body">Body of the notification. (required).</param>
+        /// <param name="notificationType">The type of notification. (required).</param>
+        /// <param name="title">The title of the notification. (required).</param>
+        /// <param name="body">The body of the notification. (required).</param>
         public ShowNotificationEffectProps(string notificationType = default(string), string title = default(string), string body = default(string))
         {
             // to ensure "notificationType" is required (not null)
@@ -53,23 +53,23 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The type of notification that should be shown (e.g. error/warning/info).
+        /// The type of notification.
         /// </summary>
-        /// <value>The type of notification that should be shown (e.g. error/warning/info).</value>
+        /// <value>The type of notification.</value>
         [DataMember(Name="notificationType", EmitDefaultValue=false)]
         public string NotificationType { get; set; }
 
         /// <summary>
-        /// Title of the notification.
+        /// The title of the notification.
         /// </summary>
-        /// <value>Title of the notification.</value>
+        /// <value>The title of the notification.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
 
         /// <summary>
-        /// Body of the notification.
+        /// The body of the notification.
         /// </summary>
-        /// <value>Body of the notification.</value>
+        /// <value>The body of the notification.</value>
         [DataMember(Name="body", EmitDefaultValue=false)]
         public string Body { get; set; }
 

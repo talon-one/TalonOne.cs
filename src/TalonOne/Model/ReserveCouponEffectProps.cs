@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;reserveCoupon\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;reserve coupon\&quot; effect. This reserves the coupon currently on scope to the profile on scope.
+    /// This effect indicates that the given coupon code was reserved for the given customer.  Talon.One provides soft and hard reservations. For more information, see [Reserve a coupon code](https://docs.talon.one/docs/product/rules/effects/use-effects#reserve-a-coupon-code).
     /// </summary>
     [DataContract]
     public partial class ReserveCouponEffectProps :  IEquatable<ReserveCouponEffectProps>, IValidatableObject
@@ -39,8 +39,8 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReserveCouponEffectProps" /> class.
         /// </summary>
-        /// <param name="couponValue">The value of the coupon currently on scope. (required).</param>
-        /// <param name="profileIntegrationId">The ID of this customer profile in the third-party integration. (required).</param>
+        /// <param name="couponValue">The coupon code that was created. (required).</param>
+        /// <param name="profileIntegrationId">The integration identifier of the customer for whom this coupon was reserved. (required).</param>
         /// <param name="isNewReservation">Indicates whether this is a new coupon reservation or not. (required).</param>
         public ReserveCouponEffectProps(string couponValue = default(string), string profileIntegrationId = default(string), bool isNewReservation = default(bool))
         {
@@ -52,16 +52,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The value of the coupon currently on scope.
+        /// The coupon code that was created.
         /// </summary>
-        /// <value>The value of the coupon currently on scope.</value>
+        /// <value>The coupon code that was created.</value>
         [DataMember(Name="couponValue", EmitDefaultValue=false)]
         public string CouponValue { get; set; }
 
         /// <summary>
-        /// The ID of this customer profile in the third-party integration.
+        /// The integration identifier of the customer for whom this coupon was reserved.
         /// </summary>
-        /// <value>The ID of this customer profile in the third-party integration.</value>
+        /// <value>The integration identifier of the customer for whom this coupon was reserved.</value>
         [DataMember(Name="profileIntegrationId", EmitDefaultValue=false)]
         public string ProfileIntegrationId { get; set; }
 

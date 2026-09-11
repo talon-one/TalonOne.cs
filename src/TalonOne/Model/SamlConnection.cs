@@ -40,6 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="SamlConnection" /> class.
         /// </summary>
         /// <param name="assertionConsumerServiceURL">The location where the SAML assertion is sent with a HTTP POST. (required).</param>
+        /// <param name="certificateExpiry">The expiry date of the X.509 certificate..</param>
         /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
         /// <param name="name">ID of the SAML service. (required).</param>
         /// <param name="enabled">Determines if this SAML connection active. (required).</param>
@@ -50,7 +51,7 @@ namespace TalonOne.Model
         /// <param name="audienceURI">The application-defined unique identifier that is the intended audience of the SAML assertion. This is most often the SP Entity ID of your application. When not specified, the ACS URL will be used.  (required).</param>
         /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
-        public SamlConnection(string assertionConsumerServiceURL = default(string), long accountId = default(long), string name = default(string), bool enabled = default(bool), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string), long id = default(long), DateTime created = default(DateTime))
+        public SamlConnection(string assertionConsumerServiceURL = default(string), DateTime certificateExpiry = default(DateTime), long accountId = default(long), string name = default(string), bool enabled = default(bool), string issuer = default(string), string signOnURL = default(string), string signOutURL = default(string), string metadataURL = default(string), string audienceURI = default(string), long id = default(long), DateTime created = default(DateTime))
         {
             // to ensure "assertionConsumerServiceURL" is required (not null)
             this.AssertionConsumerServiceURL = assertionConsumerServiceURL ?? throw new ArgumentNullException("assertionConsumerServiceURL is a required property for SamlConnection and cannot be null");
@@ -66,6 +67,7 @@ namespace TalonOne.Model
             this.AudienceURI = audienceURI ?? throw new ArgumentNullException("audienceURI is a required property for SamlConnection and cannot be null");
             this.Id = id;
             this.Created = created;
+            this.CertificateExpiry = certificateExpiry;
             this.SignOutURL = signOutURL;
             this.MetadataURL = metadataURL;
         }
@@ -76,6 +78,13 @@ namespace TalonOne.Model
         /// <value>The location where the SAML assertion is sent with a HTTP POST.</value>
         [DataMember(Name="assertionConsumerServiceURL", EmitDefaultValue=false)]
         public string AssertionConsumerServiceURL { get; set; }
+
+        /// <summary>
+        /// The expiry date of the X.509 certificate.
+        /// </summary>
+        /// <value>The expiry date of the X.509 certificate.</value>
+        [DataMember(Name="certificateExpiry", EmitDefaultValue=false)]
+        public DateTime CertificateExpiry { get; set; }
 
         /// <summary>
         /// The ID of the account that owns this entity.
@@ -156,6 +165,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class SamlConnection {\n");
             sb.Append("  AssertionConsumerServiceURL: ").Append(AssertionConsumerServiceURL).Append("\n");
+            sb.Append("  CertificateExpiry: ").Append(CertificateExpiry).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
@@ -204,6 +214,11 @@ namespace TalonOne.Model
                     this.AssertionConsumerServiceURL == input.AssertionConsumerServiceURL ||
                     (this.AssertionConsumerServiceURL != null &&
                     this.AssertionConsumerServiceURL.Equals(input.AssertionConsumerServiceURL))
+                ) && 
+                (
+                    this.CertificateExpiry == input.CertificateExpiry ||
+                    (this.CertificateExpiry != null &&
+                    this.CertificateExpiry.Equals(input.CertificateExpiry))
                 ) && 
                 (
                     this.AccountId == input.AccountId ||
@@ -265,6 +280,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.AssertionConsumerServiceURL != null)
                     hashCode = hashCode * 59 + this.AssertionConsumerServiceURL.GetHashCode();
+                if (this.CertificateExpiry != null)
+                    hashCode = hashCode * 59 + this.CertificateExpiry.GetHashCode();
                 hashCode = hashCode * 59 + this.AccountId.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();

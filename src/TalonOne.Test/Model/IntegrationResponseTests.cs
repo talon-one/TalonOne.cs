@@ -82,6 +82,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'TriggeredCampaigns'
         }
         /// <summary>
+        /// Test the property 'CampaignEligibility'
+        /// </summary>
+        [Fact]
+        public void CampaignEligibilityTest()
+        {
+            // TODO unit test for the property 'CampaignEligibility'
+        }
+        /// <summary>
         /// Test the property 'Effects'
         /// </summary>
         [Fact]
@@ -120,6 +128,22 @@ namespace TalonOne.Test
         public void AwardedGiveawaysTest()
         {
             // TODO unit test for the property 'AwardedGiveaways'
+        }
+        /// <summary>
+        /// Test the property 'Achievements'
+        /// </summary>
+        [Fact]
+        public void AchievementsTest()
+        {
+            // TODO unit test for the property 'Achievements'
+        }
+        /// <summary>
+        /// Test the property 'Rewards'
+        /// </summary>
+        [Fact]
+        public void RewardsTest()
+        {
+            // TODO unit test for the property 'Rewards'
         }
 
     }

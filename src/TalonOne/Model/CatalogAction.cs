@@ -20,15 +20,17 @@ using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using JsonSubTypes;
 using System.ComponentModel.DataAnnotations;
 using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Definition of all the properties that are needed for a single catalog sync action.
+    /// Definition of all the properties that are needed for a single catalog sync action. The &#x60;type&#x60; field selects the concrete action variant.
     /// </summary>
     [DataContract]
+    [JsonConverter(typeof(JsonSubtypes), "Type")]
     public partial class CatalogAction :  IEquatable<CatalogAction>, IValidatableObject
     {
         /// <summary>
@@ -81,22 +83,16 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The type of sync action.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
-        public TypeEnum Type { get; set; }
+        public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CatalogAction" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected CatalogAction() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CatalogAction" /> class.
-        /// </summary>
-        /// <param name="type">The type of sync action. (required).</param>
-        /// <param name="payload">payload (required).</param>
-        public CatalogAction(TypeEnum type = default(TypeEnum), Object payload = default(Object))
+        /// <param name="type">The type of sync action..</param>
+        /// <param name="payload">payload.</param>
+        public CatalogAction(TypeEnum? type = default(TypeEnum?), Object payload = default(Object))
         {
             this.Type = type;
-            // to ensure "payload" is required (not null)
-            this.Payload = payload ?? throw new ArgumentNullException("payload is a required property for CatalogAction and cannot be null");
+            this.Payload = payload;
         }
         
         /// <summary>
@@ -182,6 +178,16 @@ namespace TalonOne.Model
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
+            return this.BaseValidate(validationContext);
+        }
+
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        protected IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> BaseValidate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -39,18 +39,26 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20053" /> class.
         /// </summary>
+        /// <param name="hasMore">hasMore.</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse20053(List<CouponFailureSummary> data = default(List<CouponFailureSummary>))
+        public InlineResponse20053(bool hasMore = default(bool), List<AchievementV2> data = default(List<AchievementV2>))
         {
             // to ensure "data" is required (not null)
             this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20053 and cannot be null");
+            this.HasMore = hasMore;
         }
         
+        /// <summary>
+        /// Gets or Sets HasMore
+        /// </summary>
+        [DataMember(Name="hasMore", EmitDefaultValue=false)]
+        public bool HasMore { get; set; }
+
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<CouponFailureSummary> Data { get; set; }
+        public List<AchievementV2> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,6 +68,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20053 {\n");
+            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -96,6 +105,10 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.HasMore == input.HasMore ||
+                    this.HasMore.Equals(input.HasMore)
+                ) && 
+                (
                     this.Data == input.Data ||
                     this.Data != null &&
                     input.Data != null &&
@@ -112,6 +125,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.HasMore.GetHashCode();
                 if (this.Data != null)
                     hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;

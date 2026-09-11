@@ -94,34 +94,39 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateAchievementV2" /> class.
         /// </summary>
-        /// <param name="name">The internal name of the achievement used in API requests.  **Note**: The name should start with a letter. This cannot be changed after the achievement has been created. .</param>
-        /// <param name="title">The display name for the achievement in the Campaign Manager..</param>
-        /// <param name="description">A description of the achievement..</param>
-        /// <param name="target">The required number of actions or the transactional milestone to complete the achievement..</param>
+        [JsonConstructorAttribute]
+        protected UpdateAchievementV2() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdateAchievementV2" /> class.
+        /// </summary>
+        /// <param name="name">The internal name of the achievement used in API requests.  **Note**: The name should start with a letter. This cannot be changed after the achievement has been created.  (required).</param>
+        /// <param name="title">The display name for the achievement in the Campaign Manager. (required).</param>
+        /// <param name="description">A description of the achievement. (required).</param>
+        /// <param name="target">The required number of actions or the transactional milestone to complete the achievement. (required).</param>
         /// <param name="period">The relative duration after which the achievement ends and resets for a particular customer profile.  **Note**: The &#x60;period&#x60; does not start when the achievement is created.  The period is a **positive real number** followed by one letter indicating the time unit.  Examples: &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can also round certain units down to the beginning of period and up to the end of period.: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. Example: &#x60;30D_D&#x60; - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year. Example: &#x60;23W_U&#x60;  **Note**: You can either use the round down and round up option or set an absolute period. .</param>
         /// <param name="recurrencePolicy">The policy that determines if and how the achievement recurs. - &#x60;no_recurrence&#x60;: The achievement can be completed only once. - &#x60;on_expiration&#x60;: The achievement resets after it expires and becomes available again. - &#x60;on_completion&#x60;: When the customer progress status reaches &#x60;completed&#x60;, the achievement resets and becomes available again. .</param>
         /// <param name="activationPolicy">The policy that determines how the achievement starts, ends, or resets. - &#x60;user_action&#x60;: The achievement ends or resets relative to when the customer started the achievement. - &#x60;fixed_schedule&#x60;: The achievement starts, ends, or resets for all customers following a fixed schedule. .</param>
         /// <param name="fixedStartDate">The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="endDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="allowRollbackAfterCompletion">When &#x60;true&#x60;, customer progress can be rolled back in completed achievements..</param>
-        /// <param name="sandbox">Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type..</param>
-        /// <param name="subscribedApplications">A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement..</param>
-        /// <param name="timezone">A string containing an IANA timezone descriptor..</param>
-        public UpdateAchievementV2(string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool), bool sandbox = default(bool), List<long> subscribedApplications = default(List<long>), string timezone = default(string))
+        /// <param name="subscribedApplications">A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement. (required).</param>
+        public UpdateAchievementV2(string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool), List<long> subscribedApplications = default(List<long>))
         {
-            this.Name = name;
-            this.Title = title;
-            this.Description = description;
+            // to ensure "name" is required (not null)
+            this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateAchievementV2 and cannot be null");
+            // to ensure "title" is required (not null)
+            this.Title = title ?? throw new ArgumentNullException("title is a required property for UpdateAchievementV2 and cannot be null");
+            // to ensure "description" is required (not null)
+            this.Description = description ?? throw new ArgumentNullException("description is a required property for UpdateAchievementV2 and cannot be null");
             this.Target = target;
+            // to ensure "subscribedApplications" is required (not null)
+            this.SubscribedApplications = subscribedApplications ?? throw new ArgumentNullException("subscribedApplications is a required property for UpdateAchievementV2 and cannot be null");
             this.Period = period;
             this.RecurrencePolicy = recurrencePolicy;
             this.ActivationPolicy = activationPolicy;
             this.FixedStartDate = fixedStartDate;
             this.EndDate = endDate;
             this.AllowRollbackAfterCompletion = allowRollbackAfterCompletion;
-            this.Sandbox = sandbox;
-            this.SubscribedApplications = subscribedApplications;
-            this.Timezone = timezone;
         }
         
         /// <summary>
@@ -181,25 +186,11 @@ namespace TalonOne.Model
         public bool AllowRollbackAfterCompletion { get; set; }
 
         /// <summary>
-        /// Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
-        /// </summary>
-        /// <value>Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.</value>
-        [DataMember(Name="sandbox", EmitDefaultValue=false)]
-        public bool Sandbox { get; set; }
-
-        /// <summary>
         /// A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.
         /// </summary>
         /// <value>A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.</value>
         [DataMember(Name="subscribedApplications", EmitDefaultValue=false)]
         public List<long> SubscribedApplications { get; set; }
-
-        /// <summary>
-        /// A string containing an IANA timezone descriptor.
-        /// </summary>
-        /// <value>A string containing an IANA timezone descriptor.</value>
-        [DataMember(Name="timezone", EmitDefaultValue=false)]
-        public string Timezone { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -219,9 +210,7 @@ namespace TalonOne.Model
             sb.Append("  FixedStartDate: ").Append(FixedStartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  AllowRollbackAfterCompletion: ").Append(AllowRollbackAfterCompletion).Append("\n");
-            sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  SubscribedApplications: ").Append(SubscribedApplications).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -303,19 +292,10 @@ namespace TalonOne.Model
                     this.AllowRollbackAfterCompletion.Equals(input.AllowRollbackAfterCompletion)
                 ) && 
                 (
-                    this.Sandbox == input.Sandbox ||
-                    this.Sandbox.Equals(input.Sandbox)
-                ) && 
-                (
                     this.SubscribedApplications == input.SubscribedApplications ||
                     this.SubscribedApplications != null &&
                     input.SubscribedApplications != null &&
                     this.SubscribedApplications.SequenceEqual(input.SubscribedApplications)
-                ) && 
-                (
-                    this.Timezone == input.Timezone ||
-                    (this.Timezone != null &&
-                    this.Timezone.Equals(input.Timezone))
                 );
         }
 
@@ -344,11 +324,8 @@ namespace TalonOne.Model
                 if (this.EndDate != null)
                     hashCode = hashCode * 59 + this.EndDate.GetHashCode();
                 hashCode = hashCode * 59 + this.AllowRollbackAfterCompletion.GetHashCode();
-                hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 if (this.SubscribedApplications != null)
                     hashCode = hashCode * 59 + this.SubscribedApplications.GetHashCode();
-                if (this.Timezone != null)
-                    hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 return hashCode;
             }
         }
@@ -377,12 +354,6 @@ namespace TalonOne.Model
             if (false == regexName.Match(this.Name).Success)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, must match a pattern of " + regexName, new [] { "Name" });
-            }
-
-            // Timezone (string) minLength
-            if(this.Timezone != null && this.Timezone.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Timezone, length must be greater than 1.", new [] { "Timezone" });
             }
 
             yield break;

@@ -38,14 +38,12 @@ namespace TalonOne.Model
         /// <param name="campaign">Name of the campaign-related permission set for the given Application..</param>
         /// <param name="draftCampaign">Name of the draft campaign-related permission set for the given Application..</param>
         /// <param name="tools">Name of the tools-related permission set..</param>
-        /// <param name="thresholds">thresholds.</param>
-        public RoleV2ApplicationDetails(string application = default(string), string campaign = default(string), string draftCampaign = default(string), string tools = default(string), RolesV2Thresholds thresholds = default(RolesV2Thresholds))
+        public RoleV2ApplicationDetails(string application = default(string), string campaign = default(string), string draftCampaign = default(string), string tools = default(string))
         {
             this.Application = application;
             this.Campaign = campaign;
             this.DraftCampaign = draftCampaign;
             this.Tools = tools;
-            this.Thresholds = thresholds;
         }
         
         /// <summary>
@@ -77,12 +75,6 @@ namespace TalonOne.Model
         public string Tools { get; set; }
 
         /// <summary>
-        /// Gets or Sets Thresholds
-        /// </summary>
-        [DataMember(Name="thresholds", EmitDefaultValue=false)]
-        public RolesV2Thresholds Thresholds { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,7 +86,6 @@ namespace TalonOne.Model
             sb.Append("  Campaign: ").Append(Campaign).Append("\n");
             sb.Append("  DraftCampaign: ").Append(DraftCampaign).Append("\n");
             sb.Append("  Tools: ").Append(Tools).Append("\n");
-            sb.Append("  Thresholds: ").Append(Thresholds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -148,11 +139,6 @@ namespace TalonOne.Model
                     this.Tools == input.Tools ||
                     (this.Tools != null &&
                     this.Tools.Equals(input.Tools))
-                ) && 
-                (
-                    this.Thresholds == input.Thresholds ||
-                    (this.Thresholds != null &&
-                    this.Thresholds.Equals(input.Thresholds))
                 );
         }
 
@@ -173,8 +159,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.DraftCampaign.GetHashCode();
                 if (this.Tools != null)
                     hashCode = hashCode * 59 + this.Tools.GetHashCode();
-                if (this.Thresholds != null)
-                    hashCode = hashCode * 59 + this.Thresholds.GetHashCode();
                 return hashCode;
             }
         }

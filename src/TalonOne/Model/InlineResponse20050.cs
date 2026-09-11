@@ -35,7 +35,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="InlineResponse20050" /> class.
         /// </summary>
         /// <param name="data">data.</param>
-        public InlineResponse20050(List<SummaryCampaignStoreBudget> data = default(List<SummaryCampaignStoreBudget>))
+        public InlineResponse20050(List<ListCampaignStoreBudgets> data = default(List<ListCampaignStoreBudgets>))
         {
             this.Data = data;
         }
@@ -44,7 +44,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<SummaryCampaignStoreBudget> Data { get; set; }
+        public List<ListCampaignStoreBudgets> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

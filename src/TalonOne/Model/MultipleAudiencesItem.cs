@@ -75,9 +75,10 @@ namespace TalonOne.Model
         /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="name">The human-friendly display name for this audience. (required).</param>
+        /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications that are connected to this audience..</param>
         /// <param name="integrationId">The ID of this audience in the third-party integration. (required).</param>
         /// <param name="status">Indicates whether the audience is new, updated or unmodified by the request.  (required).</param>
-        public MultipleAudiencesItem(long id = default(long), DateTime created = default(DateTime), string name = default(string), string integrationId = default(string), StatusEnum status = default(StatusEnum))
+        public MultipleAudiencesItem(long id = default(long), DateTime created = default(DateTime), string name = default(string), List<long> subscribedApplicationsIds = default(List<long>), string integrationId = default(string), StatusEnum status = default(StatusEnum))
         {
             this.Id = id;
             this.Created = created;
@@ -86,6 +87,7 @@ namespace TalonOne.Model
             // to ensure "integrationId" is required (not null)
             this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for MultipleAudiencesItem and cannot be null");
             this.Status = status;
+            this.SubscribedApplicationsIds = subscribedApplicationsIds;
         }
         
         /// <summary>
@@ -110,6 +112,13 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// A list of the IDs of the Applications that are connected to this audience.
+        /// </summary>
+        /// <value>A list of the IDs of the Applications that are connected to this audience.</value>
+        [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
+        public List<long> SubscribedApplicationsIds { get; set; }
+
+        /// <summary>
         /// The ID of this audience in the third-party integration.
         /// </summary>
         /// <value>The ID of this audience in the third-party integration.</value>
@@ -127,6 +136,7 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
             sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
@@ -178,6 +188,12 @@ namespace TalonOne.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
+                    this.SubscribedApplicationsIds == input.SubscribedApplicationsIds ||
+                    this.SubscribedApplicationsIds != null &&
+                    input.SubscribedApplicationsIds != null &&
+                    this.SubscribedApplicationsIds.SequenceEqual(input.SubscribedApplicationsIds)
+                ) && 
+                (
                     this.IntegrationId == input.IntegrationId ||
                     (this.IntegrationId != null &&
                     this.IntegrationId.Equals(input.IntegrationId))
@@ -202,6 +218,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.SubscribedApplicationsIds != null)
+                    hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();
                 if (this.IntegrationId != null)
                     hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();

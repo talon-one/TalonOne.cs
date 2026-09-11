@@ -40,54 +40,89 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="IntegrationHubFlowResponse" /> class.
         /// </summary>
         /// <param name="id">ID of the integration hub flow. (required).</param>
-        /// <param name="applicationID">ID of application the flow is registered for..</param>
+        /// <param name="integrationName">Name of the integration..</param>
+        /// <param name="instanceName">Name of the integration instance..</param>
+        /// <param name="createdAt">Timestamp when the flow was created. (required).</param>
+        /// <param name="disabledUntil">Timestamp until which the flow is disabled. Null when the flow is active..</param>
+        /// <param name="applicationId">ID of the application the flow is registered for..</param>
+        /// <param name="loyaltyProgramId">ID of the loyalty program the flow is registered for..</param>
         /// <param name="eventType">The event type we want to register a flow for. (required).</param>
-        /// <param name="integrationHubFlowUrl">The URL of the integration hub flow that we want to trigger for the event. (required).</param>
         /// <param name="config">config (required).</param>
-        public IntegrationHubFlowResponse(long id = default(long), long applicationID = default(long), string eventType = default(string), string integrationHubFlowUrl = default(string), IntegrationHubFlowConfigResponse config = default(IntegrationHubFlowConfigResponse))
+        public IntegrationHubFlowResponse(long id = default(long), string integrationName = default(string), string instanceName = default(string), DateTime createdAt = default(DateTime), DateTime? disabledUntil = default(DateTime?), long applicationId = default(long), long loyaltyProgramId = default(long), string eventType = default(string), IntegrationHubFlowConfigResponse config = default(IntegrationHubFlowConfigResponse))
         {
             this.Id = id;
+            this.CreatedAt = createdAt;
             // to ensure "eventType" is required (not null)
             this.EventType = eventType ?? throw new ArgumentNullException("eventType is a required property for IntegrationHubFlowResponse and cannot be null");
-            // to ensure "integrationHubFlowUrl" is required (not null)
-            this.IntegrationHubFlowUrl = integrationHubFlowUrl ?? throw new ArgumentNullException("integrationHubFlowUrl is a required property for IntegrationHubFlowResponse and cannot be null");
             // to ensure "config" is required (not null)
             this.Config = config ?? throw new ArgumentNullException("config is a required property for IntegrationHubFlowResponse and cannot be null");
-            this.ApplicationID = applicationID;
+            this.IntegrationName = integrationName;
+            this.InstanceName = instanceName;
+            this.DisabledUntil = disabledUntil;
+            this.ApplicationId = applicationId;
+            this.LoyaltyProgramId = loyaltyProgramId;
         }
         
         /// <summary>
         /// ID of the integration hub flow.
         /// </summary>
         /// <value>ID of the integration hub flow.</value>
-        [DataMember(Name="Id", EmitDefaultValue=false)]
+        [DataMember(Name="id", EmitDefaultValue=false)]
         public long Id { get; set; }
 
         /// <summary>
-        /// ID of application the flow is registered for.
+        /// Name of the integration.
         /// </summary>
-        /// <value>ID of application the flow is registered for.</value>
-        [DataMember(Name="ApplicationID", EmitDefaultValue=false)]
-        public long ApplicationID { get; set; }
+        /// <value>Name of the integration.</value>
+        [DataMember(Name="integrationName", EmitDefaultValue=false)]
+        public string IntegrationName { get; set; }
+
+        /// <summary>
+        /// Name of the integration instance.
+        /// </summary>
+        /// <value>Name of the integration instance.</value>
+        [DataMember(Name="instanceName", EmitDefaultValue=false)]
+        public string InstanceName { get; set; }
+
+        /// <summary>
+        /// Timestamp when the flow was created.
+        /// </summary>
+        /// <value>Timestamp when the flow was created.</value>
+        [DataMember(Name="createdAt", EmitDefaultValue=false)]
+        public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// Timestamp until which the flow is disabled. Null when the flow is active.
+        /// </summary>
+        /// <value>Timestamp until which the flow is disabled. Null when the flow is active.</value>
+        [DataMember(Name="disabledUntil", EmitDefaultValue=true)]
+        public DateTime? DisabledUntil { get; set; }
+
+        /// <summary>
+        /// ID of the application the flow is registered for.
+        /// </summary>
+        /// <value>ID of the application the flow is registered for.</value>
+        [DataMember(Name="applicationId", EmitDefaultValue=false)]
+        public long ApplicationId { get; set; }
+
+        /// <summary>
+        /// ID of the loyalty program the flow is registered for.
+        /// </summary>
+        /// <value>ID of the loyalty program the flow is registered for.</value>
+        [DataMember(Name="loyaltyProgramId", EmitDefaultValue=false)]
+        public long LoyaltyProgramId { get; set; }
 
         /// <summary>
         /// The event type we want to register a flow for.
         /// </summary>
         /// <value>The event type we want to register a flow for.</value>
-        [DataMember(Name="EventType", EmitDefaultValue=false)]
+        [DataMember(Name="eventType", EmitDefaultValue=false)]
         public string EventType { get; set; }
-
-        /// <summary>
-        /// The URL of the integration hub flow that we want to trigger for the event.
-        /// </summary>
-        /// <value>The URL of the integration hub flow that we want to trigger for the event.</value>
-        [DataMember(Name="IntegrationHubFlowUrl", EmitDefaultValue=false)]
-        public string IntegrationHubFlowUrl { get; set; }
 
         /// <summary>
         /// Gets or Sets Config
         /// </summary>
-        [DataMember(Name="Config", EmitDefaultValue=false)]
+        [DataMember(Name="config", EmitDefaultValue=false)]
         public IntegrationHubFlowConfigResponse Config { get; set; }
 
         /// <summary>
@@ -99,9 +134,13 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class IntegrationHubFlowResponse {\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  ApplicationID: ").Append(ApplicationID).Append("\n");
+            sb.Append("  IntegrationName: ").Append(IntegrationName).Append("\n");
+            sb.Append("  InstanceName: ").Append(InstanceName).Append("\n");
+            sb.Append("  CreatedAt: ").Append(CreatedAt).Append("\n");
+            sb.Append("  DisabledUntil: ").Append(DisabledUntil).Append("\n");
+            sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
+            sb.Append("  LoyaltyProgramId: ").Append(LoyaltyProgramId).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
-            sb.Append("  IntegrationHubFlowUrl: ").Append(IntegrationHubFlowUrl).Append("\n");
             sb.Append("  Config: ").Append(Config).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -142,18 +181,37 @@ namespace TalonOne.Model
                     this.Id.Equals(input.Id)
                 ) && 
                 (
-                    this.ApplicationID == input.ApplicationID ||
-                    this.ApplicationID.Equals(input.ApplicationID)
+                    this.IntegrationName == input.IntegrationName ||
+                    (this.IntegrationName != null &&
+                    this.IntegrationName.Equals(input.IntegrationName))
+                ) && 
+                (
+                    this.InstanceName == input.InstanceName ||
+                    (this.InstanceName != null &&
+                    this.InstanceName.Equals(input.InstanceName))
+                ) && 
+                (
+                    this.CreatedAt == input.CreatedAt ||
+                    (this.CreatedAt != null &&
+                    this.CreatedAt.Equals(input.CreatedAt))
+                ) && 
+                (
+                    this.DisabledUntil == input.DisabledUntil ||
+                    (this.DisabledUntil != null &&
+                    this.DisabledUntil.Equals(input.DisabledUntil))
+                ) && 
+                (
+                    this.ApplicationId == input.ApplicationId ||
+                    this.ApplicationId.Equals(input.ApplicationId)
+                ) && 
+                (
+                    this.LoyaltyProgramId == input.LoyaltyProgramId ||
+                    this.LoyaltyProgramId.Equals(input.LoyaltyProgramId)
                 ) && 
                 (
                     this.EventType == input.EventType ||
                     (this.EventType != null &&
                     this.EventType.Equals(input.EventType))
-                ) && 
-                (
-                    this.IntegrationHubFlowUrl == input.IntegrationHubFlowUrl ||
-                    (this.IntegrationHubFlowUrl != null &&
-                    this.IntegrationHubFlowUrl.Equals(input.IntegrationHubFlowUrl))
                 ) && 
                 (
                     this.Config == input.Config ||
@@ -172,11 +230,18 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
-                hashCode = hashCode * 59 + this.ApplicationID.GetHashCode();
+                if (this.IntegrationName != null)
+                    hashCode = hashCode * 59 + this.IntegrationName.GetHashCode();
+                if (this.InstanceName != null)
+                    hashCode = hashCode * 59 + this.InstanceName.GetHashCode();
+                if (this.CreatedAt != null)
+                    hashCode = hashCode * 59 + this.CreatedAt.GetHashCode();
+                if (this.DisabledUntil != null)
+                    hashCode = hashCode * 59 + this.DisabledUntil.GetHashCode();
+                hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
+                hashCode = hashCode * 59 + this.LoyaltyProgramId.GetHashCode();
                 if (this.EventType != null)
                     hashCode = hashCode * 59 + this.EventType.GetHashCode();
-                if (this.IntegrationHubFlowUrl != null)
-                    hashCode = hashCode * 59 + this.IntegrationHubFlowUrl.GetHashCode();
                 if (this.Config != null)
                     hashCode = hashCode * 59 + this.Config.GetHashCode();
                 return hashCode;

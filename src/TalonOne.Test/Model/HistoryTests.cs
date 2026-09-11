@@ -74,12 +74,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ObservedAt'
         }
         /// <summary>
-        /// Test the property 'ContextId'
+        /// Test the property 'ContextIds'
         /// </summary>
         [Fact]
-        public void ContextIdTest()
+        public void ContextIdsTest()
         {
-            // TODO unit test for the property 'ContextId'
+            // TODO unit test for the property 'ContextIds'
         }
         /// <summary>
         /// Test the property 'Price'
@@ -104,6 +104,22 @@ namespace TalonOne.Test
         public void TargetTest()
         {
             // TODO unit test for the property 'Target'
+        }
+        /// <summary>
+        /// Test the property 'ExcludedAt'
+        /// </summary>
+        [Fact]
+        public void ExcludedAtTest()
+        {
+            // TODO unit test for the property 'ExcludedAt'
+        }
+        /// <summary>
+        /// Test the property 'ExclusionReason'
+        /// </summary>
+        [Fact]
+        public void ExclusionReasonTest()
+        {
+            // TODO unit test for the property 'ExclusionReason'
         }
 
     }

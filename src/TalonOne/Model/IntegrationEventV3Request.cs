@@ -38,40 +38,46 @@ namespace TalonOne.Model
         public enum ResponseContentEnum
         {
             /// <summary>
-            /// Enum CustomerProfile for value: customerProfile
-            /// </summary>
-            [EnumMember(Value = "customerProfile")]
-            CustomerProfile = 1,
-
-            /// <summary>
-            /// Enum TriggeredCampaigns for value: triggeredCampaigns
-            /// </summary>
-            [EnumMember(Value = "triggeredCampaigns")]
-            TriggeredCampaigns = 2,
-
-            /// <summary>
-            /// Enum Loyalty for value: loyalty
-            /// </summary>
-            [EnumMember(Value = "loyalty")]
-            Loyalty = 3,
-
-            /// <summary>
             /// Enum AdvancedEvent for value: advancedEvent
             /// </summary>
             [EnumMember(Value = "advancedEvent")]
-            AdvancedEvent = 4,
+            AdvancedEvent = 1,
 
             /// <summary>
             /// Enum AwardedGiveaways for value: awardedGiveaways
             /// </summary>
             [EnumMember(Value = "awardedGiveaways")]
-            AwardedGiveaways = 5,
+            AwardedGiveaways = 2,
+
+            /// <summary>
+            /// Enum CustomerProfile for value: customerProfile
+            /// </summary>
+            [EnumMember(Value = "customerProfile")]
+            CustomerProfile = 3,
+
+            /// <summary>
+            /// Enum Loyalty for value: loyalty
+            /// </summary>
+            [EnumMember(Value = "loyalty")]
+            Loyalty = 4,
+
+            /// <summary>
+            /// Enum Referral for value: referral
+            /// </summary>
+            [EnumMember(Value = "referral")]
+            Referral = 5,
 
             /// <summary>
             /// Enum RuleFailureReasons for value: ruleFailureReasons
             /// </summary>
             [EnumMember(Value = "ruleFailureReasons")]
-            RuleFailureReasons = 6
+            RuleFailureReasons = 6,
+
+            /// <summary>
+            /// Enum TriggeredCampaigns for value: triggeredCampaigns
+            /// </summary>
+            [EnumMember(Value = "triggeredCampaigns")]
+            TriggeredCampaigns = 7
 
         }
 
@@ -93,26 +99,26 @@ namespace TalonOne.Model
         /// <param name="profileId">ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;.  (required).</param>
         /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
         /// <param name="evaluableCampaignIds">When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. .</param>
-        /// <param name="integrationId">The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden.  (required).</param>
-        /// <param name="type">A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager.  (required).</param>
+        /// <param name="type">The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event. (required).</param>
         /// <param name="attributes">Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute)..</param>
-        /// <param name="connectedSessionID">The ID of the session that happened in the past..</param>
-        /// <param name="previousEventID">The unique identifier of the event that happened in the past..</param>
+        /// <param name="integrationId">The unique ID of the event. Only one event with this ID can be registered.  (required).</param>
+        /// <param name="connectedSessionId">The ID of the session to reference. The session must be in &#x60;closed&#x60; state. Otherwise, the API call will fail..</param>
+        /// <param name="referralCode">The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \&quot;Referral code is valid\&quot; condition in the Rule Builder to validate and redeem the code, or \&quot;Referral code is valid (without redemption)\&quot; to validate without redeeming. .</param>
         /// <param name="loyaltyCards">Identifiers of the loyalty cards used during this event..</param>
         /// <param name="responseContent">Optional list of requested information to be present on the response related to the tracking custom event. .</param>
-        public IntegrationEventV3Request(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), string integrationId = default(string), string type = default(string), Object attributes = default(Object), string connectedSessionID = default(string), string previousEventID = default(string), List<string> loyaltyCards = default(List<string>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
+        public IntegrationEventV3Request(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), string type = default(string), Object attributes = default(Object), string integrationId = default(string), string connectedSessionId = default(string), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             // to ensure "profileId" is required (not null)
             this.ProfileId = profileId ?? throw new ArgumentNullException("profileId is a required property for IntegrationEventV3Request and cannot be null");
-            // to ensure "integrationId" is required (not null)
-            this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for IntegrationEventV3Request and cannot be null");
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IntegrationEventV3Request and cannot be null");
+            // to ensure "integrationId" is required (not null)
+            this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for IntegrationEventV3Request and cannot be null");
             this.StoreIntegrationId = storeIntegrationId;
             this.EvaluableCampaignIds = evaluableCampaignIds;
             this.Attributes = attributes;
-            this.ConnectedSessionID = connectedSessionID;
-            this.PreviousEventID = previousEventID;
+            this.ConnectedSessionId = connectedSessionId;
+            this.ReferralCode = referralCode;
             this.LoyaltyCards = loyaltyCards;
             this.ResponseContent = responseContent;
         }
@@ -139,16 +145,9 @@ namespace TalonOne.Model
         public List<long> EvaluableCampaignIds { get; set; }
 
         /// <summary>
-        /// The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden. 
+        /// The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
         /// </summary>
-        /// <value>The unique ID of the current event. Only one event with this ID could be activated, duplicated events are forbidden. </value>
-        [DataMember(Name="integrationId", EmitDefaultValue=false)]
-        public string IntegrationId { get; set; }
-
-        /// <summary>
-        /// A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. 
-        /// </summary>
-        /// <value>A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. </value>
+        /// <value>The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -160,18 +159,25 @@ namespace TalonOne.Model
         public Object Attributes { get; set; }
 
         /// <summary>
-        /// The ID of the session that happened in the past.
+        /// The unique ID of the event. Only one event with this ID can be registered. 
         /// </summary>
-        /// <value>The ID of the session that happened in the past.</value>
-        [DataMember(Name="connectedSessionID", EmitDefaultValue=false)]
-        public string ConnectedSessionID { get; set; }
+        /// <value>The unique ID of the event. Only one event with this ID can be registered. </value>
+        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        public string IntegrationId { get; set; }
 
         /// <summary>
-        /// The unique identifier of the event that happened in the past.
+        /// The ID of the session to reference. The session must be in &#x60;closed&#x60; state. Otherwise, the API call will fail.
         /// </summary>
-        /// <value>The unique identifier of the event that happened in the past.</value>
-        [DataMember(Name="previousEventID", EmitDefaultValue=false)]
-        public string PreviousEventID { get; set; }
+        /// <value>The ID of the session to reference. The session must be in &#x60;closed&#x60; state. Otherwise, the API call will fail.</value>
+        [DataMember(Name="connectedSessionId", EmitDefaultValue=false)]
+        public string ConnectedSessionId { get; set; }
+
+        /// <summary>
+        /// The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \&quot;Referral code is valid\&quot; condition in the Rule Builder to validate and redeem the code, or \&quot;Referral code is valid (without redemption)\&quot; to validate without redeeming. 
+        /// </summary>
+        /// <value>The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \&quot;Referral code is valid\&quot; condition in the Rule Builder to validate and redeem the code, or \&quot;Referral code is valid (without redemption)\&quot; to validate without redeeming. </value>
+        [DataMember(Name="referralCode", EmitDefaultValue=false)]
+        public string ReferralCode { get; set; }
 
         /// <summary>
         /// Identifiers of the loyalty cards used during this event.
@@ -191,11 +197,11 @@ namespace TalonOne.Model
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
             sb.Append("  StoreIntegrationId: ").Append(StoreIntegrationId).Append("\n");
             sb.Append("  EvaluableCampaignIds: ").Append(EvaluableCampaignIds).Append("\n");
-            sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
-            sb.Append("  ConnectedSessionID: ").Append(ConnectedSessionID).Append("\n");
-            sb.Append("  PreviousEventID: ").Append(PreviousEventID).Append("\n");
+            sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
+            sb.Append("  ConnectedSessionId: ").Append(ConnectedSessionId).Append("\n");
+            sb.Append("  ReferralCode: ").Append(ReferralCode).Append("\n");
             sb.Append("  LoyaltyCards: ").Append(LoyaltyCards).Append("\n");
             sb.Append("  ResponseContent: ").Append(ResponseContent).Append("\n");
             sb.Append("}\n");
@@ -249,11 +255,6 @@ namespace TalonOne.Model
                     this.EvaluableCampaignIds.SequenceEqual(input.EvaluableCampaignIds)
                 ) && 
                 (
-                    this.IntegrationId == input.IntegrationId ||
-                    (this.IntegrationId != null &&
-                    this.IntegrationId.Equals(input.IntegrationId))
-                ) && 
-                (
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
@@ -264,14 +265,19 @@ namespace TalonOne.Model
                     this.Attributes.Equals(input.Attributes))
                 ) && 
                 (
-                    this.ConnectedSessionID == input.ConnectedSessionID ||
-                    (this.ConnectedSessionID != null &&
-                    this.ConnectedSessionID.Equals(input.ConnectedSessionID))
+                    this.IntegrationId == input.IntegrationId ||
+                    (this.IntegrationId != null &&
+                    this.IntegrationId.Equals(input.IntegrationId))
                 ) && 
                 (
-                    this.PreviousEventID == input.PreviousEventID ||
-                    (this.PreviousEventID != null &&
-                    this.PreviousEventID.Equals(input.PreviousEventID))
+                    this.ConnectedSessionId == input.ConnectedSessionId ||
+                    (this.ConnectedSessionId != null &&
+                    this.ConnectedSessionId.Equals(input.ConnectedSessionId))
+                ) && 
+                (
+                    this.ReferralCode == input.ReferralCode ||
+                    (this.ReferralCode != null &&
+                    this.ReferralCode.Equals(input.ReferralCode))
                 ) && 
                 (
                     this.LoyaltyCards == input.LoyaltyCards ||
@@ -300,16 +306,16 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.StoreIntegrationId.GetHashCode();
                 if (this.EvaluableCampaignIds != null)
                     hashCode = hashCode * 59 + this.EvaluableCampaignIds.GetHashCode();
-                if (this.IntegrationId != null)
-                    hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
-                if (this.ConnectedSessionID != null)
-                    hashCode = hashCode * 59 + this.ConnectedSessionID.GetHashCode();
-                if (this.PreviousEventID != null)
-                    hashCode = hashCode * 59 + this.PreviousEventID.GetHashCode();
+                if (this.IntegrationId != null)
+                    hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
+                if (this.ConnectedSessionId != null)
+                    hashCode = hashCode * 59 + this.ConnectedSessionId.GetHashCode();
+                if (this.ReferralCode != null)
+                    hashCode = hashCode * 59 + this.ReferralCode.GetHashCode();
                 if (this.LoyaltyCards != null)
                     hashCode = hashCode * 59 + this.LoyaltyCards.GetHashCode();
                 hashCode = hashCode * 59 + this.ResponseContent.GetHashCode();
@@ -336,28 +342,28 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be greater than 1.", new [] { "StoreIntegrationId" });
             }
 
-            // IntegrationId (string) minLength
-            if(this.IntegrationId != null && this.IntegrationId.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationId, length must be greater than 1.", new [] { "IntegrationId" });
-            }
-
             // Type (string) minLength
             if(this.Type != null && this.Type.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 1.", new [] { "Type" });
             }
 
-            // ConnectedSessionID (string) minLength
-            if(this.ConnectedSessionID != null && this.ConnectedSessionID.Length < 1)
+            // IntegrationId (string) minLength
+            if(this.IntegrationId != null && this.IntegrationId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConnectedSessionID, length must be greater than 1.", new [] { "ConnectedSessionID" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationId, length must be greater than 1.", new [] { "IntegrationId" });
             }
 
-            // PreviousEventID (string) minLength
-            if(this.PreviousEventID != null && this.PreviousEventID.Length < 1)
+            // ConnectedSessionId (string) minLength
+            if(this.ConnectedSessionId != null && this.ConnectedSessionId.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PreviousEventID, length must be greater than 1.", new [] { "PreviousEventID" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ConnectedSessionId, length must be greater than 1.", new [] { "ConnectedSessionId" });
+            }
+
+            // ReferralCode (string) maxLength
+            if(this.ReferralCode != null && this.ReferralCode.Length > 100)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReferralCode, length must be less than 100.", new [] { "ReferralCode" });
             }
 
             yield break;
