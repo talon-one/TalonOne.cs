@@ -58,6 +58,14 @@ namespace TalonOne.Test
 
 
         /// <summary>
+        /// Test the property 'EventId'
+        /// </summary>
+        [Fact]
+        public void EventIdTest()
+        {
+            // TODO unit test for the property 'EventId'
+        }
+        /// <summary>
         /// Test the property 'ProfileIntegrationID'
         /// </summary>
         [Fact]
@@ -74,6 +82,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'LoyaltyProgramID'
         }
         /// <summary>
+        /// Test the property 'LoyaltyProgramName'
+        /// </summary>
+        [Fact]
+        public void LoyaltyProgramNameTest()
+        {
+            // TODO unit test for the property 'LoyaltyProgramName'
+        }
+        /// <summary>
         /// Test the property 'SubledgerID'
         /// </summary>
         [Fact]
@@ -88,6 +104,22 @@ namespace TalonOne.Test
         public void SourceOfEventTest()
         {
             // TODO unit test for the property 'SourceOfEvent'
+        }
+        /// <summary>
+        /// Test the property 'CurrentTier'
+        /// </summary>
+        [Fact]
+        public void CurrentTierTest()
+        {
+            // TODO unit test for the property 'CurrentTier'
+        }
+        /// <summary>
+        /// Test the property 'SessionIntegrationID'
+        /// </summary>
+        [Fact]
+        public void SessionIntegrationIDTest()
+        {
+            // TODO unit test for the property 'SessionIntegrationID'
         }
         /// <summary>
         /// Test the property 'EmployeeName'

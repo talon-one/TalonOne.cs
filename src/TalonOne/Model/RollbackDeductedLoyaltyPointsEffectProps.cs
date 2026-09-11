@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;rollbackDeductedLoyaltyPoints\&quot; effect. This effect is triggered whenever a previously closed session is cancelled and a deductLoyaltyPoints effect was revoked.
+    /// This effect is triggered in the following cases:  - A session is _cancelled_ and this session deducted loyalty points. The rollback action returns the redeemed loyalty points to the customer. - A session is impacted by a _partial return_. Only added loyalty points that are still **pending** are rolled back. - A session in which loyalty points were spent is reopened.  See the [session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#customer-session-states).  If you set custom activation and expiration dates for the loyalty points, use the &#x60;startDate&#x60; and &#x60;expiryDate&#x60; properties to identify when the reward will be active and when will expire.  If the loyalty program is [profile-based](https://docs.talon.one/docs/product/loyalty-programs/profile-based/profile-based-overview), use the &#x60;recipientIntegrationId&#x60; property to identify the user who receives the loyalty points. If the loyalty program is [card-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the &#x60;cardIdentifier&#x60; property to identify the loyalty card where the points are reimbursed.
     /// </summary>
     [DataContract]
     public partial class RollbackDeductedLoyaltyPointsEffectProps :  IEquatable<RollbackDeductedLoyaltyPointsEffectProps>, IValidatableObject
@@ -41,11 +41,11 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="programId">The ID of the loyalty program where these points were reimbursed. (required).</param>
         /// <param name="subLedgerId">The ID of the subledger within the loyalty program where these points were reimbursed. (required).</param>
-        /// <param name="value">The amount of reimbursed points that were added. (required).</param>
+        /// <param name="value">The amount of points that were reimbursed. (required).</param>
         /// <param name="recipientIntegrationId">The user for whom these points were reimbursed. (required).</param>
-        /// <param name="startDate">Date after which the reimbursed points will be valid..</param>
-        /// <param name="expiryDate">Date after which the reimbursed points will expire..</param>
-        /// <param name="transactionUUID">The identifier of &#39;addition&#39; entries added to the ledger as the &#x60;deductLoyaltyPoints&#x60; effect is rolled back. (required).</param>
+        /// <param name="startDate">The date after which the reimbursed points will be valid..</param>
+        /// <param name="expiryDate">The date after which the reimbursed points will expire..</param>
+        /// <param name="transactionUUID">The identifier of this loyalty point transaction. (required).</param>
         /// <param name="cardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
         public RollbackDeductedLoyaltyPointsEffectProps(long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string), string cardIdentifier = default(string))
         {
@@ -77,9 +77,9 @@ namespace TalonOne.Model
         public string SubLedgerId { get; set; }
 
         /// <summary>
-        /// The amount of reimbursed points that were added.
+        /// The amount of points that were reimbursed.
         /// </summary>
-        /// <value>The amount of reimbursed points that were added.</value>
+        /// <value>The amount of points that were reimbursed.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public decimal Value { get; set; }
 
@@ -91,23 +91,23 @@ namespace TalonOne.Model
         public string RecipientIntegrationId { get; set; }
 
         /// <summary>
-        /// Date after which the reimbursed points will be valid.
+        /// The date after which the reimbursed points will be valid.
         /// </summary>
-        /// <value>Date after which the reimbursed points will be valid.</value>
+        /// <value>The date after which the reimbursed points will be valid.</value>
         [DataMember(Name="startDate", EmitDefaultValue=false)]
         public DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Date after which the reimbursed points will expire.
+        /// The date after which the reimbursed points will expire.
         /// </summary>
-        /// <value>Date after which the reimbursed points will expire.</value>
+        /// <value>The date after which the reimbursed points will expire.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
-        /// The identifier of &#39;addition&#39; entries added to the ledger as the &#x60;deductLoyaltyPoints&#x60; effect is rolled back.
+        /// The identifier of this loyalty point transaction.
         /// </summary>
-        /// <value>The identifier of &#39;addition&#39; entries added to the ledger as the &#x60;deductLoyaltyPoints&#x60; effect is rolled back.</value>
+        /// <value>The identifier of this loyalty point transaction.</value>
         [DataMember(Name="transactionUUID", EmitDefaultValue=false)]
         public string TransactionUUID { get; set; }
 

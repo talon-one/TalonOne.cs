@@ -32,6 +32,39 @@ namespace TalonOne.Model
     public partial class AchievementReference :  IEquatable<AchievementReference>, IValidatableObject
     {
         /// <summary>
+        /// The state of the campaign that references this achievement.
+        /// </summary>
+        /// <value>The state of the campaign that references this achievement.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum CampaignStateEnum
+        {
+            /// <summary>
+            /// Enum Enabled for value: enabled
+            /// </summary>
+            [EnumMember(Value = "enabled")]
+            Enabled = 1,
+
+            /// <summary>
+            /// Enum Disabled for value: disabled
+            /// </summary>
+            [EnumMember(Value = "disabled")]
+            Disabled = 2,
+
+            /// <summary>
+            /// Enum Archived for value: archived
+            /// </summary>
+            [EnumMember(Value = "archived")]
+            Archived = 3
+
+        }
+
+        /// <summary>
+        /// The state of the campaign that references this achievement.
+        /// </summary>
+        /// <value>The state of the campaign that references this achievement.</value>
+        [DataMember(Name="campaignState", EmitDefaultValue=false)]
+        public CampaignStateEnum CampaignState { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="AchievementReference" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -43,13 +76,18 @@ namespace TalonOne.Model
         /// <param name="applicationId">The ID of the Application associated with the campaign that references this achievement. (required).</param>
         /// <param name="applicationName">The name of the Application associated with the campaign that references this achievement. (required).</param>
         /// <param name="campaignId">The ID of the campaign that references this achievement. (required).</param>
-        public AchievementReference(long achievementId = default(long), long applicationId = default(long), string applicationName = default(string), long campaignId = default(long))
+        /// <param name="campaignName">The name of the campaign that references this achievement. (required).</param>
+        /// <param name="campaignState">The state of the campaign that references this achievement. (required).</param>
+        public AchievementReference(long achievementId = default(long), long applicationId = default(long), string applicationName = default(string), long campaignId = default(long), string campaignName = default(string), CampaignStateEnum campaignState = default(CampaignStateEnum))
         {
             this.AchievementId = achievementId;
             this.ApplicationId = applicationId;
             // to ensure "applicationName" is required (not null)
             this.ApplicationName = applicationName ?? throw new ArgumentNullException("applicationName is a required property for AchievementReference and cannot be null");
             this.CampaignId = campaignId;
+            // to ensure "campaignName" is required (not null)
+            this.CampaignName = campaignName ?? throw new ArgumentNullException("campaignName is a required property for AchievementReference and cannot be null");
+            this.CampaignState = campaignState;
         }
         
         /// <summary>
@@ -81,6 +119,13 @@ namespace TalonOne.Model
         public long CampaignId { get; set; }
 
         /// <summary>
+        /// The name of the campaign that references this achievement.
+        /// </summary>
+        /// <value>The name of the campaign that references this achievement.</value>
+        [DataMember(Name="campaignName", EmitDefaultValue=false)]
+        public string CampaignName { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +137,8 @@ namespace TalonOne.Model
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  ApplicationName: ").Append(ApplicationName).Append("\n");
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
+            sb.Append("  CampaignName: ").Append(CampaignName).Append("\n");
+            sb.Append("  CampaignState: ").Append(CampaignState).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +189,15 @@ namespace TalonOne.Model
                 (
                     this.CampaignId == input.CampaignId ||
                     this.CampaignId.Equals(input.CampaignId)
+                ) && 
+                (
+                    this.CampaignName == input.CampaignName ||
+                    (this.CampaignName != null &&
+                    this.CampaignName.Equals(input.CampaignName))
+                ) && 
+                (
+                    this.CampaignState == input.CampaignState ||
+                    this.CampaignState.Equals(input.CampaignState)
                 );
         }
 
@@ -159,6 +215,9 @@ namespace TalonOne.Model
                 if (this.ApplicationName != null)
                     hashCode = hashCode * 59 + this.ApplicationName.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
+                if (this.CampaignName != null)
+                    hashCode = hashCode * 59 + this.CampaignName.GetHashCode();
+                hashCode = hashCode * 59 + this.CampaignState.GetHashCode();
                 return hashCode;
             }
         }

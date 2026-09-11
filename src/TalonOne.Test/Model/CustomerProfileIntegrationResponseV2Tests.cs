@@ -98,12 +98,28 @@ namespace TalonOne.Test
             // TODO unit test for the property 'RuleFailureReasons'
         }
         /// <summary>
+        /// Test the property 'CampaignEligibility'
+        /// </summary>
+        [Fact]
+        public void CampaignEligibilityTest()
+        {
+            // TODO unit test for the property 'CampaignEligibility'
+        }
+        /// <summary>
         /// Test the property 'AwardedGiveaways'
         /// </summary>
         [Fact]
         public void AwardedGiveawaysTest()
         {
             // TODO unit test for the property 'AwardedGiveaways'
+        }
+        /// <summary>
+        /// Test the property 'Rewards'
+        /// </summary>
+        [Fact]
+        public void RewardsTest()
+        {
+            // TODO unit test for the property 'Rewards'
         }
         /// <summary>
         /// Test the property 'Effects'

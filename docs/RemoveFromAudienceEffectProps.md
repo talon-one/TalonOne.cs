@@ -1,5 +1,5 @@
 # TalonOne.Model.RemoveFromAudienceEffectProps
-The properties specific to the \"removeFromAudience\" effect. This gets triggered whenever a validated rule contains a \"removeFromAudience\" effect.
+This effect is triggered when a rule containing an [Update audience](https://docs.talon.one/docs/product/rules/effects/use-effects#update-an-audience) effect with **Remove customer from an audience** selected is validated. It indicates that a customer was removed from an audience and is returned when a customer session is opened, updated, or closed.
 ## Properties
 
 Name | Type | Description | Notes

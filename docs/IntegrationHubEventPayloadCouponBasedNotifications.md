@@ -3,6 +3,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EventId** | **long** | The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed. | 
 **Id** | **long** |  | 
 **Created** | **DateTime** |  | 
 **CampaignId** | **long** |  | 

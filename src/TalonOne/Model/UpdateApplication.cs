@@ -155,7 +155,8 @@ namespace TalonOne.Model
         /// <param name="defaultEvaluationGroupId">The ID of the default campaign evaluation group to which new campaigns will be added unless a different group is selected when creating the campaign..</param>
         /// <param name="defaultCartItemFilterId">The ID of the default Cart-Item-Filter for this application..</param>
         /// <param name="enableCampaignStateManagement">Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. .</param>
-        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), long defaultEvaluationGroupId = default(long), long defaultCartItemFilterId = default(long), bool enableCampaignStateManagement = default(bool))
+        /// <param name="bestPriorPriceSettings">bestPriorPriceSettings.</param>
+        public UpdateApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), long defaultEvaluationGroupId = default(long), long defaultCartItemFilterId = default(long), bool enableCampaignStateManagement = default(bool), BestPriorPriceSettings bestPriorPriceSettings = default(BestPriorPriceSettings))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateApplication and cannot be null");
@@ -177,6 +178,7 @@ namespace TalonOne.Model
             this.DefaultEvaluationGroupId = defaultEvaluationGroupId;
             this.DefaultCartItemFilterId = defaultCartItemFilterId;
             this.EnableCampaignStateManagement = enableCampaignStateManagement;
+            this.BestPriorPriceSettings = bestPriorPriceSettings;
         }
         
         /// <summary>
@@ -277,6 +279,12 @@ namespace TalonOne.Model
         public bool EnableCampaignStateManagement { get; set; }
 
         /// <summary>
+        /// Gets or Sets BestPriorPriceSettings
+        /// </summary>
+        [DataMember(Name="bestPriorPriceSettings", EmitDefaultValue=false)]
+        public BestPriorPriceSettings BestPriorPriceSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -301,6 +309,7 @@ namespace TalonOne.Model
             sb.Append("  DefaultEvaluationGroupId: ").Append(DefaultEvaluationGroupId).Append("\n");
             sb.Append("  DefaultCartItemFilterId: ").Append(DefaultCartItemFilterId).Append("\n");
             sb.Append("  EnableCampaignStateManagement: ").Append(EnableCampaignStateManagement).Append("\n");
+            sb.Append("  BestPriorPriceSettings: ").Append(BestPriorPriceSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -410,6 +419,11 @@ namespace TalonOne.Model
                 (
                     this.EnableCampaignStateManagement == input.EnableCampaignStateManagement ||
                     this.EnableCampaignStateManagement.Equals(input.EnableCampaignStateManagement)
+                ) && 
+                (
+                    this.BestPriorPriceSettings == input.BestPriorPriceSettings ||
+                    (this.BestPriorPriceSettings != null &&
+                    this.BestPriorPriceSettings.Equals(input.BestPriorPriceSettings))
                 );
         }
 
@@ -446,6 +460,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.DefaultEvaluationGroupId.GetHashCode();
                 hashCode = hashCode * 59 + this.DefaultCartItemFilterId.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableCampaignStateManagement.GetHashCode();
+                if (this.BestPriorPriceSettings != null)
+                    hashCode = hashCode * 59 + this.BestPriorPriceSettings.GetHashCode();
                 return hashCode;
             }
         }

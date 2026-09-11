@@ -74,8 +74,13 @@ namespace TalonOne.Model
         /// <param name="description">A description of the reward..</param>
         /// <param name="applicationIds">The IDs of the Applications this reward is connected to.   **Note**: Currently, a reward can only be connected to one Application.  (required).</param>
         /// <param name="sandbox">Indicates if this is a live or sandbox reward. Rewards of a given type can only be connected to Applications of the same type. (required).</param>
+        /// <param name="eligibilityConditions">eligibilityConditions.</param>
+        /// <param name="rule">rule.</param>
+        /// <param name="bindings">A list of named variables created before the reward&#39;s rules are evaluated. Each binding pairs a name with a talang expression. The expression is evaluated once and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules..</param>
+        /// <param name="pointsRequired">The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** When creating a reward, the &#x60;id&#x60; of each entry is ignored and a new entry is always created. .</param>
+        /// <param name="modified">The timestamp when the reward was last updated in RFC3339 format..</param>
         /// <param name="status">The status of the reward. (required).</param>
-        public Reward(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), string name = default(string), string apiName = default(string), string description = default(string), List<long> applicationIds = default(List<long>), bool sandbox = default(bool), StatusEnum status = default(StatusEnum))
+        public Reward(long id = default(long), DateTime created = default(DateTime), long accountId = default(long), string name = default(string), string apiName = default(string), string description = default(string), List<long> applicationIds = default(List<long>), bool sandbox = default(bool), Rule eligibilityConditions = default(Rule), Rule rule = default(Rule), List<Binding> bindings = default(List<Binding>), List<RewardPointsRequired> pointsRequired = default(List<RewardPointsRequired>), DateTime modified = default(DateTime), StatusEnum status = default(StatusEnum))
         {
             this.Id = id;
             this.Created = created;
@@ -89,6 +94,11 @@ namespace TalonOne.Model
             this.Sandbox = sandbox;
             this.Status = status;
             this.Description = description;
+            this.EligibilityConditions = eligibilityConditions;
+            this.Rule = rule;
+            this.Bindings = bindings;
+            this.PointsRequired = pointsRequired;
+            this.Modified = modified;
         }
         
         /// <summary>
@@ -148,6 +158,39 @@ namespace TalonOne.Model
         public bool Sandbox { get; set; }
 
         /// <summary>
+        /// Gets or Sets EligibilityConditions
+        /// </summary>
+        [DataMember(Name="eligibilityConditions", EmitDefaultValue=false)]
+        public Rule EligibilityConditions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Rule
+        /// </summary>
+        [DataMember(Name="rule", EmitDefaultValue=false)]
+        public Rule Rule { get; set; }
+
+        /// <summary>
+        /// A list of named variables created before the reward&#39;s rules are evaluated. Each binding pairs a name with a talang expression. The expression is evaluated once and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.
+        /// </summary>
+        /// <value>A list of named variables created before the reward&#39;s rules are evaluated. Each binding pairs a name with a talang expression. The expression is evaluated once and its result is available by name in any rule condition or effect. Bindings must be defined outside of individual rules.</value>
+        [DataMember(Name="bindings", EmitDefaultValue=false)]
+        public List<Binding> Bindings { get; set; }
+
+        /// <summary>
+        /// The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** When creating a reward, the &#x60;id&#x60; of each entry is ignored and a new entry is always created. 
+        /// </summary>
+        /// <value>The loyalty points required to activate the reward. Each object defines the specific loyalty program and subledger from which points are deducted when activating the reward.  **Note:** When creating a reward, the &#x60;id&#x60; of each entry is ignored and a new entry is always created. </value>
+        [DataMember(Name="pointsRequired", EmitDefaultValue=false)]
+        public List<RewardPointsRequired> PointsRequired { get; set; }
+
+        /// <summary>
+        /// The timestamp when the reward was last updated in RFC3339 format.
+        /// </summary>
+        /// <value>The timestamp when the reward was last updated in RFC3339 format.</value>
+        [DataMember(Name="modified", EmitDefaultValue=false)]
+        public DateTime Modified { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -163,6 +206,11 @@ namespace TalonOne.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  ApplicationIds: ").Append(ApplicationIds).Append("\n");
             sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
+            sb.Append("  EligibilityConditions: ").Append(EligibilityConditions).Append("\n");
+            sb.Append("  Rule: ").Append(Rule).Append("\n");
+            sb.Append("  Bindings: ").Append(Bindings).Append("\n");
+            sb.Append("  PointsRequired: ").Append(PointsRequired).Append("\n");
+            sb.Append("  Modified: ").Append(Modified).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -237,6 +285,33 @@ namespace TalonOne.Model
                     this.Sandbox.Equals(input.Sandbox)
                 ) && 
                 (
+                    this.EligibilityConditions == input.EligibilityConditions ||
+                    (this.EligibilityConditions != null &&
+                    this.EligibilityConditions.Equals(input.EligibilityConditions))
+                ) && 
+                (
+                    this.Rule == input.Rule ||
+                    (this.Rule != null &&
+                    this.Rule.Equals(input.Rule))
+                ) && 
+                (
+                    this.Bindings == input.Bindings ||
+                    this.Bindings != null &&
+                    input.Bindings != null &&
+                    this.Bindings.SequenceEqual(input.Bindings)
+                ) && 
+                (
+                    this.PointsRequired == input.PointsRequired ||
+                    this.PointsRequired != null &&
+                    input.PointsRequired != null &&
+                    this.PointsRequired.SequenceEqual(input.PointsRequired)
+                ) && 
+                (
+                    this.Modified == input.Modified ||
+                    (this.Modified != null &&
+                    this.Modified.Equals(input.Modified))
+                ) && 
+                (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
                 );
@@ -264,6 +339,16 @@ namespace TalonOne.Model
                 if (this.ApplicationIds != null)
                     hashCode = hashCode * 59 + this.ApplicationIds.GetHashCode();
                 hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
+                if (this.EligibilityConditions != null)
+                    hashCode = hashCode * 59 + this.EligibilityConditions.GetHashCode();
+                if (this.Rule != null)
+                    hashCode = hashCode * 59 + this.Rule.GetHashCode();
+                if (this.Bindings != null)
+                    hashCode = hashCode * 59 + this.Bindings.GetHashCode();
+                if (this.PointsRequired != null)
+                    hashCode = hashCode * 59 + this.PointsRequired.GetHashCode();
+                if (this.Modified != null)
+                    hashCode = hashCode * 59 + this.Modified.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;
             }

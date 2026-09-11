@@ -36,10 +36,12 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="permissionSets">List of grouped logical operations referenced by roles..</param>
         /// <param name="roles">roles.</param>
-        public RoleV2Permissions(List<RoleV2PermissionSet> permissionSets = default(List<RoleV2PermissionSet>), RoleV2RolesGroup roles = default(RoleV2RolesGroup))
+        /// <param name="thresholds">Support user limits for actions that require admin approval within the given application..</param>
+        public RoleV2Permissions(List<RoleV2PermissionSet> permissionSets = default(List<RoleV2PermissionSet>), RoleV2RolesGroup roles = default(RoleV2RolesGroup), List<RolesV2Thresholds> thresholds = default(List<RolesV2Thresholds>))
         {
             this.PermissionSets = permissionSets;
             this.Roles = roles;
+            this.Thresholds = thresholds;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace TalonOne.Model
         public RoleV2RolesGroup Roles { get; set; }
 
         /// <summary>
+        /// Support user limits for actions that require admin approval within the given application.
+        /// </summary>
+        /// <value>Support user limits for actions that require admin approval within the given application.</value>
+        [DataMember(Name="thresholds", EmitDefaultValue=false)]
+        public List<RolesV2Thresholds> Thresholds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace TalonOne.Model
             sb.Append("class RoleV2Permissions {\n");
             sb.Append("  PermissionSets: ").Append(PermissionSets).Append("\n");
             sb.Append("  Roles: ").Append(Roles).Append("\n");
+            sb.Append("  Thresholds: ").Append(Thresholds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,6 +119,12 @@ namespace TalonOne.Model
                     this.Roles == input.Roles ||
                     (this.Roles != null &&
                     this.Roles.Equals(input.Roles))
+                ) && 
+                (
+                    this.Thresholds == input.Thresholds ||
+                    this.Thresholds != null &&
+                    input.Thresholds != null &&
+                    this.Thresholds.SequenceEqual(input.Thresholds)
                 );
         }
 
@@ -125,6 +141,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.PermissionSets.GetHashCode();
                 if (this.Roles != null)
                     hashCode = hashCode * 59 + this.Roles.GetHashCode();
+                if (this.Thresholds != null)
+                    hashCode = hashCode * 59 + this.Thresholds.GetHashCode();
                 return hashCode;
             }
         }

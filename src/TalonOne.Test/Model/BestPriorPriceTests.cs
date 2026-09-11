@@ -82,12 +82,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ObservedAt'
         }
         /// <summary>
-        /// Test the property 'ContextId'
+        /// Test the property 'ContextIds'
         /// </summary>
         [Fact]
-        public void ContextIdTest()
+        public void ContextIdsTest()
         {
-            // TODO unit test for the property 'ContextId'
+            // TODO unit test for the property 'ContextIds'
         }
         /// <summary>
         /// Test the property 'Price'

@@ -1,14 +1,14 @@
 # TalonOne.Model.AwardGiveawayEffectProps
-The properties specific to the \"awardGiveaway\" effect. This effect contains information on the giveaway item, and which profile it was awarded to.
+This effect indicates the awarded giveaway item and to which profile the item was awarded. Learn more about [giveaways](https://docs.talon.one/docs/product/giveaways/overview).
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**PoolId** | **long** | The ID of the giveaways pool the code was taken from. | 
-**PoolName** | **string** | The name of the giveaways pool the code was taken from. | 
-**RecipientIntegrationId** | **string** | The integration ID of the profile that was awarded the giveaway. | 
-**GiveawayId** | **long** | The internal ID for the giveaway that was awarded. | 
-**Code** | **string** | The giveaway code that was awarded. | 
+**PoolId** | **long** | The internal ID of the giveaway pool. | 
+**PoolName** | **string** | The name of the giveaway pool. | 
+**RecipientIntegrationId** | **string** | The integration ID of the customer that receives the giveaway. | 
+**GiveawayId** | **long** | The internal ID of the giveaway. | 
+**Code** | **string** | The giveaway code to be rewarded. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

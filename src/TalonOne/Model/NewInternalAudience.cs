@@ -42,12 +42,14 @@ namespace TalonOne.Model
         /// <param name="name">The human-friendly display name for this audience. (required).</param>
         /// <param name="sandbox">Indicates if this is a live or sandbox Application..</param>
         /// <param name="description">A description of the audience..</param>
-        public NewInternalAudience(string name = default(string), bool sandbox = default(bool), string description = default(string))
+        /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications that are connected to this audience..</param>
+        public NewInternalAudience(string name = default(string), bool sandbox = default(bool), string description = default(string), List<long> subscribedApplicationsIds = default(List<long>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewInternalAudience and cannot be null");
             this.Sandbox = sandbox;
             this.Description = description;
+            this.SubscribedApplicationsIds = subscribedApplicationsIds;
         }
         
         /// <summary>
@@ -72,6 +74,13 @@ namespace TalonOne.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// A list of the IDs of the Applications that are connected to this audience.
+        /// </summary>
+        /// <value>A list of the IDs of the Applications that are connected to this audience.</value>
+        [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
+        public List<long> SubscribedApplicationsIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -82,6 +91,7 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -129,6 +139,12 @@ namespace TalonOne.Model
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.SubscribedApplicationsIds == input.SubscribedApplicationsIds ||
+                    this.SubscribedApplicationsIds != null &&
+                    input.SubscribedApplicationsIds != null &&
+                    this.SubscribedApplicationsIds.SequenceEqual(input.SubscribedApplicationsIds)
                 );
         }
 
@@ -146,6 +162,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.SubscribedApplicationsIds != null)
+                    hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();
                 return hashCode;
             }
         }

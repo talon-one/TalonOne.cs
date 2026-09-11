@@ -71,7 +71,25 @@ namespace TalonOne.Model
             /// Enum RuleFailureReasons for value: ruleFailureReasons
             /// </summary>
             [EnumMember(Value = "ruleFailureReasons")]
-            RuleFailureReasons = 6
+            RuleFailureReasons = 6,
+
+            /// <summary>
+            /// Enum CampaignEligibility for value: campaignEligibility
+            /// </summary>
+            [EnumMember(Value = "campaignEligibility")]
+            CampaignEligibility = 7,
+
+            /// <summary>
+            /// Enum Achievements for value: achievements
+            /// </summary>
+            [EnumMember(Value = "achievements")]
+            Achievements = 8,
+
+            /// <summary>
+            /// Enum UnlockedRewards for value: unlockedRewards
+            /// </summary>
+            [EnumMember(Value = "unlockedRewards")]
+            UnlockedRewards = 9
 
         }
 
@@ -93,7 +111,7 @@ namespace TalonOne.Model
         /// <param name="profileId">ID of the customer profile set by your integration layer.  **Note:** If the customer does not yet have a known &#x60;profileId&#x60;, we recommend you use a guest &#x60;profileId&#x60;. .</param>
         /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
         /// <param name="evaluableCampaignIds">When using the &#x60;dry&#x60; query parameter, use this property to list the campaign to be evaluated by the Rule Engine.  These campaigns will be evaluated, even if they are disabled, allowing you to test specific campaigns before activating them. .</param>
-        /// <param name="type">A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager.  (required).</param>
+        /// <param name="type">The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event. (required).</param>
         /// <param name="attributes">Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute)..</param>
         /// <param name="responseContent">Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints. .</param>
         /// <param name="loyaltyCards">Identifiers of the loyalty cards used during this event..</param>
@@ -131,9 +149,9 @@ namespace TalonOne.Model
         public List<long> EvaluableCampaignIds { get; set; }
 
         /// <summary>
-        /// A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. 
+        /// The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
         /// </summary>
-        /// <value>A string representing the event name. Must not be a reserved event name. You create this value when you [create an attribute](https://docs.talon.one/docs/dev/concepts/entities/events#creating-a-custom-event) of type &#x60;event&#x60; in the Campaign Manager. </value>
+        /// <value>The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 

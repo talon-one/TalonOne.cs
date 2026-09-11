@@ -39,8 +39,8 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StrikethroughSetDiscountPerItemMemberEffectProps" /> class.
         /// </summary>
-        /// <param name="name">effect name. (required).</param>
-        /// <param name="value">discount value. (required).</param>
+        /// <param name="name">The effect name. (required).</param>
+        /// <param name="value">The discount value. (required).</param>
         public StrikethroughSetDiscountPerItemMemberEffectProps(string name = default(string), Object value = default(Object))
         {
             // to ensure "name" is required (not null)
@@ -50,16 +50,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// effect name.
+        /// The effect name.
         /// </summary>
-        /// <value>effect name.</value>
+        /// <value>The effect name.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// discount value.
+        /// The discount value.
         /// </summary>
-        /// <value>discount value.</value>
+        /// <value>The discount value.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public Object Value { get; set; }
 

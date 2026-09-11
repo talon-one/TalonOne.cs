@@ -13,9 +13,7 @@ Name | Type | Description | Notes
 **FixedStartDate** | **DateTime** | The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
 **EndDate** | **DateTime** | The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
 **AllowRollbackAfterCompletion** | **bool** | When &#x60;true&#x60;, customer progress can be rolled back in completed achievements. | [optional] 
-**Sandbox** | **bool** | Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type. | [optional] 
 **SubscribedApplications** | **List&lt;long&gt;** | A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement. | [optional] 
-**Timezone** | **string** | A string containing an IANA timezone descriptor. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

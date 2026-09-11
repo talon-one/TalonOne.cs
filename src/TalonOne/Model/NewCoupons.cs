@@ -46,6 +46,7 @@ namespace TalonOne.Model
         /// <param name="expiryDate">Expiration date of the coupon. Coupon never expires if this is omitted..</param>
         /// <param name="limits">Limits configuration for a coupon. These limits will override the limits set from the campaign.  **Note:** Only usable when creating a single coupon which is not tied to a specific recipient. Only per-profile limits are allowed to be configured. .</param>
         /// <param name="numberOfCoupons">The number of new coupon codes to generate for the campaign. Must be at least 1. (required).</param>
+        /// <param name="batchId">The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically..</param>
         /// <param name="uniquePrefix">**DEPRECATED** To create more than 20,000 coupons in one request, use [Create coupons asynchronously](https://docs.talon.one/management-api#tag/Coupons/operation/createCouponsAsync) endpoint. .</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
         /// <param name="recipientIntegrationId">The integration ID for this coupon&#39;s beneficiary&#39;s profile..</param>
@@ -53,7 +54,9 @@ namespace TalonOne.Model
         /// <param name="couponPattern">The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set. .</param>
         /// <param name="isReservationMandatory">An indication of whether the code can be redeemed only if it has been reserved first. (default to false).</param>
         /// <param name="implicitlyReserved">An indication of whether the coupon is implicitly reserved for all customers..</param>
-        public NewCoupons(long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), long numberOfCoupons = default(long), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string), List<string> validCharacters = default(List<string>), string couponPattern = default(string), bool isReservationMandatory = false, bool implicitlyReserved = default(bool))
+        /// <param name="supportRequestId">The identifier of the support request to link to the coupon creation. The request must exist and not yet be processed..</param>
+        /// <param name="supportRequestNote">A note recorded when the linked support request is approved or rejected. Applied when &#x60;supportRequestId&#x60; is provided..</param>
+        public NewCoupons(long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), List<LimitConfig> limits = default(List<LimitConfig>), long numberOfCoupons = default(long), string batchId = default(string), string uniquePrefix = default(string), Object attributes = default(Object), string recipientIntegrationId = default(string), List<string> validCharacters = default(List<string>), string couponPattern = default(string), bool isReservationMandatory = false, bool implicitlyReserved = default(bool), long supportRequestId = default(long), string supportRequestNote = default(string))
         {
             this.UsageLimit = usageLimit;
             this.NumberOfCoupons = numberOfCoupons;
@@ -62,6 +65,7 @@ namespace TalonOne.Model
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
             this.Limits = limits;
+            this.BatchId = batchId;
             this.UniquePrefix = uniquePrefix;
             this.Attributes = attributes;
             this.RecipientIntegrationId = recipientIntegrationId;
@@ -69,6 +73,8 @@ namespace TalonOne.Model
             this.CouponPattern = couponPattern;
             this.IsReservationMandatory = isReservationMandatory;
             this.ImplicitlyReserved = implicitlyReserved;
+            this.SupportRequestId = supportRequestId;
+            this.SupportRequestNote = supportRequestNote;
         }
         
         /// <summary>
@@ -121,6 +127,13 @@ namespace TalonOne.Model
         public long NumberOfCoupons { get; set; }
 
         /// <summary>
+        /// The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.
+        /// </summary>
+        /// <value>The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.</value>
+        [DataMember(Name="batchId", EmitDefaultValue=false)]
+        public string BatchId { get; set; }
+
+        /// <summary>
         /// **DEPRECATED** To create more than 20,000 coupons in one request, use [Create coupons asynchronously](https://docs.talon.one/management-api#tag/Coupons/operation/createCouponsAsync) endpoint. 
         /// </summary>
         /// <value>**DEPRECATED** To create more than 20,000 coupons in one request, use [Create coupons asynchronously](https://docs.talon.one/management-api#tag/Coupons/operation/createCouponsAsync) endpoint. </value>
@@ -170,6 +183,20 @@ namespace TalonOne.Model
         public bool ImplicitlyReserved { get; set; }
 
         /// <summary>
+        /// The identifier of the support request to link to the coupon creation. The request must exist and not yet be processed.
+        /// </summary>
+        /// <value>The identifier of the support request to link to the coupon creation. The request must exist and not yet be processed.</value>
+        [DataMember(Name="supportRequestId", EmitDefaultValue=false)]
+        public long SupportRequestId { get; set; }
+
+        /// <summary>
+        /// A note recorded when the linked support request is approved or rejected. Applied when &#x60;supportRequestId&#x60; is provided.
+        /// </summary>
+        /// <value>A note recorded when the linked support request is approved or rejected. Applied when &#x60;supportRequestId&#x60; is provided.</value>
+        [DataMember(Name="supportRequestNote", EmitDefaultValue=false)]
+        public string SupportRequestNote { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -184,6 +211,7 @@ namespace TalonOne.Model
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  Limits: ").Append(Limits).Append("\n");
             sb.Append("  NumberOfCoupons: ").Append(NumberOfCoupons).Append("\n");
+            sb.Append("  BatchId: ").Append(BatchId).Append("\n");
             sb.Append("  UniquePrefix: ").Append(UniquePrefix).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  RecipientIntegrationId: ").Append(RecipientIntegrationId).Append("\n");
@@ -191,6 +219,8 @@ namespace TalonOne.Model
             sb.Append("  CouponPattern: ").Append(CouponPattern).Append("\n");
             sb.Append("  IsReservationMandatory: ").Append(IsReservationMandatory).Append("\n");
             sb.Append("  ImplicitlyReserved: ").Append(ImplicitlyReserved).Append("\n");
+            sb.Append("  SupportRequestId: ").Append(SupportRequestId).Append("\n");
+            sb.Append("  SupportRequestNote: ").Append(SupportRequestNote).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -258,6 +288,11 @@ namespace TalonOne.Model
                     this.NumberOfCoupons.Equals(input.NumberOfCoupons)
                 ) && 
                 (
+                    this.BatchId == input.BatchId ||
+                    (this.BatchId != null &&
+                    this.BatchId.Equals(input.BatchId))
+                ) && 
+                (
                     this.UniquePrefix == input.UniquePrefix ||
                     (this.UniquePrefix != null &&
                     this.UniquePrefix.Equals(input.UniquePrefix))
@@ -290,6 +325,15 @@ namespace TalonOne.Model
                 (
                     this.ImplicitlyReserved == input.ImplicitlyReserved ||
                     this.ImplicitlyReserved.Equals(input.ImplicitlyReserved)
+                ) && 
+                (
+                    this.SupportRequestId == input.SupportRequestId ||
+                    this.SupportRequestId.Equals(input.SupportRequestId)
+                ) && 
+                (
+                    this.SupportRequestNote == input.SupportRequestNote ||
+                    (this.SupportRequestNote != null &&
+                    this.SupportRequestNote.Equals(input.SupportRequestNote))
                 );
         }
 
@@ -312,6 +356,8 @@ namespace TalonOne.Model
                 if (this.Limits != null)
                     hashCode = hashCode * 59 + this.Limits.GetHashCode();
                 hashCode = hashCode * 59 + this.NumberOfCoupons.GetHashCode();
+                if (this.BatchId != null)
+                    hashCode = hashCode * 59 + this.BatchId.GetHashCode();
                 if (this.UniquePrefix != null)
                     hashCode = hashCode * 59 + this.UniquePrefix.GetHashCode();
                 if (this.Attributes != null)
@@ -324,6 +370,9 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.CouponPattern.GetHashCode();
                 hashCode = hashCode * 59 + this.IsReservationMandatory.GetHashCode();
                 hashCode = hashCode * 59 + this.ImplicitlyReserved.GetHashCode();
+                hashCode = hashCode * 59 + this.SupportRequestId.GetHashCode();
+                if (this.SupportRequestNote != null)
+                    hashCode = hashCode * 59 + this.SupportRequestNote.GetHashCode();
                 return hashCode;
             }
         }

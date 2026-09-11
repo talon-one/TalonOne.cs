@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;awardGiveaway\&quot; effect when the session is not closed yet. This effect replaces \&quot;awardGiveaway\&quot; only when updating a session with any state other than \&quot;closed\&quot;. This is to ensure no giveaway codes are leaked when they are still not guaranteed to be awarded.
+    /// The equivalent of the &#x60;awardGiveaway&#x60; effect but returned when updating a session with any state other than &#x60;closed&#x60;. This ensures no giveaway codes are leaked when they are still not guaranteed to be awarded.  For more information about session states, see [Manage the session&#39;s state](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions#manage-the-sessions-state).
     /// </summary>
     [DataContract]
     public partial class WillAwardGiveawayEffectProps :  IEquatable<WillAwardGiveawayEffectProps>, IValidatableObject
@@ -39,9 +39,9 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="WillAwardGiveawayEffectProps" /> class.
         /// </summary>
-        /// <param name="poolId">The ID of the giveaways pool the code will be taken from. (required).</param>
-        /// <param name="poolName">The name of the giveaways pool the code will be taken from. (required).</param>
-        /// <param name="recipientIntegrationId">The integration ID of the profile that will be awarded the giveaway. (required).</param>
+        /// <param name="poolId">The internal ID of the giveaway pool. (required).</param>
+        /// <param name="poolName">The name of the giveaway pool. (required).</param>
+        /// <param name="recipientIntegrationId">The integration ID of the customer that receives the giveaway. (required).</param>
         public WillAwardGiveawayEffectProps(long poolId = default(long), string poolName = default(string), string recipientIntegrationId = default(string))
         {
             this.PoolId = poolId;
@@ -52,23 +52,23 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The ID of the giveaways pool the code will be taken from.
+        /// The internal ID of the giveaway pool.
         /// </summary>
-        /// <value>The ID of the giveaways pool the code will be taken from.</value>
+        /// <value>The internal ID of the giveaway pool.</value>
         [DataMember(Name="poolId", EmitDefaultValue=false)]
         public long PoolId { get; set; }
 
         /// <summary>
-        /// The name of the giveaways pool the code will be taken from.
+        /// The name of the giveaway pool.
         /// </summary>
-        /// <value>The name of the giveaways pool the code will be taken from.</value>
+        /// <value>The name of the giveaway pool.</value>
         [DataMember(Name="poolName", EmitDefaultValue=false)]
         public string PoolName { get; set; }
 
         /// <summary>
-        /// The integration ID of the profile that will be awarded the giveaway.
+        /// The integration ID of the customer that receives the giveaway.
         /// </summary>
-        /// <value>The integration ID of the profile that will be awarded the giveaway.</value>
+        /// <value>The integration ID of the customer that receives the giveaway.</value>
         [DataMember(Name="recipientIntegrationId", EmitDefaultValue=false)]
         public string RecipientIntegrationId { get; set; }
 

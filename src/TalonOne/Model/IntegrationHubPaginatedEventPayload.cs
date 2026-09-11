@@ -32,54 +32,10 @@ namespace TalonOne.Model
     public partial class IntegrationHubPaginatedEventPayload :  IEquatable<IntegrationHubPaginatedEventPayload>, IValidatableObject
     {
         /// <summary>
-        /// Defines EventType
-        /// </summary>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum EventTypeEnum
-        {
-            /// <summary>
-            /// Enum LoyaltyPointsChanged for value: LoyaltyPointsChanged
-            /// </summary>
-            [EnumMember(Value = "LoyaltyPointsChanged")]
-            LoyaltyPointsChanged = 1,
-
-            /// <summary>
-            /// Enum LoyaltyTierDowngrade for value: LoyaltyTierDowngrade
-            /// </summary>
-            [EnumMember(Value = "LoyaltyTierDowngrade")]
-            LoyaltyTierDowngrade = 2,
-
-            /// <summary>
-            /// Enum LoyaltyTierUpgrade for value: LoyaltyTierUpgrade
-            /// </summary>
-            [EnumMember(Value = "LoyaltyTierUpgrade")]
-            LoyaltyTierUpgrade = 3,
-
-            /// <summary>
-            /// Enum CouponCreated for value: CouponCreated
-            /// </summary>
-            [EnumMember(Value = "CouponCreated")]
-            CouponCreated = 4,
-
-            /// <summary>
-            /// Enum CouponUpdated for value: CouponUpdated
-            /// </summary>
-            [EnumMember(Value = "CouponUpdated")]
-            CouponUpdated = 5,
-
-            /// <summary>
-            /// Enum CouponDeleted for value: CouponDeleted
-            /// </summary>
-            [EnumMember(Value = "CouponDeleted")]
-            CouponDeleted = 6
-
-        }
-
-        /// <summary>
         /// Gets or Sets EventType
         /// </summary>
         [DataMember(Name="EventType", EmitDefaultValue=false)]
-        public EventTypeEnum EventType { get; set; }
+        public IntegrationHubEventType EventType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="IntegrationHubPaginatedEventPayload" /> class.
         /// </summary>
@@ -92,7 +48,7 @@ namespace TalonOne.Model
         /// <param name="batchedAt">Timestamp when the batch was created..</param>
         /// <param name="eventType">eventType (required).</param>
         /// <param name="data">data (required).</param>
-        public IntegrationHubPaginatedEventPayload(long totalResultSize = default(long), DateTime batchedAt = default(DateTime), EventTypeEnum eventType = default(EventTypeEnum), List<Object> data = default(List<Object>))
+        public IntegrationHubPaginatedEventPayload(long totalResultSize = default(long), DateTime batchedAt = default(DateTime), IntegrationHubEventType eventType = default(IntegrationHubEventType), List<Object> data = default(List<Object>))
         {
             this.TotalResultSize = totalResultSize;
             this.EventType = eventType;

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;updateAttribute\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;update an attribute\&quot; effect.
+    /// This effect indicates that a rule containing an [Update attribute value](https://docs.talon.one/docs/product/rules/effects/available-effects#update-effects) or [Update cart item attribute value](https://docs.talon.one/docs/product/rules/effects/available-effects#update-effects) was validated. You should update the value of the attribute in your system based on the content of the returned effect.
     /// </summary>
     [DataContract]
     public partial class UpdateAttributeEffectProps :  IEquatable<UpdateAttributeEffectProps>, IValidatableObject
@@ -39,8 +39,8 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UpdateAttributeEffectProps" /> class.
         /// </summary>
-        /// <param name="path">The exact path of the attribute that was updated. (required).</param>
-        /// <param name="value">The new value of this attribute. The value can be of the following types: - boolean - location - number - string - time - list of any of those types  (required).</param>
+        /// <param name="path">The entity type and the attribute name. (required).</param>
+        /// <param name="value">The new value of the attribute. (required).</param>
         public UpdateAttributeEffectProps(string path = default(string), Object value = default(Object))
         {
             // to ensure "path" is required (not null)
@@ -50,16 +50,16 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The exact path of the attribute that was updated.
+        /// The entity type and the attribute name.
         /// </summary>
-        /// <value>The exact path of the attribute that was updated.</value>
+        /// <value>The entity type and the attribute name.</value>
         [DataMember(Name="path", EmitDefaultValue=false)]
         public string Path { get; set; }
 
         /// <summary>
-        /// The new value of this attribute. The value can be of the following types: - boolean - location - number - string - time - list of any of those types 
+        /// The new value of the attribute.
         /// </summary>
-        /// <value>The new value of this attribute. The value can be of the following types: - boolean - location - number - string - time - list of any of those types </value>
+        /// <value>The new value of the attribute.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public Object Value { get; set; }
 

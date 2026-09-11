@@ -154,28 +154,12 @@ namespace TalonOne.Test
             // TODO unit test for the property 'AllowRollbackAfterCompletion'
         }
         /// <summary>
-        /// Test the property 'Sandbox'
-        /// </summary>
-        [Fact]
-        public void SandboxTest()
-        {
-            // TODO unit test for the property 'Sandbox'
-        }
-        /// <summary>
         /// Test the property 'SubscribedApplications'
         /// </summary>
         [Fact]
         public void SubscribedApplicationsTest()
         {
             // TODO unit test for the property 'SubscribedApplications'
-        }
-        /// <summary>
-        /// Test the property 'Timezone'
-        /// </summary>
-        [Fact]
-        public void TimezoneTest()
-        {
-            // TODO unit test for the property 'Timezone'
         }
         /// <summary>
         /// Test the property 'UserId'
@@ -194,6 +178,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'CreatedBy'
         }
         /// <summary>
+        /// Test the property 'PeriodEndOverride'
+        /// </summary>
+        [Fact]
+        public void PeriodEndOverrideTest()
+        {
+            // TODO unit test for the property 'PeriodEndOverride'
+        }
+        /// <summary>
         /// Test the property 'HasProgress'
         /// </summary>
         [Fact]
@@ -208,6 +200,38 @@ namespace TalonOne.Test
         public void StatusTest()
         {
             // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'Sandbox'
+        /// </summary>
+        [Fact]
+        public void SandboxTest()
+        {
+            // TODO unit test for the property 'Sandbox'
+        }
+        /// <summary>
+        /// Test the property 'Timezone'
+        /// </summary>
+        [Fact]
+        public void TimezoneTest()
+        {
+            // TODO unit test for the property 'Timezone'
+        }
+        /// <summary>
+        /// Test the property 'CampaignId'
+        /// </summary>
+        [Fact]
+        public void CampaignIdTest()
+        {
+            // TODO unit test for the property 'CampaignId'
+        }
+        /// <summary>
+        /// Test the property 'ReferencedByCampaigns'
+        /// </summary>
+        [Fact]
+        public void ReferencedByCampaignsTest()
+        {
+            // TODO unit test for the property 'ReferencedByCampaigns'
         }
 
     }

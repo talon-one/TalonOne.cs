@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class NewCustomerSessionV2 :  IEquatable<NewCustomerSessionV2>, IValidatableObject
     {
         /// <summary>
-        /// Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; → &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; → &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; → &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
+        /// Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; -&gt; &#x60;closed&#x60; 2. &#x60;open&#x60; -&gt; &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; -&gt; &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; -&gt; &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; -&gt; &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; -&gt; &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
         /// </summary>
-        /// <value>Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; → &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; → &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; → &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). </value>
+        /// <value>Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; -&gt; &#x60;closed&#x60; 2. &#x60;open&#x60; -&gt; &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; -&gt; &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; -&gt; &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; -&gt; &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; -&gt; &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StateEnum
         {
@@ -65,9 +65,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; → &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; → &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; → &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
+        /// Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; -&gt; &#x60;closed&#x60; 2. &#x60;open&#x60; -&gt; &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; -&gt; &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; -&gt; &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; -&gt; &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; -&gt; &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). 
         /// </summary>
-        /// <value>Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; → &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; → &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; → &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). </value>
+        /// <value>Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; -&gt; &#x60;closed&#x60; 2. &#x60;open&#x60; -&gt; &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; -&gt; &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; -&gt; &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; -&gt; &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; -&gt; &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions). </value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public StateEnum? State { get; set; }
         /// <summary>
@@ -79,13 +79,14 @@ namespace TalonOne.Model
         /// <param name="couponCodes">Any coupon codes entered.  **Important - for requests only**:  - If you [create a coupon budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a coupon code by the time you close it. - In requests where &#x60;dry&#x3D;false&#x60;, providing an empty array discards any previous coupons. To avoid this, omit the parameter entirely. .</param>
         /// <param name="referralCode">Any referral code entered.  **Important - for requests only**:  - If you [create a referral budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign, ensure the session contains a referral code by the time you close it. - In requests where &#x60;dry&#x3D;false&#x60;, providing an empty value discards the previous referral code. To avoid this, omit the parameter entirely. .</param>
         /// <param name="loyaltyCards">Identifier of a loyalty card..</param>
-        /// <param name="state">Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; → &#x60;closed&#x60; 2. &#x60;open&#x60; → &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; → &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; → &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; → &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; → &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  (default to StateEnum.Open).</param>
+        /// <param name="rewardIntegrationIds">The integration IDs of the unlocked rewards that can be used in this session. .</param>
+        /// <param name="state">Indicates the current state of the session. Sessions can be created as &#x60;open&#x60; or &#x60;closed&#x60;. The state transitions are:  1. &#x60;open&#x60; -&gt; &#x60;closed&#x60; 2. &#x60;open&#x60; -&gt; &#x60;cancelled&#x60; 3. Either:    - &#x60;closed&#x60; -&gt; &#x60;cancelled&#x60; (**only** via [Update customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/updateCustomerSessionV2)) or    - &#x60;closed&#x60; -&gt; &#x60;partially_returned&#x60; (**only** via [Return cart items](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/returnCartItems))    - &#x60;closed&#x60; -&gt; &#x60;open&#x60; (**only** via [Reopen customer session](https://docs.talon.one/integration-api#tag/Customer-sessions/operation/reopenCustomerSession)) 4. &#x60;partially_returned&#x60; -&gt; &#x60;cancelled&#x60;  For more information, see [Customer session states](https://docs.talon.one/docs/dev/concepts/entities/customer-sessions).  (default to StateEnum.Open).</param>
         /// <param name="cartItems">The items to add to this session. **Do not exceed 1000 items** and ensure the sum of all cart item&#39;s &#x60;quantity&#x60; **does not exceed 10.000** per request. .</param>
         /// <param name="experimentVariantAllocations">The experiment variant allocations to add to this session. .</param>
         /// <param name="additionalCosts">Use this property to set a value for the additional costs of this session, such as a shipping cost.  They must be created in the Campaign Manager before you set them with this property. See [Managing additional costs](https://docs.talon.one/docs/product/account/dev-tools/managing-additional-costs). .</param>
         /// <param name="identifiers">Session custom identifiers that you can set limits on or use inside your rules.  For example, you can use IP addresses as identifiers to potentially identify devices and limit discounts abuse in case of customers creating multiple accounts. See the [tutorial](https://docs.talon.one/docs/dev/tutorials/using-identifiers).  **Important**: Ensure the session contains an identifier by the time you close it if: - You [create a unique identifier budget](https://docs.talon.one/docs/product/campaigns/settings/managing-campaign-budgets/#budget-types) for your campaign. - Your campaign has [coupons](https://docs.talon.one/docs/product/campaigns/coupons/coupon-page-overview). - We recommend passing an anonymized (hashed) version of the identifier value. .</param>
         /// <param name="attributes">Use this property to set a value for the attributes of your choice. Attributes represent any information to attach to your session, like the shipping city.  You can use [built-in attributes](https://docs.talon.one/docs/dev/concepts/attributes#built-in-attributes) or [custom ones](https://docs.talon.one/docs/dev/concepts/attributes#custom-attributes). Custom attributes must be created in the Campaign Manager before you set them with this property. .</param>
-        public NewCustomerSessionV2(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), List<string> couponCodes = default(List<string>), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), StateEnum? state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), List<ExperimentVariantAllocation> experimentVariantAllocations = default(List<ExperimentVariantAllocation>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object))
+        public NewCustomerSessionV2(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), List<string> couponCodes = default(List<string>), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), List<string> rewardIntegrationIds = default(List<string>), StateEnum? state = StateEnum.Open, List<CartItem> cartItems = default(List<CartItem>), List<ExperimentVariantAllocation> experimentVariantAllocations = default(List<ExperimentVariantAllocation>), Dictionary<string, AdditionalCost> additionalCosts = default(Dictionary<string, AdditionalCost>), List<string> identifiers = default(List<string>), Object attributes = default(Object))
         {
             this.ProfileId = profileId;
             this.StoreIntegrationId = storeIntegrationId;
@@ -93,6 +94,7 @@ namespace TalonOne.Model
             this.CouponCodes = couponCodes;
             this.ReferralCode = referralCode;
             this.LoyaltyCards = loyaltyCards;
+            this.RewardIntegrationIds = rewardIntegrationIds;
             this.State = state;
             this.CartItems = cartItems;
             this.ExperimentVariantAllocations = experimentVariantAllocations;
@@ -144,6 +146,13 @@ namespace TalonOne.Model
         public List<string> LoyaltyCards { get; set; }
 
         /// <summary>
+        /// The integration IDs of the unlocked rewards that can be used in this session. 
+        /// </summary>
+        /// <value>The integration IDs of the unlocked rewards that can be used in this session. </value>
+        [DataMember(Name="rewardIntegrationIds", EmitDefaultValue=false)]
+        public List<string> RewardIntegrationIds { get; set; }
+
+        /// <summary>
         /// The items to add to this session. **Do not exceed 1000 items** and ensure the sum of all cart item&#39;s &#x60;quantity&#x60; **does not exceed 10.000** per request. 
         /// </summary>
         /// <value>The items to add to this session. **Do not exceed 1000 items** and ensure the sum of all cart item&#39;s &#x60;quantity&#x60; **does not exceed 10.000** per request. </value>
@@ -192,6 +201,7 @@ namespace TalonOne.Model
             sb.Append("  CouponCodes: ").Append(CouponCodes).Append("\n");
             sb.Append("  ReferralCode: ").Append(ReferralCode).Append("\n");
             sb.Append("  LoyaltyCards: ").Append(LoyaltyCards).Append("\n");
+            sb.Append("  RewardIntegrationIds: ").Append(RewardIntegrationIds).Append("\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  CartItems: ").Append(CartItems).Append("\n");
             sb.Append("  ExperimentVariantAllocations: ").Append(ExperimentVariantAllocations).Append("\n");
@@ -266,6 +276,12 @@ namespace TalonOne.Model
                     this.LoyaltyCards.SequenceEqual(input.LoyaltyCards)
                 ) && 
                 (
+                    this.RewardIntegrationIds == input.RewardIntegrationIds ||
+                    this.RewardIntegrationIds != null &&
+                    input.RewardIntegrationIds != null &&
+                    this.RewardIntegrationIds.SequenceEqual(input.RewardIntegrationIds)
+                ) && 
+                (
                     this.State == input.State ||
                     this.State.Equals(input.State)
                 ) && 
@@ -321,6 +337,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ReferralCode.GetHashCode();
                 if (this.LoyaltyCards != null)
                     hashCode = hashCode * 59 + this.LoyaltyCards.GetHashCode();
+                if (this.RewardIntegrationIds != null)
+                    hashCode = hashCode * 59 + this.RewardIntegrationIds.GetHashCode();
                 hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.CartItems != null)
                     hashCode = hashCode * 59 + this.CartItems.GetHashCode();

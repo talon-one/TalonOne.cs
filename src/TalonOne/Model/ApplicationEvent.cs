@@ -45,12 +45,13 @@ namespace TalonOne.Model
         /// <param name="profileId">The globally unique Talon.One ID of the customer that created this entity..</param>
         /// <param name="storeId">The ID of the store..</param>
         /// <param name="storeIntegrationId">The integration ID of the store. You choose this ID when you create a store..</param>
+        /// <param name="integrationId">The unique ID of the event. Only one event with this ID can be registered. .</param>
         /// <param name="sessionId">The globally unique Talon.One ID of the session that contains this event..</param>
-        /// <param name="type">A string representing the event. Must not be a reserved event name. (required).</param>
+        /// <param name="type">The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event. (required).</param>
         /// <param name="attributes">Additional JSON serialized data associated with the event. (required).</param>
         /// <param name="effects">An array containing the effects that were applied as a result of this event. (required).</param>
         /// <param name="ruleFailureReasons">An array containing the rule failure reasons which happened during this event..</param>
-        public ApplicationEvent(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), long profileId = default(long), long storeId = default(long), string storeIntegrationId = default(string), long sessionId = default(long), string type = default(string), Object attributes = default(Object), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>))
+        public ApplicationEvent(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), long profileId = default(long), long storeId = default(long), string storeIntegrationId = default(string), string integrationId = default(string), long sessionId = default(long), string type = default(string), Object attributes = default(Object), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>))
         {
             this.Id = id;
             this.Created = created;
@@ -64,6 +65,7 @@ namespace TalonOne.Model
             this.ProfileId = profileId;
             this.StoreId = storeId;
             this.StoreIntegrationId = storeIntegrationId;
+            this.IntegrationId = integrationId;
             this.SessionId = sessionId;
             this.RuleFailureReasons = ruleFailureReasons;
         }
@@ -111,6 +113,13 @@ namespace TalonOne.Model
         public string StoreIntegrationId { get; set; }
 
         /// <summary>
+        /// The unique ID of the event. Only one event with this ID can be registered. 
+        /// </summary>
+        /// <value>The unique ID of the event. Only one event with this ID can be registered. </value>
+        [DataMember(Name="integrationId", EmitDefaultValue=false)]
+        public string IntegrationId { get; set; }
+
+        /// <summary>
         /// The globally unique Talon.One ID of the session that contains this event.
         /// </summary>
         /// <value>The globally unique Talon.One ID of the session that contains this event.</value>
@@ -118,9 +127,9 @@ namespace TalonOne.Model
         public long SessionId { get; set; }
 
         /// <summary>
-        /// A string representing the event. Must not be a reserved event name.
+        /// The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.
         /// </summary>
-        /// <value>A string representing the event. Must not be a reserved event name.</value>
+        /// <value>The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
@@ -159,6 +168,7 @@ namespace TalonOne.Model
             sb.Append("  ProfileId: ").Append(ProfileId).Append("\n");
             sb.Append("  StoreId: ").Append(StoreId).Append("\n");
             sb.Append("  StoreIntegrationId: ").Append(StoreIntegrationId).Append("\n");
+            sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
             sb.Append("  SessionId: ").Append(SessionId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
@@ -225,6 +235,11 @@ namespace TalonOne.Model
                     this.StoreIntegrationId.Equals(input.StoreIntegrationId))
                 ) && 
                 (
+                    this.IntegrationId == input.IntegrationId ||
+                    (this.IntegrationId != null &&
+                    this.IntegrationId.Equals(input.IntegrationId))
+                ) && 
+                (
                     this.SessionId == input.SessionId ||
                     this.SessionId.Equals(input.SessionId)
                 ) && 
@@ -269,6 +284,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.StoreId.GetHashCode();
                 if (this.StoreIntegrationId != null)
                     hashCode = hashCode * 59 + this.StoreIntegrationId.GetHashCode();
+                if (this.IntegrationId != null)
+                    hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
                 hashCode = hashCode * 59 + this.SessionId.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
@@ -299,6 +316,12 @@ namespace TalonOne.Model
             if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length < 1)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be greater than 1.", new [] { "StoreIntegrationId" });
+            }
+
+            // IntegrationId (string) minLength
+            if(this.IntegrationId != null && this.IntegrationId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationId, length must be greater than 1.", new [] { "IntegrationId" });
             }
 
             yield break;

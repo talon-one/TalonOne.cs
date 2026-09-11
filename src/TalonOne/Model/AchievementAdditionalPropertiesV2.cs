@@ -32,42 +32,36 @@ namespace TalonOne.Model
     public partial class AchievementAdditionalPropertiesV2 :  IEquatable<AchievementAdditionalPropertiesV2>, IValidatableObject
     {
         /// <summary>
-        /// The status of the achievement.
+        /// The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. 
         /// </summary>
-        /// <value>The status of the achievement.</value>
+        /// <value>The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
             /// <summary>
-            /// Enum Inprogress for value: inprogress
+            /// Enum Active for value: active
             /// </summary>
-            [EnumMember(Value = "inprogress")]
-            Inprogress = 1,
+            [EnumMember(Value = "active")]
+            Active = 1,
+
+            /// <summary>
+            /// Enum Scheduled for value: scheduled
+            /// </summary>
+            [EnumMember(Value = "scheduled")]
+            Scheduled = 2,
 
             /// <summary>
             /// Enum Expired for value: expired
             /// </summary>
             [EnumMember(Value = "expired")]
-            Expired = 2,
-
-            /// <summary>
-            /// Enum Notstarted for value: not_started
-            /// </summary>
-            [EnumMember(Value = "not_started")]
-            Notstarted = 3,
-
-            /// <summary>
-            /// Enum Completed for value: completed
-            /// </summary>
-            [EnumMember(Value = "completed")]
-            Completed = 4
+            Expired = 3
 
         }
 
         /// <summary>
-        /// The status of the achievement.
+        /// The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. 
         /// </summary>
-        /// <value>The status of the achievement.</value>
+        /// <value>The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -80,12 +74,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="userId">The ID of the user that created this achievement. (required).</param>
         /// <param name="createdBy">Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted. .</param>
+        /// <param name="periodEndOverride">periodEndOverride.</param>
         /// <param name="hasProgress">Indicates if a customer has made progress in the achievement..</param>
-        /// <param name="status">The status of the achievement..</param>
-        public AchievementAdditionalPropertiesV2(long userId = default(long), string createdBy = default(string), bool hasProgress = default(bool), StatusEnum? status = default(StatusEnum?))
+        /// <param name="status">The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. .</param>
+        public AchievementAdditionalPropertiesV2(long userId = default(long), string createdBy = default(string), TimePoint periodEndOverride = default(TimePoint), bool hasProgress = default(bool), StatusEnum? status = default(StatusEnum?))
         {
             this.UserId = userId;
             this.CreatedBy = createdBy;
+            this.PeriodEndOverride = periodEndOverride;
             this.HasProgress = hasProgress;
             this.Status = status;
         }
@@ -105,6 +101,12 @@ namespace TalonOne.Model
         public string CreatedBy { get; set; }
 
         /// <summary>
+        /// Gets or Sets PeriodEndOverride
+        /// </summary>
+        [DataMember(Name="periodEndOverride", EmitDefaultValue=false)]
+        public TimePoint PeriodEndOverride { get; set; }
+
+        /// <summary>
         /// Indicates if a customer has made progress in the achievement.
         /// </summary>
         /// <value>Indicates if a customer has made progress in the achievement.</value>
@@ -121,6 +123,7 @@ namespace TalonOne.Model
             sb.Append("class AchievementAdditionalPropertiesV2 {\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
+            sb.Append("  PeriodEndOverride: ").Append(PeriodEndOverride).Append("\n");
             sb.Append("  HasProgress: ").Append(HasProgress).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
@@ -167,6 +170,11 @@ namespace TalonOne.Model
                     this.CreatedBy.Equals(input.CreatedBy))
                 ) && 
                 (
+                    this.PeriodEndOverride == input.PeriodEndOverride ||
+                    (this.PeriodEndOverride != null &&
+                    this.PeriodEndOverride.Equals(input.PeriodEndOverride))
+                ) && 
+                (
                     this.HasProgress == input.HasProgress ||
                     this.HasProgress.Equals(input.HasProgress)
                 ) && 
@@ -188,6 +196,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 if (this.CreatedBy != null)
                     hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
+                if (this.PeriodEndOverride != null)
+                    hashCode = hashCode * 59 + this.PeriodEndOverride.GetHashCode();
                 hashCode = hashCode * 59 + this.HasProgress.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 return hashCode;

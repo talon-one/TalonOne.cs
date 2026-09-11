@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **SelectedPriceType** | **string** | The selected price type for the SKU targeted by this effect. | [optional] 
 **SelectedPrice** | **decimal** | The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied. | [optional] 
 **AdjustmentReferenceId** | **Guid** | The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment. | [optional] 
+**RewardId** | **long** | The ID of the reward that was being evaluated when this effect was triggered. | [optional] 
 **Props** | [**Object**](.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
