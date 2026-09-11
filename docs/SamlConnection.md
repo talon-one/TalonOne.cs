@@ -5,6 +5,7 @@ A SAML 2.0 connection.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AssertionConsumerServiceURL** | **string** | The location where the SAML assertion is sent with a HTTP POST. | 
+**CertificateExpiry** | **DateTime** | The expiry date of the X.509 certificate. | [optional] 
 **AccountId** | **long** | The ID of the account that owns this entity. | 
 **Name** | **string** | ID of the SAML service. | 
 **Enabled** | **bool** | Determines if this SAML connection active. | 

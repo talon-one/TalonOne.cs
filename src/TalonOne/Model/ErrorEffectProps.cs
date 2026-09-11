@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Whenever an error occurred during evaluation, we return an error effect. This should never happen for rules created in the rule builder.
+    /// This effect is triggered whenever an error occurs during rule evaluation. This effect only provides information about what the error is.
     /// </summary>
     [DataContract]
     public partial class ErrorEffectProps :  IEquatable<ErrorEffectProps>, IValidatableObject

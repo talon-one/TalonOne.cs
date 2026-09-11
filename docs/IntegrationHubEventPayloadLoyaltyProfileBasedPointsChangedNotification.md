@@ -3,10 +3,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**EventId** | **long** | The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed. | 
 **ProfileIntegrationID** | **string** |  | 
 **LoyaltyProgramID** | **long** |  | 
+**LoyaltyProgramName** | **string** | The name of the loyalty program. | 
 **SubledgerID** | **string** |  | 
 **SourceOfEvent** | **string** |  | 
+**CurrentTier** | **string** | The name of the customer&#39;s current tier. | 
+**SessionIntegrationID** | **string** | The integration ID of the session through which the points were earned or lost. Only set when the change results from a rule engine execution; empty otherwise. | [optional] 
 **EmployeeName** | **string** |  | [optional] 
 **UserID** | **long** |  | [optional] 
 **CurrentPoints** | **float** |  | 

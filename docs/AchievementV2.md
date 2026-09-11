@@ -15,13 +15,16 @@ Name | Type | Description | Notes
 **FixedStartDate** | **DateTime** | The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
 **EndDate** | **DateTime** | The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
 **AllowRollbackAfterCompletion** | **bool** | When &#x60;true&#x60;, customer progress can be rolled back in completed achievements. | [optional] 
-**Sandbox** | **bool** | Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type. | 
 **SubscribedApplications** | **List&lt;long&gt;** | A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement. | 
-**Timezone** | **string** | A string containing an IANA timezone descriptor. | 
 **UserId** | **long** | The ID of the user that created this achievement. | 
 **CreatedBy** | **string** | Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted.  | [optional] 
+**PeriodEndOverride** | [**TimePoint**](TimePoint.md) |  | [optional] 
 **HasProgress** | **bool** | Indicates if a customer has made progress in the achievement. | [optional] 
-**Status** | **string** | The status of the achievement. | [optional] 
+**Status** | **string** | The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past.  | [optional] 
+**Sandbox** | **bool** | Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type. | 
+**Timezone** | **string** | A string containing an IANA timezone descriptor. | 
+**CampaignId** | **long** | This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. This field contains the first campaign ID from the related &#x60;referencedByCampaigns&#x60;, and is omitted when &#x60;referencedByCampaigns&#x60; is empty. | [optional] 
+**ReferencedByCampaigns** | [**List&lt;CampaignReference&gt;**](CampaignReference.md) | The campaigns that reference this achievement. They are sorted in ascending order by their id. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

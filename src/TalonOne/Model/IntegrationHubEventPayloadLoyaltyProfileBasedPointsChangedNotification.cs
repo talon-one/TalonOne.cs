@@ -39,31 +39,48 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification" /> class.
         /// </summary>
+        /// <param name="eventId">The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed. (required).</param>
         /// <param name="profileIntegrationID">profileIntegrationID (required).</param>
         /// <param name="loyaltyProgramID">loyaltyProgramID (required).</param>
+        /// <param name="loyaltyProgramName">The name of the loyalty program. (required).</param>
         /// <param name="subledgerID">subledgerID (required).</param>
         /// <param name="sourceOfEvent">sourceOfEvent (required).</param>
+        /// <param name="currentTier">The name of the customer&#39;s current tier. (required).</param>
+        /// <param name="sessionIntegrationID">The integration ID of the session through which the points were earned or lost. Only set when the change results from a rule engine execution; empty otherwise..</param>
         /// <param name="employeeName">employeeName.</param>
         /// <param name="userID">userID.</param>
         /// <param name="currentPoints">currentPoints (required).</param>
         /// <param name="actions">actions.</param>
         /// <param name="publishedAt">Timestamp when the event was published. (required).</param>
-        public IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification(string profileIntegrationID = default(string), long loyaltyProgramID = default(long), string subledgerID = default(string), string sourceOfEvent = default(string), string employeeName = default(string), long userID = default(long), float currentPoints = default(float), List<IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction> actions = default(List<IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction>), DateTime publishedAt = default(DateTime))
+        public IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification(long eventId = default(long), string profileIntegrationID = default(string), long loyaltyProgramID = default(long), string loyaltyProgramName = default(string), string subledgerID = default(string), string sourceOfEvent = default(string), string currentTier = default(string), string sessionIntegrationID = default(string), string employeeName = default(string), long userID = default(long), float currentPoints = default(float), List<IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction> actions = default(List<IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotificationAction>), DateTime publishedAt = default(DateTime))
         {
+            this.EventId = eventId;
             // to ensure "profileIntegrationID" is required (not null)
             this.ProfileIntegrationID = profileIntegrationID ?? throw new ArgumentNullException("profileIntegrationID is a required property for IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification and cannot be null");
             this.LoyaltyProgramID = loyaltyProgramID;
+            // to ensure "loyaltyProgramName" is required (not null)
+            this.LoyaltyProgramName = loyaltyProgramName ?? throw new ArgumentNullException("loyaltyProgramName is a required property for IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification and cannot be null");
             // to ensure "subledgerID" is required (not null)
             this.SubledgerID = subledgerID ?? throw new ArgumentNullException("subledgerID is a required property for IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification and cannot be null");
             // to ensure "sourceOfEvent" is required (not null)
             this.SourceOfEvent = sourceOfEvent ?? throw new ArgumentNullException("sourceOfEvent is a required property for IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification and cannot be null");
+            // to ensure "currentTier" is required (not null)
+            this.CurrentTier = currentTier ?? throw new ArgumentNullException("currentTier is a required property for IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification and cannot be null");
             this.CurrentPoints = currentPoints;
             this.PublishedAt = publishedAt;
+            this.SessionIntegrationID = sessionIntegrationID;
             this.EmployeeName = employeeName;
             this.UserID = userID;
             this.Actions = actions;
         }
         
+        /// <summary>
+        /// The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.
+        /// </summary>
+        /// <value>The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.</value>
+        [DataMember(Name="EventId", EmitDefaultValue=false)]
+        public long EventId { get; set; }
+
         /// <summary>
         /// Gets or Sets ProfileIntegrationID
         /// </summary>
@@ -77,6 +94,13 @@ namespace TalonOne.Model
         public long LoyaltyProgramID { get; set; }
 
         /// <summary>
+        /// The name of the loyalty program.
+        /// </summary>
+        /// <value>The name of the loyalty program.</value>
+        [DataMember(Name="LoyaltyProgramName", EmitDefaultValue=false)]
+        public string LoyaltyProgramName { get; set; }
+
+        /// <summary>
         /// Gets or Sets SubledgerID
         /// </summary>
         [DataMember(Name="SubledgerID", EmitDefaultValue=false)]
@@ -87,6 +111,20 @@ namespace TalonOne.Model
         /// </summary>
         [DataMember(Name="SourceOfEvent", EmitDefaultValue=false)]
         public string SourceOfEvent { get; set; }
+
+        /// <summary>
+        /// The name of the customer&#39;s current tier.
+        /// </summary>
+        /// <value>The name of the customer&#39;s current tier.</value>
+        [DataMember(Name="CurrentTier", EmitDefaultValue=false)]
+        public string CurrentTier { get; set; }
+
+        /// <summary>
+        /// The integration ID of the session through which the points were earned or lost. Only set when the change results from a rule engine execution; empty otherwise.
+        /// </summary>
+        /// <value>The integration ID of the session through which the points were earned or lost. Only set when the change results from a rule engine execution; empty otherwise.</value>
+        [DataMember(Name="SessionIntegrationID", EmitDefaultValue=false)]
+        public string SessionIntegrationID { get; set; }
 
         /// <summary>
         /// Gets or Sets EmployeeName
@@ -127,10 +165,14 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class IntegrationHubEventPayloadLoyaltyProfileBasedPointsChangedNotification {\n");
+            sb.Append("  EventId: ").Append(EventId).Append("\n");
             sb.Append("  ProfileIntegrationID: ").Append(ProfileIntegrationID).Append("\n");
             sb.Append("  LoyaltyProgramID: ").Append(LoyaltyProgramID).Append("\n");
+            sb.Append("  LoyaltyProgramName: ").Append(LoyaltyProgramName).Append("\n");
             sb.Append("  SubledgerID: ").Append(SubledgerID).Append("\n");
             sb.Append("  SourceOfEvent: ").Append(SourceOfEvent).Append("\n");
+            sb.Append("  CurrentTier: ").Append(CurrentTier).Append("\n");
+            sb.Append("  SessionIntegrationID: ").Append(SessionIntegrationID).Append("\n");
             sb.Append("  EmployeeName: ").Append(EmployeeName).Append("\n");
             sb.Append("  UserID: ").Append(UserID).Append("\n");
             sb.Append("  CurrentPoints: ").Append(CurrentPoints).Append("\n");
@@ -171,6 +213,10 @@ namespace TalonOne.Model
 
             return 
                 (
+                    this.EventId == input.EventId ||
+                    this.EventId.Equals(input.EventId)
+                ) && 
+                (
                     this.ProfileIntegrationID == input.ProfileIntegrationID ||
                     (this.ProfileIntegrationID != null &&
                     this.ProfileIntegrationID.Equals(input.ProfileIntegrationID))
@@ -178,6 +224,11 @@ namespace TalonOne.Model
                 (
                     this.LoyaltyProgramID == input.LoyaltyProgramID ||
                     this.LoyaltyProgramID.Equals(input.LoyaltyProgramID)
+                ) && 
+                (
+                    this.LoyaltyProgramName == input.LoyaltyProgramName ||
+                    (this.LoyaltyProgramName != null &&
+                    this.LoyaltyProgramName.Equals(input.LoyaltyProgramName))
                 ) && 
                 (
                     this.SubledgerID == input.SubledgerID ||
@@ -188,6 +239,16 @@ namespace TalonOne.Model
                     this.SourceOfEvent == input.SourceOfEvent ||
                     (this.SourceOfEvent != null &&
                     this.SourceOfEvent.Equals(input.SourceOfEvent))
+                ) && 
+                (
+                    this.CurrentTier == input.CurrentTier ||
+                    (this.CurrentTier != null &&
+                    this.CurrentTier.Equals(input.CurrentTier))
+                ) && 
+                (
+                    this.SessionIntegrationID == input.SessionIntegrationID ||
+                    (this.SessionIntegrationID != null &&
+                    this.SessionIntegrationID.Equals(input.SessionIntegrationID))
                 ) && 
                 (
                     this.EmployeeName == input.EmployeeName ||
@@ -224,13 +285,20 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.EventId.GetHashCode();
                 if (this.ProfileIntegrationID != null)
                     hashCode = hashCode * 59 + this.ProfileIntegrationID.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyProgramID.GetHashCode();
+                if (this.LoyaltyProgramName != null)
+                    hashCode = hashCode * 59 + this.LoyaltyProgramName.GetHashCode();
                 if (this.SubledgerID != null)
                     hashCode = hashCode * 59 + this.SubledgerID.GetHashCode();
                 if (this.SourceOfEvent != null)
                     hashCode = hashCode * 59 + this.SourceOfEvent.GetHashCode();
+                if (this.CurrentTier != null)
+                    hashCode = hashCode * 59 + this.CurrentTier.GetHashCode();
+                if (this.SessionIntegrationID != null)
+                    hashCode = hashCode * 59 + this.SessionIntegrationID.GetHashCode();
                 if (this.EmployeeName != null)
                     hashCode = hashCode * 59 + this.EmployeeName.GetHashCode();
                 hashCode = hashCode * 59 + this.UserID.GetHashCode();

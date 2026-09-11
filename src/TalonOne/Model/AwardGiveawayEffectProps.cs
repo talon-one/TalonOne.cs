@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;awardGiveaway\&quot; effect. This effect contains information on the giveaway item, and which profile it was awarded to.
+    /// This effect indicates the awarded giveaway item and to which profile the item was awarded. Learn more about [giveaways](https://docs.talon.one/docs/product/giveaways/overview).
     /// </summary>
     [DataContract]
     public partial class AwardGiveawayEffectProps :  IEquatable<AwardGiveawayEffectProps>, IValidatableObject
@@ -39,11 +39,11 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AwardGiveawayEffectProps" /> class.
         /// </summary>
-        /// <param name="poolId">The ID of the giveaways pool the code was taken from. (required).</param>
-        /// <param name="poolName">The name of the giveaways pool the code was taken from. (required).</param>
-        /// <param name="recipientIntegrationId">The integration ID of the profile that was awarded the giveaway. (required).</param>
-        /// <param name="giveawayId">The internal ID for the giveaway that was awarded. (required).</param>
-        /// <param name="code">The giveaway code that was awarded. (required).</param>
+        /// <param name="poolId">The internal ID of the giveaway pool. (required).</param>
+        /// <param name="poolName">The name of the giveaway pool. (required).</param>
+        /// <param name="recipientIntegrationId">The integration ID of the customer that receives the giveaway. (required).</param>
+        /// <param name="giveawayId">The internal ID of the giveaway. (required).</param>
+        /// <param name="code">The giveaway code to be rewarded. (required).</param>
         public AwardGiveawayEffectProps(long poolId = default(long), string poolName = default(string), string recipientIntegrationId = default(string), long giveawayId = default(long), string code = default(string))
         {
             this.PoolId = poolId;
@@ -57,37 +57,37 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The ID of the giveaways pool the code was taken from.
+        /// The internal ID of the giveaway pool.
         /// </summary>
-        /// <value>The ID of the giveaways pool the code was taken from.</value>
+        /// <value>The internal ID of the giveaway pool.</value>
         [DataMember(Name="poolId", EmitDefaultValue=false)]
         public long PoolId { get; set; }
 
         /// <summary>
-        /// The name of the giveaways pool the code was taken from.
+        /// The name of the giveaway pool.
         /// </summary>
-        /// <value>The name of the giveaways pool the code was taken from.</value>
+        /// <value>The name of the giveaway pool.</value>
         [DataMember(Name="poolName", EmitDefaultValue=false)]
         public string PoolName { get; set; }
 
         /// <summary>
-        /// The integration ID of the profile that was awarded the giveaway.
+        /// The integration ID of the customer that receives the giveaway.
         /// </summary>
-        /// <value>The integration ID of the profile that was awarded the giveaway.</value>
+        /// <value>The integration ID of the customer that receives the giveaway.</value>
         [DataMember(Name="recipientIntegrationId", EmitDefaultValue=false)]
         public string RecipientIntegrationId { get; set; }
 
         /// <summary>
-        /// The internal ID for the giveaway that was awarded.
+        /// The internal ID of the giveaway.
         /// </summary>
-        /// <value>The internal ID for the giveaway that was awarded.</value>
+        /// <value>The internal ID of the giveaway.</value>
         [DataMember(Name="giveawayId", EmitDefaultValue=false)]
         public long GiveawayId { get; set; }
 
         /// <summary>
-        /// The giveaway code that was awarded.
+        /// The giveaway code to be rewarded.
         /// </summary>
-        /// <value>The giveaway code that was awarded.</value>
+        /// <value>The giveaway code to be rewarded.</value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public string Code { get; set; }
 

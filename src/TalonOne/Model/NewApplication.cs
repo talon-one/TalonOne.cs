@@ -154,7 +154,8 @@ namespace TalonOne.Model
         /// <param name="defaultDiscountAdditionalCostPerItemScope">The default scope to apply &#x60;setDiscountPerItem&#x60; effects on if no scope was provided with the effect. .</param>
         /// <param name="key">Hex key for HMAC-signing API calls as coming from this application (16 hex digits)..</param>
         /// <param name="enableCampaignStateManagement">Indicates whether the campaign staging and revisions feature is enabled for the Application.  **Important:** After this feature is enabled, it cannot be disabled. .</param>
-        public NewApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), string key = default(string), bool enableCampaignStateManagement = default(bool))
+        /// <param name="bestPriorPriceSettings">bestPriorPriceSettings.</param>
+        public NewApplication(string name = default(string), string description = default(string), string timezone = default(string), string currency = default(string), CaseSensitivityEnum? caseSensitivity = default(CaseSensitivityEnum?), Object attributes = default(Object), List<LimitConfig> limits = default(List<LimitConfig>), DefaultDiscountScopeEnum? defaultDiscountScope = default(DefaultDiscountScopeEnum?), bool enableCascadingDiscounts = default(bool), bool enableFlattenedCartItems = default(bool), AttributesSettings attributesSettings = default(AttributesSettings), bool sandbox = default(bool), bool enablePartialDiscounts = default(bool), DefaultDiscountAdditionalCostPerItemScopeEnum? defaultDiscountAdditionalCostPerItemScope = default(DefaultDiscountAdditionalCostPerItemScopeEnum?), string key = default(string), bool enableCampaignStateManagement = default(bool), BestPriorPriceSettings bestPriorPriceSettings = default(BestPriorPriceSettings))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for NewApplication and cannot be null");
@@ -175,6 +176,7 @@ namespace TalonOne.Model
             this.DefaultDiscountAdditionalCostPerItemScope = defaultDiscountAdditionalCostPerItemScope;
             this.Key = key;
             this.EnableCampaignStateManagement = enableCampaignStateManagement;
+            this.BestPriorPriceSettings = bestPriorPriceSettings;
         }
         
         /// <summary>
@@ -268,6 +270,12 @@ namespace TalonOne.Model
         public bool EnableCampaignStateManagement { get; set; }
 
         /// <summary>
+        /// Gets or Sets BestPriorPriceSettings
+        /// </summary>
+        [DataMember(Name="bestPriorPriceSettings", EmitDefaultValue=false)]
+        public BestPriorPriceSettings BestPriorPriceSettings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -291,6 +299,7 @@ namespace TalonOne.Model
             sb.Append("  DefaultDiscountAdditionalCostPerItemScope: ").Append(DefaultDiscountAdditionalCostPerItemScope).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  EnableCampaignStateManagement: ").Append(EnableCampaignStateManagement).Append("\n");
+            sb.Append("  BestPriorPriceSettings: ").Append(BestPriorPriceSettings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -397,6 +406,11 @@ namespace TalonOne.Model
                 (
                     this.EnableCampaignStateManagement == input.EnableCampaignStateManagement ||
                     this.EnableCampaignStateManagement.Equals(input.EnableCampaignStateManagement)
+                ) && 
+                (
+                    this.BestPriorPriceSettings == input.BestPriorPriceSettings ||
+                    (this.BestPriorPriceSettings != null &&
+                    this.BestPriorPriceSettings.Equals(input.BestPriorPriceSettings))
                 );
         }
 
@@ -433,6 +447,8 @@ namespace TalonOne.Model
                 if (this.Key != null)
                     hashCode = hashCode * 59 + this.Key.GetHashCode();
                 hashCode = hashCode * 59 + this.EnableCampaignStateManagement.GetHashCode();
+                if (this.BestPriorPriceSettings != null)
+                    hashCode = hashCode * 59 + this.BestPriorPriceSettings.GetHashCode();
                 return hashCode;
             }
         }

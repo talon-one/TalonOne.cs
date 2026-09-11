@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;addFreeItem\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;add free item\&quot; effect.
+    /// This effect indicates that a free item should be added to the shopping cart in the current session. In this example, add the SKU to the shopping cart and set its price to &#x60;0&#x60;.  The effect of a successful referral can mean a free item for someone else, such as the referrer.
     /// </summary>
     [DataContract]
     public partial class AddFreeItemEffectProps :  IEquatable<AddFreeItemEffectProps>, IValidatableObject
@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="AddFreeItemEffectProps" /> class.
         /// </summary>
         /// <param name="sku">SKU of the item that needs to be added. (required).</param>
-        /// <param name="name">The name / description of the effect (required).</param>
+        /// <param name="name">Description of the effect. (required).</param>
         /// <param name="desiredQuantity">The original quantity in case a partial reward was applied..</param>
         public AddFreeItemEffectProps(string sku = default(string), string name = default(string), long desiredQuantity = default(long))
         {
@@ -59,9 +59,9 @@ namespace TalonOne.Model
         public string Sku { get; set; }
 
         /// <summary>
-        /// The name / description of the effect
+        /// Description of the effect.
         /// </summary>
-        /// <value>The name / description of the effect</value>
+        /// <value>Description of the effect.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 

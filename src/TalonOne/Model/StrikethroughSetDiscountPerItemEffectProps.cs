@@ -39,9 +39,9 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StrikethroughSetDiscountPerItemEffectProps" /> class.
         /// </summary>
-        /// <param name="name">effect name. (required).</param>
-        /// <param name="value">discount value. (required).</param>
-        /// <param name="excludedFromPriceHistory">excludedFromPriceHistory.</param>
+        /// <param name="name">The effect name. (required).</param>
+        /// <param name="value">The discount value. (required).</param>
+        /// <param name="excludedFromPriceHistory">When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history..</param>
         public StrikethroughSetDiscountPerItemEffectProps(string name = default(string), Object value = default(Object), bool excludedFromPriceHistory = default(bool))
         {
             // to ensure "name" is required (not null)
@@ -52,22 +52,23 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// effect name.
+        /// The effect name.
         /// </summary>
-        /// <value>effect name.</value>
+        /// <value>The effect name.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// discount value.
+        /// The discount value.
         /// </summary>
-        /// <value>discount value.</value>
+        /// <value>The discount value.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public Object Value { get; set; }
 
         /// <summary>
-        /// Gets or Sets ExcludedFromPriceHistory
+        /// When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history.
         /// </summary>
+        /// <value>When set to &#x60;true&#x60;, the applied discount is excluded from the item&#39;s price history.</value>
         [DataMember(Name="excludedFromPriceHistory", EmitDefaultValue=false)]
         public bool ExcludedFromPriceHistory { get; set; }
 

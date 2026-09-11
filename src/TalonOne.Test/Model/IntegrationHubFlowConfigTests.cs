@@ -89,6 +89,22 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'MaxRetries'
         }
+        /// <summary>
+        /// Test the property 'InstanceName'
+        /// </summary>
+        [Fact]
+        public void InstanceNameTest()
+        {
+            // TODO unit test for the property 'InstanceName'
+        }
+        /// <summary>
+        /// Test the property 'IntegrationName'
+        /// </summary>
+        [Fact]
+        public void IntegrationNameTest()
+        {
+            // TODO unit test for the property 'IntegrationName'
+        }
 
     }
 

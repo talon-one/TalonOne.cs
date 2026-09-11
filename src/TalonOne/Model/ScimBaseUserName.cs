@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The components of the user’s real name.
+    /// The components of the user&#39;s real name.
     /// </summary>
     [DataContract]
     public partial class ScimBaseUserName :  IEquatable<ScimBaseUserName>, IValidatableObject

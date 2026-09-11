@@ -92,7 +92,13 @@ namespace TalonOne.Model
             /// Enum Achievements for value: achievements
             /// </summary>
             [EnumMember(Value = "achievements")]
-            Achievements = 6
+            Achievements = 6,
+
+            /// <summary>
+            /// Enum AdvancedEvents for value: advancedEvents
+            /// </summary>
+            [EnumMember(Value = "advancedEvents")]
+            AdvancedEvents = 7
 
         }
 
@@ -111,9 +117,9 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IntegrationCampaign" /> class.
         /// </summary>
-        /// <param name="id">Unique ID of Campaign. (required).</param>
         /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
-        /// <param name="name">A user-facing name for this campaign. (required).</param>
+        /// <param name="id">Unique ID of Campaign. (required).</param>
+        /// <param name="name">The name of the campaign. (required).</param>
         /// <param name="description">A detailed description of the campaign..</param>
         /// <param name="startTime">Timestamp when the campaign will become active..</param>
         /// <param name="endTime">Timestamp when the campaign will become inactive..</param>
@@ -121,10 +127,13 @@ namespace TalonOne.Model
         /// <param name="state">The state of the campaign.  (required) (default to StateEnum.Enabled).</param>
         /// <param name="tags">A list of tags for the campaign. (required).</param>
         /// <param name="features">The features enabled in this campaign. (required).</param>
-        public IntegrationCampaign(long id = default(long), long applicationId = default(long), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>))
+        /// <param name="rules">A list of rules containing customer-facing details of the rewards defined in the campaign. (required).</param>
+        /// <param name="linkedStoreIds">A list of store IDs linked to this campaign..</param>
+        /// <param name="linkedAudienceIds">A list of audience IDs linked to this campaign..</param>
+        public IntegrationCampaign(long applicationId = default(long), long id = default(long), string name = default(string), string description = default(string), DateTime startTime = default(DateTime), DateTime endTime = default(DateTime), Object attributes = default(Object), StateEnum state = StateEnum.Enabled, List<string> tags = default(List<string>), List<FeaturesEnum> features = default(List<FeaturesEnum>), List<RuleMetadata> rules = default(List<RuleMetadata>), List<long> linkedStoreIds = default(List<long>), List<long> linkedAudienceIds = default(List<long>))
         {
-            this.Id = id;
             this.ApplicationId = applicationId;
+            this.Id = id;
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for IntegrationCampaign and cannot be null");
             this.State = state;
@@ -132,19 +141,16 @@ namespace TalonOne.Model
             this.Tags = tags ?? throw new ArgumentNullException("tags is a required property for IntegrationCampaign and cannot be null");
             // to ensure "features" is required (not null)
             this.Features = features ?? throw new ArgumentNullException("features is a required property for IntegrationCampaign and cannot be null");
+            // to ensure "rules" is required (not null)
+            this.Rules = rules ?? throw new ArgumentNullException("rules is a required property for IntegrationCampaign and cannot be null");
             this.Description = description;
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.Attributes = attributes;
+            this.LinkedStoreIds = linkedStoreIds;
+            this.LinkedAudienceIds = linkedAudienceIds;
         }
         
-        /// <summary>
-        /// Unique ID of Campaign.
-        /// </summary>
-        /// <value>Unique ID of Campaign.</value>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public long Id { get; set; }
-
         /// <summary>
         /// The ID of the Application that owns this entity.
         /// </summary>
@@ -153,9 +159,16 @@ namespace TalonOne.Model
         public long ApplicationId { get; set; }
 
         /// <summary>
-        /// A user-facing name for this campaign.
+        /// Unique ID of Campaign.
         /// </summary>
-        /// <value>A user-facing name for this campaign.</value>
+        /// <value>Unique ID of Campaign.</value>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public long Id { get; set; }
+
+        /// <summary>
+        /// The name of the campaign.
+        /// </summary>
+        /// <value>The name of the campaign.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
@@ -195,6 +208,27 @@ namespace TalonOne.Model
         public List<string> Tags { get; set; }
 
         /// <summary>
+        /// A list of rules containing customer-facing details of the rewards defined in the campaign.
+        /// </summary>
+        /// <value>A list of rules containing customer-facing details of the rewards defined in the campaign.</value>
+        [DataMember(Name="rules", EmitDefaultValue=false)]
+        public List<RuleMetadata> Rules { get; set; }
+
+        /// <summary>
+        /// A list of store IDs linked to this campaign.
+        /// </summary>
+        /// <value>A list of store IDs linked to this campaign.</value>
+        [DataMember(Name="linkedStoreIds", EmitDefaultValue=false)]
+        public List<long> LinkedStoreIds { get; set; }
+
+        /// <summary>
+        /// A list of audience IDs linked to this campaign.
+        /// </summary>
+        /// <value>A list of audience IDs linked to this campaign.</value>
+        [DataMember(Name="linkedAudienceIds", EmitDefaultValue=false)]
+        public List<long> LinkedAudienceIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -202,8 +236,8 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class IntegrationCampaign {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
@@ -212,6 +246,9 @@ namespace TalonOne.Model
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
+            sb.Append("  Rules: ").Append(Rules).Append("\n");
+            sb.Append("  LinkedStoreIds: ").Append(LinkedStoreIds).Append("\n");
+            sb.Append("  LinkedAudienceIds: ").Append(LinkedAudienceIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -247,12 +284,12 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Id == input.Id ||
-                    this.Id.Equals(input.Id)
-                ) && 
-                (
                     this.ApplicationId == input.ApplicationId ||
                     this.ApplicationId.Equals(input.ApplicationId)
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    this.Id.Equals(input.Id)
                 ) && 
                 (
                     this.Name == input.Name ||
@@ -292,6 +329,24 @@ namespace TalonOne.Model
                 (
                     this.Features == input.Features ||
                     this.Features.SequenceEqual(input.Features)
+                ) && 
+                (
+                    this.Rules == input.Rules ||
+                    this.Rules != null &&
+                    input.Rules != null &&
+                    this.Rules.SequenceEqual(input.Rules)
+                ) && 
+                (
+                    this.LinkedStoreIds == input.LinkedStoreIds ||
+                    this.LinkedStoreIds != null &&
+                    input.LinkedStoreIds != null &&
+                    this.LinkedStoreIds.SequenceEqual(input.LinkedStoreIds)
+                ) && 
+                (
+                    this.LinkedAudienceIds == input.LinkedAudienceIds ||
+                    this.LinkedAudienceIds != null &&
+                    input.LinkedAudienceIds != null &&
+                    this.LinkedAudienceIds.SequenceEqual(input.LinkedAudienceIds)
                 );
         }
 
@@ -304,8 +359,8 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Id.GetHashCode();
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
+                hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Description != null)
@@ -320,6 +375,12 @@ namespace TalonOne.Model
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 hashCode = hashCode * 59 + this.Features.GetHashCode();
+                if (this.Rules != null)
+                    hashCode = hashCode * 59 + this.Rules.GetHashCode();
+                if (this.LinkedStoreIds != null)
+                    hashCode = hashCode * 59 + this.LinkedStoreIds.GetHashCode();
+                if (this.LinkedAudienceIds != null)
+                    hashCode = hashCode * 59 + this.LinkedAudienceIds.GetHashCode();
                 return hashCode;
             }
         }

@@ -32,6 +32,11 @@ namespace TalonOne.Model
     public partial class IntegrationHubFlowWithConfig :  IEquatable<IntegrationHubFlowWithConfig>, IValidatableObject
     {
         /// <summary>
+        /// Gets or Sets EventType
+        /// </summary>
+        [DataMember(Name="EventType", EmitDefaultValue=false)]
+        public IntegrationHubEventType EventType { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="IntegrationHubFlowWithConfig" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,34 +44,35 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IntegrationHubFlowWithConfig" /> class.
         /// </summary>
-        /// <param name="applicationID">ID of application the flow is registered for..</param>
-        /// <param name="eventType">The event type we want to register a flow for. (required).</param>
+        /// <param name="applicationID">ID of the application the flow is registered for..</param>
+        /// <param name="loyaltyProgramID">ID of the loyalty program the flow is registered for..</param>
+        /// <param name="eventType">eventType (required).</param>
         /// <param name="integrationHubFlowUrl">The URL of the integration hub flow that we want to trigger for the event. (required).</param>
         /// <param name="config">config (required).</param>
-        public IntegrationHubFlowWithConfig(long applicationID = default(long), string eventType = default(string), string integrationHubFlowUrl = default(string), IntegrationHubFlowConfig config = default(IntegrationHubFlowConfig))
+        public IntegrationHubFlowWithConfig(long applicationID = default(long), long loyaltyProgramID = default(long), IntegrationHubEventType eventType = default(IntegrationHubEventType), string integrationHubFlowUrl = default(string), IntegrationHubFlowConfig config = default(IntegrationHubFlowConfig))
         {
-            // to ensure "eventType" is required (not null)
-            this.EventType = eventType ?? throw new ArgumentNullException("eventType is a required property for IntegrationHubFlowWithConfig and cannot be null");
+            this.EventType = eventType;
             // to ensure "integrationHubFlowUrl" is required (not null)
             this.IntegrationHubFlowUrl = integrationHubFlowUrl ?? throw new ArgumentNullException("integrationHubFlowUrl is a required property for IntegrationHubFlowWithConfig and cannot be null");
             // to ensure "config" is required (not null)
             this.Config = config ?? throw new ArgumentNullException("config is a required property for IntegrationHubFlowWithConfig and cannot be null");
             this.ApplicationID = applicationID;
+            this.LoyaltyProgramID = loyaltyProgramID;
         }
         
         /// <summary>
-        /// ID of application the flow is registered for.
+        /// ID of the application the flow is registered for.
         /// </summary>
-        /// <value>ID of application the flow is registered for.</value>
+        /// <value>ID of the application the flow is registered for.</value>
         [DataMember(Name="ApplicationID", EmitDefaultValue=false)]
         public long ApplicationID { get; set; }
 
         /// <summary>
-        /// The event type we want to register a flow for.
+        /// ID of the loyalty program the flow is registered for.
         /// </summary>
-        /// <value>The event type we want to register a flow for.</value>
-        [DataMember(Name="EventType", EmitDefaultValue=false)]
-        public string EventType { get; set; }
+        /// <value>ID of the loyalty program the flow is registered for.</value>
+        [DataMember(Name="LoyaltyProgramID", EmitDefaultValue=false)]
+        public long LoyaltyProgramID { get; set; }
 
         /// <summary>
         /// The URL of the integration hub flow that we want to trigger for the event.
@@ -90,6 +96,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class IntegrationHubFlowWithConfig {\n");
             sb.Append("  ApplicationID: ").Append(ApplicationID).Append("\n");
+            sb.Append("  LoyaltyProgramID: ").Append(LoyaltyProgramID).Append("\n");
             sb.Append("  EventType: ").Append(EventType).Append("\n");
             sb.Append("  IntegrationHubFlowUrl: ").Append(IntegrationHubFlowUrl).Append("\n");
             sb.Append("  Config: ").Append(Config).Append("\n");
@@ -132,9 +139,12 @@ namespace TalonOne.Model
                     this.ApplicationID.Equals(input.ApplicationID)
                 ) && 
                 (
+                    this.LoyaltyProgramID == input.LoyaltyProgramID ||
+                    this.LoyaltyProgramID.Equals(input.LoyaltyProgramID)
+                ) && 
+                (
                     this.EventType == input.EventType ||
-                    (this.EventType != null &&
-                    this.EventType.Equals(input.EventType))
+                    this.EventType.Equals(input.EventType)
                 ) && 
                 (
                     this.IntegrationHubFlowUrl == input.IntegrationHubFlowUrl ||
@@ -158,8 +168,8 @@ namespace TalonOne.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.ApplicationID.GetHashCode();
-                if (this.EventType != null)
-                    hashCode = hashCode * 59 + this.EventType.GetHashCode();
+                hashCode = hashCode * 59 + this.LoyaltyProgramID.GetHashCode();
+                hashCode = hashCode * 59 + this.EventType.GetHashCode();
                 if (this.IntegrationHubFlowUrl != null)
                     hashCode = hashCode * 59 + this.IntegrationHubFlowUrl.GetHashCode();
                 if (this.Config != null)

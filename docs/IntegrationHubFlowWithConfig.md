@@ -3,8 +3,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ApplicationID** | **long** | ID of application the flow is registered for. | [optional] 
-**EventType** | **string** | The event type we want to register a flow for. | 
+**ApplicationID** | **long** | ID of the application the flow is registered for. | [optional] 
+**LoyaltyProgramID** | **long** | ID of the loyalty program the flow is registered for. | [optional] 
+**EventType** | **IntegrationHubEventType** |  | 
 **IntegrationHubFlowUrl** | **string** | The URL of the integration hub flow that we want to trigger for the event. | 
 **Config** | [**IntegrationHubFlowConfig**](IntegrationHubFlowConfig.md) |  | 
 

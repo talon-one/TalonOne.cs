@@ -39,6 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IntegrationHubEventPayloadCouponBasedNotifications" /> class.
         /// </summary>
+        /// <param name="eventId">The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed. (required).</param>
         /// <param name="id">id (required).</param>
         /// <param name="created">created (required).</param>
         /// <param name="campaignId">campaignId (required).</param>
@@ -60,8 +61,9 @@ namespace TalonOne.Model
         /// <param name="publishedAt">Timestamp when the event was published. (required).</param>
         /// <param name="sourceOfEvent">sourceOfEvent (required).</param>
         /// <param name="employeeName">employeeName (required).</param>
-        public IntegrationHubEventPayloadCouponBasedNotifications(long id = default(long), DateTime created = default(DateTime), long campaignId = default(long), string value = default(string), long usageLimit = default(long), float discountLimit = default(float), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long usageCounter = default(long), float discountCounter = default(float), float discountRemainder = default(float), long referralId = default(long), string recipientIntegrationId = default(string), long importId = default(long), string batchId = default(string), Object attributes = default(Object), List<IntegrationHubEventPayloadCouponBasedNotificationsLimits> limits = default(List<IntegrationHubEventPayloadCouponBasedNotificationsLimits>), DateTime publishedAt = default(DateTime), string sourceOfEvent = default(string), string employeeName = default(string))
+        public IntegrationHubEventPayloadCouponBasedNotifications(long eventId = default(long), long id = default(long), DateTime created = default(DateTime), long campaignId = default(long), string value = default(string), long usageLimit = default(long), float discountLimit = default(float), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), long usageCounter = default(long), float discountCounter = default(float), float discountRemainder = default(float), long referralId = default(long), string recipientIntegrationId = default(string), long importId = default(long), string batchId = default(string), Object attributes = default(Object), List<IntegrationHubEventPayloadCouponBasedNotificationsLimits> limits = default(List<IntegrationHubEventPayloadCouponBasedNotificationsLimits>), DateTime publishedAt = default(DateTime), string sourceOfEvent = default(string), string employeeName = default(string))
         {
+            this.EventId = eventId;
             this.Id = id;
             this.Created = created;
             this.CampaignId = campaignId;
@@ -88,6 +90,13 @@ namespace TalonOne.Model
             this.Limits = limits;
         }
         
+        /// <summary>
+        /// The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.
+        /// </summary>
+        /// <value>The ID of the integration hub event. Return this value in the delivery-status callback to mark the event delivered or failed.</value>
+        [DataMember(Name="EventId", EmitDefaultValue=false)]
+        public long EventId { get; set; }
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
@@ -223,6 +232,7 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class IntegrationHubEventPayloadCouponBasedNotifications {\n");
+            sb.Append("  EventId: ").Append(EventId).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
@@ -278,6 +288,10 @@ namespace TalonOne.Model
                 return false;
 
             return 
+                (
+                    this.EventId == input.EventId ||
+                    this.EventId.Equals(input.EventId)
+                ) && 
                 (
                     this.Id == input.Id ||
                     this.Id.Equals(input.Id)
@@ -385,6 +399,7 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.EventId.GetHashCode();
                 hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();

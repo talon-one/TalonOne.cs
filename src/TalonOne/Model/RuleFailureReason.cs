@@ -46,6 +46,8 @@ namespace TalonOne.Model
         /// <param name="couponValue">The code of the coupon that was being evaluated at the time of the rule failure..</param>
         /// <param name="referralID">The ID of the referral that was being evaluated at the time of the rule failure..</param>
         /// <param name="referralValue">The code of the referral that was being evaluated at the time of the rule failure..</param>
+        /// <param name="rewardId">The ID of the reward that was being evaluated at the time of the rule failure..</param>
+        /// <param name="rewardIntegrationId">The integration ID of the reward that was being evaluated at the time of the rule failure..</param>
         /// <param name="ruleIndex">The index of the rule that failed within the ruleset. (required).</param>
         /// <param name="ruleName">The name of the rule that failed within the ruleset. (required).</param>
         /// <param name="conditionIndex">The index of the condition that failed..</param>
@@ -53,7 +55,7 @@ namespace TalonOne.Model
         /// <param name="details">More details about the failure..</param>
         /// <param name="evaluationGroupID">The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
         /// <param name="evaluationGroupMode">The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-.</param>
-        public RuleFailureReason(long campaignID = default(long), string campaignName = default(string), long rulesetID = default(long), long couponID = default(long), string couponValue = default(string), long referralID = default(long), string referralValue = default(string), long ruleIndex = default(long), string ruleName = default(string), long conditionIndex = default(long), long effectIndex = default(long), string details = default(string), long evaluationGroupID = default(long), string evaluationGroupMode = default(string))
+        public RuleFailureReason(long campaignID = default(long), string campaignName = default(string), long rulesetID = default(long), long couponID = default(long), string couponValue = default(string), long referralID = default(long), string referralValue = default(string), long rewardId = default(long), string rewardIntegrationId = default(string), long ruleIndex = default(long), string ruleName = default(string), long conditionIndex = default(long), long effectIndex = default(long), string details = default(string), long evaluationGroupID = default(long), string evaluationGroupMode = default(string))
         {
             this.CampaignID = campaignID;
             // to ensure "campaignName" is required (not null)
@@ -66,6 +68,8 @@ namespace TalonOne.Model
             this.CouponValue = couponValue;
             this.ReferralID = referralID;
             this.ReferralValue = referralValue;
+            this.RewardId = rewardId;
+            this.RewardIntegrationId = rewardIntegrationId;
             this.ConditionIndex = conditionIndex;
             this.EffectIndex = effectIndex;
             this.Details = details;
@@ -121,6 +125,20 @@ namespace TalonOne.Model
         /// <value>The code of the referral that was being evaluated at the time of the rule failure.</value>
         [DataMember(Name="referralValue", EmitDefaultValue=false)]
         public string ReferralValue { get; set; }
+
+        /// <summary>
+        /// The ID of the reward that was being evaluated at the time of the rule failure.
+        /// </summary>
+        /// <value>The ID of the reward that was being evaluated at the time of the rule failure.</value>
+        [DataMember(Name="rewardId", EmitDefaultValue=false)]
+        public long RewardId { get; set; }
+
+        /// <summary>
+        /// The integration ID of the reward that was being evaluated at the time of the rule failure.
+        /// </summary>
+        /// <value>The integration ID of the reward that was being evaluated at the time of the rule failure.</value>
+        [DataMember(Name="rewardIntegrationId", EmitDefaultValue=false)]
+        public string RewardIntegrationId { get; set; }
 
         /// <summary>
         /// The index of the rule that failed within the ruleset.
@@ -186,6 +204,8 @@ namespace TalonOne.Model
             sb.Append("  CouponValue: ").Append(CouponValue).Append("\n");
             sb.Append("  ReferralID: ").Append(ReferralID).Append("\n");
             sb.Append("  ReferralValue: ").Append(ReferralValue).Append("\n");
+            sb.Append("  RewardId: ").Append(RewardId).Append("\n");
+            sb.Append("  RewardIntegrationId: ").Append(RewardIntegrationId).Append("\n");
             sb.Append("  RuleIndex: ").Append(RuleIndex).Append("\n");
             sb.Append("  RuleName: ").Append(RuleName).Append("\n");
             sb.Append("  ConditionIndex: ").Append(ConditionIndex).Append("\n");
@@ -259,6 +279,15 @@ namespace TalonOne.Model
                     this.ReferralValue.Equals(input.ReferralValue))
                 ) && 
                 (
+                    this.RewardId == input.RewardId ||
+                    this.RewardId.Equals(input.RewardId)
+                ) && 
+                (
+                    this.RewardIntegrationId == input.RewardIntegrationId ||
+                    (this.RewardIntegrationId != null &&
+                    this.RewardIntegrationId.Equals(input.RewardIntegrationId))
+                ) && 
+                (
                     this.RuleIndex == input.RuleIndex ||
                     this.RuleIndex.Equals(input.RuleIndex)
                 ) && 
@@ -310,6 +339,9 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ReferralID.GetHashCode();
                 if (this.ReferralValue != null)
                     hashCode = hashCode * 59 + this.ReferralValue.GetHashCode();
+                hashCode = hashCode * 59 + this.RewardId.GetHashCode();
+                if (this.RewardIntegrationId != null)
+                    hashCode = hashCode * 59 + this.RewardIntegrationId.GetHashCode();
                 hashCode = hashCode * 59 + this.RuleIndex.GetHashCode();
                 if (this.RuleName != null)
                     hashCode = hashCode * 59 + this.RuleName.GetHashCode();

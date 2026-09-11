@@ -156,7 +156,19 @@ namespace TalonOne.Model
             /// Enum Achievements for value: Achievements
             /// </summary>
             [EnumMember(Value = "Achievements")]
-            Achievements = 20
+            Achievements = 20,
+
+            /// <summary>
+            /// Enum AdvancedEvent for value: AdvancedEvent
+            /// </summary>
+            [EnumMember(Value = "AdvancedEvent")]
+            AdvancedEvent = 21,
+
+            /// <summary>
+            /// Enum AdvancedEventConnectedSession for value: AdvancedEventConnectedSession
+            /// </summary>
+            [EnumMember(Value = "AdvancedEventConnectedSession")]
+            AdvancedEventConnectedSession = 22
 
         }
 

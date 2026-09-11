@@ -71,7 +71,25 @@ namespace TalonOne.Model
             /// Enum RuleFailureReasons for value: ruleFailureReasons
             /// </summary>
             [EnumMember(Value = "ruleFailureReasons")]
-            RuleFailureReasons = 6
+            RuleFailureReasons = 6,
+
+            /// <summary>
+            /// Enum CampaignEligibility for value: campaignEligibility
+            /// </summary>
+            [EnumMember(Value = "campaignEligibility")]
+            CampaignEligibility = 7,
+
+            /// <summary>
+            /// Enum Achievements for value: achievements
+            /// </summary>
+            [EnumMember(Value = "achievements")]
+            Achievements = 8,
+
+            /// <summary>
+            /// Enum UnlockedRewards for value: unlockedRewards
+            /// </summary>
+            [EnumMember(Value = "unlockedRewards")]
+            UnlockedRewards = 9
 
         }
 

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;increaseAchievementProgress\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;increase customer progress\&quot; effect.
+    /// This effect indicates that the customer&#39;s progress in an achievement was updated during the current session. It is triggered when a rule using the [Update customer progress](https://docs.talon.one/docs/product/rules/effects/use-effects#update-customer-progress) effect is successfully validated.  For [on-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements), any customer progress exceeding the target automatically starts a new iteration. This generates a new &#x60;progressTrackerId&#x60; for each iteration, and there can be multiple progress updates for the same achievement from a single validation of this effect.
     /// </summary>
     [DataContract]
     public partial class IncreaseAchievementProgressEffectProps :  IEquatable<IncreaseAchievementProgressEffectProps>, IValidatableObject
@@ -41,8 +41,8 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="achievementId">The internal ID of the achievement. (required).</param>
         /// <param name="achievementName">The name of the achievement. (required).</param>
-        /// <param name="progressTrackerId">The internal ID of the achievement progress tracker..</param>
-        /// <param name="delta">The value by which the customer&#39;s current progress in the achievement is increased. (required).</param>
+        /// <param name="progressTrackerId">The internal ID of the customer progress tracker. For [on-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration..</param>
+        /// <param name="delta">The value by which the customer&#39;s current progress in the achievement has increased. (required).</param>
         /// <param name="value">The current progress of the customer in the achievement. (required).</param>
         /// <param name="target">The target value to complete the achievement. (required).</param>
         /// <param name="isJustCompleted">Indicates if the customer has completed the achievement in the current session. (required).</param>
@@ -73,16 +73,16 @@ namespace TalonOne.Model
         public string AchievementName { get; set; }
 
         /// <summary>
-        /// The internal ID of the achievement progress tracker.
+        /// The internal ID of the customer progress tracker. For [on-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.
         /// </summary>
-        /// <value>The internal ID of the achievement progress tracker.</value>
+        /// <value>The internal ID of the customer progress tracker. For [on-completion achievements](https://docs.talon.one/docs/product/achievements/overview#recurring-on-completion-achievements), this effect generates a unique ID for each iteration.</value>
         [DataMember(Name="progressTrackerId", EmitDefaultValue=false)]
         public long ProgressTrackerId { get; set; }
 
         /// <summary>
-        /// The value by which the customer&#39;s current progress in the achievement is increased.
+        /// The value by which the customer&#39;s current progress in the achievement has increased.
         /// </summary>
-        /// <value>The value by which the customer&#39;s current progress in the achievement is increased.</value>
+        /// <value>The value by which the customer&#39;s current progress in the achievement has increased.</value>
         [DataMember(Name="delta", EmitDefaultValue=false)]
         public decimal Delta { get; set; }
 
