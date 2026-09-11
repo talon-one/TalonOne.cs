@@ -40,10 +40,12 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="UpdateAudience" /> class.
         /// </summary>
         /// <param name="name">The human-friendly display name for this audience. (required).</param>
-        public UpdateAudience(string name = default(string))
+        /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications that are connected to this audience..</param>
+        public UpdateAudience(string name = default(string), List<long> subscribedApplicationsIds = default(List<long>))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for UpdateAudience and cannot be null");
+            this.SubscribedApplicationsIds = subscribedApplicationsIds;
         }
         
         /// <summary>
@@ -54,6 +56,13 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
+        /// A list of the IDs of the Applications that are connected to this audience.
+        /// </summary>
+        /// <value>A list of the IDs of the Applications that are connected to this audience.</value>
+        [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
+        public List<long> SubscribedApplicationsIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,6 +71,7 @@ namespace TalonOne.Model
             var sb = new StringBuilder();
             sb.Append("class UpdateAudience {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,6 +110,12 @@ namespace TalonOne.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
+                ) && 
+                (
+                    this.SubscribedApplicationsIds == input.SubscribedApplicationsIds ||
+                    this.SubscribedApplicationsIds != null &&
+                    input.SubscribedApplicationsIds != null &&
+                    this.SubscribedApplicationsIds.SequenceEqual(input.SubscribedApplicationsIds)
                 );
         }
 
@@ -114,6 +130,8 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
+                if (this.SubscribedApplicationsIds != null)
+                    hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();
                 return hashCode;
             }
         }

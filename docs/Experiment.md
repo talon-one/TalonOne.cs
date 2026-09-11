@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **Activated** | **DateTime** | The date and time the experiment was activated.  | [optional] 
 **State** | **string** | A disabled experiment is not evaluated for rules or coupons.  | [default to StateEnum.Disabled]
 **Variants** | [**List&lt;ExperimentVariant&gt;**](ExperimentVariant.md) |  | [optional] 
+**GoalType** | **string** | The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used.  | 
+**GoalDescription** | **string** | A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal.  | [optional] 
 **Deletedat** | **DateTime** | The date and time the experiment was deleted.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

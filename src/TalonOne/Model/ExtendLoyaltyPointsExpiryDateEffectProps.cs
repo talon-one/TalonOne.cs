@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;extendLoyaltyPointsExpiryDate\&quot; effect. This gets triggered when a validated rule contains the \&quot;extend expiry date\&quot; effect. The current expiry date gets extended by the time frame given in the effect. 
+    /// If loyalty points have an expiry date, this effect extends the expiry of all active and pending point transactions by a selected duration. 
     /// </summary>
     [DataContract]
     public partial class ExtendLoyaltyPointsExpiryDateEffectProps :  IEquatable<ExtendLoyaltyPointsExpiryDateEffectProps>, IValidatableObject
@@ -40,7 +40,7 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="ExtendLoyaltyPointsExpiryDateEffectProps" /> class.
         /// </summary>
         /// <param name="programId">ID of the loyalty program that contains these points. (required).</param>
-        /// <param name="subLedgerId">API name of the loyalty program subledger that contains these points. added. (required).</param>
+        /// <param name="subLedgerId">API name of the loyalty program subledger that contains these points. (required).</param>
         /// <param name="extensionDuration">Time frame by which the expiry date extends.  The time format is either: - immediate, or - an **integer** followed by a letter indicating the time unit.  Examples: &#x60;immediate&#x60;, &#x60;30s&#x60;, &#x60;40m&#x60;, &#x60;1h&#x60;, &#x60;5D&#x60;, &#x60;7W&#x60;, &#x60;10M&#x60;, &#x60;15Y&#x60;.  Available units:  - &#x60;s&#x60;: seconds - &#x60;m&#x60;: minutes - &#x60;h&#x60;: hours - &#x60;D&#x60;: days - &#x60;W&#x60;: weeks - &#x60;M&#x60;: months - &#x60;Y&#x60;: years  You can round certain units up or down: - &#x60;_D&#x60; for rounding down days only. Signifies the start of the day. - &#x60;_U&#x60; for rounding up days, weeks, months and years. Signifies the end of the day, week, month or year.  (required).</param>
         /// <param name="affectedTransactions">List of transactions affected by the expiry date update..</param>
         public ExtendLoyaltyPointsExpiryDateEffectProps(long programId = default(long), string subLedgerId = default(string), string extensionDuration = default(string), List<LoyaltyLedgerEntryExpiryDateChange> affectedTransactions = default(List<LoyaltyLedgerEntryExpiryDateChange>))
@@ -61,9 +61,9 @@ namespace TalonOne.Model
         public long ProgramId { get; set; }
 
         /// <summary>
-        /// API name of the loyalty program subledger that contains these points. added.
+        /// API name of the loyalty program subledger that contains these points.
         /// </summary>
-        /// <value>API name of the loyalty program subledger that contains these points. added.</value>
+        /// <value>API name of the loyalty program subledger that contains these points.</value>
         [DataMember(Name="subLedgerId", EmitDefaultValue=false)]
         public string SubLedgerId { get; set; }
 

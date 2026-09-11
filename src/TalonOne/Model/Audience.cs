@@ -45,11 +45,12 @@ namespace TalonOne.Model
         /// <param name="name">The human-friendly display name for this audience. (required).</param>
         /// <param name="sandbox">Indicates if this is a live or sandbox Application..</param>
         /// <param name="description">A description of the audience..</param>
+        /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications that are connected to this audience..</param>
         /// <param name="integration">The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.  For example, &#x60;mParticle&#x60;, &#x60;Segment&#x60;, &#x60;Shopify&#x60;, &#x60;Braze&#x60;, or &#x60;Iterable&#x60;.  **Note:** If you do not integrate with any of these platforms, do not use this property. .</param>
         /// <param name="integrationId">The ID of this audience in the third-party integration.  **Note:** To create an audience that doesn&#39;t come from a 3rd party platform, do not use this property. .</param>
         /// <param name="createdIn3rdParty">Determines if this audience is a 3rd party audience or not..</param>
         /// <param name="lastUpdate">The last time that the audience memberships changed..</param>
-        public Audience(long accountId = default(long), long id = default(long), DateTime created = default(DateTime), string name = default(string), bool sandbox = default(bool), string description = default(string), string integration = default(string), string integrationId = default(string), bool createdIn3rdParty = default(bool), DateTime lastUpdate = default(DateTime))
+        public Audience(long accountId = default(long), long id = default(long), DateTime created = default(DateTime), string name = default(string), bool sandbox = default(bool), string description = default(string), List<long> subscribedApplicationsIds = default(List<long>), string integration = default(string), string integrationId = default(string), bool createdIn3rdParty = default(bool), DateTime lastUpdate = default(DateTime))
         {
             this.AccountId = accountId;
             this.Id = id;
@@ -58,6 +59,7 @@ namespace TalonOne.Model
             this.Name = name ?? throw new ArgumentNullException("name is a required property for Audience and cannot be null");
             this.Sandbox = sandbox;
             this.Description = description;
+            this.SubscribedApplicationsIds = subscribedApplicationsIds;
             this.Integration = integration;
             this.IntegrationId = integrationId;
             this.CreatedIn3rdParty = createdIn3rdParty;
@@ -107,6 +109,13 @@ namespace TalonOne.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// A list of the IDs of the Applications that are connected to this audience.
+        /// </summary>
+        /// <value>A list of the IDs of the Applications that are connected to this audience.</value>
+        [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
+        public List<long> SubscribedApplicationsIds { get; set; }
+
+        /// <summary>
         /// The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.  For example, &#x60;mParticle&#x60;, &#x60;Segment&#x60;, &#x60;Shopify&#x60;, &#x60;Braze&#x60;, or &#x60;Iterable&#x60;.  **Note:** If you do not integrate with any of these platforms, do not use this property. 
         /// </summary>
         /// <value>The Talon.One-supported [3rd-party platform](https://docs.talon.one/docs/dev/technology-partners/overview) that this audience was created in.  For example, &#x60;mParticle&#x60;, &#x60;Segment&#x60;, &#x60;Shopify&#x60;, &#x60;Braze&#x60;, or &#x60;Iterable&#x60;.  **Note:** If you do not integrate with any of these platforms, do not use this property. </value>
@@ -148,6 +157,7 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  SubscribedApplicationsIds: ").Append(SubscribedApplicationsIds).Append("\n");
             sb.Append("  Integration: ").Append(Integration).Append("\n");
             sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
             sb.Append("  CreatedIn3rdParty: ").Append(CreatedIn3rdParty).Append("\n");
@@ -214,6 +224,12 @@ namespace TalonOne.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.SubscribedApplicationsIds == input.SubscribedApplicationsIds ||
+                    this.SubscribedApplicationsIds != null &&
+                    input.SubscribedApplicationsIds != null &&
+                    this.SubscribedApplicationsIds.SequenceEqual(input.SubscribedApplicationsIds)
+                ) && 
+                (
                     this.Integration == input.Integration ||
                     (this.Integration != null &&
                     this.Integration.Equals(input.Integration))
@@ -252,6 +268,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.SubscribedApplicationsIds != null)
+                    hashCode = hashCode * 59 + this.SubscribedApplicationsIds.GetHashCode();
                 if (this.Integration != null)
                     hashCode = hashCode * 59 + this.Integration.GetHashCode();
                 if (this.IntegrationId != null)

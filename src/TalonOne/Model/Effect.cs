@@ -55,8 +55,9 @@ namespace TalonOne.Model
         /// <param name="selectedPriceType">The selected price type for the SKU targeted by this effect..</param>
         /// <param name="selectedPrice">The value of the selected price type to apply to the SKU targeted by this effect, before any discounts are applied..</param>
         /// <param name="adjustmentReferenceId">The reference identifier of the selected price adjustment for this SKU. This is only returned if the &#x60;selectedPrice&#x60; resulted from a price adjustment..</param>
+        /// <param name="rewardId">The ID of the reward that was being evaluated when this effect was triggered..</param>
         /// <param name="props">props (required).</param>
-        public Effect(long experimentId = default(long), long campaignId = default(long), long rulesetId = default(long), long ruleIndex = default(long), string ruleName = default(string), string effectType = default(string), long triggeredByCoupon = default(long), long triggeredForCatalogItem = default(long), long conditionIndex = default(long), long evaluationGroupID = default(long), string evaluationGroupMode = default(string), long campaignRevisionId = default(long), long campaignRevisionVersionId = default(long), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), Guid adjustmentReferenceId = default(Guid), Object props = default(Object))
+        public Effect(long experimentId = default(long), long campaignId = default(long), long rulesetId = default(long), long ruleIndex = default(long), string ruleName = default(string), string effectType = default(string), long triggeredByCoupon = default(long), long triggeredForCatalogItem = default(long), long conditionIndex = default(long), long evaluationGroupID = default(long), string evaluationGroupMode = default(string), long campaignRevisionId = default(long), long campaignRevisionVersionId = default(long), string selectedPriceType = default(string), decimal selectedPrice = default(decimal), Guid adjustmentReferenceId = default(Guid), long rewardId = default(long), Object props = default(Object))
         {
             this.CampaignId = campaignId;
             this.RulesetId = rulesetId;
@@ -78,6 +79,7 @@ namespace TalonOne.Model
             this.SelectedPriceType = selectedPriceType;
             this.SelectedPrice = selectedPrice;
             this.AdjustmentReferenceId = adjustmentReferenceId;
+            this.RewardId = rewardId;
         }
         
         /// <summary>
@@ -193,6 +195,13 @@ namespace TalonOne.Model
         public Guid AdjustmentReferenceId { get; set; }
 
         /// <summary>
+        /// The ID of the reward that was being evaluated when this effect was triggered.
+        /// </summary>
+        /// <value>The ID of the reward that was being evaluated when this effect was triggered.</value>
+        [DataMember(Name="rewardId", EmitDefaultValue=false)]
+        public long RewardId { get; set; }
+
+        /// <summary>
         /// Gets or Sets Props
         /// </summary>
         [DataMember(Name="props", EmitDefaultValue=false)]
@@ -222,6 +231,7 @@ namespace TalonOne.Model
             sb.Append("  SelectedPriceType: ").Append(SelectedPriceType).Append("\n");
             sb.Append("  SelectedPrice: ").Append(SelectedPrice).Append("\n");
             sb.Append("  AdjustmentReferenceId: ").Append(AdjustmentReferenceId).Append("\n");
+            sb.Append("  RewardId: ").Append(RewardId).Append("\n");
             sb.Append("  Props: ").Append(Props).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -327,6 +337,10 @@ namespace TalonOne.Model
                     this.AdjustmentReferenceId.Equals(input.AdjustmentReferenceId))
                 ) && 
                 (
+                    this.RewardId == input.RewardId ||
+                    this.RewardId.Equals(input.RewardId)
+                ) && 
+                (
                     this.Props == input.Props ||
                     (this.Props != null &&
                     this.Props.Equals(input.Props))
@@ -363,6 +377,7 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.SelectedPrice.GetHashCode();
                 if (this.AdjustmentReferenceId != null)
                     hashCode = hashCode * 59 + this.AdjustmentReferenceId.GetHashCode();
+                hashCode = hashCode * 59 + this.RewardId.GetHashCode();
                 if (this.Props != null)
                     hashCode = hashCode * 59 + this.Props.GetHashCode();
                 return hashCode;

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;referralCreated\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;create referral\&quot; effect, and a referral code was created for a customer. See \&quot;createdReferrals\&quot; on the response for all details of this referral code.
+    /// The &#x60;referralCreated&#x60; effect behaves similarly to [couponCreated](https://docs.talon.one/docs/dev/integration-api/api-effects#couponcreated). If the &#x60;friendProfileIntegrationId&#x60; parameter is empty, the referral code can be redeemed by anyone.
     /// </summary>
     [DataContract]
     public partial class ReferralCreatedEffectProps :  IEquatable<ReferralCreatedEffectProps>, IValidatableObject
@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReferralCreatedEffectProps" /> class.
         /// </summary>
-        /// <param name="value">The referral code that was created. (required).</param>
+        /// <param name="value">The referral code provided in the session. (required).</param>
         public ReferralCreatedEffectProps(string value = default(string))
         {
             // to ensure "value" is required (not null)
@@ -47,9 +47,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The referral code that was created.
+        /// The referral code provided in the session.
         /// </summary>
-        /// <value>The referral code that was created.</value>
+        /// <value>The referral code provided in the session.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
 

@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **ApplicationId** | **long** | The ID of the Application associated with the campaign that references this achievement. | 
 **ApplicationName** | **string** | The name of the Application associated with the campaign that references this achievement. | 
 **CampaignId** | **long** | The ID of the campaign that references this achievement. | 
+**CampaignName** | **string** | The name of the campaign that references this achievement. | 
+**CampaignState** | **string** | The state of the campaign that references this achievement. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

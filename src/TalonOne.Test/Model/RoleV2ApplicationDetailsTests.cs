@@ -89,14 +89,6 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Tools'
         }
-        /// <summary>
-        /// Test the property 'Thresholds'
-        /// </summary>
-        [Fact]
-        public void ThresholdsTest()
-        {
-            // TODO unit test for the property 'Thresholds'
-        }
 
     }
 

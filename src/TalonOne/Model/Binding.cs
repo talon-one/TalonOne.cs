@@ -41,12 +41,12 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="name">A descriptive name for the value to be bound. (required).</param>
         /// <param name="type">The kind of binding. Possible values are: - &#x60;bundle&#x60; - &#x60;cartItemFilter&#x60; - &#x60;subledgerBalance&#x60; - &#x60;templateParameter&#x60; .</param>
-        /// <param name="expression">A Talang expression that will be evaluated and its result attached to the name of the binding. (required).</param>
-        /// <param name="valueType">Can be one of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; .</param>
+        /// <param name="expression">A Talang expression that is evaluated, and its result is bound to the name of the binding. The first element must be one of the functions or operators supported by Talang, followed by its arguments. The arguments can be strings, numbers, or nested expressions. For example: - &#x60;[\&quot;list\&quot;, \&quot;10014\&quot;, \&quot;10015\&quot;]&#x60; calls the &#x60;list&#x60; function to build a list of strings. - &#x60;[\&quot;+\&quot;, 2, 0]&#x60; uses the &#x60;+&#x60; operator to add two numbers.  (required).</param>
+        /// <param name="valueType">The data type of the value. One of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; .</param>
         /// <param name="minValue">The minimum value allowed for this placeholder..</param>
         /// <param name="maxValue">The maximum value allowed for this placeholder..</param>
-        /// <param name="attributeId">Id of the attribute attached to the placeholder..</param>
-        /// <param name="description">Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template..</param>
+        /// <param name="attributeId">Identifier of the attribute attached to the placeholder..</param>
+        /// <param name="description">Description of the placeholder field and its value in the template. This text can be shown when creating campaigns from this template..</param>
         public Binding(string name = default(string), string type = default(string), List<Object> expression = default(List<Object>), string valueType = default(string), decimal minValue = default(decimal), decimal maxValue = default(decimal), long attributeId = default(long), string description = default(string))
         {
             // to ensure "name" is required (not null)
@@ -76,16 +76,16 @@ namespace TalonOne.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// A Talang expression that will be evaluated and its result attached to the name of the binding.
+        /// A Talang expression that is evaluated, and its result is bound to the name of the binding. The first element must be one of the functions or operators supported by Talang, followed by its arguments. The arguments can be strings, numbers, or nested expressions. For example: - &#x60;[\&quot;list\&quot;, \&quot;10014\&quot;, \&quot;10015\&quot;]&#x60; calls the &#x60;list&#x60; function to build a list of strings. - &#x60;[\&quot;+\&quot;, 2, 0]&#x60; uses the &#x60;+&#x60; operator to add two numbers. 
         /// </summary>
-        /// <value>A Talang expression that will be evaluated and its result attached to the name of the binding.</value>
+        /// <value>A Talang expression that is evaluated, and its result is bound to the name of the binding. The first element must be one of the functions or operators supported by Talang, followed by its arguments. The arguments can be strings, numbers, or nested expressions. For example: - &#x60;[\&quot;list\&quot;, \&quot;10014\&quot;, \&quot;10015\&quot;]&#x60; calls the &#x60;list&#x60; function to build a list of strings. - &#x60;[\&quot;+\&quot;, 2, 0]&#x60; uses the &#x60;+&#x60; operator to add two numbers. </value>
         [DataMember(Name="expression", EmitDefaultValue=false)]
         public List<Object> Expression { get; set; }
 
         /// <summary>
-        /// Can be one of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; 
+        /// The data type of the value. One of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; 
         /// </summary>
-        /// <value>Can be one of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; </value>
+        /// <value>The data type of the value. One of the following: - &#x60;string&#x60; - &#x60;number&#x60; - &#x60;boolean&#x60; </value>
         [DataMember(Name="valueType", EmitDefaultValue=false)]
         public string ValueType { get; set; }
 
@@ -104,16 +104,16 @@ namespace TalonOne.Model
         public decimal MaxValue { get; set; }
 
         /// <summary>
-        /// Id of the attribute attached to the placeholder.
+        /// Identifier of the attribute attached to the placeholder.
         /// </summary>
-        /// <value>Id of the attribute attached to the placeholder.</value>
+        /// <value>Identifier of the attribute attached to the placeholder.</value>
         [DataMember(Name="attributeId", EmitDefaultValue=false)]
         public long AttributeId { get; set; }
 
         /// <summary>
-        /// Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.
+        /// Description of the placeholder field and its value in the template. This text can be shown when creating campaigns from this template.
         /// </summary>
-        /// <value>Describes the placeholder field and value in the template. This description can be used when creating campaigns from this template.</value>
+        /// <value>Description of the placeholder field and its value in the template. This text can be shown when creating campaigns from this template.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
 

@@ -80,7 +80,7 @@ namespace TalonOne.Model
         /// <param name="id">ID of the loyalty ledger transaction. (required).</param>
         /// <param name="rulesetId">The ID of the ruleset containing the rule that triggered this effect..</param>
         /// <param name="ruleName">The name of the rule that triggered this effect..</param>
-        /// <param name="validityDuration">The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
         public CardLedgerTransactionLogEntryIntegrationAPI(string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string cardIdentifier = default(string), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), long id = default(long), long rulesetId = default(long), string ruleName = default(string), string validityDuration = default(string))
         {
             // to ensure "transactionUUID" is required (not null)
@@ -198,9 +198,9 @@ namespace TalonOne.Model
         public string RuleName { get; set; }
 
         /// <summary>
-        /// The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+        /// The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
         /// </summary>
-        /// <value>The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
+        /// <value>The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
         [DataMember(Name="validityDuration", EmitDefaultValue=false)]
         public string ValidityDuration { get; set; }
 

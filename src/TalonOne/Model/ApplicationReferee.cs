@@ -41,11 +41,12 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
         /// <param name="sessionId">Integration ID of the session in which the customer redeemed the referral. (required).</param>
+        /// <param name="advancedEventIntegrationId">The unique ID of the advanced event in which the customer redeemed the referral. Omitted when the referral was redeemed through a customer session rather than an advanced event..</param>
         /// <param name="advocateIntegrationId">Integration ID of the Advocate&#39;s Profile. (required).</param>
         /// <param name="friendIntegrationId">Integration ID of the Friend&#39;s Profile. (required).</param>
         /// <param name="code">Advocate&#39;s referral code. (required).</param>
         /// <param name="created">Timestamp of the moment the customer redeemed the referral. (required).</param>
-        public ApplicationReferee(long applicationId = default(long), string sessionId = default(string), string advocateIntegrationId = default(string), string friendIntegrationId = default(string), string code = default(string), DateTime created = default(DateTime))
+        public ApplicationReferee(long applicationId = default(long), string sessionId = default(string), string advancedEventIntegrationId = default(string), string advocateIntegrationId = default(string), string friendIntegrationId = default(string), string code = default(string), DateTime created = default(DateTime))
         {
             this.ApplicationId = applicationId;
             // to ensure "sessionId" is required (not null)
@@ -57,6 +58,7 @@ namespace TalonOne.Model
             // to ensure "code" is required (not null)
             this.Code = code ?? throw new ArgumentNullException("code is a required property for ApplicationReferee and cannot be null");
             this.Created = created;
+            this.AdvancedEventIntegrationId = advancedEventIntegrationId;
         }
         
         /// <summary>
@@ -72,6 +74,13 @@ namespace TalonOne.Model
         /// <value>Integration ID of the session in which the customer redeemed the referral.</value>
         [DataMember(Name="sessionId", EmitDefaultValue=false)]
         public string SessionId { get; set; }
+
+        /// <summary>
+        /// The unique ID of the advanced event in which the customer redeemed the referral. Omitted when the referral was redeemed through a customer session rather than an advanced event.
+        /// </summary>
+        /// <value>The unique ID of the advanced event in which the customer redeemed the referral. Omitted when the referral was redeemed through a customer session rather than an advanced event.</value>
+        [DataMember(Name="advancedEventIntegrationId", EmitDefaultValue=false)]
+        public string AdvancedEventIntegrationId { get; set; }
 
         /// <summary>
         /// Integration ID of the Advocate&#39;s Profile.
@@ -111,6 +120,7 @@ namespace TalonOne.Model
             sb.Append("class ApplicationReferee {\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  SessionId: ").Append(SessionId).Append("\n");
+            sb.Append("  AdvancedEventIntegrationId: ").Append(AdvancedEventIntegrationId).Append("\n");
             sb.Append("  AdvocateIntegrationId: ").Append(AdvocateIntegrationId).Append("\n");
             sb.Append("  FriendIntegrationId: ").Append(FriendIntegrationId).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
@@ -159,6 +169,11 @@ namespace TalonOne.Model
                     this.SessionId.Equals(input.SessionId))
                 ) && 
                 (
+                    this.AdvancedEventIntegrationId == input.AdvancedEventIntegrationId ||
+                    (this.AdvancedEventIntegrationId != null &&
+                    this.AdvancedEventIntegrationId.Equals(input.AdvancedEventIntegrationId))
+                ) && 
+                (
                     this.AdvocateIntegrationId == input.AdvocateIntegrationId ||
                     (this.AdvocateIntegrationId != null &&
                     this.AdvocateIntegrationId.Equals(input.AdvocateIntegrationId))
@@ -192,6 +207,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 if (this.SessionId != null)
                     hashCode = hashCode * 59 + this.SessionId.GetHashCode();
+                if (this.AdvancedEventIntegrationId != null)
+                    hashCode = hashCode * 59 + this.AdvancedEventIntegrationId.GetHashCode();
                 if (this.AdvocateIntegrationId != null)
                     hashCode = hashCode * 59 + this.AdvocateIntegrationId.GetHashCode();
                 if (this.FriendIntegrationId != null)
@@ -211,6 +228,12 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // AdvancedEventIntegrationId (string) maxLength
+            if(this.AdvancedEventIntegrationId != null && this.AdvancedEventIntegrationId.Length > 1000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for AdvancedEventIntegrationId, length must be less than 1000.", new [] { "AdvancedEventIntegrationId" });
+            }
+
             // AdvocateIntegrationId (string) maxLength
             if(this.AdvocateIntegrationId != null && this.AdvocateIntegrationId.Length > 1000)
             {

@@ -92,42 +92,36 @@ namespace TalonOne.Model
         [DataMember(Name="activationPolicy", EmitDefaultValue=false)]
         public ActivationPolicyEnum ActivationPolicy { get; set; }
         /// <summary>
-        /// The status of the achievement.
+        /// The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. 
         /// </summary>
-        /// <value>The status of the achievement.</value>
+        /// <value>The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
             /// <summary>
-            /// Enum Inprogress for value: inprogress
+            /// Enum Active for value: active
             /// </summary>
-            [EnumMember(Value = "inprogress")]
-            Inprogress = 1,
+            [EnumMember(Value = "active")]
+            Active = 1,
+
+            /// <summary>
+            /// Enum Scheduled for value: scheduled
+            /// </summary>
+            [EnumMember(Value = "scheduled")]
+            Scheduled = 2,
 
             /// <summary>
             /// Enum Expired for value: expired
             /// </summary>
             [EnumMember(Value = "expired")]
-            Expired = 2,
-
-            /// <summary>
-            /// Enum Notstarted for value: not_started
-            /// </summary>
-            [EnumMember(Value = "not_started")]
-            Notstarted = 3,
-
-            /// <summary>
-            /// Enum Completed for value: completed
-            /// </summary>
-            [EnumMember(Value = "completed")]
-            Completed = 4
+            Expired = 3
 
         }
 
         /// <summary>
-        /// The status of the achievement.
+        /// The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. 
         /// </summary>
-        /// <value>The status of the achievement.</value>
+        /// <value>The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum? Status { get; set; }
         /// <summary>
@@ -150,14 +144,17 @@ namespace TalonOne.Model
         /// <param name="fixedStartDate">The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="endDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="allowRollbackAfterCompletion">When &#x60;true&#x60;, customer progress can be rolled back in completed achievements..</param>
-        /// <param name="sandbox">Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type. (required).</param>
         /// <param name="subscribedApplications">A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement. (required).</param>
-        /// <param name="timezone">A string containing an IANA timezone descriptor. (required).</param>
         /// <param name="userId">The ID of the user that created this achievement. (required).</param>
         /// <param name="createdBy">Name of the user that created the achievement.  **Note**: This is not available if the user has been deleted. .</param>
+        /// <param name="periodEndOverride">periodEndOverride.</param>
         /// <param name="hasProgress">Indicates if a customer has made progress in the achievement..</param>
-        /// <param name="status">The status of the achievement..</param>
-        public AchievementV2(long id = default(long), DateTime created = default(DateTime), string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), RecurrencePolicyEnum recurrencePolicy = default(RecurrencePolicyEnum), ActivationPolicyEnum activationPolicy = default(ActivationPolicyEnum), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool), bool sandbox = default(bool), List<long> subscribedApplications = default(List<long>), string timezone = default(string), long userId = default(long), string createdBy = default(string), bool hasProgress = default(bool), StatusEnum? status = default(StatusEnum?))
+        /// <param name="status">The status of the achievement.                                                                                               - &#x60;active&#x60;: The achievement is available to customers. - &#x60;scheduled&#x60;: The achievement has a &#x60;fixedStartDate&#x60; set in the future. - &#x60;expired&#x60;: The achievement&#39;s &#x60;endDate&#x60; is in the past. .</param>
+        /// <param name="sandbox">Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type. (required).</param>
+        /// <param name="timezone">A string containing an IANA timezone descriptor. (required).</param>
+        /// <param name="campaignId">This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. This field contains the first campaign ID from the related &#x60;referencedByCampaigns&#x60;, and is omitted when &#x60;referencedByCampaigns&#x60; is empty..</param>
+        /// <param name="referencedByCampaigns">The campaigns that reference this achievement. They are sorted in ascending order by their id. (required).</param>
+        public AchievementV2(long id = default(long), DateTime created = default(DateTime), string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), RecurrencePolicyEnum recurrencePolicy = default(RecurrencePolicyEnum), ActivationPolicyEnum activationPolicy = default(ActivationPolicyEnum), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool), List<long> subscribedApplications = default(List<long>), long userId = default(long), string createdBy = default(string), TimePoint periodEndOverride = default(TimePoint), bool hasProgress = default(bool), StatusEnum? status = default(StatusEnum?), bool sandbox = default(bool), string timezone = default(string), long campaignId = default(long), List<CampaignReference> referencedByCampaigns = default(List<CampaignReference>))
         {
             this.Id = id;
             this.Created = created;
@@ -170,19 +167,23 @@ namespace TalonOne.Model
             this.Target = target;
             this.RecurrencePolicy = recurrencePolicy;
             this.ActivationPolicy = activationPolicy;
-            this.Sandbox = sandbox;
             // to ensure "subscribedApplications" is required (not null)
             this.SubscribedApplications = subscribedApplications ?? throw new ArgumentNullException("subscribedApplications is a required property for AchievementV2 and cannot be null");
+            this.UserId = userId;
+            this.Sandbox = sandbox;
             // to ensure "timezone" is required (not null)
             this.Timezone = timezone ?? throw new ArgumentNullException("timezone is a required property for AchievementV2 and cannot be null");
-            this.UserId = userId;
+            // to ensure "referencedByCampaigns" is required (not null)
+            this.ReferencedByCampaigns = referencedByCampaigns ?? throw new ArgumentNullException("referencedByCampaigns is a required property for AchievementV2 and cannot be null");
             this.Period = period;
             this.FixedStartDate = fixedStartDate;
             this.EndDate = endDate;
             this.AllowRollbackAfterCompletion = allowRollbackAfterCompletion;
             this.CreatedBy = createdBy;
+            this.PeriodEndOverride = periodEndOverride;
             this.HasProgress = hasProgress;
             this.Status = status;
+            this.CampaignId = campaignId;
         }
         
         /// <summary>
@@ -256,25 +257,11 @@ namespace TalonOne.Model
         public bool AllowRollbackAfterCompletion { get; set; }
 
         /// <summary>
-        /// Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
-        /// </summary>
-        /// <value>Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.</value>
-        [DataMember(Name="sandbox", EmitDefaultValue=false)]
-        public bool Sandbox { get; set; }
-
-        /// <summary>
         /// A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.
         /// </summary>
         /// <value>A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.</value>
         [DataMember(Name="subscribedApplications", EmitDefaultValue=false)]
         public List<long> SubscribedApplications { get; set; }
-
-        /// <summary>
-        /// A string containing an IANA timezone descriptor.
-        /// </summary>
-        /// <value>A string containing an IANA timezone descriptor.</value>
-        [DataMember(Name="timezone", EmitDefaultValue=false)]
-        public string Timezone { get; set; }
 
         /// <summary>
         /// The ID of the user that created this achievement.
@@ -291,11 +278,45 @@ namespace TalonOne.Model
         public string CreatedBy { get; set; }
 
         /// <summary>
+        /// Gets or Sets PeriodEndOverride
+        /// </summary>
+        [DataMember(Name="periodEndOverride", EmitDefaultValue=false)]
+        public TimePoint PeriodEndOverride { get; set; }
+
+        /// <summary>
         /// Indicates if a customer has made progress in the achievement.
         /// </summary>
         /// <value>Indicates if a customer has made progress in the achievement.</value>
         [DataMember(Name="hasProgress", EmitDefaultValue=false)]
         public bool HasProgress { get; set; }
+
+        /// <summary>
+        /// Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
+        /// </summary>
+        /// <value>Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.</value>
+        [DataMember(Name="sandbox", EmitDefaultValue=false)]
+        public bool Sandbox { get; set; }
+
+        /// <summary>
+        /// A string containing an IANA timezone descriptor.
+        /// </summary>
+        /// <value>A string containing an IANA timezone descriptor.</value>
+        [DataMember(Name="timezone", EmitDefaultValue=false)]
+        public string Timezone { get; set; }
+
+        /// <summary>
+        /// This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. This field contains the first campaign ID from the related &#x60;referencedByCampaigns&#x60;, and is omitted when &#x60;referencedByCampaigns&#x60; is empty.
+        /// </summary>
+        /// <value>This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. This field contains the first campaign ID from the related &#x60;referencedByCampaigns&#x60;, and is omitted when &#x60;referencedByCampaigns&#x60; is empty.</value>
+        [DataMember(Name="campaignId", EmitDefaultValue=false)]
+        public long CampaignId { get; set; }
+
+        /// <summary>
+        /// The campaigns that reference this achievement. They are sorted in ascending order by their id.
+        /// </summary>
+        /// <value>The campaigns that reference this achievement. They are sorted in ascending order by their id.</value>
+        [DataMember(Name="referencedByCampaigns", EmitDefaultValue=false)]
+        public List<CampaignReference> ReferencedByCampaigns { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -317,13 +338,16 @@ namespace TalonOne.Model
             sb.Append("  FixedStartDate: ").Append(FixedStartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  AllowRollbackAfterCompletion: ").Append(AllowRollbackAfterCompletion).Append("\n");
-            sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  SubscribedApplications: ").Append(SubscribedApplications).Append("\n");
-            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("  CreatedBy: ").Append(CreatedBy).Append("\n");
+            sb.Append("  PeriodEndOverride: ").Append(PeriodEndOverride).Append("\n");
             sb.Append("  HasProgress: ").Append(HasProgress).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
+            sb.Append("  Timezone: ").Append(Timezone).Append("\n");
+            sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
+            sb.Append("  ReferencedByCampaigns: ").Append(ReferencedByCampaigns).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -414,19 +438,10 @@ namespace TalonOne.Model
                     this.AllowRollbackAfterCompletion.Equals(input.AllowRollbackAfterCompletion)
                 ) && 
                 (
-                    this.Sandbox == input.Sandbox ||
-                    this.Sandbox.Equals(input.Sandbox)
-                ) && 
-                (
                     this.SubscribedApplications == input.SubscribedApplications ||
                     this.SubscribedApplications != null &&
                     input.SubscribedApplications != null &&
                     this.SubscribedApplications.SequenceEqual(input.SubscribedApplications)
-                ) && 
-                (
-                    this.Timezone == input.Timezone ||
-                    (this.Timezone != null &&
-                    this.Timezone.Equals(input.Timezone))
                 ) && 
                 (
                     this.UserId == input.UserId ||
@@ -438,12 +453,36 @@ namespace TalonOne.Model
                     this.CreatedBy.Equals(input.CreatedBy))
                 ) && 
                 (
+                    this.PeriodEndOverride == input.PeriodEndOverride ||
+                    (this.PeriodEndOverride != null &&
+                    this.PeriodEndOverride.Equals(input.PeriodEndOverride))
+                ) && 
+                (
                     this.HasProgress == input.HasProgress ||
                     this.HasProgress.Equals(input.HasProgress)
                 ) && 
                 (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
+                ) && 
+                (
+                    this.Sandbox == input.Sandbox ||
+                    this.Sandbox.Equals(input.Sandbox)
+                ) && 
+                (
+                    this.Timezone == input.Timezone ||
+                    (this.Timezone != null &&
+                    this.Timezone.Equals(input.Timezone))
+                ) && 
+                (
+                    this.CampaignId == input.CampaignId ||
+                    this.CampaignId.Equals(input.CampaignId)
+                ) && 
+                (
+                    this.ReferencedByCampaigns == input.ReferencedByCampaigns ||
+                    this.ReferencedByCampaigns != null &&
+                    input.ReferencedByCampaigns != null &&
+                    this.ReferencedByCampaigns.SequenceEqual(input.ReferencedByCampaigns)
                 );
         }
 
@@ -475,16 +514,21 @@ namespace TalonOne.Model
                 if (this.EndDate != null)
                     hashCode = hashCode * 59 + this.EndDate.GetHashCode();
                 hashCode = hashCode * 59 + this.AllowRollbackAfterCompletion.GetHashCode();
-                hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 if (this.SubscribedApplications != null)
                     hashCode = hashCode * 59 + this.SubscribedApplications.GetHashCode();
-                if (this.Timezone != null)
-                    hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 hashCode = hashCode * 59 + this.UserId.GetHashCode();
                 if (this.CreatedBy != null)
                     hashCode = hashCode * 59 + this.CreatedBy.GetHashCode();
+                if (this.PeriodEndOverride != null)
+                    hashCode = hashCode * 59 + this.PeriodEndOverride.GetHashCode();
                 hashCode = hashCode * 59 + this.HasProgress.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
+                hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
+                if (this.Timezone != null)
+                    hashCode = hashCode * 59 + this.Timezone.GetHashCode();
+                hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
+                if (this.ReferencedByCampaigns != null)
+                    hashCode = hashCode * 59 + this.ReferencedByCampaigns.GetHashCode();
                 return hashCode;
             }
         }

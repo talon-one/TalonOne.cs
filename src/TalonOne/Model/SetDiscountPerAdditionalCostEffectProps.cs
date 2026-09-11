@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;setDiscountPerAdditionalCost\&quot; effect. This gets triggered whenever a validated rule contained a \&quot;set per additional cost discount\&quot; effect. This is a discount that should be applied on a specific additional cost.
+    /// This effect indicates that a discount that should be applied on a specific additional cost. It is triggered whenever a rule containing a **Discount additional cost** effect is validated.  Enabling [partial rewards](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-rewards) allows a rule that would fail because of insufficient budget to pass. The rule still fails when the budget reaches 0. Use the &#x60;desiredValue&#x60; property to identify the original amount of loyalty points.
     /// </summary>
     [DataContract]
     public partial class SetDiscountPerAdditionalCostEffectProps :  IEquatable<SetDiscountPerAdditionalCostEffectProps>, IValidatableObject
@@ -39,11 +39,11 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetDiscountPerAdditionalCostEffectProps" /> class.
         /// </summary>
-        /// <param name="name">The name / description of this discount (required).</param>
-        /// <param name="additionalCostId">The ID of the additional cost. (required).</param>
-        /// <param name="additionalCost">The name of the additional cost. (required).</param>
-        /// <param name="value">The total monetary value of the discount. (required).</param>
-        /// <param name="desiredValue">The original value of the discount..</param>
+        /// <param name="name">The name of the discount. (required).</param>
+        /// <param name="additionalCostId">The identifier of the additional cost. (required).</param>
+        /// <param name="additionalCost">The API name of the additional cost. (required).</param>
+        /// <param name="value">The monetary value of the discount to apply. (required).</param>
+        /// <param name="desiredValue">_(Partial discounts enabled only)_ The monetary value of the discount to be applied without considering budget limitations..</param>
         public SetDiscountPerAdditionalCostEffectProps(string name = default(string), long additionalCostId = default(long), string additionalCost = default(string), decimal value = default(decimal), decimal desiredValue = default(decimal))
         {
             // to ensure "name" is required (not null)
@@ -56,37 +56,37 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The name / description of this discount
+        /// The name of the discount.
         /// </summary>
-        /// <value>The name / description of this discount</value>
+        /// <value>The name of the discount.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The ID of the additional cost.
+        /// The identifier of the additional cost.
         /// </summary>
-        /// <value>The ID of the additional cost.</value>
+        /// <value>The identifier of the additional cost.</value>
         [DataMember(Name="additionalCostId", EmitDefaultValue=false)]
         public long AdditionalCostId { get; set; }
 
         /// <summary>
-        /// The name of the additional cost.
+        /// The API name of the additional cost.
         /// </summary>
-        /// <value>The name of the additional cost.</value>
+        /// <value>The API name of the additional cost.</value>
         [DataMember(Name="additionalCost", EmitDefaultValue=false)]
         public string AdditionalCost { get; set; }
 
         /// <summary>
-        /// The total monetary value of the discount.
+        /// The monetary value of the discount to apply.
         /// </summary>
-        /// <value>The total monetary value of the discount.</value>
+        /// <value>The monetary value of the discount to apply.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public decimal Value { get; set; }
 
         /// <summary>
-        /// The original value of the discount.
+        /// _(Partial discounts enabled only)_ The monetary value of the discount to be applied without considering budget limitations.
         /// </summary>
-        /// <value>The original value of the discount.</value>
+        /// <value>_(Partial discounts enabled only)_ The monetary value of the discount to be applied without considering budget limitations.</value>
         [DataMember(Name="desiredValue", EmitDefaultValue=false)]
         public decimal DesiredValue { get; set; }
 

@@ -44,11 +44,12 @@ namespace TalonOne.Model
         /// <param name="reservationLimit">The number of reservations that can be made with this coupon code. .</param>
         /// <param name="startDate">Timestamp at which point the coupon becomes valid..</param>
         /// <param name="expiryDate">Expiration date of the coupon. Coupon never expires if this is omitted..</param>
+        /// <param name="batchId">The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically..</param>
         /// <param name="attributes">Arbitrary properties associated with this item..</param>
         /// <param name="recipientsIntegrationIds">The integration IDs for recipients. (required).</param>
         /// <param name="validCharacters">List of characters used to generate the random parts of a code. By default, the list of characters is equivalent to the &#x60;[A-Z, 0-9]&#x60; regular expression. .</param>
         /// <param name="couponPattern">The pattern used to generate coupon codes. The character &#x60;#&#x60; is a placeholder and is replaced by a random character from the &#x60;validCharacters&#x60; set. .</param>
-        public NewCouponsForMultipleRecipients(long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), Object attributes = default(Object), List<string> recipientsIntegrationIds = default(List<string>), List<string> validCharacters = default(List<string>), string couponPattern = default(string))
+        public NewCouponsForMultipleRecipients(long usageLimit = default(long), decimal discountLimit = default(decimal), long reservationLimit = default(long), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string batchId = default(string), Object attributes = default(Object), List<string> recipientsIntegrationIds = default(List<string>), List<string> validCharacters = default(List<string>), string couponPattern = default(string))
         {
             this.UsageLimit = usageLimit;
             // to ensure "recipientsIntegrationIds" is required (not null)
@@ -57,6 +58,7 @@ namespace TalonOne.Model
             this.ReservationLimit = reservationLimit;
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
+            this.BatchId = batchId;
             this.Attributes = attributes;
             this.ValidCharacters = validCharacters;
             this.CouponPattern = couponPattern;
@@ -96,6 +98,13 @@ namespace TalonOne.Model
         /// <value>Expiration date of the coupon. Coupon never expires if this is omitted.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
+
+        /// <summary>
+        /// The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.
+        /// </summary>
+        /// <value>The batch ID that all coupons created by the request will bear. If omitted, a batch ID is generated automatically.</value>
+        [DataMember(Name="batchId", EmitDefaultValue=false)]
+        public string BatchId { get; set; }
 
         /// <summary>
         /// Arbitrary properties associated with this item.
@@ -138,6 +147,7 @@ namespace TalonOne.Model
             sb.Append("  ReservationLimit: ").Append(ReservationLimit).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
+            sb.Append("  BatchId: ").Append(BatchId).Append("\n");
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  RecipientsIntegrationIds: ").Append(RecipientsIntegrationIds).Append("\n");
             sb.Append("  ValidCharacters: ").Append(ValidCharacters).Append("\n");
@@ -199,6 +209,11 @@ namespace TalonOne.Model
                     this.ExpiryDate.Equals(input.ExpiryDate))
                 ) && 
                 (
+                    this.BatchId == input.BatchId ||
+                    (this.BatchId != null &&
+                    this.BatchId.Equals(input.BatchId))
+                ) && 
+                (
                     this.Attributes == input.Attributes ||
                     (this.Attributes != null &&
                     this.Attributes.Equals(input.Attributes))
@@ -238,6 +253,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.StartDate.GetHashCode();
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
+                if (this.BatchId != null)
+                    hashCode = hashCode * 59 + this.BatchId.GetHashCode();
                 if (this.Attributes != null)
                     hashCode = hashCode * 59 + this.Attributes.GetHashCode();
                 if (this.RecipientsIntegrationIds != null)

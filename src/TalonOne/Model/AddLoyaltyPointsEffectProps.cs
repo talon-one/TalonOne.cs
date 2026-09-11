@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;addLoyaltyPoints\&quot; effect. This gets triggered whenever a validated rule contained an \&quot;add loyalty\&quot; effect. These points are automatically stored and managed inside Talon.One. 
+    /// This effect indicates that a defined amount of loyalty points was successfully added to the customer&#39;s profile or to a loyalty card.  If you use the [Add loyalty points per item effect](https://docs.talon.one/docs/product/rules/effects/available-effects#reward-effects), use the &#x60;cartItemPosition&#x60; property to identify which item to add the loyalty points for.  Enabling [partial rewards](https://docs.talon.one/docs/product/applications/manage-general-settings#partial-rewards) allows a rule that would fail because of insufficient budget to pass. The rule still fails when the budget reaches 0. Use the &#x60;desiredValue&#x60; property to identify the original amount of loyalty points.  If you use **Add loyalty points per item** and if the session contains some cart items with _quantity &gt; 1_, use the &#x60;cartItemSubPosition&#x60; property to identify the item unit in its line item. See the example below for more information.  If your list of cart items is a [bundle definition](https://docs.talon.one/docs/product/rules/create-and-manage-bundles), use the &#x60;bundleIndex&#x60; and &#x60;bundleName&#x60; properties to identify the bundle containing the items for which loyalty points are added.  If you have set custom activation and expiration dates for the loyalty points, use the &#x60;startDate&#x60; and &#x60;expiryDate&#x60; properties to identify when the reward will be active and when will expire.  If the loyalty program is [profile-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the &#x60;recipientIntegrationId&#x60; property to identify the user who receives the loyalty points. If the loyalty program is [card-based](https://docs.talon.one/docs/product/loyalty-programs/overview#loyalty-program-types), use the &#x60;cardIdentifier&#x60; property to identify the loyalty card on which these points are added.  The points only persist when the session is closed.
     /// </summary>
     [DataContract]
     public partial class AddLoyaltyPointsEffectProps :  IEquatable<AddLoyaltyPointsEffectProps>, IValidatableObject
@@ -39,22 +39,22 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AddLoyaltyPointsEffectProps" /> class.
         /// </summary>
-        /// <param name="name">The name / description of this loyalty point addition. (required).</param>
+        /// <param name="name">The reason of this loyalty point addition. (required).</param>
         /// <param name="programId">The ID of the loyalty program where these points were added. (required).</param>
         /// <param name="subLedgerId">The ID of the subledger within the loyalty program where these points were added. (required).</param>
         /// <param name="value">The amount of points that were added. (required).</param>
-        /// <param name="desiredValue">The original amount of loyalty points to be awarded..</param>
+        /// <param name="desiredValue">(Partial rewards enabled only) The amount of loyalty points to be awarded without considering budget limitations..</param>
         /// <param name="recipientIntegrationId">The user for whom these points were added. (required).</param>
-        /// <param name="startDate">Date after which points will be valid..</param>
-        /// <param name="expiryDate">Date after which points will expire..</param>
-        /// <param name="transactionUUID">The identifier of this addition in the loyalty ledger. (required).</param>
-        /// <param name="cartItemPosition">The index of the item in the cart items list on which the loyal points addition should be applied..</param>
-        /// <param name="cartItemSubPosition">For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates to which item the loyalty points addition is applied. .</param>
+        /// <param name="startDate">The date after which the added points will be valid..</param>
+        /// <param name="expiryDate">The date after which the added points will expire..</param>
+        /// <param name="transactionUUID">The identifier of this loyalty point transaction. (required).</param>
+        /// <param name="cartItemPosition">(_Add points per cart item_ only.) The index of the item in the &#x60;cartItem&#x60; object for which these points were added..</param>
+        /// <param name="cartItemSubPosition">(_Add points per cart item_ ) The index of the item unit in its line item..</param>
         /// <param name="cardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
-        /// <param name="bundleIndex">The position of the bundle in a list of item bundles created from the same bundle definition..</param>
-        /// <param name="bundleName">The name of the bundle definition..</param>
-        /// <param name="awaitsActivation">If &#x60;true&#x60;, the loyalty points remain pending until a specific action is complete. The &#x60;startDate&#x60; parameter automatically sets to &#x60;on_action&#x60;. .</param>
-        /// <param name="validityDuration">The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set. .</param>
+        /// <param name="bundleIndex">_(With bundles only)_ The position of the specific bundle in the list of bundles created from the same bundle definition..</param>
+        /// <param name="bundleName">_(With bundles only)_ The name of the bundle definition..</param>
+        /// <param name="awaitsActivation">Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date..</param>
+        /// <param name="validityDuration">The duration for which the points remain active, calculated relative to their start date..</param>
         public AddLoyaltyPointsEffectProps(string name = default(string), long programId = default(long), string subLedgerId = default(string), decimal value = default(decimal), decimal desiredValue = default(decimal), string recipientIntegrationId = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string transactionUUID = default(string), decimal cartItemPosition = default(decimal), decimal cartItemSubPosition = default(decimal), string cardIdentifier = default(string), long bundleIndex = default(long), string bundleName = default(string), bool awaitsActivation = default(bool), string validityDuration = default(string))
         {
             // to ensure "name" is required (not null)
@@ -80,9 +80,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The name / description of this loyalty point addition.
+        /// The reason of this loyalty point addition.
         /// </summary>
-        /// <value>The name / description of this loyalty point addition.</value>
+        /// <value>The reason of this loyalty point addition.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
@@ -108,9 +108,9 @@ namespace TalonOne.Model
         public decimal Value { get; set; }
 
         /// <summary>
-        /// The original amount of loyalty points to be awarded.
+        /// (Partial rewards enabled only) The amount of loyalty points to be awarded without considering budget limitations.
         /// </summary>
-        /// <value>The original amount of loyalty points to be awarded.</value>
+        /// <value>(Partial rewards enabled only) The amount of loyalty points to be awarded without considering budget limitations.</value>
         [DataMember(Name="desiredValue", EmitDefaultValue=false)]
         public decimal DesiredValue { get; set; }
 
@@ -122,37 +122,37 @@ namespace TalonOne.Model
         public string RecipientIntegrationId { get; set; }
 
         /// <summary>
-        /// Date after which points will be valid.
+        /// The date after which the added points will be valid.
         /// </summary>
-        /// <value>Date after which points will be valid.</value>
+        /// <value>The date after which the added points will be valid.</value>
         [DataMember(Name="startDate", EmitDefaultValue=false)]
         public DateTime StartDate { get; set; }
 
         /// <summary>
-        /// Date after which points will expire.
+        /// The date after which the added points will expire.
         /// </summary>
-        /// <value>Date after which points will expire.</value>
+        /// <value>The date after which the added points will expire.</value>
         [DataMember(Name="expiryDate", EmitDefaultValue=false)]
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
-        /// The identifier of this addition in the loyalty ledger.
+        /// The identifier of this loyalty point transaction.
         /// </summary>
-        /// <value>The identifier of this addition in the loyalty ledger.</value>
+        /// <value>The identifier of this loyalty point transaction.</value>
         [DataMember(Name="transactionUUID", EmitDefaultValue=false)]
         public string TransactionUUID { get; set; }
 
         /// <summary>
-        /// The index of the item in the cart items list on which the loyal points addition should be applied.
+        /// (_Add points per cart item_ only.) The index of the item in the &#x60;cartItem&#x60; object for which these points were added.
         /// </summary>
-        /// <value>The index of the item in the cart items list on which the loyal points addition should be applied.</value>
+        /// <value>(_Add points per cart item_ only.) The index of the item in the &#x60;cartItem&#x60; object for which these points were added.</value>
         [DataMember(Name="cartItemPosition", EmitDefaultValue=false)]
         public decimal CartItemPosition { get; set; }
 
         /// <summary>
-        /// For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates to which item the loyalty points addition is applied. 
+        /// (_Add points per cart item_ ) The index of the item unit in its line item.
         /// </summary>
-        /// <value>For cart items with &#x60;quantity&#x60; &gt; 1, the sub position indicates to which item the loyalty points addition is applied. </value>
+        /// <value>(_Add points per cart item_ ) The index of the item unit in its line item.</value>
         [DataMember(Name="cartItemSubPosition", EmitDefaultValue=false)]
         public decimal CartItemSubPosition { get; set; }
 
@@ -164,30 +164,30 @@ namespace TalonOne.Model
         public string CardIdentifier { get; set; }
 
         /// <summary>
-        /// The position of the bundle in a list of item bundles created from the same bundle definition.
+        /// _(With bundles only)_ The position of the specific bundle in the list of bundles created from the same bundle definition.
         /// </summary>
-        /// <value>The position of the bundle in a list of item bundles created from the same bundle definition.</value>
+        /// <value>_(With bundles only)_ The position of the specific bundle in the list of bundles created from the same bundle definition.</value>
         [DataMember(Name="bundleIndex", EmitDefaultValue=false)]
         public long BundleIndex { get; set; }
 
         /// <summary>
-        /// The name of the bundle definition.
+        /// _(With bundles only)_ The name of the bundle definition.
         /// </summary>
-        /// <value>The name of the bundle definition.</value>
+        /// <value>_(With bundles only)_ The name of the bundle definition.</value>
         [DataMember(Name="bundleName", EmitDefaultValue=false)]
         public string BundleName { get; set; }
 
         /// <summary>
-        /// If &#x60;true&#x60;, the loyalty points remain pending until a specific action is complete. The &#x60;startDate&#x60; parameter automatically sets to &#x60;on_action&#x60;. 
+        /// Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
         /// </summary>
-        /// <value>If &#x60;true&#x60;, the loyalty points remain pending until a specific action is complete. The &#x60;startDate&#x60; parameter automatically sets to &#x60;on_action&#x60;. </value>
+        /// <value>Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.</value>
         [DataMember(Name="awaitsActivation", EmitDefaultValue=false)]
         public bool AwaitsActivation { get; set; }
 
         /// <summary>
-        /// The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set. 
+        /// The duration for which the points remain active, calculated relative to their start date.
         /// </summary>
-        /// <value>The duration for which the points remain active, calculated relative to the  activation date.    **Note**: This value is returned only if &#x60;awaitsActivation&#x60; is &#x60;true&#x60;  and &#x60;expiryDate&#x60; is not set. </value>
+        /// <value>The duration for which the points remain active, calculated relative to their start date.</value>
         [DataMember(Name="validityDuration", EmitDefaultValue=false)]
         public string ValidityDuration { get; set; }
 

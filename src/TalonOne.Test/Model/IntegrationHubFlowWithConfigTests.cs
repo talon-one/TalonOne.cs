@@ -66,6 +66,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ApplicationID'
         }
         /// <summary>
+        /// Test the property 'LoyaltyProgramID'
+        /// </summary>
+        [Fact]
+        public void LoyaltyProgramIDTest()
+        {
+            // TODO unit test for the property 'LoyaltyProgramID'
+        }
+        /// <summary>
         /// Test the property 'EventType'
         /// </summary>
         [Fact]

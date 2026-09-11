@@ -109,10 +109,10 @@ namespace TalonOne.Model
         /// <param name="fixedStartDate">The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="endDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="allowRollbackAfterCompletion">When &#x60;true&#x60;, customer progress can be rolled back in completed achievements..</param>
-        /// <param name="sandbox">Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type. (required).</param>
         /// <param name="subscribedApplications">A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement..</param>
+        /// <param name="sandbox">Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type. (required).</param>
         /// <param name="timezone">A string containing an IANA timezone descriptor. (required).</param>
-        public CreateAchievementV2(string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool), bool sandbox = default(bool), List<long> subscribedApplications = default(List<long>), string timezone = default(string))
+        public CreateAchievementV2(string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool), List<long> subscribedApplications = default(List<long>), bool sandbox = default(bool), string timezone = default(string))
         {
             // to ensure "name" is required (not null)
             this.Name = name ?? throw new ArgumentNullException("name is a required property for CreateAchievementV2 and cannot be null");
@@ -190,18 +190,18 @@ namespace TalonOne.Model
         public bool AllowRollbackAfterCompletion { get; set; }
 
         /// <summary>
-        /// Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
-        /// </summary>
-        /// <value>Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.</value>
-        [DataMember(Name="sandbox", EmitDefaultValue=false)]
-        public bool Sandbox { get; set; }
-
-        /// <summary>
         /// A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.
         /// </summary>
         /// <value>A list containing the IDs of all applications that are subscribed to A list containing the IDs of all Applications that are connected to this achievement.</value>
         [DataMember(Name="subscribedApplications", EmitDefaultValue=false)]
         public List<long> SubscribedApplications { get; set; }
+
+        /// <summary>
+        /// Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.
+        /// </summary>
+        /// <value>Indicates if this achievement is a live or sandbox achievement. Achievements of a given type can only be connected to Applications of the same type.</value>
+        [DataMember(Name="sandbox", EmitDefaultValue=false)]
+        public bool Sandbox { get; set; }
 
         /// <summary>
         /// A string containing an IANA timezone descriptor.
@@ -228,8 +228,8 @@ namespace TalonOne.Model
             sb.Append("  FixedStartDate: ").Append(FixedStartDate).Append("\n");
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  AllowRollbackAfterCompletion: ").Append(AllowRollbackAfterCompletion).Append("\n");
-            sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  SubscribedApplications: ").Append(SubscribedApplications).Append("\n");
+            sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  Timezone: ").Append(Timezone).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -312,14 +312,14 @@ namespace TalonOne.Model
                     this.AllowRollbackAfterCompletion.Equals(input.AllowRollbackAfterCompletion)
                 ) && 
                 (
-                    this.Sandbox == input.Sandbox ||
-                    this.Sandbox.Equals(input.Sandbox)
-                ) && 
-                (
                     this.SubscribedApplications == input.SubscribedApplications ||
                     this.SubscribedApplications != null &&
                     input.SubscribedApplications != null &&
                     this.SubscribedApplications.SequenceEqual(input.SubscribedApplications)
+                ) && 
+                (
+                    this.Sandbox == input.Sandbox ||
+                    this.Sandbox.Equals(input.Sandbox)
                 ) && 
                 (
                     this.Timezone == input.Timezone ||
@@ -353,9 +353,9 @@ namespace TalonOne.Model
                 if (this.EndDate != null)
                     hashCode = hashCode * 59 + this.EndDate.GetHashCode();
                 hashCode = hashCode * 59 + this.AllowRollbackAfterCompletion.GetHashCode();
-                hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 if (this.SubscribedApplications != null)
                     hashCode = hashCode * 59 + this.SubscribedApplications.GetHashCode();
+                hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 if (this.Timezone != null)
                     hashCode = hashCode * 59 + this.Timezone.GetHashCode();
                 return hashCode;

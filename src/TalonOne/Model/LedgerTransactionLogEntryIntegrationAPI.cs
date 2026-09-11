@@ -70,6 +70,7 @@ namespace TalonOne.Model
         /// <param name="created">Date and time the loyalty transaction occurred. (required).</param>
         /// <param name="programId">ID of the loyalty program. (required).</param>
         /// <param name="customerSessionId">ID of the customer session where the transaction occurred..</param>
+        /// <param name="storeIntegrationId">The integration ID of the store where the transaction occurred. Only set for transactions created by a customer session or event that referenced a store..</param>
         /// <param name="type">Type of transaction. Possible values:   - &#x60;addition&#x60;: Signifies added points.   - &#x60;subtraction&#x60;: Signifies deducted points.  (required).</param>
         /// <param name="name">Name or reason of the loyalty ledger transaction. (required).</param>
         /// <param name="startDate">When points become active. Possible values:   - &#x60;immediate&#x60;: Points are immediately active.   - &#x60;on_action&#x60;: Points become active based on the customer&#39;s action.   - a timestamp value: Points become active at a given date and time.  (required).</param>
@@ -80,8 +81,8 @@ namespace TalonOne.Model
         /// <param name="rulesetId">The ID of the ruleset containing the rule that triggered this effect..</param>
         /// <param name="ruleName">The name of the rule that triggered this effect..</param>
         /// <param name="flags">flags.</param>
-        /// <param name="validityDuration">The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
-        public LedgerTransactionLogEntryIntegrationAPI(string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string customerSessionId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), long id = default(long), long rulesetId = default(long), string ruleName = default(string), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags), string validityDuration = default(string))
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
+        public LedgerTransactionLogEntryIntegrationAPI(string transactionUUID = default(string), DateTime created = default(DateTime), long programId = default(long), string customerSessionId = default(string), string storeIntegrationId = default(string), TypeEnum type = default(TypeEnum), string name = default(string), string startDate = default(string), string expiryDate = default(string), string subledgerId = default(string), decimal amount = default(decimal), long id = default(long), long rulesetId = default(long), string ruleName = default(string), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags), string validityDuration = default(string))
         {
             // to ensure "transactionUUID" is required (not null)
             this.TransactionUUID = transactionUUID ?? throw new ArgumentNullException("transactionUUID is a required property for LedgerTransactionLogEntryIntegrationAPI and cannot be null");
@@ -99,6 +100,7 @@ namespace TalonOne.Model
             this.Amount = amount;
             this.Id = id;
             this.CustomerSessionId = customerSessionId;
+            this.StoreIntegrationId = storeIntegrationId;
             this.RulesetId = rulesetId;
             this.RuleName = ruleName;
             this.Flags = flags;
@@ -132,6 +134,13 @@ namespace TalonOne.Model
         /// <value>ID of the customer session where the transaction occurred.</value>
         [DataMember(Name="customerSessionId", EmitDefaultValue=false)]
         public string CustomerSessionId { get; set; }
+
+        /// <summary>
+        /// The integration ID of the store where the transaction occurred. Only set for transactions created by a customer session or event that referenced a store.
+        /// </summary>
+        /// <value>The integration ID of the store where the transaction occurred. Only set for transactions created by a customer session or event that referenced a store.</value>
+        [DataMember(Name="storeIntegrationId", EmitDefaultValue=false)]
+        public string StoreIntegrationId { get; set; }
 
         /// <summary>
         /// Name or reason of the loyalty ledger transaction.
@@ -196,9 +205,9 @@ namespace TalonOne.Model
         public LoyaltyLedgerEntryFlags Flags { get; set; }
 
         /// <summary>
-        /// The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
+        /// The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. 
         /// </summary>
-        /// <value>The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
+        /// <value>The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. </value>
         [DataMember(Name="validityDuration", EmitDefaultValue=false)]
         public string ValidityDuration { get; set; }
 
@@ -214,6 +223,7 @@ namespace TalonOne.Model
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ProgramId: ").Append(ProgramId).Append("\n");
             sb.Append("  CustomerSessionId: ").Append(CustomerSessionId).Append("\n");
+            sb.Append("  StoreIntegrationId: ").Append(StoreIntegrationId).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
@@ -277,6 +287,11 @@ namespace TalonOne.Model
                     this.CustomerSessionId == input.CustomerSessionId ||
                     (this.CustomerSessionId != null &&
                     this.CustomerSessionId.Equals(input.CustomerSessionId))
+                ) && 
+                (
+                    this.StoreIntegrationId == input.StoreIntegrationId ||
+                    (this.StoreIntegrationId != null &&
+                    this.StoreIntegrationId.Equals(input.StoreIntegrationId))
                 ) && 
                 (
                     this.Type == input.Type ||
@@ -347,6 +362,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ProgramId.GetHashCode();
                 if (this.CustomerSessionId != null)
                     hashCode = hashCode * 59 + this.CustomerSessionId.GetHashCode();
+                if (this.StoreIntegrationId != null)
+                    hashCode = hashCode * 59 + this.StoreIntegrationId.GetHashCode();
                 hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
@@ -380,6 +397,18 @@ namespace TalonOne.Model
             if(this.CustomerSessionId != null && this.CustomerSessionId.Length > 255)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CustomerSessionId, length must be less than 255.", new [] { "CustomerSessionId" });
+            }
+
+            // StoreIntegrationId (string) maxLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length > 1000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be less than 1000.", new [] { "StoreIntegrationId" });
+            }
+
+            // StoreIntegrationId (string) minLength
+            if(this.StoreIntegrationId != null && this.StoreIntegrationId.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for StoreIntegrationId, length must be greater than 1.", new [] { "StoreIntegrationId" });
             }
 
             // Type (string) maxLength

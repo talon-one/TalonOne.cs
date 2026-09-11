@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// The properties specific to the \&quot;acceptReferral\&quot; effect. TThis gets triggered whenever the referral code is valid and all other conditions in the rules of its campaign are met.
+    /// This effect indicates that the referral code supplied is valid.  You should handle this effect by informing the user that the referral code is valid.  The code is automatically redeemed when you close the session.  Other effects will provide more information about the actual reward.
     /// </summary>
     [DataContract]
     public partial class AcceptReferralEffectProps :  IEquatable<AcceptReferralEffectProps>, IValidatableObject
@@ -39,7 +39,7 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AcceptReferralEffectProps" /> class.
         /// </summary>
-        /// <param name="value">The referral code that was accepted. (required).</param>
+        /// <param name="value">The referral code provided in the session. (required).</param>
         public AcceptReferralEffectProps(string value = default(string))
         {
             // to ensure "value" is required (not null)
@@ -47,9 +47,9 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The referral code that was accepted.
+        /// The referral code provided in the session.
         /// </summary>
-        /// <value>The referral code that was accepted.</value>
+        /// <value>The referral code provided in the session.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public string Value { get; set; }
 

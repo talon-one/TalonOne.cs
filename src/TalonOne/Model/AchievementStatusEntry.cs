@@ -139,10 +139,11 @@ namespace TalonOne.Model
         /// <param name="fixedStartDate">The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="endDate">The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string. .</param>
         /// <param name="allowRollbackAfterCompletion">When &#x60;true&#x60;, customer progress can be rolled back in completed achievements..</param>
-        /// <param name="campaignId">The ID of the campaign the achievement belongs to..</param>
+        /// <param name="campaignId">This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. This field contains the first campaign ID from the related &#x60;referencedByCampaigns&#x60;, and is omitted when &#x60;referencedByCampaigns&#x60; is empty..</param>
+        /// <param name="campaignIds">The IDs of the campaigns that reference this achievement, in ascending order..</param>
         /// <param name="status">The status of the achievement..</param>
         /// <param name="currentProgress">currentProgress.</param>
-        public AchievementStatusEntry(long id = default(long), DateTime created = default(DateTime), string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool), long campaignId = default(long), StatusEnum? status = default(StatusEnum?), AchievementProgress currentProgress = default(AchievementProgress))
+        public AchievementStatusEntry(long id = default(long), DateTime created = default(DateTime), string name = default(string), string title = default(string), string description = default(string), decimal target = default(decimal), string period = default(string), TimePoint periodEndOverride = default(TimePoint), RecurrencePolicyEnum? recurrencePolicy = default(RecurrencePolicyEnum?), ActivationPolicyEnum? activationPolicy = default(ActivationPolicyEnum?), DateTime fixedStartDate = default(DateTime), DateTime endDate = default(DateTime), bool allowRollbackAfterCompletion = default(bool), long campaignId = default(long), List<long> campaignIds = default(List<long>), StatusEnum? status = default(StatusEnum?), AchievementProgress currentProgress = default(AchievementProgress))
         {
             this.Id = id;
             this.Created = created;
@@ -161,6 +162,7 @@ namespace TalonOne.Model
             this.EndDate = endDate;
             this.AllowRollbackAfterCompletion = allowRollbackAfterCompletion;
             this.CampaignId = campaignId;
+            this.CampaignIds = campaignIds;
             this.Status = status;
             this.CurrentProgress = currentProgress;
         }
@@ -242,11 +244,18 @@ namespace TalonOne.Model
         public bool AllowRollbackAfterCompletion { get; set; }
 
         /// <summary>
-        /// The ID of the campaign the achievement belongs to.
+        /// This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. This field contains the first campaign ID from the related &#x60;referencedByCampaigns&#x60;, and is omitted when &#x60;referencedByCampaigns&#x60; is empty.
         /// </summary>
-        /// <value>The ID of the campaign the achievement belongs to.</value>
+        /// <value>This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. This field contains the first campaign ID from the related &#x60;referencedByCampaigns&#x60;, and is omitted when &#x60;referencedByCampaigns&#x60; is empty.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
         public long CampaignId { get; set; }
+
+        /// <summary>
+        /// The IDs of the campaigns that reference this achievement, in ascending order.
+        /// </summary>
+        /// <value>The IDs of the campaigns that reference this achievement, in ascending order.</value>
+        [DataMember(Name="campaignIds", EmitDefaultValue=false)]
+        public List<long> CampaignIds { get; set; }
 
         /// <summary>
         /// Gets or Sets CurrentProgress
@@ -276,6 +285,7 @@ namespace TalonOne.Model
             sb.Append("  EndDate: ").Append(EndDate).Append("\n");
             sb.Append("  AllowRollbackAfterCompletion: ").Append(AllowRollbackAfterCompletion).Append("\n");
             sb.Append("  CampaignId: ").Append(CampaignId).Append("\n");
+            sb.Append("  CampaignIds: ").Append(CampaignIds).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  CurrentProgress: ").Append(CurrentProgress).Append("\n");
             sb.Append("}\n");
@@ -377,6 +387,12 @@ namespace TalonOne.Model
                     this.CampaignId.Equals(input.CampaignId)
                 ) && 
                 (
+                    this.CampaignIds == input.CampaignIds ||
+                    this.CampaignIds != null &&
+                    input.CampaignIds != null &&
+                    this.CampaignIds.SequenceEqual(input.CampaignIds)
+                ) && 
+                (
                     this.Status == input.Status ||
                     this.Status.Equals(input.Status)
                 ) && 
@@ -418,6 +434,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.EndDate.GetHashCode();
                 hashCode = hashCode * 59 + this.AllowRollbackAfterCompletion.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
+                if (this.CampaignIds != null)
+                    hashCode = hashCode * 59 + this.CampaignIds.GetHashCode();
                 hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.CurrentProgress != null)
                     hashCode = hashCode * 59 + this.CurrentProgress.GetHashCode();

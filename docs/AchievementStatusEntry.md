@@ -16,7 +16,8 @@ Name | Type | Description | Notes
 **FixedStartDate** | **DateTime** | The achievement&#39;s start date when &#x60;activationPolicy&#x60; is set to &#x60;fixed_schedule&#x60;.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
 **EndDate** | **DateTime** | The achievement&#39;s end date. If defined, customers cannot participate in the achievement after this date.  **Note:** It must be an RFC3339 timestamp string.  | [optional] 
 **AllowRollbackAfterCompletion** | **bool** | When &#x60;true&#x60;, customer progress can be rolled back in completed achievements. | [optional] 
-**CampaignId** | **long** | The ID of the campaign the achievement belongs to. | [optional] 
+**CampaignId** | **long** | This property is **deprecated**. Use &#x60;referencedByCampaigns&#x60; instead. This field contains the first campaign ID from the related &#x60;referencedByCampaigns&#x60;, and is omitted when &#x60;referencedByCampaigns&#x60; is empty. | [optional] 
+**CampaignIds** | **List&lt;long&gt;** | The IDs of the campaigns that reference this achievement, in ascending order. | [optional] 
 **Status** | **string** | The status of the achievement. | [optional] 
 **CurrentProgress** | [**AchievementProgress**](AchievementProgress.md) |  | [optional] 
 
