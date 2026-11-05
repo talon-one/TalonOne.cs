@@ -70,7 +70,10 @@ namespace _example
             Debug.WriteLine(response);
 
             // Parsing the returned effects list, please consult https://developers.talon.one/Integration-API/handling-effects-v2 for the full list of effects and their corresponding properties
-            foreach (Effect effect in response.Effects) {
+            foreach (var effectData in response.Effects) {
+                // Effects are deserialized as JSON objects; convert each entry to the Effect model.
+                Effect effect = Newtonsoft.Json.JsonConvert.DeserializeObject<Effect>(effectData.ToString());
+
                 switch(effect.EffectType) {
                     case "setDiscount":
                         // Initiating right props instance according to the effect type
