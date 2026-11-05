@@ -434,6 +434,18 @@ namespace TalonOne.Model
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ReservationLimit, must be a value greater than or equal to 0.", new [] { "ReservationLimit" });
             }
 
+            // NumberOfCoupons (long) maximum
+            if(this.NumberOfCoupons > (long)5000000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfCoupons, must be a value less than or equal to 5000000.", new [] { "NumberOfCoupons" });
+            }
+
+            // NumberOfCoupons (long) minimum
+            if(this.NumberOfCoupons < (long)1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for NumberOfCoupons, must be a value greater than or equal to 1.", new [] { "NumberOfCoupons" });
+            }
+
             // CouponPattern (string) maxLength
             if(this.CouponPattern != null && this.CouponPattern.Length > 100)
             {

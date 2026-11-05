@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **ApplicationId** | **long** | The internal ID of the application the reward belongs to. | 
 **ProfileIntegrationId** | **string** | The integration ID of the customer profile that unlocked the reward. | 
 **UnlockedAt** | **DateTime** | The time the reward was unlocked. | 
-**CardIdentifier** | **string** | The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  | [optional] 
+**LoyaltyCardId** | **string** | The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

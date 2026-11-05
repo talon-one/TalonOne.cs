@@ -121,7 +121,7 @@ namespace TalonOne.Model
         /// <param name="applicationId">Identifier of the Application connected to the loyalty program or the campaign. It is displayed in your Talon.One deployment URL. (required).</param>
         /// <param name="campaignId">Identifier of the campaign where the coupon or gift card is created..</param>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program where the points are added or deducted..</param>
-        /// <param name="subledgerId">Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically..</param>
+        /// <param name="subledgerId">ID of the subledger the points are added to or deducted from. Must be combined with &#x60;loyaltyProgramId&#x60;. The subledger must already exist in the given loyalty program..</param>
         /// <param name="createdByUser">Email address of the customer support agent who created the support request. (required).</param>
         /// <param name="createdAt">Timestamp when the request was made. (required).</param>
         /// <param name="customerProfileId">Integration ID of the customer profile linked to the support request. (required).</param>
@@ -133,7 +133,7 @@ namespace TalonOne.Model
         /// <param name="processingNote">Notes attached by the admin when rejecting or approving a request..</param>
         /// <param name="processedByUser">Email address of the admin who approved or rejected the support request..</param>
         /// <param name="couponCode">Coupon code associated with the approved support request..</param>
-        public SupportRequest(long id = default(long), long applicationId = default(long), long campaignId = default(long), long loyaltyProgramId = default(long), long subledgerId = default(long), string createdByUser = default(string), DateTime createdAt = default(DateTime), string customerProfileId = default(string), RequestTypeEnum requestType = default(RequestTypeEnum), float requestValue = default(float), string requestNote = default(string), RequestStatusEnum requestStatus = default(RequestStatusEnum), DateTime processedAt = default(DateTime), string processingNote = default(string), string processedByUser = default(string), string couponCode = default(string))
+        public SupportRequest(long id = default(long), long applicationId = default(long), long campaignId = default(long), long loyaltyProgramId = default(long), string subledgerId = default(string), string createdByUser = default(string), DateTime createdAt = default(DateTime), string customerProfileId = default(string), RequestTypeEnum requestType = default(RequestTypeEnum), float requestValue = default(float), string requestNote = default(string), RequestStatusEnum requestStatus = default(RequestStatusEnum), DateTime processedAt = default(DateTime), string processingNote = default(string), string processedByUser = default(string), string couponCode = default(string))
         {
             this.Id = id;
             this.ApplicationId = applicationId;
@@ -185,11 +185,11 @@ namespace TalonOne.Model
         public long LoyaltyProgramId { get; set; }
 
         /// <summary>
-        /// Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically.
+        /// ID of the subledger the points are added to or deducted from. Must be combined with &#x60;loyaltyProgramId&#x60;. The subledger must already exist in the given loyalty program.
         /// </summary>
-        /// <value>Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically.</value>
+        /// <value>ID of the subledger the points are added to or deducted from. Must be combined with &#x60;loyaltyProgramId&#x60;. The subledger must already exist in the given loyalty program.</value>
         [DataMember(Name="subledgerId", EmitDefaultValue=false)]
-        public long SubledgerId { get; set; }
+        public string SubledgerId { get; set; }
 
         /// <summary>
         /// Email address of the customer support agent who created the support request.
@@ -330,7 +330,8 @@ namespace TalonOne.Model
                 ) && 
                 (
                     this.SubledgerId == input.SubledgerId ||
-                    this.SubledgerId.Equals(input.SubledgerId)
+                    (this.SubledgerId != null &&
+                    this.SubledgerId.Equals(input.SubledgerId))
                 ) && 
                 (
                     this.CreatedByUser == input.CreatedByUser ||
@@ -399,7 +400,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyProgramId.GetHashCode();
-                hashCode = hashCode * 59 + this.SubledgerId.GetHashCode();
+                if (this.SubledgerId != null)
+                    hashCode = hashCode * 59 + this.SubledgerId.GetHashCode();
                 if (this.CreatedByUser != null)
                     hashCode = hashCode * 59 + this.CreatedByUser.GetHashCode();
                 if (this.CreatedAt != null)

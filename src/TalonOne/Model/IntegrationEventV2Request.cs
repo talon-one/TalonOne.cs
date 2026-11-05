@@ -115,7 +115,8 @@ namespace TalonOne.Model
         /// <param name="attributes">Arbitrary additional JSON properties associated with the event. They must be created in the Campaign Manager before setting them with this property. See [creating custom attributes](https://docs.talon.one/docs/product/account/dev-tools/managing-attributes#creating-a-custom-attribute)..</param>
         /// <param name="responseContent">Extends the response with the chosen data entities. Use this property to get as much data back as needed from one request instead of sending extra requests to other endpoints. .</param>
         /// <param name="loyaltyCards">Identifiers of the loyalty cards used during this event..</param>
-        public IntegrationEventV2Request(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), string type = default(string), Object attributes = default(Object), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>), List<string> loyaltyCards = default(List<string>))
+        /// <param name="rewardIntegrationIds">The integration IDs of the unlocked rewards that can be used in this event. .</param>
+        public IntegrationEventV2Request(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), string type = default(string), Object attributes = default(Object), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>), List<string> loyaltyCards = default(List<string>), List<string> rewardIntegrationIds = default(List<string>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for IntegrationEventV2Request and cannot be null");
@@ -125,6 +126,7 @@ namespace TalonOne.Model
             this.Attributes = attributes;
             this.ResponseContent = responseContent;
             this.LoyaltyCards = loyaltyCards;
+            this.RewardIntegrationIds = rewardIntegrationIds;
         }
         
         /// <summary>
@@ -170,6 +172,13 @@ namespace TalonOne.Model
         public List<string> LoyaltyCards { get; set; }
 
         /// <summary>
+        /// The integration IDs of the unlocked rewards that can be used in this event. 
+        /// </summary>
+        /// <value>The integration IDs of the unlocked rewards that can be used in this event. </value>
+        [DataMember(Name="rewardIntegrationIds", EmitDefaultValue=false)]
+        public List<string> RewardIntegrationIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -184,6 +193,7 @@ namespace TalonOne.Model
             sb.Append("  Attributes: ").Append(Attributes).Append("\n");
             sb.Append("  ResponseContent: ").Append(ResponseContent).Append("\n");
             sb.Append("  LoyaltyCards: ").Append(LoyaltyCards).Append("\n");
+            sb.Append("  RewardIntegrationIds: ").Append(RewardIntegrationIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -253,6 +263,12 @@ namespace TalonOne.Model
                     this.LoyaltyCards != null &&
                     input.LoyaltyCards != null &&
                     this.LoyaltyCards.SequenceEqual(input.LoyaltyCards)
+                ) && 
+                (
+                    this.RewardIntegrationIds == input.RewardIntegrationIds ||
+                    this.RewardIntegrationIds != null &&
+                    input.RewardIntegrationIds != null &&
+                    this.RewardIntegrationIds.SequenceEqual(input.RewardIntegrationIds)
                 );
         }
 
@@ -278,6 +294,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ResponseContent.GetHashCode();
                 if (this.LoyaltyCards != null)
                     hashCode = hashCode * 59 + this.LoyaltyCards.GetHashCode();
+                if (this.RewardIntegrationIds != null)
+                    hashCode = hashCode * 59 + this.RewardIntegrationIds.GetHashCode();
                 return hashCode;
             }
         }

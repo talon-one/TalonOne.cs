@@ -46,7 +46,10 @@ namespace TalonOne.Model
         /// <param name="activeOn">The date and time the loyalty points become active..</param>
         /// <param name="expireOn">The date and time the loyalty points expire..</param>
         /// <param name="sessionIntegrationID">The integration ID of the session through which the points were earned..</param>
-        public PendingActivePointsData(long loyaltyProgramID = default(long), string subledgerID = "", string customerProfileID = default(string), decimal points = default(decimal), DateTime activeOn = default(DateTime), DateTime expireOn = default(DateTime), string sessionIntegrationID = default(string))
+        /// <param name="created">The timestamp when the loyalty transaction occurred..</param>
+        /// <param name="awaitsActivation">Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date..</param>
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpireOn&#x60; is not set. .</param>
+        public PendingActivePointsData(long loyaltyProgramID = default(long), string subledgerID = "", string customerProfileID = default(string), decimal points = default(decimal), DateTime activeOn = default(DateTime), DateTime expireOn = default(DateTime), string sessionIntegrationID = default(string), DateTime created = default(DateTime), bool awaitsActivation = default(bool), string validityDuration = default(string))
         {
             this.LoyaltyProgramID = loyaltyProgramID;
             // to ensure "subledgerID" is required (not null)
@@ -57,6 +60,9 @@ namespace TalonOne.Model
             this.ActiveOn = activeOn;
             this.ExpireOn = expireOn;
             this.SessionIntegrationID = sessionIntegrationID;
+            this.Created = created;
+            this.AwaitsActivation = awaitsActivation;
+            this.ValidityDuration = validityDuration;
         }
         
         /// <summary>
@@ -109,6 +115,27 @@ namespace TalonOne.Model
         public string SessionIntegrationID { get; set; }
 
         /// <summary>
+        /// The timestamp when the loyalty transaction occurred.
+        /// </summary>
+        /// <value>The timestamp when the loyalty transaction occurred.</value>
+        [DataMember(Name="Created", EmitDefaultValue=false)]
+        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+        /// </summary>
+        /// <value>Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.</value>
+        [DataMember(Name="AwaitsActivation", EmitDefaultValue=false)]
+        public bool AwaitsActivation { get; set; }
+
+        /// <summary>
+        /// The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpireOn&#x60; is not set. 
+        /// </summary>
+        /// <value>The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpireOn&#x60; is not set. </value>
+        [DataMember(Name="ValidityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +150,9 @@ namespace TalonOne.Model
             sb.Append("  ActiveOn: ").Append(ActiveOn).Append("\n");
             sb.Append("  ExpireOn: ").Append(ExpireOn).Append("\n");
             sb.Append("  SessionIntegrationID: ").Append(SessionIntegrationID).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  AwaitsActivation: ").Append(AwaitsActivation).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -189,6 +219,20 @@ namespace TalonOne.Model
                     this.SessionIntegrationID == input.SessionIntegrationID ||
                     (this.SessionIntegrationID != null &&
                     this.SessionIntegrationID.Equals(input.SessionIntegrationID))
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.AwaitsActivation == input.AwaitsActivation ||
+                    this.AwaitsActivation.Equals(input.AwaitsActivation)
+                ) && 
+                (
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
                 );
         }
 
@@ -213,6 +257,11 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ExpireOn.GetHashCode();
                 if (this.SessionIntegrationID != null)
                     hashCode = hashCode * 59 + this.SessionIntegrationID.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                hashCode = hashCode * 59 + this.AwaitsActivation.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
                 return hashCode;
             }
         }

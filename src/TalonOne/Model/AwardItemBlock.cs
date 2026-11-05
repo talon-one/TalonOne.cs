@@ -43,7 +43,7 @@ namespace TalonOne.Model
         /// <param name="sku">The stock keeping unit of the item to award. (required).</param>
         /// <param name="name">The display name of the item to award. (required).</param>
         /// <param name="quantity">The number of items to award. Supports template placeholders (e.g. \&quot;{{$Session.Total / 2}}\&quot;) for dynamic quantities. (required).</param>
-        /// <param name="partial">When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward..</param>
+        /// <param name="partial">When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward. When omitted, the Application&#39;s partial discounts setting applies..</param>
         /// <param name="onFailure">Blocks evaluated when this block fails or returns false..</param>
         /// <param name="onError">Named error handlers evaluated when a specific error occurs..</param>
         public AwardItemBlock(string type = default(string), string sku = default(string), string name = default(string), string quantity = default(string), bool partial = default(bool), List<Object> onFailure = default(List<Object>), Dictionary<string, List<Object>> onError = default(Dictionary<string, List<Object>>))
@@ -104,9 +104,9 @@ namespace TalonOne.Model
         public string Quantity { get; set; }
 
         /// <summary>
-        /// When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward.
+        /// When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward. When omitted, the Application&#39;s partial discounts setting applies.
         /// </summary>
-        /// <value>When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward.</value>
+        /// <value>When set to &#x60;true&#x60;, applies a partial item reward if the remaining budget is insufficient to award the full reward. When omitted, the Application&#39;s partial discounts setting applies.</value>
         [DataMember(Name="partial", EmitDefaultValue=false)]
         public bool Partial { get; set; }
 

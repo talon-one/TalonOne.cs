@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class NewDigitalPass :  IEquatable<NewDigitalPass>, IValidatableObject
     {
         /// <summary>
-        /// The wallet platform the pass is generated for.
+        /// The wallet platform the pass is generated for. Possible values:  - &#x60;apple&#x60;: The digital pass is generated for Apple Wallet. - &#x60;google&#x60;: The digital pass is generated for Google Wallet. 
         /// </summary>
-        /// <value>The wallet platform the pass is generated for.</value>
+        /// <value>The wallet platform the pass is generated for. Possible values:  - &#x60;apple&#x60;: The digital pass is generated for Apple Wallet. - &#x60;google&#x60;: The digital pass is generated for Google Wallet. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum PlatformEnum
         {
@@ -53,9 +53,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// The wallet platform the pass is generated for.
+        /// The wallet platform the pass is generated for. Possible values:  - &#x60;apple&#x60;: The digital pass is generated for Apple Wallet. - &#x60;google&#x60;: The digital pass is generated for Google Wallet. 
         /// </summary>
-        /// <value>The wallet platform the pass is generated for.</value>
+        /// <value>The wallet platform the pass is generated for. Possible values:  - &#x60;apple&#x60;: The digital pass is generated for Apple Wallet. - &#x60;google&#x60;: The digital pass is generated for Google Wallet. </value>
         [DataMember(Name="platform", EmitDefaultValue=false)]
         public PlatformEnum Platform { get; set; }
         /// <summary>
@@ -70,7 +70,7 @@ namespace TalonOne.Model
         /// <param name="passTemplateId">The ID of the digital pass template used to generate the pass.  (required).</param>
         /// <param name="profileId">The integration ID of the customer profile the pass is issued for. (required).</param>
         /// <param name="loyaltyCardId">The identifier of the loyalty card the pass is issued for.  **Note**: Only applicable for card-based loyalty programs. .</param>
-        /// <param name="platform">The wallet platform the pass is generated for. (required).</param>
+        /// <param name="platform">The wallet platform the pass is generated for. Possible values:  - &#x60;apple&#x60;: The digital pass is generated for Apple Wallet. - &#x60;google&#x60;: The digital pass is generated for Google Wallet.  (required).</param>
         /// <param name="attributes">A map of placeholder values that you provide to fill in the pass template. These values are not validated against the template. .</param>
         public NewDigitalPass(long loyaltyProgramId = default(long), string passTemplateId = default(string), string profileId = default(string), string loyaltyCardId = default(string), PlatformEnum platform = default(PlatformEnum), Dictionary<string, string> attributes = default(Dictionary<string, string>))
         {

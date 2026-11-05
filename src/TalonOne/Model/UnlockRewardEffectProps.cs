@@ -44,8 +44,8 @@ namespace TalonOne.Model
         /// <param name="applicationId">The internal ID of the application the reward belongs to. (required).</param>
         /// <param name="profileIntegrationId">The integration ID of the customer profile that unlocked the reward. (required).</param>
         /// <param name="unlockedAt">The time the reward was unlocked. (required).</param>
-        /// <param name="cardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
-        public UnlockRewardEffectProps(string integrationId = default(string), long rewardId = default(long), long applicationId = default(long), string profileIntegrationId = default(string), DateTime unlockedAt = default(DateTime), string cardIdentifier = default(string))
+        /// <param name="loyaltyCardId">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
+        public UnlockRewardEffectProps(string integrationId = default(string), long rewardId = default(long), long applicationId = default(long), string profileIntegrationId = default(string), DateTime unlockedAt = default(DateTime), string loyaltyCardId = default(string))
         {
             // to ensure "integrationId" is required (not null)
             this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for UnlockRewardEffectProps and cannot be null");
@@ -54,7 +54,7 @@ namespace TalonOne.Model
             // to ensure "profileIntegrationId" is required (not null)
             this.ProfileIntegrationId = profileIntegrationId ?? throw new ArgumentNullException("profileIntegrationId is a required property for UnlockRewardEffectProps and cannot be null");
             this.UnlockedAt = unlockedAt;
-            this.CardIdentifier = cardIdentifier;
+            this.LoyaltyCardId = loyaltyCardId;
         }
         
         /// <summary>
@@ -96,8 +96,8 @@ namespace TalonOne.Model
         /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
         /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
-        [DataMember(Name="cardIdentifier", EmitDefaultValue=false)]
-        public string CardIdentifier { get; set; }
+        [DataMember(Name="loyaltyCardId", EmitDefaultValue=false)]
+        public string LoyaltyCardId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -112,7 +112,7 @@ namespace TalonOne.Model
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
             sb.Append("  ProfileIntegrationId: ").Append(ProfileIntegrationId).Append("\n");
             sb.Append("  UnlockedAt: ").Append(UnlockedAt).Append("\n");
-            sb.Append("  CardIdentifier: ").Append(CardIdentifier).Append("\n");
+            sb.Append("  LoyaltyCardId: ").Append(LoyaltyCardId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -171,9 +171,9 @@ namespace TalonOne.Model
                     this.UnlockedAt.Equals(input.UnlockedAt))
                 ) && 
                 (
-                    this.CardIdentifier == input.CardIdentifier ||
-                    (this.CardIdentifier != null &&
-                    this.CardIdentifier.Equals(input.CardIdentifier))
+                    this.LoyaltyCardId == input.LoyaltyCardId ||
+                    (this.LoyaltyCardId != null &&
+                    this.LoyaltyCardId.Equals(input.LoyaltyCardId))
                 );
         }
 
@@ -194,8 +194,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ProfileIntegrationId.GetHashCode();
                 if (this.UnlockedAt != null)
                     hashCode = hashCode * 59 + this.UnlockedAt.GetHashCode();
-                if (this.CardIdentifier != null)
-                    hashCode = hashCode * 59 + this.CardIdentifier.GetHashCode();
+                if (this.LoyaltyCardId != null)
+                    hashCode = hashCode * 59 + this.LoyaltyCardId.GetHashCode();
                 return hashCode;
             }
         }
@@ -207,23 +207,23 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CardIdentifier (string) maxLength
-            if(this.CardIdentifier != null && this.CardIdentifier.Length > 108)
+            // LoyaltyCardId (string) maxLength
+            if(this.LoyaltyCardId != null && this.LoyaltyCardId.Length > 108)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be less than 108.", new [] { "CardIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardId, length must be less than 108.", new [] { "LoyaltyCardId" });
             }
 
-            // CardIdentifier (string) minLength
-            if(this.CardIdentifier != null && this.CardIdentifier.Length < 4)
+            // LoyaltyCardId (string) minLength
+            if(this.LoyaltyCardId != null && this.LoyaltyCardId.Length < 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be greater than 4.", new [] { "CardIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardId, length must be greater than 4.", new [] { "LoyaltyCardId" });
             }
 
-            // CardIdentifier (string) pattern
-            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
-            if (false == regexCardIdentifier.Match(this.CardIdentifier).Success)
+            // LoyaltyCardId (string) pattern
+            Regex regexLoyaltyCardId = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
+            if (false == regexLoyaltyCardId.Match(this.LoyaltyCardId).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, must match a pattern of " + regexCardIdentifier, new [] { "CardIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardId, must match a pattern of " + regexLoyaltyCardId, new [] { "LoyaltyCardId" });
             }
 
             yield break;

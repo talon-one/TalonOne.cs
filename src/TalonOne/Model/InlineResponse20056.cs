@@ -39,27 +39,26 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse20056" /> class.
         /// </summary>
-        /// <param name="catalog">catalog (required).</param>
-        /// <param name="loyalty">The customer&#39;s loyalty balances for the specified loyalty program. Returned only when &#x60;loyaltyProgramId&#x60; is provided together with &#x60;profileIntegrationId&#x60; or &#x60;loyaltyCardId&#x60;. .</param>
-        public InlineResponse20056(InlineResponse20056Catalog catalog = default(InlineResponse20056Catalog), Dictionary<string, LoyaltyBalances> loyalty = default(Dictionary<string, LoyaltyBalances>))
+        /// <param name="hasMore">hasMore.</param>
+        /// <param name="data">data (required).</param>
+        public InlineResponse20056(bool hasMore = default(bool), List<AchievementV2> data = default(List<AchievementV2>))
         {
-            // to ensure "catalog" is required (not null)
-            this.Catalog = catalog ?? throw new ArgumentNullException("catalog is a required property for InlineResponse20056 and cannot be null");
-            this.Loyalty = loyalty;
+            // to ensure "data" is required (not null)
+            this.Data = data ?? throw new ArgumentNullException("data is a required property for InlineResponse20056 and cannot be null");
+            this.HasMore = hasMore;
         }
         
         /// <summary>
-        /// Gets or Sets Catalog
+        /// Gets or Sets HasMore
         /// </summary>
-        [DataMember(Name="catalog", EmitDefaultValue=false)]
-        public InlineResponse20056Catalog Catalog { get; set; }
+        [DataMember(Name="hasMore", EmitDefaultValue=false)]
+        public bool HasMore { get; set; }
 
         /// <summary>
-        /// The customer&#39;s loyalty balances for the specified loyalty program. Returned only when &#x60;loyaltyProgramId&#x60; is provided together with &#x60;profileIntegrationId&#x60; or &#x60;loyaltyCardId&#x60;. 
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The customer&#39;s loyalty balances for the specified loyalty program. Returned only when &#x60;loyaltyProgramId&#x60; is provided together with &#x60;profileIntegrationId&#x60; or &#x60;loyaltyCardId&#x60;. </value>
-        [DataMember(Name="loyalty", EmitDefaultValue=false)]
-        public Dictionary<string, LoyaltyBalances> Loyalty { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public List<AchievementV2> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -69,8 +68,8 @@ namespace TalonOne.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse20056 {\n");
-            sb.Append("  Catalog: ").Append(Catalog).Append("\n");
-            sb.Append("  Loyalty: ").Append(Loyalty).Append("\n");
+            sb.Append("  HasMore: ").Append(HasMore).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,15 +105,14 @@ namespace TalonOne.Model
 
             return 
                 (
-                    this.Catalog == input.Catalog ||
-                    (this.Catalog != null &&
-                    this.Catalog.Equals(input.Catalog))
+                    this.HasMore == input.HasMore ||
+                    this.HasMore.Equals(input.HasMore)
                 ) && 
                 (
-                    this.Loyalty == input.Loyalty ||
-                    this.Loyalty != null &&
-                    input.Loyalty != null &&
-                    this.Loyalty.SequenceEqual(input.Loyalty)
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
                 );
         }
 
@@ -127,10 +125,9 @@ namespace TalonOne.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Catalog != null)
-                    hashCode = hashCode * 59 + this.Catalog.GetHashCode();
-                if (this.Loyalty != null)
-                    hashCode = hashCode * 59 + this.Loyalty.GetHashCode();
+                hashCode = hashCode * 59 + this.HasMore.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

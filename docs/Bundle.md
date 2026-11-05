@@ -4,7 +4,7 @@ A named bundle definition consisting of selector sources with matching constrain
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** | An identifier derived from the bundle content. | 
+**Id** | **string** | An identifier derived from the bundle content. | [optional] [readonly] 
 **Name** | **string** | The name of the bundle. | 
 **Type** | **string** | A binding of type &#x60;bundle&#x60;. | 
 **Sources** | **List&lt;string&gt;** | The selector sources of bundle items. Each source is expressed as a &#x60;{{$selectorName}}&#x60; reference. | 

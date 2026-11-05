@@ -44,7 +44,10 @@ namespace TalonOne.Model
         /// <param name="customerProfileID">The integration ID of the customer profile that has expiring points. (required).</param>
         /// <param name="amountOfExpiringPoints">The amount of loyalty points that will be expired soon. (required).</param>
         /// <param name="subledgerID">The ID of the subledger within the loyalty program where these points were added. (required).</param>
-        public ExpiringPointsData(DateTime expiryDate = default(DateTime), long loyaltyProgramID = default(long), string customerProfileID = default(string), decimal amountOfExpiringPoints = default(decimal), string subledgerID = default(string))
+        /// <param name="created">The timestamp when the loyalty transaction occurred..</param>
+        /// <param name="awaitsActivation">Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date..</param>
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. .</param>
+        public ExpiringPointsData(DateTime expiryDate = default(DateTime), long loyaltyProgramID = default(long), string customerProfileID = default(string), decimal amountOfExpiringPoints = default(decimal), string subledgerID = default(string), DateTime created = default(DateTime), bool awaitsActivation = default(bool), string validityDuration = default(string))
         {
             this.ExpiryDate = expiryDate;
             this.LoyaltyProgramID = loyaltyProgramID;
@@ -53,6 +56,9 @@ namespace TalonOne.Model
             this.AmountOfExpiringPoints = amountOfExpiringPoints;
             // to ensure "subledgerID" is required (not null)
             this.SubledgerID = subledgerID ?? throw new ArgumentNullException("subledgerID is a required property for ExpiringPointsData and cannot be null");
+            this.Created = created;
+            this.AwaitsActivation = awaitsActivation;
+            this.ValidityDuration = validityDuration;
         }
         
         /// <summary>
@@ -92,6 +98,27 @@ namespace TalonOne.Model
         public string SubledgerID { get; set; }
 
         /// <summary>
+        /// The timestamp when the loyalty transaction occurred.
+        /// </summary>
+        /// <value>The timestamp when the loyalty transaction occurred.</value>
+        [DataMember(Name="Created", EmitDefaultValue=false)]
+        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+        /// </summary>
+        /// <value>Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.</value>
+        [DataMember(Name="AwaitsActivation", EmitDefaultValue=false)]
+        public bool AwaitsActivation { get; set; }
+
+        /// <summary>
+        /// The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. 
+        /// </summary>
+        /// <value>The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. </value>
+        [DataMember(Name="ValidityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -104,6 +131,9 @@ namespace TalonOne.Model
             sb.Append("  CustomerProfileID: ").Append(CustomerProfileID).Append("\n");
             sb.Append("  AmountOfExpiringPoints: ").Append(AmountOfExpiringPoints).Append("\n");
             sb.Append("  SubledgerID: ").Append(SubledgerID).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  AwaitsActivation: ").Append(AwaitsActivation).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -160,6 +190,20 @@ namespace TalonOne.Model
                     this.SubledgerID == input.SubledgerID ||
                     (this.SubledgerID != null &&
                     this.SubledgerID.Equals(input.SubledgerID))
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.AwaitsActivation == input.AwaitsActivation ||
+                    this.AwaitsActivation.Equals(input.AwaitsActivation)
+                ) && 
+                (
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
                 );
         }
 
@@ -180,6 +224,11 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.AmountOfExpiringPoints.GetHashCode();
                 if (this.SubledgerID != null)
                     hashCode = hashCode * 59 + this.SubledgerID.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                hashCode = hashCode * 59 + this.AwaitsActivation.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
                 return hashCode;
             }
         }

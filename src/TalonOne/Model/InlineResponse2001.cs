@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="totalResultSize">totalResultSize (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse2001(long totalResultSize = default(long), List<CustomerProfile> data = default(List<CustomerProfile>))
+        public InlineResponse2001(long totalResultSize = default(long), List<CustomerReservation> data = default(List<CustomerReservation>))
         {
             this.TotalResultSize = totalResultSize;
             // to ensure "data" is required (not null)
@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<CustomerProfile> Data { get; set; }
+        public List<CustomerReservation> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

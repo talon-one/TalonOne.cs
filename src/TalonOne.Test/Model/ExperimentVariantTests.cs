@@ -113,6 +113,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'IsPrimary'
         }
+        /// <summary>
+        /// Test the property 'AudienceId'
+        /// </summary>
+        [Fact]
+        public void AudienceIdTest()
+        {
+            // TODO unit test for the property 'AudienceId'
+        }
 
     }
 

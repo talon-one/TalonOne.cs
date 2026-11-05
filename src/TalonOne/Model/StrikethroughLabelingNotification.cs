@@ -89,7 +89,7 @@ namespace TalonOne.Model
         /// <param name="trigger">trigger (required).</param>
         /// <param name="changedItems">changedItems (required).</param>
         /// <param name="notificationType">The type of notification. (required).</param>
-        /// <param name="sentAt">Timestamp at which the notification was sent. (required).</param>
+        /// <param name="sentAt">Timestamp when the notification was sent by Talon.One. There may be a delay before the notification is delivered to the user. (required).</param>
         public StrikethroughLabelingNotification(VersionEnum? version = default(VersionEnum?), DateTime validFrom = default(DateTime), long applicationId = default(long), long currentBatch = default(long), long totalBatches = default(long), StrikethroughTrigger trigger = default(StrikethroughTrigger), List<StrikethroughChangedItem> changedItems = default(List<StrikethroughChangedItem>), NotificationTypeEnum notificationType = default(NotificationTypeEnum), DateTime sentAt = default(DateTime))
         {
             this.ApplicationId = applicationId;
@@ -146,9 +146,9 @@ namespace TalonOne.Model
         public List<StrikethroughChangedItem> ChangedItems { get; set; }
 
         /// <summary>
-        /// Timestamp at which the notification was sent.
+        /// Timestamp when the notification was sent by Talon.One. There may be a delay before the notification is delivered to the user.
         /// </summary>
-        /// <value>Timestamp at which the notification was sent.</value>
+        /// <value>Timestamp when the notification was sent by Talon.One. There may be a delay before the notification is delivered to the user.</value>
         [DataMember(Name="sentAt", EmitDefaultValue=false)]
         public DateTime SentAt { get; set; }
 

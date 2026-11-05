@@ -32,6 +32,27 @@ namespace TalonOne.Model
     public partial class CheckCouponBlock :  IEquatable<CheckCouponBlock>, IValidatableObject
     {
         /// <summary>
+        /// A block discriminator of type &#x60;checkCoupon&#x60;.
+        /// </summary>
+        /// <value>A block discriminator of type &#x60;checkCoupon&#x60;.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum TypeEnum
+        {
+            /// <summary>
+            /// Enum CheckCoupon for value: checkCoupon
+            /// </summary>
+            [EnumMember(Value = "checkCoupon")]
+            CheckCoupon = 1
+
+        }
+
+        /// <summary>
+        /// A block discriminator of type &#x60;checkCoupon&#x60;.
+        /// </summary>
+        /// <value>A block discriminator of type &#x60;checkCoupon&#x60;.</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public TypeEnum Type { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="CheckCouponBlock" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,13 +60,12 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CheckCouponBlock" /> class.
         /// </summary>
-        /// <param name="type">Identifies the block variant and determines which additional properties are present in it. (required).</param>
+        /// <param name="type">A block discriminator of type &#x60;checkCoupon&#x60;. (required).</param>
         /// <param name="redeem">When &#x60;true&#x60;, the coupon code is redeemed. (required).</param>
         /// <param name="onFailure">Promotion blocks evaluated when this block fails or returns false..</param>
-        public CheckCouponBlock(string type = default(string), bool redeem = default(bool), List<Object> onFailure = default(List<Object>))
+        public CheckCouponBlock(TypeEnum type = default(TypeEnum), bool redeem = default(bool), List<Object> onFailure = default(List<Object>))
         {
-            // to ensure "type" is required (not null)
-            this.Type = type ?? throw new ArgumentNullException("type is a required property for CheckCouponBlock and cannot be null");
+            this.Type = type;
             this.Redeem = redeem;
             this.OnFailure = onFailure;
         }
@@ -56,13 +76,6 @@ namespace TalonOne.Model
         /// <value>Unique identifier for this block.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; private set; }
-
-        /// <summary>
-        /// Identifies the block variant and determines which additional properties are present in it.
-        /// </summary>
-        /// <value>Identifies the block variant and determines which additional properties are present in it.</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
 
         /// <summary>
         /// Semantic labels attached to this block.
@@ -139,8 +152,7 @@ namespace TalonOne.Model
                 ) && 
                 (
                     this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type.Equals(input.Type)
                 ) && 
                 (
                     this.Tags == input.Tags ||
@@ -171,8 +183,7 @@ namespace TalonOne.Model
                 int hashCode = 41;
                 if (this.Id != null)
                     hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Tags != null)
                     hashCode = hashCode * 59 + this.Tags.GetHashCode();
                 hashCode = hashCode * 59 + this.Redeem.GetHashCode();

@@ -42,8 +42,9 @@ namespace TalonOne.Model
         /// <param name="id">id (required).</param>
         /// <param name="name">The name of this variant. (required).</param>
         /// <param name="ruleset">ruleset (required).</param>
-        /// <param name="weight">The percentage split of this variant. The sum of all variant percentages must be 100. (required).</param>
-        public UpdateExperimentVariant(long id = default(long), string name = default(string), NewRuleset ruleset = default(NewRuleset), long weight = default(long))
+        /// <param name="weight">The percentage split of this variant. For &#x60;random&#x60; assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for &#x60;audience&#x60; and &#x60;external&#x60; assignment.  (required).</param>
+        /// <param name="audienceId">The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;. .</param>
+        public UpdateExperimentVariant(long id = default(long), string name = default(string), NewRuleset ruleset = default(NewRuleset), long weight = default(long), long audienceId = default(long))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -51,6 +52,7 @@ namespace TalonOne.Model
             // to ensure "ruleset" is required (not null)
             this.Ruleset = ruleset ?? throw new ArgumentNullException("ruleset is a required property for UpdateExperimentVariant and cannot be null");
             this.Weight = weight;
+            this.AudienceId = audienceId;
         }
         
         /// <summary>
@@ -73,11 +75,18 @@ namespace TalonOne.Model
         public NewRuleset Ruleset { get; set; }
 
         /// <summary>
-        /// The percentage split of this variant. The sum of all variant percentages must be 100.
+        /// The percentage split of this variant. For &#x60;random&#x60; assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for &#x60;audience&#x60; and &#x60;external&#x60; assignment. 
         /// </summary>
-        /// <value>The percentage split of this variant. The sum of all variant percentages must be 100.</value>
+        /// <value>The percentage split of this variant. For &#x60;random&#x60; assignment, the split must be between 1 and 99 and the sum across all variants must equal 100. Ignored for &#x60;audience&#x60; and &#x60;external&#x60; assignment. </value>
         [DataMember(Name="weight", EmitDefaultValue=false)]
         public long Weight { get; set; }
+
+        /// <summary>
+        /// The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;. 
+        /// </summary>
+        /// <value>The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;. </value>
+        [DataMember(Name="audienceId", EmitDefaultValue=false)]
+        public long AudienceId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -91,6 +100,7 @@ namespace TalonOne.Model
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Ruleset: ").Append(Ruleset).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
+            sb.Append("  AudienceId: ").Append(AudienceId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -142,6 +152,10 @@ namespace TalonOne.Model
                 (
                     this.Weight == input.Weight ||
                     this.Weight.Equals(input.Weight)
+                ) && 
+                (
+                    this.AudienceId == input.AudienceId ||
+                    this.AudienceId.Equals(input.AudienceId)
                 );
         }
 
@@ -160,6 +174,7 @@ namespace TalonOne.Model
                 if (this.Ruleset != null)
                     hashCode = hashCode * 59 + this.Ruleset.GetHashCode();
                 hashCode = hashCode * 59 + this.Weight.GetHashCode();
+                hashCode = hashCode * 59 + this.AudienceId.GetHashCode();
                 return hashCode;
             }
         }
@@ -190,9 +205,9 @@ namespace TalonOne.Model
             }
 
             // Weight (long) minimum
-            if(this.Weight < (long)1)
+            if(this.Weight < (long)0)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Weight, must be a value greater than or equal to 1.", new [] { "Weight" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Weight, must be a value greater than or equal to 0.", new [] { "Weight" });
             }
 
             yield break;

@@ -89,6 +89,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'Weight'
         }
+        /// <summary>
+        /// Test the property 'AudienceId'
+        /// </summary>
+        [Fact]
+        public void AudienceIdTest()
+        {
+            // TODO unit test for the property 'AudienceId'
+        }
 
     }
 

@@ -3,8 +3,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**TotalResultSize** | **long** |  | 
-**Data** | [**List&lt;LoyaltyProgram&gt;**](LoyaltyProgram.md) |  | 
+**HasMore** | **bool** |  | 
+**Data** | [**List&lt;CampaignTemplate&gt;**](CampaignTemplate.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

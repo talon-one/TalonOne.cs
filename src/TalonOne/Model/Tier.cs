@@ -59,6 +59,33 @@ namespace TalonOne.Model
         [DataMember(Name="downgradePolicy", EmitDefaultValue=false)]
         public DowngradePolicyEnum? DowngradePolicy { get; set; }
         /// <summary>
+        /// Indicates whether the customer&#39;s current tier was determined based on their points balance or a temporary boost.  - &#x60;points&#x60;: The tier reflects the customer&#39;s current point balance. - &#x60;boost&#x60;: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier. 
+        /// </summary>
+        /// <value>Indicates whether the customer&#39;s current tier was determined based on their points balance or a temporary boost.  - &#x60;points&#x60;: The tier reflects the customer&#39;s current point balance. - &#x60;boost&#x60;: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum SourceEnum
+        {
+            /// <summary>
+            /// Enum Boost for value: boost
+            /// </summary>
+            [EnumMember(Value = "boost")]
+            Boost = 1,
+
+            /// <summary>
+            /// Enum Points for value: points
+            /// </summary>
+            [EnumMember(Value = "points")]
+            Points = 2
+
+        }
+
+        /// <summary>
+        /// Indicates whether the customer&#39;s current tier was determined based on their points balance or a temporary boost.  - &#x60;points&#x60;: The tier reflects the customer&#39;s current point balance. - &#x60;boost&#x60;: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier. 
+        /// </summary>
+        /// <value>Indicates whether the customer&#39;s current tier was determined based on their points balance or a temporary boost.  - &#x60;points&#x60;: The tier reflects the customer&#39;s current point balance. - &#x60;boost&#x60;: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier. </value>
+        [DataMember(Name="source", EmitDefaultValue=false)]
+        public SourceEnum? Source { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="Tier" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -71,7 +98,9 @@ namespace TalonOne.Model
         /// <param name="startDate">Date and time when the customer moved to this tier. This value uses the loyalty program&#39;s time zone setting..</param>
         /// <param name="expiryDate">Date when tier level expires in the RFC3339 format (in the Loyalty Program&#39;s timezone)..</param>
         /// <param name="downgradePolicy">The policy that defines how customer tiers are downgraded in the loyalty program after tier reevaluation.  - &#x60;one_down&#x60;: If the customer doesn&#39;t have enough points to stay in the current tier, they are downgraded by one tier.  - &#x60;balance_based&#x60;: The customer&#39;s tier is reevaluated based on the amount of active points they have at the moment. .</param>
-        public Tier(long id = default(long), string name = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), DowngradePolicyEnum? downgradePolicy = default(DowngradePolicyEnum?))
+        /// <param name="source">Indicates whether the customer&#39;s current tier was determined based on their points balance or a temporary boost.  - &#x60;points&#x60;: The tier reflects the customer&#39;s current point balance. - &#x60;boost&#x60;: A temporary tier boost is in effect where the customer is in a higher tier than their points-based tier. The boost expires after a set duration and the customer returns to their points-based tier.  (default to SourceEnum.Points).</param>
+        /// <param name="reason">The reason for the tier assignment. .</param>
+        public Tier(long id = default(long), string name = default(string), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), DowngradePolicyEnum? downgradePolicy = default(DowngradePolicyEnum?), SourceEnum? source = SourceEnum.Points, string reason = default(string))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -79,6 +108,8 @@ namespace TalonOne.Model
             this.StartDate = startDate;
             this.ExpiryDate = expiryDate;
             this.DowngradePolicy = downgradePolicy;
+            this.Source = source;
+            this.Reason = reason;
         }
         
         /// <summary>
@@ -110,6 +141,13 @@ namespace TalonOne.Model
         public DateTime ExpiryDate { get; set; }
 
         /// <summary>
+        /// The reason for the tier assignment. 
+        /// </summary>
+        /// <value>The reason for the tier assignment. </value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public string Reason { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -122,6 +160,8 @@ namespace TalonOne.Model
             sb.Append("  StartDate: ").Append(StartDate).Append("\n");
             sb.Append("  ExpiryDate: ").Append(ExpiryDate).Append("\n");
             sb.Append("  DowngradePolicy: ").Append(DowngradePolicy).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -178,6 +218,15 @@ namespace TalonOne.Model
                 (
                     this.DowngradePolicy == input.DowngradePolicy ||
                     this.DowngradePolicy.Equals(input.DowngradePolicy)
+                ) && 
+                (
+                    this.Source == input.Source ||
+                    this.Source.Equals(input.Source)
+                ) && 
+                (
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 );
         }
 
@@ -198,6 +247,9 @@ namespace TalonOne.Model
                 if (this.ExpiryDate != null)
                     hashCode = hashCode * 59 + this.ExpiryDate.GetHashCode();
                 hashCode = hashCode * 59 + this.DowngradePolicy.GetHashCode();
+                hashCode = hashCode * 59 + this.Source.GetHashCode();
+                if (this.Reason != null)
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 return hashCode;
             }
         }

@@ -40,15 +40,9 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="CheckLoyaltyBalanceBlockProgram" /> class.
         /// </summary>
         /// <param name="id">The ID of the loyalty program. (required).</param>
-        /// <param name="name">The internal name of the loyalty program. (required).</param>
-        /// <param name="title">The display name of the loyalty program. (required).</param>
-        public CheckLoyaltyBalanceBlockProgram(long id = default(long), string name = default(string), string title = default(string))
+        public CheckLoyaltyBalanceBlockProgram(long id = default(long))
         {
             this.Id = id;
-            // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for CheckLoyaltyBalanceBlockProgram and cannot be null");
-            // to ensure "title" is required (not null)
-            this.Title = title ?? throw new ArgumentNullException("title is a required property for CheckLoyaltyBalanceBlockProgram and cannot be null");
         }
         
         /// <summary>
@@ -63,14 +57,14 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>The internal name of the loyalty program.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
+        public string Name { get; private set; }
 
         /// <summary>
         /// The display name of the loyalty program.
         /// </summary>
         /// <value>The display name of the loyalty program.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
-        public string Title { get; set; }
+        public string Title { get; private set; }
 
         /// <summary>
         /// Returns the string presentation of the object

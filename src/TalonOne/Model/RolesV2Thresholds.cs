@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// RolesV2Thresholds
+    /// Support user limits for actions that require admin approval within the given loyalty program.
     /// </summary>
     [DataContract]
     public partial class RolesV2Thresholds :  IEquatable<RolesV2Thresholds>, IValidatableObject

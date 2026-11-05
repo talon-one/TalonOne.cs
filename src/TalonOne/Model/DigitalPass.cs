@@ -32,9 +32,9 @@ namespace TalonOne.Model
     public partial class DigitalPass :  IEquatable<DigitalPass>, IValidatableObject
     {
         /// <summary>
-        /// The status of the digital pass.
+        /// The status of the digital pass.  &#x60;created&#x60; indicates that the pass was generated and is ready to be added to a wallet. 
         /// </summary>
-        /// <value>The status of the digital pass.</value>
+        /// <value>The status of the digital pass.  &#x60;created&#x60; indicates that the pass was generated and is ready to be added to a wallet. </value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         {
@@ -47,9 +47,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// The status of the digital pass.
+        /// The status of the digital pass.  &#x60;created&#x60; indicates that the pass was generated and is ready to be added to a wallet. 
         /// </summary>
-        /// <value>The status of the digital pass.</value>
+        /// <value>The status of the digital pass.  &#x60;created&#x60; indicates that the pass was generated and is ready to be added to a wallet. </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public StatusEnum Status { get; set; }
         /// <summary>
@@ -62,7 +62,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="passId">The ID of the generated digital pass. (required).</param>
         /// <param name="passTemplateId">The ID of the digital pass template used to generate the pass. (required).</param>
-        /// <param name="status">The status of the digital pass. (required).</param>
+        /// <param name="status">The status of the digital pass.  &#x60;created&#x60; indicates that the pass was generated and is ready to be added to a wallet.  (required).</param>
         /// <param name="passUrl">The URL you can use to let the customer add the digital pass to their wallet. (required).</param>
         public DigitalPass(string passId = default(string), string passTemplateId = default(string), StatusEnum status = default(StatusEnum), string passUrl = default(string))
         {

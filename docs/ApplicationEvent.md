@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **SessionId** | **long** | The globally unique Talon.One ID of the session that contains this event. | [optional] 
 **Type** | **string** | The name of the event. Must be a [custom event](https://docs.talon.one/docs/dev/concepts/entities/events#custom-events), not a built-in event. | 
 **Attributes** | [**Object**](.md) | Additional JSON serialized data associated with the event. | 
-**Effects** | [**List&lt;Effect&gt;**](Effect.md) | An array containing the effects that were applied as a result of this event. | 
+**Effects** | **List&lt;Object&gt;** | An array containing the effects that were applied as a result of this event. | 
 **RuleFailureReasons** | [**List&lt;RuleFailureReason&gt;**](RuleFailureReason.md) | An array containing the rule failure reasons which happened during this event. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

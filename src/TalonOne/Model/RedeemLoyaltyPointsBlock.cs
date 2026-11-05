@@ -44,8 +44,7 @@ namespace TalonOne.Model
         /// <param name="subledger">The name of the subledger to deduct points from. Can be empty if this block deducts from the loyalty program&#39;s main ledger instead of a subledger. (required).</param>
         /// <param name="value">Number of points to deduct. Either a numeric scalar or a &#x60;{{expression}}&#x60; string that resolves to a number at evaluation time. (required).</param>
         /// <param name="name">A custom description recorded as the reason for the point deduction..</param>
-        /// <param name="onFailure">Promotion blocks evaluated when this block fails or returns false..</param>
-        public RedeemLoyaltyPointsBlock(string type = default(string), RedeemLoyaltyPointsBlockProgram program = default(RedeemLoyaltyPointsBlockProgram), string subledger = default(string), Object value = default(Object), string name = default(string), List<Object> onFailure = default(List<Object>))
+        public RedeemLoyaltyPointsBlock(string type = default(string), RedeemLoyaltyPointsBlockProgram program = default(RedeemLoyaltyPointsBlockProgram), string subledger = default(string), Object value = default(Object), string name = default(string))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for RedeemLoyaltyPointsBlock and cannot be null");
@@ -56,7 +55,6 @@ namespace TalonOne.Model
             // to ensure "value" is required (not null)
             this.Value = value ?? throw new ArgumentNullException("value is a required property for RedeemLoyaltyPointsBlock and cannot be null");
             this.Name = name;
-            this.OnFailure = onFailure;
         }
         
         /// <summary>
@@ -108,13 +106,6 @@ namespace TalonOne.Model
         public string Name { get; set; }
 
         /// <summary>
-        /// Promotion blocks evaluated when this block fails or returns false.
-        /// </summary>
-        /// <value>Promotion blocks evaluated when this block fails or returns false.</value>
-        [DataMember(Name="onFailure", EmitDefaultValue=false)]
-        public List<Object> OnFailure { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -129,7 +120,6 @@ namespace TalonOne.Model
             sb.Append("  Subledger: ").Append(Subledger).Append("\n");
             sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  OnFailure: ").Append(OnFailure).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,12 +189,6 @@ namespace TalonOne.Model
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.OnFailure == input.OnFailure ||
-                    this.OnFailure != null &&
-                    input.OnFailure != null &&
-                    this.OnFailure.SequenceEqual(input.OnFailure)
                 );
         }
 
@@ -231,8 +215,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Value.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.OnFailure != null)
-                    hashCode = hashCode * 59 + this.OnFailure.GetHashCode();
                 return hashCode;
             }
         }

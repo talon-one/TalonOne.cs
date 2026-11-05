@@ -54,7 +54,7 @@ namespace TalonOne.Model
         /// <param name="effectIndex">The index of the effect that failed..</param>
         /// <param name="details">More details about the failure..</param>
         /// <param name="evaluationGroupID">The ID of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
-        /// <param name="evaluationGroupMode">The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-.</param>
+        /// <param name="evaluationGroupMode">The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation)..</param>
         public RuleFailureReason(long campaignID = default(long), string campaignName = default(string), long rulesetID = default(long), long couponID = default(long), string couponValue = default(string), long referralID = default(long), string referralValue = default(string), long rewardId = default(long), string rewardIntegrationId = default(string), long ruleIndex = default(long), string ruleName = default(string), long conditionIndex = default(long), long effectIndex = default(long), string details = default(string), long evaluationGroupID = default(long), string evaluationGroupMode = default(string))
         {
             this.CampaignID = campaignID;
@@ -183,9 +183,9 @@ namespace TalonOne.Model
         public long EvaluationGroupID { get; set; }
 
         /// <summary>
-        /// The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-
+        /// The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).
         /// </summary>
-        /// <value>The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-</value>
+        /// <value>The evaluation mode of the evaluation group. For more information, see [Managing campaign evaluation](https://docs.talon.one/docs/product/applications/managing-campaign-evaluation).</value>
         [DataMember(Name="evaluationGroupMode", EmitDefaultValue=false)]
         public string EvaluationGroupMode { get; set; }
 

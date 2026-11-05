@@ -77,7 +77,13 @@ namespace TalonOne.Model
             /// Enum TriggeredCampaigns for value: triggeredCampaigns
             /// </summary>
             [EnumMember(Value = "triggeredCampaigns")]
-            TriggeredCampaigns = 7
+            TriggeredCampaigns = 7,
+
+            /// <summary>
+            /// Enum UnlockedRewards for value: unlockedRewards
+            /// </summary>
+            [EnumMember(Value = "unlockedRewards")]
+            UnlockedRewards = 8
 
         }
 
@@ -105,8 +111,9 @@ namespace TalonOne.Model
         /// <param name="connectedSessionId">The ID of the session to reference. The session must be in &#x60;closed&#x60; state. Otherwise, the API call will fail..</param>
         /// <param name="referralCode">The referral code submitted with the event. The endpoint does not validate the code, and submitting a code does not redeem it. Use the \&quot;Referral code is valid\&quot; condition in the Rule Builder to validate and redeem the code, or \&quot;Referral code is valid (without redemption)\&quot; to validate without redeeming. .</param>
         /// <param name="loyaltyCards">Identifiers of the loyalty cards used during this event..</param>
+        /// <param name="rewardIntegrationIds">The integration IDs of the unlocked rewards that can be used in this event. .</param>
         /// <param name="responseContent">Optional list of requested information to be present on the response related to the tracking custom event. .</param>
-        public IntegrationEventV3Request(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), string type = default(string), Object attributes = default(Object), string integrationId = default(string), string connectedSessionId = default(string), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
+        public IntegrationEventV3Request(string profileId = default(string), string storeIntegrationId = default(string), List<long> evaluableCampaignIds = default(List<long>), string type = default(string), Object attributes = default(Object), string integrationId = default(string), string connectedSessionId = default(string), string referralCode = default(string), List<string> loyaltyCards = default(List<string>), List<string> rewardIntegrationIds = default(List<string>), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             // to ensure "profileId" is required (not null)
             this.ProfileId = profileId ?? throw new ArgumentNullException("profileId is a required property for IntegrationEventV3Request and cannot be null");
@@ -120,6 +127,7 @@ namespace TalonOne.Model
             this.ConnectedSessionId = connectedSessionId;
             this.ReferralCode = referralCode;
             this.LoyaltyCards = loyaltyCards;
+            this.RewardIntegrationIds = rewardIntegrationIds;
             this.ResponseContent = responseContent;
         }
         
@@ -187,6 +195,13 @@ namespace TalonOne.Model
         public List<string> LoyaltyCards { get; set; }
 
         /// <summary>
+        /// The integration IDs of the unlocked rewards that can be used in this event. 
+        /// </summary>
+        /// <value>The integration IDs of the unlocked rewards that can be used in this event. </value>
+        [DataMember(Name="rewardIntegrationIds", EmitDefaultValue=false)]
+        public List<string> RewardIntegrationIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -203,6 +218,7 @@ namespace TalonOne.Model
             sb.Append("  ConnectedSessionId: ").Append(ConnectedSessionId).Append("\n");
             sb.Append("  ReferralCode: ").Append(ReferralCode).Append("\n");
             sb.Append("  LoyaltyCards: ").Append(LoyaltyCards).Append("\n");
+            sb.Append("  RewardIntegrationIds: ").Append(RewardIntegrationIds).Append("\n");
             sb.Append("  ResponseContent: ").Append(ResponseContent).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -286,6 +302,12 @@ namespace TalonOne.Model
                     this.LoyaltyCards.SequenceEqual(input.LoyaltyCards)
                 ) && 
                 (
+                    this.RewardIntegrationIds == input.RewardIntegrationIds ||
+                    this.RewardIntegrationIds != null &&
+                    input.RewardIntegrationIds != null &&
+                    this.RewardIntegrationIds.SequenceEqual(input.RewardIntegrationIds)
+                ) && 
+                (
                     this.ResponseContent == input.ResponseContent ||
                     this.ResponseContent.SequenceEqual(input.ResponseContent)
                 );
@@ -318,6 +340,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.ReferralCode.GetHashCode();
                 if (this.LoyaltyCards != null)
                     hashCode = hashCode * 59 + this.LoyaltyCards.GetHashCode();
+                if (this.RewardIntegrationIds != null)
+                    hashCode = hashCode * 59 + this.RewardIntegrationIds.GetHashCode();
                 hashCode = hashCode * 59 + this.ResponseContent.GetHashCode();
                 return hashCode;
             }

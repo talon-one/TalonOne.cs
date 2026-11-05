@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **PromotionRules** | [**List&lt;RuleV2&gt;**](RuleV2.md) | Set of promotion rules. | 
 **StrikethroughRules** | [**List&lt;RuleV2&gt;**](RuleV2.md) | Set of strikethrough rules. | [optional] 
 **Selectors** | [**List&lt;Selector&gt;**](Selector.md) | Variable bindings of type selector. | [optional] [readonly] 
-**Bundles** | [**List&lt;Bundle&gt;**](Bundle.md) | Variable bindings of type bundle. | [optional] [readonly] 
-**Parameters** | [**List&lt;TemplateParameter&gt;**](TemplateParameter.md) | Variable bindings of type template parameter. | [optional] [readonly] 
+**Bundles** | [**List&lt;Bundle&gt;**](Bundle.md) | Variable bindings of type bundle. | [optional] 
+**Parameters** | [**List&lt;TemplateParameter&gt;**](TemplateParameter.md) | Variable bindings of type template parameter. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

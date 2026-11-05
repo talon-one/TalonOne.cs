@@ -51,7 +51,7 @@ namespace TalonOne.Model
         /// <param name="attributes">Additional JSON serialized data associated with the event. (required).</param>
         /// <param name="effects">An array containing the effects that were applied as a result of this event. (required).</param>
         /// <param name="ruleFailureReasons">An array containing the rule failure reasons which happened during this event..</param>
-        public ApplicationEvent(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), long profileId = default(long), long storeId = default(long), string storeIntegrationId = default(string), string integrationId = default(string), long sessionId = default(long), string type = default(string), Object attributes = default(Object), List<Effect> effects = default(List<Effect>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>))
+        public ApplicationEvent(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), long profileId = default(long), long storeId = default(long), string storeIntegrationId = default(string), string integrationId = default(string), long sessionId = default(long), string type = default(string), Object attributes = default(Object), List<Object> effects = default(List<Object>), List<RuleFailureReason> ruleFailureReasons = default(List<RuleFailureReason>))
         {
             this.Id = id;
             this.Created = created;
@@ -145,7 +145,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <value>An array containing the effects that were applied as a result of this event.</value>
         [DataMember(Name="effects", EmitDefaultValue=false)]
-        public List<Effect> Effects { get; set; }
+        public List<Object> Effects { get; set; }
 
         /// <summary>
         /// An array containing the rule failure reasons which happened during this event.

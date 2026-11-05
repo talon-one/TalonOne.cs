@@ -55,7 +55,8 @@ namespace TalonOne.Model
         /// <param name="archived">Indicates if the entry belongs to the archived session..</param>
         /// <param name="flags">flags.</param>
         /// <param name="validityDuration">The duration for which the points remain active, relative to the  activation date.  **Note**: This only applies to points for which &#x60;awaitsActivation&#x60; is &#x60;true&#x60; and &#x60;expiryDate&#x60; is not set. .</param>
-        public LoyaltyLedgerEntry(DateTime created = default(DateTime), long programID = default(long), string customerProfileID = default(string), long cardID = default(long), string customerSessionID = default(string), long eventID = default(long), string type = default(string), decimal amount = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), long userID = default(long), bool archived = default(bool), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags), string validityDuration = default(string))
+        /// <param name="awaitsActivation">Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date..</param>
+        public LoyaltyLedgerEntry(DateTime created = default(DateTime), long programID = default(long), string customerProfileID = default(string), long cardID = default(long), string customerSessionID = default(string), long eventID = default(long), string type = default(string), decimal amount = default(decimal), DateTime startDate = default(DateTime), DateTime expiryDate = default(DateTime), string name = default(string), string subLedgerID = default(string), long userID = default(long), bool archived = default(bool), LoyaltyLedgerEntryFlags flags = default(LoyaltyLedgerEntryFlags), string validityDuration = default(string), bool awaitsActivation = default(bool))
         {
             this.Created = created;
             this.ProgramID = programID;
@@ -76,6 +77,7 @@ namespace TalonOne.Model
             this.Archived = archived;
             this.Flags = flags;
             this.ValidityDuration = validityDuration;
+            this.AwaitsActivation = awaitsActivation;
         }
         
         /// <summary>
@@ -181,6 +183,13 @@ namespace TalonOne.Model
         public string ValidityDuration { get; set; }
 
         /// <summary>
+        /// Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+        /// </summary>
+        /// <value>Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.</value>
+        [DataMember(Name="awaitsActivation", EmitDefaultValue=false)]
+        public bool AwaitsActivation { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -204,6 +213,7 @@ namespace TalonOne.Model
             sb.Append("  Archived: ").Append(Archived).Append("\n");
             sb.Append("  Flags: ").Append(Flags).Append("\n");
             sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
+            sb.Append("  AwaitsActivation: ").Append(AwaitsActivation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -311,6 +321,10 @@ namespace TalonOne.Model
                     this.ValidityDuration == input.ValidityDuration ||
                     (this.ValidityDuration != null &&
                     this.ValidityDuration.Equals(input.ValidityDuration))
+                ) && 
+                (
+                    this.AwaitsActivation == input.AwaitsActivation ||
+                    this.AwaitsActivation.Equals(input.AwaitsActivation)
                 );
         }
 
@@ -349,6 +363,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Flags.GetHashCode();
                 if (this.ValidityDuration != null)
                     hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
+                hashCode = hashCode * 59 + this.AwaitsActivation.GetHashCode();
                 return hashCode;
             }
         }

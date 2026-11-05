@@ -100,7 +100,7 @@ namespace TalonOne.Model
         /// <param name="_operator">The comparison operator applied to the achievement. (required).</param>
         /// <param name="achievement">achievement (required).</param>
         /// <param name="onFailure">Promotion blocks evaluated when this block fails or returns false..</param>
-        public CheckAchievementBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), CheckAchievementBlockAchievement achievement = default(CheckAchievementBlockAchievement), List<Object> onFailure = default(List<Object>))
+        public CheckAchievementBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), AchievementBlockReference achievement = default(AchievementBlockReference), List<Object> onFailure = default(List<Object>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CheckAchievementBlock and cannot be null");
@@ -135,7 +135,7 @@ namespace TalonOne.Model
         /// Gets or Sets Achievement
         /// </summary>
         [DataMember(Name="achievement", EmitDefaultValue=false)]
-        public CheckAchievementBlockAchievement Achievement { get; set; }
+        public AchievementBlockReference Achievement { get; set; }
 
         /// <summary>
         /// Promotion blocks evaluated when this block fails or returns false.

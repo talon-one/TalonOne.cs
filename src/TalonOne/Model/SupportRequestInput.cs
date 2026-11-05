@@ -81,12 +81,12 @@ namespace TalonOne.Model
         /// <param name="applicationId">Identifier of the Application connected to the loyalty program or the campaign. It is displayed in your Talon.One deployment URL. (required).</param>
         /// <param name="campaignId">Identifier of the campaign where the coupon or gift card is created..</param>
         /// <param name="loyaltyProgramId">Identifier of the loyalty program. You can get the ID with the [List loyalty programs](https://docs.talon.one/management-api#tag/Loyalty/operation/getLoyaltyPrograms) endpoint..</param>
-        /// <param name="subledgerId">Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically..</param>
+        /// <param name="subledgerId">ID of the subledger the points are added to or deducted from. Must be combined with &#x60;loyaltyProgramId&#x60;. The subledger must already exist in the given loyalty program..</param>
         /// <param name="customerProfileId">Integration ID of the customer profile linked to the support request. (required).</param>
         /// <param name="requestType">Type of reward requested, including gift cards, personal coupons, and loyalty point additions or deductions. (required).</param>
         /// <param name="requestValue">Requested monetary balance of the gift card or the number of loyalty points to be added or deducted..</param>
         /// <param name="requestNote">Notes attached to the support request. (required).</param>
-        public SupportRequestInput(long applicationId = default(long), long campaignId = default(long), long loyaltyProgramId = default(long), long subledgerId = default(long), string customerProfileId = default(string), RequestTypeEnum requestType = default(RequestTypeEnum), float requestValue = default(float), string requestNote = default(string))
+        public SupportRequestInput(long applicationId = default(long), long campaignId = default(long), long loyaltyProgramId = default(long), string subledgerId = default(string), string customerProfileId = default(string), RequestTypeEnum requestType = default(RequestTypeEnum), float requestValue = default(float), string requestNote = default(string))
         {
             this.ApplicationId = applicationId;
             // to ensure "customerProfileId" is required (not null)
@@ -122,11 +122,11 @@ namespace TalonOne.Model
         public long LoyaltyProgramId { get; set; }
 
         /// <summary>
-        /// Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically.
+        /// ID of the subledger the points are added to or deducted from. Must be combined with &#x60;loyaltyProgramId&#x60;. The subledger must already exist in the given loyalty program.
         /// </summary>
-        /// <value>Identifier of the subledger the points are added to or deducted from. If there is no existing subledger with this ID, the subledger is created automatically.</value>
+        /// <value>ID of the subledger the points are added to or deducted from. Must be combined with &#x60;loyaltyProgramId&#x60;. The subledger must already exist in the given loyalty program.</value>
         [DataMember(Name="subledgerId", EmitDefaultValue=false)]
-        public long SubledgerId { get; set; }
+        public string SubledgerId { get; set; }
 
         /// <summary>
         /// Integration ID of the customer profile linked to the support request.
@@ -213,7 +213,8 @@ namespace TalonOne.Model
                 ) && 
                 (
                     this.SubledgerId == input.SubledgerId ||
-                    this.SubledgerId.Equals(input.SubledgerId)
+                    (this.SubledgerId != null &&
+                    this.SubledgerId.Equals(input.SubledgerId))
                 ) && 
                 (
                     this.CustomerProfileId == input.CustomerProfileId ||
@@ -247,7 +248,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
                 hashCode = hashCode * 59 + this.CampaignId.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyProgramId.GetHashCode();
-                hashCode = hashCode * 59 + this.SubledgerId.GetHashCode();
+                if (this.SubledgerId != null)
+                    hashCode = hashCode * 59 + this.SubledgerId.GetHashCode();
                 if (this.CustomerProfileId != null)
                     hashCode = hashCode * 59 + this.CustomerProfileId.GetHashCode();
                 hashCode = hashCode * 59 + this.RequestType.GetHashCode();

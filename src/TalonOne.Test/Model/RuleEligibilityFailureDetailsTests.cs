@@ -114,6 +114,22 @@ namespace TalonOne.Test
             // TODO unit test for the property 'EffectIndex'
         }
         /// <summary>
+        /// Test the property 'RuleIndex'
+        /// </summary>
+        [Fact]
+        public void RuleIndexTest()
+        {
+            // TODO unit test for the property 'RuleIndex'
+        }
+        /// <summary>
+        /// Test the property 'RulesetId'
+        /// </summary>
+        [Fact]
+        public void RulesetIdTest()
+        {
+            // TODO unit test for the property 'RulesetId'
+        }
+        /// <summary>
         /// Test the property 'Details'
         /// </summary>
         [Fact]

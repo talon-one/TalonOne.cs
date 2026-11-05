@@ -39,9 +39,9 @@ namespace TalonOne.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="NewGiveawaysPool" /> class.
         /// </summary>
-        /// <param name="name">The name of this giveaways pool. (required).</param>
-        /// <param name="description">The description of this giveaways pool..</param>
-        /// <param name="subscribedApplicationsIds">A list of the IDs of the applications that this giveaways pool is enabled for..</param>
+        /// <param name="name">The name of this giveaway pool. (required).</param>
+        /// <param name="description">The description of this giveaway pool..</param>
+        /// <param name="subscribedApplicationsIds">A list of the IDs of the Applications that this giveaway pool is enabled for..</param>
         /// <param name="sandbox">Indicates if this program is a live or sandbox program. Programs of a given type can only be connected to Applications of the same type. (required).</param>
         public NewGiveawaysPool(string name = default(string), string description = default(string), List<long> subscribedApplicationsIds = default(List<long>), bool sandbox = default(bool))
         {
@@ -53,23 +53,23 @@ namespace TalonOne.Model
         }
         
         /// <summary>
-        /// The name of this giveaways pool.
+        /// The name of this giveaway pool.
         /// </summary>
-        /// <value>The name of this giveaways pool.</value>
+        /// <value>The name of this giveaway pool.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// The description of this giveaways pool.
+        /// The description of this giveaway pool.
         /// </summary>
-        /// <value>The description of this giveaways pool.</value>
+        /// <value>The description of this giveaway pool.</value>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
 
         /// <summary>
-        /// A list of the IDs of the applications that this giveaways pool is enabled for.
+        /// A list of the IDs of the Applications that this giveaway pool is enabled for.
         /// </summary>
-        /// <value>A list of the IDs of the applications that this giveaways pool is enabled for.</value>
+        /// <value>A list of the IDs of the Applications that this giveaway pool is enabled for.</value>
         [DataMember(Name="subscribedApplicationsIds", EmitDefaultValue=false)]
         public List<long> SubscribedApplicationsIds { get; set; }
 

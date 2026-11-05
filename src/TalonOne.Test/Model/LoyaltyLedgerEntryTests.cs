@@ -185,6 +185,14 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'ValidityDuration'
         }
+        /// <summary>
+        /// Test the property 'AwaitsActivation'
+        /// </summary>
+        [Fact]
+        public void AwaitsActivationTest()
+        {
+            // TODO unit test for the property 'AwaitsActivation'
+        }
 
     }
 

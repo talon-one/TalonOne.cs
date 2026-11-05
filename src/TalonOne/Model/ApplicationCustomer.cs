@@ -51,7 +51,8 @@ namespace TalonOne.Model
         /// <param name="lastActivity">Timestamp of the most recent event received from this customer. This field is updated on calls that trigger the Rule Engine and that are not [dry requests](https://docs.talon.one/docs/dev/integration-api/dry-requests/#overlay).  For example, [reserving a coupon](https://docs.talon.one/integration-api#tag/Coupons/operation/createCouponReservation) for a customer doesn&#39;t impact this field.  (required).</param>
         /// <param name="sandbox">An indicator of whether the customer is part of a sandbox or live Application. See the [docs](https://docs.talon.one/docs/product/applications/overview#application-environments). .</param>
         /// <param name="advocateIntegrationId">The Integration ID of the Customer Profile that referred this Customer in the Application..</param>
-        public ApplicationCustomer(long id = default(long), DateTime created = default(DateTime), string integrationId = default(string), Object attributes = default(Object), long accountId = default(long), long closedSessions = default(long), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime), bool sandbox = default(bool), string advocateIntegrationId = default(string))
+        /// <param name="loyaltyProgramJoinDates">The dates on which the customer joined the profile-based loyalty programs they are part of. Returned only when the &#x60;withLoyaltyMemberships&#x60; query parameter is &#x60;true&#x60;..</param>
+        public ApplicationCustomer(long id = default(long), DateTime created = default(DateTime), string integrationId = default(string), Object attributes = default(Object), long accountId = default(long), long closedSessions = default(long), decimal totalSales = default(decimal), List<LoyaltyMembership> loyaltyMemberships = default(List<LoyaltyMembership>), List<AudienceMembership> audienceMemberships = default(List<AudienceMembership>), DateTime lastActivity = default(DateTime), bool sandbox = default(bool), string advocateIntegrationId = default(string), List<LoyaltyMembership> loyaltyProgramJoinDates = default(List<LoyaltyMembership>))
         {
             this.Id = id;
             this.Created = created;
@@ -67,6 +68,7 @@ namespace TalonOne.Model
             this.AudienceMemberships = audienceMemberships;
             this.Sandbox = sandbox;
             this.AdvocateIntegrationId = advocateIntegrationId;
+            this.LoyaltyProgramJoinDates = loyaltyProgramJoinDates;
         }
         
         /// <summary>
@@ -154,6 +156,13 @@ namespace TalonOne.Model
         public string AdvocateIntegrationId { get; set; }
 
         /// <summary>
+        /// The dates on which the customer joined the profile-based loyalty programs they are part of. Returned only when the &#x60;withLoyaltyMemberships&#x60; query parameter is &#x60;true&#x60;.
+        /// </summary>
+        /// <value>The dates on which the customer joined the profile-based loyalty programs they are part of. Returned only when the &#x60;withLoyaltyMemberships&#x60; query parameter is &#x60;true&#x60;.</value>
+        [DataMember(Name="loyaltyProgramJoinDates", EmitDefaultValue=false)]
+        public List<LoyaltyMembership> LoyaltyProgramJoinDates { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -173,6 +182,7 @@ namespace TalonOne.Model
             sb.Append("  LastActivity: ").Append(LastActivity).Append("\n");
             sb.Append("  Sandbox: ").Append(Sandbox).Append("\n");
             sb.Append("  AdvocateIntegrationId: ").Append(AdvocateIntegrationId).Append("\n");
+            sb.Append("  LoyaltyProgramJoinDates: ").Append(LoyaltyProgramJoinDates).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -263,6 +273,12 @@ namespace TalonOne.Model
                     this.AdvocateIntegrationId == input.AdvocateIntegrationId ||
                     (this.AdvocateIntegrationId != null &&
                     this.AdvocateIntegrationId.Equals(input.AdvocateIntegrationId))
+                ) && 
+                (
+                    this.LoyaltyProgramJoinDates == input.LoyaltyProgramJoinDates ||
+                    this.LoyaltyProgramJoinDates != null &&
+                    input.LoyaltyProgramJoinDates != null &&
+                    this.LoyaltyProgramJoinDates.SequenceEqual(input.LoyaltyProgramJoinDates)
                 );
         }
 
@@ -294,6 +310,8 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.Sandbox.GetHashCode();
                 if (this.AdvocateIntegrationId != null)
                     hashCode = hashCode * 59 + this.AdvocateIntegrationId.GetHashCode();
+                if (this.LoyaltyProgramJoinDates != null)
+                    hashCode = hashCode * 59 + this.LoyaltyProgramJoinDates.GetHashCode();
                 return hashCode;
             }
         }

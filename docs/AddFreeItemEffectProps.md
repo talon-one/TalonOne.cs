@@ -1,5 +1,5 @@
 # TalonOne.Model.AddFreeItemEffectProps
-This effect indicates that a free item should be added to the shopping cart in the current session. In this example, add the SKU to the shopping cart and set its price to `0`.  The effect of a successful referral can mean a free item for someone else, such as the referrer.
+This effect indicates that a free item should be added to the shopping cart in the current session. In this example, add the SKU to the shopping cart and set its price to `0`.
 ## Properties
 
 Name | Type | Description | Notes

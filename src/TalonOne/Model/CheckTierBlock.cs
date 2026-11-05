@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// A block that checks whether a user profile is a member of a specific tier within a loyalty program.
+    /// A block that checks whether a customer profile is a member of a specific tier in a loyalty program.
     /// </summary>
     [DataContract]
     public partial class CheckTierBlock :  IEquatable<CheckTierBlock>, IValidatableObject
@@ -68,10 +68,10 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="type">Identifies the block variant and determines which additional properties are present in it. (required).</param>
         /// <param name="_operator">An indicator of how the block compares its elements. (required).</param>
-        /// <param name="subledger">The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger. (required).</param>
+        /// <param name="subledger">The name of the subledger to check a customer&#39;s tier in. Can be empty if this block checks the loyalty program&#39;s main ledger instead of a subledger. A subledger can only be used when the loyalty program that the tier is in has subledgers enabled. To specify the main ledger, provide an empty string (\&quot;\&quot;). (required).</param>
         /// <param name="tier">tier (required).</param>
         /// <param name="onFailure">Promotion blocks evaluated when this block fails or returns false..</param>
-        public CheckTierBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), string subledger = default(string), CheckTierBlockTier tier = default(CheckTierBlockTier), List<Object> onFailure = default(List<Object>))
+        public CheckTierBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), string subledger = default(string), TierBlockReference tier = default(TierBlockReference), List<Object> onFailure = default(List<Object>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for CheckTierBlock and cannot be null");
@@ -105,9 +105,9 @@ namespace TalonOne.Model
         public List<string> Tags { get; private set; }
 
         /// <summary>
-        /// The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger.
+        /// The name of the subledger to check a customer&#39;s tier in. Can be empty if this block checks the loyalty program&#39;s main ledger instead of a subledger. A subledger can only be used when the loyalty program that the tier is in has subledgers enabled. To specify the main ledger, provide an empty string (\&quot;\&quot;).
         /// </summary>
-        /// <value>The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger.</value>
+        /// <value>The name of the subledger to check a customer&#39;s tier in. Can be empty if this block checks the loyalty program&#39;s main ledger instead of a subledger. A subledger can only be used when the loyalty program that the tier is in has subledgers enabled. To specify the main ledger, provide an empty string (\&quot;\&quot;).</value>
         [DataMember(Name="subledger", EmitDefaultValue=false)]
         public string Subledger { get; set; }
 
@@ -115,7 +115,7 @@ namespace TalonOne.Model
         /// Gets or Sets Tier
         /// </summary>
         [DataMember(Name="tier", EmitDefaultValue=false)]
-        public CheckTierBlockTier Tier { get; set; }
+        public TierBlockReference Tier { get; set; }
 
         /// <summary>
         /// Promotion blocks evaluated when this block fails or returns false.

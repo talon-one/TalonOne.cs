@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Ruleset** | [**Ruleset**](Ruleset.md) |  | [optional] 
 **Weight** | **long** |  | [optional] 
 **IsPrimary** | **bool** |  | 
+**AudienceId** | **long** | The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

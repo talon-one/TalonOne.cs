@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **OldTier** | **string** | The name of the customer&#39;s previous tier. | 
 **TierExpirationDate** | **DateTime** | The exact date and time the tier expires. | [optional] 
 **TimestampOfTierChange** | **DateTime** | The exact date and time the tier was changed. | 
+**Source** | **string** | The source of the tier change, whether from a points change or boost.  | [optional] [default to SourceEnum.Points]
+**Reason** | **string** | The reason for the tier change.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

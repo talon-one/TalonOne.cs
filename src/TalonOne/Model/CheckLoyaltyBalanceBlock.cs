@@ -83,9 +83,9 @@ namespace TalonOne.Model
         [DataMember(Name="operator", EmitDefaultValue=false)]
         public OperatorEnum Operator { get; set; }
         /// <summary>
-        /// The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.
+        /// The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points. It cannot be used with a subledger.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.
         /// </summary>
-        /// <value>The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.</value>
+        /// <value>The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points. It cannot be used with a subledger.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum BalanceEnum
         {
@@ -116,9 +116,9 @@ namespace TalonOne.Model
         }
 
         /// <summary>
-        /// The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.
+        /// The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points. It cannot be used with a subledger.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.
         /// </summary>
-        /// <value>The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.</value>
+        /// <value>The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points. It cannot be used with a subledger.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session.</value>
         [DataMember(Name="balance", EmitDefaultValue=false)]
         public BalanceEnum Balance { get; set; }
         /// <summary>
@@ -132,8 +132,8 @@ namespace TalonOne.Model
         /// <param name="type">Identifies the block variant and determines which additional properties are present in it. (required).</param>
         /// <param name="_operator">An indicator of how the block compares the balance to the value. (required).</param>
         /// <param name="program">program (required).</param>
-        /// <param name="subledger">The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger. (required).</param>
-        /// <param name="balance">The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session. (required).</param>
+        /// <param name="subledger">The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger. A subledger can only be used when the loyalty program has subledgers enabled. (required).</param>
+        /// <param name="balance">The type of balance to check:  - &#x60;current&#x60; is the sum of currently active points  - &#x60;pending&#x60; is the sum of pending points.  - &#x60;negative&#x60; is the sum of negative points. It cannot be used with a subledger.  - &#x60;tentativeCurrent&#x60; is the tentative points balance within the current open customer session. (required).</param>
         /// <param name="value">The numeric value to compare the balance against. (required).</param>
         /// <param name="onFailure">Promotion blocks evaluated when this block fails or returns false..</param>
         public CheckLoyaltyBalanceBlock(string type = default(string), OperatorEnum _operator = default(OperatorEnum), CheckLoyaltyBalanceBlockProgram program = default(CheckLoyaltyBalanceBlockProgram), string subledger = default(string), BalanceEnum balance = default(BalanceEnum), decimal value = default(decimal), List<Object> onFailure = default(List<Object>))
@@ -178,9 +178,9 @@ namespace TalonOne.Model
         public CheckLoyaltyBalanceBlockProgram Program { get; set; }
 
         /// <summary>
-        /// The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger.
+        /// The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger. A subledger can only be used when the loyalty program has subledgers enabled.
         /// </summary>
-        /// <value>The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger.</value>
+        /// <value>The name of the subledger to check the balance of. Can be empty if this block checks the loyalty program&#39;s main ledger balance instead of a subledger. A subledger can only be used when the loyalty program has subledgers enabled.</value>
         [DataMember(Name="subledger", EmitDefaultValue=false)]
         public string Subledger { get; set; }
 

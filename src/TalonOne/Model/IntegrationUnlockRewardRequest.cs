@@ -80,17 +80,17 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="integrationId">The integration ID to assign to the created customer reward unlock. (required).</param>
         /// <param name="profileIntegrationId">The integration ID of the customer profile unlocking the reward. (required).</param>
-        /// <param name="cardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
+        /// <param name="loyaltyCardId">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
         /// <param name="loyaltyProgramId">The ID of the loyalty program from which points will be deducted. Required when the reward has &#x60;pointsRequired&#x60; configured..</param>
         /// <param name="subledgerId">The ID of the subledger from which points will be deducted. Required when the reward has &#x60;pointsRequired&#x60; configured.  To specify the main ledger, provide an empty string (\&quot;\&quot;). .</param>
         /// <param name="responseContent">Determines which data is included in the response. Add any of the following optional values to the array to get that data in the response: &#x60;customerProfile&#x60;, &#x60;ruleFailureReasons&#x60;, &#x60;loyalty&#x60;. &#x60;effects&#x60; is always returned regardless of whether it is included here..</param>
-        public IntegrationUnlockRewardRequest(string integrationId = default(string), string profileIntegrationId = default(string), string cardIdentifier = default(string), long loyaltyProgramId = default(long), string subledgerId = default(string), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
+        public IntegrationUnlockRewardRequest(string integrationId = default(string), string profileIntegrationId = default(string), string loyaltyCardId = default(string), long loyaltyProgramId = default(long), string subledgerId = default(string), List<ResponseContentEnum> responseContent = default(List<ResponseContentEnum>))
         {
             // to ensure "integrationId" is required (not null)
             this.IntegrationId = integrationId ?? throw new ArgumentNullException("integrationId is a required property for IntegrationUnlockRewardRequest and cannot be null");
             // to ensure "profileIntegrationId" is required (not null)
             this.ProfileIntegrationId = profileIntegrationId ?? throw new ArgumentNullException("profileIntegrationId is a required property for IntegrationUnlockRewardRequest and cannot be null");
-            this.CardIdentifier = cardIdentifier;
+            this.LoyaltyCardId = loyaltyCardId;
             this.LoyaltyProgramId = loyaltyProgramId;
             this.SubledgerId = subledgerId;
             this.ResponseContent = responseContent;
@@ -114,8 +114,8 @@ namespace TalonOne.Model
         /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
         /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
-        [DataMember(Name="cardIdentifier", EmitDefaultValue=false)]
-        public string CardIdentifier { get; set; }
+        [DataMember(Name="loyaltyCardId", EmitDefaultValue=false)]
+        public string LoyaltyCardId { get; set; }
 
         /// <summary>
         /// The ID of the loyalty program from which points will be deducted. Required when the reward has &#x60;pointsRequired&#x60; configured.
@@ -141,7 +141,7 @@ namespace TalonOne.Model
             sb.Append("class IntegrationUnlockRewardRequest {\n");
             sb.Append("  IntegrationId: ").Append(IntegrationId).Append("\n");
             sb.Append("  ProfileIntegrationId: ").Append(ProfileIntegrationId).Append("\n");
-            sb.Append("  CardIdentifier: ").Append(CardIdentifier).Append("\n");
+            sb.Append("  LoyaltyCardId: ").Append(LoyaltyCardId).Append("\n");
             sb.Append("  LoyaltyProgramId: ").Append(LoyaltyProgramId).Append("\n");
             sb.Append("  SubledgerId: ").Append(SubledgerId).Append("\n");
             sb.Append("  ResponseContent: ").Append(ResponseContent).Append("\n");
@@ -190,9 +190,9 @@ namespace TalonOne.Model
                     this.ProfileIntegrationId.Equals(input.ProfileIntegrationId))
                 ) && 
                 (
-                    this.CardIdentifier == input.CardIdentifier ||
-                    (this.CardIdentifier != null &&
-                    this.CardIdentifier.Equals(input.CardIdentifier))
+                    this.LoyaltyCardId == input.LoyaltyCardId ||
+                    (this.LoyaltyCardId != null &&
+                    this.LoyaltyCardId.Equals(input.LoyaltyCardId))
                 ) && 
                 (
                     this.LoyaltyProgramId == input.LoyaltyProgramId ||
@@ -222,8 +222,8 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.IntegrationId.GetHashCode();
                 if (this.ProfileIntegrationId != null)
                     hashCode = hashCode * 59 + this.ProfileIntegrationId.GetHashCode();
-                if (this.CardIdentifier != null)
-                    hashCode = hashCode * 59 + this.CardIdentifier.GetHashCode();
+                if (this.LoyaltyCardId != null)
+                    hashCode = hashCode * 59 + this.LoyaltyCardId.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyProgramId.GetHashCode();
                 if (this.SubledgerId != null)
                     hashCode = hashCode * 59 + this.SubledgerId.GetHashCode();
@@ -239,23 +239,23 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // CardIdentifier (string) maxLength
-            if(this.CardIdentifier != null && this.CardIdentifier.Length > 108)
+            // LoyaltyCardId (string) maxLength
+            if(this.LoyaltyCardId != null && this.LoyaltyCardId.Length > 108)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be less than 108.", new [] { "CardIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardId, length must be less than 108.", new [] { "LoyaltyCardId" });
             }
 
-            // CardIdentifier (string) minLength
-            if(this.CardIdentifier != null && this.CardIdentifier.Length < 4)
+            // LoyaltyCardId (string) minLength
+            if(this.LoyaltyCardId != null && this.LoyaltyCardId.Length < 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, length must be greater than 4.", new [] { "CardIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardId, length must be greater than 4.", new [] { "LoyaltyCardId" });
             }
 
-            // CardIdentifier (string) pattern
-            Regex regexCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
-            if (false == regexCardIdentifier.Match(this.CardIdentifier).Success)
+            // LoyaltyCardId (string) pattern
+            Regex regexLoyaltyCardId = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
+            if (false == regexLoyaltyCardId.Match(this.LoyaltyCardId).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CardIdentifier, must match a pattern of " + regexCardIdentifier, new [] { "CardIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardId, must match a pattern of " + regexLoyaltyCardId, new [] { "LoyaltyCardId" });
             }
 
             yield break;

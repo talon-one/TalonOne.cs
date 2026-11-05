@@ -32,6 +32,39 @@ namespace TalonOne.Model
     public partial class Experiment :  IEquatable<Experiment>, IValidatableObject
     {
         /// <summary>
+        /// Controls how customers are assigned to experiment variants. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: Variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. 
+        /// </summary>
+        /// <value>Controls how customers are assigned to experiment variants. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: Variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. </value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AssignmentTypeEnum
+        {
+            /// <summary>
+            /// Enum Random for value: random
+            /// </summary>
+            [EnumMember(Value = "random")]
+            Random = 1,
+
+            /// <summary>
+            /// Enum External for value: external
+            /// </summary>
+            [EnumMember(Value = "external")]
+            External = 2,
+
+            /// <summary>
+            /// Enum Audience for value: audience
+            /// </summary>
+            [EnumMember(Value = "audience")]
+            Audience = 3
+
+        }
+
+        /// <summary>
+        /// Controls how customers are assigned to experiment variants. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: Variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. 
+        /// </summary>
+        /// <value>Controls how customers are assigned to experiment variants. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: Variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. </value>
+        [DataMember(Name="assignmentType", EmitDefaultValue=false)]
+        public AssignmentTypeEnum? AssignmentType { get; set; }
+        /// <summary>
         /// A disabled experiment is not evaluated for rules or coupons. 
         /// </summary>
         /// <value>A disabled experiment is not evaluated for rules or coupons. </value>
@@ -114,7 +147,8 @@ namespace TalonOne.Model
         /// <param name="id">The internal ID of this entity. (required).</param>
         /// <param name="created">The time this entity was created. (required).</param>
         /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
-        /// <param name="isVariantAssignmentExternal">The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. .</param>
+        /// <param name="assignmentType">Controls how customers are assigned to experiment variants. - &#x60;random&#x60;: Talon.One assigns customers randomly based on variant weights. - &#x60;external&#x60;: Variant assignment is handled externally. - &#x60;audience&#x60;: Each variant targets a specific audience; customers are assigned based on audience membership. .</param>
+        /// <param name="isVariantAssignmentExternal">Deprecated. Use &#x60;assignmentType&#x60; instead. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. .</param>
         /// <param name="campaign">campaign.</param>
         /// <param name="activated">The date and time the experiment was activated. .</param>
         /// <param name="state">A disabled experiment is not evaluated for rules or coupons.  (required) (default to StateEnum.Disabled).</param>
@@ -122,13 +156,14 @@ namespace TalonOne.Model
         /// <param name="goalType">The goal of the experiment. Determines which single metric is used to decide the winning variant. When set to &#x60;other&#x60;, multiple metrics are used.  (required).</param>
         /// <param name="goalDescription">A description of the experiment goal. Provides context for the AI summary and helps it interpret the outcome of the experiment against the stated goal. .</param>
         /// <param name="deletedat">The date and time the experiment was deleted. .</param>
-        public Experiment(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), bool isVariantAssignmentExternal = default(bool), Campaign campaign = default(Campaign), DateTime activated = default(DateTime), StateEnum state = StateEnum.Disabled, List<ExperimentVariant> variants = default(List<ExperimentVariant>), GoalTypeEnum goalType = default(GoalTypeEnum), string goalDescription = default(string), DateTime deletedat = default(DateTime))
+        public Experiment(long id = default(long), DateTime created = default(DateTime), long applicationId = default(long), AssignmentTypeEnum? assignmentType = default(AssignmentTypeEnum?), bool isVariantAssignmentExternal = default(bool), Campaign campaign = default(Campaign), DateTime activated = default(DateTime), StateEnum state = StateEnum.Disabled, List<ExperimentVariant> variants = default(List<ExperimentVariant>), GoalTypeEnum goalType = default(GoalTypeEnum), string goalDescription = default(string), DateTime deletedat = default(DateTime))
         {
             this.Id = id;
             this.Created = created;
             this.ApplicationId = applicationId;
             this.State = state;
             this.GoalType = goalType;
+            this.AssignmentType = assignmentType;
             this.IsVariantAssignmentExternal = isVariantAssignmentExternal;
             this.Campaign = campaign;
             this.Activated = activated;
@@ -159,9 +194,9 @@ namespace TalonOne.Model
         public long ApplicationId { get; set; }
 
         /// <summary>
-        /// The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
+        /// Deprecated. Use &#x60;assignmentType&#x60; instead. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. 
         /// </summary>
-        /// <value>The source of the assignment. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. </value>
+        /// <value>Deprecated. Use &#x60;assignmentType&#x60; instead. - false - The variant assignment is handled internally by Talon.One. - true - The variant assignment is handled externally. </value>
         [DataMember(Name="isVariantAssignmentExternal", EmitDefaultValue=false)]
         public bool IsVariantAssignmentExternal { get; set; }
 
@@ -209,6 +244,7 @@ namespace TalonOne.Model
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  ApplicationId: ").Append(ApplicationId).Append("\n");
+            sb.Append("  AssignmentType: ").Append(AssignmentType).Append("\n");
             sb.Append("  IsVariantAssignmentExternal: ").Append(IsVariantAssignmentExternal).Append("\n");
             sb.Append("  Campaign: ").Append(Campaign).Append("\n");
             sb.Append("  Activated: ").Append(Activated).Append("\n");
@@ -265,6 +301,10 @@ namespace TalonOne.Model
                     this.ApplicationId.Equals(input.ApplicationId)
                 ) && 
                 (
+                    this.AssignmentType == input.AssignmentType ||
+                    this.AssignmentType.Equals(input.AssignmentType)
+                ) && 
+                (
                     this.IsVariantAssignmentExternal == input.IsVariantAssignmentExternal ||
                     this.IsVariantAssignmentExternal.Equals(input.IsVariantAssignmentExternal)
                 ) && 
@@ -317,6 +357,7 @@ namespace TalonOne.Model
                 if (this.Created != null)
                     hashCode = hashCode * 59 + this.Created.GetHashCode();
                 hashCode = hashCode * 59 + this.ApplicationId.GetHashCode();
+                hashCode = hashCode * 59 + this.AssignmentType.GetHashCode();
                 hashCode = hashCode * 59 + this.IsVariantAssignmentExternal.GetHashCode();
                 if (this.Campaign != null)
                     hashCode = hashCode * 59 + this.Campaign.GetHashCode();

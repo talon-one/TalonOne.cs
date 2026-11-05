@@ -1,5 +1,5 @@
 # TalonOne.Model.LabelTargetAudience
-Represents the targeted audience. 
+Target type when a specific audience is selected. 
 ## Properties
 
 Name | Type | Description | Notes

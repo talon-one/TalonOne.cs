@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// RoleV2ApplicationDetails
+    /// Details of the permission sets configured for an Application.
     /// </summary>
     [DataContract]
     public partial class RoleV2ApplicationDetails :  IEquatable<RoleV2ApplicationDetails>, IValidatableObject

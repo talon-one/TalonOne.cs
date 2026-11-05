@@ -45,7 +45,7 @@ namespace TalonOne.Model
         /// <param name="calculatedAt">The time at which this price was calculated. If provided, this is used to determine the most recent price adjustment to choose if price adjustments overlap. Defaults to internal creation time if not provided..</param>
         /// <param name="effectiveFrom">The date and time from which the price adjustment is effective..</param>
         /// <param name="effectiveUntil">The date and time until which the price adjustment is effective..</param>
-        /// <param name="contextId">Identifier of the context of this price adjustment (e.g. summer sale)..</param>
+        /// <param name="contextId">Identifier of the context of this price adjustment (the sales event, e.g. \&quot;Summer Sale\&quot;)..</param>
         public NewPriceAdjustment(string priceType = default(string), decimal? price = default(decimal?), string referenceId = default(string), DateTime calculatedAt = default(DateTime), DateTime effectiveFrom = default(DateTime), DateTime effectiveUntil = default(DateTime), string contextId = default(string))
         {
             // to ensure "priceType" is required (not null)
@@ -102,9 +102,9 @@ namespace TalonOne.Model
         public DateTime EffectiveUntil { get; set; }
 
         /// <summary>
-        /// Identifier of the context of this price adjustment (e.g. summer sale).
+        /// Identifier of the context of this price adjustment (the sales event, e.g. \&quot;Summer Sale\&quot;).
         /// </summary>
-        /// <value>Identifier of the context of this price adjustment (e.g. summer sale).</value>
+        /// <value>Identifier of the context of this price adjustment (the sales event, e.g. \&quot;Summer Sale\&quot;).</value>
         [DataMember(Name="contextId", EmitDefaultValue=false)]
         public string ContextId { get; set; }
 

@@ -41,7 +41,7 @@ namespace TalonOne.Model
         /// </summary>
         /// <param name="totalResultSize">totalResultSize (required).</param>
         /// <param name="data">data (required).</param>
-        public InlineResponse2003(long totalResultSize = default(long), List<AchievementProgress> data = default(List<AchievementProgress>))
+        public InlineResponse2003(long totalResultSize = default(long), List<CustomerAchievementHistoryEntry> data = default(List<CustomerAchievementHistoryEntry>))
         {
             this.TotalResultSize = totalResultSize;
             // to ensure "data" is required (not null)
@@ -58,7 +58,7 @@ namespace TalonOne.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public List<AchievementProgress> Data { get; set; }
+        public List<CustomerAchievementHistoryEntry> Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -69,16 +69,14 @@ namespace TalonOne.Model
         /// <param name="type">Identifies the block variant and determines which additional properties are present in it. (required).</param>
         /// <param name="giveawayPool">giveawayPool (required).</param>
         /// <param name="profile">The customer profile to award the giveaway to. &#x60;Current&#x60; targets the customer in the current session; &#x60;Advocate&#x60; targets the person who invited their friend via referral program. (required).</param>
-        /// <param name="onFailure">Blocks evaluated when this block fails or returns false..</param>
         /// <param name="onError">Named error handlers evaluated when a specific error occurs..</param>
-        public AwardGiveawayBlock(string type = default(string), GiveawayPoolReference giveawayPool = default(GiveawayPoolReference), ProfileEnum profile = default(ProfileEnum), List<Object> onFailure = default(List<Object>), Dictionary<string, List<Object>> onError = default(Dictionary<string, List<Object>>))
+        public AwardGiveawayBlock(string type = default(string), GiveawayPoolBlockReference giveawayPool = default(GiveawayPoolBlockReference), ProfileEnum profile = default(ProfileEnum), Dictionary<string, List<Object>> onError = default(Dictionary<string, List<Object>>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for AwardGiveawayBlock and cannot be null");
             // to ensure "giveawayPool" is required (not null)
             this.GiveawayPool = giveawayPool ?? throw new ArgumentNullException("giveawayPool is a required property for AwardGiveawayBlock and cannot be null");
             this.Profile = profile;
-            this.OnFailure = onFailure;
             this.OnError = onError;
         }
         
@@ -107,14 +105,7 @@ namespace TalonOne.Model
         /// Gets or Sets GiveawayPool
         /// </summary>
         [DataMember(Name="giveawayPool", EmitDefaultValue=false)]
-        public GiveawayPoolReference GiveawayPool { get; set; }
-
-        /// <summary>
-        /// Blocks evaluated when this block fails or returns false.
-        /// </summary>
-        /// <value>Blocks evaluated when this block fails or returns false.</value>
-        [DataMember(Name="onFailure", EmitDefaultValue=false)]
-        public List<Object> OnFailure { get; set; }
+        public GiveawayPoolBlockReference GiveawayPool { get; set; }
 
         /// <summary>
         /// Named error handlers evaluated when a specific error occurs.
@@ -136,7 +127,6 @@ namespace TalonOne.Model
             sb.Append("  Tags: ").Append(Tags).Append("\n");
             sb.Append("  GiveawayPool: ").Append(GiveawayPool).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
-            sb.Append("  OnFailure: ").Append(OnFailure).Append("\n");
             sb.Append("  OnError: ").Append(OnError).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -198,12 +188,6 @@ namespace TalonOne.Model
                     this.Profile.Equals(input.Profile)
                 ) && 
                 (
-                    this.OnFailure == input.OnFailure ||
-                    this.OnFailure != null &&
-                    input.OnFailure != null &&
-                    this.OnFailure.SequenceEqual(input.OnFailure)
-                ) && 
-                (
                     this.OnError == input.OnError ||
                     this.OnError != null &&
                     input.OnError != null &&
@@ -229,8 +213,6 @@ namespace TalonOne.Model
                 if (this.GiveawayPool != null)
                     hashCode = hashCode * 59 + this.GiveawayPool.GetHashCode();
                 hashCode = hashCode * 59 + this.Profile.GetHashCode();
-                if (this.OnFailure != null)
-                    hashCode = hashCode * 59 + this.OnFailure.GetHashCode();
                 if (this.OnError != null)
                     hashCode = hashCode * 59 + this.OnError.GetHashCode();
                 return hashCode;

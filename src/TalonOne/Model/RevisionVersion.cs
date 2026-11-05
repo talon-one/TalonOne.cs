@@ -97,13 +97,13 @@ namespace TalonOne.Model
         /// Initializes a new instance of the <see cref="RevisionVersion" /> class.
         /// </summary>
         /// <param name="id">Unique ID for this entity. Not to be confused with the Integration ID, which is set by your integration layer and used in most endpoints. (required).</param>
-        /// <param name="accountId">accountId (required).</param>
-        /// <param name="applicationId">applicationId (required).</param>
-        /// <param name="campaignId">campaignId (required).</param>
-        /// <param name="created">created (required).</param>
-        /// <param name="createdBy">createdBy (required).</param>
-        /// <param name="revisionId">revisionId (required).</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="accountId">The ID of the account that owns this entity. (required).</param>
+        /// <param name="applicationId">The ID of the Application that owns this entity. (required).</param>
+        /// <param name="campaignId">The ID of the campaign that the revision was created from. (required).</param>
+        /// <param name="created">Timestamp when the revision was created. (required).</param>
+        /// <param name="createdBy">The ID of the user who created this revision. (required).</param>
+        /// <param name="revisionId">The ID of the revision. (required).</param>
+        /// <param name="version">Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign.  (required).</param>
         /// <param name="name">A user-facing name for this campaign..</param>
         /// <param name="startTime">Timestamp when the campaign will become active..</param>
         /// <param name="endTime">Timestamp when the campaign will become inactive..</param>
@@ -150,44 +150,51 @@ namespace TalonOne.Model
         public long Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets AccountId
+        /// The ID of the account that owns this entity.
         /// </summary>
+        /// <value>The ID of the account that owns this entity.</value>
         [DataMember(Name="accountId", EmitDefaultValue=false)]
         public long AccountId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ApplicationId
+        /// The ID of the Application that owns this entity.
         /// </summary>
+        /// <value>The ID of the Application that owns this entity.</value>
         [DataMember(Name="applicationId", EmitDefaultValue=false)]
         public long ApplicationId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CampaignId
+        /// The ID of the campaign that the revision was created from.
         /// </summary>
+        /// <value>The ID of the campaign that the revision was created from.</value>
         [DataMember(Name="campaignId", EmitDefaultValue=false)]
         public long CampaignId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Created
+        /// Timestamp when the revision was created.
         /// </summary>
+        /// <value>Timestamp when the revision was created.</value>
         [DataMember(Name="created", EmitDefaultValue=false)]
         public DateTime Created { get; set; }
 
         /// <summary>
-        /// Gets or Sets CreatedBy
+        /// The ID of the user who created this revision.
         /// </summary>
+        /// <value>The ID of the user who created this revision.</value>
         [DataMember(Name="createdBy", EmitDefaultValue=false)]
         public long CreatedBy { get; set; }
 
         /// <summary>
-        /// Gets or Sets RevisionId
+        /// The ID of the revision.
         /// </summary>
+        /// <value>The ID of the revision.</value>
         [DataMember(Name="revisionId", EmitDefaultValue=false)]
         public long RevisionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Version
+        /// Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign. 
         /// </summary>
+        /// <value>Incrementing number representing how many revisions have been activated on this campaign. Starts from &#x60;0&#x60; for a new campaign. </value>
         [DataMember(Name="version", EmitDefaultValue=false)]
         public long Version { get; set; }
 

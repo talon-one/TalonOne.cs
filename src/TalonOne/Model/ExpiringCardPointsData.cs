@@ -46,7 +46,10 @@ namespace TalonOne.Model
         /// <param name="cardIdentifier">The identifier of the loyalty card, &#x60;which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;.  (required).</param>
         /// <param name="usersPerCardLimit">The maximum number of customer profiles with which a card can be shared. This can be set to &#x60;0&#x60; for no limit.  (required).</param>
         /// <param name="profiles">The integration IDs of the customer profiles linked to the card. (required).</param>
-        public ExpiringCardPointsData(DateTime expiryDate = default(DateTime), long loyaltyProgramID = default(long), decimal amountOfExpiringPoints = default(decimal), string subledgerID = default(string), string cardIdentifier = default(string), long usersPerCardLimit = default(long), List<string> profiles = default(List<string>))
+        /// <param name="created">The timestamp when the loyalty transaction occurred..</param>
+        /// <param name="awaitsActivation">Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date..</param>
+        /// <param name="validityDuration">The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. .</param>
+        public ExpiringCardPointsData(DateTime expiryDate = default(DateTime), long loyaltyProgramID = default(long), decimal amountOfExpiringPoints = default(decimal), string subledgerID = default(string), string cardIdentifier = default(string), long usersPerCardLimit = default(long), List<string> profiles = default(List<string>), DateTime created = default(DateTime), bool awaitsActivation = default(bool), string validityDuration = default(string))
         {
             this.ExpiryDate = expiryDate;
             this.LoyaltyProgramID = loyaltyProgramID;
@@ -58,6 +61,9 @@ namespace TalonOne.Model
             this.UsersPerCardLimit = usersPerCardLimit;
             // to ensure "profiles" is required (not null)
             this.Profiles = profiles ?? throw new ArgumentNullException("profiles is a required property for ExpiringCardPointsData and cannot be null");
+            this.Created = created;
+            this.AwaitsActivation = awaitsActivation;
+            this.ValidityDuration = validityDuration;
         }
         
         /// <summary>
@@ -111,6 +117,27 @@ namespace TalonOne.Model
         public List<string> Profiles { get; set; }
 
         /// <summary>
+        /// The timestamp when the loyalty transaction occurred.
+        /// </summary>
+        /// <value>The timestamp when the loyalty transaction occurred.</value>
+        [DataMember(Name="Created", EmitDefaultValue=false)]
+        public DateTime Created { get; set; }
+
+        /// <summary>
+        /// Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.
+        /// </summary>
+        /// <value>Indicates whether the points have an action-based start date. This property is returned only for point transactions with an action-based start date.</value>
+        [DataMember(Name="AwaitsActivation", EmitDefaultValue=false)]
+        public bool AwaitsActivation { get; set; }
+
+        /// <summary>
+        /// The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. 
+        /// </summary>
+        /// <value>The duration for which the points remain active, relative to the activation date.  **Note**: This only applies to points for which &#x60;AwaitsActivation&#x60; is &#x60;true&#x60; and &#x60;ExpiryDate&#x60; is not set. </value>
+        [DataMember(Name="ValidityDuration", EmitDefaultValue=false)]
+        public string ValidityDuration { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -125,6 +152,9 @@ namespace TalonOne.Model
             sb.Append("  CardIdentifier: ").Append(CardIdentifier).Append("\n");
             sb.Append("  UsersPerCardLimit: ").Append(UsersPerCardLimit).Append("\n");
             sb.Append("  Profiles: ").Append(Profiles).Append("\n");
+            sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  AwaitsActivation: ").Append(AwaitsActivation).Append("\n");
+            sb.Append("  ValidityDuration: ").Append(ValidityDuration).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -191,6 +221,20 @@ namespace TalonOne.Model
                     this.Profiles != null &&
                     input.Profiles != null &&
                     this.Profiles.SequenceEqual(input.Profiles)
+                ) && 
+                (
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
+                ) && 
+                (
+                    this.AwaitsActivation == input.AwaitsActivation ||
+                    this.AwaitsActivation.Equals(input.AwaitsActivation)
+                ) && 
+                (
+                    this.ValidityDuration == input.ValidityDuration ||
+                    (this.ValidityDuration != null &&
+                    this.ValidityDuration.Equals(input.ValidityDuration))
                 );
         }
 
@@ -214,6 +258,11 @@ namespace TalonOne.Model
                 hashCode = hashCode * 59 + this.UsersPerCardLimit.GetHashCode();
                 if (this.Profiles != null)
                     hashCode = hashCode * 59 + this.Profiles.GetHashCode();
+                if (this.Created != null)
+                    hashCode = hashCode * 59 + this.Created.GetHashCode();
+                hashCode = hashCode * 59 + this.AwaitsActivation.GetHashCode();
+                if (this.ValidityDuration != null)
+                    hashCode = hashCode * 59 + this.ValidityDuration.GetHashCode();
                 return hashCode;
             }
         }

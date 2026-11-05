@@ -82,6 +82,14 @@ namespace TalonOne.Test
             // TODO unit test for the property 'ApplicationId'
         }
         /// <summary>
+        /// Test the property 'AssignmentType'
+        /// </summary>
+        [Fact]
+        public void AssignmentTypeTest()
+        {
+            // TODO unit test for the property 'AssignmentType'
+        }
+        /// <summary>
         /// Test the property 'IsVariantAssignmentExternal'
         /// </summary>
         [Fact]

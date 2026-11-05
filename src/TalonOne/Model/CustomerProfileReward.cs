@@ -79,8 +79,8 @@ namespace TalonOne.Model
         /// <param name="usedAt">The date and time when the reward was used..</param>
         /// <param name="usedByProfileIntegrationId">The integration ID of the customer profile that used the reward.   For rewards unlocked with a loyalty card, this can be any customer profile  linked to that loyalty card.   Only returned when the reward has been used. .</param>
         /// <param name="loyaltyProgramId">The ID of the loyalty program that the loyalty card belongs to. Only returned for rewards unlocked with a loyalty card..</param>
-        /// <param name="loyaltyCardIdentifier">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
-        public CustomerProfileReward(long id = default(long), string integrationId = default(string), long rewardId = default(long), string rewardIntegrationId = default(string), string rewardName = default(string), string description = default(string), RuleMetadata rule = default(RuleMetadata), StatusEnum status = default(StatusEnum), DateTime unlockedAt = default(DateTime), string unlockedByProfileIntegrationId = default(string), DateTime usedAt = default(DateTime), string usedByProfileIntegrationId = default(string), long loyaltyProgramId = default(long), string loyaltyCardIdentifier = default(string))
+        /// <param name="loyaltyCardId">The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. .</param>
+        public CustomerProfileReward(long id = default(long), string integrationId = default(string), long rewardId = default(long), string rewardIntegrationId = default(string), string rewardName = default(string), string description = default(string), RuleMetadata rule = default(RuleMetadata), StatusEnum status = default(StatusEnum), DateTime unlockedAt = default(DateTime), string unlockedByProfileIntegrationId = default(string), DateTime usedAt = default(DateTime), string usedByProfileIntegrationId = default(string), long loyaltyProgramId = default(long), string loyaltyCardId = default(string))
         {
             this.Id = id;
             // to ensure "integrationId" is required (not null)
@@ -98,7 +98,7 @@ namespace TalonOne.Model
             this.UsedAt = usedAt;
             this.UsedByProfileIntegrationId = usedByProfileIntegrationId;
             this.LoyaltyProgramId = loyaltyProgramId;
-            this.LoyaltyCardIdentifier = loyaltyCardIdentifier;
+            this.LoyaltyCardId = loyaltyCardId;
         }
         
         /// <summary>
@@ -188,8 +188,8 @@ namespace TalonOne.Model
         /// The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. 
         /// </summary>
         /// <value>The identifier of the loyalty card, which must match the regular expression &#x60;^[A-Za-z0-9._%+@-]+$&#x60;. </value>
-        [DataMember(Name="loyaltyCardIdentifier", EmitDefaultValue=false)]
-        public string LoyaltyCardIdentifier { get; set; }
+        [DataMember(Name="loyaltyCardId", EmitDefaultValue=false)]
+        public string LoyaltyCardId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -212,7 +212,7 @@ namespace TalonOne.Model
             sb.Append("  UsedAt: ").Append(UsedAt).Append("\n");
             sb.Append("  UsedByProfileIntegrationId: ").Append(UsedByProfileIntegrationId).Append("\n");
             sb.Append("  LoyaltyProgramId: ").Append(LoyaltyProgramId).Append("\n");
-            sb.Append("  LoyaltyCardIdentifier: ").Append(LoyaltyCardIdentifier).Append("\n");
+            sb.Append("  LoyaltyCardId: ").Append(LoyaltyCardId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -309,9 +309,9 @@ namespace TalonOne.Model
                     this.LoyaltyProgramId.Equals(input.LoyaltyProgramId)
                 ) && 
                 (
-                    this.LoyaltyCardIdentifier == input.LoyaltyCardIdentifier ||
-                    (this.LoyaltyCardIdentifier != null &&
-                    this.LoyaltyCardIdentifier.Equals(input.LoyaltyCardIdentifier))
+                    this.LoyaltyCardId == input.LoyaltyCardId ||
+                    (this.LoyaltyCardId != null &&
+                    this.LoyaltyCardId.Equals(input.LoyaltyCardId))
                 );
         }
 
@@ -346,8 +346,8 @@ namespace TalonOne.Model
                 if (this.UsedByProfileIntegrationId != null)
                     hashCode = hashCode * 59 + this.UsedByProfileIntegrationId.GetHashCode();
                 hashCode = hashCode * 59 + this.LoyaltyProgramId.GetHashCode();
-                if (this.LoyaltyCardIdentifier != null)
-                    hashCode = hashCode * 59 + this.LoyaltyCardIdentifier.GetHashCode();
+                if (this.LoyaltyCardId != null)
+                    hashCode = hashCode * 59 + this.LoyaltyCardId.GetHashCode();
                 return hashCode;
             }
         }
@@ -359,23 +359,23 @@ namespace TalonOne.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // LoyaltyCardIdentifier (string) maxLength
-            if(this.LoyaltyCardIdentifier != null && this.LoyaltyCardIdentifier.Length > 108)
+            // LoyaltyCardId (string) maxLength
+            if(this.LoyaltyCardId != null && this.LoyaltyCardId.Length > 108)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardIdentifier, length must be less than 108.", new [] { "LoyaltyCardIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardId, length must be less than 108.", new [] { "LoyaltyCardId" });
             }
 
-            // LoyaltyCardIdentifier (string) minLength
-            if(this.LoyaltyCardIdentifier != null && this.LoyaltyCardIdentifier.Length < 4)
+            // LoyaltyCardId (string) minLength
+            if(this.LoyaltyCardId != null && this.LoyaltyCardId.Length < 4)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardIdentifier, length must be greater than 4.", new [] { "LoyaltyCardIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardId, length must be greater than 4.", new [] { "LoyaltyCardId" });
             }
 
-            // LoyaltyCardIdentifier (string) pattern
-            Regex regexLoyaltyCardIdentifier = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
-            if (false == regexLoyaltyCardIdentifier.Match(this.LoyaltyCardIdentifier).Success)
+            // LoyaltyCardId (string) pattern
+            Regex regexLoyaltyCardId = new Regex(@"^[A-Za-z0-9._%+@-]+$", RegexOptions.CultureInvariant);
+            if (false == regexLoyaltyCardId.Match(this.LoyaltyCardId).Success)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardIdentifier, must match a pattern of " + regexLoyaltyCardIdentifier, new [] { "LoyaltyCardIdentifier" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LoyaltyCardId, must match a pattern of " + regexLoyaltyCardId, new [] { "LoyaltyCardId" });
             }
 
             yield break;

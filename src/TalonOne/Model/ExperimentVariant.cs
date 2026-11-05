@@ -46,7 +46,8 @@ namespace TalonOne.Model
         /// <param name="ruleset">ruleset.</param>
         /// <param name="weight">weight.</param>
         /// <param name="isPrimary">isPrimary (required).</param>
-        public ExperimentVariant(long id = default(long), DateTime created = default(DateTime), string name = default(string), long experimentId = default(long), Ruleset ruleset = default(Ruleset), long weight = default(long), bool isPrimary = default(bool))
+        /// <param name="audienceId">The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;. .</param>
+        public ExperimentVariant(long id = default(long), DateTime created = default(DateTime), string name = default(string), long experimentId = default(long), Ruleset ruleset = default(Ruleset), long weight = default(long), bool isPrimary = default(bool), long audienceId = default(long))
         {
             this.Id = id;
             this.Created = created;
@@ -56,6 +57,7 @@ namespace TalonOne.Model
             this.ExperimentId = experimentId;
             this.Ruleset = ruleset;
             this.Weight = weight;
+            this.AudienceId = audienceId;
         }
         
         /// <summary>
@@ -103,6 +105,13 @@ namespace TalonOne.Model
         public bool IsPrimary { get; set; }
 
         /// <summary>
+        /// The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;. 
+        /// </summary>
+        /// <value>The ID of the audience this variant targets. Only used when the experiment &#x60;assignmentType&#x60; is &#x60;audience&#x60;. </value>
+        [DataMember(Name="audienceId", EmitDefaultValue=false)]
+        public long AudienceId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -117,6 +126,7 @@ namespace TalonOne.Model
             sb.Append("  Ruleset: ").Append(Ruleset).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
             sb.Append("  IsPrimary: ").Append(IsPrimary).Append("\n");
+            sb.Append("  AudienceId: ").Append(AudienceId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -181,6 +191,10 @@ namespace TalonOne.Model
                 (
                     this.IsPrimary == input.IsPrimary ||
                     this.IsPrimary.Equals(input.IsPrimary)
+                ) && 
+                (
+                    this.AudienceId == input.AudienceId ||
+                    this.AudienceId.Equals(input.AudienceId)
                 );
         }
 
@@ -203,6 +217,7 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Ruleset.GetHashCode();
                 hashCode = hashCode * 59 + this.Weight.GetHashCode();
                 hashCode = hashCode * 59 + this.IsPrimary.GetHashCode();
+                hashCode = hashCode * 59 + this.AudienceId.GetHashCode();
                 return hashCode;
             }
         }

@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// A block that displays a notification to the customer with a configurable type, title, and optional body message.
+    /// A block that displays a notification to the customer with a configurable type, title, and body message.
     /// </summary>
     [DataContract]
     public partial class ShowNotificationBlock :  IEquatable<ShowNotificationBlock>, IValidatableObject
@@ -42,10 +42,9 @@ namespace TalonOne.Model
         /// <param name="type">Identifies the block variant and determines which additional properties are present in it. (required).</param>
         /// <param name="notificationType">The type of notification to display. (required).</param>
         /// <param name="title">The notification heading shown to the customer. (required).</param>
-        /// <param name="body">The notification body text. Supports template placeholders (e.g. \&quot;{{$Session.Total}}\&quot;) evaluated at rule execution time..</param>
-        /// <param name="onFailure">Blocks evaluated when this block fails or returns false..</param>
+        /// <param name="body">The notification body text. Supports template placeholders (e.g. \&quot;{{$Session.Total}}\&quot;) evaluated at rule execution time. (required).</param>
         /// <param name="onError">Named error handlers evaluated when a specific error occurs..</param>
-        public ShowNotificationBlock(string type = default(string), string notificationType = default(string), string title = default(string), string body = default(string), List<Object> onFailure = default(List<Object>), Dictionary<string, List<Object>> onError = default(Dictionary<string, List<Object>>))
+        public ShowNotificationBlock(string type = default(string), string notificationType = default(string), string title = default(string), string body = default(string), Dictionary<string, List<Object>> onError = default(Dictionary<string, List<Object>>))
         {
             // to ensure "type" is required (not null)
             this.Type = type ?? throw new ArgumentNullException("type is a required property for ShowNotificationBlock and cannot be null");
@@ -53,8 +52,8 @@ namespace TalonOne.Model
             this.NotificationType = notificationType ?? throw new ArgumentNullException("notificationType is a required property for ShowNotificationBlock and cannot be null");
             // to ensure "title" is required (not null)
             this.Title = title ?? throw new ArgumentNullException("title is a required property for ShowNotificationBlock and cannot be null");
-            this.Body = body;
-            this.OnFailure = onFailure;
+            // to ensure "body" is required (not null)
+            this.Body = body ?? throw new ArgumentNullException("body is a required property for ShowNotificationBlock and cannot be null");
             this.OnError = onError;
         }
         
@@ -101,13 +100,6 @@ namespace TalonOne.Model
         public string Body { get; set; }
 
         /// <summary>
-        /// Blocks evaluated when this block fails or returns false.
-        /// </summary>
-        /// <value>Blocks evaluated when this block fails or returns false.</value>
-        [DataMember(Name="onFailure", EmitDefaultValue=false)]
-        public List<Object> OnFailure { get; set; }
-
-        /// <summary>
         /// Named error handlers evaluated when a specific error occurs.
         /// </summary>
         /// <value>Named error handlers evaluated when a specific error occurs.</value>
@@ -128,7 +120,6 @@ namespace TalonOne.Model
             sb.Append("  NotificationType: ").Append(NotificationType).Append("\n");
             sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
-            sb.Append("  OnFailure: ").Append(OnFailure).Append("\n");
             sb.Append("  OnError: ").Append(OnError).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -196,12 +187,6 @@ namespace TalonOne.Model
                     this.Body.Equals(input.Body))
                 ) && 
                 (
-                    this.OnFailure == input.OnFailure ||
-                    this.OnFailure != null &&
-                    input.OnFailure != null &&
-                    this.OnFailure.SequenceEqual(input.OnFailure)
-                ) && 
-                (
                     this.OnError == input.OnError ||
                     this.OnError != null &&
                     input.OnError != null &&
@@ -230,8 +215,6 @@ namespace TalonOne.Model
                     hashCode = hashCode * 59 + this.Title.GetHashCode();
                 if (this.Body != null)
                     hashCode = hashCode * 59 + this.Body.GetHashCode();
-                if (this.OnFailure != null)
-                    hashCode = hashCode * 59 + this.OnFailure.GetHashCode();
                 if (this.OnError != null)
                     hashCode = hashCode * 59 + this.OnError.GetHashCode();
                 return hashCode;

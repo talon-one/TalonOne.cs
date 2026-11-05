@@ -26,7 +26,7 @@ using OpenAPIDateConverter = TalonOne.Client.OpenAPIDateConverter;
 namespace TalonOne.Model
 {
     /// <summary>
-    /// Represents the targeted audience. 
+    /// Target type when a specific audience is selected. 
     /// </summary>
     [DataContract]
     public partial class LabelTargetAudience :  IEquatable<LabelTargetAudience>, IValidatableObject

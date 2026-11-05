@@ -97,6 +97,30 @@ namespace TalonOne.Test
         {
             // TODO unit test for the property 'SubledgerID'
         }
+        /// <summary>
+        /// Test the property 'Created'
+        /// </summary>
+        [Fact]
+        public void CreatedTest()
+        {
+            // TODO unit test for the property 'Created'
+        }
+        /// <summary>
+        /// Test the property 'AwaitsActivation'
+        /// </summary>
+        [Fact]
+        public void AwaitsActivationTest()
+        {
+            // TODO unit test for the property 'AwaitsActivation'
+        }
+        /// <summary>
+        /// Test the property 'ValidityDuration'
+        /// </summary>
+        [Fact]
+        public void ValidityDurationTest()
+        {
+            // TODO unit test for the property 'ValidityDuration'
+        }
 
     }
 

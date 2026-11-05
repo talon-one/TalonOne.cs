@@ -46,7 +46,7 @@ namespace TalonOne.Model
         /// <param name="functions">The functions defined for this application. (required).</param>
         /// <param name="templates">The templates defined for this application. (required).</param>
         /// <param name="variables">A stringified version of the environment&#39;s Talang variables scope. (required).</param>
-        /// <param name="giveawaysPools">The giveaways pools that the application is subscribed to..</param>
+        /// <param name="giveawaysPools">The giveaway pools that the Application is subscribed to..</param>
         /// <param name="loyaltyPrograms">The loyalty programs that the application is subscribed to..</param>
         /// <param name="achievements">The achievements, linked to the campaigns, belonging to the application..</param>
         /// <param name="attributes">The attributes that the application is subscribed to..</param>
@@ -129,9 +129,9 @@ namespace TalonOne.Model
         public string Variables { get; set; }
 
         /// <summary>
-        /// The giveaways pools that the application is subscribed to.
+        /// The giveaway pools that the Application is subscribed to.
         /// </summary>
-        /// <value>The giveaways pools that the application is subscribed to.</value>
+        /// <value>The giveaway pools that the Application is subscribed to.</value>
         [DataMember(Name="giveawaysPools", EmitDefaultValue=false)]
         public List<GiveawaysPool> GiveawaysPools { get; set; }
 
